@@ -1,0 +1,8 @@
+@font-face{
+    font-family:RollingStonesFont;
+    src: url(fonts/Royalacid_o.ttf);
+    
+}
+#main-container{
+    display: flex;
+}
