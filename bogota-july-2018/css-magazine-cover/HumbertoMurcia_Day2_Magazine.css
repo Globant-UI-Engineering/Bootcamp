@@ -1,0 +1,96 @@
+﻿.cover{
+    background-image: url(src/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 1000px 2000px;
+    height:2000px;
+    width:1000px;
+}
+
+.price{
+    color: black;
+    margin-bottom: 0px;
+    margin-top: 1px;
+    font-size: 13px;
+    margin-bottom: 0px;
+    margin-right: 20px;
+}
+.title_1{
+    color:white;
+    text-shadow: 0 0 3px black, 0 0 5px black;
+    font-size: 44px;
+    font-style: italic;
+    align-content: center;
+    display: block;
+    padding-top: 25px;
+    margin-left: 30px;
+    margin-right: auto;
+    margin-bottom:0px;
+}
+
+.logo{
+    width:1000px;
+}
+
+.title_2{
+    color:white;
+    font-size: 44px;
+    text-shadow: 0 0 3px black;
+    font-style: italic;
+     margin-left: 30px;
+     margin-bottom:0px;
+ 
+}
+
+.title_3{
+    color:white;
+    font-size: 38px;
+    text-shadow: 0 0 0.1px black;
+    font-style: italic;
+     display: block;
+     margin-left: 30px;
+     margin-top:0px;
+     margin-bottom:0px;
+     font-family: 'Romanesco', cursive;
+}
+
+.line{
+    margin-left:30px;
+    width: 40px;
+}
+
+.title_4{
+     color: red;
+    font-size: 79px;
+    text-shadow: 0 0 5px indianred;
+    font-style: italic;
+    display: block;
+    margin-left: 30px;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    font-family: 'Romanesco', cursive;
+}
+.title_5{
+    color: white;
+    font-size: 150px;
+    display: block;
+    margin-left: 30px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-shadow: 0 0 50px black;
+}
+.title_6{
+    color: lightslategrey;
+    font-size: 70px;
+     text-shadow: 0 0 50px black;
+    display: inline-block;
+    margin-left: 30px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Romanesco', cursive;
+}
+.barcode{
+   margin-left: 30px;
+    width: 200px;
+    display: inline-block;
+    margin-right: 30px;
+}
