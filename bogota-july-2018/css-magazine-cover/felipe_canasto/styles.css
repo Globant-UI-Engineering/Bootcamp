@@ -16,6 +16,9 @@ body {
 .font-Euphoria {
 	font-family: 'Euphoria Script', cursive;
 }
+.font-Poppins {
+	font-family: 'Poppins', sans-serif;
+}
 header {
 	padding: 0 15px;
 }
@@ -62,5 +65,38 @@ header h2 span {
 	left: 15%;
 	top: 1%;
 	width: 67%;
+}
+section p {
+	margin: -2px 0 0 0;
+	font-size: 14px;
+}
+
+.left_panel, .right_panel {
+	position: absolute;
+}
+.left_panel {
+	text-align: left;
+	left: 0;
+}
+.main_body section img {
+	width: 20%;
+	position: relative;
+}
+.right_panel {
+	text-align: right;
+	right: 20px;
+}
+.right_panel section{
+	max-width: 140px;
+}
+h1.section_title {
+	margin: 0;
+	color: #00a8a3;
+	font-size: 3.2em;
+	text-shadow: 1px 1px white;
+}
+h2.sub_section_title {
+	font-size: 1.2em;
+	margin: -12px 0 0 0;
 }
 
