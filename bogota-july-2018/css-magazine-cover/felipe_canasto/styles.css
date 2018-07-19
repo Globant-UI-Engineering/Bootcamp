@@ -88,6 +88,7 @@ section p {
 }
 h1.section_title_2 {
 	width: fit-content;
+	text-decoration: underline;
 	margin: 0;
 	font-size: 1.2em;
 	padding:  0 2px;
