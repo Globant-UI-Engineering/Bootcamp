@@ -83,13 +83,8 @@ img {
   justify-content: flex-end;
 }
 
-.headlines > h2,
-p {
-  margin: 0.5em 0;
-}
 .headlines > :first-child {
   font-size: 10em;
-  margin: 0;
   order: 2;
   padding-left: 0.1em;
   text-shadow: 1px 2px 12px black;
@@ -103,14 +98,45 @@ p {
 
 .headlines p,
 h2 {
-  line-height: 0.9em;
-  padding-left: 0.5em;
-  width: 4.4em;
+  margin: 0;
+  padding: 0.15em 0;
+  width: 4.7em;
+  font-weight: 700;
+}
+
+.headlines :nth-child(3) {
+  font-size: 3em;
 }
 
 .uppercase {
   text-transform: uppercase;
 }
+
+.font-size-1 {
+  font-size: 1.8em;
+  line-height: 0.8em;
+}
+
+.font-size-2 {
+  font-size: 1.6em;
+}
+
+.font-size-3 {
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.headlines :nth-child(4) {
+  width: 11em;
+}
+
+.headlines :nth-child(7) {
+  font-weight: 700;
+}
+
+/*-----------------------------------------------
+*   font family 
+-----------------------------------------------*/
 
 .serif {
   font-family: "Playfair Display", serif;
