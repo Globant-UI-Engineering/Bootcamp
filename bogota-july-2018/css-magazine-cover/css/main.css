@@ -1,5 +1,6 @@
 body {
     text-transform: uppercase;
+    background-color: rgb(24, 24, 24);
 }
 
 main { 
@@ -9,7 +10,7 @@ main {
 .container-1 {
     min-height: 1000px;
     width: 790px;
-    background-image: url(../portada.jpg);
+    background-image: url(../assets/portada.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
