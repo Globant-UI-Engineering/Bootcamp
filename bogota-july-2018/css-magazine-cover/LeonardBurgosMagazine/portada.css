@@ -5,11 +5,12 @@ body {
 div:first-of-type{
 	background: #0d0c0c;
 	border: 3px solid white;
-	min-height: 50px;
+	
 	margin: 0px 40px 30px 40px;
 }
 
 h1 {
+	position: relative;
 	color:#d80000;
 	text-transform: uppercase;
 	text-align: center;
@@ -19,9 +20,10 @@ h1 {
 	font-weight: 100;
 	font-size: 250px;
 	padding: 0px;
+	z-index: 0;
 }
 
-h2:first-of-type{
+h2{
 	color: #FFFFFF;
 	text-transform: uppercase;
 	margin-bottom: 0px;
@@ -33,9 +35,10 @@ h2:first-of-type{
 
 img {
 	position: relative;
-	display: block;
-	margin-left: 25%;
-	margin-right: 25%;
+	top: 0px;
+	align-self: center;
+	margin-left: 27%;
+	margin-right: 23%;
 	margin-bottom: 10px;
 	width: 50%;
 	z-index: 1;
@@ -50,3 +53,15 @@ h6 {
 	margin-right: 40px;
 	margin-top: 20px;
 }
+
+.sectionh2{
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+
+section h3 {
+	color: #FFFFFF;
+	text-decoration-line: underline;
+	text-transform: uppercase;
+}
+
