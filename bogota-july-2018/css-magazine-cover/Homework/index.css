@@ -37,7 +37,6 @@ body{
 }
 
 #header{
-    background-color: rgba(255,255,255,0.8);
     padding: 5px 0;
     width: 99%;
     position: relative;
@@ -51,12 +50,14 @@ body{
     font-family: 'Londrina Solid', cursive;
     font-size: 120px;
     margin-top: -15px;
+    text-shadow: 1px 1px white;
 }
 
 #cover #header p{
     text-align: center;
     font-family: 'Londrina Solid', cursive;
     font-weight: 300;
+    color: white;
 }
 
 #cover #header p:first-child{
@@ -77,8 +78,115 @@ body{
     margin-top: -1.2em;
 }
 
-#cover #body h2{
-    color: white;
-    font-size: 40px;
+#left-side{
+    position: relative;
+    float: left;
+    width: 30%;
+}
+
+#cover #body #left-side div:nth-child(1){
     margin-left: 20px;
+    width: 100%;
+}
+
+#cover #body #left-side div:nth-child(3){
+    margin-left: 20px;
+    width: 100%;
+}
+
+#cover #body h2{
+    font-family: 'Londrina Solid', cursive;
+    text-shadow: 2px 2px black;
+    color: white;
+    font-size: 50px;    
+}
+
+#cover #body div > p{
+    margin-left: 2px;
+    margin-top: -0.7em;
+    font-size: 20px;
+    font-family: 'Londrina Solid', cursive;
+    color: white;
+    font-weight: 200;
+}
+
+#cover #body .circle{
+    width: 155px;
+    height: 155px;
+    background-color: red;
+    text-align: center;
+    margin: 20px;
+    border-radius: 1000px;
+    box-shadow: 4px 3px 10px rgb(150,150,150);  
+}
+
+#cover #body .circle p{
+    margin: 0;
+    padding: 5px 15px;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-family: 'Poor Story', cursive;
+
+            transform: rotate(-20deg);
+        -ms-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);    
+}
+
+#right-side{
+    position: relative;
+    float: right;
+    width: 50%;
+    right: 0.5%;
+}
+
+#right-side div{
+    text-align: right;
+}
+
+#right-side h2,
+#right-side p{
+    position: relative;
+    right: 5%;
+}
+
+.dog-picture{
+    position: relative;
+    float: right;
+    width: 150px;
+    height: 150px;
+    border: 2px solid white;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.dog-picture img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+#right-side div .photo-text{
+    float: right;
+    font-size: 20px !important;
+    padding: 2px 5px;
+    color: black !important;
+    border-radius: 10px;
+    margin-top: -5px !important;
+    background-color: rgba(255,255,0,0.8);
+}
+
+#body #footer{
+    position: absolute;
+    width: 99%;
+    left: 0.5%;
+    bottom: 0;
+    background-color: rgb(255, 51, 51);
+}
+
+#body #footer p{
+    font-size: 17px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: center;
 }
