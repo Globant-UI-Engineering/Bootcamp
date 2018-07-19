@@ -72,13 +72,6 @@ hgroup h2 span {
   width: 30%;
 }
 
-.note {
-  margin-bottom: .5rem;
-}
-.note:last-child {
-  margin-bottom: 0;
-}
-
 .notes h2 {
   color: gold;
   font-size: 6rem;
