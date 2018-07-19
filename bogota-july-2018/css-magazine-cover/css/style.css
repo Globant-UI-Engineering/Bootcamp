@@ -1,3 +1,60 @@
+/*************************************************
+*
+*   Magazine Cover Colors
+*   
+*       
+*   lorde title        : #e7151e
+*
+*************************************************/
+
+/*-----------------------------------------------
+*   Base
+-----------------------------------------------*/
+
 * {
   box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  background-color: grey;
+}
+
+header > h1 {
+  display: none;
+}
+
+/*-----------------------------------------------
+*   container & wrapper
+-----------------------------------------------*/
+
+.wrapper {
+  margin: 0 auto;
+  position: relative;
+}
+
+.container,
+img,
+.wrapper {
+  height: 100vh;
+  width: 70vh;
+}
+
+/*-----------------------------------------------
+*   general styles
+-----------------------------------------------*/
+
+.logo {
+  z-index: -1;
+  position: absolute;
+}
+
+.lorde {
+  z-index: 0;
+  position: absolute;
+}
+
+.headlines {
+  position: absolute;
+  z-index: 1;
 }
