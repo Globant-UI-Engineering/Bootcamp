@@ -3,7 +3,7 @@
 *   Magazine Cover Colors
 *   
 *       
-*   lorde title        : #e7151e
+*   lorde title        : #eb1e25
 *
 *************************************************/
 
@@ -16,8 +16,8 @@
 }
 
 body {
+  background-color: black;
   font-size: 16px;
-  background-color: grey;
 }
 
 header > h1 {
@@ -29,32 +29,97 @@ header > h1 {
 -----------------------------------------------*/
 
 .wrapper {
+  background-color: white;
   margin: 0 auto;
   position: relative;
 }
 
 .container,
-img,
+.lorde,
 .wrapper {
   height: 100vh;
-  width: 70vh;
+  max-width: 37vw;
 }
 
 /*-----------------------------------------------
 *   general styles
 -----------------------------------------------*/
 
-.logo {
-  z-index: -1;
+.logo,
+.lorde,
+.headlines {
   position: absolute;
+}
+
+.logo {
+  z-index: 1;
 }
 
 .lorde {
-  z-index: 0;
-  position: absolute;
+  z-index: 10;
 }
 
 .headlines {
-  position: absolute;
-  z-index: 1;
+  z-index: 100;
+}
+
+img {
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+/*-----------------------------------------------
+*   text style
+-----------------------------------------------*/
+
+.highlight {
+  color: #eb1e25;
+}
+
+.headlines {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-end;
+}
+
+.headlines > h2,
+p {
+  margin: 0.5em 0;
+}
+.headlines > :first-child {
+  font-size: 10em;
+  margin: 0;
+  order: 2;
+  padding-left: 0.1em;
+  text-shadow: 1px 2px 12px black;
+}
+
+.headlines > p:first-of-type {
+  font-size: 1.6em;
+  order: 1;
+  text-transform: capitalize;
+}
+
+.headlines p,
+h2 {
+  line-height: 0.9em;
+  padding-left: 0.5em;
+  width: 4.4em;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.serif {
+  font-family: "Playfair Display", serif;
+}
+
+.san-serif {
+  font-family: "Sarala", sans-serif;
+}
+
+.headlines aside {
+  display: none;
 }
