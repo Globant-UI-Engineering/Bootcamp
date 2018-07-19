@@ -1,0 +1,46 @@
+body {
+	background-color: #f5ddea;
+	font-family: 'Roboto Slab', serif;
+}
+.font-Montserrat {
+	font-family: 'Montserrat', sans-serif;
+}
+.font-Playfair {
+	font-family: 'Playfair Display SC', serif;
+}
+.font-Euphoria {
+	font-family: 'Euphoria Script', cursive;
+}
+
+header h1 {
+	margin: 0;
+	font-size: 5.0em;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+}
+header h1 span {
+	position: relative;
+}
+.over_letter::after {
+	content: 'girls';
+	position: absolute;
+	top: 50%;
+	left: 0%;
+	background-color: #f12493;
+	color: white;
+	font-size: 12px;
+	padding: 0 0 0 3px;
+	/*Rotar elemento*/
+	-ms-transform: rotate(-7deg); /* IE 9 */
+	-webkit-transform: rotate(-7deg); /* Safari */
+	transform: rotate(-7deg); /* Standard syntax */
+}
+header h2 {
+	margin: 0;
+	color: #f12493;
+	font-size: 1.2em;
+	letter-spacing: 12px;
+}
+header h2 span {
+	color: black;
+}
