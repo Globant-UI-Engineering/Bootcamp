@@ -1,0 +1,50 @@
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form{
+    background: #eee;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px black;
+    padding: 20px;
+    width: 300px;
+}
+
+label {
+    width: 120px;
+    float: left;
+    text-align: right;
+    padding: 4px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 120px;
+    float: right;
+}
+
+label, input {
+    font-size: 1em;
+    line-height: 1.1;
+}
+
+select{
+    font-size: .8em;
+    padding: 2px 5px;
+    float: right;
+    width: 140px;
+}
+
+div{
+    clear: both;
+}
+
+.errors {
+    background: yellow;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px black;
+    padding: 20px;
+    width: 300px;
+    position: absolute;
+    left: -100%;
+  }
