@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Title-->
+    <title>FORM A11y HOMEWORK</title>
+
+    <!--Icon-->
+    <link rel="icon" type="image/png" href="/" sizes="16x16">
+
+    <!--Meta-->
+    <meta charset="utf-8">
+    <meta name="author" content="Cristian David Paredes"></meta>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--JS-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <table>
+        <form action="./" method="POST">
+            <tr>
+                <td colspan="2">
+                    <h1>Please fill up this form.</h1>
+                </td>
+            </tr>            
+            <tr>
+                <td><br/></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="name">Name</label>:
+                    <span style="color:red">*</span>
+                </td>
+                <td>
+                    <input id="name" type="text" name="name_field" required>
+                </td>
+            </tr>            
+            <tr>
+                <td><br/></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="last_name">Last Name</label>:
+                    <span style="color:red">*</span>
+                </td>
+                <td>
+                    <input id="last_name" type="text" name="last_name_field" required>
+                </td>
+            </tr>            
+            <tr>
+                <td><br/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <fieldset>
+                        <legend>Select your UI skills:</legend>
+                        <input id="html" type="checkbox" name="html" value="html">
+                        <label for="html">HTML</label>
+                        <br>
+                        <input id="css" type="checkbox" name="css" value="css">
+                        <label for="css">CSS</label>
+                        <br>
+                        <input id="js" type="checkbox" name="js" value="js">
+                        <label for="js">JavaScript</label>
+                        <br>
+                        <input id="react" type="checkbox" name="react" value="react">
+                        <label for="react">React</label>
+                    </fieldset>
+                </td>
+            </tr>            
+            <tr>
+                <td><br/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <fieldset>
+                        <legend>Choose your seniority level:
+                            <span style="color:red">*</span>
+                        </legend>
+                        <input id="training" type="radio" name="seniority" value="training" required>
+                        <label for="training">Training</label>
+                        <br>
+                        <input id="junior" type="radio" name="seniority" value="junior">
+                        <label for="junior">Junior</label>
+                        <br>
+                        <input id="senior" type="radio" name="seniority" value="senior">
+                        <label for="senior">Senior</label>
+                        <br>
+                        <input id="director" type="radio" name="seniority" value="director">
+                        <label for="director">Director</label>
+                    </fieldset>
+                </td>
+            </tr>            
+            <tr>
+                <td><br/></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="origin">Where are you from?</label>
+                </td>
+                <td>
+                    <select id="origin" name="origin" style="width: 100%">
+                        <option value="1">Bogot&aacute;</option>
+                        <option value="2">Cali</option>
+                        <option value="3">Medell&iacute;n</option>
+                        <option value="4">Cartagena</option>
+                        <option value="5">Bucaramanga</option>
+                        <option value="6">Barranquilla</option>
+                        <option value="7">Other</option>
+                    </select>
+                </td>
+            </tr>            
+            <tr>
+                <td><br/></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="name">Preferred email</label>:
+                    <span style="color:red">*</span>
+                </td>
+                <td>
+                    <input id="name" type="email" name="name_field" style="width: 100%" required>
+                </td>
+            </tr>
+            <tr>
+                <td><br/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" name="submit" value="Submit Form" style="width: 100%">
+                </td>
+            </tr>
+        </form>
+    </table>
+</body>
+
+</html>
