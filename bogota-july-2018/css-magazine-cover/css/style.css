@@ -8,6 +8,10 @@ body{
   font-family: 'Lato', sans-serif;
 }
 
+section>h1{
+  font-size: 0;
+}
+
 h1{
   font-size: 72px;
   color: #FFFFFF;
@@ -26,7 +30,7 @@ h1{
   height: 900px;
 }
 
-div.magazineCover {
+article.magazineCover {
   margin-left: auto;
   margin-right: auto;
 }
