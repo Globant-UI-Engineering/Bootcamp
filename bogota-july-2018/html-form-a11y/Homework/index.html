@@ -119,11 +119,12 @@
             </tr>
             <tr>
                 <td>
-                    <label for="name">Preferred email</label>:
+                    <label for="email">Preferred email</label>:
                     <span style="color:red">*</span>
+                    <span id="email_desc">This must be a valid email address</span>
                 </td>
                 <td>
-                    <input id="name" type="email" name="name_field" style="width: 100%" required>
+                    <input id="email" type="email" name="name_field" style="width: 100%" aria-describedby="email_desc" required>
                 </td>
             </tr>
             <tr>
