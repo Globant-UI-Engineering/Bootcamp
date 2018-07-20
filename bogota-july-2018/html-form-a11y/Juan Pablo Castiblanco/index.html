@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulario</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <header>
+        <h1>Formulario de inscripción</h1>
+    </header>
+
+    <section>
+        <form>
+            <fieldset>
+                <legend>Datos de contacto:</legend>
+
+                <fieldset>
+                    <legend>Nombre completo:</legend>
+
+                    <div>
+                        <label for="primerNombre">Primer nombre:</label>
+                        <input type="text" name="primerNombre" id="primerNombre" required>
+                    </div>
+                    <div>
+                        <label for="segundoNombre">Segundo nombre:</label>
+                        <input type="text" name="segundoNombre" id="segundoNombre">
+                    </div>
+                    <div>
+                        <label for="primerApellido">Primer apellido:</label>
+                        <input type="text" name="primerApellido" id="primerApellido" required>
+                    </div>
+                    <div>
+                        <label for="segundoApellido">Segundo apellido:</label>
+                        <input type="text" name="segundoApellido" id="segundoApellido">
+                    </div>
+                </fieldset>
+
+
+                <fieldset>
+                    <legend>Genero:</legend>
+                    <div>
+                        <input type="radio" name="genero" id="hombre" value="hombre" checked required>
+                        <label for="hombre">Hombre</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="genero" id="mujer" value="mujer">
+                        <label for="mujer">Mujer</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="genero" id="otro" value="otro">
+                        <label for="otro">Otro</label>
+                    </div>
+                </fieldset>
+
+                <label for="edad">Edad:</label>
+                <br>
+                <input type="number" name="edad">
+            </fieldset>
+            <br>
+            <input type="submit" name="enviar" id="enviar">
+        </form>
+    </section>
+</body>
+
+</html>
