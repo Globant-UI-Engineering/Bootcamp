@@ -5,6 +5,42 @@
 	<meta charset="utf-8" />
 </head>
 <body>
+   <fieldset>
+        <legend>Formulario de ingreso</legend>
+        <br>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" required><br>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required><br>
+            <br>
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" name="ciudad" id="ciudad"><br>
+            <br>
+            <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+            <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required><br>
+            <br>
+            <fieldset>
+                <legend>Genero</legend>
 
+                <div>
+                    <input type="radio" id="huey" name="drone" checked />
+                    <label for="huey">Masculino</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="dewey" name="drone" />
+                    <label for="dewey">Femenino</label>
+                </div>
+            </fieldset>
+                <br>
+                <input type="checkbox" name="suscripcion" id="suscripcion">
+                <label for="suscripcion">Desea suscribirse a las noticias</label><br>
+                <br><br>
+                <input type="submit">
+
+        </form>
+    </fieldset>
 </body>
 </html>
