@@ -20,6 +20,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     width: 730px;
+    height: 900px;
     align-items: center;
 }
 h1{
@@ -55,41 +56,46 @@ h3,h2,p{
 h3,h2{
     text-shadow: 0.07em 0.07em black,0.1em 0.1em black;
 }
-h3:first-child{
+header>h3{
 margin-top: 1vh;
 margin-bottom: 0;
+text-align: center;
 }
-#main-container>div:nth-child(3){
-    width: 95%;
-    display: flex;
-    justify-content: flex-start;
-}
-
-#main-container>div:nth-child(4){
-    width: 95%;
+#main-container>div:nth-child(2){
+    width: 100%;
+    height: max-content;
     display: flex;
     justify-content: space-between;
 }
-#main-container>div:nth-child(5){
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
-}
-aside>p,aside>h2{
+section>p,section>h2{
     margin: 4px;
     text-align: end;
 }
-h2:only-child{
+section>h2:first-child{
     text-align: start;
+    margin-left: 10%;
 }
-p:only-child{
+section>h2:first-child+p{
     text-align: start;
+    margin-left: 10%;
 }
-h3:only-child{
-    background-color: rgb(224, 30, 54);
+#main-container>div:nth-child(2)>aside:first-child>section:last-child{
+    background-color: rgb(224, 30, 54); 
     padding: 5px;
+    line-height: 1rem;
     text-shadow: 0.07em 0.07em black;
-    margin-left: -16%;
+    padding-left: 10px;
+    width: max-content;
+    position: relative;
+    top:40%;
+}
+#main-container>div:nth-child(2)>aside:last-child>section{
+    position: relative;
+    top: 22%;
+    margin-right: 10%;
+}
+aside{
+    height: 1fr;
 }
 em{
     font-size: 0.8em;
