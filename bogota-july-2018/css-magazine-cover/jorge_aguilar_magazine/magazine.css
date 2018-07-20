@@ -6,8 +6,6 @@
     background-image: url(2Pac_v2.jpg);
 }
 
-/* Five types of Fonts */
-
 .font-1 {
     margin-left: 5px;
     color: white;
@@ -17,14 +15,17 @@
 .slogan {
     padding-top: 5px;
     font-size: 12px;
+    display: block;
 }
 
-.header {
+header {
     height: 115px;
 }
 
 .box-logo {
     background-color: red;
+    margin:0;
+    margin-left: 5px;
     width: 175px;
     height: 115px;
     border-width: 1px;
@@ -38,9 +39,11 @@
     float:left;
 }
 
-.magazine-description {
+h1 {
     float: right;
+    margin: 0;
     font-size: 25px;
+    font-weight:normal;
     padding-right: 15px; 
 }
 
@@ -49,7 +52,7 @@
     font-family: 'Russo One', sans-serif; 
 }
 
-.header>span {
+header>span {
     float: right;
     padding-right: 15px;
     line-height: 70%;
@@ -79,21 +82,23 @@
     width: 100px; 
 }
 
-.footer>.font-2 {
+footer>.font-2 {
     color:red;
     font-size: 35px;
 }
 
-.footer div:first-of-type {
+footer span:first-of-type {
     margin: 5px;
+    display: block;
     padding-top: 15px;
     width: 200px;
     line-height: 80%;
 }
 
-.footer div:nth-last-of-type(2) {
+footer span:nth-last-of-type(1) {
     font-size: 130px;
     margin-top: -30px;
+    display: block;
     float: left;
 }
 
