@@ -62,9 +62,9 @@ h1 {
 .p4{
   font-size: 20px;
   font-family: inherit;
-  text-align: right;
   color:#810202;
-  margin-top: 270px;
+  float: right;
+  margin-top: 250px;
 
 }
 .div {
