@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+   <header>
+       <h1>Editar Información</h1>
+   </header>
+   <main>
+       <form action="">
+           <fieldset>
+                <legend>Información Personal</legend>
+
+                <label for="name">Nombre</label><br>
+                <input id="name" name="name" type="text">
+                <br>
+                <label for="last-name">Apellidos</label><br>
+                <input id="last-name" name="last-name" type="text">
+                <br>
+                <label for="bday">Fecha de Cumpleaños</label><br>
+                <input id="bday" name="bday" type="date">
+           </fieldset>
+           <br>
+           <fieldset>
+                <legend>Información Adicional</legend>
+
+                <label for="email">Email</label><br>
+                <input id="email" name="email" type="email">
+                <br>
+                <label for="tel">Teléfono</label><br>
+                <input id="tel" name="tel" type="tel">
+           </fieldset>
+           <br>
+           <fieldset>
+                <legend>Género</legend>
+
+                <input id="male" type="radio" name="gender" value="male" checked>
+                <label for="male">Hombre</label>
+                <br>
+                <input id="female" type="radio" name="gender" value="female">
+                <label for="female">Mujer</label>
+                <br>
+                <input id="other" type="radio" name="gender" value="other">
+                <label for="other">otro</label>
+           </fieldset>
+           <br>
+           <input type="submit" value="Enviar">
+       </form>
+   </main>
+</body>
+</html>
