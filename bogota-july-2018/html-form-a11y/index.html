@@ -1,15 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Ordenar Pizza</title>
 </head>
 
 <body>
+    <header role="banner">
+        <h1>Papa Dom's</h1>
+    </header>
+    <main role="main">
+        <form>
+            <fieldset>
+                <legend>Arma tu pizza</legend>
+                <h2>Elige el tamaño</h2>
+                <div>
+                    <input type="radio" name="size" id="small">
+                    <label for="small">Pequeña</label>
+                </div>
 
+                <div>
+                    <input type="radio" name="size" id="medium">
+                    <label for="medium">Mediana</label>
+                </div>
+
+                <div>
+                    <input type="radio" name="size" id="large">
+                    <label for="large">Grande</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="cheese-Border" id="cheeseBorder">
+                    <label for="cheeseBorder">Agregar borde de queso</label>
+                </div>
+
+                <h2>Elige tu salsa</h2>
+                <div>
+                    <label for="sauce">Elige la salsa</label>
+                    <select name="sauce-selector" id="sauce">
+                        <option value="">--Elige una salsa de la casa--</option>
+                        <option value="Tomates Frescos">Tomates Frescos</option>
+                        <option value="Ranch<">Ranch</option>
+                        <option value="BBQ">BBQ</option>
+                        <option value="Alfredo">Alfredo</option>
+                    </select>
+                </div>
+
+                <h2>Elige tus ingredientes</h2>
+                <div>
+                    <input type="checkbox" name="mushrooms" id="mushrooms">
+                    <label for="mushrooms">Champiñones</label>
+                    <input type="checkbox" name="olives" id="olives">
+                    <label for="olives">Aceitunas negras</label>
+                    <input type="checkbox" name="ham" id="ham">
+                    <label for="ham">Jamon</label>
+                    <input type="checkbox" name="bacon" id="bacon">
+                    <label for="bacon">Tocineta</label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Datos personales para el pedido</legend>
+                <div>
+                    <label for="name">Ingresa tu nombre</label>
+                    <input type="text" name="customer" id="name" aria-required="true" required>
+                </div>
+                <div>
+                    <label for="adress">Ingresa tu dirección</label>
+                    <input type="text" name="adress" id="adress" aria-required="true" required>
+                </div>
+                <div>
+                    <label for="comment">dejanos tu comentario</label>
+                    <textarea name="comment" id="comment" cols="10" rows="1"></textarea>
+                </div>
+            </fieldset>
+            <input type="submit" value="Haz tu pedido">
+        </form>
+    </main>
+    <footer role="contentinfo">
+        <p>Todos los derechos reservados 2018</p>
+    </footer>
 </body>
 
 </html>
