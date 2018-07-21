@@ -7,23 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Magazine Cover</title>
     <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400i|Sarala">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400i%7CSarala">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper" aria-hidden="true">
         <header class="container logo" role="banner">
             <!-- h1 it's use for the screen readers and html outline structure -->
             <h1 class="hidden">The Rolling Stone Magazine</h1>
-            <img src="./images/rolling_stones_magazine_logo.png" alt="rolling stone logo">
+            <img src="./images/rolling_stones_magazine_logo.png" alt="">
         </header>
-        <main class="container headlines">
+        <div class="container lorde" role="complementary">
+            <img src="./images/lorde.png" alt="Lorde singer cover of the rolling stone magazine issue 1201 january 30 2014">
+        </div>
+        <main class="container headlines" role="main">
             <h2 class="highlight  serif uppercase">lorde</h2>
             <p class="serif font-size-2">the girl who broke the rules</p>
             <h2 class="serif">Phil Everly</h2>
-            <p class="serif font-size-3">harmony &#38; heartbreak 1939 - 2014</p>
+            <p class="serif font-size-3 uppercase">harmony &#38; heartbreak 1939 - 2014</p>
             <svg height='20' width='70'>
                 <g fill='none'>
                     <path stroke='grey' d='M5 3 l215 0.5' />
@@ -48,7 +51,7 @@
                     <path stroke='grey' d='M5 9 l215 0.5' />
                 </g>
             </svg>
-            <aside class=" uppercase san-serif">
+            <aside class=" uppercase san-serif" role="complementary">
                 <h2>special report</h2>
                 <p>the gop's stealth war on abortion rights</p>
             </aside>
@@ -65,9 +68,7 @@
                 <rect width="50" height="17" style="fill:(0,0,0);stroke-width:3;stroke:rgb(0,0,0)" />
             </svg>
         </main>
-        <div class="container lorde">
-            <img src="./images/lorde.png" alt="lorde photo">
-        </div>
+
     </div>
 </body>
 
