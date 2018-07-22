@@ -9,40 +9,49 @@
       </header>
       <main role="main">
         <form>
-          <label for="nombre">Nombre:</label>
-          <input id="nombre" type="text"><br>
+          <fieldset>
+            <legend>Información Personal:</legend>
 
-          <label for="cedula">Cédula:</label>
-          <input id="cedula" type="text"><br>
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" type="text" required><br>
 
-          <label for="nacimiento">Fecha de Nacimiento:</label>
-          <input id="nacimiento" type="date"><br>
+            <label for="cedula">Cédula:</label>
+            <input id="cedula" type="text" required><br>
 
-          <label for="genero">Género:</label><br>
-          <input type="radio" name="genero" value="hombre" checked> Hombre<br>
-          <input type="radio" name="genero" value="mujer"> Mujer<br>
-          <input type="radio" name="genero" value="otro"> Otro<br>
+            <label for="nacimiento">Fecha de Nacimiento:</label>
+            <input id="nacimiento" type="date" required><br>
 
-          <label for="correo">Correo Electrónico:</label>
-          <input id="correo" type="email"><br>
+            <label for="genero">Género:</label><br>
+            <input type="radio" name="genero" value="hombre" checked> Hombre<br>
+            <input type="radio" name="genero" value="mujer"> Mujer<br>
+            <input type="radio" name="genero" value="otro"> Otro<br>
 
-          <label for="estudios">Nivel de Estudios Superiores:</label>
-          <select id="estudios">
-            <option value="estudiante">Estudiante</option>
-            <option value="tecnico">Tecnico</option>
-            <option value="pregrado">Pregrado</option>
-            <option value="posgrado">Posgrado</option>
-          </select><br>
+            <label for="correo">Correo Electrónico:</label>
+            <input id="correo" type="email" required><br>
 
-          <label for="institucion">Institución de Educación Superior:</label>
-          <input id="institucion" type="text"><br>
+          </fieldset>
 
-          <label for="lenguajes">¿Cuáles de los siguientes lenguajes maneja?</label><br>
-          <input type="checkbox" name="lenguajes" value="cplusplus" > C++<br>
-          <input type="checkbox" name="lenguajes" value="java"> Java<br>
-          <input type="checkbox" name="lenguajes" value="python"> Python<br>
-          <input type="checkbox" name="lenguajes" value="javascript"> Javascript<br>
+          <fieldset>
+            <legend>Información Profesional:</legend>
 
+            <label for="estudios">Nivel de Estudios Superiores:</label>
+            <select id="estudios" required>
+              <option value="estudiante">Estudiante</option>
+              <option value="tecnico">Tecnico</option>
+              <option value="pregrado">Pregrado</option>
+              <option value="posgrado">Posgrado</option>
+            </select><br>
+
+            <label for="institucion">Institución de Educación Superior:</label>
+            <input id="institucion" type="text" required><br>
+
+            <label for="lenguajes">¿Cuáles de los siguientes lenguajes maneja?</label><br>
+            <input type="checkbox" name="lenguajes" value="cplusplus" > C++<br>
+            <input type="checkbox" name="lenguajes" value="java"> Java<br>
+            <input type="checkbox" name="lenguajes" value="python"> Python<br>
+            <input type="checkbox" name="lenguajes" value="javascript"> Javascript<br>
+
+          </fieldset>
           <input type="submit" value="Enviar">
         </form>
       </main>
