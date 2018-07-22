@@ -18,7 +18,7 @@
                 <legend>Arma tu pizza</legend>
                 <h2>Elige el tamaño</h2>
                 <div>
-                    <input type="radio" name="size" id="small">
+                    <input type="radio" name="size" id="small" required aria-required="true">
                     <label for="small">Pequeña</label>
                 </div>
 
@@ -37,19 +37,27 @@
                     <label for="cheeseBorder">Agregar borde de queso</label>
                 </div>
 
-                <h2>Elige tu salsa</h2>
                 <div>
-                    <label for="sauce">Elige la salsa</label>
-                    <select name="sauce-selector" id="sauce">
-                        <option value="">--Elige una salsa de la casa--</option>
-                        <option value="Tomates Frescos">Tomates Frescos</option>
-                        <option value="Ranch<">Ranch</option>
-                        <option value="BBQ">BBQ</option>
-                        <option value="Alfredo">Alfredo</option>
+                    <label for="sauce">Elige una salsa de la casa</label>
+                    <select name="sauce-selector" id="sauce" required aria-required="true">
+                        <option value="" disabled selected>--</option>
+                        <option value="">Tomates Frescos</option>
+                        <option value="">Ranch</option>
+                        <option value="">BBQ</option>
+                        <option value="">Alfredo</option>
                     </select>
                 </div>
-
-                <h2>Elige tus ingredientes</h2>
+                <div>
+                    <label for="flavor">Elige un sabor</label>
+                    <select name="flavor" id="flavor" required aria-required="true">
+                        <option value="" disabled selected>--</option>
+                        <option value="">Carnes</option>
+                        <option value="">Hawaiana</option>
+                        <option value="">Toscana y seis quesos</option>
+                        <option value="">Vegetariana</option>
+                    </select>
+                </div>
+                <h2>Elige tus ingredientes extras</h2>
                 <div>
                     <input type="checkbox" name="mushrooms" id="mushrooms">
                     <label for="mushrooms">Champiñones</label>
