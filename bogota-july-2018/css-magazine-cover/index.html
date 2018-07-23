@@ -1,69 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Magazine Cover</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro</title>
+    <style>
+        fieldset{
+            width: 300px;
+            box-sizing: border-box;
+        }
+        fieldset fieldset{
+            width: 100%;
+        }
+    </style>
 </head>
-
 <body>
-    <section id="container">
-        <header role="banner">
-            <img src="images/logo.png" alt="Caras">
-        </header>
-        <main role="main">
-            <article role="article">
-                <p>
-                    <mark>especial de cocina</mark>
-                </p>
-                <ul>
-                    <li role="presentation">boom de los super alimentos</li>
-                    <li role="presentation">el chef más poderoso de londres</li>
-                    <li role="presentation">comida y seducción</li>
-                    <li role="presentation">la marraqueta del futuro</li>
-                </ul>                
-            </article>
-            <div>
-                <img src="images/woman.png" alt="Mane Swett">
-            </div>
-            <aside role="complementary">
-                <p>
-                    <span>exclusivo desde italia</span> matrimonio de davor luksic con la hija de al bano y romina power</p>
-                <p>el regreso de mariana aylwin</p>                
-                <p>
-                    <span>
-                        <mark>hernan somerville</mark>
-                    </span>  
-                    <span>
-                        <mark>'lagos
-                            <br> es mi candidato'
-                        </mark>
-                    </span>
-                </p>
-            </aside>
+    <header>
+        <h1>Registro</h1>
+    </header>
+    <main>
+        <form action="index.html" method="post"> 
+            <fieldset>
+                <legend>Infomación Basica</legend>
+                <div>
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" placeholder="Ingrese su nombre" required aria-required="true">                    
+                </div>               
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="user@email.com" required aria-required="true">
+                </div>
+                <div>
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required aria-required="true">
+                </div>
+                <fieldset>
+                    <legend>Genero:</legend>
+                    <label for="male">Masculino</label>
+                    <input type="radio" id="male" value="male" name="gender" checked aria-label="Masculino">
+                    
+                    <label for="female">Femenino</label>               
+                    <input type="radio" id="female" value="female" name="gender" aria-label="Femenino">                    
+                </fieldset>               
+            </fieldset>
+        
+            <fieldset>
+                <legend>Perfil</legend>
+                <label for="biography">Biografia:</label>
+                <textarea id="biography" name="biography"></textarea>
+            </fieldset>
+            <fieldset> 
+                    <legend>Intereses en la compañia:</legend>                
+                <div>
+                    <input type="checkbox" id="development" value="development" name="interests">
+                    <label for="development">Development</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="design" value="design" name="interests">
+                    <label  for="design">Design</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="business" value="business" name="interests">
+                    <label for="business">Business</label>
+                </div>
+            </fieldset> 
+            <button type="submit">Enviar</button>
+        </form>
 
-            <section>
-                <header>
-                    <h1>mane swett</h1>
-                    <h2>el drama se acabó </h2>
-                    <p>
-                        <mark>la actriz que devolvió la esperanza a tvn confiesa:</mark>
-                        <span>
-                            <mark>
-                                <q>si voy a estar en pareja tiene que ser con alguien que sume de verdad</q>
-                            </mark>
-                        </span>
-                    </p>
-                </header>
-            </section>
-        </main>
-        <footer role="contentinfo">
-            <img src="images/bar-code.jpg" alt="Codigo de barras">
-        </footer>
-    </section>
+    </main>
+    <footer>
+
+    </footer>
 </body>
 </html>
