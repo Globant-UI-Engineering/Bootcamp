@@ -18,16 +18,23 @@ article, aside{
     text-transform: uppercase;
     font-size: 10px;
 }
-article:first-of-type p{    
-    width: 105px;
-    margin: 6px 0;
-}
-article:first-of-type p:first-child{
+
+article p mark{
    background-color: #fd9534;
-   width: 110px;
-}
-article p:first-child span{
+   width: 114px;
    font-weight: bold;
+   font-size: 10px;
+}
+
+article ul{
+    padding: 0
+}
+article ul li{
+    width: 95px;
+    list-style: none;    
+    line-height: 9px;
+    letter-spacing: -0.5px;
+    margin: 4px 0;    
 }
 article ~ div {
     position: absolute;
@@ -43,7 +50,7 @@ aside{
 aside p {
     text-align: right;
     font-weight: bold;
-    line-height: 9px;
+    line-height: 10px;
 }
 aside p span{
    font-weight: normal;
@@ -52,33 +59,34 @@ aside p:nth-child(2) {
     color: white;
     text-shadow: 2px 2px 2px grey;
 }
-aside p:last-of-type{
+aside p mark{
     background-color: black;
     color:white;
 }
-aside p:last-of-type span {
+aside p span {
+    display: block;
     font-weight: normal;
     display: block;
+    margin-top: 3px;
 }
  
-#container section:last-of-type{
+#container section{
     font-family: Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
-    position: relative;
+    text-transform: uppercase;   
     margin: 0 auto;
     width: 450px;
     z-index: 1;
-    top: 133px;
+    top: 151px;
 }
 
-#container section:last-of-type h1 {    
+#container section h1 {    
     font-size: 70px;
     color:#ff9432;
     text-shadow: 2px 2px 2px black;
     letter-spacing: -3.9px;
     margin-bottom: 0;
 }
-#container section:last-of-type h2 {
+#container section h2 {
     margin: 0 auto 14px;
     font-size:36px;
     color: white;
@@ -86,24 +94,30 @@ aside p:last-of-type span {
     line-height: 12px;
     letter-spacing: -1px;
 }
-#container section:last-of-type p {
-    background-color: black;
-    color: white;
+#container section p {    
     margin: 0 auto 3px;
     text-align: center;
-    font-size: 12px;
-    width: 358px;
+    font-size: 13px;
+    width: 476px;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
 }
-#container section:last-of-type p:last-child {
-    width: 279px;
+#container section p mark {
+    background-color: black;
+    color: white;
+    margin-bottom: 3px;
+}
+#container section p span {
+    width: 288px;
     font-weight: bold;
 } 
-
 footer{
     position: relative;
 }
 footer img{
     position: absolute;
     right: 4px;
-    top: 60px;
+    top: 75px;
 }
