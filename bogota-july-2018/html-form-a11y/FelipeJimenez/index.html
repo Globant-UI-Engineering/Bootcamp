@@ -5,54 +5,62 @@
   </head>
   <body  lang="es">
       <header role="banner">
-        <h1>Formulario de Admisión Globant</h1>
+        <h1>Admisión para Globant</h1>
       </header>
       <main role="main">
-        <form>
+        <h2 id="tituloFormulario">Formulario de Admisión</h2>
+        <p role="note">Por favor llene el siguiente formulario y luego presione el botón enviar. Los campos señalados con un * (asterisco) deben ingresarse obligatoriamente.</p>
+        <form aria-labelledby="tituloFormulario">
           <fieldset>
             <legend>Información Personal:</legend>
 
-            <label for="nombre">Nombre:</label>
-            <input id="nombre" type="text" required><br>
+            <label for="nombre">Nombre Completo*:</label>
+            <input id="nombre" type="text" required title="Ingrese sus nombres y apellidos"><br>
 
-            <label for="cedula">Cédula:</label>
-            <input id="cedula" type="text" required><br>
+            <label for="cedula">Cédula de Ciudadanía*:</label>
+            <input id="cedula" type="text" required title="Ingrese su número de cédula de ciudadanía"><br>
 
-            <label for="nacimiento">Fecha de Nacimiento:</label>
-            <input id="nacimiento" type="date" required><br>
+            <label for="nacimiento">Fecha de Nacimiento*:</label>
+            <input id="nacimiento" type="date" required title="Ingrese su fecha de nacimiento en el formato dd/mm/yyyy"><br>
 
-            <label for="genero">Género:</label><br>
-            <input type="radio" name="genero" value="hombre" checked> Hombre<br>
-            <input type="radio" name="genero" value="mujer"> Mujer<br>
-            <input type="radio" name="genero" value="otro"> Otro<br>
+            <label for="correo">Correo Electrónico*:</label>
+            <input id="correo" type="email" required title="Ingrese su correo electrónico personal"><br>
 
-            <label for="correo">Correo Electrónico:</label>
-            <input id="correo" type="email" required><br>
+            <fieldset>
+              <legend>Información de Género:</legend>
+              <label for="genero">Género: (Seleccione solo uno)</label><br>
+              <input type="radio" name="genero" value="hombre" checked> Hombre<br>
+              <input type="radio" name="genero" value="mujer"> Mujer<br>
+              <input type="radio" name="genero" value="otro"> Otro<br>
+            </fieldset>
 
-          </fieldset>
+          </fieldset><br>
 
           <fieldset>
             <legend>Información Profesional:</legend>
 
-            <label for="estudios">Nivel de Estudios Superiores:</label>
-            <select id="estudios" required>
+            <label for="estudios">Nivel de Estudios Superiores*:</label>
+            <select id="estudios" required title="Ingrese su nivel de educación superior">
               <option value="estudiante">Estudiante</option>
               <option value="tecnico">Tecnico</option>
               <option value="pregrado">Pregrado</option>
               <option value="posgrado">Posgrado</option>
             </select><br>
 
-            <label for="institucion">Institución de Educación Superior:</label>
-            <input id="institucion" type="text" required><br>
+            <label for="institucion">Institución de Educación Superior*:</label>
+            <input id="institucion" type="text" required title="Ingrese el nombre de la institución en donde alcanzó su nivel de educación superior"><br>
 
-            <label for="lenguajes">¿Cuáles de los siguientes lenguajes maneja?</label><br>
-            <input type="checkbox" name="lenguajes" value="cplusplus" > C++<br>
-            <input type="checkbox" name="lenguajes" value="java"> Java<br>
-            <input type="checkbox" name="lenguajes" value="python"> Python<br>
-            <input type="checkbox" name="lenguajes" value="javascript"> Javascript<br>
+            <fieldset>
+              <legend>Datos Técnicos:</legend>
+              <label for="lenguajes">¿Cuáles de los siguientes lenguajes maneja? (Seleccione todos los que apliquen)</label><br>
+              <input type="checkbox" name="lenguajes" value="cplusplus" > C++<br>
+              <input type="checkbox" name="lenguajes" value="java"> Java<br>
+              <input type="checkbox" name="lenguajes" value="python"> Python<br>
+              <input type="checkbox" name="lenguajes" value="javascript"> Javascript<br>
+            </fieldset>
 
           </fieldset>
-          <input type="submit" value="Enviar">
+          <br><input type="submit" value="Enviar" role="button">
         </form>
       </main>
   </body>
