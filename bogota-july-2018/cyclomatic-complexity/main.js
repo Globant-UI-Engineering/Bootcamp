@@ -4,3 +4,4 @@ function predictAge(){
     },0);
     return  Math.floor(Math.floor(Math.sqrt(sumOfPows))/2);
   }
+  console.log(predictAge(65,60,75,55,60,63,64,45));
