@@ -25,14 +25,16 @@ h1{
     position: relative;
     left: 80px;
    }
-.container header h2{
-color: white;
+.container header .extratext{
+color: black;
 margin: 0%;
+position: relative;
+left: 55px;
 box-sizing: border-box;
 font-family: 'Eczar', serif;
 font-weight: 100;
 font-size: 28px;
-text-align: center;
+
 }
 article{
     color: white;
