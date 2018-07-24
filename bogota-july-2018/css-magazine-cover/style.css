@@ -1,75 +1,58 @@
-@font-face{
-    font-family: "Fuente";
-    src: url(BebasNeue-Regular.ttf);
-}
-@font-face{
-    font-family: "Fuente2";
-    src: url(RomanSerif.ttf);
-}
-@import url('normalize.css');
+
+@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Eczar');
 body{
     margin: auto;
-    background: grey;
-    border: 35px solid red;
+    background:burlywood;
+    border: 30px solid #ED1C24;
     height:792px;
     width: 612px;
 }
-.cover{
-background-image:url("https://static1.squarespace.com/static/577003695016e1ce8e474997/t/58f097dac03026048d8a5923/1492162644075/Obama.jpg");
-background-size: 612px 792px;
-height: 792px;
-width: 612px;
-border: 3.5px solid black;
-margin: auto;
+h1{
+    margin:0%;
 }
-.tittle img{
-    height: 200px;   
-    width: 612px; 
+.container{
+    border: 2px solid white;
+    height:791px;
+    width: 611px; 
+    background-image:url(https://si.wsj.net/public/resources/images/RV-AE531_JOBSHO_EV_20111007152605.jpg);
+    background-size: 611px 791px;
 }
-#image{
+.container header img{
+    border: 0.5px;
     box-sizing: border-box;
-    padding: 10px;
-}
-.size{
-    box-sizing: border-box;
-    padding: 9px;
-    height: 73px;
-    width: 69px;
-}
-.div{display: inline-block;}
-.div p{margin: 0%;}
-#move2{
-position: relative;
-left:80px;
-}
-#move{
+    width: 450px;
     position: relative;
     left: 80px;
-    bottom: px;
-    color:gray;
-    font-family: Fuente;
-}
-#move3{
-    position: relative;
-    bottom: px;
-    color: gray;
-    font-family: Fuente;
-}
-#move3 .big{font-size: 45px;}
-#move3 .little{font-size: 31px;}
-#move .big{font-size: 49px;}
-#move .little{font-size: 27px;}
-.article p{
-position: relative;
-box-sizing: border-box;
-padding: 0px 10px;
-top: 160px;
+   }
+.container header h2{
+color: white;
 margin: 0%;
-text-align: right;
-font-family: Fuente2;
-font-weight: bold;
+box-sizing: border-box;
+font-family: 'Eczar', serif;
+font-weight: 100;
+font-size: 28px;
+text-align: center;
 }
-.a {font-size: 30px;}
-.c{font-size:13px;}
-.b{font-size: 12px; color: red;}
-
+article{
+    color: white;
+    font-size: 40px;
+    margin: 0%;
+    padding: 0px 20px;
+    position: relative;
+    top: 320px;
+    font-family: 'Anton', sans-serif;
+}
+footer{
+position: relative;
+top: 320px;
+padding: 0px 20px;
+}
+footer .footer{
+color: aliceblue;
+margin: 0%;
+font-size: 20px;
+}
+.footer .red{
+color: #ED1C24;
+}
