@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Sign Up Form</h1>
+    </header>
+    <form action="#" method="POST">
+        <fieldset>
+            <legend>How We should call you?</legend>
+            <label for="name">Name *</label>
+            <input type="text" id="name" required aria-required="true"/>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" />
+        </fieldset>
+        <fieldset>
+            <legend>Contact</legend>
+            <label for="email">Email *</label>
+            <input type="email" name="email" id="email" required aria-required="true" />
+            <label for="phone"> Phone Number</label>
+            <input type="number" name="number" id="number" max="4000000000" step="10" />
+        </fieldset>
+        <fieldset>
+            <legend>Gender</legend>
+            <div>
+                <input type="radio" name="gender" id="male" value="male" checked>
+                <label for="gender">Male</label>
+            </div>
+            <div>
+                <input type="radio" name="gender" id="female" value="female">
+                <label for="gender">Female</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Where are you from?</legend>
+            <div>
+                <label for="country">Country</label>
+                <select name="" id="country">
+                    <option value=""></option>
+                    <option value="colombia">Colombia</option>
+                    <option value="spain">Spain</option>
+                    <option value="germany">Germany</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <button>Sign Up</button>
+    </form>
+</body>
+</html>
