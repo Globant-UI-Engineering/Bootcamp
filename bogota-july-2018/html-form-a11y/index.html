@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ejemplo de Formulario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+<header> <h1>Formulario</h1></header>
+<form  name="Formulario de Registro" role="form">
+<fieldset>
+<legend>Información personal</legend>
+<table aria-label="Complete formulario de registro">
+<tr>
+    <td><label for="nombre">Nombre(*):</label></td>
+    <td><input type="text"  name="nombre" placeholder="Ingrese su nombre" aria-label="Ingrese nombre completo" aria-required="true" id="nombre" required></td>
+</tr>
+<tr>
+    <td><label for="email">Email(*):</label></td>
+    <td><input type="email"  name="email" placeholder="example@example.com" aria-label="Ingrese correo electronico" aria-required="true" id="email" required></td>
+</tr>
+<tr>
+    <td><label for="contraseña">Contraseña(*):</label></td>
+    <td><input type="password"  name="contraseña" placeholder="Ingrese contraseña" aria-label="Ingrese Contraseña" aria-required="true" id="contraseña" required></td>
+    </tr>
+<tr>
+<td>
+    <fieldset>
+    <legend>Tipo de genero:</legend>
+    <input type="radio" name="genero" id="hombre">
+    <label for="hombre">Hombre</label>
+    <input type="radio" name="genero" id="mujer">
+    <label for="mujer">Mujer</label>
+    <input type="radio" name="genero" id="otro">
+    <label for="otro">Otro</label>
+    </fieldset>
+</td>
+</tr>
+<tr>
+    <td><label>Fecha de nacimiento:</label></td>
+    <td>
+    <input type="number" name="day" id="day" min="1" max="31" placeholder="Día" aria-label="Ingrese el dia de nacimiento">
+    </td>
+    <td>
+    <select name="mes" id="mes" aria-label="Ingrese el mes de nacimiento">
+    <option value="" disabled="disabled" selected="selected">Mes</option>
+    <option value="12">Diciembre</option>
+    <option value="11">Noviembre</option>
+    <option value="10">Octubre</option>
+    <option value="09">Septiembre</option>
+    <option value="08">Agosto</option>
+    <option value="07">Julio</option>
+    <option value="06">Junio</option>
+    <option value="05">Mayo</option>    
+    <option value="04">Abril</option>
+    <option value="03">Marzo</option>
+    <option value="02">Febrero</option>
+    <option value="01">Enero</option>
+    </select>
+    </td>
+    <td>
+    <input type="number" name="año" id="año" min="1900" max="2018" placeholder="Año" aria-label="Ingrese el año de nacimiento">
+    </td>
+</tr>
+</table>
+</fieldset>
+
+<fieldset>
+<legend>Experiencia Laboral:</legend>
+<ul>
+              <li> <select name="nivel" id="nivel" aria-label="Seleccione nivel academico">
+                <option value="" disabled="disabled" selected="selected" aria-label="Seleccione nivel academico">Nivel academico</option>>Nivel
+                <option value="bachiller">Bachiller</option>
+                <option value="pregrado">Pregrado</option>
+                <option value="postgrado">Prost</option>
+                <option value="maestria">Maestria</option>
+        </select>      
+        </li >
+        <li>
+        <fieldset>
+         <legend>Tipo de desarrollador:</legend> 
+            <input type="checkbox" name="desarrollador" id="desarrollador1" >
+            <label for="desarrollador1">Front-End</label>
+            <input type="checkbox" name="desarrollador" id="desarrollador2">
+            <label for="desarrollador2">Back-End</label>
+            <input type="checkbox" name="desarrollador" id="desarrollador3">
+            <label for="desarrollador3">Full-Stack</label>
+        </fieldset>
+    </li>
+</ul>
+</fieldset>
+
+<footer >
+        <span>Al hacer click en registrarse, acepta los <a href="#" aria-label="Leer terminos y condiciones">terminos y condiciones</a> de nuestra empresa.</span><br>
+        <input aria-label="Click para registrarse!" type="submit" value="Registrarse">
+        <input aria-label="Click para limpiar formulario" type="reset" name="resetear" id="clean">
+</footer>
+</form>
+</body>
+</html>
