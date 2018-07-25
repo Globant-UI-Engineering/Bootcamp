@@ -36,7 +36,7 @@
                     <span style="color:red">*</span>
                 </td>
                 <td>
-                    <input id="name" type="text" name="name_field" required>
+                    <input id="name" type="text" name="name_field" style="width: 100%" required>
                 </td>
             </tr>            
             <tr>
@@ -48,7 +48,7 @@
                     <span style="color:red">*</span>
                 </td>
                 <td>
-                    <input id="last_name" type="text" name="last_name_field" required>
+                    <input id="last_name" type="text" name="last_name_field" style="width: 100%" required>
                 </td>
             </tr>            
             <tr>
@@ -120,11 +120,15 @@
             <tr>
                 <td>
                     <label for="email">Preferred email</label>:
-                    <span style="color:red">*</span>
-                    <span id="email_desc">This must be a valid email address</span>
+                    <span style="color:red">*</span>                    
                 </td>
                 <td>
                     <input id="email" type="email" name="name_field" style="width: 100%" aria-describedby="email_desc" required>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <span id="email_desc">This must be a valid email address</span>
                 </td>
             </tr>
             <tr>
