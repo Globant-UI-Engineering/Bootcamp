@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro</title>
+    <style>
+        fieldset{
+            width: 300px;
+            box-sizing: border-box;
+        }
+        fieldset fieldset{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Registro</h1>
+    </header>
+    <main>
+       
+        <form action="" method="post"> 
+            <fieldset>
+                <legend>Infomación Basica</legend>
+                <div>
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" placeholder="Ingrese su nombre" aria-label="Ingrese su nombre" required aria-required="true">                    
+                </div>               
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="user@email.com"aria-label="Ingrese su email" required aria-required="true">
+                </div>
+                <div>
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" aria-label="Ingrese su password" required aria-required="true">
+                </div>
+                <fieldset>
+                    <legend>Genero:</legend>
+                    <label for="male" id="ar-gen-m">Masculino</label>
+                    <input type="radio" id="male" value="male" name="gender" checked aria-label="Ingrese su nombre" aria-labelledby="ar-gen-m">
+                    
+                    <label for="female" id="ar-gen-f">Femenino</label>               
+                    <input type="radio" id="female" value="female" name="gender" aria-labelledby="ar-gen-f">                    
+                </fieldset>               
+            </fieldset>
+        
+            <fieldset>
+                <legend>Perfil</legend>
+                <label for="biography">Biografia:</label>
+                <textarea id="biography" name="biography" aria-label="Ingrese su autobigrafia" aria-required="true" required></textarea>
+            </fieldset>
+            <fieldset> 
+                    <legend>Intereses en la compañia:</legend>                
+                <div>
+                    <input type="checkbox" id="development" value="development"  name="interests" aria-label="Development">
+                    <label for="development">Desarrollo</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="design" value="design" name="interests" aria-label="Diseño">
+                    <label  for="design">Diseño</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="business" value="business" name="interests" aria-label="Negocios">
+                    <label for="business">Negocios</label>
+                </div>
+            </fieldset> 
+            <button type="submit">Enviar Registro</button>
+        </form>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
