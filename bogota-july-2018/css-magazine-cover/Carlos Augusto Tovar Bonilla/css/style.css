@@ -23,7 +23,7 @@ body {
     position: relative;
 }
 
-.header{
+header{
     font-family: serif;
     margin: 0;
     font-weight: lighter;
@@ -50,7 +50,7 @@ body {
 .fecha {
     font-weight: bold;
 }
-.middle {
+article {
     padding: 10px;
     font-family: sans-serif;
     font-weight: lighter;
