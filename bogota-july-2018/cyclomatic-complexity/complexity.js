@@ -1,10 +1,8 @@
-function predictAge(...ages){
-  // your code
+const predictAge = (...ages) => {
   let total = 0;
   
   for(let age of ages){
-    age *= age;
-    total += age;
+    total += (age * age);
   }
   total = Math.floor(Math.sqrt(total) / 2);
   console.log(total);
