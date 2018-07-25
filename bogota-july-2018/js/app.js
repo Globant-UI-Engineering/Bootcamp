@@ -17,6 +17,17 @@ let controller =  {
         model[modelNumber] = value ; 
     },
 
+    getModel(){
+        return model;
+    },
+
+    reset(){
+        model = {
+            number1:0,
+            number2:0
+        }
+    },
+
     getNumber(number){
        return model[number];
     },
@@ -38,7 +49,11 @@ let controller =  {
     },
 
     percentage(numb1, numb2){
-        return Math.floor((numb1 /numb2) * 100);
+        return Math.floor((numb2 /numb1) * 100);
+    },
+
+    changeSymbol(modelNumber,value){
+        model[modelNumber] = value;
     }
 }
 
@@ -68,34 +83,47 @@ let view = {
         }
     },
     renderValue(){
-        let state = false;
+        let state = true;
+        let symbol = true;
         let typeOfOperation;
+        this.display.textContent = controller.getNumber('number1');
+        let newNumber = '';
         this.container.addEventListener('click',(e) =>{
-            
             switch(e.target.textContent){
                 case '+':
                 case '-':
                 case 'x':
                 case '/':
                 case '%':
+                    state = !state;
                     typeOfOperation = e.target.textContent;
-                    break;
-                case '+/-':
+                    newNumber ="";
                     break;
                 case '=':
-                    this.display.textContent = this.currentOperation(parseInt(controller.getNumber('number1')),parseInt(controller.getNumber('number1')),typeOfOperation);
-                    console.log(this.currentOperation(parseInt(controller.getNumber('number1')),parseInt(controller.getNumber('number1')),typeOfOperation));
+                    this.display.textContent = this.currentOperation(controller.getNumber('number1'),controller.getNumber('number2'),typeOfOperation)
+                    controller.setNumber('number1',parseInt(this.display.textContent));
+                    state = !state;
                     break;
                 case 'AC':
-                    this.display.textContent = ``;
+                    controller.reset();
+                    this.display.textContent = '0';
                     break;
+                case '+/-':
+                    symbol = !symbol;
+                    symbol ? controller.changeSymbol('number1', Math.abs(parseInt(this.display.textContent))):controller.changeSymbol('number1', -Math.abs(parseInt(this.display.textContent)));
+                    this.display.textContent = controller.getNumber('number1');
+                    break;
+                break;
                 default:
-                    state = !state;
-                    state ? controller.setNumber('number1', e.target.textContent):controller.setNumber('number2', e.target.textContent);
-                    this.display.textContent += e.target.textContent;    
+                    newNumber += (e.target.textContent);
+                    state ? controller.setNumber('number1',parseInt(newNumber)):controller.setNumber('number2', parseInt(newNumber));
+                    this.display.textContent = newNumber;
                     break;
             }
+            console.log(controller.getNumber());
+            console.log(controller.getModel());
         })
+
     }
 }
 
