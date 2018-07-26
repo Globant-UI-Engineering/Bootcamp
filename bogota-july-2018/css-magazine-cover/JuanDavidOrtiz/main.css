@@ -1,0 +1,97 @@
+@font-face{
+    font-family:RollingStonesFontShadow;
+    src: url(fonts/Royalacid_o.ttf);
+}
+@font-face{
+    font-family:RollingStonesFont;
+    src: url(fonts/Royalacid.ttf);
+}
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: rgb(209, 209, 209);
+}
+#main-container{
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    background-image: url(assets/steve-jobs-short-clear.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 730px;
+    align-items: center;
+}
+h1{
+    font-family:RollingStonesFont;
+    color:rgb(224, 30, 54);
+    font-size: 7em;
+    text-shadow: 0.08em 0.08em black;
+    margin: 0;
+    height: min-content;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+}
+h2{
+    font-size: 1.8em;
+
+}
+h3{
+    font-size: 1.2em;
+}
+#main-container>h3{
+    letter-spacing: 2px;
+}
+p{
+    font-size: 1em;
+}
+h3,h2,p{
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 0.07em 0.07em black;
+    margin: 0;
+}
+h3,h2{
+    text-shadow: 0.07em 0.07em black,0.1em 0.1em black;
+}
+h3:first-child{
+margin-top: 1vh;
+margin-bottom: 0;
+}
+#main-container>div:nth-child(3){
+    width: 95%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#main-container>div:nth-child(4){
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+#main-container>div:nth-child(5){
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+aside>p,aside>h2{
+    margin: 4px;
+    text-align: end;
+}
+h2:only-child{
+    text-align: start;
+}
+p:only-child{
+    text-align: start;
+}
+h3:only-child{
+    background-color: rgb(224, 30, 54);
+    padding: 5px;
+    text-shadow: 0.07em 0.07em black;
+    margin-left: -16%;
+}
+em{
+    font-size: 0.8em;
+    font-weight: 200;
+}
