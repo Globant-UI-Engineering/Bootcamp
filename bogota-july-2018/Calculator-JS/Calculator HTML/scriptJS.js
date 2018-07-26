@@ -1,62 +1,51 @@
+var num_press = 0.0; 	//Number pressed by the user
+var opt_press = ""; 	//Arithmetic Operation pressed by the user
+var num_acum = 0.0;		//Accumulated Number
+var opt_pend = ""; 		//Arithmetic Operation pending execution
+
 /*
-
-var div_select = document.getElementById('panel1');
-
-console.log(typeof(div_select));
-
-div_select.classList.add('color_rojo');
-
+	FUNCTION: pres_num
+	ARGUMENTS: number (int)
+	RETURN: NA
 */
-/*
-var div_select = document.getElementsByClassName('color_rojo');
-
-console.log(div_select);*/
-
-var num_press = 0.0;
-var opt_press = "";
-var num_acum = 0.0;
-var opt_pend = "";
-
-function pres_num(numero)
+function pres_num(number)
 {
 	var concatenate = "";
-	
+
 	if (num_press === 0) {
-		num_press = numero;
+		num_press = number;
 	}else
 	{
-		concatenate = "" + num_press + numero;
+		concatenate = "" + num_press + number;
 		num_press = parseFloat(concatenate);
 	}
-	
+
 	console.log(num_press)
 
 	document.getElementById('result2').innerText = num_press;
 }
 
-function pres_opt(opcion)
+/*
+	FUNCTION: pres_opt
+	ARGUMENTS: option (string)
+	RETURN: NA
+*/
+function pres_opt(option)
 {
-	switch(opcion)
+	switch(option)
 	{
 		case "sum":
 
-			// document.getElementById('result1').innerText = "+";
-			// num_acum = num_acum + num_press;
-			// console.log(num_acum);
-			// document.getElementById('acum').innerText = num_acum;
-			// num_press = 0.0;
-
-			num_acum = realizar_operacion(opt_pend, num_acum, num_press);
+			num_acum = executeOperation(opt_pend, num_acum, num_press);
 			opt_pend = "sum";
 			document.getElementById('result1').innerText = "+";
 			document.getElementById('acum').innerText = num_acum;
 			num_press = 0.0;
-			
 			break;
 
 		case "res":
 
-			num_acum = realizar_operacion(opt_pend, num_acum, num_press);
+			num_acum = executeOperation(opt_pend, num_acum, num_press);
 			opt_pend = "res";
 			document.getElementById('result1').innerText = "-";
 			document.getElementById('acum').innerText = num_acum;
@@ -66,7 +55,7 @@ function pres_opt(opcion)
 
 		case "mult":
 
-			num_acum = realizar_operacion(opt_pend, num_acum, num_press);
+			num_acum = executeOperation(opt_pend, num_acum, num_press);
 			opt_pend = "mult";
 			document.getElementById('result1').innerText = "x";
 			document.getElementById('acum').innerText = num_acum;
@@ -75,7 +64,7 @@ function pres_opt(opcion)
 			break;
 		case "div":
 
-			num_acum = realizar_operacion(opt_pend, num_acum, num_press);
+			num_acum = executeOperation(opt_pend, num_acum, num_press);
 			opt_pend = "div";
 			document.getElementById('result1').innerText = "÷";
 			document.getElementById('acum').innerText = num_acum;
@@ -101,7 +90,7 @@ function pres_opt(opcion)
 			break;
 		case "eq":
 
-			num_acum = realizar_operacion(opt_pend, num_acum, num_press);
+			num_acum = executeOperation(opt_pend, num_acum, num_press);
 			opt_pend = "";
 			document.getElementById('result1').innerText = "";
 			document.getElementById('result2').innerText = "";
@@ -113,23 +102,28 @@ function pres_opt(opcion)
 	}
 }
 
-function realizar_operacion(opcion, numero_acumulado, numero_operador)
+/*
+	FUNCTION: executeOperation
+	ARGUMENTS: option (string), acum_number (float), operator_number (float)
+	RETURN: result (float)
+*/
+function executeOperation(option, acum_number, operator_number)
 {
-	switch (opcion) {
+	switch (option) {
 		case "sum":
-			return numero_acumulado + numero_operador;
+			return acum_number + operator_number;
 			break;
 		case "res":
-			return numero_acumulado - numero_operador;
+			return acum_number - operator_number;
 			break;
 		case "mult":
-			return numero_acumulado * numero_operador;
+			return acum_number * operator_number;
 			break;
 		case "div":
-			return numero_acumulado / numero_operador;
+			return acum_number / operator_number;
 			break;
 		default:
-			return numero_operador;
+			return operator_number;
 			break;
 	}
 }
