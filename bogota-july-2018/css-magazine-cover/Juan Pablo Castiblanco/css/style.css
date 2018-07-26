@@ -4,10 +4,7 @@
     width: 896px;
     height: 1094px;
     background-image: url("../img/picasso.jpg");
-    border-width: 50px;
-    border-style: solid;
-    border-color: #ffce00;
-
+    border: 50px solid #ffce00;
 }
 
 .texto{
@@ -38,9 +35,10 @@
     display: inline-block;
     width: 150px;
     font-size: 15px;
+    font-style: italic;
 }
 
-.fecha{ 
+.fecha{
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(223, 26, 26);
     font-size: 20px;
