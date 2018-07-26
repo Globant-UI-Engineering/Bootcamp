@@ -17,18 +17,15 @@ h1 {
   padding:3px;
   color: #222f3e;
   background-color:#c8d6e5;
+  margin-bottom:0px;
 }
 
-form {
-  margin-bottom:20px;
+.button-group {
+  font-size: 0;
 }
 
-.calculatorElement {
-  margin-bottom:10px;
-}
-
-.equals-button {
-  background-color: #ff6b6b;
+button {
+  width:61px;
   height:40px;
   margin: 0px;
   font-weight: 800;
@@ -36,5 +33,33 @@ form {
   border-style:solid;
   border-color: #222f3e;
   border-width: 0px;
+}
+
+button:hover {
+  cursor:pointer
+}
+
+.number-button {
+  background-color: #48dbfb;
+}
+
+.number-button:hover {
+  opacity:0.8;
+}
+
+.operation-button {
+  background-color: #1dd1a1;
+}
+
+.operation-button:hover {
+  opacity:0.8;
+}
+
+.equals-button {
+  background-color: #ff6b6b;
   width:244px;
+}
+
+.equals-button:hover {
+  opacity:0.8;
 }
