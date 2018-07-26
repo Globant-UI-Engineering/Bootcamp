@@ -70,6 +70,7 @@ let view = {
         this.clear = document.getElementById("clear");
         this.renderValue();
     },
+
     currentOperation(numb1, numb2, typeOfOperation = 0 ){
         switch(typeOfOperation){
             case '+':
@@ -86,6 +87,7 @@ let view = {
                 return 0;
         }
     },
+    
     renderValue(){
         let state = true;
         let typeOfOperation;
@@ -124,9 +126,6 @@ let view = {
                     this.display.textContent = newNumber;
                     break;
             }
-            console.log(controller.getModel());
-            console.log(state);
-            console.log(changeSymbol);
         })
     }
 }
