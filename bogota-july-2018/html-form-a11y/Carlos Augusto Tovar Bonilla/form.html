@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form WCAG AA</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Register</legend>
+            <label for="email">Email: </label> 
+                <input type="text" name="email" pattern="^[[:ascii:]]+[@][a-zA-Z]+[.][a-zA-Z]+$" title="Please insert a valid email" placeholder="example@whatever.com" required><br>
+            <label for="username">Username: </label>
+                <input type="text" name="username" placeholder="Insert your username" required><br>
+            <label for="password">Password: </label>
+                <input type="password" name="password" placeholder="Insert your password" required><br>
+        </fieldset>
+        <fieldset>
+            <legend>Personal Data</legend>
+            <label for="name">Full Name: </label> 
+                <input type="text" placeholder="Enter Full Name" required><br>
+            <label for="age">Age: </label>
+                <input type="number" name="age" pattern="^[2-9][0-9]|100$" title="You must be 20 or older" placeholder="Insert your age"><br>
+            <label for="male">Male</label>
+                <input type="radio" name="gender" id="male" value="male">
+            <label for="female">Female</label>
+                <input type="radio" name="gender" id="female" value="female"><br>
+            <label for="phone">Phone: </label> 
+                <input type="number" name="phone" pattern="^[1-9][0-9]{10}$" title="Please insert a valid phone number" placeholder="Insert your phone numer"><br>
+        </fieldset>
+        <fieldset>
+            <input type="submit"><input type="reset">
+        </fieldset>
+    </form>
+</body>
+</html>
