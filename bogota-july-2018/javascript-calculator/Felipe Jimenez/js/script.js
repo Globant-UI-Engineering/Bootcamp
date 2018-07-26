@@ -24,6 +24,7 @@ function erase(){
 function result(){
 	var board=document.getElementById('board');
 	try {
+		evaluate(board);
 		var result= eval(board.innerText);
 		if(result==undefined){
 			board.innerText=(0);
@@ -40,4 +41,12 @@ function result(){
 	catch(error) {
     board.innerText=("Syntax Error");
 	}
+}
+
+function evaluate(board){
+ var exp = new RegExp('([0-9]|/+|-|//|/*|/.)+');
+ var result= exp.test(board.innerText);
+ if(!result){
+	 board.innerText="Syntax Error";
+ }
 }
