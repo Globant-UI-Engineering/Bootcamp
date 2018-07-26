@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Form</title>
 </head>
 <body>
     <header>
@@ -14,25 +14,25 @@
         <fieldset>
             <legend>How We should call you?</legend>
             <label for="name">Name *</label>
-            <input type="text" id="name" required aria-required="true"/>
+            <input type="text" id="name" required aria-required="true" tabindex="-1" aria-describedby="Name User"/>
             <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" />
+            <input type="text" id="lastName" tabindex="-1" aria-describedby="Lastname User" />
         </fieldset>
         <fieldset>
             <legend>Contact</legend>
             <label for="email">Email *</label>
-            <input type="email" name="email" id="email" required aria-required="true" />
+            <input type="email" name="email" id="email" placeholder="aoa@example.com" required aria-required="true" tabindex="-1" aria-describedby="Email User" />
             <label for="phone"> Phone Number</label>
-            <input type="number" name="number" id="number" max="4000000000" step="10" />
+            <input type="tel" name="number" id="number"  pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="e.g. 300-298-0055" tabindex="-1" aria-describedby="Phone User" />
         </fieldset>
         <fieldset>
             <legend>Gender</legend>
             <div>
-                <input type="radio" name="gender" id="male" value="male" checked>
+                <input type="radio" name="gender" id="male" value="male" tabindex="-1" aria-describedby="Gender Male">
                 <label for="gender">Male</label>
             </div>
             <div>
-                <input type="radio" name="gender" id="female" value="female">
+                <input type="radio" name="gender" id="female" value="female" tabindex="-1" aria-describedby="Gender Female">
                 <label for="gender">Female</label>
             </div>
         </fieldset>
@@ -40,7 +40,7 @@
             <legend>Where are you from?</legend>
             <div>
                 <label for="country">Country</label>
-                <select name="" id="country">
+                <select name="" id="country" tabindex="-1" aria-describedby="Selection country">
                     <option value=""></option>
                     <option value="colombia">Colombia</option>
                     <option value="spain">Spain</option>
@@ -48,7 +48,12 @@
                 </select>
             </div>
         </fieldset>
-
+        <fieldset>
+            <legend>Terms and Conditions</legend>
+            <input type="checkbox" name="accept" id="accept" required tabindex="-1" aria-describedby="Accept Terms">
+            <label for="accept">I accept terms and conditions.*</label>
+        </fieldset>
+        <p>All fields whit * are required.</p>
         <button>Sign Up</button>
     </form>
 </body>
