@@ -40,15 +40,11 @@ body{
     left: 50%;
     font-size: 3em;
     font-weight: 100;
+    text-align: center;
     color: #201E1F;
     letter-spacing: -2px;
     line-height: 90%;
     transform:  translate(-50%,0%);
-}
-
-.National-box .National-top{
-    display: block;
-    text-align: center;
 }
 
 .Titulo{
@@ -101,11 +97,10 @@ body{
 .Cite-note .Cite-quote{
     display: block;
     letter-spacing: 1px;
-    margin: 5px;
+    margin-bottom: 5px;
 }
 
 .Cite-note .Cite-cite{
-    display: block;
     font-size: 1.1em;
     letter-spacing: 1.5px;
     font-style: normal;
