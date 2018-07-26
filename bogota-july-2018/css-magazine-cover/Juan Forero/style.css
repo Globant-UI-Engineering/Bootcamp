@@ -1,0 +1,60 @@
+
+@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Eczar');
+body{
+    margin: auto;
+    background:burlywood;
+    border: 30px solid #ED1C24;
+    height:792px;
+    width: 612px;
+}
+h1{
+    margin:0%;
+}
+.container{
+    border: 2px solid white;
+    height:791px;
+    width: 611px; 
+    background-image:url(https://si.wsj.net/public/resources/images/RV-AE531_JOBSHO_EV_20111007152605.jpg);
+    background-size: 611px 791px;
+}
+.container header img{
+    border: 0.5px;
+    box-sizing: border-box;
+    width: 450px;
+    position: relative;
+    left: 80px;
+   }
+.container header .extratext{
+color: black;
+margin: 0%;
+position: relative;
+left: 55px;
+box-sizing: border-box;
+font-family: 'Eczar', serif;
+font-weight: 100;
+font-size: 28px;
+
+}
+article{
+    color: white;
+    font-size: 40px;
+    margin: 0%;
+    padding: 0px 20px;
+    position: relative;
+    top: 320px;
+    font-family: 'Anton', sans-serif;
+}
+footer{
+position: relative;
+top: 320px;
+padding: 0px 20px;
+}
+footer .footer{
+color: aliceblue;
+margin: 0%;
+font-size: 20px;
+}
+.footer .red{
+color: #ED1C24;
+}
