@@ -1,0 +1,109 @@
+section#container{    
+    width: 558px;    
+    margin: 0 auto;
+    height: 687px;    
+    background: #c1cfcf; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #c1cfcf 53%, #295159 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #c1cfcf 53%,#295159 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #c1cfcf 53%,#295159 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1cfcf', endColorstr='#295159',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+section{
+    position: relative;   
+}
+article, aside{
+    width: 110px;
+    margin: 40px 18px;    
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+article:first-of-type p{    
+    width: 105px;
+    margin: 6px 0;
+}
+article:first-of-type p:first-child{
+   background-color: #fd9534;
+   width: 110px;
+}
+article p:first-child span{
+   font-weight: bold;
+}
+article ~ div {
+    position: absolute;
+    top: 6px;
+}
+aside{
+    position: absolute;
+    z-index: 1;
+    top: 253px;
+    right: 0;
+    width: 71px;
+}
+aside p {
+    text-align: right;
+    font-weight: bold;
+    line-height: 9px;
+}
+aside p span{
+   font-weight: normal;
+}
+aside p:nth-child(2) {
+    color: white;
+    text-shadow: 2px 2px 2px grey;
+}
+aside p:last-of-type{
+    background-color: black;
+    color:white;
+}
+aside p:last-of-type span {
+    font-weight: normal;
+    display: block;
+}
+ 
+#container section:last-of-type{
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    margin: 0 auto;
+    width: 450px;
+    z-index: 1;
+    top: 133px;
+}
+
+#container section:last-of-type h1 {    
+    font-size: 70px;
+    color:#ff9432;
+    text-shadow: 2px 2px 2px black;
+    letter-spacing: -3.9px;
+    margin-bottom: 0;
+}
+#container section:last-of-type h2 {
+    margin: 0 auto 14px;
+    font-size:36px;
+    color: white;
+    text-align: center;
+    line-height: 12px;
+    letter-spacing: -1px;
+}
+#container section:last-of-type p {
+    background-color: black;
+    color: white;
+    margin: 0 auto 3px;
+    text-align: center;
+    font-size: 12px;
+    width: 358px;
+}
+#container section:last-of-type p:last-child {
+    width: 279px;
+    font-weight: bold;
+} 
+
+footer{
+    position: relative;
+}
+footer img{
+    position: absolute;
+    right: 4px;
+    top: 60px;
+}
