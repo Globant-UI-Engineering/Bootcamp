@@ -1,4 +1,4 @@
-function predictAge(age0,age2,age3,age4,age5,age6,age7,age8){
+function predictAge(...ages){
     let solution=0;
     for (let i = 0; i <arguments.length ; i++) {
          solution += Math.pow(arguments[i],2);
