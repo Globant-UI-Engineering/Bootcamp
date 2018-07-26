@@ -1,11 +1,15 @@
 window.onload = function (){
-    document.getElementById('equal').addEventListener('click', function () {
-        var inputText = document.getElementById('inputMath').value;
-        document.getElementById('inputMath').value='';
-        document.getElementById('result').innerHTML=calculator(inputText);
-      });
+    var BtnCalc = document.getElementsByClassName('BtnCalc')
+    console.log(Array.from(BtnCalc));
+    function getValue(){
+        var value = this.value;
+        //document.getElementById('result').innerHTML(value);
+        console.log(value);
+    }
+    Array.from(BtnCalc).forEach(function(btn){
+        btn.addEventListener('click',getValue);
+    });
     function calculator(operation){
-
     var operators ={
         '+' : function(a,b){
             return a+b;
