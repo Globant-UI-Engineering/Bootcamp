@@ -1,0 +1,45 @@
+.color_rojo
+{
+	background: #548796;
+	padding-top: 2px;
+}
+
+input
+{
+	width: 100%;
+}
+
+input[type=button]
+{
+	background-color: #E8CAAB;
+	font-style: normal;
+}
+
+input[type=button]:hover
+{
+	background-color: #4D8DE8;
+	font-style: italic;
+}
+
+th
+{
+	width: 50px;
+}
+
+table
+{
+	border: 1px solid #000;
+
+}
+
+.p-acum
+{
+	height: 10px;
+	font-size: 20px;
+}
+
+.p-result
+{
+	height: 15px;
+	font-size: 12px;
+}
