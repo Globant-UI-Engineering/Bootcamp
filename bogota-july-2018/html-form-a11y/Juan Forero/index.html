@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Form Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+<header> <h1>Form</h1></header>
+<form  name="Register" role="form">
+<fieldset>
+<legend>Personal Information</legend>
+<table aria-label="Complete register form">
+<tr>
+    <td><label for="name">Name(*):</label></td>
+    <td><input type="text"  name="name" placeholder="Your name here" aria-label="Write your full-name" aria-required="true" id="name" required></td>
+</tr>
+<tr>
+    <td><label for="email">Email(*):</label></td>
+    <td><input type="email"  name="email" placeholder="example@example.com" aria-label="Write your email here" aria-required="true" id="email" required></td>
+</tr>
+<tr>
+    <td><label for="password">Password(*):</label></td>
+    <td><input type="password"  name="password" placeholder="Your password here" aria-label="Write your password here" aria-required="true" id="password" required></td>
+    </tr>
+<tr>
+<td>
+    <fieldset>
+    <legend>Type of gender</legend>
+    <input type="radio" name="gender" id="man">
+    <label for="man">Man</label>
+    <input type="radio" name="gender" id="woman">
+    <label for="woman">Woman</label>
+    <input type="radio" name="gender" id="other">
+    <label for="other">Other</label>
+    </fieldset>
+</td>
+</tr>
+<tr>
+    <td><label>BirthDay:</label></td>
+    <td>
+    <input type="number" name="day" id="day" min="1" max="31" placeholder="Day" aria-label="Select a day">
+    </td>
+    <td>
+    <select name="month" id="month" aria-label="Select a month">
+    <option value="" disabled="disabled" selected="selected">Month</option>
+    <option value="12">December</option>
+    <option value="11">November</option>
+    <option value="10">Octuber</option>
+    <option value="09">September</option>
+    <option value="08">August</option>
+    <option value="07">July</option>
+    <option value="06">June</option>
+    <option value="05">May</option>    
+    <option value="04">April</option>
+    <option value="03">March</option>
+    <option value="02">Febrary</option>
+    <option value="01">January</option>
+    </select>
+    </td>
+    <td>
+    <input type="number" name="year" id="year" min="1900" max="2018" placeholder="Year" aria-label="Select a year">
+    </td>
+</tr>
+</table>
+</fieldset>
+
+<fieldset>
+<legend>Experience:</legend>
+<ul>
+              <li> <select name="level" id="level" aria-label="Select an academic level">
+                <option value="" disabled="disabled" selected="selected" aria-label="Select an academic level">Academic level</option>>Nivel
+                <option value="high">High-School</option>
+                <option value="university">University</option>
+                <option value="magister">Magister</option>
+        </select>      
+        </li >
+        <li>
+        <fieldset>
+         <legend>Kind of developer:</legend> 
+            <input type="checkbox" name="developer" id="developer1" >
+            <label for="developer1">Front-End</label>
+            <input type="checkbox" name="developer" id="developer2">
+            <label for="developer2">Back-End</label>
+            <input type="checkbox" name="developer" id="developer3">
+            <label for="developer3">Full-Stack</label>
+        </fieldset>
+    </li>
+</ul>
+</fieldset>
+
+<footer >
+        <span>If you do click, you will accept <a href="#" aria-label="Leer terminos y condiciones">conditions and terms</a> of our company.</span><br>
+        <input aria-label="Do click to register" type="submit" name="register" value="Register">
+        <input aria-label="Do click to clear form" type="reset" name="reset" id="reset">
+</footer>
+</form>
+</body>
+</html>
