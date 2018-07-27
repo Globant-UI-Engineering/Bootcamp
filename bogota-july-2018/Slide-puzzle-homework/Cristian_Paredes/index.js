@@ -22,7 +22,7 @@ function moveElement(row, column) {
         emptySlotIndex['column'] = column;
         totalMovements++;
         document.getElementById("total-movements").innerText = totalMovements;
-        this.didUserWon() ? alert("You won!") : null;
+        this.isAWin() ? alert("You won!") : null;
     }
 }
 
@@ -38,7 +38,7 @@ function isMovable(row, column) {
     }
 }
 
-function didUserWon() {
+function isAWin() {
     let validate = true;
     for (let i = 1; i <= 15; i++) {
         if (this.totalMovements !== 0) {
