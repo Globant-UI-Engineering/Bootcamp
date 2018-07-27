@@ -63,10 +63,10 @@ function isAWin() {
 
 function scramble(){
     document.getElementById('wrapper').getElementsByTagName("button")[0].style.visibility="hidden";
-    const limit = Math.floor((Math.random() * 100) + 1);
+    const limit = Math.floor((Math.random() * 100) + 30);
     for(let i = 0; i < limit; i++){
-        const targetRow = Math.floor((Math.random() * 3));
-        const targetColumn = Math.floor((Math.random() * 3));
+        const targetRow = Math.floor((Math.random() * 4));
+        const targetColumn = Math.floor((Math.random() * 4));
         (function(){
             setTimeout(function() {
                 if (targetRow != emptySlotIndex['row'] || targetColumn != emptySlotIndex['column']){
