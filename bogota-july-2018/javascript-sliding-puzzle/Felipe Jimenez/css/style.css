@@ -1,5 +1,6 @@
 body {
   font-family: Arial;
+  color:#222f3e;
 }
 
 h1 {
@@ -47,4 +48,31 @@ button {
 button:hover {
   cursor:pointer;
   opacity:0.7;
+}
+
+.instructions-text {
+  width:410px;
+  text-align: justify;
+  font-size: 18px;
+}
+
+.state-text {
+  font-size: 21px;
+  color: #ee5253;
+}
+
+.success-text {
+  font-size: 21px;
+  color: #10ac84;
+}
+
+.moves-text {
+  font-size: 21px;
+}
+
+.moves-count {
+  font-size: 21px;
+  position:fixed;
+  bottom:10px;
+  right:25px;
 }
