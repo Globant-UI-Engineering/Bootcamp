@@ -1,0 +1,36 @@
+body {
+  font-family: Arial;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 38px;
+  color:#222f3e;
+  margin-top:20px;
+}
+
+#board {
+  width:238px;
+  height:34px;
+  font-size: 25px;
+  text-align: right;
+  padding:3px;
+  color: #222f3e;
+  background-color:#c8d6e5;
+  margin-bottom:0px;
+}
+
+.button-group {
+  font-size: 0;
+}
+
+button {
+  width:61px;
+  height:40px;
+  margin: 0px;
+  font-weight: 800;
+  color: #222f3e;
+  border-style:solid;
+  border-color: #222f3e;
+  border-width: 0px;
+}
