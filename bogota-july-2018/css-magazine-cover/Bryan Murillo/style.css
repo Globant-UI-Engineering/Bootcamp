@@ -1,0 +1,63 @@
+.cover {
+    box-sizing: border-box;
+    background-image: url(image.jpg);
+    height: 617px;
+    width: 438px;
+    padding: 9px;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 56px;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    color: 	#B4945B;
+    font-family: monospace;
+    font-size: 110px;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    color: #FFFEFD;
+    font-family: "Tw Cen MT", monospace;
+    font-size: 50px;
+}
+
+p {
+    font-family: "Tw Cen MT", sans-serif;
+    line-height: 0.8;
+    color: #FFFEFD;
+    
+}
+
+span {
+    color: #EC932F;
+}
+
+aside {
+    width: 115px;
+    margin: 0;
+    padding: 0;
+}
+
+.tom {
+    color: #EC932F;
+    font-family: "Tw Cen MT", monospace;
+    font-style: normal;
+    font-size: 60px;
+}
+
+.gray {
+    color: #3C3C44;
+}
+
+.sub {
+    box-sizing: border-box;
+    text-align: center;
+    width: 115px;
+    margin-right: 36px;
+    float: right;
+}
