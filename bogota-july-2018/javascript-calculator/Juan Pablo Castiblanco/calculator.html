@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Calculator </title>
+</head>
+
+<body>
+  <script>
+    var num1 = 2;
+    var num2 = 8;
+
+    // Operator could be "+", "-", "*", "/"
+    var operator = "-";
+
+    function calculate(a, b, operator) {
+      var operation = a + operator + b;
+      var regExpression = /[0-9]+(\+|-|\/|\*)[0-9]+/;
+      if(operation.match(regExpression)){
+        console.log(eval(a + operator + b));
+      }
+    }
+
+    calculate(num1, num2, operator);
+  </script>
+
+</body>
+
+</html>
