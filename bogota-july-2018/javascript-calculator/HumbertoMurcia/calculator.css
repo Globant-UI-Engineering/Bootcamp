@@ -1,0 +1,22 @@
+.grey{
+    color:white;
+    width: 80px;
+    height: 40;
+    background-color: dimgray;
+}
+
+.equal{
+    color:white;
+    width: 160px;
+    height: 40;
+    background-color: rgb(45, 129, 224);
+}
+
+#screen{
+    color:black;
+    width: 320px;
+    height: 50;
+    background-color: rgb(183, 219, 183);
+    text-align: right;
+    font-size: 40px;
+}
