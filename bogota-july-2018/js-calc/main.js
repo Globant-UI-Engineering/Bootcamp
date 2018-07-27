@@ -1,10 +1,11 @@
 window.onload = function (){
     var BtnCalc = document.getElementsByClassName('BtnCalc')
+    var inputData =[];
     console.log(Array.from(BtnCalc));
     function getValue(){
-        var value = this.value;
-        document.getElementById('result').innerHTML=value;
-        console.log(value);
+        inputData.push(this.value);
+        document.getElementById('inputMath').value=inputData.toString().replace(/,/g,"");
+        console.log(inputData);
     }
     Array.from(BtnCalc).forEach(function(btn){
         btn.addEventListener('click',getValue);
