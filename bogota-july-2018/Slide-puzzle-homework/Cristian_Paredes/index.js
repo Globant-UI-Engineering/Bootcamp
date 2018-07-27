@@ -28,10 +28,8 @@ function moveElement(row, column) {
 
 function isMovable(row, column) {
     if ((row === emptySlotIndex['row'] && Number(column) + 1 == emptySlotIndex['column']) ||
-        (row === emptySlotIndex['row'] && Number(column) - 1 == emptySlotIndex['column'])) {
-        return true;
-    }
-    else if ((column === emptySlotIndex['column'] && Number(row) + 1 == emptySlotIndex['row']) ||
+        (row === emptySlotIndex['row'] && Number(column) - 1 == emptySlotIndex['column']) ||
+        (column === emptySlotIndex['column'] && Number(row) + 1 == emptySlotIndex['row']) ||
         (column === emptySlotIndex['column'] && Number(row) - 1 == emptySlotIndex['row'])) {
         return true;
     }
