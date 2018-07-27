@@ -22,20 +22,20 @@ header.main-header {
     color: #fff;
 }
 
-.main-header p:first-of-type {
+.main-header > p {
     margin-bottom: 0;
 }
 
-.main-header h1 {
+.main-header > h1 > span:first-of-type{
     font-size: 130px;
     margin: 0;
 }
 
-.main-header p:last-of-type {
+.main-header > h1 > span:last-of-type {
+    display: block;
     margin-top: 0px;
-    margin-bottom: 40px;
     padding-right: 10px;
-    width: calc(100% - 10px);
+    min-width: 100%;
     font-size: 28px;
     line-height: 0;
     text-align: right;
@@ -55,38 +55,46 @@ article.container-2:first-child {
     justify-content: space-between;
 }
 
-.left-container > .item-1 h2 {
+.left-container > .item-1 {
+    margin-bottom: 10px;
+}
+
+.left-container > .item-1 > h2 {
     margin: 0;
 }
 
-.left-container > .item-1 h2 strong:first-child {
+.left-container > .item-1 h2 > strong:first-child {
     font-size: 36px;
     font-weight: 700;
     letter-spacing: 5px;
 }
 
-.left-container > .item-1 h2 strong:last-child {
+.left-container > .item-1 h2 > strong:last-child {
     font-size: 25px;
     font-weight: 700;
     letter-spacing: 3px;
     
 }
 
-.left-container > .item-1 h2 p {
+.left-container > .item-1 h2 > p {
+    margin: 0;
+}
+
+.left-container > .item-1 h2 > p:first-of-type {
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 1px;
     line-height: 18px;
-    margin: 0;
 }
 
-.left-container > .item-1 > i {
+.left-container > .item-1 > h2 > p:last-of-type {
     font-weight: 700;
+    font-size: 18px;
+    font-style: italic;
 }
 
-.left-container > .item-1 > i > span{
+.left-container > .item-1 > h2 > p:last-of-type > span{
     font-weight: 300;
-    font-size: 18px;
     text-transform: initial;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -95,13 +103,13 @@ article.container-2:first-child {
     margin: 0;
 }
 
-.left-container > .item-2 > h2 > strong:first-child {
+.left-container > .item-2 > h2 > strong:first-of-type {
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 3px;
 }
 
-.left-container > .item-2 > h2 > strong:nth-child(3) {
+.left-container > .item-2 > h2 > strong:last-of-type {
     font-size: 30px;
     font-weight: 400;
     letter-spacing: 3px;
@@ -123,10 +131,11 @@ article.container-2:first-child {
     letter-spacing: 1px;
 }
 
-.left-container > .item-2 > p {
-    margin: 0;
+.left-container > .item-2 > h4 {
+    margin: 3px;
     font-size: 13px;
     font-style: italic;
+    font-weight: normal;
     text-transform: initial;
     font-family: 'Times New Roman', Times, serif;
     
@@ -201,20 +210,21 @@ article.container-2:last-child > section > h3 {
     margin: 0; 
 }
 
-article.container-2:last-child > section > p {
+article.container-2:last-child > section > h4 {
     margin: 0;
+    min-height: 70px;
 }
 
-article.container-2:last-child > section > p:first-of-type {
+article.container-2:last-child > section > h4 > span:first-of-type {
     font-size: 36px;
     font-weight: normal;
     letter-spacing: 2px;  
 }
-article.container-2:last-child > section > p:nth-of-type(2) {
+article.container-2:last-child > section > h4 > span:last-of-type {
+    float: right;
     font-size: 24px;
     font-weight: normal;
-    letter-spacing: 2px;  
-    text-align: right;
+    letter-spacing: 2px; 
 }
 
 article.container-2:last-child > section > p:last-of-type {
