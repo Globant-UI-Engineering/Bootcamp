@@ -3,7 +3,7 @@ window.onload = function (){
     console.log(Array.from(BtnCalc));
     function getValue(){
         var value = this.value;
-        //document.getElementById('result').innerHTML(value);
+        document.getElementById('result').innerHTML=value;
         console.log(value);
     }
     Array.from(BtnCalc).forEach(function(btn){
