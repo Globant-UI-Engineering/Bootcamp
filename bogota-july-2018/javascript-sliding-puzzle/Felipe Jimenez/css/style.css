@@ -36,8 +36,15 @@ button {
   width:96px;
   height:96px;
   font-weight: 800;
+  font-size:30px;
   color: #222f3e;
-  border-style:solid;
-  border-color: #222f3e;
-  border-width: 2px;
+  background-color: #0abde3;
+  border-width: 0px;
+  padding:0px;
+  position:absolute;
+}
+
+button:hover {
+  cursor:pointer;
+  opacity:0.7;
 }
