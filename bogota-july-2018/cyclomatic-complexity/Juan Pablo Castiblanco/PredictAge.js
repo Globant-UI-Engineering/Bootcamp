@@ -1,27 +1,13 @@
 function predictAge(age1,age2,age3,age4,age5,age6,age7,age8){
-  for( let i = 0; i < arguments.length; i++){
-    arguments[i] = multiplyBySelf(arguments[i]);
-  }
+  //Added copy of arguments for security and manipulation
+  const ages = Array.apply(null, arguments);
   
-  let totalSum = sumAges(age1,age2,age3,age4,age5,age6,age7,age8);
-  let sqrRoot = squareRoot(totalSum);
-  let finalResult = divideByTwo(sqrRoot);
-  
-  return Math.floor(finalResult);
-}
+  const multipliedAges = ages.map(age => age * age);
 
-function multiplyBySelf(number){
-  return number * number;
-}
+  //const totalSum = multipliedAges.reduce((sum,number) => sum + number, 0);
+  const totalSum = multipliedAges[0] + multipliedAges[1] + multipliedAges[2] + multipliedAges[3] + multipliedAges[4] + multipliedAges[5] + multipliedAges[6] + multipliedAges[7];
 
-function sumAges(age1,age2,age3,age4,age5,age6,age7,age8){
-  return age1 + age2 + age3 + age4 + age5 + age6 + age7 + age8;
-}
-
-function squareRoot(number){
-  return Math.sqrt(number);
-}
-
-function divideByTwo(number){
-  return number / 2;
+  const sqrRoot = Math.sqrt(totalSum);
+  const finalResult = Math.floor(sqrRoot/2);
+  return finalResult;
 }
