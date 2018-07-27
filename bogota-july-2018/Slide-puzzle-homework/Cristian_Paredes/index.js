@@ -27,7 +27,7 @@ function moveElement(row, column) {
     element.innerHTML = "";
     emptySlotIndex['row'] = row;
     emptySlotIndex['column'] = column;
-    if(this.isAWin){
+    if(this.isAWin()){
         alert("You won!");
         document.getElementById('wrapper').getElementsByTagName("button")[0].style.visibility="visible";
         document.getElementById('wrapper').getElementsByTagName("button")[0].innerText="Restart!";
