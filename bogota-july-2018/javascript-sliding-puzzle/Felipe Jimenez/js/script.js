@@ -54,10 +54,20 @@ function fillBoard(){
 }
 
 function isFinished(){
-	//contenido
+	if (globalPieces[0]!=0){
+		return false;
+	}
+	for(var i=1; i<16; i++){
+		if(globalPieces[i].innerText!=globalPieces[i].parentElement.getAttribute('id').substring(6)){
+			return false;
+		}
+	}
+	return true;
 }
 
 function move(piece){
+	var stateText = document.getElementById('state-text');
+	var stateMovesText = document.getElementById('state-moves-text');
 	var movesCounter = document.getElementById('moves-counter');
 	var selectedField = piece.parentElement;
 	var selectedFieldIndex = selectedField.getAttribute('id').substring(6);
@@ -72,7 +82,10 @@ function move(piece){
 		globalPieces[emptyFieldIndex]=piece;
 		emptyField.appendChild(piece);
 		if(isFinished()){
-			//actualizarMensaje
+			stateMovesText.innerText=("In "+moves+" moves");
+			stateText.innerText=("Finished");
+			stateText.className=("success-text");
+			globalMovements.set('0', []);
 		}
 	}
 }
