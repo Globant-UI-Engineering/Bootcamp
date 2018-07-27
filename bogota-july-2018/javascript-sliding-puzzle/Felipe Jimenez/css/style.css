@@ -4,33 +4,40 @@ body {
 
 h1 {
   font-weight: 600;
-  font-size: 38px;
+  font-size: 50px;
   color:#222f3e;
   margin-top:20px;
 }
 
-#board {
-  width:238px;
-  height:34px;
-  font-size: 25px;
-  text-align: right;
-  padding:3px;
-  color: #222f3e;
+.board {
+  width:400px;
+  height:400px;
   background-color:#c8d6e5;
-  margin-bottom:0px;
-}
-
-.button-group {
+  border-style:solid;
+  border-color: #222f3e;
+  border-width: 5px;
   font-size: 0;
 }
 
+#field-0{
+  background-color: #10ac84;
+}
+
+.button-field {
+  width:96px;
+  height:96px;
+  border-style:solid;
+  border-color: #222f3e;
+  border-width: 2px;
+  display:inline-block;
+}
+
 button {
-  width:61px;
-  height:40px;
-  margin: 0px;
+  width:96px;
+  height:96px;
   font-weight: 800;
   color: #222f3e;
   border-style:solid;
   border-color: #222f3e;
-  border-width: 0px;
+  border-width: 2px;
 }
