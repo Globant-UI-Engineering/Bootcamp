@@ -1,5 +1,5 @@
 (function(){
-
+  //Have all the kinds of game (2x2, 3x3, 4x4, 5x5)
   var kindsOfGames ={
     "2x2": {
       intSize: 3,
@@ -31,6 +31,7 @@
     }
   }
 
+  //Create every item for each kind
   function insertItemsToKind(){
     var items = [];
     var item = {};
@@ -62,6 +63,7 @@
     }
   }
 
+  //Insert items in html like div Node
   function insertItemsToHTML(kind){
 
     var kind = kindsOfGames[kind];
@@ -85,6 +87,7 @@
     }
   }
 
+  //Function to move item around the board when is clicked
   function itemClick(event){
     var item = event.target;
     var numberItem = item.innerHTML;
@@ -113,6 +116,7 @@
 
   }
 
+  //Function to verify is item can move
   function isItemMovable (numberItem, activeKind){
 
     var allPosiblesMovesInBoard = extractPosibleMovesInBoard(activeKind);
@@ -130,8 +134,9 @@
 
   }
 
+  //Function to extract the moves around the board in sequence to item
   function extractPosibleMovesInBoard(activeKind){
-    //var activeKind = kindsOfGames[document.querySelector(".kindsOfGames").value];
+
     var posibleMovesInBoard = [];
     var tuple = [];
     var position = 1;
@@ -167,6 +172,7 @@
 
   }
 
+  //Delete all the childs nodes in board
   function deleteItemsToHTML(){
     var parentBoard = document.querySelector(".puzzle");
 
@@ -175,6 +181,8 @@
     }
   }
 
+
+  //Function when kind changes
   function changeKind(){
     var kind = document.querySelector(".kind-of-game").value;
     deleteItemsToHTML();
@@ -182,6 +190,7 @@
     insertItemsToHTML(kind);
   }
 
+  //function to Restart game
   function restartGame(){
     console.log("Hola");
     var activeKind = document.querySelector(".kind-of-game").value;
@@ -191,6 +200,7 @@
     insertItemsToHTML(activeKind);
   }
 
+  //Function to solve game
   function solveGame(){
     var activeKind = document.querySelector(".kind-of-game").value;
     insertItemsToKind();
@@ -198,6 +208,7 @@
     insertItemsToHTML(activeKind);
   }
 
+  //Items in random positions
   function randomPositionItems(kind){
 
     var activeKind = kindsOfGames[kind];
@@ -233,6 +244,7 @@
 
   }
 
+  //Load the game
   insertItemsToKind();
   randomPositionItems("2x2");
   insertItemsToHTML("2x2");
