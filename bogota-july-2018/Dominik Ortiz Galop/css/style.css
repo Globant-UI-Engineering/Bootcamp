@@ -2,8 +2,10 @@
 *
 *   Slibling Puzzle Colors
 *   
-*       
-*   
+*   Button         : #7ec9f1
+*   container      : #2d3e4f
+*   Solve          : #3a99d9
+*   Shuffle        : #e54d42      
 *
 *************************************************/
 
@@ -18,4 +20,72 @@
 body {
   font-family: "Rubik", sans-serif;
   font-size: 16px;
+}
+
+header,
+footer {
+  margin: 0;
+  text-align: center;
+}
+
+/*-----------------------------------------------
+*  Container Style 
+-----------------------------------------------*/
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  width: 720px;
+  justify-content: space-between;
+}
+
+/*-----------------------------------------------
+*  Wrapper Style & 
+-----------------------------------------------*/
+
+.container > div > button {
+  background-color: white;
+  border: none;
+  border-left-style: solid;
+  border-left-color: black;
+  font-size: 2em;
+  margin-top: 15px;
+}
+.container > div > button:first-child {
+  color: #3a99d9;
+}
+
+.container > div > button:last-child {
+  color: #e54d42;
+}
+
+.container > h2 {
+  font-size: 2em;
+  margin-top: 15px;
+}
+
+/*-----------------------------------------------
+*  Btn style
+-----------------------------------------------*/
+
+.btn__wrapper {
+  align-content: center;
+  background-color: #2d3e4f;
+  border-radius: 15px;
+  display: flex;
+  flex-flow: column wrap;
+  height: 80vh;
+  justify-content: center;
+  margin: 0 auto;
+  width: 720px;
+}
+
+.btn__wrapper .btn {
+  font-size: 2em;
+  background-color: #7ec9f1;
+  margin: 1%;
+  width: 17%;
+  height: 17%;
+  border: none;
+  border-radius: 15px;
 }
