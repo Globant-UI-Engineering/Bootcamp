@@ -11,53 +11,63 @@
 
 <div id='calc-contain'>
     <div class="row">
-          <input type="number" id="screen" value=0>
+          <input id="screen">
     </div>
     <div class="row">
-        <button class="btn_grey">AC</button>
-        <button class="btn_grey">C</button>
-        <button class="btn_grey">%</button>
-        <button class="btn_grey">/</button>
+        <button class="btn_grey"  onclick="clearValues()" >AC</button>
+        <button class="btn_grey"  onclick="clearValues()">C</button>
+        <button class="btn_grey" >%</button>
+        <button class="btn_grey" onclick=" insertValue('/')">/</button>
     </div>
     <div class="row">
-        <button class="btn_grey">7</button>
-        <button class="btn_grey">8</button>
-        <button class="btn_grey">9</button>
-        <button class="btn_grey">x</button>
+        <button class="btn_grey" onclick=" insertValue('7')">7</button>
+        <button class="btn_grey" onclick=" insertValue('8')">8</button>
+        <button class="btn_grey" onclick=" insertValue('9')">9</button>
+        <button class="btn_grey" onclick=" insertValue('x')">x</button>
     </div>
     <div class="row">
-        <button class="btn_grey">4</button>
-        <button class="btn_grey">5</button>
-        <button class="btn_grey">6</button>
-        <button class="btn_grey">-</button>
+            <button class="btn_grey" onclick=" insertValue('4')">4</button>
+            <button class="btn_grey" onclick=" insertValue('5')">5</button>
+            <button class="btn_grey" onclick=" insertValue('6')">6</button>
+            <button class="btn_grey" onclick=" insertValue('-')">-</button>
     </div>
     <div class="row">
-            <button class="btn_grey">4</button>
-            <button class="btn_grey">5</button>
-            <button class="btn_grey">6</button>
-            <button class="btn_grey">-</button>
+            <button class="btn_grey" onclick="insertValue('1')">1</button>
+            <button class="btn_grey" onclick=" insertValue('2')">2</button>
+            <button class="btn_grey" onclick=" insertValue('3')">3</button>
+            <button class="btn_grey" onclick=" insertValue('+')">+</button> 
     </div>
     <div class="row">
-            <button class="btn_grey">1</button>
-            <button class="btn_grey">2</button>
-            <button class="btn_grey">3</button>
-            <button class="btn_grey">+</button> 
-    </div>
-    <div class="row">
-            <button class="btn_grey">0</button>
-            <button class="btn_grey">.</button>
-            <button class="equal">=</button><br> 
+            <button class="btn_grey" onclick=" insertValue('0')">0</button>
+            <button class="btn_grey" onclick=" insertValue('.')">.</button>
+            <button class="equal" onclick="calculateOperation()">=</button><br> 
     </div>
 </div>
 
-<p id="demo"></p>
+<script type="text/javascript">
+var total="";
 
 
-<script>
-    var a = 1;
-    var b = 5;
-    var c = a+b;
-    document.getElementById("demo").innerHTML = c;
+ function calculateOperation(){
+     alert(total);
+ }
+
+ function insertValue(number){
+   var a = document.getElementById("screen")
+    a.value+=number;
+    if(isNaN(number) && number!="."){
+        total=total+","+number+",";
+    }
+    else{
+        total=total+number;
+    }
+ }
+
+function clearValues(){
+   var a = document.getElementById("screen")
+    a.value="";
+ }
+
  </script> 
 
 </body>

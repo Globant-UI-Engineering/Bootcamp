@@ -1,18 +1,19 @@
 .btn_grey{
-    color:white;
+    color:black;
     width: 80px;
     height: 40;
     background-color: rgb(17, 240, 17);
     border-radius: 7px;
     margin-left: 13px;
     margin-top: 10px;
+    font-weight: bold;
 }
 
 .equal{
     color:white;
     width: 180px;
     height: 40;
-    background-color: rgb(45, 129, 224);
+    background-color: rgb(255, 126, 0);
     margin-left: 13px;
     border-radius: 7px;
     margin-top: 10px;
@@ -30,7 +31,8 @@
     width: 90%;
     margin: 5px auto;
     padding: 10px;
-    box-shadow: 4px 0px 12px black inset;
+    box-shadow: 4px 0px 12px grey inset;
+    font-family:'Consolas';
 }
 
 .case{
