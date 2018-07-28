@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -18,12 +19,22 @@
     <main>
         <div class="btn__wrapper container" id="container"></div>
         <div class="container">
-            <div>
+            <div class="options">
                 <button>Shuffle</button>
                 <button>Solve</button>
+                <fieldset>
+                    <label for="matrix-select"></label>
+                    <select name="matrix-select" id="matrix-select">
+                        <option value="" disabled selected>Choose a Grid</option>
+                        <option value="3">3x3</option>
+                        <option value="4">4x4</option>
+                        <option value="5">5x5</option>
+                        <option value="6">6x6</option>
+                        <option value="7">7x7</option>
+                    </select>
+                </fieldset>
             </div>
-            <h2>Score: </h2>
-
+            <h2 id="score">Moves: </h2>
         </div>
     </main>
     <footer>

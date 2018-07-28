@@ -5,7 +5,8 @@
 *   Button         : #7ec9f1
 *   container      : #2d3e4f
 *   Solve          : #3a99d9
-*   Shuffle        : #e54d42      
+*   Shuffle        : #e54d42 
+*   Background     : #c5d1Eb     
 *
 *************************************************/
 
@@ -20,6 +21,7 @@
 body {
   font-family: "Rubik", sans-serif;
   font-size: 16px;
+  background-color: #c5d1eb;
 }
 
 header,
@@ -40,17 +42,18 @@ footer {
 }
 
 /*-----------------------------------------------
-*  Wrapper Style & 
+*  Wrapper Style  
 -----------------------------------------------*/
 
 .container > div > button {
-  background-color: white;
+  background-color: #c5d1eb;
   border: none;
   border-left-style: solid;
   border-left-color: black;
   font-size: 2em;
   margin-top: 15px;
 }
+
 .container > div > button:first-child {
   color: #3a99d9;
 }
@@ -65,6 +68,31 @@ footer {
 }
 
 /*-----------------------------------------------
+*  Options  Style 
+-----------------------------------------------*/
+
+.options {
+  width: 80%;
+}
+
+fieldset,
+label,
+select {
+  background-color: #c5d1eb;
+  font-size: 1.2em;
+  display: inline;
+  margin: 0;
+  border: none;
+  padding: 0px;
+  padding-top: 5px;
+}
+
+select {
+  border-left-style: solid;
+  border-left-color: black;
+}
+
+/*-----------------------------------------------
 *  Btn style
 -----------------------------------------------*/
 
@@ -73,7 +101,7 @@ footer {
   background-color: #2d3e4f;
   border-radius: 15px;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   height: 80vh;
   justify-content: center;
   margin: 0 auto;
