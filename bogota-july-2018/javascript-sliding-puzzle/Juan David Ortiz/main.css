@@ -3,3 +3,19 @@ body{
     padding: 0;
     border: 0;
 }
+#puzzle-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,1fr) ;
+    width: 40vw;
+    height: 40vw;
+    gap: 5px;
+}
+#puzzle-container div{
+    text-align: center;
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px 5px;
+}
