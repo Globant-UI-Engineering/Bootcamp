@@ -5,29 +5,32 @@ border: 0;
 }
 #main-container{
     display: flex;
+    width: 100vw;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
 
 }
 #calc-container{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(7,1fr);
+    grid-template-rows: repeat(6,1fr);
     gap: 5px 5px;
+    border: solid black 0.5em;
+    padding: 1em;
+    border-radius:10%;
 }
 #calc-container>input{
     grid-column: 1/5;
     grid-row:1/2;
 }
-#calc-container>p{
-    grid-column: 1/5;
+#calc-container>button:nth-child(2){
+    grid-column: 1/3;
     grid-row:2/3;
 }
-#calc-container>button:nth-child(3){
-    grid-column: 1/3;
-    grid-row:3/4;
-}
-#calc-container>button:nth-child(17){
+#calc-container>button:nth-child(16){
     grid-column: 4/5;
-    grid-row: 6/8;
+    grid-row: 5/7;
 }
 .BtnCalc{
     box-shadow: 0;

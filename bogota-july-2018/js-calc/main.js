@@ -2,6 +2,7 @@ window.onload = function (){
     var BtnCalc = document.getElementsByClassName('BtnCalc')
     var inputData =[];
     var indexOfOperator;
+    var keyOperatorAllowed = true;
     function buttonHandler(){
         var keyPressed = getValue(this);
 
@@ -11,27 +12,37 @@ window.onload = function (){
                 clearInputData();
                 inputData.push(result);
                 printInputData(inputData);
+                keyOperatorAllowed = true;
 
             },
             'clc': function(){
                 clearInputData();
                 printInputData("");
+                keyOperatorAllowed = true;
             },
             'x': function(){
+                if(keyOperatorAllowed){
                 indexOfOperator=inputData.length;
-                printInputData(keyPressed);
+                printInputData(keyPressed);};
+                keyOperatorAllowed = false;
             },
             '/': function(){
+                if(keyOperatorAllowed){
                 indexOfOperator=inputData.length;
-                printInputData(keyPressed);
+                printInputData(keyPressed);};
+                keyOperatorAllowed = false;
             },
             '-': function(){
+                if(keyOperatorAllowed){
                 indexOfOperator=inputData.length;
-                printInputData(keyPressed);
+                printInputData(keyPressed);};
+                keyOperatorAllowed = false;
             },
             '+': function(){
+                if(keyOperatorAllowed){
                 indexOfOperator=inputData.length;
-                printInputData(keyPressed);
+                printInputData(keyPressed);};
+                keyOperatorAllowed = false;
             },
         }
         if(controlOperator[keyPressed]){
