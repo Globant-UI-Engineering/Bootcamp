@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+body {
+    background: #1C1811;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.main {
+    display: flex;
+    flex-flow: row;
+    display: -webkit-flex;
+    -webkit-flex-flow: row;
+}
+
+section {
+    width: 50%;
+    float: left;
+    /* box-sizing: border-box; */
+}
+
+.left-side {
+    background: url('./img/img1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+article {
+    font-family: 'Abel', sans-serif;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.left-side>article {
+    width: 50%;
+    margin: 20px;
+    margin-top: 15em;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    color: #E69C32;
+    text-transform: uppercase;
+}
+
+.left-side header h1 {
+    font-size: 70px;
+}
+
+.right-side header h1 {
+    letter-spacing: 10px;
+}
+
+header>p {
+    font-style: italic;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-top: 20%;
+}
+
+hr {
+    border: 0.5px dashed #848484;
+    width: 80%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.float {
+    background: #1C1811;
+    border-left: 3px solid #E69C32;
+    position: fixed;
+    width: 18%;
+    left: 32%;
+    z-index: 1;
+}
+
+h3 {
+    margin: 0;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.flex {
+    display: inline-flex;
+}
+
+.flex>article {
+    width: 50%;
+    margin: 10px;
+}
+
+figure {
+    float: left;
+    margin: 0 1em 0 0;
+}
+
+figure img {
+    width: 200px;
+}
+
+.flex article:nth-child(2) figure {
+    float: right;
+    margin: 0 0 0 1em;
+}
+
+p {
+    margin: 0;
+}
+
+h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 20px;
+}

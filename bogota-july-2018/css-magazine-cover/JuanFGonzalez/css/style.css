@@ -1,25 +1,29 @@
-
 body{
-	background-image: url(../img/model.jpg);
-	background-size: 58% 100%;
-	background-repeat: no-repeat;
-	width: 767px;
+	margin: 0;
+    padding: 0;
+    border: 0;
 }
-
+#container{
+	background-image: url(../img/model.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+	width: 750px;
+	overflow: overlay;
+}
 hr.separator{
   border-top: 4px double #90508C;
-  margin: 0;
 }
-section{
-	margin: 210px 40px 50px;
+section#article{
+	margin: 50px 40px 50px;
+	
 }
-footer{
+section#footer{
 	margin: 50px 30px 10px;
 }
 h1{
-	font-family: 'Roboto', 'Trebuchet MS', sans-serif;
+	font-family: "Forbes Bold";
 	color: #012E69;
-	font-size: 170px;
+	font-size: 160px;
 	margin: 0;
 	text-align:center;
 }
@@ -37,13 +41,12 @@ h3.top{
 	margin-top:10px;
 	margin-bottom:0px;
 	padding-top:10px;
-	padding-left:12px;
+	padding-left:15px;
 	color: white;
 	text-shadow: 2px 2px #2E2E2E;
-	font-size: 1.3em;
 }
 h3,h2,p{
-	font-family: 'Lucida Sans', 'Helvetica', sans-serif;
+	font-family: "Lucida Sans Regular", "Helvetica", sans-serif;
 	text-transform: uppercase;
 	color: black;
 	margin: 0;

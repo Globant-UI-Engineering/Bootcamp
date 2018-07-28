@@ -1,0 +1,63 @@
+<form>
+    <h1>FORM</h1>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="textfield"  placeholder="Name" title="Enter your name" required></br>
+
+    <label for="address">Address</label><br />
+    <textarea id="address" name="addresstext"></textarea><br />
+
+    <fieldset>
+    <legend>Gender</legend>
+    <input id="female" type="radio" name="gender" value="female" checked/>
+    <label for="female">Female</label><br />
+    <input id="male" type="radio" name="gender" value="male" />
+    <label for="male">Male</label><br />
+    </fieldset>
+
+    <label for="age">Age</label>
+    <input type="number" id="age" name="textfield" placeholder="Age" title="Enter your age"></br>
+
+    <label for="city">City</label>
+    <select id="city" name="city">
+    <optgroup label="South America">
+        <option value="10">Bogota</option>
+        <option value="11">Buenos Aires</option>
+        <option value="12">Sao Paulo</option>
+    </optgroup>
+            
+    <optgroup label="Asia">
+      <option value="1">Delhi</option>
+      <option value="2">Hong Kong</option>
+      <option value="3">Mumbai</option>
+      <option value="4">Tokyo</option>
+    </optgroup>
+    <optgroup label="Europe">
+      <option value="5">Amsterdam</option>
+      <option value="6">London</option>
+      <option value="7">Moscow</option>
+    </optgroup>
+    <optgroup label="North America">
+      <option value="8">Los Angeles</option>
+      <option value="9">New York</option>
+    </optgroup>
+    </select>
+    <div class="select__arrow"></div>
+    
+
+    <label for="email">E-mail</label>
+    <input type="email" id="email" name="textfield" placeholder="Email" title="Enter your Email" required></br>
+
+    <label for="cellphone">Cellphone</label>
+    <input type="cellphone" id="cellphone" name="textfield" placeholder="Cellphone" title="Enter your cellphone" required></br>
+
+    <fieldset>
+        <legend>Select your hobbies:</legend>
+        <input id="swim" type="checkbox" name="hobbies" value="swim" />
+        <label for="swim">Jamón</label><br />
+        <input id="basketball" type="checkbox" name="hobbies" value="basketball" />
+        <label for="basketball">Basketball</label><br />
+        <input id="run" type="checkbox" name="hobbies" value="run" />
+        <label for="run">Run</label><br />
+    </fieldset>
+    <input type="submit" name="submit" value="Send" />
+  </form>
