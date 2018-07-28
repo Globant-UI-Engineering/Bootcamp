@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML a11y form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1> A11Y form example</h1>
+    <div class="errors" role="alert" aria-relevant="all">
+        <ul>
+
+        </ul>
+    </div>
+    <p>Fields marked with an asterisk (*) are required.</p>
+    <form>
+        <fieldset>
+            <legend>Contact information</legend>
+                <div>
+                    <label for="name">Enter your name*:</label>
+                    <input type="text" name="name" id="name" aria-required="true">
+                </div>
+                <div>
+                    <label for="email">Enter your email*</label>
+                    <input type="email" name="email" id="email" placeholder="user@email.com" aria-required="true">
+                </div>
+                <div>
+                    <label for="age">Enter your age*:</label>
+                    <input type="number" name="age" id="age" placeholder="Between 1 to 100" aria-required="true">
+                </div>
+                <div>
+                    <label for="password">Enter your password*:</label>
+                    <input type="password" name="password" id="password" aria-required="true">
+                </div>
+                <div>
+                    <label for="phone">Enter your phone:</label>
+                    <input type="tel" name="phone" id="phone">
+                </div>
+                <div>
+                    <label for="city">Enter your city:</label>
+                    <input type="text" name="city" id="city">
+                </div>
+                <div>
+                    <label for="gender">Select gender:</label>
+                    <select id="gender">
+                        <option value="">-- Choose one --</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
+        </fieldset>
+    </form>
+</body>
+</html>

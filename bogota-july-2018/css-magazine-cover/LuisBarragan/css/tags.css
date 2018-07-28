@@ -1,0 +1,61 @@
+.right-tag {
+    content: "";
+    font-size: 10px;
+    height: 0;
+    border-style: solid;
+    border-width: 8px;
+    color: #fff;
+    position: relative;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.right-tag.black {
+    border-color: #000 transparent #000 #000;
+    width: 70px;
+}
+
+.right-tag.red {
+    border-color: rgb(196, 40, 40) transparent rgb(196, 40, 40)  rgb(196, 40, 40) ;
+    width: 90px;
+}
+
+.right-tag > span {
+    position: absolute;
+    top: -5px;
+}
+
+.left-tag {
+    content: "";
+    font-size: 10px;
+    height: 0;
+    border-style: solid;
+    border-width: 8px;
+    color: #fff;
+    position: relative;
+    right: -138px;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.left-tag.black {
+    border-color: #000 #000 #000 transparent;
+    width: 50px;
+}
+
+.left-tag > span {
+    position: absolute;
+    top: -5px;
+    left: 10px;
+}
+
+/*.right-tag {
+    width: 30px;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 40px 20px 0;
+    border-color: transparent #eee transparent transparent;
+    padding: 0 15px;
+    background-color: black;
+}
+
