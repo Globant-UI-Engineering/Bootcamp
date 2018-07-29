@@ -2,11 +2,9 @@
 <head>
 <title>Calculator</title>
 	<meta charset="utf-8" />
-    <link rel="stylesheet" href="calculator.css">
+    <link rel="stylesheet" href="calculator_style.css">
 </head>
-
 <body>
-
 <div id='calc-contain'>
     <div class="row">
           <input id="screen">
@@ -42,36 +40,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
-var math_expression="";
-var total="";
-
- function calculateOperation(){
-   total =  eval(math_expression);
-   var screen_value = document.getElementById("screen")
-   screen_value.value=total;
-   total="";
-   math_expression="";
- }
-
- function insertValue(number){
-   var screen_value = document.getElementById("screen")
-   screen_value.value+=number;
-        if(number=="x"){
-            math_expression=math_expression+"*";
-        }  
-        else{
-            math_expression=math_expression+number;
-        }
- }
-
-function clearValues(){
-   var screen_value = document.getElementById("screen")
-   screen_value.value="";
-   math_expression="";
- }
-
- </script> 
+<script type="text/javascript" src="calculator_functions.js"></script>
 
 </body>
 
