@@ -1,0 +1,46 @@
+.calculadora {
+    width: 400px;
+    padding: 5px;
+    background-color: #000066;
+    box-sizing: border-box;
+}
+
+.box {
+    width: 390px;
+    height: 70px;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background-color: #f2f2f2;
+    font-size: 30px;
+}
+
+.btn-group button {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.btn-operation {
+    float: right;
+    width: 100px;
+    margin: 0;
+}
+
+.btn-operation button {
+    background-color: #cc6600;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.igual {
+    width: 290px;
+    font-size: 30px;
+}
+button {
+    width: 94px;
+    height: 60px;
+    text-transform: uppercase;
+    border: 0;
+    padding: 0;
+}

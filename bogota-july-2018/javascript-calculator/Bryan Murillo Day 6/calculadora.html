@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">    
+    <meta name="author" content="Bryan Murillo">
+    
+    <title>Calculadora</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="calculadora.js"></script>
+</head>
+<body>
+    <header>
+        <h1>calculadora</h1>
+    </header>
+    <div class="calculadora">
+        <section class="box">
+            <label class="display"></label>
+        </section>
+        <aside class="btn-operation">
+            <button type="button" onclick="borrarDisplay()">del</button>
+            <button type="button" onclick="agregarDisplay('/')">/</button>
+            <button type="button" onclick="agregarDisplay('*')">*</button>
+            <button type="button" onclick="agregarDisplay('-')">-</button>
+            <button type="button" onclick="agregarDisplay('+')">+</button>
+        </aside>
+        <div class="btn-group">
+            <button type="button" onclick="agregarDisplay(7)">7</button>
+            <button type="button" onclick="agregarDisplay(8)">8</button>
+            <button type="button" onclick="agregarDisplay(9)">9</button>
+        </div>
+        <div class="btn-group">
+            <button type="button" onclick="agregarDisplay(4)">4</button>
+            <button type="button" onclick="agregarDisplay(5)">5</button>
+            <button type="button" onclick="agregarDisplay(6)">6</button>
+        </div>
+        <div class="btn-group">
+            <button type="button" onclick="agregarDisplay(1)">1</button>
+            <button type="button" onclick="agregarDisplay(2)">2</button>
+            <button type="button" onclick="agregarDisplay(3)">3</button>
+        </div>
+        <div class="btn-group">
+            <button type="button" onclick="agregarDisplay('.')">.</button>
+            <button type="button" onclick="agregarDisplay(0)">0</button>
+            <button type="button" onclick="limpiarDisplay()">c</button>
+        </div>
+        <button class="igual" type="button" onclick="calcular()">=</button>
+    </div>
+</body>
+</html>
