@@ -3,26 +3,50 @@
 
 <head>
   <title> Calculator </title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-  <script>
-    var num1 = 2;
-    var num2 = 8;
+  <header>
+    <h1>My Calculator</h1>
+  </header>
 
-    // Operator could be "+", "-", "*", "/"
-    var operator = "-";
+  <article class="calculator">
+    <p id="preview">0</p>
 
-    function calculate(a, b, operator) {
-      var operation = a + operator + b;
-      var regExpression = /[0-9]+(\+|-|\/|\*)[0-9]+/;
-      if(operation.match(regExpression)){
-        console.log(eval(a + operator + b));
-      }
-    }
+    <section class="buttons">
+      <div>
+        <button class="operation-button" type="button" onclick="cancelEntry()">CE</button>
+        <button class="operation-button" type="button" onclick="allCancel()">AC</button>
+        <button class="operation-button" type="button" onclick="updateScreen('/')">/</button>
+      </div>
+      <div>
+        <button class="number-button" type="button" onclick="updateScreen(7)">7</button>
+        <button class="number-button" type="button" onclick="updateScreen(8)">8</button>
+        <button class="number-button" type="button" onclick="updateScreen(9)">9</button>
+        <button class="operation-button" type="button" onclick="updateScreen('*')">x</button>
+      </div>
+      <div>
+        <button class="number-button" type="button" onclick="updateScreen(4)">4</button>
+        <button class="number-button" type="button" onclick="updateScreen(5)">5</button>
+        <button class="number-button" type="button" onclick="updateScreen(6)">6</button>
+        <button class="operation-button" type="button" onclick="updateScreen('-')">-</button>
+      </div>
+      <div>
+        <button class="number-button" type="button" onclick="updateScreen(1)">1</button>
+        <button class="number-button" type="button" onclick="updateScreen(2)">2</button>
+        <button class="number-button" type="button" onclick="updateScreen(3)">3</button>
+        <button class="operation-button" type="button" onclick="updateScreen('+')">+</button>
+      </div>
+      <div>
+        <button class="operation-button" type="button" onclick="updateScreen('.')">.</button>
+        <button class="number-button" type="button" onclick="updateScreen(0)">0</button>
+        <button class="operation-button" type="button" onclick="calculate()">=</button>
+      </div>
+    </section>
+  </article>
 
-    calculate(num1, num2, operator);
-  </script>
+  <script src="./js/script.js"></script>
 
 </body>
 
