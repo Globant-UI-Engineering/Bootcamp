@@ -38,7 +38,12 @@ function handleNumericButtonPress(event) {
 
 function handleOperationButtonPress(event) {
     clearErrorText();
+
     const pressedOperation = event.srcElement.textContent;
+
+    if (resultTextField.innerHTML.split(' ').length === 3) {
+        resolveOperation();
+    }
 
     if (resultTextField.innerHTML === '0' || resultTextField.innerHTML === '-') {
         if (pressedOperation === '-')
@@ -49,11 +54,10 @@ function handleOperationButtonPress(event) {
         return;
     }
 
-    if (resultTextField.innerHTML.split(' ').length === 3) {
-        resolveOperation();
-    }
-
-    if (resultTextField.innerHTML.search(aritmecitOperatorRegEx) >= 0) {
+    if (!resultTextField.innerHTML.startsWith('-') && resultTextField.innerHTML.search(aritmecitOperatorRegEx) > 0) {
+        errorTextField.innerHTML = 'Before you need to write another number';
+        return;
+    } else if (resultTextField.innerHTML.split(' ')[1]) {
         errorTextField.innerHTML = 'Before you need to write another number';
         return;
     }
@@ -65,7 +69,6 @@ function handleOperationButtonPress(event) {
 
 
 function handleBackSpacePress(event) {
-
     clearErrorText();
     resultTextField.innerHTML = '0';
 
@@ -104,15 +107,14 @@ function resolveOperation(event = null) {
         errorTextField.innerHTML = 'Require two numbers for this operation';
     } else {
         const auxResult = posibleOperations[operation](firstNumber, secondNumber);
-        if (isFinite(auxResult)) {
 
+        if (isFinite(auxResult)) {
             errorTextField.innerHTML = 'Result';
             resultTextField.innerHTML = roundResult(auxResult);
         } else {
             errorTextField.innerHTML = 'Math error: The inputs is not a valid expression.';
             resultTextField.innerHTML = '0';
         }
-
     }
 
     if (event)
