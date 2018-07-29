@@ -7,8 +7,6 @@
 
 <body>
 
-<h4>Calculadora</h4>
-
 <div id='calc-contain'>
     <div class="row">
           <input id="screen">
@@ -16,7 +14,7 @@
     <div class="row">
         <button class="btn_grey"  onclick="clearValues()" >AC</button>
         <button class="btn_grey"  onclick="clearValues()">C</button>
-        <button class="btn_grey" >%</button>
+        <button class="btn_grey" onclick=" insertValue('%')">%</button>
         <button class="btn_grey" onclick=" insertValue('/')">/</button>
     </div>
     <div class="row">
@@ -45,27 +43,32 @@
 </div>
 
 <script type="text/javascript">
+var math_expression="";
 var total="";
 
-
  function calculateOperation(){
-     alert(total);
+   total =  eval(math_expression);
+   var screen_value = document.getElementById("screen")
+   screen_value.value=total;
+   total="";
+   math_expression="";
  }
 
  function insertValue(number){
-   var a = document.getElementById("screen")
-    a.value+=number;
-    if(isNaN(number) && number!="."){
-        total=total+","+number+",";
-    }
-    else{
-        total=total+number;
-    }
+   var screen_value = document.getElementById("screen")
+   screen_value.value+=number;
+        if(number=="x"){
+            math_expression=math_expression+"*";
+        }  
+        else{
+            math_expression=math_expression+number;
+        }
  }
 
 function clearValues(){
-   var a = document.getElementById("screen")
-    a.value="";
+   var screen_value = document.getElementById("screen")
+   screen_value.value="";
+   math_expression="";
  }
 
  </script> 
