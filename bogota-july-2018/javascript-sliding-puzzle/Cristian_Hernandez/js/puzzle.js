@@ -31,20 +31,19 @@
     }
   });
   
-  newSlabPosition(tileNum => {
+  newSlabPosition(slabValue => {
     //Swap values in  slabPlacementOrder object
-    [ slabPlacementOrder[9],  slabPlacementOrder[tileNum]] = [ slabPlacementOrder[tileNum],  slabPlacementOrder[9]]
+    [ slabPlacementOrder[9],  slabPlacementOrder[slabValue]] = [ slabPlacementOrder[slabValue],  slabPlacementOrder[9]]
   
     //Swap tile className positions
     slabElements[8].className = `slab slab-order-${ slabPlacementOrder[9]} slab-blank`; // empty Slab
-    slabElements[tileNum - 1].className = `slab slab-order-${ slabPlacementOrder[tileNum]}`; // Slab clicked
+    slabElements[slabValue - 1].className = `slab slab-order-${ slabPlacementOrder[slabValue]}`; // Slab clicked
   
     movableSlabPosition = getAvailablePositions(slabPlacementOrder[9]);
   });
   
   getAvailablePositions(emptySlab => {
     let positionsAvailable = {};
-
     if (emptySlab % 3 !== 1) {  // Check if Empty slab can be moved to the Left
       positionsAvailable[valuesAvailable(emptySlab - 1)] = 1 ; // Save the Value of the Slab that can be swap
     }
