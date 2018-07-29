@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Oxygen', sans-serif;
+    color:#4B4B4B;
+    font-size: 24px;
+}
+
+body{
+    background-color: #4B4B4B;
+}
+.container{
+    max-width: 400px;
+    background-color: white;
+    margin: 180px auto;
+    border: #3c4147 5px solid;
+}
+
+table{
+    max-width: 400px;
+    width: 100%;
+    border: lightgray solid 1px;
+}
+button{
+    padding: 15px;
+    width: 100%;
+    height: 90px;
+    background-color: #FFFFFF;
+    border: none;
+}
+#input {
+    height: 150px;
+    vertical-align: bottom;
+    text-align: right;
+    font-size: 50px;
+    padding-right: 15px;
+    max-width: 388px;
+}
+
+.orange{
+    background-color: #ffc689;
+}
