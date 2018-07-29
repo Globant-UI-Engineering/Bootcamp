@@ -1,0 +1,46 @@
+.board {
+  border: 8px solid rgb(31, 172, 207);
+  height: 317.5px;
+  width: 317.5px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0%;
+  box-sizing: border-box;
+}
+.slab {
+  border: 1px solid rgba(144, 185, 238, 0.7);
+  font-size: 80px;
+  height: 98px; 
+  width: 98px;
+  list-style-type: none;
+  margin: 0.2px;
+  text-align: center;
+} 
+
+.slab-order-1 { 
+  order: 1; 
+}
+.slab-order-2 {
+   order: 2; 
+}
+.slab-order-3 { 
+  order: 3; }
+.slab-order-4 { 
+  order: 4; 
+}
+.slab-order-5 {
+   order: 5; }
+.slab-order-6 {
+   order: 6; 
+}
+.slab-order-7 {
+   order: 7; }
+.slab-order-8 { 
+  order: 8;
+}
+.slab-order-9 {
+   order: 9;
+}
