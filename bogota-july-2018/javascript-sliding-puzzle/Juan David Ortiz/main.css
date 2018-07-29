@@ -30,3 +30,7 @@ body{
     box-sizing: border-box;
     font-size: 3em;
 }
+#puzzle-container div:hover{
+    border:  solid 2px rgb(255, 32, 32);
+    cursor: pointer;
+}
