@@ -1,0 +1,5 @@
+
+Develop in HTML & CSS a magazine cover.
+
+Please create a folder with your name and place inside your project.
+Once you have it ready, create a Pull Request.

@@ -1,0 +1,165 @@
+*{
+    margin:0;
+    padding: 0;
+}
+html,body{
+    height: 130%;
+    width: 100%;
+    background-color: white;
+}
+article {
+    height: 100%;
+    width: 100%;
+}
+.container {
+    height: 100%;
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+}
+.container img {
+    padding-top: 16%;
+    display: block;
+    margin: 0 auto;
+    height: 80%;
+    width: 100%;
+
+
+}
+header {
+    height: 5.5%;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+
+}
+header h2 {
+    color: white;
+    font-size: 2vh;
+}
+.magazineContents {
+    color: black;
+    font-size: 4vh;
+}
+.pageMagazine {
+    color: black;
+    font-size: 1.5vh;
+}
+.firstYellowColumn {
+    padding-left: 5%;
+    width: 64.7%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    background-color: #ebbd30;
+    display: inline;
+    white-space: nowrap;
+}
+.secondYellowColumn {
+    width: 30%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    background-color: #ebbd30;
+    display: inline;
+    white-space: nowrap;
+    justify-items: end;
+}
+.crossRed {
+    transform: rotate(-45deg);
+    background-color: red;
+    height: 6%;
+    width: 31%;
+    text-align: center;
+    margin-top: -5.1%;
+    margin-left: -9.2%;
+
+}
+.crossRed h2 {
+    color: white;
+    font-size: 3.3vh;
+    padding-left: 17%;
+    padding-right: 10%;
+}
+.magazineTitle {
+    width: 100%;
+    position: absolute;
+    top: 8%;
+    color: white;
+}
+.magazineTitle p {
+    text-align: end;
+    font-size: 4vh;    
+}
+.magazineTitle h1 {
+    font-family: 'Lora', serif;
+    font-size: 25vh;
+    font-weight: 600;
+    text-align: end;
+    line-height: 7vh;
+}
+.heroes {
+    position: absolute;
+    top: 25%;
+    color: white;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 16vh;
+}
+.heroes1 {
+    background-color: red;
+    padding-right: 4%;
+    padding-left: 10%;
+
+}
+.heroes2 {
+    background-color: red;
+    padding-right: 4%;
+    padding-left: 10%;
+
+}
+.secondLineHeroes {
+    position: absolute;
+    padding-left: 6%;
+    top: 50%;
+    color: white;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 6vh;
+
+}
+.secondLine {
+    padding-left: 16%;
+}
+.thirdLine {
+    padding-left: 10%;
+}
+.forthLine {
+    padding-left: 28%;
+}
+.fifthLine {
+    color: #ebbd30;
+    font-size: 8vh;
+}
+.sixLine {
+    padding-left: 20%;
+}
+.sevenLine {
+    padding-left: 16%;
+}
+.eightLine{
+    padding-left: 6%;
+}
+.nineLine{
+    padding-left: 18%;
+}
+.tenLine {
+    padding-left: 6%;
+}
+.dozens {
+    color: #ebbd30;
+}
+
