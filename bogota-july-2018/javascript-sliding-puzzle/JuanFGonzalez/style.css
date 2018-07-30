@@ -1,0 +1,45 @@
+.board > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #ffeead;
+}
+
+body{
+  background-color: #ffeead;
+  margin: 10px;
+}
+
+.board > div:nth-child(1n){
+  background-color: #95ceb5;
+}
+
+.board > div:nth-child(3n){
+  background-color: #78d7b0;
+}
+
+.board > div:nth-child(2n){
+  background-color: #ff6f69;
+}
+
+.board > div:nth-child(4n){
+  background-color: #ffcc6c;
+}
+
+.board{
+  border: 1px solid black;
+  height: 30rem;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4 ,40px);
+  grid-gap: 3px;
+  justify-content: center;
+  align-content: center;
+}
+
+h1{
+    font-size: 2rem;
+    color: blue;
+    
+}
