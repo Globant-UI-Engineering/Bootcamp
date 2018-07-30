@@ -3,7 +3,6 @@ const model = {
 };
 
 const controller = {
-  
   createNewMatrix(row, column) {
     let counter = 0;
     const matrix = new Array(row);
@@ -12,13 +11,13 @@ const controller = {
       for (let j = 0, z = matrix[i].length; j < z; j += 1) {
         counter += 1;
         counter === row * column
-        ? (matrix[i][j] = 0)
-        : (matrix[i][j] = counter);
+          ? (matrix[i][j] = 0)
+          : (matrix[i][j] = counter);
       }
     }
     return matrix;
   },
-  
+
   zeroLocation() {
     const zeroLocation = {
       x: 0,
@@ -35,7 +34,7 @@ const controller = {
     }
     model.sliding[0].zeroLocation = zeroLocation;
   },
-  
+
   createNewGame(row, column) {
     class Matrix {
       constructor(row, column) {
@@ -46,7 +45,7 @@ const controller = {
     }
     return new Matrix(row, column);
   },
-  
+
   changePosition(clickedElement) {
     const zeroPosition = model.sliding[0].zeroLocation;
     const elemt = model.sliding[0].matrix[clickedElement.x][clickedElement.y];
@@ -74,7 +73,7 @@ const controller = {
       }
     }
   },
-  
+
   shuffleMatrix() {
     const matrix = controller.getMatrix();
     for (let i = matrix.length - 1; i > 0; i -= 1) {
@@ -89,29 +88,29 @@ const controller = {
     this.resetScore();
     return matrix;
   },
-  
+
   changeMatrix(row, column) {
     const newMatrix = controller.createNewGame(row, column);
     model.sliding[0].matrix = newMatrix.matrix;
     return newMatrix.matrix;
   },
-  
+
   addGame(game) {
     model.sliding.push(game);
   },
-  
+
   addMoves() {
     model.sliding[0].moves += 1;
   },
-  
+
   resetScore() {
     model.sliding[0].moves = 0;
   },
-  
+
   getMatrix() {
     return model.sliding[0].matrix;
   },
-  
+
   getMoves() {
     return model.sliding[0].moves;
   }
@@ -123,20 +122,19 @@ const view = {
     this.options = document.getElementById("options");
     this.score = document.getElementById("score");
     this.renderMatrix = this.newGame();
-    this.size;
     this.renderButtons(this.renderMatrix);
     this.renderScore();
     this.container.addEventListener("click", e => this.currentItem(e));
     this.options.addEventListener("click", e => this.chooseOption(e));
   },
-  
+
   newGame(row = 5, column = 5) {
     const game = controller.createNewGame(row, column);
     controller.addGame(game);
     const newMatrix = controller.shuffleMatrix();
     return newMatrix;
   },
-  
+
   currentItem(e) {
     const position = {
       x: parseInt(e.target.dataset.x, 10),
@@ -145,21 +143,15 @@ const view = {
     controller.zeroLocation();
     controller.changePosition(position);
     this.renderScore();
-    let currentMatrix = controller.getMatrix()
+    const currentMatrix = controller.getMatrix();
     this.renderButtons(currentMatrix);
   },
-  
-  gameFinish(initialGame, currentGame){
-    console.log(initialGame);
-    console.log(currentGame);
-  },
-  
+
   chooseOption(e) {
     this.size = this.container.className.slice(-5);
     switch (e.target.id) {
       case "shuffle":
-        const shuffledMatrix = controller.shuffleMatrix()
-        this.renderButtons(shuffledMatrix);
+        this.renderButtons(controller.shuffleMatrix());
         this.renderScore();
         break;
       case "matrix-select":
@@ -170,8 +162,8 @@ const view = {
         break;
     }
   },
-  
-  changeMatrix(e, size ) {
+
+  changeMatrix(e, size) {
     const matrixSize = parseInt(e, 10);
     this.container.classList.replace(size, `size${e}`);
     this.renderMatrix = controller.changeMatrix(matrixSize, matrixSize);
@@ -189,16 +181,16 @@ const view = {
             matrix[i][j]
           }</button>`;
         } else
-        this.button += `
+          this.button += `
         <button class="btn zero" data-x="${i}" data-y="${j}">${
-          matrix[i][j]
-        }</button>
+            matrix[i][j]
+          }</button>
         `;
       }
     }
     this.container.innerHTML = this.button;
   },
-  
+
   renderScore() {
     this.score.textContent = `Moves: ${controller.getMoves()}`;
   }
