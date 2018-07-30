@@ -19,9 +19,9 @@
 }
 
 body {
+  background-color: #c5d1eb;
   font-family: "Rubik", sans-serif;
   font-size: 16px;
-  background-color: #c5d1eb;
 }
 
 header,
@@ -36,9 +36,9 @@ footer {
 
 .container {
   display: flex;
+  justify-content: space-between;
   margin: 0 auto;
   width: 720px;
-  justify-content: space-between;
 }
 
 /*-----------------------------------------------
@@ -47,10 +47,10 @@ footer {
 
 .container > div > button {
   background-color: #c5d1eb;
-  border: none;
-  border-left-style: solid;
   border-left-color: black;
-  font-size: 2.5em;
+  border-left-style: solid;
+  border: none;
+  font-size: 2em;
   margin-top: 15px;
 }
 
@@ -63,7 +63,7 @@ footer {
 }
 
 .container > h2 {
-  font-size: 2em;
+  font-size: 2.5em;
   margin-top: 15px;
 }
 
@@ -71,29 +71,25 @@ footer {
 *  Options  Style 
 -----------------------------------------------*/
 
-.options {
-  width: 80%;
-}
-
 fieldset,
-label,
 select {
   background-color: #c5d1eb;
-  font-size: 1.2em;
+  border: none;
   display: inline;
   margin: 0;
-  border: none;
-  padding: 0px;
-  padding-top: 5px;
+  padding: 0;
 }
 
+label,
 select {
-  border-left-style: solid;
   border-left-color: black;
+  border-left-style: solid;
+  font-size: 2em;
+  padding-left: 10px;
 }
 
 /*-----------------------------------------------
-*  Btn style
+*  Btn style 
 -----------------------------------------------*/
 
 .btn__wrapper {
@@ -109,15 +105,54 @@ select {
 }
 
 .btn__wrapper .btn {
-  font-size: 4em;
   background-color: #7ec9f1;
-  margin: 1%;
-  width: 17%;
-  height: 17%;
-  border: none;
   border-radius: 15px;
+  border: none;
 }
 
 .zero {
   visibility: hidden;
+}
+
+/*-----------------------------------------------
+*  size Style
+-----------------------------------------------*/
+
+.size3 .btn {
+  font-size: 7em;
+  height: 28%;
+  margin: 2%;
+  width: 28%;
+}
+
+.size4 .btn {
+  font-size: 6em;
+  height: 21%;
+  margin: 1.5%;
+  width: 21%;
+}
+
+.size5 .btn {
+  font-size: 5em;
+  height: 17%;
+  margin: 1%;
+  width: 17%;
+}
+
+.size6 .btn {
+  font-size: 3em;
+  height: 14%;
+  margin: 1%;
+  width: 14%;
+}
+
+.size7 {
+  width: 850px;
+}
+
+.size7 .btn {
+  font-size: 3em;
+  height: 11.5%;
+  margin: 1%;
+  width: 11.5%;
 }
