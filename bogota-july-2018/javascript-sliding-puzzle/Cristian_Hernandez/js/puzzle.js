@@ -3,7 +3,7 @@
   let movableSlabPosition;
  
   createNewGame = () => {        //[1,2,3,4,5,6,7,9,8] [7,2,8,5,1,9,3,4,6]
-    let  slabPlacementOrderArray = [7,2,8,5,1,9,3,4,6]; //Pos
+    let  slabPlacementOrderArray = [7,2,8,5,1,9,4,3,6]; //Pos
     // Take the array we just created and set the position of each number (from 1 to 9) acording to the order the arrays says. 
      slabPlacementOrderArray.forEach((val, i) => {
     //Since arrays start in 0  we add 1 so our object  slabPlacementOrder place the correct position to each value
