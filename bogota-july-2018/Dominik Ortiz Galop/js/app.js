@@ -76,7 +76,7 @@ const controller = {
   },
   
   shuffleMatrix() {
-    const matrix = model.sliding[0].matrix;
+    const matrix = controller.getMatrix();
     for (let i = matrix.length - 1; i > 0; i -= 1) {
       for (let j = matrix[i].length - 1; i > 0; i -= 1) {
         const m = Math.floor(Math.random() * (i + 1));
@@ -87,6 +87,7 @@ const controller = {
       }
     }
     this.resetScore();
+    return matrix;
   },
   
   changeMatrix(row, column) {
@@ -132,8 +133,7 @@ const view = {
   newGame(row = 5, column = 5) {
     const game = controller.createNewGame(row, column);
     controller.addGame(game);
-    controller.shuffleMatrix();
-    const newMatrix = controller.getMatrix();
+    const newMatrix = controller.shuffleMatrix();
     return newMatrix;
   },
   
@@ -148,7 +148,12 @@ const view = {
     let currentMatrix = controller.getMatrix()
     this.renderButtons(currentMatrix);
   },
-
+  
+  gameFinish(initialGame, currentGame){
+    console.log(initialGame);
+    console.log(currentGame);
+  },
+  
   chooseOption(e) {
     this.size = this.container.className.slice(-5);
     switch (e.target.id) {
