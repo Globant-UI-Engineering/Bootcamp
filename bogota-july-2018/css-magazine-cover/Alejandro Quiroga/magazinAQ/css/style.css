@@ -1,0 +1,92 @@
+body{
+    background-color: black;
+}
+
+.container
+{
+    background-color: black;
+   
+}
+
+.fondo
+{
+    background-image: url("../image/portada.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 800px;
+    margin: 30 auto;
+}
+
+.titulo
+{
+    margin-top: 0px;
+    text-align: center;
+    font-size: 50px;
+    color: #fe3c3c;
+}
+
+.fecha
+{
+    font-weight: bold;
+    font-size: 30px;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    color: white;
+}
+
+.articulos
+{
+    width:100%;
+    float: left;
+}
+
+.articulos-izquierda
+{
+    float:left;
+    padding-left: 10px;    
+    width:45%;
+}
+
+.subtitulo
+{
+    color: #fe3c3c;
+    font-size: 30px; 
+    font-weight: bold;
+}
+
+.des-subtitulo
+{
+    color: white;
+    font-size:30px;
+}
+
+.articulos-derecha
+{
+    float:left;
+    padding: 10px;
+    width:45%; 
+    text-align: right;   
+}
+
+.resaltado
+{
+    font-weight: 900;
+}
+
+.abajo
+{
+    text-align: center;
+    color: white;
+    float: left;
+    width: 100%;
+    font-size: 60px;
+    text-shadow: rgb(41, 40, 40) 0.1em 0.1em 0.2em;
+}
+
+.amarillo
+{
+    color:yellow;
+}
+
+

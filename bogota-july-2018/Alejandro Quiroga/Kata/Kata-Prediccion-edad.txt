@@ -1,0 +1,10 @@
+function predictAge(...arguments){
+let i=0;
+let prediccion=0;
+for(i; i<= arguments.length-1;i++)
+{
+prediccion=(arguments[i]*arguments[i])+prediccion;
+}
+return Math.floor((Math.sqrt(prediccion))/2);
+  // your code
+}
