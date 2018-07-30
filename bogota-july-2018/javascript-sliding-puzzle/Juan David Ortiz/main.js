@@ -7,6 +7,7 @@ window.onload = function(){
             row.forEach(function(item,i){
                 boxes[irow*4+i].innerText=item;
                 boxes[irow*4+i].id=irow+","+i;
+                boxes[irow*4+i].setAttribute('aria-label','cell '+(item==""?'empty':item));
             });
         });
     }
