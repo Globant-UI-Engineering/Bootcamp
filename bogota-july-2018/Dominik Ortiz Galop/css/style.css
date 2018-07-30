@@ -2,11 +2,13 @@
 *
 *   Slibling Puzzle Colors
 *   
-*   Button         : #7ec9f1
-*   container      : #2d3e4f
-*   Solve          : #3a99d9
-*   Shuffle        : #e54d42 
-*   Background     : #c5d1Eb     
+*   Button              : #7ec9f1
+*   container           : #2d3e4f
+*   Solve               : #3a99d9
+*   Shuffle             : #e54d42 
+*   Background          : #c5d1Eb   
+*   Button Font color   : #2a4494 
+*   Hover Button color  : #ffffff
 *
 *************************************************/
 
@@ -108,10 +110,17 @@ select {
   background-color: #7ec9f1;
   border-radius: 15px;
   border: none;
+  color: #2a4494;
 }
 
 .zero {
   visibility: hidden;
+}
+
+.btn:active,
+.btn:hover,
+.btn:focus {
+  background-color: #ffffff;
 }
 
 /*-----------------------------------------------
