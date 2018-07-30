@@ -66,16 +66,15 @@
         if(clickedElement.y -1 === zeroPosition.y || clickedElement.y + 1 === zeroPosition.y){
           model.sliding[0].matrix[clickedElement.x][clickedElement.y] = 0;
           model.sliding[0].matrix[zeroPosition.x][zeroPosition.y] = elemt;
+          controller.addMoves();
         }
       }else if(clickedElement.y  === zeroPosition.y){
         if(clickedElement.x -1 === zeroPosition.x || clickedElement.x + 1 === zeroPosition.x){
           model.sliding[0].matrix[clickedElement.x][clickedElement.y] = 0;
-          model.sliding[0].matrix[zeroPosition.x][zeroPosition.y] = elemt; 
+          model.sliding[0].matrix[zeroPosition.x][zeroPosition.y] = elemt;
+          controller.addMoves();
         }
-        console.log("Asd")
       }
-      console.log(model.sliding);
-      console.log(zeroPosition);
     },
 
     shuffleMatrix(){
@@ -89,21 +88,37 @@
           originalMatrix[m][n] = temp;
         }
       }
+      this.resetScore();
       model.sliding[0].matrix = originalMatrix;
+    },
+
+    changeMatrix(row,column){
+      let newMatrix = controller.createNewGame(row,column)
+      return model.sliding[0].matrix = newMatrix.matrix; 
+    },
+
+    addMoves(){
+      model.sliding[0].moves ++;
+    },
+
+    resetScore(){
+      model.sliding[0].moves = 0;
     }
   };
   
   const view = {
     init() {
       this.container = document.getElementById('container');
+      this.options = document.getElementById('options');
       this.score = document.getElementById('score');
-      this.RenderMatrix = this.newMatrix(5,5);
+      this.RenderMatrix = this.newMatrix();
       this.renderButtons();
       this.renderScore();
       this.container.addEventListener('click', e => this.currentItem(e));
+      this.options.addEventListener('click', e => this.chooseOption(e));
     },
 
-    newMatrix(row,column){
+    newMatrix(row = 5,column =5 ){
       let newMatrix;
       controller.addMatrix(controller.createNewGame(row, column));
       controller.shuffleMatrix();
@@ -116,17 +131,68 @@
         y: parseInt(e.target.dataset.y)
       }
       controller.changePosition(position)
+      this.renderScore();
       this.renderButtons();
-      console.log(position.x);
-      console.log(position.y);
     },
 
-    renderButtons(RenderMatrix){
+    chooseOption(e){
+      switch(e.target.id){
+        case 'shuffle':
+          this.shuffleMatrix();
+          this.renderScore();
+          break;
+        case 'matrix-select':
+          this.changeMatrix(e.target.value);
+          break;
+      }
+    },
+
+    changeMatrix(e){
+      let matrixSize = parseInt(e);
+      switch(e){
+        case'3':
+          this.RenderMatrix = controller.changeMatrix(matrixSize,matrixSize);
+          controller.shuffleMatrix();
+          this.renderButtons();
+          break;
+        case'4':
+          this.RenderMatrix = controller.changeMatrix(matrixSize,matrixSize);
+          controller.shuffleMatrix();
+          this.renderButtons();
+          break;
+        case'5':
+          this.RenderMatrix = controller.changeMatrix(matrixSize,matrixSize);
+          controller.shuffleMatrix();
+          this.renderButtons();
+          break;
+        case'6':
+          this.RenderMatrix = controller.changeMatrix(matrixSize,matrixSize);
+          controller.shuffleMatrix();
+          this.renderButtons();
+          break;
+        case'7':
+          this.RenderMatrix = controller.changeMatrix(matrixSize,matrixSize);
+          controller.shuffleMatrix();
+          this.renderButtons();
+          break;
+      }
+    },
+
+    shuffleMatrix(){
+      controller.shuffleMatrix();
+      this.renderButtons();
+    },
+
+    renderButtons(){
       this.button = '';
       for(let i = 0, x = this.RenderMatrix.length; i < x; i++){
         for (let j = 0, z = this.RenderMatrix[j].length; j < z; j++){
+          if(this.RenderMatrix[i][j]){
+            this.button +=
+            `<button class="btn" data-x="${i}" data-y="${j}">${this.RenderMatrix[i][j]}</button>`
+          }else
           this.button += `
-          <button class="btn" data-x="${i}" data-y="${j}">${this.RenderMatrix[i][j]}</button>
+          <button class="btn zero" data-x="${i}" data-y="${j}">${this.RenderMatrix[i][j]}</button>
           `
         }
       }
@@ -134,7 +200,7 @@
     },
 
     renderScore(){
-      this.score.textContent += controller.getMoves();
+      this.score.textContent = `Moves: ${controller.getMoves()}`;
     }
 
   };
