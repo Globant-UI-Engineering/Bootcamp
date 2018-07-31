@@ -42,10 +42,11 @@ form.calculator {
   font-size: 3rem;
 }
 .result {
-  grid-area: result;
   color: black;
+  grid-area: result;
 }
 .result input {
+  background-color: #fff;
   color: #888;
   font-size: 1.5rem;
 }
@@ -58,6 +59,9 @@ form.calculator {
 .numbers-side button {
   background: #5e6067;
   flex: 1 1 calc(100% / 3);
+}
+.numbers-side button:nth-last-child(2) {
+  flex: 2 2 66.66%;
 }
 .operands-side button{
   background: #8b8e9b;
