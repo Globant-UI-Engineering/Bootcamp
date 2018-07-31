@@ -2,7 +2,7 @@
   const slabPlacementOrder = {'1': null,'2': null,'3': null,'4': null,'5': null,'6': null,'7': null,'8': null,'9': null};
   let movableSlabPosition;
  
-  createNewGame = () => {        /
+  createNewGame = () => {        
     let  slabPlacementOrderArray = [7,2,8,5,1,9,4,3,6]; 
      slabPlacementOrderArray.forEach((val, i) => {
        slabPlacementOrder[i + 1] = val;
