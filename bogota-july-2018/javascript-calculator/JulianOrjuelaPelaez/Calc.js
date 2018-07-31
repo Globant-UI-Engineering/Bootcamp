@@ -1,5 +1,5 @@
 (function(){
-    const InputLabel = (obj)=>{
+    const inputControl = (obj)=>{
         let getInput = obj;
         if(getInput == "="){
             input.innerHTML = eval(input.innerHTML);
@@ -35,22 +35,22 @@
     const equal = document.getElementById("=");
 
                 //---Set events for each button---//
-    AC.addEventListener("click",()=>{InputLabel(AC.innerHTML)},false);
-    div.addEventListener("click",()=>{InputLabel(div.innerHTML)},false);
-    nine.addEventListener("click",()=>{InputLabel(nine.innerHTML)},false);
-    eight.addEventListener("click",()=>{InputLabel(eight.innerHTML)},false);
-    seven.addEventListener("click",()=>{InputLabel(seven.innerHTML)},false);
-    times.addEventListener("click",()=>{InputLabel(times.innerHTML)},false);
-    six.addEventListener("click",()=>{InputLabel(six.innerHTML)},false);
-    five.addEventListener("click",()=>{InputLabel(five.innerHTML)},false);
-    four.addEventListener("click",()=>{InputLabel(four.innerHTML)},false);
-    minus.addEventListener("click",()=>{InputLabel(minus.innerHTML)},false);
-    three.addEventListener("click",()=>{InputLabel(three.innerHTML)},false);
-    two.addEventListener("click",()=>{InputLabel(two.innerHTML)},false);
-    one.addEventListener("click",()=>{InputLabel(one.innerHTML)},false);
-    plus.addEventListener("click",()=>{InputLabel(plus.innerHTML)},false);
-    zero.addEventListener("click",()=>{InputLabel(zero.innerHTML)},false);
-    dot.addEventListener("click",()=>{InputLabel(dot.innerHTML)},false);
-    equal.addEventListener("click",()=>{InputLabel(equal.innerHTML)},false);
+    AC.addEventListener("click",()=>{inputControl(AC.innerHTML)});
+    div.addEventListener("click",()=>{inputControl(div.innerHTML)});
+    nine.addEventListener("click",()=>{inputControl(nine.innerHTML)});
+    eight.addEventListener("click",()=>{inputControl(eight.innerHTML)});
+    seven.addEventListener("click",()=>{inputControl(seven.innerHTML)});
+    times.addEventListener("click",()=>{inputControl(times.innerHTML)});
+    six.addEventListener("click",()=>{inputControl(six.innerHTML)});
+    five.addEventListener("click",()=>{inputControl(five.innerHTML)});
+    four.addEventListener("click",()=>{inputControl(four.innerHTML)});
+    minus.addEventListener("click",()=>{inputControl(minus.innerHTML)});
+    three.addEventListener("click",()=>{inputControl(three.innerHTML)});
+    two.addEventListener("click",()=>{inputControl(two.innerHTML)});
+    one.addEventListener("click",()=>{inputControl(one.innerHTML)});
+    plus.addEventListener("click",()=>{inputControl(plus.innerHTML)});
+    zero.addEventListener("click",()=>{inputControl(zero.innerHTML)});
+    dot.addEventListener("click",()=>{inputControl(dot.innerHTML)});
+    equal.addEventListener("click",()=>{inputControl(equal.innerHTML)});
 }())
     
