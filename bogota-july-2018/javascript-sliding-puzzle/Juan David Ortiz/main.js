@@ -1,52 +1,53 @@
 window.onload = function(){
-    let pieces = [["1","2","3","4"],["5","","7","8"],["9","10","11","12"],["13","14","15","6"]];
-    let boxes = Array.from(document.getElementsByTagName('div')).slice(2);
-    let idBox;
-    const fillBoxes = () =>{
-        pieces.forEach(function(row,irow){
-            row.forEach(function(item,i){
-                boxes[irow*4+i].innerText=item;
-                boxes[irow*4+i].id=irow+","+i;
-                boxes[irow*4+i].setAttribute('aria-label','cell '+(item==""?'empty':item));
+    let puzzleMatrix = [["1","2","3","4"],["5","","7","8"],["9","10","11","12"],["13","14","15","6"]];
+    let puzzleCells = Array.from(document.getElementsByTagName('div')).slice(2);
+    let idFilledCell;
+    const fillCells = () =>{
+        puzzleMatrix.forEach(function(row,indexRow){
+            row.forEach(function(item,indexColumn){
+                puzzleCells[indexRow*4+indexColumn].innerText=item;
+                puzzleCells[indexRow*4+indexColumn].id=indexRow+","+indexColumn;
+                puzzleCells[indexRow*4+indexColumn].setAttribute('aria-label','cell '+(item==""?'empty':item));
             });
         });
     }
-    boxes.forEach((box)=>{ 
-            box.addEventListener('click',()=>{
+    puzzleCells.forEach((cell)=>{ 
+            cell.addEventListener('click',()=>{
 
-            if(findZero(box.id)){
-                idBox=box.id;
-            }else if(idBox && !box.innerText){
-                swap (idBox,box.id);
-                idBox=undefined;
+            if(findEmptyCell(cell.id)){
+                idFilledCell=cell.id;
+            }else if(idFilledCell && !cell.innerText){
+                let emptyCellId = cell.id
+                swap (idFilledCell,emptyCellId);
+                idFilledCell=undefined;
             }else{
-                idBox=undefined;
+                idFilledCell=undefined;
             }
         })
     });
-    const swap = (idBox, idEmptyBox)=>{
-        let idBoxRow = idBox.slice(0,1);
-        let idBoxColumn = idBox.slice(2);
-        let idEmptyBoxRow = idEmptyBox.slice(0,1);
-        let idEmptyBoxColumn = idEmptyBox.slice(2);
-        let idBoxValue = pieces[idBoxRow][idBoxColumn];        
-        pieces[idEmptyBoxRow][idEmptyBoxColumn]= idBoxValue;
-        pieces[idBoxRow][idBoxColumn]= "";
-        fillBoxes();
+    const swap = (idFilledCell, idEmptyCell)=>{
+        let idFilledCellRow = idFilledCell.slice(0,1);
+        let idFilledCellColumn = idFilledCell.slice(2);
+        let idEmptyCellRow = idEmptyCell.slice(0,1);
+        let idEmptyCellColumn = idEmptyCell.slice(2);
+        let idFilledCellValue = puzzleMatrix[idFilledCellRow][idFilledCellColumn];        
+        puzzleMatrix[idEmptyCellRow][idEmptyCellColumn]= idFilledCellValue;
+        puzzleMatrix[idFilledCellRow][idFilledCellColumn]= "";
+        fillCells();
     }
-    const findZero = (id) =>{
-        let row=id.slice(0,1);
-        let column =id.slice(2);
-        let findedZero=false;
-        if(pieces[row].indexOf("")>-1){
-            findedZero = Math.abs(column-pieces[row].indexOf(""))==1;
+    const findEmptyCell = (cellId) =>{
+        let puzzleRowIndex=cellId.slice(0,1);
+        let puzzleColumnIndex =cellId.slice(2);
+        let isEmptyCell=false;
+        if(puzzleMatrix[puzzleRowIndex].indexOf("")>-1){
+            isEmptyCell = Math.abs(puzzleColumnIndex-puzzleMatrix[puzzleRowIndex].indexOf(""))==1;
         }
-        pieces.forEach(function(piecesRow,index){
-            if(!piecesRow[column]){
-                findedZero = Math.abs(row-index)==1;
+        puzzleMatrix.forEach(function(iterativePuzzleRow,index){
+            if(!iterativePuzzleRow[puzzleColumnIndex]){
+                isEmptyCell = Math.abs(puzzleRowIndex-index)==1;
             }
         });
-        return findedZero;
+        return isEmptyCell;
     }
-    fillBoxes();
+    fillCells();
 }
