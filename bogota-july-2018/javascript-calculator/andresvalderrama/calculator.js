@@ -15,36 +15,71 @@ document.addEventListener('DOMContentLoaded', () => {
     '*': (factor1, factor2) => factor1 * factor2,
     '/': (dividend, divisor) => dividend / divisor
   }
-  function numb ({currentTarget}) {
-    if (!operation[1]) {
-      operation[0] += currentTarget.textContent
-      expression.value = operation.join('')
-    }
-    if (operation[1]) {
-      operation[2] += currentTarget.textContent
-      expression.value = operation.join('')
-      doCalc()
-    }
-  }
-  function operandd ({currentTarget}) {
-    if (operation[0]) {
-      operation[1] = currentTarget.textContent
-      expression.value = operation.join('')
-    }
+  function takeNumber ({currentTarget}) {
+    let unit = currentTarget.textContent
+    let currentNumber = (operation[2] || operation[0])
+
+    if (isDecimal(currentNumber) && unit === '.') return
+
+    createNumber(unit)
   }
 
-  function doCalc () {
+  function createNumber (unit) {
+    let hasAnOperand = getOperand(operation[1])
+
+    if (!hasAnOperand) operation[0] += unit
+    if (hasAnOperand) {
+      operation[2] += unit
+      doDinamicCalc()
+    }
+
+    createFullExpression()
+  }
+  function createFullExpression () {
+    expression.value = operation.join('')
+  }
+
+  function isDecimal (number) {
+    return number.indexOf('.') >= 0
+  }
+
+  function getOperand (operand) {
+    return /[\+|\-|\/|/*]/.test(operand)
+  }
+  function takeOperand ({currentTarget}) {
+    if (operation[0]) {
+      operation[1] = currentTarget.textContent
+    }
+
+    createFullExpression()
+  }
+
+  function doDinamicCalc () {
+    let isAValidOperation = checkOperation()
+    if (!isAValidOperation) return result.value = 'Bad Expression'
+
     result.value = operations[operation[1]](operation[0], operation[2])
+  }
+
+  function checkOperation () {
+    let isDenominatorDiferentFromCero =  operation[1] === '/' && operation[2] !== '0'
+
+    if (isDenominatorDiferentFromCero) return true
   }
 
   function clearExpression () {
     expression.value = ''
+    result.value = ''
     operation = ['', '', '']
   }
 
+  function removeLastItemFromExpression () {
+    console.log('remove last item from expression')
+  }
+
   FORM.onsubmit = event => event.preventDefault()
-  NUMBERS.forEach(number => number.onclick = numb)
-  OPERANDS.forEach(operand => operand.onclick = operandd)
-  CALC.onclick = doCalc
+  NUMBERS.forEach(number => number.onclick = takeNumber)
+  OPERANDS.forEach(operand => operand.onclick = takeOperand)
+  // CALC.onclick = doCalc
   CLEAR.onclick = clearExpression
 })
