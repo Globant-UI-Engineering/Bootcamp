@@ -14,14 +14,14 @@ body{
 h1{
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
 }
 #puzzle-container{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(4,1fr) ;
-    width: 35vw;
-    height: 35vw;
+    width: 60vh;
+    height: 60vh;
     gap: 2px;
     background-color: red;
     border: solid red 5px;
