@@ -9,32 +9,35 @@
     <script src="main.js"></script>
 </head>
 <body>
-       
+<header>
+       <h1>Calculator JavaScript</h1> 
+</header>
+
 <div class="container">
 <form action="#" name="calculator">
 <div class="showbox "id="showbox">0</div>
 <div class="buttons">
 <div class="row">
         <input class="getButton clear" type="button" name="cleare" value="CA" onclick="clearScreen()">
-        <input class="getButton operation" type="button" name="optionmod" value="%" onclick="setOperation('%')">
+        <input class="getButton operation" type="button" name="optionmod" value="mod" onclick="setOperation('%')">
         <input class="getButton operation" type="button" name="optionsum" value="+" onclick="setOperation('+')">
 </div>
 <div class="row">
-        <input class="getButton" type="button" name="number7" value="7" onclick="setText(7)">
-        <input class="getButton" type="button" name="number8" value="8" onclick="setText(8)">
-        <input class="getButton" type="button" name="number9" value="9" onclick="setText(9)">
+        <input class="getButton" type="button" name="number7" value="7" onclick="setNumber(7)">
+        <input class="getButton" type="button" name="number8" value="8" onclick="setNumber(8)">
+        <input class="getButton" type="button" name="number9" value="9" onclick="setNumber(9)">
         <input class="getButton operation" type="button" name="optionmul" value="*" onclick="setOperation('*')">
 </div>
 <div class="row">
-        <input class="getButton" type="button" name="number4" value="4" onclick="setText(4)">
-        <input class="getButton" type="button" name="number5" value="5" onclick="setText(5)">
-        <input class="getButton" type="button" name="number6" value="6" onclick="setText(6)">
+        <input class="getButton" type="button" name="number4" value="4" onclick="setNumber(4)">
+        <input class="getButton" type="button" name="number5" value="5" onclick="setNumber(5)">
+        <input class="getButton" type="button" name="number6" value="6" onclick="setNumber(6)">
         <input class="getButton operation" type="button" name="optionrest" value="-" onclick="setOperation('-')">
 </div>
 <div class="row">
-        <input class="getButton" type="button" name="number1" value="1" onclick="setText(1)">
-        <input class="getButton" type="button" name="number2" value="2" onclick="setText(2)">
-        <input class="getButton" type="button" name="number3" value="3" onclick="setText(3)">
+        <input class="getButton" type="button" name="number1" value="1" onclick="setNumber(1)">
+        <input class="getButton" type="button" name="number2" value="2" onclick="setNumber(2)">
+        <input class="getButton" type="button" name="number3" value="3" onclick="setNumber(3)">
         <input class="getButton operation" type="button" name="optiondiv" value="/" onclick="setOperation('/')">
 </div>
 <div class="row">
@@ -46,5 +49,9 @@
 </div>
 </form>
 </div>
+
+        <footer>
+                <div class="made">Designed by<a href="https://www.facebook.com/juansepaez"> Juan Forero</a></div>
+        </footer>
 </body>
 </html>

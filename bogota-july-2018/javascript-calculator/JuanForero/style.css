@@ -1,32 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+
 *{
     margin: 0%;
     padding: 0%;
 }
+
 body{
     background: #100a1c;
     background-image:
     radial-gradient(50% 30% ellipse at center top, #201e40 0%, #100a1c 100%);
     background-attachment: fixed;
 }
-
+h1{
+   color:   #5EACC5;
+   font-family: 'Open Sans Condensed', sans-serif;
+   text-align: center;
+   font-size: 55px;
+   margin: 25px;
+}
 .container {
     background-color: #000C31;
-    position:absolute;
+    margin: auto;
     box-sizing: border-box;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
     min-height: 400px;
     width: 300px;
     box-sizing: border-box;
     padding: 10px;
     border-radius: 35px 35px 35px 35px;
-    box-shadow: 20px 15px #192346;
+    box-shadow: 7px 3px #192346;
 }
 .container .showbox{
     text-align: right;
     background-color: #192346;
-    color:wheat;
+    color: #C97874;
     height: 70px;
     width: 260px;
     box-sizing: border-box;
@@ -41,27 +47,44 @@ body{
     font-size: 20px;
     text-align: center;
     background-color: #182244;
-    color: wheat;
+    color: #C97874;
     border: none;
     cursor: pointer;
     border-radius: 50%;
     margin: 5px 0px;
+
 }
+
 .getButton:active{
     background-color: #28346d;
     transform: translateY(1px);
 }
+
 .clear{
     border-radius: 20px 20px;
     width: 130px;
-    background-color: #CC3345; 
+    background-color: #CC3345;
+    color: white; 
 }
-.operation{
-    background-color:#3C4460;
-}
+
 .clear1{
     background-color: #CC3345;
+    color: white;
 }
+
+.operation{
+    background-color:#3C4460;
+    color: white;
+}
+
 .equal{
     background-color: #F5A623;
+    color: white;
 }
+footer{
+    text-align: center;
+    margin: 10px;
+    color: wheat;
+ }
+
+
