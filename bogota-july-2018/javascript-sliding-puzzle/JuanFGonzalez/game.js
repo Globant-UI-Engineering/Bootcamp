@@ -1,24 +1,28 @@
 
-var tiles = [];
-var cells = Array.from(document.getElementsByTagName("div"));
-var tileId;
+let board = [[],[],[],[]];
+let cells = document.getElementsByTagName("div");
 
 const start = () => {
-  createBoard();
+  setBoard();
 }
 
 const restart = () => {
-  window.location.reload(false);
+  window.location.reload();
 }
 
-const createBoard = () => {
-  let boardRow = [];
-  const options = [" ","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"];
- /* for (const row of options) {
-    
-  }*/
-  scramble(options);
-  fillCells();
+
+const setBoard = () => {
+  let numbers = [];
+  for(let i=0; i < 16; i++){
+    numbers[i] = cells[i].innerText;
+  }
+
+  numbers = scramble(numbers);
+
+  for(var j=0; j<16; j++){
+    document.getElementById(j+1).innerText = numbers[j];
+    document.getElementById(j+1).addEventListener("click", swapCells);
+  }
 }
 
 const scramble = (numbersArray) => {
@@ -36,26 +40,9 @@ const scramble = (numbersArray) => {
   return numbersArray;
 }
 
-const fillCells = () => {
-  tiles.forEach( (rows, cols) => {
-      rows.forEach( (item, index) => {
-          cells[cols * 4 + index].innerText = item;
-          cells[cols * 4 + index].id = row + "," + index;
-      });
-  });
+
+const swapCells = () => {
+  /*get the id of the cell clicked and find
+    the id of the empty cell to validate the move */
 }
 
-cells.forEach( (tile) => {
-  tile.addEventListener("click", () => {
-      /*find the empty tile and when found 
-      change it for the adjacent tile being clicked */
-  });
-});
-
-const changeTile = () => {
-
-}
-
-const findEmptyTile = () => {
-
-}
