@@ -13,7 +13,11 @@ font-family: sans-serif;
 font-size: 15vw;
 text-align: center;
 font-weight: bold;
+<<<<<<< HEAD
 text-transform: uppercase;
+=======
+text-transform: uppercase; 
+>>>>>>> 440ea443b42ad5f3af2bfa4eec9c428b9cb06cdc
 }
 
 aside .left-side{
@@ -84,7 +88,11 @@ footer .main-text{
 footer .legend{
 float: left;
 margin-top: -80px;
+<<<<<<< HEAD
 margin-left: 380px;
+=======
+margin-left: 300px;
+>>>>>>> 440ea443b42ad5f3af2bfa4eec9c428b9cb06cdc
 color:#ffffff;
 font-size: 2vw;
 text-align: center;
@@ -104,7 +112,11 @@ footer .exclusive span{
 footer .right-side{
   float: left;
   margin-top: -180px;
+<<<<<<< HEAD
   margin-left: 900px;
+=======
+  margin-left: 720px;
+>>>>>>> 440ea443b42ad5f3af2bfa4eec9c428b9cb06cdc
   color: #ffffff;
   font-size: 2vw;
   font-style: italic;

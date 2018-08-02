@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Formulario A11Y</title>
+  </head>
+  <body>
+    <h1>Registro de jugador</h1>
+
+    <div role="alert" aria-relevant="all">
+
+    </div>
+      <form class="form-group" action="#" method="post">
+        <p>Registra tus datos personales</p>
+        <fieldset>
+          <legend>Datos de contacto</legend>
+          <label for="username">Nombre de usuario (*): </label>
+          <input type="text" name="username" id="username" placeholder="E. G. danplaZ21" required aria-required="true"> <br>
+
+          <label for="email">Email (*): </label>
+          <input type="email" name="email" id="email" placeholder="example@domain.com" required aria-required="true"><br>
+
+          <label for="password">Contraseña (*): </label>
+          <input type="password" name="password" id="password" required aria-required="true"><br>
+
+          <label for="fechaNacimiento">Fecha de nacimiento: </label>
+          <input type="date" name="fechaNacimiento" id="fechaNacimiento" placeholder="Entre 18 y 99 años"><br>
+
+          <label for="telefono">Telefono: </label>
+          <input type="number" name="telefono" placeholder="1234567890"><br>
+
+          <label for="pais">Pais:</label>
+          <select name="pais">
+            <option value=""></option>
+            <option value="Argentina">Argentina</option>
+            <option value="Chile">Chile</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Ecuador">Ecuador</option>
+            <option value="Panama">Panama</option>
+            <option value="Peru">Peru</option>
+          </select>
+        </fieldset>
+        <br>
+
+        <!-- <p>Registra los datos de tu Avatar (Los puedes llenar despues de que te enviemos el correo)</p>
+
+        <fieldset>
+            <legend>Datos de Avatar</legend>
+            <label for="nombreAvatar">Nombre: </label>
+            <input type="text" name="nombreAvatar" id="nombreAvatar" placeholder="E.G. Wartaron"><br>
+
+            <label for="genero">Genero: </label>
+            <select name="genero">
+              <option value=""></option>
+              <option value="hombre">Hombre</option>
+              <option value="mujer">Mujer</option>
+            </select><br>
+
+            <label for=""></label>
+        </fieldset> <br> -->
+        <input type="submit" name="enviar" id="enviar" value="Enviar">
+      </form>
+
+      <p><strong>(*): </strong> Dato requerido</p>
+
+  </body>
+</html>
