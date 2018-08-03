@@ -1,8 +1,16 @@
+h1 {
+    text-transform: uppercase;
+    color: coral;
+    text-align: center;
+    font-family: fantasy;
+}
+
 .calculadora {
     width: 400px;
     padding: 5px;
     background-color: #000066;
     box-sizing: border-box;
+    margin: auto;
 }
 
 .box {
@@ -12,7 +20,8 @@
     border: 0;
     margin: 0;
     background-color: #f2f2f2;
-    font-size: 30px;
+    font-size: 40px;
+    text-align: right;
 }
 
 .btn-group button {
@@ -36,6 +45,7 @@
 .igual {
     width: 290px;
     font-size: 30px;
+    background-color: #f2f2f2;
 }
 button {
     width: 94px;
