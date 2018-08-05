@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+
+<head>
+    <title>Formulario</title>
+</head>
+
+<body>
+
+    <form action="#" method="POST">
+        <fieldset>
+            <legend>Personal information</legend>
+
+            <label for="name" id="name1"><strong>*</strong> Your name</label>
+            <input type="text" id="name" name="name" autofocus aria-labelledby="name1" required aria-required="true">
+            <br><br>
+
+            <label for="num" id="age">Your age</label>
+            <input type="number" name="num" id="num" aria-labelledby="age" min="5" max="100" step="5" value="0">
+
+
+            <label for="email" id="email1">Your e-mail</label>
+            <input type="email" name="email" id="email" required aria-labelledby="email1" placeholder="email@example.com">
+            <br><br>
+
+            <label for="pass" id="password"><strong>*</strong> Your password</label>
+            <input type="password" name="pass" id="pass" required aria-labelledby="password" aria-required="true">
+            <br><br>
+
+            <label class="visuallyhidden" for="url">Type your URL</label>
+            <input type="url" name="url" id="url" placeholder="Type your URL" aria-label="Type your URL">
+            <br><br>
+
+            <label for="birthday" id="bdate">Your birthday MM/DD/YYYY</label>
+            <input type="date" id="birthday" name="birthday" aria-labelledby="bdate">
+            <br><br>
+
+            <label for="tel">Phone number</label>
+            <input type="tel" name="tel" id="tel" pattern="[0-9]{3,3}(-)[0-9]{7,7}" aria-label="Follow the pattern" placeholder="000-0000000" />
+            <br><br>
+
+            <label for="country"><strong>*</strong> Where are you from?</label><br />
+            <select name="country" id="country" required aria-required="true">
+                <optgroup label="Europe">
+                    <option value="uk">UK</option>
+                    <option value="france">France</option>
+                    <option value="spain">Spain</option>
+                    <option value="italy">Italy</option>
+                </optgroup>
+                <optgroup label="America">
+                    <option value="canada">Canada</option>
+                    <option value="colombia">Colombia</option>
+                    <option value="brasil">Brazil</option>
+                </optgroup>
+                <optgroup label="Asia">
+                    <option value="china">China</option>
+                    <option value="japan">Japan</option>
+                </optgroup>
+            </select>
+
+            <br><br>
+            <label for="file">Upload your CV</label>
+            <input type="file" name="file" id="file" accept=".xls,.doc,.pdf" title="Formats .xls, .doc and .pdf">
+
+        </fieldset>
+        <fieldset>
+            <legend>Preferences</legend>
+
+            <label for="time">Your bedtime</label>
+            <input type="time" id="time" name="time">
+            <br><br>
+
+            <label for="month">Your favorite month</label>
+            <input type="month" id="month" name="month">
+            <br><br>
+
+            <label for="color">Favorite colour</label>
+            <input type="color" name="color" id="color" />
+        </fieldset>
+        <fieldset>
+            <legend>Select one wish</legend>
+            <input type="radio" name="wish" id="rich" value="rich" checked/>
+            <label for="rich">Being rich</label>
+
+            <input type="radio" name="wish" id="travel" value="travel" />
+            <label for="travel"> Travel around the world</label>
+
+            <input type="radio" name="wish" id="career" value="career" />
+            <label for="career">Finish my career</label>
+
+            <input type="radio" name="wish" value="other" id="other" />
+            <label for="other">Other...</label>
+            <br>
+
+            <label for="specs">If you have chosen «Other», write down which one:</label><br>
+            <textarea name="specs" id="specs" cols="40" rows="4" title="Write other wish"></textarea>
+        </fieldset>
+        <fieldset>
+            <legend>Favorite food</legend>
+
+            <input type="checkbox" name="burguer" id="burguer" />
+            <label for="burguer">Burguer</label><br />
+
+            <input type="checkbox" name="pizza" id="pizza" />
+            <label for="pizza">Pizza</label><br />
+
+            <input type="checkbox" name="salad" id="salad" />
+            <label for="salad">Salads</label><br />
+        </fieldset>
+        <input type="reset" value="Reset information" aria-label="Reset information">
+        <input type="submit" value="Send information!" aria-label="Send information" />
+
+    </form>
+</body>
+
+</html>
