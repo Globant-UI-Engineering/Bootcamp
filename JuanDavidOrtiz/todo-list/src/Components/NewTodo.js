@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 
 const formatInputDate=(date)=>{
@@ -57,7 +58,7 @@ class NewTodo extends React.Component {
                 <label> Completed:
                     <div role="checkbox" onClick={this.updateCompleted}>{isCompleted}</div>
                 </label>
-                <button>SAVE</button>
+                <NavLink to="/"><button>SAVE</button></NavLink>
             </React.Fragment>
         );
     }
