@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>   
+    <script>
+    let number1, number2, operation, result
+        number1 = 0;
+        number2 = 0;
+        operation = "+";
+
+        // OPERATOR FUNCTIONS/////////////////////////////////////////////////////////
+
+        function res() {
+
+            if (operation != "+" && operation != "-" && operation != "/" && operation != "*" && operation != " ") {
+                console.error("Enter an operator -> addition (+), subtraction (-), division (/), multiplication (*) in the operation variable to do the calculation");
+
+            } else {
+                var result = eval(number1 + operation + number2);
+                console.log(`The result of the operation es: ${result}`)
+            }
+        }
+        res();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
