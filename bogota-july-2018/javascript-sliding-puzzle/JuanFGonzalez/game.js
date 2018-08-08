@@ -1,6 +1,7 @@
 
 let board = [[],[],[],[]];
 let cells = document.getElementsByTagName("div");
+let emptyCell;
 
 const start = () => {
   setBoard();
@@ -21,7 +22,12 @@ const setBoard = () => {
 
   for(var j=0; j<16; j++){
     document.getElementById(j+1).innerText = numbers[j];
-    document.getElementById(j+1).addEventListener("click", swapCells);
+    if(numbers[j] === ""){
+       emptyCell = j+1;
+    }
+    document.getElementById(j+1).addEventListener("click", function(){
+      swapCells(j+1);
+    });
   }
 }
 
@@ -41,8 +47,13 @@ const scramble = (numbersArray) => {
 }
 
 
-const swapCells = () => {
-  /*get the id of the cell clicked and find
-    the id of the empty cell to validate the move */
+const swapCells = (idCell) => {
+   let cell = document.getElementById(idCell);
+   let empty = document.getElementById(emptyCell);
+  if(idCell-1 == emptyCell || idCell+1 == emptyCell || idCell+4 == emptyCell || idCell-4 == emptyCell){
+    empty.innerText = cell.innerText;
+    cell.innerText = "";
+    emptyCell = idCell;
+  }
 }
 
