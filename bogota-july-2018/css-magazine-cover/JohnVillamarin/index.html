@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,42 +8,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
-    
 </head>
+
 <body>
-    <section id="container" > 
-        <header>
+    <section id="container">
+        <header role="banner">
             <img src="images/logo.png" alt="Caras">
         </header>
-        <main>
-            <article>
-                <p><span>especial de cocina</span></p>
-                <p>boom de los super alimentos</p>
-                <p>el chef más poderoso de londres</p>
-                <p>comida y seducción</p>
-                <p>la marraqueta del futuro</p>
-            </article> 
+        <main role="main">
+            <article role="article">
+                <p>
+                    <mark>especial de cocina</mark>
+                </p>
+                <ul>
+                    <li role="presentation">boom de los super alimentos</li>
+                    <li role="presentation">el chef más poderoso de londres</li>
+                    <li role="presentation">comida y seducción</li>
+                    <li role="presentation">la marraqueta del futuro</li>
+                </ul>                
+            </article>
             <div>
                 <img src="images/woman.png" alt="Mane Swett">
-            </div> 
-            <aside>
-                <p><span>exclusivo desde italia</span> matrimonio de davor luksic con la hija de al bano y romina power</p>
-                <p>el regreso de mariana aylwin</p>
-                <p>hernan somerville<span>'lagos es mi candidato'</span></p>
-                
+            </div>
+            <aside role="complementary">
+                <p>
+                    <span>exclusivo desde italia</span> matrimonio de davor luksic con la hija de al bano y romina power</p>
+                <p>el regreso de mariana aylwin</p>                
+                <p>
+                    <span>
+                        <mark>hernan somerville</mark>
+                    </span>  
+                    <span>
+                        <mark>'lagos
+                            <br> es mi candidato'
+                        </mark>
+                    </span>
+                </p>
             </aside>
-            
+
             <section>
                 <header>
                     <h1>mane swett</h1>
                     <h2>el drama se acabó </h2>
-                    <p>la actriz que devolvió la esperanza a tvn confiesa:</p>
-                    <p>'si voy a estar en pareja tiene que ser con alguine que sume de verdad'</p>
-                </header> 
-            </section>  
+                    <p>
+                        <mark>la actriz que devolvió la esperanza a tvn confiesa:</mark>
+                        <span>
+                            <mark>
+                                <q>si voy a estar en pareja tiene que ser con alguien que sume de verdad</q>
+                            </mark>
+                        </span>
+                    </p>
+                </header>
+            </section>
         </main>
-        <footer>
-                <img src="images/bar-code.jpg" alt="Bar code">
+        <footer role="contentinfo">
+            <img src="images/bar-code.jpg" alt="Codigo de barras">
         </footer>
     </section>
 </body>
