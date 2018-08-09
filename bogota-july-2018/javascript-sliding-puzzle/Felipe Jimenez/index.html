@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sliding Puzzle</title>
+	  <script type="text/javascript" src="js/script.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>JS Sliding Puzzle</h1>
+    </header>
+    <main class="board">
+      <div class="button-field" id="field-0"></div>
+      <div class="button-field" id="field-1"></div>
+      <div class="button-field" id="field-2"></div>
+      <div class="button-field" id="field-3"></div><br>
+      <div class="button-field" id="field-4"></div>
+      <div class="button-field" id="field-5"></div>
+      <div class="button-field" id="field-6"></div>
+      <div class="button-field" id="field-7"></div><br>
+      <div class="button-field" id="field-8"></div>
+      <div class="button-field" id="field-9"></div>
+      <div class="button-field" id="field-10"></div>
+      <div class="button-field" id="field-11"></div><br>
+      <div class="button-field" id="field-12"></div>
+      <div class="button-field" id="field-13"></div>
+      <div class="button-field" id="field-14"></div>
+      <div class="button-field" id="field-15"></div><br>
+    </main>
+    <section>
+      <h2>Instructions</h2>
+      <p class="instructions-text">Move the pieces on the board until you manage to get the numbers ordered ascending from 1 to 15 horizontally leaving the upper left field free.</p>
+    </section>
+    <section>
+      <h2>State</h2>
+      <p class="state-text" id="state-text">Not Finished</p>
+      <p class="state-moves-text" id="state-moves-text"></p>
+    </section>
+    <section class="moves-count">
+      <h2 id="moves-counter">Moves: 0</h2>
+    </section>
+  </body>
+</html>
