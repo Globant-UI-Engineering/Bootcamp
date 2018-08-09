@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+html{
+    background:linear-gradient(to right, #00BF96,#339966);
+}
+h1{
+   text-align: center; 
+   color: white;
+   font-family: 'Oswald', sans-serif;
+   font-size:50px;
+   margin:15px; 
+}
+
+#puzzle{
+   box-sizing: border-box;
+   padding: 20px;
+   background-color: #00BF96;
+   border-radius: 15px ;    
+   height: 400px;
+   width: 400px;
+   margin: auto;
+   position: relative;
+}
+
+td{  
+   width: 50px;
+   height: 50px;
+   color: white;  
+   text-align: center;
+   cursor: pointer;
+   border-radius: 10px 10px;
+   background-color: #00816A;
+   font-weight: 500;
+   font-size: 25px;
+}
+
+td:hover{
+   background-color:#339966 ;
+}
+
+#reset{
+   background-color:#00816A;
+   height: 50px;
+   width: 80px;
+   border-radius: 10px;
+   border: none;
+   box-shadow: 0 5px #00BF96;
+   color: white;
+   position: relative ;
+   margin: 5px;
+}
+
+#reset:hover{
+   background-color: #339966;
+}
+
+#reset:active{
+   transform: translateY(3px);
+}
+
+footer{
+   text-align: center;
+   margin: 5px;
+}
