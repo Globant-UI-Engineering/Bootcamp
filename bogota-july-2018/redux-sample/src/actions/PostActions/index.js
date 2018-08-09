@@ -4,15 +4,14 @@ import {
 import { fetchPostsFromAPI } from 'API';
 
 
-export function postListFetchSuccess(posts) {
-  console.log('fetchPostsFromAPI', posts);
+export function postListFetchSuccess(postList) {
   return {
     type: POST_LIST_FETCH_SUCCESS,
-    posts: posts
+    postList: postList
   };
 }
 
-export function getPosts() {
+export function getPostList() {
   return (dispatch) => {
 
     const onSuccess = (response) => dispatch(postListFetchSuccess(response.data));

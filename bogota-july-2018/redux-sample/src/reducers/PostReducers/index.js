@@ -3,7 +3,7 @@ import {
 } from 'actions/actionTypes';
 
 const PostInitialState = {
-  posts: []
+  postList: []
 };
 
 export default function PostReducers(state = PostInitialState, action) {
@@ -12,7 +12,7 @@ export default function PostReducers(state = PostInitialState, action) {
 
     case POST_LIST_FETCH_SUCCESS:
       return Object.assign({}, state, {
-        posts: action.posts,
+        postList: action.postList,
       });
 
     default:

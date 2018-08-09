@@ -1,38 +1,43 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Button } from 'reactstrap';
-import { getPosts } from 'actions/PostActions';
+import { getPostList } from 'actions/PostActions';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 class App extends Component {
-  
+
   render() {
+    const { postList }  = this.props;
+        
     return (
       <div className="App">
         <Button onClick={this.onGetPostClick}>Get Posts</Button>
+        { postList.length > 0 ? this.renderMsg(postList): '' }
       </div>
     );
   }
 
-  onGetPostClick = (event) => {
-    console.log('onGetPostClick');
+  onGetPostClick = event => {
+    this.props.getPostList();
   }
 
-}; 
+  renderMsg = postList => <p>Successfully got {postList.length} posts</p>;
+
+};
 
 const mapStateToProps = state => {
   return {
-    posts: state.posts
+    postList: state.PostReducers.postList
   }
 };
-​
+
 const mapDispatchToProps = dispatch => {
   return {
-    onClick: () => {
-      dispatch(getPosts())
+    getPostList: () => {
+      dispatch(getPostList())
     }
   }
 };
@@ -42,4 +47,3 @@ export default connect(
   mapDispatchToProps
 )(App);
 
-// export default App;
