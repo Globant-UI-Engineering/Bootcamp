@@ -1,0 +1,48 @@
+.container{
+    display: flex;    
+    flex-wrap: wrap;
+    width: 400px;
+    height: 400px;
+}
+.puzzlepiece{
+    width: 100px;
+    height: 100px;
+    background: rgba(241,231,103,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(241,231,103,1) 0%, rgba(242,118,9,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(241,231,103,1)), color-stop(100%, rgba(242,118,9,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(241,231,103,1) 0%, rgba(242,118,9,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(241,231,103,1) 0%, rgba(242,118,9,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(241,231,103,1) 0%, rgba(242,118,9,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(241,231,103,1) 0%, rgba(242,118,9,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', endColorstr='#f27609', GradientType=1 );
+    border: solid 1px black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 40px;
+    font-family: arial;
+    -webkit-text-shadow: 3px 2px  rgba(0,0,0,0.75);
+    -moz-text-shadow: 3px 2px  rgba(0,0,0,0.75);
+    text-shadow: 3px 2px  rgba(0,0,0,0.75);
+    -webkit-box-shadow: 5px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 3px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 3px 5px 0px rgba(0,0,0,0.75); 
+    cursor:pointer;
+}
+
+#positionblack_box{
+    background: black;
+    color:transparent;
+    text-shadow: initial;
+    font-size: 14px
+}
+button{
+    margin: 20px 0;
+    width: 100px;
+    height: 50px;
+    -webkit-box-shadow: 5px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 3px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 3px 5px 0px rgba(0,0,0,0.75); 
+}
