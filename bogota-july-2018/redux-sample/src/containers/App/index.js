@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Button } from 'reactstrap';
 import { getPostList } from 'actions/PostActions';
+import PostGallery from 'containers/PostGallery';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,6 +17,7 @@ class App extends Component {
       <div className="App">
         <Button onClick={this.onGetPostClick}>Get Posts</Button>
         { postList.length > 0 ? this.renderMsg(postList): '' }
+        <PostGallery/>
       </div>
     );
   }
