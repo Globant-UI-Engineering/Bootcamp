@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="Jorge Aguilar">
+        <title>BootCamp Sliding Puzzle</title>
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+        <section>
+            <header>
+                <h1> PUZZLE SLIDING BOOTCAMP </h1>
+            </header>
+            <aside>
+                <select id="gridSize" onchange="changeGridSize()">
+                    <option selected disabled>CHOOSE THE GRID SIZE</option>
+                    <option value="3">3x3</option>
+                    <option value="4">4x4</option>
+                    <option value="5">5x5</option>
+                    <option value="6">6x6</option>
+                </select>
+                <p>Moves : <span id="score">0</span></p>
+            </aside>
+            <main id="puzzle">
+                
+            </main>
+        </section>
+        <script src="assets/js/slide.js"></script>
+    </body>
+</html>
