@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+#magazine {
+  padding-right: 15px;
+  padding-left: 15px;
+  border-style:solid;
+  border-color: #0a3d62;
+  margin-right: auto;
+  margin-left: auto;
+  width: 720px;
+  height:930px;
+  background-image: url("../img/img.jpg");
+}
+
+#date {
+  font-family: Oswald;
+  font-size: 20px;
+  font-weight: 600;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  position:relative;
+  top: 15px;
+  float:right;
+}
+
+h1 {
+  font-family: Source Code Pro;
+  font-weight: 600;
+  font-size: 110px;
+  letter-spacing: 3px;
+  text-align:center;
+  color:#0a3d62;
+  text-shadow: -3px 0 #eb3b5a, 0 1px #0be881, 1px 0 #0fbcf9, 0 -1px white;
+  margin-top:30px;
+}
+
+#content {
+  font-family: Oswald;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  width: inherit;
+}
+
+.left-text {
+  text-align: left;
+}
+
+.left-text h4{
+  font-size: 30px;
+  line-height: 37px;
+  margin-bottom:0px;
+}
+
+.left-text h6{
+  font-size: 20px;
+  color:#353b48;
+  margin-top:2px;
+}
+
+
+#main-text {
+  text-align: right;
+}
+
+#main-text h3{
+  font-size: 45px;
+  line-height: 65px;
+  margin-bottom:0px;
+}
+
+#main-text h3 b{
+  font-size: 54px;
+}
+
+#main-text h5{
+  margin-top:5px;
+  font-size: 25px;
+  color:#353b48;
+}

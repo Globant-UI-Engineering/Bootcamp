@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulario</title>
+</head>
+<body>
+        <fieldset>
+            <legend>Información</legend>
+                
+            <form action="" method="post">
+                <label for="nombre">Nombre(s) (Requerido): </label>
+                <input type="text" name="nombre" id="nombre" required aria-required="true" placeholder="ej. Juan Miguel">
+                <br><br>
+                <label for="apellido">Apellido(s) (Requerido): </label>
+                <input type="text" name="apellido" id="apellido" required aria-required="true" placeholder="ej. Fernández García">
+                <br><br>
+                <label for="email">Correo Electrónico (Requerido): </label>
+                <input type="email" name="email" id="email" required aria-required="true" placeholder="ej. ejemplo@ejemplo.com">
+                <br><br>
+                <div>
+                    <label for="telefono">Telefono Celular:</label>
+                    <input type="text" id="telefono" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder="ej. 888 888 8888" />
+                </div>
+                <br>
+                <div>
+                    <label id="ciudad">Ciudad (Requerido):</label>
+                    <select name="ciudad" id="ciudad" required aria-required="true">
+                        <option></option>
+                            <option value="bogota">Bogotá</option>
+                            <option value="cali">Cali</option>
+                            <option value="medellin">Medellín</option>
+                            <option value="barranquilla">Barranquilla</option>
+                            <option value="cartagena">Cartagena</option>
+                    </select>
+                </div>
+                <br>
+                <fieldset>
+                    <legend>Sexo:</legend>
+                        <div>
+                        <input type="radio" name="formatoSexo" id="hombre" value="hombre" >
+                        <label for="hombre">Hombre</label>
+                        <input type="radio" name="formatoSexo" id="mujer" value="mujer">
+                        <label for="mujer">Mujer</label>
+                        </div>
+                </fieldset>
+                <br>
+                <fieldset>
+                        <legend>Nivel de Inglés  (Requerido):</legend>
+                    <div>
+                        <input type="radio" name="formatoIngles" id="excelente" value="excelente" required aria-required="true">
+                        <label for="excelente">Excelente</label>
+
+                        <input type="radio" name="formatoIngles" id="intermedio" value="intermedio">
+                        <label for="intermedio">Intermedio</label>
+
+                        <input type="radio" name="formatoIngles" id="regular" value="regular">
+                        <label for="regular">Regular</label>
+
+                        <input type="radio" name="formatoIngles" id="malo" value="malo">
+                        <label for="malo">Malo</label>
+                    </div>    
+                </fieldset>  
+                <br>
+                <button type="submit">Enviar</button>
+        </fieldset>
+    </form>
+</body>
+</html>

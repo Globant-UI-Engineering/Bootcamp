@@ -1,0 +1,156 @@
+body{
+  background: #2C3E50;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  padding: 0;
+
+  font-family: 'Lato', sans-serif;
+}
+
+section>h1{
+  font-size: 0;
+}
+
+h1{
+  font-size: 72px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.magazineCover{
+  background-color: #282828;
+  background-image: url('../imgs/big_data3.png');
+  padding: 1%;
+  background-repeat: no-repeat;
+}
+
+.magazineCover-sizing{
+  width: 600px;
+  height: 900px;
+}
+
+article.magazineCover {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contenedor, .magazineCover{
+  /*border: 1px solid gray;*/
+  border-radius: 5px;
+}
+
+.contenedor{
+  padding: 20px;
+}
+
+.cabecera-logo{
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.imagen-logo{
+
+  margin: 30px auto;
+  width: 600px;
+
+}
+
+section#headerMagazine{
+  padding: 1%;
+  height: auto;
+  width: auto;
+}
+
+.caja{
+  height: auto;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  align-content: center;
+}
+
+.cajaEdicion{
+  text-transform: uppercase;
+  margin: 2px;
+  width: auto;
+  height: 100%;
+}
+
+.cajaResumen{
+  background-color: #E33D25;
+  border-radius: 5px;
+  height: 100%;
+  width: 90%;
+  margin: 2px;
+  align-content: center;
+  text-transform: uppercase;
+}
+
+p, span{
+  padding: 0;
+  margin: 0;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+p.peq{
+  font-size: 8px;
+}
+
+p#numEdicion{
+  font-size: 25px;
+}
+
+p#resumen{
+  font-size: 10px;
+  word-wrap: break-word;
+  float: left;
+  width: 32.0%;
+  height: auto;
+  text-align: left;
+  padding: 5px 0;
+  border-left: 2px solid white;
+  padding-left: 5px
+}
+
+section.contenido{
+  width: 100%;
+  height: auto;
+  text-align: center;
+
+}
+
+p#titulo{
+  font-family: 'Dosis', sans-serif;
+  font-size: 200px;
+  color: yellow;
+  text-shadow: 1px 2px black;
+}
+
+div#cuadro-texto{
+  border: 2px;
+  border-radius: 30px;
+  margin: auto 20%;
+  font-size: 40px;
+  background-color: #161B74;
+  text-transform: uppercase;
+}
+
+p#texto-titulo{
+  font-family: 'Dosis', sans-serif;
+  color: yellow;
+  text-shadow: 1px 2px black;
+}
+
+.footer{
+  margin-top: 60px;
+}
+
+.img-footer{
+  width: 125px;
+  height: auto;
+  padding: 20px;;
+}
