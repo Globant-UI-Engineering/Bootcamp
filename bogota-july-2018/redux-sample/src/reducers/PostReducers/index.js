@@ -1,0 +1,21 @@
+import {
+  POST_FETCH_SUCCESS,
+} from '../../actions/actionTypes';
+
+const PostInitialState = {
+  posts: []
+};
+
+export default function PostReducers(state = PostInitialState, action) {
+
+  switch (action.type) {
+
+    case POST_FETCH_SUCCESS:
+      return Object.assign({}, state, {
+        posts: action.posts,
+      });
+
+    default:
+      return state;
+  }
+}
