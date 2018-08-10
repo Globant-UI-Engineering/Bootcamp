@@ -1,0 +1,77 @@
+* {
+    font-family: 'Dosis', sans-serif;
+}
+
+body {
+    background-color: #8A6DDB;
+    font-weight: 700;
+    font-size: 24px;
+    background-color: #ECF0F1;
+    -webkit-tap-highlight-color: transparent;
+    khtml-tap-highlight-color: transparent;
+}
+
+.sliding-puzzle-figure {
+    margin: auto;
+    height: 650px;
+    text-align: center;
+    width: 650px;
+    max-height: 70vh;
+    max-width: 70vh;
+}
+
+.title {
+    font-size: 2em;
+}
+
+.sliding-puzzle-figure .sliding-puzzle {
+    list-style-type: none;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-clip: border-box;
+    border: 18px solid #123;
+    border-radius: 10px;
+    background-color: #123;
+}
+
+.sliding-puzzle-figure .sliding-puzzle .tile {
+    position: absolute;
+    background-color: #00B233;
+    color: #FFF;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 31%;
+    height: 31%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    left: 0%;
+    top: 0%;
+    transition: all 0.5s linear;
+    transition-timing-function: ease;
+    box-sizing: border-box;
+}
+
+.sliding-puzzle-figure .sliding-puzzle .tile.error {
+    background-color: #FF1919;
+}
+
+@media only screen and (max-width: 650px) {
+    .sliding-puzzle-figure {
+        width: 90vw;
+        height: 90vw;
+        max-height: 100vh;
+    }
+    .sliding-puzzle-figure .sliding-puzzle {
+        border-width: 10px;
+        border-radius: 14px;
+    }
+    .sliding-puzzle-figure .tile {
+        font-size: 1em;
+    }
+}
