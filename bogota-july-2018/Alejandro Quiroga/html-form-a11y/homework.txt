@@ -1,0 +1,11 @@
+
+Develop in HTML a form with WCAG AA standard.
+
+Form:
+
+Should have at least 7 inputs.
+Should have at least 3 types of inputs.
+Should have at least 3 required fields.
+Is not a functional form (no Ajax or js validation)
+
+JS and CSS is not need it. 

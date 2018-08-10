@@ -1,0 +1,100 @@
+* {
+  font-family: 'Dosis', sans-serif;
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #8A6DDB;
+  font-size: 18px;
+}
+
+.calculator-container {
+  background-color: #203548;
+  margin: 5% auto;
+  width: 395px;
+}
+
+.calculator-header {
+  background-color: #FFD157;
+  color: #976E15;
+  text-align: center;
+  padding: 5% 0;
+}
+
+.calculator-header h2 {
+  font-size: 1em;
+}
+
+.calculator-header h1 {
+  font-size: 3em;
+}
+
+.calculator-container button {
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 1.5% 0;
+  transition: .5s;
+}
+
+.calculator-container button:focus {
+  outline:0;
+}
+
+.aritmetic-buttons {
+  background-color: #45576B;
+  border-radius: 2em;
+  margin: 3% auto;
+  width: 90%;
+}
+
+.aritmetic-buttons button {
+  color: #fff;
+  font-family: sans;
+  font-size: 2em;
+  margin: 2%;
+  width: 15%;
+}
+
+.aritmetic-buttons button:hover {
+  background-color: #485D70;
+  color: #fff;
+}
+
+.aritmetic-buttons button[name='equal'] {
+  background-color: #FFD157;
+  color: #976E15;
+}
+
+.aritmetic-buttons button[name='equal']:hover {
+  background-color: #FFD157;
+  color: #976E15;
+}
+
+.calculator-pad {
+  padding: .5% auto;
+}
+
+.num-buttons button {
+  color: #485D70;
+  font-size: 2.4em;
+  margin: 1% 6.3%;
+  width: 20%;
+}
+
+.num-buttons button:hover {
+  background-color: #45576B;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.num-buttons .backspace-icon {
+  width: 40%;
+}
+
+.num-buttons .backspace-icon path {
+  fill: #fff;
+}
