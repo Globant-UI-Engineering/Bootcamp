@@ -1,0 +1,59 @@
+body {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  background-color: #ffeead;
+  margin: 2em;
+}
+
+.board > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #ffeead;
+}
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+  text-align: center;
+}
+
+p{
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.board > div:nth-child(n){
+  background-color: #95ceb5;
+}
+
+.board > div:nth-child(3n){
+  background-color: #ff6f69;
+}
+
+.board > div:nth-last-child(3n){
+  background-color: #ffcc6c;
+}
+
+.board{
+  border: 1px solid black;
+  height: 23rem;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4 ,70px);
+  grid-gap: 3px;
+  justify-content: center;
+  align-content: center;
+}
+
+.wrapper{
+  padding: 1rem;
+  text-align: center;
+}
+
+.pretty-btn{
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  background-color: #95ceb5;
+  border-radius: 12px;
+}
