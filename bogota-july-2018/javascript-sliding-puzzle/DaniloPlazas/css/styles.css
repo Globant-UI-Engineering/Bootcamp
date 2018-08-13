@@ -1,0 +1,71 @@
+body{
+
+  background: #2C3E50;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-weight: 700;
+  font-family: sans-serif;
+
+}
+
+h1{
+  padding: 0;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.board{
+  margin: auto;
+  height: 650px;
+  width: 650px;
+  /*max-height: 70vh;
+  max-width: 70vh;*/
+  padding-top: 10em;
+}
+.board figcaption{
+  cursor: pointer;
+}
+.board figcaption a#restart {
+  color: #E85A22;
+}
+.board figcaption a#solve{
+  color: #22E8C7;
+}
+
+.board .puzzle{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  border: 18px solid #9B340B;
+  border-radius: 10px;
+  background: #9B340B;
+  /*box-sizing: border-box;
+  background-clip: border-box;*/
+}
+
+.board .puzzle .item{
+  position: absolute;
+  background-color: #22E8C7;
+  color: #000000;
+  border-radius: 10px;
+  cursor: pointer;
+  /*
+  width: pendiente por asignar segun cantidad de items
+  height: Pendiente por asignar segun cantidad de items*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  left: 0%;
+  top: 0%;
+  /*box-sizing: border-box;*/
+}
+
+/* .board .puzzle .item:hover{
+  transition: 1s;
+  left: 0%;
+  top: 0%;
+} */

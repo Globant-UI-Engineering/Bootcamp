@@ -1,0 +1,99 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>html-form-a11y</title>
+    <meta name="description" content="Globant bootcamp second day">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <h1>Register form</h1>
+    <h2>Fill the following form:</h2>
+
+    <form role="form">
+        <h3>Personal Info</h3>
+
+        <div role="text" aria-labelledby="complete_name">
+            <h4 id="complete_name">Enter your complete name</h4>
+            <label for="first-name">First Name</label>
+            <input id="first-name" type="text" name="textfield">
+
+            <label for="last-name">Last Name*</label>
+            <input id="last-name" type="text" name="textfield" aria-describedby="error-message" required>
+
+            <div id="error-message">
+                <p>*This field is required.</p>
+            </div>
+        </div>
+
+        <div role="group" aria-labelledby="document_type">
+            <h4 id="document_type">Select document type</h4>
+            <div>
+                <input id="citizenship_card" type="checkbox" name="document_type" value="cc" />
+                <label for="citizenship_card">Citizenship card</label>
+
+                <input id="identification_card" type="checkbox" name="document_type" value="tc" />
+                <label for="identification_card">Identification card</label>
+
+                <input id="foreigners_card" type="checkbox" name="document_type" value="fc" />
+                <label for="foreigners_card">Foreigners card</label>
+            </div>
+        </div>
+
+        <div role="text" aria-labelledby="identification_number">
+            <h4 id="identification_number">Enter your identification number</h4>
+
+            <label for="last-name">Identificacion number*</label>
+            <input id="last-name" type="text" name="textfield" aria-describedby="error-message_doc" required>
+
+            <div id="error-message_doc">
+                <p>*This field is required.</p>
+            </div>
+        </div>
+
+        <h3>Work Info</h3>
+
+        <div role="list" aria-labelledby="user_role">
+            <h4 id="user_role">Select your role</h4>
+            <label for="role">Choose your role </label>
+            <select id="role" name="lecture">
+                <option label="Choose a role" disabled selected>Choose a role</option>
+                <option label="Developer" value="dev">Developer</option>
+                <option label="Testing" value="test">Testing</option>
+                <option label="Desingner" value="des">Designer</option>
+                <option label="Other" value="ot">Other</option>
+            </select>
+        </div>
+
+        <h3>Other Info</h3>
+
+        <div role="text" aria-labelledby="email_address">
+                <h4 id="email_address">Enter your email address</h4>
+    
+                <label for="email">Email*</label>
+                <input id="email" type="email" name="email" aria-describedby="error-message_mail" required>
+    
+                <div id="error-message_mail">
+                    <p>*This field is required.</p>
+                    <p>*Enter a valid email address.</p>
+                </div>
+            </div>
+
+        <div role="list" aria-labelledby="bio_text">
+            <h4 id="bio_text">Tell us somenthing about you</h4>
+            <label for="bio">Enter a description of maximum 250 characters </label>
+            <br />
+            <textarea id="bio" name="biotext" maxlength="250" rows="5" cols="50"></textarea>
+        </div>
+
+
+        <input type="submit" value="Submit">
+    </form>
+
+
+</body>
+
+</html>
