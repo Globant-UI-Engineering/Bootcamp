@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+	  <script type="text/javascript" src="js/script.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>JS Calculator</h1>
+    </header>
+    <main>
+      <p id="board">0</p>
+      <form>
+        <label for="numberLeft">First Number</label>
+        <input id="numberLeft" type="text" class="calculatorElement"><br>
+
+        <label for="operator">Operator</label>
+        <select id="operator" class="calculatorElement">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="/">÷</option>
+          <option value="*">x</option>
+        </select><br>
+
+        <label for="numberRight">Second Number</label>
+        <input id="numberRight" type="text" class="calculatorElement"><br>
+      </form>
+      <button class="equals-button" onclick="result()">=</button>
+    </main>
+  </body>
+</html>
