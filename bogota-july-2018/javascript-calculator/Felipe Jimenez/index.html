@@ -11,22 +11,38 @@
     </header>
     <main>
       <p id="board">0</p>
-      <form>
-        <label for="numberLeft">First Number</label>
-        <input id="numberLeft" type="text" class="calculatorElement"><br>
-
-        <label for="operator">Operator</label>
-        <select id="operator" class="calculatorElement">
-          <option value="+">+</option>
-          <option value="-">-</option>
-          <option value="/">÷</option>
-          <option value="*">x</option>
-        </select><br>
-
-        <label for="numberRight">Second Number</label>
-        <input id="numberRight" type="text" class="calculatorElement"><br>
-      </form>
-      <button class="equals-button" onclick="result()">=</button>
+      <div class="button-group">
+        <button class="number-button" onclick="writeValue(7)">7</button>
+        <button class="number-button" onclick="writeValue(8)">8</button>
+        <button class="number-button" onclick="writeValue(9)">9</button>
+        <button class="operation-button" onclick="erase()">C</button>
+      </div>
+      <div class="button-group">
+        <button class="number-button" onclick="writeValue(4)">4</button>
+        <button class="number-button" onclick="writeValue(5)">5</button>
+        <button class="number-button" onclick="writeValue(6)">6</button>
+        <button class="operation-button" onclick="writeValue('/')">÷</button>
+      </div>
+      <div class="button-group">
+        <button class="number-button" onclick="writeValue(1)">1</button>
+        <button class="number-button" onclick="writeValue(2)">2</button>
+        <button class="number-button" onclick="writeValue(3)">3</button>
+        <button class="operation-button" onclick="writeValue('*')">x</button>
+      </div>
+      <div class="button-group">
+        <button class="operation-button" onclick="writeValue('.')">.</button>
+        <button class="number-button" onclick="writeValue(0)">0</button>
+        <button class="operation-button" onclick="writeValue('+')">+</button>
+        <button class="operation-button" onclick="writeValue('-')">-</button>
+      </div>
+      <div class="button-group">
+        <button class="equals-button" onclick="result()">=</button>
+      </div>
     </main>
+    <section>
+      <h2>History</h2>
+      <div id="history">
+      </div>
+    </section>
   </body>
 </html>
