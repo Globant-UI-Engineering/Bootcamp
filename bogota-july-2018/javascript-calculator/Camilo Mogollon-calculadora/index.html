@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta charset ="UTF-8">
+<title> Calculadora Js </title>
+<link rel="stylesheet" type="text/css" href="estilos.css" >
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+</head>
+
+<body onload="init()">
+
+  <table id="cldora" class="cldora">
+    <tr>
+       <td colspan="4"> <span id="res">  </span> </td>
+    </tr>
+    <tr>
+       <td> <button data-type ="number" data-value="7"> 7 </button> </td>
+       <td> <button data-type ="number" data-value="8"> 8 </button> </td>
+       <td> <button data-type ="number" data-value="9"> 9 </button> </td>
+       <td> <button data-type ="operator" data-value="/"> / </button> </td>
+    </tr>
+    <tr>
+       <td> <button data-type ="number" data-value="4"> 4 </button> </td>
+       <td> <button data-type ="number" data-value="5"> 5 </button> </td>
+       <td> <button data-type ="number" data-value="6"> 6 </button> </td>
+       <td> <button data-type ="operator" data-value="*"> * </button> </td>
+    </tr>
+    <tr>
+       <td> <button data-type ="number" data-value="1">  1 </button> </td>
+       <td> <button data-type ="number" data-value="2"> 2 </button> </td>
+       <td> <button data-type ="number" data-value="3"> 3 </button> </td>
+       <td> <button data-type ="operator" data-value="-"> - </button> </td>
+    </tr>
+    <tr>
+       <td> <button data-type ="number" data-value="0"> 0 </button> </td>
+       <td> <button data-type ="action" data-value="c"> c </button> </td>
+       <td> <button data-type ="action" data-value="del"> del </button> </td>
+       <td> <button data-type ="operator" data-value="+"> + </button> </td>
+    </tr>
+    <tr>
+       <td> <button data-type ="action" data-value="="> = </button> </td>
+    </tr>
+  </table>
+
+<script src="calcAvanzada.js"> </script>
+</body>
+</html>
