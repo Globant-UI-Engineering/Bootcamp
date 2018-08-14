@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Title-->
+    <title>Calculator Homework</title>
+
+    <!--Icon-->
+    <link rel="icon" type="image/png" href="/" sizes="16x16">
+
+    <!--Meta-->
+    <meta charset="utf-8">
+    <meta name="author" content="Cristian David Paredes"></meta>
+
+    <!--CSS-->
+    <link rel='stylesheet' href='index.css' />
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+
+    <!--JS-->
+    <script language="JavaScript" src="calculator.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="calculator-body">
+            <div id="screen">
+                <div id="operation">
+                    <p></p>
+                </div>
+                <div id="result">
+                    <p></p>
+                </div>
+            </div>
+            <div id="keyboard">
+                <table>
+                    <tr>
+                        <td>
+                            <button class="general-button" onclick="clearAll()">C</button>
+                        </td>
+                        <td>
+                            <button class="general-button" onclick="addToOperation('(')">(</button>
+                        </td>
+                        <td>
+                            <button class="general-button" onclick="addToOperation(')')">)</button>
+                        </td>
+                        <td>
+                            <button class="general-button operation" onclick="addToOperation('/')">&#247</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="general-button" onclick="addToOperation('7')">7</button>
+                        </td>
+                        <td>
+                            <button class="general-button" onclick="addToOperation('8')">8</button>
+                        </td>
+                        <td>
+                            <button class="general-button" onclick="addToOperation('9')">9</button>
+                        </td>
+                        <td>
+                            <button class="general-button operation" onclick="addToOperation('*')">x</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button class="general-button" onclick="addToOperation('4')">4</button>
+                        </td>
+                        <td>
+                            <button class="general-button" onclick="addToOperation('5')">5</button>
+                        </td>
+                        <td>
+                            <button class="general-button" onclick="addToOperation('6')">6</button>
+                        </td>
+                        <td>
+                            <button class="general-button operation" onclick="addToOperation('-')">-</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="general-button" onclick="addToOperation('1')">1</button>
+                        </td>
+                        <td>
+                            <button class="general-button" onclick="addToOperation('2')">2</button>
+                        </td>
+                        <td>
+                            <button class="general-button" onclick="addToOperation('3')">3</button>
+                        </td>
+                        <td>
+                            <button class="general-button operation" onclick="addToOperation('+')">+</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button class="general-button" onclick="addToOperation('0')">0</button>
+                        </td>
+                        <td>
+                            <button class="general-button" onclick="addToOperation('.')">.</button>
+                        </td>
+                        <td>
+                            <button class="general-button operation" onclick="getResult()">=</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
