@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  background: #e6e6e6;
+}
+fieldset {
+  margin: 0;
+}
+input {
+  border: 0;
+}
+button, input {
+  border: 2px solid transparent;
+  color: currentColor;
+  font: 1.5rem/1 monospace;
+  outline: none;
+}
+button:active, button:focus, button:hover {
+  border-color: #787f96;
+}
+form.calculator {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 75px 50px 350px;
+  grid-template-areas: 
+    "expression expression"
+    "result result";
+  margin: 0 auto;
+  max-width: 350px;
+}
+.expression input, .result input {
+  box-sizing: border-box;
+  height: 100%;
+  padding-right: 1rem;
+  text-align: right;
+  width: 100%;
+}
+.expression {
+  grid-area: expression;
+  color: black;
+}
+.expression input {
+  font-size: 3rem;
+}
+.result {
+  color: black;
+  grid-area: result;
+}
+.result input {
+  background-color: #fff;
+  color: #888;
+  font-size: 1.5rem;
+}
+.numbers-side, .operands-side {
+  color: white;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.numbers-side button {
+  background: #5e6067;
+  flex: 1 1 calc(100% / 3);
+}
+.numbers-side button:nth-last-child(2) {
+  flex: 2 2 66.66%;
+}
+.operands-side button{
+  background: #8b8e9b;
+  flex: 1 1 100%;
+}
