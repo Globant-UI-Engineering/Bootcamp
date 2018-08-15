@@ -1,0 +1,75 @@
+.todo-item{
+  font-family: 'Roboto', sans-serif;
+  text-align: justify;
+  padding: 10px;
+  display: block;
+  margin: 1px 5px;
+  position: relative;
+  align-items: center;
+  display: flex;
+}
+.todo-item:hover{
+  border: 0.5px solid;
+  border-color: rgb(0,0,0,.15);
+}
+.todo-item > a{
+  cursor: pointer;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 19px;
+  padding: 0px 45px 0px 10px;
+
+}
+.checkboxType{
+  -webkit-appearance: none;
+  background-image: url(../../imgs/checkbox_blank.svg);
+  /*border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+  weight: 10px;
+  height: 10px;
+  padding: 11px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+.checkboxType:checked{
+  background-image: url(../../imgs/checkbox_checked.svg);
+	/*border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;*/
+}
+.delete-todo{
+  background-image: url(../../imgs/trash-can.svg);
+  position: absolute;
+  right: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  width: 24px;
+  height: 24px;
+  display: block;
+  opacity: 0;
+}
+.todo-item:hover > div.delete-todo{
+  cursor: pointer;
+  opacity: .87;
+}
+.add-new-item{
+  margin: 20px 0px;
+  padding: 5px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 14px;
+  line-height: 19px;
+}
+.add-new-item > p{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.add-new-item > input, textarea{
+  margin: 10px auto;
+  padding: inherit;
+  width: 90%;
+}
+.add-new-item > input[type="submit"]{
+  width: 30%;
+}
