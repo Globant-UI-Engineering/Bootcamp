@@ -1,0 +1,15 @@
+Final project
+
+Hey guys!
+
+For the final project is required a simple app that must:
+Be an SPA or PWA
+Should have at least one external data request (Ajax can be to a local service, public API or a simple JSON)
+Should be Semantic, Accessible and Clean Coded.
+
+Not required but nice to have:
+React
+Redux
+Unit testing
+
+Develop a TODO list with create react app
