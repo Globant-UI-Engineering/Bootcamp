@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body,html{
+    height: 100% !important;
+}
+
+#wrapper{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 620px;
+    min-height: 820px;
+    background-color: rgb(30,30,30);
+}
+
+#wrapper > p{
+    color: white;
+    font-size: 2vw;
+    text-align: center;
+    position: relative;
+    top: 3vh;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+#canvas{
+    position: absolute;
+    left:0; right:0;
+    top:0; bottom:0;
+	margin: auto;
+    height: 40vw;
+    width: 40vw;
+    min-width: 450px;
+    min-height: 450px;
+    background-color: rgb(80,80,80);
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 5px 10px 8px rgb(10,10,10);
+}
+
+#canvas table{
+    width: 100%;
+    height: 100%;
+}
+
+#canvas .element{
+    position: relative;    
+    margin: 0.5% 0.1% 0.2% 0.4%;
+    width: 9.4vw;
+    min-width: 105px;
+    height: 9.4vw;
+    min-height: 105px;
+    display: block;
+    border: 2px solid transparent;
+    box-shadow: 3px 3px 2px rgb(10,10,10);
+    background-color: rgba(102, 0,  0, 0.6);
+    float: left;
+    left: 0.2%;
+    cursor: pointer;
+    padding: 0;
+}
+
+#canvas .element img{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#wrapper button{
+    position: absolute;
+    height: 50px;
+    width: 150px;
+    left: 50%;
+    bottom: 3.5vh;
+    margin-left: -75px;
+    border-radius: 10px;
+    background-color: rgb(0, 102, 51);
+    border: transparent;
+    border-collapse: collapse;
+    box-shadow: 3px 3px 2px rgb(10,10,10);
+    font-size: 2.5em;
+    font-family: 'Do Hyeon', sans-serif;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    cursor: pointer;
+}
+
+#wrapper button:hover{
+    height: 52px;
+    width: 152px;
+    color: rgb(150,150,150);
+    background-color: rgb(0, 122, 51);
+}

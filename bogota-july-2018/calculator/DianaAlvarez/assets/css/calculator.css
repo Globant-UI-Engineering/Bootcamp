@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+}
+.calculator {
+    width: 50vh;
+    height: 65vh;
+    background-color: black;   
+    padding: 3% 2% 0% 2%; 
+}
+.screen {
+    width: 99%;
+    height: 13%;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 7%;
+}
+.row {
+    width: 100%; 
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+}
+.key {
+    width: 22%;
+    height: 85%;
+    background-color: white;
+    display: inline-block;
+    white-space: nowrap;
+    margin: 1% 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    color: black;
+    font-size: 8vh;
+}
