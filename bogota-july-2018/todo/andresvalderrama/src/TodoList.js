@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Todo from './Todo'
 
-export default function ({ todos, toggleCompletedTodo }) {
+export default function ({ todos, toggleCompletedTodo, match }) {
+  console.log(match.params.filter)
     return (
       <section className="todo-list">
         <h2>Todo list</h2>
