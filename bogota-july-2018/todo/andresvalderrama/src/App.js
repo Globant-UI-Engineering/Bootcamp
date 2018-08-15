@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 import Form from './Form'
 import TodoList from './TodoList'
+import Filters from './Filters'
+
+const routes = [ 
+  {path: "/", TodoList: TodoList}, 
+  {path: "/:filter", TodoList: TodoList} 
+]
 
 export default class App extends Component {
   constructor () {
@@ -44,37 +50,20 @@ export default class App extends Component {
       return todo
     })
 
-    this.setState(prevState => ({ todos: todos }))
+    this.setState({ todos: todos })
   }
 
   render() {
     return (
-    <BrowserRouter>
+    <BrowserRouter >
       <article>
         <h1>React Todo</h1>
         <Form handleOnSubmit={this.handleOnSubmit} />
-        {/* <TodoList todos={this.state.todos} toggleCompletedTodo={this.handleToggleCompletedTodo}/> */}
-        {
-          [ {path: "/:filter", TodoList: TodoList, todos: this.state.todos, toggleCompletedTodo: this.toggleCompletedTodo} ].map(({path, TodoList, todos}, index) => {
-          return (
-            <Route key={index} path={path} render={(props) => <TodoList {...props} todos={todos} toggleCompletedTodo={this.handleToggleCompletedTodo} />} />
-          )
-        })}
-        {/* <Route path="/:filter" component={TodoList} />
-        <Route path="/:filter" component={TodoList} /> */}
-
-        <ul>
-          <li>
-            <Link to="/all" cors="true">All</Link>
-          </li>
-          <li>
-            <Link to="/completed">Completed</Link>
-          </li>
-          <li>
-            <Link to="/active">Active</Link>
-          </li>
-        </ul>
-
+        { routes.map(({path, TodoList}, index) => (
+            <Route exact key={index} path={path} render={(props) => <TodoList {...props} todos={this.state.todos} toggleCompletedTodo={this.handleToggleCompletedTodo} />} />
+          ))
+        }
+        <Filters />
       </article>
     </BrowserRouter>
     );

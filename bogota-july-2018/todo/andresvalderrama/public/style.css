@@ -31,7 +31,7 @@ button {
   line-height: 2rem;
   text-transform: uppercase;
   font-size: 1rem;
-  background-color: dodgerblue;
+  background-color: #063fe0;
   color: #fff;
   margin-bottom: 2rem;
 }
@@ -41,7 +41,7 @@ h2 {
 }
 
 .todo-list {
-  margin: 0;
+  margin: 1rem 0;
   list-style-type: decimal;
 }
 .todo-item {
@@ -50,4 +50,13 @@ h2 {
 .completed {
   opacity: .5;
   text-decoration: line-through;
+}
+
+.filters a {
+  text-decoration: none;
+  color: #063fe0;
+  margin: 0 .25rem;
+}
+.filters a.active, .filters a:hover, .filters a.focus {
+  color: black;
 }
