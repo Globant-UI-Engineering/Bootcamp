@@ -1,9 +1,12 @@
 nav {
   position: fixed;
+  top: 0;
+  padding-top: 11%;
   width: 20%;
   height: 100%;
   background-color: #222;
   text-transform: capitalize;
+  font-size: 1.3em;
 }
 
 .navMessage {

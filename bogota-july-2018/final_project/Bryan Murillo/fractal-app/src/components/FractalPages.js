@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './containers/home/home.js';
 import Koch from './containers/fractals/koch/koch.js';

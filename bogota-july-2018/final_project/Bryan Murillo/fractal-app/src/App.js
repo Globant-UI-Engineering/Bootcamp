@@ -7,10 +7,10 @@ class App extends Component {
   render() {
     return (
       <section className="App">
+        <PageNav />
         <header className="Fractal-header">
           <h1 className="Fractal-title"><b>Fractal-Graph</b></h1>
         </header>
-        <PageNav />
         <FractalPages />
       </section>
     );

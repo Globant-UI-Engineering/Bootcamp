@@ -1,1 +1,24 @@
+.homePage {
+  position: static;
+  margin-left: 20%;
+  padding: 5%;
+  text-align: left;
+  width: 80%;
+}
 
+.whatFractals {
+  font-size: 1.3em;
+}
+
+.whatFractals h2 {
+  font-size: 2.5rem;
+}
+
+.whatFractals h2::first-letter {
+  text-transform: uppercase;
+}
+
+.whatFractals h2 span {
+  color: #660066;
+  text-transform: capitalize;
+}

@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './home.css';
+import WhatFractals from './home-whatFractals.js';
+import WhatApp from './home-whatApp.js';
 
 class Home extends Component {
   render(){
     return (
-      <div>
-        <p>This is the home page!</p>
-      </div>
+      <section class="homePage">
+        <WhatFractals />
+        <WhatApp />
+      </section>
     );
   }
 }
