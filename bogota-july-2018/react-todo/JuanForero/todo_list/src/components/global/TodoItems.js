@@ -1,13 +1,11 @@
 //Dependencie
 import React, { Component } from 'react';
-//import FlipMove from 'react-flip-move';
 //Styles
 import '../styles/TodoItems.css'
 
 class TodoItems extends Component{
 
 delete(key){
-    console.log("Key is: "+key)
     this.props.delete(key)
 }
 render(){
