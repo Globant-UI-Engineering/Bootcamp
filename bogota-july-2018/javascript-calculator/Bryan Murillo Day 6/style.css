@@ -5,7 +5,7 @@ h1 {
     font-family: fantasy;
 }
 
-.calculadora {
+.calculator {
     width: 400px;
     padding: 5px;
     background-color: #000066;
@@ -42,7 +42,7 @@ h1 {
     font-size: 20px;
 }
 
-.igual {
+.equal {
     width: 290px;
     font-size: 30px;
     background-color: #f2f2f2;

@@ -1,8 +1,8 @@
 var numA;
 var numB;
-var operador;
+var operator;
 
-var op = {
+var operation = {
     '+': function(a,b) {return a+b},
     '-': function(a,b) {return a-b},
     '*': function(a,b) {return a*b},
@@ -10,49 +10,52 @@ var op = {
 }
 
 function addDisplay (obj) {
-    console.log(obj);
-    let lbl = document.querySelector(".display");
-    
-    if (/[\.+\-*\/]/g.test(obj)) {
-        tratarCaracter(obj);
+    let display = document.querySelector(".display");
+    if (/^\D+/.test(display.innerHTML)){
+        cleanDisplay();
+        addDisplay(obj);
     } else {
-        lbl.innerHTML += obj;
-    }
-}
-
-function deleteDisplay () {
-    let lbl = document.querySelector(".display");
-    lbl.innerHTML = lbl.innerHTML.slice(0, lbl.innerHTML.length - 1);
-}
-
-function cleanDisplay () {
-    let lbl = document.querySelector(".display");
-    lbl.innerHTML = "";
-}
-
-function tratarCaracter (c) {
-    let lbl = document.querySelector(".display");
-    if (c === ".") {
-        if (s.includes(c)) {
-            if (/\.[0-9]?[+\-*\/]/.test(lbl.innerHTML)) {
-                lbl.innerHTML += c;
-            }
-        } else lbl.innerHTML += c;
-    } else {
-        if (/[+\-*\/]/.test(lbl.innerHTML)) {
-            calcular ();
-            lbl.innerHTML += c;
+        if (/[\.+\-*\/]/g.test(obj)) {
+            evalChar(obj);
         } else {
-            lbl.innerHTML += c;
+            display.innerHTML += obj;
         }
     }
 }
 
-function calcular () {
-    let lbl = document.querySelector(".display");
-    let i =  lbl.innerHTML.search(/[+\-*\/]/);
-    numA = Number(lbl.innerHTML.slice(0,i));
-    numB = Number(lbl.innerHTML.slice(i+1,lbl.innerHTML.length));
-    operador = lbl.innerHTML.slice(i,i+1);
-    lbl.innerHTML = op[operador](numA,numB);
+function deleteDisplay () {
+    let display = document.querySelector(".display");
+    display.innerHTML = display.innerHTML.slice(0, display.innerHTML.length - 1);
+}
+
+function cleanDisplay () {
+    let display = document.querySelector(".display");
+    display.innerHTML = "";
+}
+
+function evalChar (char) {
+    let display = document.querySelector(".display");
+    if (char === ".") {
+        if (display.innerHTML.includes(char)) {
+            if (/\.[0-9]+[+\-*\/][0-9]+/.test(display.innerHTML)) {
+                display.innerHTML += char;
+            }
+        } else display.innerHTML += char;
+    } else {
+        if (/[+\-*\/]/.test(display.innerHTML)) {
+            calculate ();
+            display.innerHTML += char;
+        } else {
+            display.innerHTML += char;
+        }
+    }
+}
+
+function calculate () {
+    let display = document.querySelector(".display");
+    let i =  display.innerHTML.search(/[+\-*\/]/);
+    numA = Number(display.innerHTML.slice(0,i));
+    numB = Number(display.innerHTML.slice(i+1,display.innerHTML.length));
+    operator = display.innerHTML.slice(i,i+1);
+    display.innerHTML = operation[operator](numA,numB);
 }
