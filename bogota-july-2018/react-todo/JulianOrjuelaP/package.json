@@ -1,9 +1,8 @@
 {
-  "name": "todo-list",
+  "name": "sem-tut",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "lodash": "^4.17.10",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.4"
