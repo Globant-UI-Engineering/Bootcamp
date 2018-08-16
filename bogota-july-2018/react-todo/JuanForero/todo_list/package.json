@@ -1,10 +1,11 @@
 {
-  "name": "todo-list",
+  "name": "todo_list",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-flip-move": "^3.0.2",
     "react-scripts": "1.1.4"
   },
   "scripts": {
