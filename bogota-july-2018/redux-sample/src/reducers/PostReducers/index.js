@@ -1,6 +1,6 @@
 import {
   POST_LIST_FETCH_SUCCESS,
-} from 'actions/actionTypes';
+} from '../../actions/actionTypes';
 
 const PostInitialState = {
   postList: []

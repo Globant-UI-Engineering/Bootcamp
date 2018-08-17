@@ -1,0 +1,24 @@
+{
+  "name": "todolist",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "16.4.2",
+    "react-dom": "16.4.2",
+    "react-flip-move": "3.0.2",
+    "react-redux": "5.0.7",
+    "react-scripts": "1.1.4",
+    "redux": "4.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "jest": "^23.5.0",
+    "jest-transform-stub": "^1.0.0"
+  }
+}

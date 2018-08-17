@@ -1,7 +1,7 @@
 import {
   POST_LIST_FETCH_SUCCESS
-} from 'actions/actionTypes';
-import { fetchPostsFromAPI } from 'API';
+} from '../actionTypes';
+import { fetchPostsFromAPI } from '../../API';
 
 
 export function postListFetchSuccess(postList) {

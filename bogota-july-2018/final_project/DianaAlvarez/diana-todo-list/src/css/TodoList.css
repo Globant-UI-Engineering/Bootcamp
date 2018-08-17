@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Parisienne'); 
+@import url('https://fonts.googleapis.com/css?family=Montserrat'); 
+
+
+.header {
+    display: flex;
+    justify-content: space-around;
+
+}
+.todoListMain .header input {
+    height: 5%;
+    padding: 2vw 20vw 2vw 1vw;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3vw;
+    border: 2px solid black;
+    border-radius: 10px;
+    outline: none;
+}
+
+.todoListMain .header button {
+    padding: 0.5rem;
+    font-family: 'Parisienne', cursive;
+    font-size: 2.5vw;
+    margin: 10px;
+    background-color: #FAD7A0;
+    color: #D2B4DE;
+    border: 2px solid #F5B041;
+    border-radius: 6px;
+    outline: none;
+}
+
+.todoListMain .header button:hover{
+    background-color: #E8DAEF;
+    color: #F5B041;
+    border: 2px solid #D2B4DE;
+    cursor: pointer;
+    outline: none;
+}
+
+.todoListMain .theList li {
+    width: 45vw;
+    justify-content: center;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3vw;
+    text-transform: capitalize;
+    padding: 0.5vw 4vw 0.5vw 1vw;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    list-style: none;
+    transition: background-color .2s ease-out;
+}
+.todoListMain .theList li:hover {
+    background-color: #E6B0AA;
+    cursor: pointer;
+}
+
+ul.theList {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 900px) and (orientation: portrait){
+    .todoListMain .header input {
+        padding: 1.5vh 10vw 1.5vh 1vh;
+        font-size: 1.3vh;
+    }
+    .todoListMain .header button {
+        font-size: 2.5vh;
+        margin: 5px;
+    }
+    .todoListMain .theList li {
+        width: 60vw;
+        font-size: 1.3vh;
+        padding: 0.5vh 4vw 0.5vh 1vw;
+        margin-bottom: 10px;
+    }
+}

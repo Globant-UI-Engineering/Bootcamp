@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Parisienne'); 
+@import url('https://fonts.googleapis.com/css?family=Montserrat'); 
+
+.title{
+    font-family: 'Parisienne', cursive;
+    font-size: 2vw;
+    text-align: center;
+}
+.fecha {    
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1vw;
+}
+.title h1 {
+    padding: 0;
+}
+hr {
+    background-color: #F5B041;
+    border-color: #F5B041;
+    width: 80%;
+}
+
+@media (max-width: 900px) and (orientation: portrait){
+    .title{
+        font-size: 2vh;
+    }
+    .fecha {    
+        font-size: 1vh;
+    }
+}
