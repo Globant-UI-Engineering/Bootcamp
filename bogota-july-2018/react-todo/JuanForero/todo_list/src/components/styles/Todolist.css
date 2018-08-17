@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+.containerComponents{
+    box-sizing: border-box;
+    width: 520px;
+    display: inline-block;
+    flex-direction: column;
+    background: white;
+    padding:10px;
+    border-radius: 10px; 
+    margin: 10px;
+}
+
+.boxTask{
+    margin:auto;
+    height: 40px;
+    width: 400px;
+    text-align: center;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+}
+
+.boxTask:focus{
+    border: 2px solid #348AC7;
+
+}
+
+.addTodoButton{
+    margin: 2px;
+    outline:none;
+    height: 40px;
+    text-align: center;
+    width:70px;
+    border-radius:10px;
+    background: #fff;
+    border: 2px solid#6978C0;
+    color:#6978C0;
+    letter-spacing:1px;
+    text-shadow:0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 23px;
+}
+.addTodoButton:hover{
+    color:white;
+    background:#348AC7;
+    transition: all 0.05s ease;
+    cursor: pointer;
+}
+.addTodoButton:active{
+    letter-spacing: 5px;
+}

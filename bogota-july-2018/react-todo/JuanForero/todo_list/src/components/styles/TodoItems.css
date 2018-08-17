@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+.itemsTodoList{
+    background:#CCCCCC ;
+    border-radius: 5px;
+    margin: 10px;
+    list-style: none;
+    font-size: 25px;
+    font-family: 'Oswald', sans-serif;
+}
+.itemsTodoList div:hover{
+    border-radius: 5px;
+    background: #5E7CC2;
+    cursor: pointer;
+}
