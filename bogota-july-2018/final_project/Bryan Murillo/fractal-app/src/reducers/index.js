@@ -1,18 +1,8 @@
-import { CHANGE_PAGE } from '../actions/constants/actionTypes';
+import { combineReducers } from 'redux';
+import { navReducer } from './navReducers/index';
+import { graphReducer } from './graphReducers/index';
 
-const initialState = {
-  actualPage: ''
-};
-
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case CHANGE_PAGE:
-      return Object.assign({}, state, {
-        actualPage: action.actualPage,
-      });
-    default:
-      return state;
-  }
-};
-
-export default rootReducer;
+export const rootReducer = combineReducers({
+  navReducer,
+  graphReducer
+});

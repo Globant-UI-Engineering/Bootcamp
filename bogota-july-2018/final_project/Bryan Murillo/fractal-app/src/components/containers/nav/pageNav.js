@@ -6,8 +6,8 @@ import './pageNav.css';
 import { changePage } from '../../../actions/index';
 
 class PageNav extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
     this.handleClick = this.handleClick.bind(this);
   }
