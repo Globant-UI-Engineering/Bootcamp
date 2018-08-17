@@ -1,0 +1,56 @@
+h1 {
+    text-transform: uppercase;
+    color: coral;
+    text-align: center;
+    font-family: fantasy;
+}
+
+.calculator {
+    width: 400px;
+    padding: 5px;
+    background-color: #000066;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.box {
+    width: 390px;
+    height: 70px;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background-color: #f2f2f2;
+    font-size: 40px;
+    text-align: right;
+}
+
+.btn-group button {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.btn-operation {
+    float: right;
+    width: 100px;
+    margin: 0;
+}
+
+.btn-operation button {
+    background-color: #cc6600;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.equal {
+    width: 290px;
+    font-size: 30px;
+    background-color: #f2f2f2;
+}
+button {
+    width: 94px;
+    height: 60px;
+    text-transform: uppercase;
+    border: 0;
+    padding: 0;
+}

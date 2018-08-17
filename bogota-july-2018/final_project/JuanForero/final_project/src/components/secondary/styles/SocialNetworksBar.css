@@ -1,0 +1,35 @@
+.link{
+    margin: 0px 15px;
+    cursor: pointer;
+}
+
+.logo{
+    height: 35px;
+    width: 35px;
+    overflow: hidden;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: white;
+    -webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+
+}
+.logo::after{
+    transform: skew(50deg);
+    transition-duration: 0.6s;
+    transform-origin: top left;
+}
+
+
+.logo:hover{
+    border-radius: 10px;
+    height: 35px;
+    width: 35px;
+    background: #F5DEB3;
+ }
+
+
+
+ 

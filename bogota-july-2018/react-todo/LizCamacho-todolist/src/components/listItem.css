@@ -1,0 +1,11 @@
+
+.check {
+    margin: 6px 10px 6px 0;
+  }
+  .selected{
+    color: green;
+  }
+  .unselected{
+    color: red;
+  
+  }

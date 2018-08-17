@@ -1,0 +1,31 @@
+.side-bar {
+    position: fixed;
+    width: 240px;
+    height: 100%;
+    background-color: #fff;
+    overflow: auto;
+}
+    .side-bar__list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .side-bar__btn {
+            display: block;
+            height: 45px;
+            line-height: 45px;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 15px;
+            transition: .2s ease-in-out;
+            outline: none;
+        }
+
+        .side-bar__btn--active {
+            background-color: rgb(221, 221, 221);
+        }
+
+.side-bar__btn:hover {
+    background-color: rgb(240, 240, 240);
+}
