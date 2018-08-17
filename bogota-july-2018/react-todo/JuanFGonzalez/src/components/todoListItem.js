@@ -22,7 +22,9 @@ class TodoListItem extends Component {
           type="button"
           onClick={this.props.onCloseClicked}
           value="X"
-        />
+        >
+          X
+        </button>
       </div>
     );
   }

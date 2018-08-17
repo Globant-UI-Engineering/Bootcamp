@@ -6,11 +6,11 @@ class TodoList extends Component {
   render() {
     return (
       <div className="todo-list">
-        {this.props.items.map((items, i) => (
+        {this.props.items.map((items, index) => (
           <TodoListItem
-            key={i}
-            onCheckClicked={() => this.props.onCheckClicked(i)}
-            onCloseClicked={() => this.props.onCloseClicked(i)}
+            key={index}
+            onCheckClicked={() => this.props.onCheckClicked(index)}
+            onCloseClicked={() => this.props.onCloseClicked(index)}
             isChecked={items[0]}
             text={items[1]}
           />
