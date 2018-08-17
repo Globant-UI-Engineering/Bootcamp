@@ -1,0 +1,17 @@
+.Board {
+  width: 100%;
+  height: 700px;
+}
+.list-wrapper{
+    width: 400px;
+    margin: 0 4px;
+    margin-top: 10px;
+    height: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+}
+.list-wrapper:first-child{
+    margin-left: 8px;
+}
