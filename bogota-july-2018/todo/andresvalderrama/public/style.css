@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body { 
+  margin: 0;
+  background-color: #f3f3f3;
+  font: 400 1rem / 1.25 'Arial', sans-serif;
+}
+
+article {
+  max-width: 500px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+}
+form input {
+  margin-bottom: 1rem;
+  diplay: block;
+  width: 100%;
+  line-height: 1.25rem;
+  padding: .5rem .5rem .65rem;
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  border: none;
+  line-height: 2rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  background-color: dodgerblue;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.125rem;
+}
+
+.todo-list {
+  margin: 0;
+  list-style-type: decimal;
+}
+.todo-item {
+  cursor: pointer;
+}
+.completed {
+  opacity: .5;
+  text-decoration: line-through;
+}
