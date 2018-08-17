@@ -1,7 +1,7 @@
 import React from 'react';
 
 const WhatFractals = () => (
-  <article class="whatFractals">
+  <article className='whatFractals'>
     <h2>what are <span>fractals</span>?</h2>
     <p>
       A fractal is a never-ending pattern. Fractals are infinitely complex patterns that are self-similar across different scales. They are created by repeating a simple process over and over in an ongoing feedback loop.

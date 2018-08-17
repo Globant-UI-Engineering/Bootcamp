@@ -1,26 +1,42 @@
 import React, { Component } from 'react';
-import './pageNav.css';
+import { connect } from 'react-redux';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import './pageNav.css';
+import { changePage } from '../../../actions/index';
 
 class PageNav extends Component {
+  constructor(){
+    super();
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick = (newPage) => {
+    this.props.changePage(newPage);
+  }
+
   render(){
+    const { page } = this.props;
+
     return (
       <nav>
-        <p class='navMessage'>what would you like to see?</p>
+        <p className='navMessage'>what would you like to see?</p>
         <Nav vertical tabs>
           <NavItem>
-            <NavLink>
-              <Link to='/'>home</Link>
+            <NavLink active={page === ''} className={'nav-link'} onClick={(e) => this.handleClick('')} tag={Link} to='/'>
+              home
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink>
-              <Link to='/koch'>koch snowflake</Link>
+            <NavLink active={page === 'KOCH'} className={'nav-link'} onClick={(e) => this.handleClick('KOCH')} tag={Link} to='/koch'>
+              koch snowflake
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">dragon curve</NavLink>
+            <NavLink active={page === 'DRAGON'} className={'nav-link'}>
+              dragon curve
+            </NavLink>
           </NavItem>
         </Nav>
       </nav>
@@ -28,4 +44,17 @@ class PageNav extends Component {
   }
 }
 
-export default PageNav;
+const mapStateToProps = state => {
+  return { page: state.actualPage };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changePage: page => dispatch(changePage(page))
+  }
+};
+
+export default connect (
+  mapStateToProps,
+  mapDispatchToProps
+)(PageNav);

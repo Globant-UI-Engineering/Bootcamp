@@ -6,7 +6,7 @@ import WhatApp from './home-whatApp.js';
 class Home extends Component {
   render(){
     return (
-      <section class="homePage">
+      <section className='homePage'>
         <WhatFractals />
         <WhatApp />
       </section>

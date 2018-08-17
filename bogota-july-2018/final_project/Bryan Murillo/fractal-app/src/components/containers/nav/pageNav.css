@@ -14,10 +14,15 @@ nav {
   text-transform: lowercase;
 }
 
-p::first-letter {
+.navMessage::first-letter {
   text-transform: uppercase;
 }
 
-.active {
+.nav-link {
+  color: #fff;
+}
+
+.nav-link:hover {
   background-color: #fff;
+  color: #606;
 }
