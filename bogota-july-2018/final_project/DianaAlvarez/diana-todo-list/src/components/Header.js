@@ -9,10 +9,10 @@ export default class Header extends Component {
         let yyyy = hoy.getFullYear();
         let fecha = dd+'/'+mm+'/'+yyyy; 
         return (
-            <div className = 'title'>
+            <header className = 'title'>
                 <h1>My ToDo <span className="fecha">{fecha}</span></h1>
                 <hr />
-            </div>
+            </header>
         );
     }
 }

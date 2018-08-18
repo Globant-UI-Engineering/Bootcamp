@@ -33,7 +33,7 @@ class TodoList extends Component {
     }
     render() {
         return (
-            <div className='todoListMain'>
+            <article className='todoListMain'>
                <div className='header'>
                 <form onSubmit={this.addItem}>
                     <input ref={(a) => this._inputElement = a} placeholder='Enter  your task'>
@@ -42,15 +42,13 @@ class TodoList extends Component {
                 </form>
               </div>
               <TodoItems entries={this.props.postList} delete={this.deleteItem} />
-            </div>
+            </article>
         );
     }
 }
 const mapStateToProps = state => {
     return {
       postList: state.PostReducers.postList,
-      todoList: state.PostReducers.todoList
-
     }
 };
 const mapDispatchToProps = dispatch => {

@@ -13,18 +13,6 @@ class TodoItems extends Component {
                    {item.title}
                 </li>;
     }
-    addItem(e){
-        e.preventDefault();
-        let value = this._inputElement.value;
-        if (value !== ''){
-            this.props.addItemToList({
-                title: this._inputElement.value,
-                id: Date.now()
-
-            })
-        } 
-        this._inputElement.value = '';
-    }
     delete(key){
         this.props.delete(key);
     }
