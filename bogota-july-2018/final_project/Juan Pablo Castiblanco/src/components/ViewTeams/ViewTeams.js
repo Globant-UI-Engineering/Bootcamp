@@ -8,6 +8,9 @@ import TeamCard from "../TeamCard/TeamCard";
 
 import { CardDeck } from "reactstrap";
 
+import { connect } from "react-redux";
+import { setActiveTab } from "../../actions";
+
 class ViewTeams extends Component {
   constructor() {
     super();
@@ -40,6 +43,10 @@ class ViewTeams extends Component {
     });
   }
   render() {
+    if(this.props.activateTab !== "1"){
+      this.props.activateTab("1");
+    }
+
     const teams = this.state.teams;
     const teamCards = teams.map(team =>{
         return(
@@ -53,4 +60,22 @@ class ViewTeams extends Component {
   }
 }
 
-export default ViewTeams;
+const mapStateToProps = state => {
+  return {
+    activeTab: state.activeTab
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    activateTab: tabNumber => {
+      dispatch(setActiveTab(tabNumber));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ViewTeams);
+

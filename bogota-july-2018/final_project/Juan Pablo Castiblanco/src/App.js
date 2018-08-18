@@ -4,31 +4,14 @@ import "./App.css";
 import AddTeamForm from "./components/AddTeamForm/AddTeamForm";
 import ViewTeams from "./components/ViewTeams/ViewTeams";
 
-import { Nav, NavItem, NavLink } from "reactstrap";
+import { Nav, NavItem } from "reactstrap";
 
-import classnames from "classnames";
+import { Route, NavLink } from "react-router-dom";
 
-import { Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { setActiveTab } from "./actions";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      activeTab: '1'
-    };
-
-    this.toggleTabs = this.toggleTabs.bind(this);
-  }
-
-  toggleTabs(tab) {
-    if (this.state.activeTab !== tab) {
-      this.setState({
-        activeTab: tab
-      });
-    }
-  }
-
   render() {
     return (
       <div className="App">
@@ -39,22 +22,27 @@ class App extends Component {
         <Nav tabs>
           <NavItem>
             <NavLink
-              className={classnames({ active: this.state.activeTab === '1' })}
+              className={
+                this.props.activeTab === "1" ? "ActiveNavLink" : "NavLink"
+              }
               onClick={() => {
-                this.toggleTabs('1');
+                this.props.onTabClick("1");
               }}
-              href="/viewTeams"
+              to="/viewTeams"
             >
               View Teams
             </NavLink>
           </NavItem>
+
           <NavItem>
             <NavLink
-              className={classnames({ active: this.state.activeTab === '2' })}
+              className={
+                this.props.activeTab === "2" ? "ActiveNavLink" : "NavLink"
+              }
               onClick={() => {
-                this.toggleTabs('2');
+                this.props.onTabClick("2");
               }}
-              href="/addNewTeam"
+              to="/addNewTeam"
             >
               Add New Team
             </NavLink>
@@ -70,4 +58,21 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    activeTab: state.activeTab
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onTabClick: tabNumber => {
+      dispatch(setActiveTab(tabNumber));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
