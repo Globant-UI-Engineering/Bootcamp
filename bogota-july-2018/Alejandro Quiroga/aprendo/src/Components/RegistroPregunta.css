@@ -1,0 +1,19 @@
+.hide
+{
+  visibility:hidden;
+  transition: all 500ms linear;
+}
+
+.showit
+{
+  visibility:visible;
+  transition: all 500ms linear;
+}
+
+.container-msj
+{
+    float:left;
+    margin:0 auto;
+    width:80%;
+    padding:20px;
+}
