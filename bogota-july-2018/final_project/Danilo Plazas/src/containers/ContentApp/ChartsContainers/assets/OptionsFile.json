@@ -1,0 +1,36 @@
+{
+    "optionsChart": {
+        "ColumnChart": {
+            "legend": {"position": "bottom", "textStyle": {"fontSize": 12}},
+            "hAxis": {"title": "Trend", "titleTextStyle":{"fontSize": 16, "fontName": "Calibri"}, "textPosition": "out", "textStyle": {"fontSize": 12}},
+            "vAxis": {"title": "Performance", "titleTextStyle":{"fontSize": 16, "fontName": "Calibri"} ,"textPosition": "out", "textStyle": {"fontSize": 12}},
+            "isStacked": true
+        },
+        "PieChart": {
+            "legend": {"position": "bottom", "alignment": "center", "textStyle": {"fontSize": 12}},
+            "pieHole": 0.4,
+            "is3D": true
+        },
+        "LineChart": {
+            "legend": {"position": "bottom", "alignment": "center", "textStyle": {"fontSize": 12}},
+            "hAxis": {"title": "Trend", "titleTextStyle":{"fontSize": 16, "fontName": "Calibri"}, "textPosition": "out", "textStyle": {"fontSize": 12}},
+            "vAxis": {"title": "Performance", "titleTextStyle":{"fontSize": 16, "fontName": "Calibri"} ,"textPosition": "out", "textStyle": {"fontSize": 12}},
+            "curveType": "function",
+            "pointSize": 12
+        },
+        "Table": {
+            "showRowNumber": true,
+            "alternatingRowStyle": true,
+            "cssClassNames": {
+                "headerRow": "HeaderRow",
+                "tableRow": "TableRow",
+                "oddTableRow": "OddTableRow",
+                "selectedTableRow": "SelectedTableRow",
+                "hoverTableRow": "HoverTableRow",
+                "headerCell": "HeaderCell",
+                "tableCell": "TableCell",
+                "rowNumberCell": "RowNumberCell"
+            }
+        }
+    }
+}
