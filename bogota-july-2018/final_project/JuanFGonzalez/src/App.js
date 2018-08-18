@@ -11,9 +11,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: []
+      roomId: null,
+      messages: [],
+      joinableRooms: [],
+      joinedRooms: [],
     };
     this.sendMessage = this.sendMessage.bind(this);
+    this.subscribeToRoom = this.subscribeToRoom.bind(this);
+    this.getRooms = this.getRooms.bind(this);
   }
 
   componentDidMount() {
@@ -27,32 +32,64 @@ class App extends React.Component {
       tokenProvider: tokenProvider
     });
 
-    chatManager.connect().then(currentUser => {
-      this.currentUser = currentUser;
-      this.currentUser.subscribeToRoom({
-        roomId: 13705030,
+    chatManager
+      .connect()
+      .then(currentUser => {
+        this.currentUser = currentUser;
+        this.getRooms();
+      })
+      .catch(err => console.log('got an error connecting: ', err));
+  }
+
+getRooms() {
+    this.currentUser
+      .getJoinableRooms()
+      .then(joinableRooms => {
+        this.setState({
+          joinableRooms,
+          joinedRooms: this.currentUser.rooms,
+        });
+      })
+      .catch(err => console.log('got an error with the rooms: ', err));
+  }
+
+  subscribeToRoom(roomId) {
+    this.setState({ messages: [] });
+    this.currentUser
+      .subscribeToRoom({
+        roomId: roomId,
         hooks: {
           onNewMessage: message => {
             this.setState({
-              messages: [...this.state.messages, message]
+              messages: [...this.state.messages, message],
             });
-          }
-        }
-      });
-    });
+          },
+        },
+      })
+      .then(room => {
+        this.setState({
+          roomId: room.id,
+        });
+        this.getRooms();
+      })
+      .catch(err => console.log('got an error subscribing to the room: ', err));
   }
 
   sendMessage(text) {
     this.currentUser.sendMessage({
       text,
-      roomId: 13705030
+      roomId: this.state.roomId,
     });
   }
 
   render() {
     return (
       <div className="app">
-        <RoomList />
+         <RoomList
+          roomId={this.state.roomId}
+          subscribeToRoom={this.subscribeToRoom}
+          rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]}
+        />
         <MessageList messages={this.state.messages} />
         <SendMessageForm sendMessage={this.sendMessage} />
         <NewRoomForm />
