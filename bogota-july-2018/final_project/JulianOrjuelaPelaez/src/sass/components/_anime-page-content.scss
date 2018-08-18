@@ -1,0 +1,41 @@
+.anime-page-content-data {
+
+    &__paragraph {
+        position: absolute;
+        left: 32%;
+        top: 43%;
+        width: 35%;
+        padding: 1.3rem;
+        font-size: 2rem;
+        text-align: left;
+        border-radius: 3px;
+        background-color: $color-grey-light;
+        color: $color-grey-dark-2;
+        box-shadow: 0 1rem 2rem rgba($color-black, .1);
+        transform: translateY(0) scale(1);
+        transition: all .2s;
+        &:hover {
+            box-shadow: 0 1.2rem 2.2rem rgba($color-black, .07);
+            transform: translateY(-0.8rem) scale(1.02);
+        }
+    }
+    
+    &__aside {
+
+        &-cap{
+            position: absolute;
+            top: 43%;
+            right: 13.8%;
+            width: 18%;
+        }
+
+        &-rank {
+            position: absolute;
+            width: 15%;
+            top: 55%;
+            left: 15%;
+        }
+    }
+
+
+}
