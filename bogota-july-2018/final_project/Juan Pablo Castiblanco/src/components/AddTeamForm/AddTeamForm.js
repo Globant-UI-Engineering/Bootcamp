@@ -18,6 +18,9 @@ import {
   Col
 } from "reactstrap";
 
+import { connect } from "react-redux";
+import { setActiveTab } from "../../actions";
+
 class AddTeamForm extends Component {
   constructor() {
     super();
@@ -95,6 +98,11 @@ class AddTeamForm extends Component {
   }
 
   render() {
+
+    if(this.props.activateTab !== "2"){
+      this.props.activateTab("2");
+    }
+
     return (
       <Form onSubmit={this.handleSubmit}>
         <Alert
@@ -108,7 +116,7 @@ class AddTeamForm extends Component {
           <Label className="label-text" for="team-fullname" sm={this.state.labelSpacing}>
             Team full name
           </Label>
-          <Col sm={this.state.columnsSpacing}>
+          <Col md={this.state.columnsSpacing}>
             <Input
               type="text"
               name="teamFullName"
@@ -124,7 +132,7 @@ class AddTeamForm extends Component {
           <Label className="label-text" for="team-shortname" sm={this.state.labelSpacing}>
             Team short name
           </Label>
-          <Col sm={this.state.columnsSpacing}>
+          <Col md={this.state.columnsSpacing}>
             <Input
               type="text"
               name="teamShortName"
@@ -140,7 +148,7 @@ class AddTeamForm extends Component {
           <Label className="label-text" for="team-ground" sm={this.state.labelSpacing}>
             Team ground
           </Label>
-          <Col sm={this.state.columnsSpacing}>
+          <Col md={this.state.columnsSpacing}>
             <Input
               type="text"
               name="teamGround"
@@ -156,7 +164,7 @@ class AddTeamForm extends Component {
           <Label className="label-text" for="team-location" sm={this.state.labelSpacing}>
             Team location
           </Label>
-          <Col sm={this.state.columnsSpacing}>
+          <Col md={this.state.columnsSpacing}>
             <Input
               type="text"
               name="teamLocation"
@@ -177,7 +185,7 @@ class AddTeamForm extends Component {
           >
             Team logo
           </Label>
-          <Col sm={this.state.columnsSpacing}>
+          <Col md={this.state.columnsSpacing}>
             <Input
               type="file"
               name="teamLogoFile"
@@ -201,4 +209,21 @@ class AddTeamForm extends Component {
   }
 }
 
-export default AddTeamForm;
+const mapStateToProps = state => {
+  return {
+    activeTab: state.activeTab
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    activateTab: tabNumber => {
+      dispatch(setActiveTab(tabNumber));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddTeamForm);

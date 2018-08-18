@@ -12,15 +12,19 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 210px;
+  background-image: url("img/colombia-flag.jpg");
+  height: 260px;
   padding: 20px;
   text-align: center;
   color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 3em;
+  color: rgba(22, 30, 150, 0.753);
+  text-shadow: 5px 5px 8px #ffffff;
+  font-family: 'Allerta Stencil', sans-serif;
+  text-transform: uppercase;
 }
 
 .App-intro {
@@ -30,4 +34,22 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.ActiveNavLink {
+  font-family: 'Bubblegum Sans', cursive;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-left: 2px solid rgba(0,0,0,.03);
+  border-right: 2px solid rgba(0,0,0,.03);
+  border-top: 2px solid black;
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.NavLink {
+  font-family: 'Bubblegum Sans', cursive;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
 }
