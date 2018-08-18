@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Baloo Bhai', sans-serif;
+  color: #eee;
+  
+}
+
+body .container{
+  background-image: url(./images/app-bg.jpg);
+  padding: 0;
+}
+.header{
+  position: relative;
+  margin-bottom: 50px;
+  height: 300px;
+  overflow: hidden;
+  background-image: url(./images/Clash-Royale-bg.jpg);
+  background-size: cover;
+}
+
+.page-header{
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  width: 100%;
+  text-align: right;
+  border-bottom: 5px solid #eee;
+  padding: 15px;
+}
+.page-header small{
+  display: block;
+  color: #eee;
+}
+
+.header img{
+  max-width: 100%;
+}
+.row{
+  padding: 0 15px;
+  margin: 0;
+}
+.card_list h2{
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5em;
+}
+.card {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.card img{
+  height: 250px;
+}
+
+.card .btn{
+  text-align: center;
+  background: #1AAF5D;
+  border-radius: 10px;
+  box-shadow: 0 5px 0 #0A7237;
+  color: #eee;
+  margin: 0 auto;
+  width: 200px;
+  border: none;
+  display: block;
+}
+
+.card_description{
+  text-align: center;
+  margin-bottom:50px; 
+}
+.card_description .header_description{
+  position: relative;
+}
+
+.card_description .header_description h2{
+  font-size: 2.5em; 
+}
+.card_description .header_description .btn{
+  background: #e88f1d;
+  border-radius: 10px;
+  box-shadow: 0 5px 0 #E07C2D;
+  color: #eee;
+  width: 200px;
+  border: none;
+}
+
+.table_description{
+  margin-top: 50px;
+}
+
+.card_image{
+  margin-bottom: 30px;
+}
+
+.table_description .card_text table{
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.table_description .card_text table caption{
+  background-color: gray;
+  text-align: center;
+  font-size:2em;
+  color: #eee;
+}
+
+.table_description .card_text table tbody{
+  background-color: #eee;
+  color: black;
+  font-size:1em;
+}
+
+.table_description .card_text table tbody td:first-child{
+  background-color:#BDCED6;
+  text-align: center
+}
+
+
+
+@media (min-width: 992px) { 
+
+  .card_description .header_description h2{
+    font-size:3em; 
+  }
+  .card_list h2{
+    font-size: 3em;
+  }
+  .card_description .header_description .btn{
+    position: absolute;
+    top: 0;
+    right: 50px;
+  }
+
+  .card_image{
+    margin-bottom: 0px;
+  }
+  .table_description .card_text table caption{
+    font-size:3em;
+  }
+  .table_description .card_text table tbody{
+    font-size:1.3em;
+  }
+ }
