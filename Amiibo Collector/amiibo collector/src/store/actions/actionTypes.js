@@ -1,0 +1,5 @@
+export const ADD_TO_COLLECTION = "ADD_TO_COLLECTION";
+export const ADD_TO_WISH_LIST = "ADD_TO_WISH_LIST";
+export const ALL_AMIIBOS = "ALL_AMIIBOS";
+export const DELETE_AMIIBO = "DELETE_AMIIBO";
+export const SEARCH_PARAMS = "SEARCH_PARAMS";
