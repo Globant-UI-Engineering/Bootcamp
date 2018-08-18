@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import GraphLine from '../../../presentational/graph/graph-Line';
-import { SIN60 } from '../../../graphConstans';
+import { connect } from 'react-redux';
+import GraphLine from '../../presentational/graph/graph-Line';
+import { SIN60 } from '../../graphConstans';
+import { graphKochA } from '../../../actions/index';
+import { graphKochB } from '../../../actions/index';
+import { graphKochC } from '../../../actions/index';
 
 class KochGraph extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      pointsA: '400,150 100,150',
-      pointsB: '100,150 250,409.8',
-      pointsC: '250,409.8 400,150'
-    };
     this.setPoints = this.setPoints.bind(this);
+    this.getCoords = this.getCoords.bind(this);
   }
 
-  setPoints = (coords, i) => {
+  getCoords = (coords, i) => {
     if (i > 0) {
 
       let points = coords.split(' ');
@@ -35,17 +35,44 @@ class KochGraph extends Component {
     return coords;
   }
 
+  setPoints = (coords, i, type) => {
+    let newCoords = this.getCoords(coords, i);
+    switch (type) {
+      case 'a':
+        this.props.graphKochA(newCoords);
+        break;
+      case 'b':
+        this.props.graphKochB(newCoords);
+        break;
+      case 'c':
+        this.props.graphKochC(newCoords);
+      break;
+      default:
+
+    }
+    return newCoords;
+  }
+
   static defaultProps = { width: 500, height: 500 };
 
   render(){
+    const { defPoints } = this.props;
+
     return (
       <svg width={this.props.width} height={this.props.height}>
-        <GraphLine points={this.setPoints(this.state.pointsA, 3)}/>
-        <GraphLine points={this.setPoints(this.state.pointsB, 3)}/>
-        <GraphLine points={this.setPoints(this.state.pointsC, 3)}/>
+        <GraphLine points={this.getCoords(defPoints.a, this.props.iteration)}/>
+        <GraphLine points={this.getCoords(defPoints.b, this.props.iteration)}/>
+        <GraphLine points={this.getCoords(defPoints.c, this.props.iteration)}/>
       </svg>
     );
   }
 }
 
-export default KochGraph;
+const mapStateToProps = state => {
+  return { defPoints: state.graphReducer.pointsKoch };
+};
+
+export default connect (
+  mapStateToProps,
+  null
+)(KochGraph);
