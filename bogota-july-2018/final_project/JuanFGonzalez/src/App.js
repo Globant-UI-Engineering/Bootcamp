@@ -1,5 +1,6 @@
 import React from "react";
 import Chatkit from "@pusher/chatkit";
+import "./App.css";
 import MessageList from "./components/MessageList";
 import SendMessageForm from "./components/SendMessageForm";
 import RoomList from "./components/RoomList";
@@ -41,7 +42,7 @@ class App extends React.Component {
       .catch(err => console.log('got an error connecting: ', err));
   }
 
-getRooms() {
+  getRooms() {
     this.currentUser
       .getJoinableRooms()
       .then(joinableRooms => {
@@ -82,17 +83,32 @@ getRooms() {
     });
   }
 
+  createRoom(roomName) {
+    this.currentUser
+      .createRoom({
+        name: roomName,
+      })
+      .then(room => this.subscribeToRoom(room.id))
+      .catch(err => console.log('got an error creating the room: ', err));
+  }
+
   render() {
     return (
       <div className="app">
-         <RoomList
+        <RoomList
           roomId={this.state.roomId}
           subscribeToRoom={this.subscribeToRoom}
           rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]}
         />
-        <MessageList messages={this.state.messages} />
-        <SendMessageForm sendMessage={this.sendMessage} />
-        <NewRoomForm />
+        <MessageList
+          roomId={this.state.roomId}
+          messages={this.state.messages}
+        />
+        <SendMessageForm
+          disabled={!this.state.roomId}
+          sendMessage={this.sendMessage}
+        />
+        <NewRoomForm createRoom={this.createRoom} />
       </div>
     );
   }
