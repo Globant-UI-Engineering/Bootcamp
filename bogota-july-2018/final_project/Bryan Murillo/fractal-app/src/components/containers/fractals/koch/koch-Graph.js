@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import KochLine from './koch-Line';
+import GraphLine from '../../../presentational/graph/graph-Line';
 import { SIN60 } from '../../../graphConstans';
 
 class KochGraph extends Component {
@@ -40,9 +40,9 @@ class KochGraph extends Component {
   render(){
     return (
       <svg width={this.props.width} height={this.props.height}>
-        <KochLine points={this.setPoints(this.state.pointsA, 3)}/>
-        <KochLine points={this.setPoints(this.state.pointsB, 3)}/>
-        <KochLine points={this.setPoints(this.state.pointsC, 3)}/>
+        <GraphLine points={this.setPoints(this.state.pointsA, 3)}/>
+        <GraphLine points={this.setPoints(this.state.pointsB, 3)}/>
+        <GraphLine points={this.setPoints(this.state.pointsC, 3)}/>
       </svg>
     );
   }

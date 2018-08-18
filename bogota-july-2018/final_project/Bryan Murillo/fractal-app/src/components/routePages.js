@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from './containers/home/home.js';
-import Koch from './containers/fractals/koch/koch.js';
+import Home from './presentational/home/home';
+import Koch from './containers/fractals/koch/koch';
 
-const FractalPages = () => (
+const RoutePages = () => (
   <main>
     <Switch>
       <Route exact path='/' component={Home} />
@@ -12,4 +12,4 @@ const FractalPages = () => (
   </main>
 )
 
-export default FractalPages;
+export default RoutePages;
