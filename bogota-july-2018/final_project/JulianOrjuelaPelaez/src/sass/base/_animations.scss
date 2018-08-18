@@ -13,15 +13,15 @@
     }
 }
 
-@keyframes titleAnim {
+@keyframes footerAnim {
     0% {
-
+        transform: scaleX(0.1);
     }
-    80% {
-
+    80% {   
+        transform: scaleX(0.8);
     }
 
-    100% {
-
+    100% {  
+        transform: scaleX(1);
     }
 }

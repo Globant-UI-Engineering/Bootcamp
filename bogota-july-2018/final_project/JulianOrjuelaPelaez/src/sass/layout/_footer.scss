@@ -11,6 +11,16 @@
 
 }
 .app-logo {
+    padding-bottom: 1rem;
     width: 100px;
-    
+    animation-name: footerAnim;
+    animation-duration: .3s;
+    animation-timing-function: ease-out;
+    transform: scale(1);
+    transition: all .2s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
 }

@@ -7,7 +7,7 @@ import { fetchingSingleAnime } from '../actions/fecth-anime';
  class SingleAnime extends Component {
 
   rankList = () => (
-    <ul className="list">
+    <ul className="list" aria-labelledby="Ranking list">
       <li className="list-element bold-color">Rankings</li>
       <li className="list-element"><span className="blue">Average: </span>{this.props.anime.data.attributes.averageRating}/100</li>
       <li className="list-element"><span className="purple">User: </span>{this.props.anime.data.attributes.userCount}</li>
@@ -17,7 +17,7 @@ import { fetchingSingleAnime } from '../actions/fecth-anime';
   )
 
   capList = () => (
-    <ul className="list">
+    <ul className="list" aria-labelledby="Properties list">
       <li className ="list-element"><span className="green">Subtype: </span> {this.props.anime.data.attributes.subtype} </li>
       <li className ="list-element"><span className="green">Episodes: </span> {this.props.anime.data.attributes.episodeCount} </li>
       <li className ="list-element"><span className="green">Release date: </span> {this.props.anime.data.attributes.startDate} </li>
@@ -72,7 +72,7 @@ import { fetchingSingleAnime } from '../actions/fecth-anime';
     
     return (
       <div>
-        <Link className="btn" to="/">
+        <Link className="btn" to="/" aria-labelledby ="Back button">
             &larr;
         </Link>
         {

@@ -7,7 +7,7 @@ class AnimeBox extends Component {
 
     singleAnimeBox = ({series}) => (
         <li className="anime-box" key = {series.id}> 
-            <Link className="anime-box-link" to={`/${series.attributes.slug}/${series.id}`}>
+            <Link className="anime-box-link" to={`/${series.attributes.slug}/${series.id}`} aria-labelledby ="Button for singl serie">
                 <div className="anime-box-link__image">
                     <img src={series.attributes.posterImage.small} alt="AnimeBanner" />
                 </div>

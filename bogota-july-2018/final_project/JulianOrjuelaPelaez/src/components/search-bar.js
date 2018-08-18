@@ -32,7 +32,9 @@ class SearchInput extends Component {
                     <input className="anime-search-input" name="AnimeName" type="text" 
                     value={this.state.animeName} 
                     onChange={this.onChange}  
-                    placeholder="Search your favorite animes..."/>
+                    placeholder="Search your favorite animes..."
+                    aria-labelledby = "Search input"
+                    />
                     
                 </form>
 
