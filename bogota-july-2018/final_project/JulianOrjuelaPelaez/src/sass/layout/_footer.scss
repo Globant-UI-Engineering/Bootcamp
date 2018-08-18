@@ -1,0 +1,16 @@
+.footer {
+    background-color: $color-grey-dark-3;
+    color:orangered;
+    padding: 4rem 0;
+    font-family: lato;
+
+    &-text {
+        margin: 0 auto;
+        width: 10%;
+    }
+
+}
+.app-logo {
+    width: 100px;
+    
+}

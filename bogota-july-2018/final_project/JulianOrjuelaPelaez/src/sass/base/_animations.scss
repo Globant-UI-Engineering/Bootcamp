@@ -1,0 +1,27 @@
+
+@keyframes headerAnim {
+    0% {
+        transform: scaleY(0);
+    }
+
+    70% {
+        transform: scaleY(.8);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes titleAnim {
+    0% {
+
+    }
+    80% {
+
+    }
+
+    100% {
+
+    }
+}
