@@ -1,0 +1,20 @@
+.New-project-form{
+margin: 15px auto;
+width: 55%;
+}
+
+.New-project-form .Form-field{
+ margin: 15px;
+ text-align: right;
+}
+
+.New-project-form  input,
+.New-project-form  textarea,
+.New-project-form  select{
+  margin-left:5%;
+  width:50%;
+}
+
+.New-project-form button{
+  margin:5px;
+}
