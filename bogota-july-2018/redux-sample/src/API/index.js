@@ -1,4 +1,4 @@
 import axios from 'axios';
 
 
-export const fetchPostsFromAPI = () => axios(`http://jsonplaceholder.typicode.com/posts`);
+export const fetchPostsFromAPI = () => axios(`http://www.clashapi.xyz/api/cards`);

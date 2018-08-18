@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Button } from 'reactstrap';
-import { getPostList } from 'actions/PostActions';
-import PostGallery from 'containers/PostGallery';
+import { getPostList } from '../../actions/PostActions';
+import PostGallery from '../../containers/PostGallery';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';

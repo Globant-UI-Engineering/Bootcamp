@@ -7,15 +7,15 @@ import {
 class GalleryCard extends Component {
 
   render() {
-    const { userId, title, body } = this.props;
+    const { name, elixirCost, idName } = this.props;
 
     return (
       <Card>
         <CardBody>
-          <CardTitle>{title}</CardTitle>
-          <CardText>{body}</CardText>
+          <CardTitle>{name}</CardTitle>
+          <img src = {`http://www.clashapi.xyz/images/cards/${idName}.png`}/>
         </CardBody>
-        <CardFooter>User:{userId}</CardFooter>
+        <CardFooter>{elixirCost}</CardFooter>
       </Card>
     );
   }
