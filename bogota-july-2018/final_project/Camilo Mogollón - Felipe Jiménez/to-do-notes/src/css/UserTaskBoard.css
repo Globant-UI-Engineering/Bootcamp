@@ -1,0 +1,43 @@
+.Task-board section, .Project-settings section{
+  text-align: center;
+  border: 3px solid #6E6E6E;
+  border-radius: 10px;
+  background-color: #EFFBF2;
+  margin-bottom:8px;
+}
+
+.Task-board section{
+  width:64%;
+  float:right;
+}
+
+.Task-board h3{
+ font-size: 20px;
+}
+
+.Project-settings{
+  width:35%;
+  float:left;
+}
+
+.Project-settings section{
+  width:99%;
+}
+
+.Project-information{
+  padding-bottom:15px;
+}
+
+.Task-number{
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+.Task-number-green{
+  background-color: #18bc9c;
+}
+
+.Task-number-yellow{
+  background-color: #F3F781;
+}

@@ -1,0 +1,22 @@
+.Login {
+  width: 30%;
+  margin: 0px auto;
+  text-align: center;
+  border: 3px solid #6E6E6E;
+  border-radius: 10px;
+  background-color:  #EFFBF2;
+  margin-bottom:8px;
+}
+
+.Login .Form-field{
+ margin: 15px;
+ text-align: right;
+}
+
+.Login  input,
+.Login  textarea,
+.Login  select{
+  margin-left:5%;
+  margin-right:5%;
+  width:60%;
+}
