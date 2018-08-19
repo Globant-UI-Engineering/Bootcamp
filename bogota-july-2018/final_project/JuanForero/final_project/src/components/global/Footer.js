@@ -22,6 +22,9 @@ render(){
                     <nav className="footerNav">
                          <ul>
                              {footerNav && footerNav.map((item,key)=><li key={key}><Link to={item.url}>{item.tittle}</Link></li>)}
+                             <li><a target="_blank"  rel="noopener noreferrer"  href="https://legal.brown-forman.com/cookie-policy/english">Cookies</a></li>
+                             <li><a target="_blank"  rel="noopener noreferrer"  href="https://legal.brown-forman.com/terms-of-use/english">Terms of use</a></li>
+                             <li><a target="_blank"  rel="noopener noreferrer" href="https://legal.brown-forman.com/privacy-policy/english">Privacy Policy</a></li>
                          </ul>
                     </nav>
                </header>

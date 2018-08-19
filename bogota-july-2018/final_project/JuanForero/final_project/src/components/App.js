@@ -5,11 +5,12 @@ import PropType  from 'prop-types';
 import Header from  './global/Header';
 import Content from  './global/Content';
 import Footer from  './global/Footer';
+import ConectorContentFooter from './global/ConectorContentFooter';
 //Styles
 import './global/styles/App.css';
 //Data
-import navItems from '../data/menuFooter';
-
+import navItemsFooter from '../data/menuFooter';
+import navItemsHeader from '../data/menuHeader';
 
 class App extends Component {
   static propTypes={
@@ -19,9 +20,10 @@ class App extends Component {
     const{children}=this.props;
     return (
       <div className="App">
-          <Header />
+          <Header headerNav={navItemsHeader}/>
           <Content body={children} />
-          <Footer  footerNav={navItems}/>
+          <ConectorContentFooter />
+          <Footer  footerNav={navItemsFooter}/>
       </div>
     );
   }
