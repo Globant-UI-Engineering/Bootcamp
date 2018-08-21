@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "380311997474",
+    "firebase_url": "https://testbanconfio.firebaseio.com",
+    "project_id": "testbanconfio",
+    "storage_bucket": "testbanconfio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380311997474:android:a24fdc2f8580331f",
+        "android_client_info": {
+          "package_name": "com.banconfio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380311997474-dsienbahbr8f09ptgpcs3kaonr9lp8js.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc0I8NTj1lJ35BWqLuR54oiKhI2fM4OzU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
