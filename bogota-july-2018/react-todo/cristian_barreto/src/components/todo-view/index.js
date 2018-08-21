@@ -42,8 +42,6 @@ const TodoItem = ({ id, title, checked, onRemove, onCheck }) => {
     if (checked)
         itemClassName += " item-checked";
 
-    console.log()
-
     return (
         <Row className={itemClassName}>
             <Col>
@@ -54,7 +52,7 @@ const TodoItem = ({ id, title, checked, onRemove, onCheck }) => {
                     className="action"
                     type="checkbox"
                     checked={checked}
-                    onClick={() => onCheck(id)}>
+                    onChange={() => onCheck(id)}>
                 </input>
             </Col>
             <Col xs="2" md="2" lg="2">
