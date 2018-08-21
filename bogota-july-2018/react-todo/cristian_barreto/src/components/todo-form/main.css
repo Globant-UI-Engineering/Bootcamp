@@ -1,0 +1,33 @@
+.todo-form {
+    display: block;
+    font-size: 1.5em;
+    margin: 1% 0;
+}
+
+.new-activity-input {
+    border: none;
+    border-bottom: .1em solid #123;
+    color: #222;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 2% 5%;
+    text-align: center;
+    width: 60%;
+}
+
+.new-activity-button { 
+    background-color: #123;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    padding: .5% 1%;
+    transition: .5s;
+    width: 20%;
+}
+
+.new-activity-button:hover {
+    background-color: #fff;
+    border: 1px solid #123;
+    color: #123;
+}
