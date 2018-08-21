@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 20px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 90px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+.App-subtitle {
+  font-size: 1.0em;
+}
+
+.Todo-List-Parent{
+  background-color: rgb(255, 138, 128);
+  width: 600px;
+  /*height: 540px;*/
+
+  margin-top: 50px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+
+  padding: 5px;
+
+  border-width: 0.5px;
+  border-radius: 30px;
+  border-color: #FFFFFF;
+  box-shadow: 0 0 20px 3px;
+
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

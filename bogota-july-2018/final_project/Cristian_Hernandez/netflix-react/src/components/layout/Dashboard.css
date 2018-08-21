@@ -1,0 +1,13 @@
+.popular-title{
+    margin-left: 60px;
+}
+
+.movie-container {
+    display: flex;
+    margin: 45px auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%; 
+    max-width: 1815px;
+    white-space: nowrap;
+}

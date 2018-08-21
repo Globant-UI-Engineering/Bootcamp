@@ -1,0 +1,31 @@
+.generalContainer .jumbotron{
+    background: whitesmoke;
+    -webkit-box-shadow: 0 0 7px 5px #DBDBDB;
+    box-shadow: 0 0 7px 5px #DBDBDB;
+   
+  }
+header .display-3{
+  font-size: 3em;
+  font-variant: petite-caps;
+}
+  .detailContainer{
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .details img{
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
+    width: 100%;
+    border: 1px #EEEEEE solid; 
+  }
+  .details:nth-child(1){
+    margin-right: 10px;
+  }
+  .details:nth-child(2){
+      -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      width: 60%;
+  }

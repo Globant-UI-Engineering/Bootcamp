@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Calculator JavaScript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+<header>
+       <h1>Calculator JavaScript</h1> 
+</header>
+
+<div class="container">
+<form action="#" name="calculator">
+<div class="showbox "id="showbox">0</div>
+<div class="buttons">
+<div class="row">
+        <input class="getButton clear" type="button" name="cleare" value="CA" onclick="clearScreen()">
+        <input class="getButton operation" type="button" name="optionmod" value="mod" onclick="setOperation('%')">
+        <input class="getButton operation" type="button" name="optionsum" value="+" onclick="setOperation('+')">
+</div>
+<div class="row">
+        <input class="getButton" type="button" name="number7" value="7" onclick="setNumber(7)">
+        <input class="getButton" type="button" name="number8" value="8" onclick="setNumber(8)">
+        <input class="getButton" type="button" name="number9" value="9" onclick="setNumber(9)">
+        <input class="getButton operation" type="button" name="optionmul" value="*" onclick="setOperation('*')">
+</div>
+<div class="row">
+        <input class="getButton" type="button" name="number4" value="4" onclick="setNumber(4)">
+        <input class="getButton" type="button" name="number5" value="5" onclick="setNumber(5)">
+        <input class="getButton" type="button" name="number6" value="6" onclick="setNumber(6)">
+        <input class="getButton operation" type="button" name="optionrest" value="-" onclick="setOperation('-')">
+</div>
+<div class="row">
+        <input class="getButton" type="button" name="number1" value="1" onclick="setNumber(1)">
+        <input class="getButton" type="button" name="number2" value="2" onclick="setNumber(2)">
+        <input class="getButton" type="button" name="number3" value="3" onclick="setNumber(3)">
+        <input class="getButton operation" type="button" name="optiondiv" value="/" onclick="setOperation('/')">
+</div>
+<div class="row">
+        <input class="getButton" type="button" name="." value="." onclick="setDecimal()">
+        <input class="getButton" type="button" name="number0" value="0" onclick="setNumber(0)">
+        <input class="getButton clear1" type="button" name="clear" value="C" onclick="deleteDate()">
+        <input class="getButton equal" type="button" name="optionequal" value="=" onclick="equal()">
+</div>
+</div>
+</form>
+</div>
+
+        <footer>
+                <div class="made">Designed by<a href="https://www.facebook.com/juansepaez"> Juan Forero</a></div>
+        </footer>
+</body>
+</html>

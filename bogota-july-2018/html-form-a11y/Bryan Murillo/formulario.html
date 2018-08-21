@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">    
+    <meta name="author" content="Bryan Murillo">
+    
+    <title>Formulario</title>
+
+</head>
+<body>
+    <article>
+        <header>
+            <h1>video games form!</h1>
+            <p>the next form is about video games and how much you like them</p>
+            <p><small>the * fields are obligatory</small></p>
+        </header>
+        <form>
+            <label for="name" id="namelabel">what is your name?*: </label>
+            <input type="text" id="name" name="name" aria-labelledby="namelabel" required>
+            <br>
+            <label>are you a boy or a girl?*</label><br>
+            <input type="radio" name="gender" id="gendermale" value="male" required>
+            <label for="gendermale">boy!</label>
+            <input type="radio" name="gender" id="genderfemale" value="female">
+            <label for="genderfemale">girl!</label><br>
+            <label for="country" id="namelabel">where are you from?*: </label>
+            <select name="country" id="country" required>
+                <option value="Canada">canada</option>
+                <option value="China">china</option>
+                <option value="Colombia">colombia</option>
+                <option value="Chile">chile</option>
+                <option value="Spain">spain</option>
+                <option value="UK">united kingdom</option>
+                <option value="US">united states</option>
+            </select>
+            
+            <fieldset>
+                <legend>what kind of videogames you like the most?</legend>
+                <input type="checkbox" name="gamegenre" id="action" value="action">
+                <label for="action">action</label>
+                <input type="checkbox" name="gamegenre" id="adventure" value="adventure">
+                <label for="adventure">adventure</label>
+                <input type="checkbox" name="gamegenre" id="musical" value="musical">
+                <label for="musical">musical</label>
+                <input type="checkbox" name="gamegenre" id="racing" value="racing">
+                <label for="racing">racing</label>
+                <input type="checkbox" name="gamegenre" id="role" value="role">
+                <label for="role">role</label>
+                <input type="checkbox" name="gamegenre" id="simulation" value="simulation">
+                <label for="simulation">simulation</label>
+                <input type="checkbox" name="gamegenre" id="shooters" value="shooters">
+                <label for="shooters">shooters</label>
+                <input type="checkbox" name="gamegenre" id="sports" value="sports">
+                <label for="sports">sports</label>
+                <input type="checkbox" name="gamegenre" id="strategy" value="strategy">
+                <label for="strategy">strategy</label>
+            </fieldset>
+        </form>
+        
+        <label for="fav" id="favlabel">which is your favorite video game?</label>
+        <input type="text" name="fav" id="fav" aria-labelledby="favlabel">
+        <br>
+        <label for="console" id="consolelabel">which video game console is better?</label>
+        <select name="console" id="console" aria-labelledby="cosolelabel">
+            <option value="PS">play station</option>
+            <option value="XBOX">xbox</option>
+            <option value="Nintendo">nintendo</option>
+            <option value="PC">pc</option>
+            <option value="other?!">other</option>
+        </select>
+        
+        <label for="opinion" id="opinionlabel">do you have any opinion about this form?</label><br>
+        <textarea name="opinion" id="opinion" aria-labelledby="opinionlabel" rows="10" cols="30"></textarea><br>
+        
+         <input type="submit" name="submit">
+    </article>
+</body>
+</html>

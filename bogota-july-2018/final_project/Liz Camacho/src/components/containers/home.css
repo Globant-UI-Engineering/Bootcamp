@@ -1,0 +1,17 @@
+.containerHome{
+    background: whitesmoke;
+    padding: 40px;
+    -webkit-box-shadow: 0 0 7px 5px #DBDBDB;
+    box-shadow: 0 0 7px 5px #DBDBDB;
+}
+section .row article{
+    margin: 0 0 20px 0; 
+}
+
+.card-body .card-title a:link, .card-body .card-title a:visited{
+    color: black;
+}
+
+.alert{
+    text-align: center;
+}

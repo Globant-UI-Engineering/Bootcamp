@@ -1,0 +1,38 @@
+.anime-search {
+
+    position: absolute;
+    display: inline-block;
+    padding: 2rem;
+    width: 50%;
+    top: 37.5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    &-input {
+        width: 80%;
+        padding: 1.5rem 2rem;
+        border:  none;
+        border-bottom: 3px solid transparent;
+        border-radius: 4px;
+        font-size: 1.6rem;
+        color: $color-grey-dark-3;
+        transition: all .2s;
+        transform: translate(0, 0);
+
+        &:focus {
+            outline: none;
+            transform: translate(0, -0.2rem);
+            box-shadow: 0 1rem 2rem rgba($color-black, .2);
+            border-bottom: 3px solid $color-primary-pink;
+        }
+    }
+
+    &-message {
+        display: inline-block;
+        margin-top: 2rem;
+        margin-bottom: 40rem;
+        font-size: 1.6rem;
+        color: $color-grey-dark-2;
+        font-size: 2rem;
+        border-bottom: 1px solid $color-grey-dark-2;
+    }
+}

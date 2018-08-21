@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+*{margin: 0%}
+.containerContact{
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 27px;
+}
+.containerContactInformation{
+    background-image: url(../pictures/background.jpg);
+    height: 500px;
+    background-repeat: round;
+    background-attachment: fixed;
+    padding: 0%;
+}
+.containerContactInformation h1{
+    font-size: 100px;
+}
+.containerContactInformation h3{
+    font-size: 50px;
+}
+.containerContactInformation p{
+    font-size: 40px;
+    margin: 20px;
+    color: #C49E57;
+}
+.containerFrequentQuestions{
+    background:black;
+    height: 230px;
+    padding: 20px;
+}
+
+
