@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  font: 1rem / 1 'Arial', sans-serif;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.home button {
+  border-radius: 3px;
+  padding: .5rem 1rem;
+}
+
+.game {
+  display: grid;
+  grid: repeat(1, 1fr auto) / repeat(1, 1fr);
+  height: 100vh;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 0 1rem;
+}
+.status .letter, .status .emoji {
+  align-items: center;
+  display: flex;
+  font: 2.5rem / 1.2 "Share Tech Mono", monospace;
+  justify-content: center;
+  height: 3.25rem;
+  width: 3rem;
+}
+.status .letter {
+  background: #eeeff1;
+  border-radius: 3px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  cursor: default;
+  box-shadow: inset 2px -2px 0 0px rgba(82, 82, 82, 0.18), inset -2px 2px 0 0 rgba(255, 255, 255, 0.12);
+}
+.status p {
+  margin: 0;
+  max-width: 150px;
+  text-align: center;
+  height: 2rem;
+}
+
+section.word {
+  text-align: center;
+  justify-content: center;
+}
+
+.word .letter {
+  font: 1.25rem / 1 "Share Tech Mono", monospace;
+  background: #eeeff1;
+  border-radius: 3px;
+  display: inline-flex;
+  padding: .9rem 0.7rem;
+  margin: 0 2px 0.75rem;
+  box-sizing: border-box;
+  position: relative;
+  text-transform: uppercase;
+  cursor: default;
+  box-shadow: inset 2px -2px 0 0px rgba(82, 82, 82, 0.18), inset -2px 2px 0 0 rgba(255, 255, 255, 0.12);
+}
+.word .letter.fill {
+  background: #f8eaca;
+}
+.word .letter span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 1px;
+}
+.word .space {
+  display: block;
+}
+
+.lives {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.lives p {
+  margin: 0;
+  text-align: left;
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: #efefef;
+}
+.keyboard button {
+  background: transparent;
+  flex: 0 0 calc(100% / 10);
+  border: 0;
+  text-transform: uppercase;
+  padding: 0;
+}
+
+.keyboard button > div {
+  height: 100%;
+  pointer-events: none;
+  padding: 45% 0;
+  font-size: 1rem;
+}
+
+.keyboard button[disabled] {
+  opacity: .35;
+}
+
+.videofit {
+  width: 100%;
+}
+.videofit video {
+  width: 100%;
+  max-height: 35%;
+  vertical-align: middle;
+}
