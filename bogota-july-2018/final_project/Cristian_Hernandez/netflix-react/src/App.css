@@ -1,0 +1,90 @@
+body{
+    background: #000000;
+    font-family: 'Lato', sans-serif;
+    color: White;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    color: inherit;
+}
+
+h1{
+    font-weight: normal;
+}
+
+h2{
+    margin-bottom: 2px;
+}
+
+p,h4,h5{
+    margin: 0;
+    padding: 0;
+}
+
+.btn{
+    font-size: 1.1vw;
+    border-radius: .150rem;
+    padding: .75em 2.3em;
+    box-shadow: none;
+    border-width: 0;
+    cursor: pointer;
+}
+
+[type="text"],[type="password"]{
+    width: 350px;
+    margin-top:20px; 
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #435160;
+    outline: none;
+    color: #6D7781;
+    font-size: 16px;
+}
+
+.back-arrow {
+    font-size: 2.0em;
+}
+
+.back-arrow i:only-of-type{
+    padding-right: 20px;
+}
+
+.form-group{
+    margin: 30px 0;
+}
+
+label {
+    font-size: .85rem;
+    text-transform: uppercase;
+    color: #ccc;
+    position: absolute;
+}
+
+.buttons-container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.fas{
+    margin-right: .71em;
+}
+
+.age-box{
+    margin: 0 10px;
+    padding: 2px 6px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.fa-chevron-down{
+    font-size: 2.0em;
+    margin-left: 127.5px;
+}
+
+.fa-chevron-down:hover{
+    color: rgb(245, 66, 66);
+}
+
