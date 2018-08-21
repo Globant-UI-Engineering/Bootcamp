@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald');
+*{margin: 0%}
+.containerContact{
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 27px;
+}
 .containerContactInformation{
     background-image: url(../pictures/background.jpg);
     height: 500px;
@@ -6,65 +12,21 @@
     background-attachment: fixed;
     padding: 0%;
 }
-
+.containerContactInformation h1{
+    font-size: 100px;
+}
+.containerContactInformation h3{
+    font-size: 50px;
+}
+.containerContactInformation p{
+    font-size: 40px;
+    margin: 20px;
+    color: #C49E57;
+}
 .containerFrequentQuestions{
     background:black;
     height: 230px;
-    padding: 40px;
-}
-.containerFooter{
-    background:#BBAF9A;
-    height: 20px;
-    padding: 40px;
-}
-.contactInformation{
-    color: white;
-    font-family: 'Oswald', sans-serif;
-    font-size: 49px;
-    position: relative;
-    top: 40px;
-}
-.contactInformation h3, .contactInformation h1{
-    height: 90px;
-    text-transform: uppercase;
-}
-.contactInformation h3{
-    font-size: 30px;
-    height: 35px;
-    margin: 0%;
-}
-.contactInformation p{
-    margin: 20px;
-    font-size: 20px;
-    text-transform: uppercase;
-    color: #C49E57;
-}
-.contactInformation p span{
-    display: block;
-    font-size: 40px;
-    color: wheat;
+    padding: 20px;
 }
 
-.frequentQuetions h3{
-    font-family: 'Oswald', sans-serif;
-    font-size: 30px;
-    color: white;
-    margin: 0;
-    text-transform: uppercase;
-}
-.frequentQuetions h4{
-    font-family: 'Oswald', sans-serif;
-    font-size: 20px;
-    color: white;
-    margin: 0;
-    text-transform: uppercase;
-    position:relative;
-    top: 40px;
-}
-.containerFooter p{
-    font-family: 'Oswald', sans-serif;
-    font-size: 30px;
-    color: black;
-    position: relative;
-    bottom: 45px;
-}
+

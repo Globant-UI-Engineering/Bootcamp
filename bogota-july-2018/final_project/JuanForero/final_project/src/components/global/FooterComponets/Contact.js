@@ -9,8 +9,7 @@ render(){
           <div className="containerContactInformation">
               <div className="contactInformation">
                   <h1>Contact us</h1>
-                  <h3>Have a question?</h3>
-                  <h3>We would love to hear from you</h3>
+                  <h3>Have a question?<br/>We would love to hear from you</h3>
                   <p>Join us <span>On social networks</span></p>
                   <SocialNetworksBar />
               </div>
@@ -24,11 +23,6 @@ render(){
                    <h4>Or call the VIsitor's Center directly at 1-931-759-6357.</h4>
 
               </div>  
-          </div>
-          <div className="containerFooter">
-              <div>
-                  <p> Become a friend of Jack. Buy now!</p>
-              </div>
           </div>
        </div>   
     );

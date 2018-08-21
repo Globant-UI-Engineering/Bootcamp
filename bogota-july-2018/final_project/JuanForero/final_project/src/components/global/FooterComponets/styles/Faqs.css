@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+.containerArticle{
+    height: 1750px;
+    background: black;
+    color: white;
+    background-attachment: fixed;
+    font-family: 'Oswald', sans-serif;
+ 
+}
+.containerArticle h1{
+    font-size: 100px;
+    padding: 230px;
+    text-transform: uppercase;
+    margin: 0%;
+}
+.containerArticle h3 , .containerArticle p{
+    text-align: left;
+    padding: 0px 50px;;
+}
+.containerArticle h3{
+   font-size: 32px;
+   margin: 20px;
+   color: #C49E57;
+}
+.containerArticle p{
+    font-size: 20px;
+    margin: 10px;
+}
