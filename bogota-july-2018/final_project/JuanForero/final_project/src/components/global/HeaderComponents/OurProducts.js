@@ -11,7 +11,7 @@ class OurProducts extends Component{
                </div>
                <div className="Product1">
                     <h2>Old No.7</h2>
-                    <span>Charcoal mellowed. Drop by drop.</span>
+                    <span>Charcoal mellowed. Drop by drop .</span>
                     <hr />
                     <AddButton />
                </div>
