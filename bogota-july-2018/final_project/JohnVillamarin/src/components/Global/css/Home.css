@@ -1,0 +1,28 @@
+#carouselContent{
+    background-color: black;    
+}
+.carousel-item .background{
+    background-size: contain;
+    background-repeat: no-repeat;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    height: 100vh; 
+    background-position: center center 
+}
+.carousel-caption {
+    width: 300px;
+    right: 15%;
+    left: inherit;
+    text-align: right;
+    bottom:100px;
+    z-index: 1;
+    text-shadow: -2px 3px 4px #000000;
+}
+.carousel-caption h3 {
+    font-weight: bold;
+}
+.carousel-caption a{
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+}

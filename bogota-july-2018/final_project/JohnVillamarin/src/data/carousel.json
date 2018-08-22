@@ -1,0 +1,22 @@
+{
+    "images": [
+        {
+            "title": "Michael Jordan is the greatest basketball player of all time",
+            "image": "./images/jordan_carousel/jordan-history.jpg",
+            "value": "View history",
+            "url": "/history"
+        },
+        {
+            "title": "He won his first NBA championship with the Bulls...",
+            "image": "./images/jordan_carousel/jordan-game.jpg",
+            "value": "View your games",
+            "url": "/games"
+        },
+        {
+            "title": "Classic Shoes",
+            "image": "./images/jordan_carousel/jordan-shoes.jpg",
+            "value": "View your shoes",
+            "url": "/shoes"
+        }       
+    ]
+}

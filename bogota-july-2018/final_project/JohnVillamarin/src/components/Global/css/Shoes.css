@@ -1,0 +1,17 @@
+#shoes {    
+    text-transform: capitalize
+}
+#shoes .card-header h6{
+    font-weight: bold
+}
+#shoes .card-body{
+    height: 270px;
+}
+#shoes table tr{
+    border-bottom: 1px solid #c6c6c6;    
+}
+#shoes table td{
+    padding: 0 5px;
+    font-size: 13px;
+    font-style: italic;
+}

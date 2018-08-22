@@ -1,0 +1,10 @@
+#pageError.container{
+  text-align: center;
+}
+#pageError h2{    
+    font-size: 7rem;
+}
+#pageError p{
+    font-size: 2rem;
+    text-transform: capitalize;
+}

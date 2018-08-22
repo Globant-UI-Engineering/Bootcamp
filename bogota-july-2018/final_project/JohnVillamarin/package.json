@@ -1,0 +1,25 @@
+{
+  "name": "jordan-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-bootstrap-carousel": "^3.1.0",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "react-youtube": "^7.6.0",
+    "react-youtube-embed": "^1.0.2",
+    "redux": "^4.0.0",
+    "save": "^2.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }  
+}

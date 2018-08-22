@@ -1,0 +1,31 @@
+header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;   
+}
+header.active  nav{
+ margin-top: 0;
+}
+section header{
+  position: inherit;
+}
+.navbar-brand{
+  font-weight: bold;
+}
+nav .navbar-collapse{
+  flex-grow: inherit;
+}
+.navbar-dark .navbar-nav .nav-link{
+    font-weight: bold;
+    color: white;
+    text-shadow: -3px 0px 12px rgba(0, 5, 0, 1);
+}
+nav a:hover{
+  color: darkgrey;
+}
+.sub-pages header {
+  background-color: black;   
+}
+.home header nav {
+  margin-top: 70px;
+}
