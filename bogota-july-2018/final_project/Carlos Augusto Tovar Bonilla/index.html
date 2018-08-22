@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Layout Basica</title>
+    <title>Calcula tu PAPA</title>
 </head>
 <body>
     <div class="container">
         <header>
             <nav>
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Acerca de</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a id="nav-inicio" href="#">Inicio</a></li>
+                    <li><a id="nav-calcular" href="#">Calcular</a></li>
                 </ul>
             </nav>
         </header>
@@ -23,35 +21,131 @@
                 <img src="img/bg.jpg" alt="">
             </div>
             <section class="posts">
-                <article>
-                    <h2>Titulo del Articulo</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui aut magni eius, optio architecto sint a doloribus rerum voluptatibus commodi rem sapiente totam perspiciatis assumenda accusantium nam nisi! Ipsam, accusantium. Ex, aliquam iure enim, repudiandae recusandae eaque. Explicabo rem similique, debitis, magnam, autem quo possimus asperiores architecto culpa pariatur blanditiis.</p>
+                <article class="main-tab" id="main">
+                    <h2>Presentación</h2>
+                    <p>Para medir el rendimiento académico de los estudiantes, se cuenta con dos tipos de promedios, el Promedio Académico y el Promedio Aritmético Ponderado Acumulado (PAPA). El primero se usa para la expedición de certificados a los egresados, mientras que el segundo es una medida de uso exclusivo e interno de la Universidad.</p>
+
+                    <p>El cálculo de estos promedios se realiza al finalizar cada periodo académico. Para el cálculo del PAPA se tienen en cuenta todas las asignaturas cursadas hasta ese momento con calificación numérica (tanto las aprobadas como las no aprobadas). En cambio en el cálculo del Promedio Académico solo se tiene en cuenta la última calificación obtenida en cada una de las asignaturas. Es decir, si en un período pierdes la asignatura X y en el siguiente la apruebas, para el cálculo del PAPA se incluyen ambas calificaciones, mientras que para el PA la primera no se tiene en cuenta; solo la última.</p>
+                    <img class="img-papa" src="img/papa1.png" alt="papa">
+                </article>
+                <article class="calculate-tab" id="calculate">
+                    <h1>Calcula tu PAPA</h1>
+                    <p>Para calcular tu PAPA solo debes seleccionar tu programa y empezar a agregar las asignaturas que has visto a lo largo de la carrera y la nota obtenida en cada asignatura.</p>
                     
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error explicabo eius quidem iure cum quia sit aliquam voluptate laboriosam, quas maiores provident numquam delectus obcaecati, nam veritatis enim dolores assumenda amet. Quia quaerat quisquam voluptates nesciunt. Officia deserunt corrupti neque saepe dolorum culpa sed eum distinctio inventore corporis, atque et.</p>
+                    <p>Puedes agregar más asignaturas solo debes hacer click en el botón que dice <i>Agregar Asignatura</i> y automáticamente una nueva linea se mostrará para que ingreses la siguiente asignatura.</p>
+                    
+                    <p>Cuando termines de ingresar las asignaturas con sus notas, da click en el botón <i>Calcular PAPA</i> y se mostrará el resultado del cálculo de tu PAPA.</p>
+                    
+                    <form class="subject" action="" name="form-papa" id="form-papa">
+                       <div class="btn-calculate">   
+                           <button class="label-calculate add-subject" id="add-subject">Agregar Asignatura</button>
+                           <button type="submit" class="label-calculate calculate" id="calculate-papa" value="Calcular PAPA">Calcular PAPA</button>
+                       </div>
+                       <div class="form-content">
+                           <select id="program">
+	<option value="">-- seleccione --</option>
+	<option value="2520">ADMINISTRACIÓN DE EMPRESAS</option>
+	<option value="2523">ANTROPOLOGÍA</option>
+	<option value="2529">ANTROPOLOGÍA - PROGRAMA ESPECIAL DE ADMISION POR ÁREAS DEL CONOCIMIENTO</option>
+	<option value="2506">ARQUITECTURA</option>
+	<option value="2507">ARTES PLÁSTICAS</option>
+	<option value="2513">BIOLOGÍA</option>
+	<option value="2538">CIENCIA POLÍTICA</option>
+	<option value="2933">CIENCIAS DE LA COMPUTACIÓN</option>
+	<option value="2508">CINE Y TELEVISIÓN</option>
+	<option value="2CLE">COMPONENTE DE LIBRE ELECCIÓN</option>
+	<option value="2CLP">COMPONENTE DE LIBRE ELECCIÓN POSTGRADO</option>
+	<option value="2521">CONTADURÍA PÚBLICA</option>
+	<option value="2DTS">CRÉDITOS PRIMER PLAN PARA DOBLE TITULACIÓN</option>
+	<option value="2539">DERECHO</option>
+	<option value="2509">DISEÑO GRÁFICO</option>
+	<option value="2510">DISEÑO INDUSTRIAL</option>
+	<option value="2522">ECONOMÍA</option>
+	<option value="2540">ENFERMERÍA</option>
+	<option value="2526">ESPAÑOL Y FILOLOGÍA CLÁSICA</option>
+	<option value="2514">ESTADÍSTICA</option>
+	<option value="2534">ESTUDIOS LITERARIOS</option>
+	<option value="2515">FARMACIA</option>
+	<option value="2528">FILOLOGÍA E IDIOMAS - ESPAÑOL Y HUMANIDADES CLÁSICAS</option>
+	<option value="2524">FILOLOGÍA E IDIOMAS ALEMÁN</option>
+	<option value="2525">FILOLOGÍA E IDIOMAS FRANCÉS</option>
+	<option value="2527">FILOLOGÍA E IDIOMAS INGLÉS</option>
+	<option value="2530">FILOSOFÍA</option>
+	<option value="2516">FÍSICA</option>
+	<option value="2550">FISIOTERAPIA</option>
+	<option value="2551">FONOAUDIOLOGÍA</option>
+	<option value="2531">GEOGRAFÍA</option>
+	<option value="2757">GEOGRAFÍA - PROGRAMA ESPECIAL DE ADMISIÓN POR ÁREAS DEL CONOCIMIENTO</option>
+	<option value="2517">GEOLOGÍA</option>
+	<option value="2532">HISTORIA</option>
+	<option value="2541">INGENIERÍA AGRÍCOLA</option>
+	<option value="2505">INGENIERÍA AGRONÓMICA</option>
+	<option value="2505">INGENIERÍA AGRONÓMICA</option>
+	<option value="2364">INGENIERÍA AGRONÓMICA - PRO. ESPECIAL DE ADMISION POR ÁREAS DE CONOCIMIENTO</option>
+	<option value="2542">INGENIERÍA CIVIL</option>
+	<option value="2543">INGENIERÍA DE SISTEMAS</option>
+	<option value="2879">INGENIERÍA DE SISTEMAS Y COMPUTACIÓN</option>
+	<option value="2544">INGENIERÍA ELÉCTRICA</option>
+	<option value="2545">INGENIERÍA ELECTRÓNICA</option>
+	<option value="2546">INGENIERÍA INDUSTRIAL</option>
+	<option value="2547">INGENIERÍA MECÁNICA</option>
+	<option value="2548">INGENIERÍA MECATRÓNICA</option>
+	<option value="2549">INGENIERÍA QUÍMICA</option>
+	<option value="2837">LINGÜÍSTICA</option>
+	<option value="2533">LINGÜÍSTICA</option>
+	<option value="2518">MATEMÁTICAS</option>
+	<option value="2552">MEDICINA</option>
+	<option value="2555">MEDICINA VETERINARIA</option>
+	<option value="2511">MÚSICA</option>
+	<option value="2512">MÚSICA INSTRUMENTAL</option>
+	<option value="2553">NUTRICIÓN Y DIETÉTICA</option>
+	<option value="2557">ODONTOLOGÍA</option>
+	<option value="2PEL">PROGRAMA DE ELECTIVAS (L)</option>
+	<option value="2535">PSICOLOGÍA</option>
+	<option value="2519">QUÍMICA</option>
+	<option value="2536">SOCIOLOGÍA</option>
+	<option value="2554">TERAPIA OCUPACIONAL</option>
+	<option value="2952">TERAPIA OCUPACIONAL</option>
+	<option value="2537">TRABAJO SOCIAL</option>
+	<option value="2556">ZOOTECNIA</option>
+</select>
+                       </div>
+                       <div class="form-content" name="subject-info" id="form-content"> 
+                            <select name="subjectSelect" id="subjectSelect"></select>
+                            <input type="text" name="credits" id="credits" placeholder="Créditos" pattern="^[1-9]$" required>
+                            <input type="text" name="grade" id="grade" placeholder="Nota" pattern="^[0-5]$|^[0-4]\.[0-9]$" required>
+                       </div>
+                    </form>
                 </article>
             </section>
-        </section>
-        <aside>
+        </section><aside>
             <div class="widget">
-                <h3 class="titulo">Articulos Destacados</h3>
+                <h3 class="titulo">¿Cómo subir tu PAPA?</h3>
                 <ul>
-                    <li><a href="#"></a>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                    <li><a href="#"></a>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                    <li><a href="#"></a>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                    <li><a href="#"></a>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                    <li><a href="#"></a>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                    <li><a href="https://www.youtube.com/user/julioprofe">
+                        <img class="img-jp" src="img/jp.jpg" alt="JulioProfe YouTube">
+                    </a></li>
+                    <li><a href="https://www.facebook.com/groups/MateriasyElectivasFacilesUN2.0/">
+                        <img class="img-jp" src="img/fb.png" alt="Materias y electivas faciles UNAL">
+                    </a></li>
                 </ul>
             </div>
             <div class="widget">
-                <h3 class="titulo">Información</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum ut nostrum earum expedita fuga quos repellendus blanditiis repudiandae, enim cupiditate laborum fugit ullam asperiores voluptatem mollitia vitae praesentium quas. Ratione.</p>
+                <h3 class="titulo">Enlaces de Interés</h3>
+                <ul>
+                    <li><a href="http://bogota.unal.edu.co/calendario-academico/">
+                        Calendario Académico UNAL
+                    </a></li>
+                    <li><a href="https://admisiones.unal.edu.co/pregrado/guia-paso-a-paso-pregrado/">
+                        Guía paso a paso Admisiones UNAL Pregrado.
+                    </a></li>
+                </ul>
             </div>
         </aside>
         <footer>
-            <p>Pie de página - Caatovarbo</p>
+            <p>caatovarbo - Bootcamp Final Project</p>
         </footer>
     </div>
-    <div id="root"></div>
     <script src="js/scripts.js"></script>
 </body>
 </html>
