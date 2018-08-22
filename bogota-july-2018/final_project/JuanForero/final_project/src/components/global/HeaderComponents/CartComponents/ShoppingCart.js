@@ -9,15 +9,15 @@ class ShoppingCart extends Component{
         {
             userInput:'',
             task:[{
-                   tasks:'Learn React',
+                   tasks:'Tennese Honey  49.9$',
                     key:Date.now()
                   },
                   {
-                    tasks:'Create react app',
+                    tasks:'No. 7 49.9$',
                     key:Date.now()+1
                    },
                    {
-                     tasks:'Learn Angular',
+                     tasks:'No. 7 49.9$',
                      key:Date.now()+2
                     }
                   ],   

@@ -7,7 +7,7 @@ class OurProducts extends Component{
         return(
             <div className="containerProducts">
                 <div className="presentation">
-                    <h1>The Main Characters</h1>               
+                    <h2>The Main Characters</h2>               
                </div>
                <div className="Product1">
                     <h2>Old No.7</h2>

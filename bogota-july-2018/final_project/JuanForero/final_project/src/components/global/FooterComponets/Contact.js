@@ -8,7 +8,7 @@ render(){
       <div className="containerContact">
           <div className="containerContactInformation">
               <div className="contactInformation">
-                  <h1>Contact us</h1>
+                  <h2>Contact us</h2>
                   <h3>Have a question?<br/>We would love to hear from you</h3>
                   <p>Join us <span>On social networks</span></p>
                   <SocialNetworksBar />

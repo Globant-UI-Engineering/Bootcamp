@@ -5,7 +5,7 @@ class Faqs extends Component {
     render(){
         return(
             <div className="containerArticle">
-                <h1>Faqs</h1>
+                <h2>Faqs</h2>
                  <article className="articleFaq">
                      <h3>WHERE CAN I OBTAIN FOOD AND DRINK RECIPES USING JACK DANIEL'S?</h3>
                      <p>Several Jack Daniel's cookbooks are available through the Lynchburg Hardware and General Store, which accepts domestic orders only at 1-888-221-JACK.
