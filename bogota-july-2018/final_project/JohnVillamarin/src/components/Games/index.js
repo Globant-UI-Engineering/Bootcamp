@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import YouTube from 'react-youtube';
+import { videos } from "../../data/videos.json";
 
 import "../Global/css/Games.css";
 
 class Games extends Component {
+    _onReady(event) {
+        event.target.pauseVideo();
+    }
     render() {
         const opts = {
             height: '350',
@@ -22,49 +26,26 @@ class Games extends Component {
                             <div className="card-header"> 
                                <h2>michael jordan the best games</h2>
                             </div>
-                            <div className="card-body">  
-                                <article className="">
+                            <div className="card-body">
+                            {videos.map(video =>
+                                <article className="" key={video.id}>
                                     <figure>
                                         <picture>
-                                        <YouTube
-                                            videoId="530z-_yjdlU?rel=0"
-                                            opts={opts}
-                                            onReady={this._onReady}
-                                        />
+                                            <YouTube
+                                                videoId={video.videoId}
+                                                opts={opts}
+                                                onReady={this._onReady}
+                                            />
                                         </picture>
                                     </figure>
                                 </article>
-                                <article className="">
-                                    <figure>
-                                        <picture>
-                                        <YouTube
-                                            videoId="IuffQrpZRHc"
-                                            opts={opts}
-                                            onReady={this._onReady}
-                                        />
-                                        </picture>
-                                    </figure>
-                                </article>
-                                <article className="">
-                                    <figure>
-                                        <picture>
-                                        <YouTube
-                                            videoId="zAnJmEmWIBw"
-                                            opts={opts}
-                                            onReady={this._onReady}
-                                        />
-                                        </picture>
-                                    </figure>
-                                </article>                               
+                            )}                                 
                             </div>    
                         </div>                         
                 </section>
             </article>
         )
-    }
-    _onReady(event) {       
-        event.target.pauseVideo();
-    }
+    }    
 }
 
 export default Games
