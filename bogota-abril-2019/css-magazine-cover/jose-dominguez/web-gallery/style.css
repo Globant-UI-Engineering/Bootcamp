@@ -1,0 +1,102 @@
+body {
+    background-color: #333333;
+}
+
+#main_wrapper {
+    width: 665px;
+    height: 845px;
+    color: white;
+    display: block;
+    margin: 0 auto;
+    background-image: url('background.jpg');
+    background-position-x: -270px;
+    background-size: cover;
+    position: relative;
+    border: 1px solid #444444;
+    box-sizing: content-box;
+    z-index: -2;
+    overflow: hidden;
+}
+
+header {
+    top: 10px;
+    height: 1.5em;
+    font-size: 13px;
+    position: relative;
+    font-family: 'Anton', sans-serif;
+    color: #ae9b63;
+    background-color: #111111;
+    z-index: -1;
+    padding-left: 1em;
+}
+
+#logo_container {
+    background-image: url('topgear_logo.png');
+    background-size: cover;
+    height: 120px;
+    position: relative;
+    top: 20px;
+    z-index: 50;
+}
+
+#person {
+    position: absolute;
+    height: 75px;
+    top: 0px;
+    right: -19px;
+    z-index: 10;
+}
+
+#text_container {
+    font-family: 'Anton', sans-serif;
+    font-size: 22px;
+    width: 60%;
+    left: 20%;
+    bottom: 40px;
+    position: absolute;
+    text-align: center;
+}
+
+#text_container #title_teaser {
+    color: #f49900;
+    background-color: #111111;
+    font-weight: 800;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+#text_container #title_footer {
+    background-color: #f49900;
+    color: #111111;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    font-size: 0.5em;
+}
+
+#text_container #big_teaser {
+    font-family: 'Anton', sans-serif;
+    font-size: 6em;
+    line-height: 1em;
+}
+
+#quote {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.4em;
+    line-height: 0.5em;
+    padding: 20px;
+    display: inline;
+}
+
+#quote div {
+    text-align: justify;
+}
+
+#quote div:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+
+.white {
+    color: #ffffff;
+}
