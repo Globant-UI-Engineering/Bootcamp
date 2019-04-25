@@ -11,14 +11,13 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Stint+Ultra+Condensed");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Stint+Ultra+Condensed|Six+Caps");
 
 html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
 }
-
 body {
   background-color: #000;
   display: flex;
@@ -26,10 +25,102 @@ body {
   align-items: center;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-transform: uppercase;
+}
+h2,
+h3,
+h4,
+h5 {
+  letter-spacing: 0.07em;
+  /* transform: scaleY(2.4); */
+  font-family: Six Caps;
+}
+h3,
+h4,
+h5 {
+  line-height: calc(1em + 1vw);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+h1,
+h2 {
+  margin: 0;
+}
+
+h1 {
+  color: #dd0c3d;
+}
+h2 {
+  color: white;
+}
+h3 {
+  font-size: 5vw;
+  color: #b8ca2e;
+}
+h4 {
+  font-size: 5vw;
+  color: #dd0c3d;
+}
+h5 {
+  font-size: 5vw;
+  color: white;
+}
+
+section {
+  /* outline: 3px solid greenyellow; */
+  position: absolute;
+  max-width: 15vw;
+}
+section:nth-of-type(1) {
+  top: 32.9vw;
+  left: 3vw;
+}
+section:nth-of-type(2) {
+  top: 80vw;
+  right: 3vw;
+  text-align: right;
+}
+section:nth-of-type(3) {
+  top: 85vw;
+  left: 3vw;
+}
+
+section:nth-of-type(3) h4:nth-child(1)::before {
+  content: "+";
+}
+section:nth-of-type(3) h4:nth-child(2)::before {
+  content: "++";
+}
+section:nth-of-type(3) h4:nth-child(3)::before {
+  content: "+++";
+}
+
+section:nth-of-type(2) span {
+  color: #dd0c3d;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: Playfair Display;
+}
+section:nth-of-type(2) hr {
+  background: #dd0c3d;
+  color: #dd0c3d;
+  height: 1em;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 #magazine-cover {
   position: relative;
-  width: 73.54166667vh;
-  height: 100vh;
+  /* width: 73.54166667vh;
+  height: 100vh; */
+  width: 100%;
+  height: 135.97733711vw;
 }
 
 #fake-jeff {
@@ -55,7 +146,7 @@ body {
   width: 100%;
 }
 
-label[for="magazine-title"] {
+#magazine-title span {
   position: absolute;
   right: 20.5%;
   width: 20%;
@@ -64,28 +155,15 @@ label[for="magazine-title"] {
   color: #b4c52e;
   font-family: Playfair Display;
   font-weight: 700;
-  font-size: 42%;
+  font-size: 2.1vw;
 }
 
 #issue-title {
   position: absolute;
-  top: 13.5%;
-  margin: 0;
+  top: 12vw;
   text-align: center;
   width: 100%;
-  font-size: 450%;
-  letter-spacing: 0.15em;
-  transform: scaleY(2.2);
-}
-
-h2 {
-  font-family: Stint Ultra Condensed;
-  color: white;
-}
-
-h1,
-h2 {
-  text-transform: uppercase;
+  font-size: 18vw;
 }
 
 /*
@@ -106,19 +184,6 @@ h2 {
 ::selection {
   background: #b3d4fc;
   text-shadow: none;
-}
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
 }
 
 /*
