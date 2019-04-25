@@ -7,13 +7,7 @@
 	margin-top: 30px;
 }
 
-.encabezado{
-   display: inline-block;
-   width: 1000px;
-   height: 0px;
-}
-
-.encabezado p{
+header p{
   width: 300px;
   height: 30px;
   float: left;
@@ -21,42 +15,47 @@
   font-family: 'Ramaraja', serif;
 }
 
-.encabezado p:first-child{
-  margin: 30 170 30 0;
+header p:first-child{
+  margin: 30 170 0 0;
   padding: 0 30 0 0;
   text-align: right;
   color: white;
   font-size: 20px;
 }
 
-.encabezado p:last-child{
-  margin: 30 0 30 170;
+header p:nth-child(2){
+  margin: 30 0 0 170;
   padding: 0 0 0 30; 
   font-size: 20px;
 }
 
-.titulo h1{
-  font-size: 200px;
+header h1{
+  font-size: 180px;
   margin: 0;
   text-align: center;
+  display: inline-block;
+  padding-left: 20%;
+  height: 23%;
+ 
 }
 
-.titulo h1 span{
+header h1 span{
   color: white;
 }
 
-.titulo h2 {
+header h2 {
   color: white;
   text-align:center;
   font-size:25px; 
   margin: 0;
   height: 0px;
   font-family: 'Duru Sans', sans-serif;
-  display: block;
   text-transform: uppercase;
+  display: inline-block;
+  padding-left: 35%;
 }
 
-.titulo h2 span {
+header h2 span {
   display: block;
   color: #ffce00;
   text-align:center;
@@ -66,14 +65,14 @@
   font-weight:bold;
 }
 
-.cuerpo{
+article{
   display: inline-block;
   width: 1000px;
-  height: 0px;
+  height: 337px;
   margin-top: 120px;
 }
 
-.cuerpo > h2{
+article > h2{
   padding-left: 30px;
   text-align: left;
   font-size: 16px;
@@ -83,11 +82,11 @@
   text-transform: uppercase;
  }
  
- .cuerpo span{
+ article span{
   font-size: 29px;
  }
 
-.contenidoRevista{
+section{
   width: 330px;
   margin-top: 5px;
   margin-left: 620px;
@@ -96,7 +95,7 @@
   text-transform: uppercase;
  }
 
-.contenidoRevista h1{
+section h1{
   margin: 5px 0 5px 0;
   color:white;
   font-weight:bold;
@@ -104,20 +103,20 @@
   
 }
 
-.contenidoRevista h2{
+section h2{
   margin: 5px 0 5px 0;
   font-size:21px;
   font-family: 'Vast Shadow', cursive;
 }
 
-.contenidoRevista h3{
+section h3{
   margin: 0;
   font-size:16px;
   color:white;
   font-family: 'Candal', sans-serif;
 }
 
-.franja{
+footer{
 	color:white;
 	background:black;
 	text-align:center;
@@ -127,7 +126,7 @@
   text-transform: uppercase;
 }
 
-.franja p{
+footer p{
 	height: 25px;
     margin-top: 0px;
     margin-bottom: 0px;
