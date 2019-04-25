@@ -1,0 +1,53 @@
+.cover{
+    position: absolute;
+    height: 760px;
+    width: 600px;
+    align-items: center;
+    background-image: url("../img/2.jpg");
+    top: 50%;
+    left: 50%;
+    margin: -380px 0 0 -300px;
+}
+
+.cover >*{
+    padding: 0px 20px;
+}
+
+.cover-header{
+    position: relative;
+    text-transform: uppercase;
+    background-color: black;
+    top: 0px;
+    width: 560px;
+    text-align: center;
+}
+
+.cover-header .header-text{
+    display: inline-block;
+    color: yellow;
+}
+
+.cover-header .header-slogan{
+    display: inline-block;
+    color: white;
+}
+
+.cover-body{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+h1, h2, h3{
+    text-transform: uppercase;
+}
+
+#tittleLabel{
+    
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:800;
+    background-color: yellow;
+    color: black;
+    width: 80px;
+    text-align: center;
+}
