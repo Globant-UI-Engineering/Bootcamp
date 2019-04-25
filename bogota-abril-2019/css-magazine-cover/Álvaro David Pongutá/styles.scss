@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css?family=Alfa+Slab+One|Barlow+Condensed");
+
+html, body {
+    height: 100%;
+    margin: 0px;
+}
+
+.background-image{
+    text-align: center;
+    min-height: 100%;
+    min-width: 100%;
+    background: url("https://cdn.guidingtech.com/imager/media/assets/210672/Best-Avengers-Endgame-Avengers-4-Wallpapers-for-Desktop-and-Mobile-2_935adec67b324b146ff212ec4c69054f.jpg?1544433662") no-repeat center center fixed;
+}
+
+.date{
+    font-family: 'Barlow Condensed';
+    position: relative;
+    color: white;
+    display: inline;
+    left: 285px;
+    font-size: 24px;
+    background-color: #f2370e;
+    padding-right: 8px;
+
+    .background-arrow-left {
+        width: 0px;
+        height: 0px;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent; 
+        position: relative;
+        display: inline-block;
+        right: 10px;
+        top: 6px;
+
+        border-right:10px solid #f2370e; 
+    }
+}
+
+.title{
+    padding-top: 10px;
+    .title-letters{
+        display: inline;
+        color: white;
+        font-family: 'Alfa Slab One';
+        letter-spacing: 3px;
+        font-size: 80px;
+    }
+    .title-image{
+        height: 82px;
+        width: 82px;
+        position: relative;
+        top: 10px;
+        left: 10px;
+    }
+}
+
+.principal-content{
+    font-family: 'Barlow Condensed';
+    color: white;
+    width: 250px;
+    display: inline-block;
+    font-size: 38px;
+    padding: 8px;
+    position: relative;
+    left: 320px;
+    bottom: 240px;
+    background-color: #f2370e;
+    border-radius: 10px;
+}
+
+.secondary-content-left{
+    font-family: 'Barlow Condensed';
+    color: white;
+    width: 180px;
+    display: inline-block;
+    font-size: 18px;
+    position: relative;
+    top: 300px;
+    border-radius: 10px;
+    right: 170px;
+
+    .secondary-content-subtitle{
+        font-size: 32px;
+    }
+
+}
+
+.secondary-content-right{
+    font-family: 'Barlow Condensed';
+    color: black;
+    width: 180px;
+    display: inline-block;
+    font-size: 18px;
+    position: relative;
+    top: 250px;
+    border-radius: 10px;
+    left: 140px;
+    background-color: white;
+    padding-bottom: 4px;
+
+    .secondary-content-subtitle{
+        font-size: 32px;
+        color: #f2370e;
+        padding: 4px;
+    }
+
+}
+
+.last-info{
+
+    font-family: 'Barlow Condensed';
+    color: black;
+    width: 250px;
+    display: inline-block;
+    font-size: 18px;
+    padding: 4px;
+    position: relative;
+    top: 375px;
+    right: 310px;
+    background-color: white;
+    border-radius: 10px;
+}
