@@ -1,0 +1,121 @@
+body{
+    background: #000000 no-repeat;
+    color:white;
+    background-size: 100%;
+    font-family: 'Basic', sans-serif;
+    font-size:1vw;
+}
+
+a{
+    text-decoration: none;
+}
+
+footer{
+    width:100%;
+    padding:5px 0;
+}
+
+
+.main-container{
+    width:75%;
+    height:100%;
+    border: 1px solid white;
+    padding: 0 12px;
+    margin:auto;
+    background-image: url('./assets/cover.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.subtitle{
+    color:white;
+    font-family: 'Megrim', cursive;
+}
+
+#slogan{
+    text-align: center;
+    font-size:2vw;
+}
+
+.info-list{
+    list-style-type:none; 
+}
+
+.highlight{
+    color:orange;
+    font-weight: bold;
+}
+
+.banner, .news-container{
+    width:100%;
+}
+
+.big-title{
+    font-size: 8vw;
+    text-shadow: 2px 2px #000000;
+}
+
+.medium-title{
+    font-size: 4vw;
+    color:yellow;
+    text-shadow: 2px 2px #000000;
+}
+
+#banner p{
+    font-size:1em;
+}
+
+#banner-logo{
+    width:77%;
+    display:inline-block;
+}
+
+#banner-logo img{
+    width:100%;
+    background-repeat: no-repeat;
+}
+
+#banner-info{
+    width:20%;
+    display: inline-block;
+    text-align:right;
+    vertical-align: top;
+}
+
+#banner-info h2{
+    font-size: 2vw;
+}
+
+.news-container{
+    vertical-align: top;
+}
+
+.top-news{
+    width:45%;
+    display:inline-block;
+}
+
+.top-news{
+    text-align: left;
+}
+
+.top-news ul{
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size:2vw;
+}
+
+#barcode {
+    display:inline-block;
+    width:50%;
+}
+#barcode img{
+    width:70%;
+}
+
+#issue-date{
+    text-align:right;
+    display:inline-block;
+    width:45%;
+    font-size:3vh; 
+}
