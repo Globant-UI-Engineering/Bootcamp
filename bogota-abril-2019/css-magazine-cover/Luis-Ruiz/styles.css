@@ -5,7 +5,7 @@
 }
 
 .bg-image {
-  background-image: url("./img/background.jpg");
+  background-image: url("background.jpg");
   background-size: cover;
   height: 100vh;
   opacity: 0.9;
@@ -15,7 +15,7 @@
   position: absolute;
   top: 0;
   display: grid;
-  grid-template-rows: 3vh 22vh 22vh 48vh 5vh;
+  grid-template-rows: 3vh 44vh 48vh 5vh;
   grid-template-columns: 1fr;
   width: 100vw;
   height: 100vh;
@@ -51,12 +51,12 @@
   color: white;
 }
 
-.title-secondary > div:first-child {
+.title-secondary > h5 {
   font-weight: bold;
   color: white;
 }
 
-.title-secondary > div:nth-child(2) {
+.title-secondary > h2 {
   font-size: 7rem;
   color: yellow;
 }
@@ -92,7 +92,7 @@
   padding: 0 4rem;
 }
 
-.info-right > div:first-child {
+.info-right > article:first-child {
   font-size: 3rem;
 }
 
