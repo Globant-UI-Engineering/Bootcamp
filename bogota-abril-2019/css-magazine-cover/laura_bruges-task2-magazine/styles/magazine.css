@@ -131,3 +131,37 @@ h1, h2, h3 {
     }
 }
 
+@media (max-width: 1700px){
+    #headlines {
+        font-size: 0.6em;
+    }
+
+    .news-headline {
+        padding: 0.5em;
+    }
+
+    #issue-desc {
+        font-size: 1.6em;
+    }
+    
+    #natgeo-title {
+        font-size: 2.5em;
+    }
+    
+    .issue-title {
+        font-size: 3.7em;
+    } 
+    
+    .issue-caption {
+        font-size: 1.5em;
+        padding: 0 10%;
+    }
+
+    .caption {
+        font-size: 0.7em;
+    }
+
+    #issue-date {
+        margin-top: 13%;
+    }
+}
