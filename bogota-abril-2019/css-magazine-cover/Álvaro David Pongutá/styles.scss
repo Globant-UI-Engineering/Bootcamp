@@ -61,9 +61,6 @@ html, body {
     display: inline-block;
     font-size: 38px;
     padding: 8px;
-    position: relative;
-    left: 320px;
-    bottom: 240px;
     background-color: #f2370e;
     border-radius: 10px;
 }
@@ -75,12 +72,13 @@ html, body {
     display: inline-block;
     font-size: 18px;
     position: relative;
-    top: 300px;
+    top: 130px;
     border-radius: 10px;
-    right: 170px;
+    right: 260px;
 
     .secondary-content-subtitle{
         font-size: 32px;
+        margin: 0px;
     }
 
 }
@@ -92,9 +90,9 @@ html, body {
     display: inline-block;
     font-size: 18px;
     position: relative;
-    top: 250px;
+    bottom: 150px;
     border-radius: 10px;
-    left: 140px;
+    left: 230px;
     background-color: white;
     padding-bottom: 4px;
 
@@ -102,6 +100,7 @@ html, body {
         font-size: 32px;
         color: #f2370e;
         padding: 4px;
+        margin: 0px;
     }
 
 }
@@ -115,8 +114,7 @@ html, body {
     font-size: 18px;
     padding: 4px;
     position: relative;
-    top: 375px;
-    right: 310px;
+    bottom: 20px;
     background-color: white;
     border-radius: 10px;
 }
