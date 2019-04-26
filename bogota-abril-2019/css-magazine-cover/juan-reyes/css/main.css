@@ -112,6 +112,13 @@ p, h1, h2 {
     margin: 0px;
 }
 
+img {
+    position: absolute;
+    left: 620px;
+    top: 0px;
+    display: block;
+}
+
 .main-container{
     background-color: #ffffff;
     width: 532px;
@@ -132,28 +139,89 @@ p, h1, h2 {
     position: relative;
 }
 
-.edition-number {
+.edition-number>p {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 4px;
+    right: 7px;
+    font-family: serif;
+    font-weight: 600;
+    font-size: 12px;
 }
 
-.publisher-logo{
+.publisher-logo>p{
     position: absolute;
-    top: 30px;
-    right: 0px;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
+    top: 38px;
+    right: -10px;
+    transform: rotate(-90deg);
+    font-size: 13px;
+    font-weight: 600;
 }
 
-.magazine-logo {
+.magazine-logo>h1 {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 118px;
+    left: -66px;
+    transform: rotate(-90deg);
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', helvetica, sans-serif;
+    font-size: 45px;
+    font-weight: 900;
 }
 
+article {
+    position: relative;
+    top: 239px;
+    left: 10px;
+}
 
+.subtitle {
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    font-size: 15px;
+    letter-spacing: -0.3px;
+}
 
+.title {
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    font-size: 39px;
+    font-weight: 900;
+    line-height: 27px;
+    letter-spacing: -1px;
+}
+
+article > p {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+article + p {
+    position: relative;
+    top: 173px;
+    left: -238px;
+    transform: rotate(-90deg);
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-size: 8px;
+}
+
+div.cover-container p:nth-last-child(2){
+    position: relative;
+    top: 423px;
+    left: 476px;
+    font-size: 7px;
+}
+
+img:last-child {
+    position: relative;
+    top: 423px;
+    left: 476px;
+    width: 7%;
+}
 
 
 
