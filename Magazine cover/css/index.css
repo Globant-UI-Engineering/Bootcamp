@@ -1,0 +1,54 @@
+/* --- color pantone ---
+
+    - orange: #d24a30
+    - blue:   #c3dff5
+    - black:  #070707
+    - white:  #ffffff
+
+        --- ---- ---  */
+
+/* --- magazine cover general --- */
+
+body {
+    box-sizing: border-box;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+/* --- magazine background --- */
+
+.background {
+    background-image: url(https://hips.hearstapps.com/esq.h-cdn.co/assets/16/01/1452206724-trump-cold-open.jpg);
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 900px;
+    margin: 0 auto;
+    width: 50%;
+}
+
+/* --- magazine header --- */
+
+.section__Header--style {
+    color: #d24a30;
+    font-family: 'Pacifico', cursive;
+    font-size: 110px;
+    left: 342px;
+    position: absolute;
+    top: -116px;
+    z-index: 2;
+}
+
+/* --- magazine content --- */
+
+/* codebar */
+
+.section__content--barcode {
+    width: 100%;
+}
+
+.section__content__barcode--img {
+    width: 20%;
+}
