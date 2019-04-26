@@ -1,0 +1,133 @@
+#margin {
+    position: absolute;
+    height: 95vh;
+    width: 32vw;
+    background-color: #FFD102;
+}
+
+h1, h2, h3 {
+    margin: 0
+}
+
+.container {    
+    margin: 10% 6.5%;
+    height: 87%;
+    width: 87%;
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+#girls-container {
+    position: absolute;
+    background-image: url("background_girls.png");
+    z-index: 2;
+}
+
+
+#main-container {
+    position: relative;
+    background-image: url("background.png");
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#headlines {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2em;
+    font-size: 0.65em;
+}
+
+.news-headline {
+    letter-spacing: 0.2em;
+    padding: 0.7em;
+    width: 25%;
+}
+
+
+#magazine-title {
+    font-weight: 400;
+}
+
+#issue-desc {
+    color: #FFD102;
+    letter-spacing: 0.5em;
+    font-size: 2em;
+}
+
+#natgeo-title {
+    font-size: 3em;
+}
+
+#title-container {
+    text-transform: none;
+    margin-top: 57%;
+}
+
+.issue-title {
+    font-size: 4em;
+}
+
+.issue-caption {
+    font-size: 1.5em;
+    padding: 0 10%;
+}
+
+.caption {
+    font-family: 'Work Sans', sans-serif;
+}
+
+#issue-date {
+    margin-top: 22%;
+}
+
+#footer > span {
+    text-transform: none;
+}
+
+#footer {
+    position: relative;
+    color: #EA0391;
+    text-transform: uppercase;  
+    text-align: center; 
+    font-weight: 500;
+    margin-top: -7%;
+}
+
+@media (max-width: 1500px){
+    #headlines {
+        font-size: 0.5em;
+    }
+
+    .news-headline {
+        padding: 0.5em;
+    }
+
+    #issue-desc {
+        font-size: 1.2em;
+    }
+    
+    #natgeo-title {
+        font-size: 2em;
+    }
+    
+    .issue-title {
+        font-size: 2.7em;
+    } 
+    
+    .issue-caption {
+        font-size: 1em;
+        padding: 0 10%;
+    }
+
+    .caption {
+        font-size: 0.7em;
+    }
+
+    #issue-date {
+        margin-top: 13%;
+    }
+}
+
