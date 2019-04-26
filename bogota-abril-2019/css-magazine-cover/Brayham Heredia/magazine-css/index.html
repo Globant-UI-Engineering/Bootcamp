@@ -1,6 +1,8 @@
 <!doctype html>
 <html class="no-js" lang="">
-
+<!--
+  Revisar el resposiveness el problema puede ser el uso de porcentajes, position absolute y margin negativas
+-->
 <head>
   <meta charset="utf-8">
   <title>BHS-MAGAZINE-CSS</title>
@@ -19,14 +21,62 @@
 
   <div class="cover">
 
-    <div class="cover-header">
+    <header class="cover-header">
       <p class="header-text">The magazine runners have been waiting for! </p> 
       <p class="header-slogan">fit for life. </p>
-    </div>
+    </header>
 
     <div class="cover-body">
-      <h3 id="tittleLabel">elite</h3>
+
+      <header>
+        <h3 class="tittleLabel">elite</h3>
+        <h1>sprinter</h1>
+      </header>
+
+      <article class="right-column">
+        <header>
+          <h2>make yourself<br>better</h2>
+        </header>
+        <section id="steps">
+          <p class="standar-text">Plans for running<br>faster & faster</p>
+          <ul class="step-list">
+            <li>Train smarter</li>
+            <li>Eat healtier</li>
+            <li>Run easier</li>
+          </ul>
+        </section>
+        <section id="tips">
+          <p>35</p>
+          <p>Runing tips from the<br>world's best coach</p>
+          <br>
+          <p>Dylan Hall</p>
+        </section>
+      </article>
+
+      <article class="left-column">
+        <section id="food">
+          <p class="standar-text">Best food<br>forrunners</p>
+          <p>Carbohydrates<br>& protein meal</p>
+          <p>Page 20</p>
+        </section>
+        <section id="exclusive">
+            <p>exclusive!</p>
+            <p class="standar-text">
+              the<br>
+              ultimate<br>
+              move for<br>
+              powerful<br>
+              legs<br>
+            </p>
+            <p>Page 20</p>
+          </section>
+      </article>
+
     </div>
+
+    <footer>
+      <p>Dylan Hall |3| triathlete</p>
+    </footer>
 
   </div>
   <script src="js/vendor/modernizr-3.7.1.min.js"></script>
