@@ -13,56 +13,56 @@
     border: 5px solid white;
 }
 
-#txt-container {
+header {
     text-align: center;
     line-height: 130px;
 }
 
-#txt-container h3 {
+header h3 {
     color: black;
     margin-right: 10px;
     position: absolute;
-    top: 12px;
+    top: -45px;
     font-family: monospace;
 }
 
-#txt-container h2 {
+header h2 {
     color: white;
     font-size: 50px;
     margin-top: 20px;
     margin-bottom: 0px;
 }
 
-#txt-container h2 span {
+header h2 span {
     color: grey;
 }
 
-#txt-container h1 {
+header h1 {
     font-style: normal;
     color: #ED1C24;
     font-size: 250px;
     margin-top: 0px;
 }
 
-#footer-txt {
+footer {
     margin-top: 1050px;
     margin-left: 20px;
     line-height: 80px;
 }
 
-#footer-txt h2 {
+footer h2 {
     color: white;
     font-size: 100px;
     margin: 0;
 }
 
-#footer-txt div {
+footer aside {
     line-height: 5px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     color: white;
 }
 
-#footer-txt div span {
+footer aside span {
     color: #ED1C24;
 }
