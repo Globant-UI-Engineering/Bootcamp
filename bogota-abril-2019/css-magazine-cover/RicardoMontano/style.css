@@ -1,0 +1,92 @@
+body {
+    background-color: black;
+}
+
+.cover {
+    margin: 0 auto;
+    height: 90vh;
+    width: 60vh;
+    border: 20px crimson solid;
+    background-color: #0a0404;
+}
+
+.cover-photo {
+    height: 40%;
+    width: 100%;
+    margin: 10px auto;
+    object-fit: fill;
+    position: relative;
+}
+
+.img-cover-photo {
+    margin-top: 60px;
+    width: 100%;
+}
+
+header {
+    width: 100%;
+}
+
+.issue {
+    width: 70%;
+    margin: 20px auto;
+    color: white;
+}
+
+.number {
+    font-size: 8px;
+    float: left;
+}
+
+.date {
+    font-size: 8px;
+    float: right;
+}
+
+.caption {
+    margin: 0 15px;
+    color: white;
+    font-style: italic;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.1vw;
+    width: 25%;
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+
+.caption b {
+    font-weight: bold; 
+    color: crimson;
+}
+
+.description div {
+    text-align: justify;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.relevant-news {
+    max-height: 20%;
+    margin: 30px auto;
+    width: 80%;
+}
+
+.relevant-news div {
+    vertical-align: top;
+    width: 50%;
+    color: white;
+    font-size: 0.7vw;
+    text-align: left;
+    display: inline-block;
+}
+
+.img-meme-logo {
+    width: 70%;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.img-meme-logo img {
+    max-width: 100%;
+}
