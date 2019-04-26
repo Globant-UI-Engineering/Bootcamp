@@ -36,14 +36,14 @@ h2,
 h3,
 h4,
 h5 {
-  letter-spacing: 0.07em;
+  letter-spacing: 0.076em;
   /* transform: scaleY(2.4); */
   font-family: Six Caps;
 }
 h3,
 h4,
 h5 {
-  line-height: calc(1em + 1vw);
+  line-height: calc(1em + 0.5vw);
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -59,15 +59,15 @@ h2 {
   color: white;
 }
 h3 {
-  font-size: 5vw;
+  font-size: 6vw;
   color: #b8ca2e;
 }
 h4 {
-  font-size: 5vw;
+  font-size: 4.25vw;
   color: #dd0c3d;
 }
 h5 {
-  font-size: 5vw;
+  font-size: 4vw;
   color: white;
 }
 
@@ -79,6 +79,7 @@ section {
 section:nth-of-type(1) {
   top: 32.9vw;
   left: 3vw;
+  max-width: 12.5vw;
 }
 section:nth-of-type(2) {
   top: 80vw;
@@ -90,6 +91,16 @@ section:nth-of-type(3) {
   left: 3vw;
 }
 
+section:nth-of-type(2) h4 {
+  font-size: 6vw;
+  position: absolute;
+  right: 0;
+}
+section:nth-of-type(3) h4::before {
+  display: block;
+  margin-top: 0.5em;
+  line-height: 0.5em;
+}
 section:nth-of-type(3) h4:nth-child(1)::before {
   content: "+";
 }
@@ -101,18 +112,18 @@ section:nth-of-type(3) h4:nth-child(3)::before {
 }
 
 section:nth-of-type(2) span {
+  display: inline-block;
   color: #dd0c3d;
-  font-weight: 700;
+  font-weight: 900;
+  font-size: 0.8em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  line-height: 1.5em;
   font-family: Playfair Display;
-}
-section:nth-of-type(2) hr {
-  background: #dd0c3d;
-  color: #dd0c3d;
-  height: 1em;
-  width: 100%;
-  margin-top: 0;
-  margin-bottom: 0;
+  border-bottom: 1.2em solid #dd0c3d;
+  /* position: relative;
+  left: auto;
+  right: 0; */
 }
 
 #magazine-cover {
