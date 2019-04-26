@@ -1,0 +1,68 @@
+#container {
+    border: 50px solid #ED1C24;
+    width: 1000px;  
+    margin: auto;
+}
+
+#main-container {
+    background-image: url("./images/bg-image.jpg");
+    width: 1000px;
+    height: 1718px;
+    background-size: cover;
+    margin: auto;
+    border: 5px solid white;
+}
+
+header {
+    text-align: center;
+    line-height: 130px;
+}
+
+header h3 {
+    color: black;
+    margin-right: 10px;
+    position: absolute;
+    top: -45px;
+    font-family: monospace;
+}
+
+header h2 {
+    color: white;
+    font-size: 50px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+header h2 span {
+    color: grey;
+}
+
+header h1 {
+    font-style: normal;
+    color: #ED1C24;
+    font-size: 250px;
+    margin-top: 0px;
+}
+
+footer {
+    margin-top: 1050px;
+    margin-left: 20px;
+    line-height: 80px;
+}
+
+footer h2 {
+    color: white;
+    font-size: 100px;
+    margin: 0;
+}
+
+footer aside {
+    line-height: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: white;
+}
+
+footer aside span {
+    color: #ED1C24;
+}
