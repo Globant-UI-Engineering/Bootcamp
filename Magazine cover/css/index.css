@@ -17,6 +17,14 @@ body {
     width: 100%;
 }
 
+.text__uppercase {
+    text-transform: uppercase;
+}
+
+.color__orange {
+    color: #d24a30;
+}
+
 /* --- magazine background --- */
 
 .background {
@@ -26,19 +34,80 @@ body {
     background-size: cover;
     height: 900px;
     margin: 0 auto;
-    width: 50%;
+    width: 40%;
 }
 
 /* --- magazine header --- */
 
-.section__Header--style {
-    color: #d24a30;
+.section__header--style {
     font-family: 'Pacifico', cursive;
-    font-size: 110px;
-    left: 342px;
+    font-size: 124px;
+    left: 550px;
     position: absolute;
     top: -116px;
     z-index: 2;
+}
+
+/* --- magazine top header --- */
+
+.section__topheader--style {
+    border: solid 6px;
+    display: flex;
+    justify-content: space-around;
+    left: 30px;
+    position: relative;
+    top: 20px;
+    width: 90%;
+}
+
+.section__topheader--tittle {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+}
+
+.section__topheader--info {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration-line: underline;
+    width: 38%;
+}
+
+/* --- magazine sub header --- */
+
+.section__subheader--info {
+    font-size: 12px;
+    left: 30px;
+    position: relative;
+    text-transform: uppercase;
+    top: 188px;
+}
+
+.section__subheader--date {
+    font-size: 12px;
+    left: 640px;
+    position: relative;
+    text-transform: uppercase;
+    top: 162px;
+}
+
+.section__subheader--tittle {
+    font-size: 90px;
+    font-weight: bold;
+    left: 26px;
+    position: relative;
+    text-transform: uppercase;
+    top: 80px;
+    z-index: 3;
+}
+
+.section__subheader--append {
+    font-size: 10px;
+    left: 30px;
+    position: relative;
+    text-transform: capitalize;
+    top: -4px;
+    width: 13%;
 }
 
 /* --- magazine content --- */
