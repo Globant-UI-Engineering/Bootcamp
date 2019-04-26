@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML A11Y Form</title>
+        <style>
+            fieldset {width: 20%;}
+            input[type="submit"] {margin: 10px;}
+        </style>
+    </head>
+    <body>
+        <form>
+            <label for="firstname">First name: </label>
+            <input title="Search" type="text" name="firstname" required aria-required="true">
+            <br>
+            <label for="lastname">Last name: </label>
+            <input title="Search" type="text" name="lastname">
+            <br>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="joe@example.com" required aria-required="true">
+            <br>
+            <fieldset>
+                <legend>Sexo</legend>
+                <div>
+                    <input type="radio" name="sexo" id="masculino" value="masculino" required aria-required="true"> 
+                    <label for="masculino">Masculino</label>
+                </div>
+                <div>
+                    <input type="radio" name="sexo" id="femenino" value="femenino">
+                    <label for="femenino">Femenino</label>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Hobbies</legend>
+                <div>
+                    <input type="checkbox" name="football" id="check_football">
+                    <label for="check_football">Play Football</label><br>
+                    <input type="checkbox" name="basketball" id="check_basketball">
+                    <label for="check_basketball">Play Basketball</label><br>
+                    <input type="checkbox" name="videogames" id="check_videogames">
+                    <label for="check_videogames">Play Video games</label>
+                </div>
+            </fieldset>
+            <br>
+            <label for="fav_car">Favorite Brand: </label>
+            <select id="fav_car" name="car">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+            <br>
+            <label for="date">Fecha de Nacimiento: </label>
+	        <input type="date" name="date" id="date">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
