@@ -11,7 +11,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Stint+Ultra+Condensed|Six+Caps");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Stint+Ultra+Condensed|Six+Caps|Work+Sans");
 
 html {
   color: #222;
@@ -82,12 +82,12 @@ section:nth-of-type(1) {
   max-width: 12.5vw;
 }
 section:nth-of-type(2) {
-  top: 80vw;
+  top: 75vw;
   right: 3vw;
   text-align: right;
 }
 section:nth-of-type(3) {
-  top: 85vw;
+  top: 80vw;
   left: 3vw;
 }
 
@@ -124,6 +124,45 @@ section:nth-of-type(2) span {
   /* position: relative;
   left: auto;
   right: 0; */
+}
+
+footer,
+nav,
+ul {
+  width: 100%;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+}
+
+footer nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  font-size: 2.6vw;
+}
+
+footer nav ul li {
+  list-style: none;
+  font-family: Work Sans;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  margin: 1em;
+  color: white;
+}
+
+footer nav ul li:nth-of-type(1n + 2)::before {
+  content: "";
+  /* height: 50%; */
+  border: 0.5px solid white;
+  position: relative;
+  right: 1em;
+  top: 0.5em;
+  bottom: 0.5em;
 }
 
 #magazine-cover {
