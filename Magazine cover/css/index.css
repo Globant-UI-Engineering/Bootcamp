@@ -32,9 +32,9 @@ body {
     background-position-x: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 900px;
+    height: 1100px;
     margin: 0 auto;
-    width: 40%;
+    width: 70%;
 }
 
 /* --- magazine header --- */
@@ -42,10 +42,12 @@ body {
 .section__header--style {
     font-family: 'Pacifico', cursive;
     font-size: 124px;
-    left: 550px;
     position: absolute;
-    top: -116px;
     z-index: 2;
+}
+
+.section__header--position {
+    margin: 50px;
 }
 
 /* --- magazine top header --- */
@@ -54,7 +56,7 @@ body {
     border: solid 6px;
     display: flex;
     justify-content: space-around;
-    left: 30px;
+    left: 40px;
     position: relative;
     top: 20px;
     width: 90%;
@@ -77,24 +79,24 @@ body {
 
 .section__subheader--info {
     font-size: 12px;
-    left: 30px;
+    margin-left: 40px;
     position: relative;
     text-transform: uppercase;
-    top: 188px;
+    top: 194px;
 }
 
 .section__subheader--date {
     font-size: 12px;
-    left: 640px;
+    margin-left: 808px;
     position: relative;
     text-transform: uppercase;
-    top: 162px;
+    top: 168px;
 }
 
 .section__subheader--tittle {
-    font-size: 90px;
+    font-size:110px;
     font-weight: bold;
-    left: 26px;
+    margin: 80px 34px;
     position: relative;
     text-transform: uppercase;
     top: 80px;
@@ -103,21 +105,88 @@ body {
 
 .section__subheader--append {
     font-size: 10px;
-    left: 30px;
+    margin-left: 42px;
     position: relative;
     text-transform: capitalize;
-    top: -4px;
+    top: -10px;
     width: 13%;
 }
 
 /* --- magazine content --- */
 
+.section__content--tittle {
+    font-family: 'Anton', sans-serif;
+    font-size: 50px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.section__content--subtittle {
+    margin: 0;
+    font-family: 'Oranienbaum', serif;
+    text-transform: uppercase;
+    width: 10%;
+}
+
+.section__content--page {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.section__content--capital {
+    text-transform: capitalize;
+}
+
+.section__content--plus {
+    font-size: 20px;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.section__content--opttittle {
+    color: #c3dff5;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* content position */
+
+.section__content__position--first {
+    left: 40px;
+    position: relative;
+    top: 230px;
+}
+
+.section__content__position--second {
+    left: 40px;
+    position: relative;
+    top: 240px;
+}
+
+.section__content__position--thrid {
+    left: 40px;
+    position: relative;
+    top: 254px;
+}
+
+.section__content__position--four {
+    left: 780px;
+    position: relative;
+    top: -138px;
+}
+
+
 /* codebar */
 
 .section__content--barcode {
+    position: relative;
+    left: 780px;
     width: 100%;
 }
 
 .section__content__barcode--img {
-    width: 20%;
+    width: 16%;
 }
