@@ -32,5 +32,3 @@ function predictAge() {
     return Math.floor(Math.sqrt(addAges(multItself(arguments))) / 2);
 }
 console.log(predictAge(65, 60, 75, 55, 60, 63, 64, 45));
-
-predictAge(65, 60, 75, 55, 60, 63, 64, 45);
