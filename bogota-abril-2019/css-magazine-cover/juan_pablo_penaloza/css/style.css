@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather:100,300,400");
+@import url("https://fonts.googleapis.com/css?family=Tauri");
+body {
+  font-family: "Merriweather", serif;
+  letter-spacing: 0.03em;
+  line-height: 2em;
+  font-size: 1.6rem;
+  color: #221e1a;
+}
+.primary-heading {
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #d62503;
+  font-size: 10rem;
+  letter-spacing: 0.1em;
+}
+.secondary-heading {
+  font-family: "Tauri", sans-serif;
+  text-transform: capitalize;
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+  line-height: 1.5em;
+}
+.tertiary-heading {
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  color: #221e1a;
+  line-height: 1.5em;
+}
+.subtitle {
+  text-transform: capitalize;
+}
+.author-name {
+  color: #d62503;
+  font-weight: 100;
+  font-size: 1rem;
+  font-style: italic;
+}
+.cover {
+  width: 36%;
+  margin: 0 auto;
+  position: relative;
+  background-color: #d62503;
+}
+.cover__image {
+  display: block;
+  width: 100%;
+  -webkit-filter: contrast(50%);
+  filter: contrast(50%);
+}
+.cover__header {
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+.cover__reports {
+  position: absolute;
+  width: 30rem;
+  left: 5%;
+  bottom: 0%;
+}
