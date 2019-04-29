@@ -30,6 +30,8 @@ h2,
 h3,
 h4,
 h5 {
+  margin-top: 0;
+  margin-bottom: 0;
   text-transform: uppercase;
 }
 h2,
@@ -37,6 +39,7 @@ h3,
 h4,
 h5 {
   letter-spacing: 0.076em;
+  margin-right: -0.076em;
   /* transform: scaleY(2.4); */
   font-family: Six Caps;
 }
@@ -44,12 +47,6 @@ h3,
 h4,
 h5 {
   line-height: calc(1em + 0.5vw);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-h1,
-h2 {
-  margin: 0;
 }
 
 h1 {
@@ -93,8 +90,6 @@ section:nth-of-type(3) {
 
 section:nth-of-type(2) h4 {
   font-size: 6vw;
-  position: absolute;
-  right: 0;
 }
 section:nth-of-type(3) h4::before {
   display: block;
@@ -117,13 +112,20 @@ section:nth-of-type(2) span {
   font-weight: 900;
   font-size: 0.8em;
   letter-spacing: 0.2em;
+  margin-right: -0.2em;
   text-transform: uppercase;
   line-height: 1.5em;
   font-family: Playfair Display;
-  border-bottom: 1.2em solid #dd0c3d;
   /* position: relative;
   left: auto;
   right: 0; */
+}
+section:nth-of-type(2) span::after {
+  content: "";
+  display: block;
+  color: #dd0c3d;
+  margin-right: 0.2em;
+  border-bottom: 1.2em solid #dd0c3d;
 }
 
 footer,
@@ -146,23 +148,25 @@ footer nav ul {
 }
 
 footer nav ul li {
+  flex: 1 1;
   list-style: none;
   font-family: Work Sans;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.4em;
   margin: 1em;
+  margin-right: calc(1em - 0.4em);
   color: white;
 }
 
 footer nav ul li:nth-of-type(1n + 2)::before {
   content: "";
-  /* height: 50%; */
+  height: 50%;
   border: 0.5px solid white;
   position: relative;
   right: 1em;
-  top: 0.5em;
-  bottom: 0.5em;
+  /* top: 0.5em; */
+  /* bottom: 0.5em; */
 }
 
 #magazine-cover {
@@ -198,7 +202,7 @@ footer nav ul li:nth-of-type(1n + 2)::before {
 
 #magazine-title span {
   position: absolute;
-  right: 20.5%;
+  right: 20.7%;
   width: 20%;
   text-align: center;
   top: 7%;
