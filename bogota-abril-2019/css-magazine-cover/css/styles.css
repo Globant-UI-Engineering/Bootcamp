@@ -1,0 +1,65 @@
+body{
+    height: 100%;
+    margin: 0px;
+    background-color: #2b2c31;
+}
+h2, h3{
+    margin: 0px;
+}
+main{
+    background-image: url("../img/AvengersMagazineCoverBackground.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1405px;
+    width: 1025;
+    margin: auto;
+    position: relative;
+    text-transform: uppercase;
+}
+main > article{
+    width: 400px;
+}
+.magazine_name{
+    background-color: #e5c02b;
+    height: 350px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.magazine_name > div{
+    display: inline-block;
+    margin-top: 30%;
+}
+.magazine_name h2{
+    font-family: 'Vast Shadow';
+    font-size: 55px;
+}
+.magazine_name span{
+    letter-spacing: 2px;
+    font-weight: 800;
+    letter-spacing: 16px;
+}
+.magazine_name img.camera_roll{
+    width: 16px;
+}
+
+.magazine_sections{
+    margin-top: 40px;
+    padding-left: 40px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.magazine_sections p{
+    margin-top: 3px;
+    font-size: 12px;
+}
+.actor_interviews_section{
+    height: 400px;
+}
+.remarkable_text{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.rotated{
+    transform: rotate(180deg);
+}
