@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>A11Y Form</title>
+</head>
+
+<body>
+    <header>
+        <h1>Inscripción a Festival Estéreo Picnic</h1>
+    </header>
+    <hr>
+    <section role="main" aria-label="Formulario">
+        <form>
+
+            <label for="nombre">Ingresa tu nombre: </label>
+            <br>
+            <input id="nombre" name="nombre" type="text" aria-label="Nombre" placeholder="nombre">
+            <br>
+
+            <label for="correo">Ingresa tu correo (*): </label>
+            <br>
+            <input id="correo" name="email" type="email" aria-label="Correo" placeholder="correo@correo.com" required>
+            <br>
+
+            <label for="boletin">¿Deseas recibir nuestro boletín diario? (*): </label>
+            <br>
+            <select id="boletin" name="boletin" aria-label="Boletín">
+                <option label="Sí">Sí</option>
+                <option label="No">No</option>
+            </select>
+            <br>
+
+            <fieldset>
+                <legend>¿Qué día(s) prefieres asistir al festival?</legend>
+                <div>
+                    <input id="viernes" type="checkbox" name="dia" value="viernes" />
+                    <label for="viernes">Viernes</label><br>
+                    <input id="sabado" type="checkbox" name="dia" value="sabado" />
+                    <label for="sabado">Sábado</label><br>
+                    <input id="Domingo" type="checkbox" name="dia" value="Domingo" />
+                    <label for="Domingo">Domingo</label><br>
+                </div>
+            </fieldset>
+            <br>
+
+            <fieldset>
+                <legend>¿Cuál es tu género preferido?</legend>
+                <div>
+                    <input type="radio" name="genero" id="rock" value="rock" />
+                    <label for="rock">Rock</label>
+                    <input type="radio" name="genero" id="house" value="house" />
+                    <label for="house">House</label>
+                    <input type="radio" name="genero" id="reggaeton" value="reggaeton" />
+                    <label for="reggaeton">Reggaetón</label>
+                    <input type="radio" name="genero" id="indie" value="indie" />
+                    <label for="indie">Indie</label>
+                </div>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Términos y condiciones (*)</legend>
+                <div>
+                    <input id="viernes" type="checkbox" name="dia" value="viernes" required />
+                    <label for="viernes">Afirmo que he leído y acepto los términos y condiciones del registro al
+                        festival.</label><br>
+                </div>
+            </fieldset>
+
+            <br>
+
+            <label for="address">¿Algún comentario adicional?</label>
+            <br>
+            <textarea id="address" name="addresstext" placeholder="comentarios"></textarea>
+
+            <br>
+            <input type="submit" value="Enviar" aria-label="Enviar">
+
+        </form>
+    </section>
+    <hr>
+    <footer>
+       Copyright &copy; 2019 - Festival Estéreo Picnic 
+    </footer>
+</body>
+
+</html>
