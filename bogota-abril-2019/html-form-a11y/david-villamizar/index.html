@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration Form</title>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Personal Details</legend>
+        <div>
+          <label for="name">Name (e.g. John Doe)*:</label>
+          <input id="name" type="text" name="name" value="" required />
+        </div>
+        <div>
+          <label>Genre:</label>
+          <input
+            id="male"
+            title="male"
+            name="genre"
+            value="Male"
+            type="radio"
+          />
+          <label>Male</label>
+          <input
+            id="female"
+            title="female"
+            name="genre"
+            value="Female"
+            type="radio"
+          />
+          <label>Female</label>
+          <input
+            id="other"
+            title="other"
+            name="genre"
+            value="Other"
+            type="radio"
+          />
+          <label>Other</label>
+        </div>
+        <div>
+          <label for="age">Age (e.g. 31):</label>
+          <input id="age" type="number" name="age" value="" min="0" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Account Details</legend>
+        <div>
+          <label for="email">Email (e.g. john.doe@example.com)*:</label>
+          <input id="email" type="email" name="email" value="" required />
+        </div>
+        <div>
+          <label for="password"
+            >Password (must be longer than 6 characters)*:</label
+          >
+          <input
+            id="password"
+            type="password"
+            name="password"
+            value=""
+            required
+          />
+        </div>
+        <div>
+          <label for="password-confirmation">Confirm Password*:</label>
+          <input
+            id="password-confirmation"
+            type="password"
+            name="password-confirmation"
+            value=""
+            required
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Email Notifications Preferences</legend>
+        <div>
+          <label>Receive email notifications related to:</label>
+          <input
+            id="posts"
+            title="posts"
+            name="email-notifications"
+            value="Posts"
+            type="checkbox"
+          />
+          <label>Posts</label>
+          <input
+            id="promotions"
+            title="promotions"
+            name="email-notifications"
+            value="Promotions"
+            type="checkbox"
+          />
+          <label>Promotions</label>
+          <input
+            id="mentions"
+            title="mentions"
+            name="email-notifications"
+            value="Mentions"
+            type="checkbox"
+          />
+          <label>Mentions</label>
+          <input
+            id="messages"
+            title="messages"
+            name="email-notifications"
+            value="Messages"
+            type="checkbox"
+          />
+          <label>Messages</label>
+        </div>
+      </fieldset>
+      <input type="submit" name="submit" id="submit" value="Submit Form" />
+    </form>
+  </body>
+</html>
