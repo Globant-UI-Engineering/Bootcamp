@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulario WCAG</title>
+</head>
+<body>
+
+    <header>
+        <h1>Application form</h1>
+    </header>
+    <section>
+        <form >
+            <table>
+                <tr>
+                    <td><label for="name">Name </label></td>
+                    <td><input type="text" id="name" title="Name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="last_name">Last Name </label></td>
+                    <td><input type="text" id="last_name" title="Last Name"></td>
+                </tr>
+                <tr>
+                    <td><label for="age">Age </label></td>
+                    <td><input type="number" id="age" title="Age"></td>
+                </tr>
+                <tr>
+                    <td><label for="birth">Birth </label></td>
+                    <td><input type="date" id="birth" title="Birth"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td><input type="email" id="email" title="Email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password</label></td>
+                    <td><input type="password" id="password" title="Password" required></td>
+                </tr>
+                <tr>
+                    <td><label for="linkedin">LinkedIn URL</label></td>
+                    <td><input type="url" id="linkedin" title="Linkedin URL" placeholder="https://example.com"
+                        pattern="https://.*"></td>
+                </tr>
+                <tr>
+                    <td><label for="reasons">Why should we hire you?</label></td>
+                    <td><textarea id="reasons" title="Explain why you are our best option" required></textarea></td>
+                </tr>
+                <tr>
+                    <td><legend>Choose a Brand:</legend> </td>
+                    <td>
+                        <fieldset title="Choose your favorite brand">
+                            <input id="apple" type="radio" name="brand" value="apple" checked/>
+                            <label for="apple">Apple</label> 
+                            <input id="hp" type="radio" name="brand" value="hp" />
+                            <label for="hp">HP</label>
+                            <input id="asus" type="radio" name="brand" value="asus" />
+                            <label for="asus">Asus</label> 
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" id="send" title="Send the form" value="Send">
+                        <input type="reset" id="reset" title="Reset the form" value="Reset" />
+                    </td>
+                </tr>
+            </table>
+    
+        </form>
+            
+    </section>
+        
+</body>
+</html>
