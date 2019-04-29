@@ -38,8 +38,8 @@ h2,
 h3,
 h4,
 h5 {
-  letter-spacing: 0.076em;
-  margin-right: -0.076em;
+  letter-spacing: 0.08em;
+  margin-right: -0.08em;
   /* transform: scaleY(2.4); */
   font-family: Six Caps;
 }
@@ -74,7 +74,7 @@ section {
   max-width: 15vw;
 }
 section:nth-of-type(1) {
-  top: 32.9vw;
+  top: 34vw;
   left: 3vw;
   max-width: 12.5vw;
 }
@@ -110,7 +110,7 @@ section:nth-of-type(2) span {
   display: inline-block;
   color: #dd0c3d;
   font-weight: 900;
-  font-size: 0.8em;
+  font-size: 2vw;
   letter-spacing: 0.2em;
   margin-right: -0.2em;
   text-transform: uppercase;
@@ -125,6 +125,7 @@ section:nth-of-type(2) span::after {
   display: block;
   color: #dd0c3d;
   margin-right: 0.2em;
+  margin-bottom: 0.1em;
   border-bottom: 1.2em solid #dd0c3d;
 }
 
@@ -141,38 +142,43 @@ footer {
 
 footer nav ul {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
   margin: 0;
   padding: 0;
-  flex-direction: row;
   font-size: 2.6vw;
 }
 
 footer nav ul li {
-  flex: 1 1;
+  flex: 0 0;
   list-style: none;
   font-family: Work Sans;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.4em;
-  margin: 1em;
-  margin-right: calc(1em - 0.4em);
+  letter-spacing: 0.44em;
+  padding: 1em;
+  margin-right: -0.44em;
   color: white;
 }
 
-footer nav ul li:nth-of-type(1n + 2)::before {
+footer nav ul li:nth-of-type(2)::before,
+footer nav ul li:nth-of-type(3)::before {
   content: "";
-  height: 50%;
-  border: 0.5px solid white;
+  width: 0;
   position: relative;
+  border: 0.5px solid rgb(255, 255, 255, 0.5);
   right: 1em;
-  /* top: 0.5em; */
-  /* bottom: 0.5em; */
+}
+
+footer nav ul li:nth-of-type(4) {
+  margin-top: 1em;
+  padding-top: 0;
+  border-left: 0.5px solid rgb(255, 255, 255, 0.5);
 }
 
 #magazine-cover {
   position: relative;
-  /* width: 73.54166667vh;
-  height: 100vh; */
   width: 100%;
   height: 135.97733711vw;
 }
@@ -214,10 +220,11 @@ footer nav ul li:nth-of-type(1n + 2)::before {
 
 #issue-title {
   position: absolute;
-  top: 12vw;
+  top: 12.5vw;
   text-align: center;
-  width: 100%;
-  font-size: 18vw;
+  left: 0;
+  font-size: 17.8vw;
+  margin-left: 3vw;
 }
 
 /*
