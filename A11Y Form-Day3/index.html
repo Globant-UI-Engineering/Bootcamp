@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Feedback</title>
+</head>
+<body>
+    <header class="header__section--style">
+        <h1 class="center__element">Weekly Feedback</h1>
+        <p class="center__element">The only way is to keep improving us. We would like to read your ideas</p>
+    </header>
+    <main class="main__section--info">
+        <form class="main__section__form--align" method="get">
+            <ul>
+                <li>
+                    <label for="full-name">Name</label>
+                    <input class="main__section--data" type="text" name="full-name" id="full-name" placeholder="James Bond" aria-required="true">
+                </li>
+                <li>
+                    <label for="e-mail">e-mail</label>
+                    <input class="main__section--data" type="email" name="e-mail" id="e-mail" placeholder="travel@tour.com" aria-required="true">
+                </li>
+            </ul>
+            <div role="group" aria-labelledby="feed_back_category">
+                <h2 id="feed_back_category" class="center__element">Choose feed back category:</h2>
+                <div>
+                    <input id='category-1' name='category' type='radio' value='Suggestions' checked/>
+                    <label for='category-1'>Suggestions</label>
+                    <input id='category-2' name='category' type='radio' value='Concerns'/>
+                    <label for='category-2'>Concerns</label>
+                    <input id='category-3' name='category' type='radio' value='Compliments'/>
+                    <label for='category-3'>Compliments</label>
+                </div>
+            </div>
+            <div class="main__section__feedback--align">
+                <label class="main__section__feedback--margin" for="opinion-box">Feel free to write your ideas</label>
+                <textarea class="main__section__feedback--box" aria-describedby="opinion" name="opinion-box" id="opinion-box" cols="30" rows="10" placeholder="Your message goes here..."></textarea>
+                <span class="main__section__feedback--margin" id="opinion">It's details time, let yourself go! Let us know your opinion.</span>
+            </div>
+            <div>
+                <label for="question">Do you consider a web site an important tool?</label>
+                <select class="main__section__question--style " name="question" id="question" aria-required="true">
+                    <option value="" disabled selected>--</option>
+                    <option value="">Absolutely</option>
+                    <option value="">It's a complement</option>
+                    <option value="">Not at all</option>
+                </select>
+            </div>
+            <div class="main__section__check--style" role="checkbox" aria-checked="true">
+                <label for="get-updates">
+                    <input type="checkbox" name="get-updates" id="get-updates" aria-required="true">
+                    <span>Do you want to get updates from travel.com</span>
+                </label>
+            </div>
+            <div>
+                <button class="main__section__button--style">Submit</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p class="footer--style">All rights reserved to no one</p>
+    </footer>
+</body>
+</html>
