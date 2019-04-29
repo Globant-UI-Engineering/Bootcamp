@@ -18,6 +18,7 @@ body>main {
 }
 
 header h1 {
+    text-transform: uppercase;
     color: #0d0529;
     font-weight: bolder;
     position: relative;
@@ -38,6 +39,7 @@ header p:first-of-type {
 }
 
 header p:nth-of-type(2) {
+    text-transform: uppercase;
     position: relative;
     bottom: 45px;
     left: 68px;
