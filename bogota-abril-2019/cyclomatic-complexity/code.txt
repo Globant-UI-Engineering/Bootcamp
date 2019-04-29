@@ -16,5 +16,5 @@ function predictAge(age1,age2,age3,age4,age5,age6,age7,age8){
 SOLUTION 2: 
 function predictAge(age1,age2,age3,age4,age5,age6,age7,age8){
   let ages = [age1,age2,age3,age4,age5,age6,age7,age8];
-  return Math.trunc(Math.sqrt(ages.map(value => value*value).reduce((a,b)=>a+b))/2);
+  return Math.floor(Math.sqrt(ages.map(value => value*value).reduce((a,b)=>a+b))/2);
 }
