@@ -1,3 +1,25 @@
+* {
+    text-transform: uppercase;
+}
+
 .content {
     background-image: url(city.jpg);
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+p, h2, li{
+    color: white;
+}
+
+
+body > div:first-child, body > div:last-child{
+    background-color: red;
+}
+
+h3{
+    color: red;
 }
