@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+
+<body>
+    <div class="container pt-3">
+        <form>
+            <div class="form-group">
+                <label for="email_address">Correo electrónico</label>
+                <input type="email" class="form-control" id="email"
+                    placeholder="Ingresa tu dirección de correo electrónico">
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" aria-describedby="nameHelp" aria-required="true"
+                    placeholder="Introduce tu nombre completo" required>
+                <small id="nameHelp" aria-labelledby="name">Apellidos y Nombres</small>
+            </div>
+            <div class="form-group">
+                <label for="id_num">Cédula</label>
+                <input type="number" class="form-control" placeholder="Ingresa tu número de identificación" required>
+            </div>
+            <div class="form-group">
+                <label for="contraseña">Contraseña</label>
+                <input type="password" class="form-control is-invalid" placeholder="Contraseña" required>
+            </div>
+            <fieldset role="radiogroup" aria-labelledby="genero-group">
+                <label id="genero-group" for="genero">Genero</label>
+                <div class="form-group form-check">
+                    <input class="form-check-input" type="radio" name="genero" id="genero-masculino" value="Male">
+                    <label class="form-check-label" for="genero-masculino">Masculino</label>
+                </div>
+                <div class="form-group form-check">
+                    <input class="form-check-input" type="radio" name="genero" id="genero-femenino" value="femenino">
+                    <label class="form-check-label" for="genero-femenino">Femenino</label>
+                </div>
+                <div class="form-group form-check">
+                    <input class="form-check-input" type="radio" name="genero" id="genero-otro" value="otro">
+                    <label class="form-check-label" for="genero-otro">Otro</label>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label for="sugerencias">Sugerencias</label>
+                <textarea class="form-control" id="sugerencias" aria-describedby="sugerenciasHelp"
+                    placeholder="Observaciones"></textarea>
+                <small id="sugerenciasHelp">Escribe tus observaciones acerca del tema</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+@font-face {
+    font-family: "Baskvill";
+    src: url("Baskvill.ttf");
+}
+
+@font-face {
+    font-family: "Ostrich";
+    src: url("Ostrich.ttf");
+}
+
+:root {
+    --main-width: 600px;
+    --main-padding: 1em;
+    --shift-image: 6em;
+}
+
+body {
+    background-color: black;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+h1, h2, h3, h4 {
+    line-height: 0.9em;
+}
+
+h1 small, h2 small, h3 small, h4 small  {
+    font-weight: 400;
+}
+
+div:nth-of-type(1) {
+    background: linear-gradient(#7b919e 1%, #a4bbc3);
+    width: var(--main-width);
+    height: calc( var(--main-width) * 1.43 + var(--shift-image) );
+    border: solid 1.5cm #ffd302;
+    margin: auto;
+    overflow: hidden;
+    padding: var(--main-padding);
+}
+
+div:nth-of-type(1) > img:first-of-type {
+    top: var(--shift-image);
+    margin-left: calc( var(--main-padding ) * -1 );
+    width: calc( var(--main-width) + 2*var(--main-padding));
+    position: absolute;
+    margin-bottom: 15em;
+}
+
+header {
+    margin-bottom: 12em;
+}
+
+header h1 {
+    font-family: "Baskvill", 'Times New Roman', Times, serif;
+    font-size: 4em;
+    text-align: center;
+}
+
+.section-left, .section-left * {
+    float: left;
+    text-align: left;
+}
+
+.section-right, .section-right * {
+    float: right;
+    text-align: right;
+}
+
+section {
+    position: relative;
+    color: white;
+}
+
+section h1, section h2, section h3 {
+    font-family: Arial, sans-serif;
+    margin: 10px 0;
+} 
+
+section h1 {
+    font-family: "Ostrich", Arial, sans-serif;
+    font-size: 7em;
+}
+
+section h2 {
+    font-size: 2em;
+    width: 50%; 
+}
+
+blockquote p {
+    text-align: center;
+}
+
+section blockquote {
+    width: 35%;   
+}
