@@ -1,0 +1,56 @@
+form {
+    width: 50%;
+    max-width: 400px;
+    text-align: center;
+    border: solid 1px #000000;
+    padding-bottom: 10px;
+    margin: auto;
+    background: #f1ab6e;
+  }
+
+input[type=textfield] {
+    width: 75%;
+    padding: 15px 32px;
+    font-size: 16px;
+    margin: 8px 0;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 1px;
+    text-align: left;
+    color: #333;
+    background: rgb(255, 253, 253);
+}
+
+  table{
+      padding: 0 69px;
+      width: 50%;
+      margin: 10 0 10 0;
+  }
+
+  table td{
+    padding: 0;
+    min-width: 60px;
+    min-height: 60px;
+  }
+
+  table td input{
+      min-width: 60px;
+      min-height: 60px;
+      margin: 2px 2px;
+      background:#dddddd;
+  }
+
+
+  
+  
+  /**
+  input[type=button], input[type=submit], input[type=reset] {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      font-size: 16px;
+      max-width: 21%;
+  }
+  input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+    background-color: #333;
+  }*/
