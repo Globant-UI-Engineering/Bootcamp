@@ -1,10 +1,10 @@
-#container {
+div:first-child {
     border: 50px solid #ED1C24;
     width: 1000px;  
     margin: auto;
 }
 
-#main-container {
+div div:only-child {
     background-image: url("./images/bg-image.jpg");
     width: 1000px;
     height: 1718px;
@@ -18,12 +18,13 @@ header {
     line-height: 130px;
 }
 
-header h3 {
+header h6 {
     color: black;
     margin-right: 10px;
     position: absolute;
     top: -45px;
     font-family: monospace;
+    font-size: 10px;
 }
 
 header h2 {
