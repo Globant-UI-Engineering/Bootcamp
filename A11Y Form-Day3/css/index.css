@@ -1,12 +1,7 @@
 /* --- general styles --- */
 
 body {
-    background-image: url(https://images.unsplash.com/photo-1502657877623-f66bf489d236?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
-    background-position-x: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     box-sizing: border-box;
-    color: white;
     display: flex;
     font-family: 'Roboto', sans-serif;
     height: 100%;
@@ -22,7 +17,7 @@ body {
 /* --- header section --- */
 
 .header__section--style {
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.2);
     border-radius: 20px;
     height: 140px;
     margin: 20px;
@@ -38,7 +33,7 @@ body {
 }
 
 .main__section--info {
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.2);
     border-radius: 20px;
     margin: 20px;
     width: 50%;
@@ -59,7 +54,6 @@ label {
 }
 
 .main__section--data {
-    background-color: black;
     border-radius: 5px;
     border: none;
     height: 24px;
@@ -75,22 +69,13 @@ label {
 }
 
 .main__section__feedback--box {
-    background-color: black;
     border-radius: 4px;
-    color: white;
     font-style: italic;
     padding: 10px;
 }
 
 .main__section__feedback--margin {
     margin: 10px 0;
-}
-
-/* --- question --- */
-
-.main__section__question--style {
-    background-color: black;
-    color: white;
 }
 
 /* --- Check-box --- */
@@ -102,7 +87,7 @@ label {
 /* --- button --- */
 
 .main__section__button--style {
-    background-color: #7285A5;
+    background-color: black;
     border-radius: 10px;
     border: none;
     color: white;
@@ -114,7 +99,6 @@ label {
 /* --- footer --- */
 
 .footer--style {
-    color: #7285A5;
-    font-size: 10px;
+    font-size: 14px;
     font-style: italic;
 }
