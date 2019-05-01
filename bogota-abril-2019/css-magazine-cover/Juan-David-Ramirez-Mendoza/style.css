@@ -1,29 +1,26 @@
 
 * {
     text-transform: uppercase;
-}
-
-*:not(#spider-man-title){
     font-family: 'Allerta Stencil';
 }
 
-
+.content, .inside-list-box-content{
+    padding: 2%;
+}
 
 .content {
-    background-image: url(city.jpg);
-    padding: 3%;
+    background-image: url(img/city.jpg);
 }
 
-.list-box div:first-child{
+.list-box div:first-child, body > div:first-child, body > div:last-child, .square, #page-number{
     background-color: #8b0000;
-    width: 70px; 
-    height: 35px;
-    -webkit-transform: skew(-30deg); 
-    -moz-transform: skew(20deg); 
-    -o-transform: skew(20deg);
 }
 
-#left-square{
+.list-box div:first-child, #page-number h4{
+    -webkit-transform: skew(-30deg);
+} 
+
+#page-number, #left-square{
     float: right;
 }
 
@@ -31,10 +28,17 @@
     float: left;
 }
 
+
+.list-box div:first-child{
+    width: 70px; 
+    height: 35px;
+}
+
+
+
 ul {
     list-style-type: none;
     padding-inline-start: 0px;
-    margin: 0;
 }
 
 #logo-img{
@@ -63,21 +67,17 @@ h2{
     margin-bottom: 0%;
 }
 
-.centered-text{
+.centered-text, .footer-content{
     text-align: center;
 }
 
 
 body > div:first-child, body > div:last-child, .square{
-    background-color: #8b0000;
-    background-image: url(hexagon.png);
-    background-repeat: repeat;
-    background-size: 0.5em;
+    background-image: url(img/hexagon.png);
+    
 }
 
-
-
-h1, h3, h4{
+h1, h3, h4, ul{
     margin: 0;
 }
 
@@ -93,21 +93,24 @@ h3{
     text-align: right;
 }
 
-.inside-list-box-content{
-    padding: 3%;
-}
 
 body{
     margin: 0em 27em 0 27em; 
     background-color: black;
 }
 
-.list-box{
-    background-color: #000050;
-    background-image: url(blue-hexagon.png);
+.list-box, body > div:first-child, body > div:last-child, .square{
     background-repeat: repeat;
     background-size: 0.5em;
+}
+
+.list-box, #page-number{
     border: 1px solid black;
+}
+
+.list-box{
+    background-color: #000050;
+    background-image: url(img/blue-hexagon.png);
     border-radius: 15px;
     width: 20em;
     font-size: 0.7em;
@@ -124,50 +127,44 @@ body{
     right: 0%;
 }
 
-#center-page{
-    position:relative;
-    margin-bottom: -8em;
+#center-page, #spider-man-image, .image-child, #page-number, #title-second-part, #footer{
+    position: relative;
 }
 
-
-.list-box:not(#footer){
+.list-box:not(#footer), #page-number h4, #main-title, #footer *{
     position: absolute;
 }
 
+#center-page{
+    margin-bottom: -8em;
+}
+
 #spider-man-image{
-    position: relative;
     top: -6em;
 }
 
-.footer-content{
-    text-align: center;
+.footer-container, #flex-horizontal-footer{
+    display: flex;
 }
 
 .footer-container{
-    display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 #flex-horizontal-footer{
-    display: flex;
     flex-direction: row;
 }
 
 .image-child{
     width: 60px;
     height: 35px;
-    position: relative;
     bottom: -10px;
 }
 
 #page-number{
-    position: relative;
     height: 20px;
     width: 170px;
-    background-color: #8b0000;
-    border: 1px solid black;
-    float: right;
     top: -25px;
     -webkit-transform: skew(30deg); 
 }
@@ -175,28 +172,21 @@ body{
 #page-number h4{
     text-transform: lowercase;
     font-family: 'Rajdhani', sans-serif;
-    position: absolute;
     right: 25px;
-    -webkit-transform: skew(-30deg);
     bottom: 1px;
 }
 
-#number-44{
+#number-44, #title-first-part, #title-second-part{
     font-family: 'Squada One';
     font-weight: 200;
 }
 
 #title-first-part, #title-second-part{
-    font-family: 'Squada One';
     font-style: italic;
-    text-transform: uppercase;
-    font-weight: 200;
-    
 }
 
 
 #main-title{
-    position: absolute;
     text-align: end;
     left: -210px;
     top: -9px;
@@ -210,7 +200,6 @@ body{
 }
 
 #title-second-part{
-    position: relative;
     font-size: 26pt;
     left: 20px;
 }
@@ -219,15 +208,8 @@ body{
     width: 28em;
     height: 3em;
     padding: 0%;
-    position: relative;
-    bottom: -13px;
+    bottom: -8px;
     right: -24px;
-
-}
-
-
-#footer *{
-    position: absolute;
 }
 
 #footer h3{
@@ -239,8 +221,3 @@ body{
     top: 20px;
     right: 13px;
 }
-
-/*FIXING FOOTER TITLE POSITIONING
-
-
-
