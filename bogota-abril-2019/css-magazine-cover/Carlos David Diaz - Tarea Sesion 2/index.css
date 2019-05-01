@@ -6,6 +6,10 @@ body{
     font-size:1vw;
 }
 
+.upper-case{
+    text-transform: uppercase;
+}
+
 a{
     text-decoration: none;
 }
