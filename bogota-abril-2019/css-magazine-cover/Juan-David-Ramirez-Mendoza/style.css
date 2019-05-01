@@ -16,7 +16,7 @@
 
 .list-box div:first-child{
     background-color: #8b0000;
-    width: 50px; 
+    width: 70px; 
     height: 35px;
     -webkit-transform: skew(-30deg); 
     -moz-transform: skew(20deg); 
@@ -73,8 +73,8 @@ body > div:first-child, body > div:last-child, .square{
     background-image: url(hexagon.png);
     background-repeat: repeat;
     background-size: 0.5em;
-    
 }
+
 
 
 h1, h3, h4{
@@ -108,9 +108,10 @@ body{
     background-repeat: repeat;
     background-size: 0.5em;
     border: 1px solid black;
-    border-radius: 25px;
+    border-radius: 15px;
     width: 20em;
     font-size: 0.7em;
+    padding: 0.3cm;
 }
 
 #left-content-div{
@@ -142,12 +143,6 @@ body{
     text-align: center;
 }
 
-#title-first-part{
-    display: block;
-}
-
-
-
 .footer-container{
     display: flex;
     flex-direction: column;
@@ -162,6 +157,8 @@ body{
 .image-child{
     width: 60px;
     height: 35px;
+    position: relative;
+    bottom: -10px;
 }
 
 #page-number{
@@ -171,6 +168,7 @@ body{
     background-color: #8b0000;
     border: 1px solid black;
     float: right;
+    top: -25px;
     -webkit-transform: skew(30deg); 
 }
 
@@ -188,12 +186,58 @@ body{
     font-weight: 200;
 }
 
-#main-title, #title-first-part{
-    position: absolute;
+#title-first-part, #title-second-part{
     font-family: 'Squada One';
     font-style: italic;
     text-transform: uppercase;
     font-weight: 200;
+    
+}
+
+
+#main-title{
+    position: absolute;
+    text-align: end;
+    left: -210px;
+    top: -9px;
+    transform: scaleX(2);
+}
+
+
+#title-first-part{
+    font-size: 20pt;
+    display: block;
+}
+
+#title-second-part{
+    position: relative;
+    font-size: 26pt;
+    left: 20px;
+}
+
+#footer{
+    width: 28em;
+    height: 3em;
+    padding: 0%;
+    position: relative;
+    bottom: -13px;
+    right: -24px;
+
+}
+
+
+#footer *{
+    position: absolute;
+}
+
+#footer h3{
+    top: 2px;
+    right: 7px;
+}
+
+#footer p{
+    top: 20px;
+    right: 13px;
 }
 
 /*FIXING FOOTER TITLE POSITIONING
