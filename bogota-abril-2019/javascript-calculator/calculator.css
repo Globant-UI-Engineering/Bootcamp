@@ -21,22 +21,22 @@ input[type=textfield] {
 }
 
   table{
-      padding: 0 69px;
+      padding: 0 56px;
       width: 50%;
       margin: 10 0 10 0;
   }
 
   table td{
     padding: 0;
-    min-width: 60px;
-    min-height: 60px;
+    min-width: 70px;
+    min-height: 70px;
   }
 
   table td input{
-      min-width: 60px;
-      min-height: 60px;
-      margin: 2px 2px;
+      min-width: 70px;
+      min-height: 70px;
       background:#dddddd;
+      font-size: 25px;
   }
 
 

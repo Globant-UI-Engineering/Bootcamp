@@ -3,89 +3,100 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <LINK REL="stylesheet" TYPE="text/css" HREF="calculator.css">
+    <link rel="stylesheet" type="text/css" href="calculator.css">
 </head>
 
 <body>
-    <form name="calculator">
-        <h1>Calculadora</h1>
-        <input type="textfield" name="ans" value="">
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <input type="button" value="1" onClick="document.calculator.ans.value+='1'">
-                    </td>
-                    <td>
-                        <input type="button" value="2" onClick="document.calculator.ans.value+='2'">
-                    </td>
-                    <td>
-                        <input type="button" value="3" onClick="document.calculator.ans.value+='3'">
-                    </td>
-                    <td>
-                        <input type="button" value="+" onClick="document.calculator.ans.value+='+'">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="button" value="4" onClick="document.calculator.ans.value+='4'">
-                    </td>
-                    <td>
-                        <input type="button" value="5" onClick="document.calculator.ans.value+='5'">
-                    </td>
-                    <td>
-                        <input type="button" value="6" onClick="document.calculator.ans.value+='6'">
-                    </td>
-                    <td>
-                        <input type="button" value="-" onClick="document.calculator.ans.value+='-'">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="button" value="7" onClick="document.calculator.ans.value+='7'">
-                    </td>
-                    <td>
-                        <input type="button" value="8" onClick="document.calculator.ans.value+='8'">
+    <form>
+        <header>
+            <h1>Calculadora</h1>
+        </header>
 
-                    </td>
-                    <td>
-                        <input type="button" value="9" onClick="document.calculator.ans.value+='9'">
-                    </td>
-                    <td>
-                        <input type="button" value="*" onClick="document.calculator.ans.value+='*'">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="button" value="4" onClick="document.calculator.ans.value+='4'">
-                    </td>
-                    <td>
-                        <input type="button" value="5" onClick="document.calculator.ans.value+='5'">
-                    </td>
-                    <td>
-                        <input type="button" value="6" onClick="document.calculator.ans.value+='6'">
-                    </td>
-                    <td>
-                        <input type="button" value="-" onClick="document.calculator.ans.value+='-'">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="button" value="0" onClick="document.calculator.ans.value+='0'">
-                    </td>
-                    <td>
-                        <input type="reset" value="c">
-                    </td>
-                    <td>
-                        <input type="button" value="/" onClick="document.calculator.ans.value+='/'">
-                    </td>
-                    <td>
-                        <input type="button" value="=" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <article>
+
+            <section>
+                <input type="textfield" id="answer" value="">
+            </section>
+
+            <section>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="button" value="1" onClick="saveNumber(1)">
+                            </td>
+                            <td>
+                                <input type="button" value="2" onClick="saveNumber(2)">
+                            </td>
+                            <td>
+                                <input type="button" value="3" onClick="saveNumber(3)">
+                            </td>
+                            <td>
+                                <input type="button" value="+" onClick="saveOperator('+')">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="4" onClick="saveNumber(4)">
+                            </td>
+                            <td>
+                                <input type="button" value="5" onClick="saveNumber(5)">
+                            </td>
+                            <td>
+                                <input type="button" value="6" onClick="saveNumber(6)">
+                            </td>
+                            <td>
+                                <input type="button" value="-" onClick="saveOperator('-')">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="7" onClick="saveNumber(7)">
+                            </td>
+                            <td>
+                                <input type="button" value="8" onClick="saveNumber(8)">
+
+                            </td>
+                            <td>
+                                <input type="button" value="9" onClick="saveNumber(9)">
+                            </td>
+                            <td>
+                                <input type="button" value="*" onClick="saveOperator('*')">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="4" onClick="saveNumber(4)">
+                            </td>
+                            <td>
+                                <input type="button" value="5" onClick="saveNumber(5)">
+                            </td>
+                            <td>
+                                <input type="button" value="6" onClick="saveNumber(6)">
+                            </td>
+                            <td>
+                                <input type="button" value="/" onClick="saveOperator('/')">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="0" onClick="saveNumber(0)">
+                            </td>
+                            <td>
+                                <input type="button" value="c" onclick="reset(true)">
+                            </td>
+                            <td>
+                                <input type="button" value="." onClick="selectSeparator('.')">
+                            </td>
+                            <td>
+                                <input type="button" value="=" onClick="calculateAnswer()">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </article>
     </form>
 </body>
-
+<script type="text/javascript" src="calculator.js"></script>
 </html>
