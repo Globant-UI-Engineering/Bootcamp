@@ -2,54 +2,86 @@ var operator = '';
 var firstNumber = 0;
 var secondNumber = 0;
 var hasSeparator = false;
+var inputAnsw = document.querySelector("section input ");
 
 function saveNumber(number) {
     if (this.operator == '') {
-        document.getElementById('answer').value += number;
+        this.inputAnsw.value = this.firstNumber == 0 ? number : this.inputAnsw.value + number;
         this.saveFirstNumber();
     } else {
         this.hasSeparator = this.secondNumber != 0;
-        document.getElementById('answer').value = this.secondNumber == 0 ? number : document.getElementById('answer').value + number;
-        this.secondNumber = document.getElementById('answer').value;
+        this.inputAnsw.value = this.secondNumber == 0 ? number : this.inputAnsw.value + number;
+        this.saveSecondNumber();
     }
 }
 
 function saveFirstNumber() {
-    this.firstNumber = document.getElementById('answer').value;
+    this.firstNumber = parseFloat(this.inputAnsw.value);
 }
 
 function saveSecondNumber() {
-    this.secondNumber = document.getElementById('answer').value;
-}
-
-function selectSeparator(separator) {
-    if(document.getElementById('answer').value!=''){
-        document.getElementById('answer').value = !this.hasSeparator ? document.getElementById('answer').value + separator : document.getElementById('answer').value;
-        this.hasSeparator = true;
-    }else{
-        document.getElementById('answer').value = 0 + separator;
-        this.hasSeparator = true;
-    }
-}
-
-function reset(value) {
-    this.firstNumber = 0;
-    this.secondNumber = 0;
-    this.hasSeparator = false;
-    this.operator = '';
-
-    if (value)
-        document.getElementById('answer').value = null;
+    this.secondNumber = parseFloat(this.inputAnsw.value);
 }
 
 function saveOperator(operator) {
+    let newOperator = document.querySelector('#' + operator);
+    if (this.operator) {
+        let lastOperator = document.querySelector('#' + this.operator);
+        lastOperator.classList.remove('colorOperator');
+    }
+    newOperator.classList.add('colorOperator');
     this.operator = operator;
 
 }
 
+function saveSeparator(separator) {
+    if (this.inputAnsw.value != '') {
+        this.inputAnsw.value = !this.hasSeparator ? this.inputAnsw.value + separator : this.inputAnsw.value;
+        this.hasSeparator = true;
+    } else {
+        this.inputAnsw.value = 0 + separator;
+        this.hasSeparator = true;
+    }
+}
+
+function restart(value) {
+    this.firstNumber = 0;
+    this.secondNumber = 0;
+    this.hasSeparator = false;
+
+    if (this.operator)
+        document.querySelector('#' + this.operator).classList.remove('colorOperator');
+
+    this.operator = '';
+
+    if (value)
+        this.inputAnsw.value = null;
+}
+
+
 function calculateAnswer() {
-    this.secondNumber = document.getElementById('answer').value;
-    let ans = eval(this.firstNumber + this.operator + this.secondNumber);
-    document.getElementById('answer').value = ans;
-    reset(false);
+    var answer = 0;
+
+    switch (this.operator) {
+        case 'plus':
+            answer = this.firstNumber + this.secondNumber;
+            break
+        case 'minus':
+            answer = this.firstNumber - this.secondNumber;
+            break
+        case 'times':
+            answer = this.firstNumber * this.secondNumber;
+            break
+        case 'obelus':
+            if (this.secondNumber != 0) {
+                answer = this.firstNumber / this.secondNumber;
+            } else {
+                alert("Please don't divide by zero.")
+                return
+            }
+            break
+    }
+
+    this.inputAnsw.value = answer;
+    this.restart(false);
 }

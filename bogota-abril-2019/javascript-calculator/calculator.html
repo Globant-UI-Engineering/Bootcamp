@@ -14,8 +14,8 @@
 
         <article>
 
-            <section>
-                <input type="textfield" id="answer" value="">
+            <section class="answer">
+                <input type="number" id="answer" value="">
             </section>
 
             <section>
@@ -32,7 +32,7 @@
                                 <input type="button" value="3" onClick="saveNumber(3)">
                             </td>
                             <td>
-                                <input type="button" value="+" onClick="saveOperator('+')">
+                                <input id="plus" type="button" value="+" onClick="saveOperator('plus')">
                             </td>
                         </tr>
                         <tr>
@@ -46,7 +46,7 @@
                                 <input type="button" value="6" onClick="saveNumber(6)">
                             </td>
                             <td>
-                                <input type="button" value="-" onClick="saveOperator('-')">
+                                <input id="minus" type="button" value="-" onClick="saveOperator('minus')">
                             </td>
                         </tr>
                         <tr>
@@ -61,7 +61,7 @@
                                 <input type="button" value="9" onClick="saveNumber(9)">
                             </td>
                             <td>
-                                <input type="button" value="*" onClick="saveOperator('*')">
+                                <input id="times" type="button" value="*" onClick="saveOperator('times')">
                             </td>
                         </tr>
                         <tr>
@@ -75,7 +75,7 @@
                                 <input type="button" value="6" onClick="saveNumber(6)">
                             </td>
                             <td>
-                                <input type="button" value="/" onClick="saveOperator('/')">
+                                <input id="obelus" type="button" value="/" onClick="saveOperator('obelus')">
                             </td>
                         </tr>
                         <tr>
@@ -83,10 +83,10 @@
                                 <input type="button" value="0" onClick="saveNumber(0)">
                             </td>
                             <td>
-                                <input type="button" value="c" onclick="reset(true)">
+                                <input type="button" value="c" onclick="restart(true)">
                             </td>
                             <td>
-                                <input type="button" value="." onClick="selectSeparator('.')">
+                                <input type="button" value="." onClick="saveSeparator('.')">
                             </td>
                             <td>
                                 <input type="button" value="=" onClick="calculateAnswer()">
@@ -99,4 +99,5 @@
     </form>
 </body>
 <script type="text/javascript" src="calculator.js"></script>
+
 </html>
