@@ -7,9 +7,7 @@
     font-family: 'Allerta Stencil';
 }
 
-#spider-man-image{
-    margin-top: -10em;
-}
+
 
 .content {
     background-image: url(city.jpg);
@@ -43,7 +41,7 @@ ul {
     margin-top: -1.5em;
 }
 
-p, h2, li{
+p, h2, li, h1, h4{
     color: white;
 }
 
@@ -79,9 +77,12 @@ body > div:first-child, body > div:last-child, .square{
 }
 
 
+h1, h3, h4{
+    margin: 0;
+}
+
 h3{
     color: #8b0000;
-    margin: 0;
 }
 
 .left-aligned{
@@ -113,15 +114,89 @@ body{
 }
 
 #left-content-div{
-    
+    top: 1em;
+    left: 0%;
 }
 
 #right-content-div{
-    position: absolute;
-    margin: -3em;
-    right: 0;
+    top: 12em;
+    right: 0%;
 }
 
 #center-page{
     position:relative;
+    margin-bottom: -8em;
 }
+
+
+.list-box:not(#footer){
+    position: absolute;
+}
+
+#spider-man-image{
+    position: relative;
+    top: -6em;
+}
+
+.footer-content{
+    text-align: center;
+}
+
+#title-first-part{
+    display: block;
+}
+
+
+
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#flex-horizontal-footer{
+    display: flex;
+    flex-direction: row;
+}
+
+.image-child{
+    width: 60px;
+    height: 35px;
+}
+
+#page-number{
+    position: relative;
+    height: 20px;
+    width: 170px;
+    background-color: #8b0000;
+    border: 1px solid black;
+    float: right;
+    -webkit-transform: skew(30deg); 
+}
+
+#page-number h4{
+    text-transform: lowercase;
+    font-family: 'Rajdhani', sans-serif;
+    position: absolute;
+    right: 25px;
+    -webkit-transform: skew(-30deg);
+    bottom: 1px;
+}
+
+#number-44{
+    font-family: 'Squada One';
+    font-weight: 200;
+}
+
+#main-title, #title-first-part{
+    position: absolute;
+    font-family: 'Squada One';
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+/*FIXING FOOTER TITLE POSITIONING
+
+
+
