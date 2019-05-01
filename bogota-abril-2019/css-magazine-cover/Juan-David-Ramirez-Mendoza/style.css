@@ -7,17 +7,40 @@
     font-family: 'Allerta Stencil';
 }
 
+#spider-man-image{
+    margin-top: -10em;
+}
+
 .content {
     background-image: url(city.jpg);
+    padding: 3%;
+}
+
+.list-box div:first-child{
+    background-color: #8b0000;
+    width: 50px; 
+    height: 35px;
+    -webkit-transform: skew(-30deg); 
+    -moz-transform: skew(20deg); 
+    -o-transform: skew(20deg);
+}
+
+#left-square{
+    float: right;
+}
+
+#right-square{
+    float: left;
 }
 
 ul {
     list-style-type: none;
     padding-inline-start: 0px;
+    margin: 0;
 }
 
 #logo-img{
-    margin-top: -0.9em;
+    margin-top: -1.5em;
 }
 
 p, h2, li{
@@ -26,6 +49,7 @@ p, h2, li{
 
 li, p{
     font-size: 1em;
+    margin: -2%;
 }
 
 img {
@@ -46,19 +70,58 @@ h2{
 }
 
 
-body > div:first-child, body > div:last-child{
+body > div:first-child, body > div:last-child, .square{
     background-color: #8b0000;
     background-image: url(hexagon.png);
     background-repeat: repeat;
-    background-size: 1.5%;
+    background-size: 0.5em;
     
 }
 
+
 h3{
-    color: red;
+    color: #8b0000;
+    margin: 0;
+}
+
+.left-aligned{
+    text-align: left;
+}
+
+.right-aligned{
+    text-align: right;
+}
+
+.inside-list-box-content{
+    padding: 3%;
 }
 
 body{
     margin: 0em 27em 0 27em; 
     background-color: black;
+}
+
+.list-box{
+    background-color: #000050;
+    background-image: url(blue-hexagon.png);
+    background-repeat: repeat;
+    background-size: 0.5em;
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 20em;
+    font-size: 0.7em;
+}
+
+#left-content-div{
+    
+}
+
+#right-content-div{
+    position: absolute;
+    margin: -3em;
+    right: 0;
+}
+
+#center-page{
+    position:relative;
 }
