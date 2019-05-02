@@ -1,0 +1,451 @@
+/*! HTML5 Boilerplate v7.1.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 1.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+ 
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+   html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+
+
+ /* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    background-image: url("../img/David-Beckham.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 50% 100%;
+}
+div.container{
+    width: 640px;
+    height: 100%;
+    margin: 0px 320px;
+    padding: 0;
+}
+
+header.title{
+    margin: 0px;
+    height: 180px;
+    width: 350px;
+}
+
+header img {
+    width: 100%;
+    position: relative;
+    right: 35px;
+    bottom: 15px;
+}
+div{
+    display: inline-block;
+    padding: 10px 20px;
+    
+}
+.right_column{
+    text-align: right;
+    position: relative;
+    left: 140px;
+    top: -5px;
+}
+.left_column{
+    width: 300px;
+    position: relative;
+    top: -20px;
+}
+
+.news_type {
+    width: 80px;
+    text-transform: uppercase;
+    font-size: 8px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    border-radius: 1px;
+    padding: 2px 5px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.news_subtitle{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 2px 0px;
+    line-height: 30px;
+}
+
+.news_description{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    width: 110px;
+    margin: 0;
+    padding: 2px 0px;
+    line-height: 20px;
+    color: whitesmoke;
+}
+
+.news_details{
+    width: 120px;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    color: rgba(199, 222, 241, 0.877);
+}
+
+.right_column .news_type{
+    position: relative;
+    left: 30px;
+}
+.first_news .news_type{
+    background-color: whitesmoke;
+    color: black;
+}
+.first_news .news_subtitle{
+    color: #A2CAEB;
+    font-weight: lighter;
+    width: 120px;
+}
+
+.second_news .news_type{
+    background-color: rgb(99, 91, 91);
+    color: whitesmoke;
+}
+.second_news .news_subtitle{
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 230px;
+    position: relative;
+    right: 110px;
+}
+
+.third_news .news_type{
+    background-color: #A2CAEB;
+    color: black;
+}
+.third_news .news_subtitle{
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 250px;
+    position: relative;
+    right: 130px;
+}
+
+.fourth_news .news_type{
+    background-color: rgb(99, 91, 91);
+    color: whitesmoke;
+}
+.fourth_news .news_subtitle{
+    color: #A2CAEB;
+    font-weight: lighter;
+    width: 130px;
+}
+
+.main_news .news_type{
+    background-color: whitesmoke;
+    color: black;
+    width: 100px;
+}
+
+.main_news .news_subtitle{
+    color: #A2CAEB;
+    font-weight: lighter;
+    font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+    width: 120px;
+    font-size: 60px;
+    line-height: 55px;
+    text-transform: uppercase;
+    word-spacing: 0,2px;
+}
+.main_news .news_description{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    width: 300px;
+    margin: 0;
+    padding: 2px 0px;
+    line-height: 20px;
+    color: whitesmoke;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+ .hidden {
+  display: none !important;
+}
+
+/*
+* Hide only visually, but have it available for screen readers:
+* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+*
+* 1. For long content, line feeds are not interpreted as spaces and small width
+*    causes content to wrap 1 word per line:
+*    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+*/
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; /* 1 */
+}
+
+/*
+* Extends the .visuallyhidden class to allow the element
+* to be focusable when navigated to via the keyboard:
+* https://www.drupal.org/node/897638
+*/
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+  white-space: inherit;
+}
+
+/*
+* Hide visually and from screen readers, but maintain layout
+*/
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+* Clearfix: contain floats
+*
+* For modern browsers
+* 1. The space content is one way to avoid an Opera bug when the
+*    `contenteditable` attribute is included anywhere else in the document.
+*    Otherwise it causes space to appear at the top and bottom of elements
+*    that receive the `clearfix` class.
+* 2. The use of `table` rather than `block` is only necessary if using
+*    `:before` to contain the top-margins of child elements.
+*/
+
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+ 
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+   @media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+ 
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+   @media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster */
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+
