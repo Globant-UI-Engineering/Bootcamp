@@ -32,9 +32,9 @@ body {
     background-position-x: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 1100px;
+    height: 1200px;
     margin: 0 auto;
-    width: 70%;
+    width: 60%;
 }
 
 /* --- magazine header --- */
@@ -43,6 +43,7 @@ body {
     align-items: center;
     display: flex;
     flex-flow: column;
+    height: 660px;
 }
 
 .section__header--style {
@@ -84,24 +85,23 @@ body {
 
 .section__subheader--info {
     font-size: 12px;
-    margin-left: 40px;
-    position: relative;
     text-transform: uppercase;
-    top: 194px;
 }
 
-.section__subheader--date {
-    font-size: 12px;
-    margin-left: 808px;
+.section__subheader--position {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 0 auto;
     position: relative;
-    text-transform: uppercase;
-    top: 168px;
+    top: 200px;
+    width: 98%;
 }
 
 .section__subheader--tittle {
-    font-size:110px;
+    font-size:136px;
     font-weight: bold;
-    margin: 80px 34px;
+    margin: 100px 0;
     position: relative;
     text-transform: uppercase;
     top: 80px;
@@ -110,14 +110,20 @@ body {
 
 .section__subheader--append {
     font-size: 10px;
-    margin-left: 42px;
+    margin-left: 10px;
     position: relative;
     text-transform: capitalize;
-    top: -10px;
+    top: -26px;
     width: 13%;
 }
 
 /* --- magazine content --- */
+
+.section__content--layout {
+    display: flex;
+    flex-flow: column wrap;
+    height: 550px;
+}
 
 .section__content--tittle {
     font-family: 'Anton', sans-serif;
@@ -159,36 +165,14 @@ body {
 
 /* content position */
 
-.section__content__position--first {
-    left: 40px;
-    position: relative;
-    top: 230px;
+.section__content__first-colum {
+    margin: 20px;
+    width: 80%;
 }
-
-.section__content__position--second {
-    left: 40px;
-    position: relative;
-    top: 240px;
-}
-
-.section__content__position--thrid {
-    left: 40px;
-    position: relative;
-    top: 254px;
-}
-
-.section__content__position--four {
-    left: 780px;
-    position: relative;
-    top: -138px;
-}
-
 
 /* codebar */
 
 .section__content--barcode {
-    position: relative;
-    left: 780px;
     width: 100%;
 }
 
