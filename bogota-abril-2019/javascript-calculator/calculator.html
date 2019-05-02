@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+		<title>calculator</title>
+		<meta charset="utf-8">
+		<link href="calculator.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+	</head>
+	
+	<body>
+		<div class = "calculator">
+			<section class = "results">
+				<label for="result">Result: 0</label>
+			</section>
+			<section class = "values">
+				<input type="number" name="value" value = "0" onfocusout="saveNumberKey()">
+			</section>
+			<section class = "operations">
+				<button type="button"  onClick="clearAll('true')">c</button>
+				<button type="button" name = "operator" disaled onClick="saveOperator('+')">+</button>
+				<button type="button" name = "operator" disabled onClick="saveOperator('-')">-</button>
+				<button type="button" name = "operator" disabled onClick="saveOperator('*')">*</button>
+				<button type="button" name = "operator" disabled onClick="saveOperator('/')">/</button>
+				<button type="button" onClick="saveNumber(9)">9</button>
+				<button type="button" onClick="saveNumber(8)">8</button>
+				<button type="button" onClick="saveNumber(7)">7</button>
+				<button type="button" onClick="saveNumber(6)">6</button>
+				<button type="button" onClick="saveNumber(5)">5</button>
+				<button type="button" onClick="saveNumber(4)">4</button>
+				<button type="button" onClick="saveNumber(3)">3</button>
+				<button type="button" onClick="saveNumber(2)">2</button>
+				<button type="button" onClick="saveNumber(1)">1</button>
+				<button type="button" onClick="saveNumber(0)">0</button>
+				<button type="button" onClick="saveNumber('.')">.</button>
+				<button type="button" name = "operator" onClick="operate()" disabled>=</button>
+			</section>
+		</div>
+	</body>
+	<script type="text/javascript" src="calculator.js"></script>
+</html>
