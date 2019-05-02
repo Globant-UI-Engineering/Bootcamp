@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  
+<head>
+  <meta charset="utf-8">
+  <title>CalculatorBootcamp</title>
+
+  <link href="style.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="body-general background">
+
+  <header>
+    <h1>
+      Calculator-BootCamp
+    </h1>
+  </header>
+  
+  <section class="container">
+    <article class="result">
+      <span id="result">0</span>
+    </article>
+    <article class="group-buttons">
+      <button id="clearButton" class="gray-button">AC</button>
+      <button id="signPositiveOrNegativeButton" class="gray-button">+/-</button>
+      <button id="percentageButton" class="gray-button">%</button>
+      <button id="divisionButton" onclick="divisionButtonFunction();" class="orange-button">/</button>
+    </article>
+    <article class="group-buttons">
+      <button onclick="numberButton(7);">7</button>
+      <button onclick="numberButton(8);">8</button>
+      <button onclick="numberButton(9);">9</button>
+      <button id="multiplicationButton" onclick="multiplicationButtonFunction();" class="orange-button">x</button>
+    </article>
+    <article class="group-buttons">
+      <button onclick="numberButton(4);">4</button>
+      <button onclick="numberButton(5);">5</button>
+      <button onclick="numberButton(6);">6</button>
+      <button id="substractionButton" onclick="substractionButtonFunction();" class="orange-button">-</button>
+    </article>
+    <article class="group-buttons">
+        <button onclick="numberButton(1);">1</button>
+        <button onclick="numberButton(2);">2</button>
+        <button onclick="numberButton(3);">3</button>
+        <button id="sumButton" onclick="sumButtonFunction();" class="orange-button">+</button>
+      </article>
+    <article class="group-buttons">
+      <button onclick="numberButton(0);" class="button-grow">0</button>
+      <button onclick="decimalButtonFunction();">.</button>
+      <button onclick="resultButtonFunction();" class="orange-button">=</button>
+    </article>
+  </section>
+  
+  <footer>
+    Made by: Alvaro David Ponguta - Globant Bootcamp 2019
+  </footer>      
+
+</body>
+
+<script src="logic.js"></script>
+
+</html>
