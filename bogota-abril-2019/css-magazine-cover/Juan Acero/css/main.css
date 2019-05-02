@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body {
+    color:white;
+    text-transform: uppercase;
+}
+.image_cover {
+    background-image: url("/img/magazine_cover.jpg"); 
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 480px 600px;
+    padding: 12px;
+    border: 6px black solid;
+    margin: 0 32vw; 
+}
+header {
+    text-align: center;
+    color: orangered;
+}
+header h1 {
+    font-size: 7em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transform: scale(1.6, 1);
+    margin-block-start: -.2em;
+}
+header p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: .8em;
+    letter-spacing: 0.24em;
+    margin-block-start: -1.6em;
+}
+.header {
+    font-family: 'Poppins', sans-serif;
+    color: #a7a7a7;
+    display: flex;
+    justify-content: center;
+}
+.header h3 {
+    letter-spacing: 0.1em;
+    margin-inline-end: .2em;
+}
+.header p { 
+    color: orangered;
+    font-size: .60em;
+}
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+.title p {
+    color: orangered;
+    font-size: .8em;
+    margin-block-start: 1.7em;
+    margin-inline-start: 5em;
+}
+article span {
+    margin-inline-start: -.18em;
+}
+article h2 {
+    color: white;
+    font-size: 4em;
+    line-height: 0.8em;
+    letter-spacing: -.01em;
+    transform: scale(1.1, 1.2);
+    margin-block-start: .4em;
+    margin-inline-start: 1.2em;
+}
+section {
+    color: orangered;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    font-size: .2em;
+    margin-block-start: -22em;
+    border-inline-end-width: 2em;
+    border-inline-end-color: grey;
+    border-inline-end-style: solid;
+    padding-inline-end: .5em;
+}
+.corner {
+    text-align: right;
+    font-family: 'Roboto', sans-serif;
+}
+.corner h3 {
+    font-size: 1.6em;
+    line-height: .9em;
+    margin-block-start: 4em;
+}
+.corner p {
+    font-size: .76em;
+    line-height: 1em;
+}
+aside {
+    margin-block-start: -5em;
+    font-family: 'Poppins', sans-serif; 
+    border-inline-start-width: .8em;
+    border-inline-start-color: orangered;
+    border-inline-start-style: solid;
+    padding-inline-start: .4em;
+    margin-inline-start: 4em;
+    position: absolute;
+}
+h4 {
+    color: orangered;
+    font-size: 1em;
+}
+aside p {
+    font-size: .5em;
+}
+footer {
+    font-family: 'Poppins', sans-serif; 
+    background-color: white;
+    width: 4em;
+    height: 4em;
+    border-radius: 4em;
+    text-align: center;
+    margin-block-start: -1.5em;
+    margin-block-end: -1.6em;
+    margin-inline-start: 11em;
+}
+.footer {
+    color: black;
+}
+h5.footer  {
+    font-size: 1.3em;
+    font-weight: bolder;
+}
+span.footer {
+    font-size: .5em;
+}
+p.footer {
+    font-size: .4em;
+}
