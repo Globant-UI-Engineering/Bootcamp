@@ -1,0 +1,60 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.2em;
+    width: 37vw;
+    height: 45vh;
+    grid-auto-columns: 30%;
+    grid-auto-rows: 30%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper > div {
+    background-color: aqua;
+    position: relative;
+}
+
+.wrapper > div > span {
+    position: absolute; 
+    top: 40%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.zero {
+    grid-column: 1/4;
+}
+
+.display {
+    grid-column: 1/5;
+    text-align: right;
+}
+
+h1, h2 {
+    margin: 0;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 0.8em;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+.history {
+    padding: 2% 1% 2% 0%;
+}
+
+.main {
+    padding: 1% 1% 1% 0%;
+}
+
+.key:hover {
+    cursor: pointer;
+    background-color: cornflowerblue;
+}
