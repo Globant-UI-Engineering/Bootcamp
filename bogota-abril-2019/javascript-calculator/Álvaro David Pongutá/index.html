@@ -11,48 +11,48 @@
 
 <body class="body-general background">
 
-  <header>
+  <header role="presentation">
     <h1>
       Calculator-BootCamp
     </h1>
   </header>
   
-  <section class="container">
+  <section aria="section" name="calculator" class="container">
     <article class="result">
-      <span id="result">0</span>
+      <span name="result" id="result">0</span>
     </article>
     <article class="group-buttons">
-      <button id="clearButton" class="gray-button">AC</button>
-      <button id="signPositiveOrNegativeButton" class="gray-button">+/-</button>
-      <button id="percentageButton" class="gray-button">%</button>
-      <button id="divisionButton" onclick="divisionButtonFunction();" class="orange-button">/</button>
+      <button role="button" name="clearButton" id="clearButton" class="gray-button">AC</button>
+      <button role="button" name="signPositiveOrNegativeButton" id="signPositiveOrNegativeButton" class="gray-button">+/-</button>
+      <button role="button" name="percentageButton" id="percentageButton" class="gray-button">%</button>
+      <button role="button" name="divisionButton" id="divisionButton" onclick="divisionButtonFunction();" class="orange-button">/</button>
     </article>
     <article class="group-buttons">
-      <button onclick="numberButton(7);">7</button>
-      <button onclick="numberButton(8);">8</button>
-      <button onclick="numberButton(9);">9</button>
-      <button id="multiplicationButton" onclick="multiplicationButtonFunction();" class="orange-button">x</button>
+      <button role="button" name="number7Button" onclick="numberButton(7);">7</button>
+      <button role="button" name="number8Button" onclick="numberButton(8);">8</button>
+      <button role="button" name="number9Button" onclick="numberButton(9);">9</button>
+      <button role="button" name="multiplicationButton" id="multiplicationButton" onclick="multiplicationButtonFunction();" class="orange-button">x</button>
     </article>
     <article class="group-buttons">
-      <button onclick="numberButton(4);">4</button>
-      <button onclick="numberButton(5);">5</button>
-      <button onclick="numberButton(6);">6</button>
-      <button id="substractionButton" onclick="substractionButtonFunction();" class="orange-button">-</button>
+      <button role="button" name="number4Button" onclick="numberButton(4);">4</button>
+      <button role="button" name="number5Button" onclick="numberButton(5);">5</button>
+      <button role="button" name="number6Button" onclick="numberButton(6);">6</button>
+      <button role="button" name="substractionButton" id="substractionButton" onclick="substractionButtonFunction();" class="orange-button">-</button>
     </article>
     <article class="group-buttons">
-        <button onclick="numberButton(1);">1</button>
-        <button onclick="numberButton(2);">2</button>
-        <button onclick="numberButton(3);">3</button>
-        <button id="sumButton" onclick="sumButtonFunction();" class="orange-button">+</button>
+        <button role="button" name="number1Button" onclick="numberButton(1);">1</button>
+        <button role="button" name="number2Button" onclick="numberButton(2);">2</button>
+        <button role="button" name="number3Button" onclick="numberButton(3);">3</button>
+        <button role="button" name="sumButton" id="sumButton" onclick="sumButtonFunction();" class="orange-button">+</button>
       </article>
     <article class="group-buttons">
-      <button onclick="numberButton(0);" class="button-grow">0</button>
-      <button onclick="decimalButtonFunction();">.</button>
-      <button onclick="resultButtonFunction();" class="orange-button">=</button>
+      <button role="button" name="number0Button" onclick="numberButton(0);" class="button-grow">0</button>
+      <button role="button" name="decimalButton" onclick="decimalButtonFunction();">.</button>
+      <button role="button" name="resultButton" onclick="resultButtonFunction();" class="orange-button">=</button>
     </article>
   </section>
   
-  <footer>
+  <footer role="presentation">
     Made by: Alvaro David Ponguta - Globant Bootcamp 2019
   </footer>      
 
