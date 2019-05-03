@@ -1,0 +1,15 @@
+body {
+    font-family: Times, serif;
+    background: #212f3d;
+}
+
+body>main {
+    width: 424px;
+    height: 610px;
+    padding: 0px 10px 0px 10px;
+    margin: auto;
+    background-color: aquamarine;
+    background-size: cover;
+    background-position: 75%;
+    box-sizing: content-box;
+}
