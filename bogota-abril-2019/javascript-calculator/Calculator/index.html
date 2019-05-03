@@ -1,0 +1,54 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>My JS Calculator</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <div class="container">
+      <header>
+        <h1>My JS Calculator</h1>
+      </header>
+      <form name="calculator_form">
+        <section class="data">
+              <label for="first_number">Enter the first number</label>
+              <input type="number" id="first_number" title="First number"><br>
+              <label for="second_number">Enter the second number</label>
+              <input type="number" id="second_number" title="Second number"><br>
+        </section>
+        <section class="operations">
+            <button type="button" title="sum" class="operation" id="sum" value="sum">+</button>
+            <button type="button" title="substract" class="operation" id="substract" value="subtract">-</button>
+            <button type="button" title="multiply" class="operation" id="multiply" value="multiply">*</button>
+            <button type="button" title="divide" class="operation" id="divide" value="divide">÷</button>
+            <button type="button" title="percentage" class="operation" id="percentage" value="percentage">%</button>
+        </section>
+        <input type="reset" class="reset" value="Reset">
+        <span>
+          <h3>Result: </h3>
+          <h3 id="result"></h3>
+        </span>
+    </form>
+  </div>
+
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
