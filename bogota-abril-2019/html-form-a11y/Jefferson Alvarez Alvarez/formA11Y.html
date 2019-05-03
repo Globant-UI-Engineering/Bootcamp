@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Feedly - Formulario</title>
+    </head>
+    <body>
+        <form>
+            <label for="first-name">First name</label>
+            <input id="first-name" type="text" name="first-name" aria-describedby="required-first-name" required>
+            <div id="required-first-name" class="visuallyhidden">First name is required</div>
+            <br>
+            <label for="last-name">Last name</label>
+            <input id="last-name" type="text" name="last-name" aria-describedby="required-last-name" required>
+            <div id="required-last-name" class="visuallyhidden">Last name is required</div>
+            <br>
+            <label for="username">Username</label>
+            <input id="username" type="text" name="username" aria-describedby="username-tip" required>
+            <div role="tooltip" id="username-tip" class="visuallyhidden">Use lowercase letters only</div>
+            <br>
+            <label for="telephone">Telephone</label>
+            <input id="telephone" type="number" name="telephone" aria-describedby="required-telephone" required>
+            <div id="required-last-name" class="visuallyhidden">Telephone is required</div>
+            <br>
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option label="Choose a country" disabled selected>Choose a country</option>
+                <optgroup label="America">
+                    <option label="Colombia" value="col">Colombia</option>
+                    <option label="Brasil" value="bra">Brazil</option>
+                    <option label="Argentina" value="arg">Argentina</option>
+                    <option label="United States" value="us">United States</option>
+                </optgroup>
+                <optgroup label="Europe">
+                    <option label="Germany" value="ger">Germany</option>
+                    <option label="Spain" value="spa">Spain</option>
+                    <option label="France" value="fr">France</option>
+                    <option label="Belgium" value="bel">Belgium</option>
+                </optgroup>
+                <optgroup label="Asia">
+                    <option label="Japan" value="jap">Germany</option>
+                    <option label="China" value="ch">Spain</option>
+                    <option label="South Korea" value="sko">France</option>
+                    <option label="India" value="ind">Belgium</option>
+                </optgroup>
+                <optgroup label="Oceania">
+                    <option label="Australia" value="aus">Germany</option>
+                </optgroup>
+                <optgroup label="Africa">
+                    <option label="Congo" value="con">Germany</option>
+                    <option label="Madagascar" value="md">Spain</option>
+                    <option label="Egipto" value="egp">Egipto</option>
+                    <option label="Chad" value="ch">Chad</option>
+                </optgroup>
+            </select>
+            <br>
+            <div role="group" aria-labelledby="genders">
+                <h4 id="genders">What is your gender?</h4>
+                <div>
+                    <input id="gender-male" type="radio" name="genders" value="gender-male">
+                    <label for="gender-male">Male</label>
+                    <input id="gender-female" type="radio" name="genders" value="gender-female">
+                    <label for="gender-female">Female</label>
+                    <input id="gender-other" type="radio" name="genders" value="gender-other">
+                    <label for="gender-other">I prefer not to say</label>
+                </div>
+            </div>
+            <br>
+            <div role="group" aria-labelledby="relevant-interests">
+                <h4 id="relevant-interests">What are the more relevant interests do you want yo know?</h4>
+                <div>
+                    <input id="interest-politics" type="checkbox" name="interests" value="interest-politics">
+                    <label for="interest-politics">Politics</label>
+                    <input id="interest-sports" type="checkbox" name="interests" value="interest-sports">
+                    <label for="interest-sports">Sports</label>
+                    <input id="interest-leisure" type="checkbox" name="interests" value="interest-leisure">
+                    <label for="interest-leisure">Leisure</label>
+                    <input id="interest-health" type="checkbox" name="interests" value="interest-health">
+                    <label for="interest-health">Health</label>
+                </div>
+            </div>
+            <br>
+            <input id="terms-and-conditions" type="checkbox" name="terms-and-conditions" value="terms-and-conditions" aria-describedby="required-terms-and-conditions" required>
+            <label for="terms-and-conditions">Terms and conditions</label>
+            <div id="required-terms-and-conditions">You must accept terms and conditions</div>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
