@@ -30,10 +30,6 @@ body {
     white-space: normal;
 }
 
-.text-section {
-    margin: 10px;
-}
-
 /*-------------------------------------*/
 /*-------------------------------------*/
 /*-------------------------------------*/
@@ -49,36 +45,40 @@ body {
     margin-bottom: -60px;
 }
 
-.paragraph-xlarge {
+.text-xlarge {
     font-size: 100px;
     font-weight: 800;
     margin-top: -5px;
     margin-bottom: -5px;
 }
 
-.paragraph-large {
+.text-large {
     font-size: 50px;
     font-weight: 800;
     margin-top: -5px;
     margin-bottom: -5px;
 }
 
-.paragraph-medium {
+.text-medium {
     font-size: 25px;
     font-weight: 800;
     margin-bottom: -5px;
     margin-top: -5px;
 }
 
-.paragraph-small {
+.text-small {
     font-size: 15px;
     font-weight: 800;
     margin-bottom: -5px;
     margin-top: -5px;
 }
 
-.inline-paragraph {
-    display: inline;
+.uppercase {
+    text-transform: uppercase;
+}
+
+.margin-paragraph-10 {
+    margin: 10px;
 }
 
 /*-------------------------------------*/
