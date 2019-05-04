@@ -1,0 +1,103 @@
+.puzzle{
+    border: solid;
+    text-align: center;
+    width: 800px;
+    height: 800px;
+    margin-left: 400px;
+    margin-top: 50px;
+    margin-right: 400px;
+    display: inline-block;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #9c9c9c;
+}
+
+.puzzle input{
+    width: 192px;
+    height: 192px;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-top-width: 5px;
+    border: solid;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+    background-image: url("puzzle.jpg")
+}
+
+input:hover{
+	background-color: yellow;
+}
+
+input.empty{
+    visibility: hidden;
+}
+
+.img2{
+    background-position-x: -192px;
+}
+
+.img3{
+    background-position-x: -384px;
+}
+
+.img4{
+    background-position-x: -576px;
+}
+
+.img5{
+    background-position-y: -192px;
+}
+
+.img6{
+    background-position-y: -192px;
+    background-position-x: -192px;
+}
+
+.img7{
+    background-position-y: -192px;
+    background-position-x: -384px;
+}
+
+.img8{
+    background-position-y: -192px;
+    background-position-x: -576px;
+}
+
+.img9{
+    background-position-y: -384px;
+}
+
+.img10{
+    background-position-y: -384px;
+    background-position-x: -192px;
+}
+
+.img11{
+    background-position-y: -384px;
+    background-position-x: -384px;
+}
+
+.img12{
+    background-position-y: -384px;
+    background-position-x: -576px;
+}
+
+.img13{
+    background-position-y: -576px;
+}
+
+.img14{
+    background-position-y: -576px;
+    background-position-x: -192px;
+}
+
+.img15{
+    background-position-y: -576px;
+    background-position-x: -384px;
+}
