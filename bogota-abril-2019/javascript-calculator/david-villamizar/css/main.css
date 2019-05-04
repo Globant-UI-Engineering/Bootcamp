@@ -13,6 +13,7 @@ html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+  background: black;
 }
 
 body {
@@ -70,7 +71,6 @@ body {
   grid-area: actions;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  background: linear-gradient(0.375turn, hsl(0, 0%, 90%), hsl(0, 0%, 75%));
 }
 
 #calculator .keyboard .numbers {
@@ -78,7 +78,6 @@ body {
   grid-area: numbers;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  background: linear-gradient(0.375turn, hsl(0, 0%, 93%), hsl(0, 0%, 75%));
 }
 
 #calculator .keyboard .operators {
@@ -86,16 +85,22 @@ body {
   grid-area: operators;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#calculator .keyboard .actions button {
+  background: linear-gradient(0.375turn, hsl(0, 0%, 90%), hsl(0, 0%, 75%));
+}
+#calculator .keyboard .numbers button {
+  background: linear-gradient(0.375turn, hsl(0, 0%, 93%), hsl(0, 0%, 75%));
+}
+#calculator .keyboard .operators button {
+  color: #fafafa;
+  font-weight: 300;
   background: linear-gradient(
     0.375turn,
     hsl(30, 100%, 65%),
     hsl(30, 100%, 45%)
   );
-}
-
-#calculator .keyboard .operators button {
-  color: #fafafa;
-  font-weight: 300;
 }
 
 #calculator .keyboard button {
@@ -110,16 +115,20 @@ body {
   font-size: calc(25vw / 2.5);
   color: #555;
   /* border: 1px solid red; */
-  background: rgba(0, 0, 0, 0);
+  transition: transform 0.25s, background 0.25s;
 }
 
 #calculator .keyboard button:hover {
-  background: rgba(0, 0, 0, 0.25);
+  /* background: rgba(0, 0, 0, 0.25); */
+  box-shadow: inset 0 0 10px #000000;
+  transform: scale(0.95);
 }
 
 #calculator .keyboard button:active,
 #calculator .keyboard button.pressed {
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.5); */
+  box-shadow: inset 0 0 20px #000000;
+  transform: scale(0.75);
 }
 #calculator .keyboard button:focus {
   outline: none;
