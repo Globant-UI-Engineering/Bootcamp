@@ -10,7 +10,7 @@ function refreshListeners(oldAdjacent, newAdjacent) {
 
 refreshListeners([], [...document.querySelectorAll('#board div.adjacent')]);
 
-function swap(tile) {
+function swap(tile, oldAdjacent) {
   const tileInd = TILES.indexOf(tile);
   const emptyTileInd = TILES.indexOf(EMPTY_TILE);
   if (tileInd < emptyTileInd) {
@@ -37,16 +37,55 @@ function swap(tile) {
   BOARD.replaceChild(placeholderTile, tile);
   BOARD.replaceChild(tile, placeholderEmpty);
   BOARD.replaceChild(EMPTY_TILE, placeholderTile);
+
+  return calculateNewAdjacent(tileInd, oldAdjacent);
+}
+
+function calculateNewAdjacent(emptyTileInd, oldAdjacent) {
+  oldAdjacent.forEach(tile =>
+    tile.classList.remove('down', 'up', 'left', 'right', 'adjacent')
+  );
+  const upInd = emptyTileInd - 4;
+  const upTile = TILES[upInd];
+
+  const downInd = emptyTileInd + 4;
+  const downTile = TILES[downInd];
+
+  const leftInd = emptyTileInd - 1;
+  const leftTile =
+    leftInd >= Math.floor(emptyTileInd / 4) * 4 ? TILES[leftInd] : undefined;
+
+  const rightInd = emptyTileInd + 1;
+  const rightTile =
+    rightInd < Math.floor(emptyTileInd / 4 + 1) * 4
+      ? TILES[rightInd]
+      : undefined;
+
+  if (upTile) {
+    upTile.classList.add('adjacent');
+    upTile.classList.add('up');
+  }
+  if (downTile) {
+    downTile.classList.add('adjacent');
+    downTile.classList.add('down');
+  }
+  if (leftTile) {
+    leftTile.classList.add('adjacent');
+    leftTile.classList.add('left');
+  }
+  if (rightTile) {
+    rightTile.classList.add('adjacent');
+    rightTile.classList.add('right');
+  }
+
+  return [upTile, downTile, leftTile, rightTile].filter(tile => !!tile);
 }
 
 function onClick(e) {
-  const tileNum = e.target.innerHTML;
-  console.log(tileNum);
   const oldAdjacent = [...document.querySelectorAll('#board div.adjacent')];
-
-  swap(e.target);
-  // TODO: calculate new adjacent.
-
-  const newAdjacent = [...document.querySelectorAll('#board div.adjacent')];
-  EMPTY_TILE.refreshListeners(oldAdjacent, newAdjacent);
+  const newAdjacent = swap(e.target, oldAdjacent);
+  refreshListeners(oldAdjacent, newAdjacent);
 }
+
+// TODO: Desordenar.
+// TODO: Detectar cuando gana.
