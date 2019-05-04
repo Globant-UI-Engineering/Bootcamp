@@ -7,10 +7,6 @@ const ButtonType = Object.freeze({
   NUMBER: 2,
 });
 
-let operandA = 0;
-let operandB = 0;
-let operator;
-let total = 0;
 const Operators = Object.freeze({
   "÷": (a, b) => (b === 0 ? NaN : a / b),
   "×": (a, b) => a * b,
@@ -18,10 +14,15 @@ const Operators = Object.freeze({
   "+": (a, b) => a + b,
 });
 
+let operandA = 0;
+let operandB = 0;
+let operator;
+let total = 0;
+
 let lastButtonType = ButtonType.NUMBER;
 
+// Setup button events.
 {
-  // Setup button events.
   [
     ...document.querySelectorAll(
       "#calculator .operators button:not(#equals-button)",
@@ -36,6 +37,7 @@ let lastButtonType = ButtonType.NUMBER;
   ].forEach(el =>
     el.addEventListener("click", e => enterNumber(e.target.innerHTML)),
   );
+
   document.querySelector("#dot-button").addEventListener("click", enterDot);
   document.querySelector("#clear-button").addEventListener("click", clear);
   document
@@ -47,6 +49,65 @@ let lastButtonType = ButtonType.NUMBER;
   document
     .querySelector("#equals-button")
     .addEventListener("click", applyOperator);
+}
+
+// Transport keyboard events to mouse events on buttons.
+{
+  function triggerMouseEvent(node, eventType) {
+    let clickEvent = document.createEvent("MouseEvents");
+    clickEvent.initEvent(eventType, true, true);
+    node.dispatchEvent(clickEvent);
+  }
+
+  function resolveElement(e) {
+    const { key, shift } = e;
+    console.log(e);
+    console.log(key);
+    if (
+      [
+        ...Array(10)
+          .fill(0)
+          .map((v, i) => i + ""),
+        ".",
+        "/",
+        "*",
+        "-",
+        "+",
+      ].includes(key)
+    ) {
+      return document.querySelector(`#calculator button[value="${key}"]`);
+    }
+
+    if (key === "Backspace") {
+      return document.querySelector("#clear-button");
+    }
+
+    if (key === "%") {
+      return document.querySelector("#percentage-button");
+    }
+
+    if (key === "_") {
+      return document.querySelector("#change-sign-button");
+    }
+
+    if (key === "Enter") {
+      return document.querySelector("#equals-button");
+    }
+  }
+
+  document.addEventListener("keydown", e => {
+    const element = resolveElement(event);
+    if (element) {
+      element.classList.add("pressed");
+      element.click();
+    }
+  });
+  document.addEventListener("keyup", e => {
+    const element = resolveElement(event);
+    if (element) {
+      element.classList.remove("pressed");
+    }
+  });
 }
 
 function clear() {

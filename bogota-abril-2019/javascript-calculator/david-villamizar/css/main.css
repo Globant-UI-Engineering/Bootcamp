@@ -117,7 +117,8 @@ body {
   background: rgba(0, 0, 0, 0.25);
 }
 
-#calculator .keyboard button:active {
+#calculator .keyboard button:active,
+#calculator .keyboard button.pressed {
   background: rgba(0, 0, 0, 0.5);
 }
 #calculator .keyboard button:focus {
