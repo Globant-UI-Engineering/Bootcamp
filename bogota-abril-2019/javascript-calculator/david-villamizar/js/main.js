@@ -1,5 +1,5 @@
 const NUMBER_IN = document.querySelector("#number-input");
-const MAX_DIGITS = 9;
+const MAX_DIGITS = 7;
 
 const ButtonType = Object.freeze({
   OPERATOR: 0,
@@ -60,9 +60,7 @@ let lastButtonType = ButtonType.NUMBER;
   }
 
   function resolveElement(e) {
-    const { key, shift } = e;
-    console.log(e);
-    console.log(key);
+    const { key } = e;
     if (
       [
         ...Array(10)
@@ -186,12 +184,11 @@ function chooseOperator(key) {
 }
 
 function applyOperator() {
-  if (lastButtonType === ButtonType.EQUALS) {
-    operandA = total;
-  } else if (lastButtonType === ButtonType.OPERATOR) {
-    operandA = total;
+  operandA = total;
+
+  if (lastButtonType === ButtonType.OPERATOR) {
     operandB = parseFloat(NUMBER_IN.value);
-  } else {
+  } else if (lastButtonType === ButtonType.NUMBER) {
     operandB = parseFloat(NUMBER_IN.value);
   }
   lastButtonType = ButtonType.EQUALS;
