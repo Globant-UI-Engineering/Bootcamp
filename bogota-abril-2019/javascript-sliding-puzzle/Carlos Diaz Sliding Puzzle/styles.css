@@ -1,0 +1,106 @@
+body{
+    background-color:lightgray;
+    font-family: 'Indie Flower', cursive;
+}
+
+.container {
+    text-align: center;
+}
+
+.wrapper{
+    background-position: center;
+    background-color:white;
+    margin:auto;
+    width:400px;
+    display:grid;
+    grid-template-areas: "a a a a";
+    grid-auto-rows: 100px;
+}
+
+div[class*="tile"]:not(.tile16){
+    background-image: url('assets/cuphead-slide.jpg');
+    border:1px solid black;
+}
+
+#newGame-btn{
+    border-radius: 15px;
+    padding:5px;
+    background:white;
+    color:red;
+    font-size: 2em;
+    font-weight:bold;
+    font-family:inherit;
+    -webkit-box-shadow: -11px 17px 23px 2px rgba(250,103,145,1);
+    -moz-box-shadow: -11px 17px 23px 2px rgba(250,103,145,1);
+    box-shadow: -11px 17px 23px 2px rgba(250,103,145,1);
+}
+
+#newGame-btn:hover{
+    color:white;
+    background:red;
+}
+
+.tile1{
+    background-position: -70px 0px;
+}
+
+.tile2{
+    background-position: -170px 0px;
+}
+
+.tile3{
+    background-position: -270px 0px;
+}
+
+.tile4{
+    background-position: -370px 0px;
+}
+
+.tile5{
+    background-position: -70px -100px;
+}
+
+.tile6{
+    background-position: -170px -100px;
+}
+
+.tile7{
+    background-position: -270px -100px;
+}
+
+.tile8{
+    background-position: -370px -100px;
+}
+
+.tile9{
+    background-position: -70px -200px;
+}
+
+.tile10{
+    background-position: -170px -200px;
+}
+
+.tile11{
+    background-position: -270px -200px;
+}
+
+.tile12{
+    background-position: -370px -200px;
+}
+
+.tile13{
+    background-position: -70px -300px;
+}
+
+.tile14{
+    background-position: -170px -300px;
+}
+
+.tile15{
+    background-position: -270px -300px;
+}
+
+.tile16{
+    background:white;
+    border:1px solid black;
+}
