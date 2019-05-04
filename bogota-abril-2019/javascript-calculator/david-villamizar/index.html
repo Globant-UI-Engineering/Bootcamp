@@ -27,12 +27,18 @@
 
     <!-- Add your site or application content here -->
     <div id="calculator">
-      <input type="number" name="number-input" id="number-input" value="0" />
+      <input
+        type="text"
+        name="number-input"
+        id="number-input"
+        value="0"
+        readonly
+      />
       <div class="keyboard">
         <div class="actions">
-          <button>C</button>
-          <button>+/-</button>
-          <button>%</button>
+          <button id="clear-button">C</button>
+          <button id="change-sign-button">+/-</button>
+          <button id="percentage-button">%</button>
         </div>
         <div class="numbers">
           <button>7</button>
@@ -45,14 +51,14 @@
           <button>2</button>
           <button>3</button>
           <button>0</button>
-          <button>.</button>
+          <button id="dot-button">.</button>
         </div>
         <div class="operators">
           <button>÷</button>
           <button>×</button>
           <button>-</button>
           <button>+</button>
-          <button>=</button>
+          <button id="equals-button">=</button>
         </div>
       </div>
     </div>
