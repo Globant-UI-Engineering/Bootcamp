@@ -1,0 +1,67 @@
+body {
+    background-color: darksalmon;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.movable {
+    background-color: blue;
+    width: 100%;
+    height: 100%;
+}
+
+.movable:hover {
+    cursor: pointer;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.5em;
+    height: 50vh;
+    width: 50vw;
+    grid-auto-columns: 40%;
+    grid-auto-rows: 40%;
+}
+
+.piece {
+    height: 100%;
+    width: 100%;
+    border: 3px salmon solid;
+    background-color: white;
+    position: relative;
+}
+
+.hold {
+    border: solid #ccc 4px;
+}
+
+.hovered {
+    background-color: #f4f4f4;
+    border-style: dashed;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.piece > span {
+    position: absolute;
+    font-size: 3em;
+    top: 35%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+span:hover {
+    cursor: default;
+}
+
+/*For Safari compatibility*/
+[draggable=true] {
+    -khtml-user-drag: element;
+}
+
+
