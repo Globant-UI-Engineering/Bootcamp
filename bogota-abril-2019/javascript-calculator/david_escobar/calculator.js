@@ -1,19 +1,51 @@
+var displayNumber = [];
+var number;
+var accumulated;
 
+function add(i) { // to get the value of the typed number
+    var addNumber = document.getElementById(i).value;
+    addNumber = parseInt(addNumber);
+    displayNumber.push(addNumber);
+    showNumberTyped();
+}
 
-    number1 = prompt("enter first number");
-    number2 = prompt("enter second number");
-    option = prompt("for + enter 1, for - enter 2, for * enter 3, for / enter 4");
-    option = parseInt(option);
-       
-    if (option === 1) {
-        console.log(parseFloat(number1)+parseFloat(number2));        
-    }
-    if (option === 2) {
-        console.log(parseFloat(number1)-parseFloat(number2));        
-    }
-    if (option === 3) {
-        console.log(parseFloat(number1)*parseFloat(number2));        
-    }
-    if (option === 4) {
-        console.log(parseFloat(number1)/parseFloat(number2));        
-    }
+// to show into the div every typed number and get that value
+function showNumberTyped() {
+    document.getElementById("result").innerHTML = displayNumber;
+    document.getElementById("result").innerHTML = displayNumber.join('');
+    number = document.getElementById("result").innerHTML;
+    number = parseInt(number);
+}
+
+//to get the accumulated value
+function getAccumulatedValue() {
+    accumulated = document.getElementById("accumulated").innerHTML;
+    accumulated = parseInt(accumulated);
+    //console.log(number);
+}
+
+function operation(i) {
+    //document.getElementById("accumulated").innerHTML = number;
+    var a = parseInt(document.getElementById("accumulated").innerHTML);
+    var b = parseInt(document.getElementById("result").innerHTML);
+    var operator = document.getElementById("operation").innerHTML = i;    
+    var finalValue;
+    if (operator === "+") {
+        finalValue = a + b;            
+    }if (operator === "-") {
+        finalValue = a - b;
+    }if (operator === "*") {
+        finalValue = a * b;
+    }if (operator === "/") {
+        finalValue = a / b;
+    }   
+    document.getElementById("accumulated").innerHTML = finalValue;
+    displayNumber = [];
+    document.getElementById("result").innerHTML = displayNumber;
+}
+
+function clean(){
+    document.getElementById("accumulated").innerHTML = "0";
+    displayNumber = [];
+    document.getElementById("result").innerHTML = "";
+}
