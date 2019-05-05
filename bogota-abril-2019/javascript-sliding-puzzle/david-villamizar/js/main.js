@@ -1,12 +1,12 @@
+const RANDOMIZATION_MOVES = 100;
 const BOARD = document.querySelector("#board");
-let TILES = [...document.querySelectorAll("#board div")];
-
 const EMPTY_TILE = document.querySelector("#empty-tile");
+let TILES = [...document.querySelectorAll("#board div")];
 
 addListeners(...document.querySelectorAll("#board div.adjacent"));
 document
   .querySelector("#randomize-button")
-  .addEventListener("click", e => randomizeBoard(16));
+  .addEventListener("click", e => randomizeBoard(RANDOMIZATION_MOVES));
 
 function addListeners(...elements) {
   elements.forEach(el => el.addEventListener("click", onClick));
@@ -104,6 +104,7 @@ async function makeMove(tile) {
 
 function onClick(e) {
   makeMove(e.target);
+  // TODO: Detect wins.
 }
 
 function translateTowards(element, dstElement) {
@@ -126,11 +127,13 @@ function translateTowards(element, dstElement) {
  */
 async function randomizeBoard(moves) {
   let adjacent = [...document.querySelectorAll("#board div.adjacent")];
+  let lastTile;
   for (let i = 0; i < moves; ++i) {
-    adjacent = await makeMove(
-      adjacent[Math.floor(Math.random() * adjacent.length)],
-    );
+    let tile = adjacent[Math.floor(Math.random() * adjacent.length)];
+    if (tile === lastTile) {
+      tile = adjacent[Math.floor(Math.random() * adjacent.length)];
+    }
+    adjacent = await makeMove(tile);
+    lastTile = tile;
   }
 }
-
-// TODO: Detectar cuando gana.
