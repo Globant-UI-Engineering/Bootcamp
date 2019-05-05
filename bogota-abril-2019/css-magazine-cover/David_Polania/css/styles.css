@@ -6,3 +6,13 @@ body {
   background-size: contain;
   background-color: #238ED1;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'open sans',arial, sans-serif;
+  color: #0f0f0f;
+}
