@@ -1,10 +1,13 @@
-/* Blue background;  Backgroung image and settings */
+/* General styles:
+ Blue background;
+ Backgroung image and settings */
 body {
   background-image: url('../images/Backgroung-Jim-Parsons-sin-fondo.png');
   background-repeat: no-repeat;
   background-position: top;
   background-size: contain;
   background-color: #238ED1;
+  padding: 1em;
 }
 
 h1,
@@ -14,5 +17,58 @@ h4,
 h5,
 h6 {
   font-family: 'open sans',arial, sans-serif;
-  color: #0f0f0f;
+  color: black;
 }
+
+/* Header Styles */
+  /* Header text properties */
+header {
+  border-top: 1vh double black;
+  border-bottom: 0.3vh dashed black;
+  margin-bottom: 5vh;
+}
+
+header h3 *{
+  font-family: serif;
+  font-size: 5vh;
+  color: white;
+  letter-spacing: 1.4px;
+  margin: 0;
+  padding : 0.5vh;
+  font-weight: lighter;
+}
+
+header h3 strong {
+  color: black;
+  font-size:  5vh;
+  margin-left: 1em;
+}
+
+header p{
+  font-size: 2.4vh;
+  color: white;
+  border-top: 0.3vh dashed black;
+  padding: 1vh;
+  margin: 0;
+}
+
+  /* Header Text Transformations */
+header h3 span,
+header p:first-of-type span:first-of-type,
+header p:first-of-type span:last-of-type{
+  text-transform:capitalize;
+}
+header p:first-of-type span:nth-of-type(2),
+header p:last-of-type span:first-of-type,
+header p:last-of-type small span{
+  text-transform:uppercase;
+}
+
+
+/* Logo Styles  */
+
+/* topHeadlines Styles  */
+
+/* bottomHeadlines Styles  */
+
+/* hero Styles  */
