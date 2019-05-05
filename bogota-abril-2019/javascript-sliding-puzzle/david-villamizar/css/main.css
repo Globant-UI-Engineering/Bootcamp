@@ -10,7 +10,7 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css?family=Gothic+A1');
+@import url("https://fonts.googleapis.com/css?family=Gothic+A1");
 
 html {
   color: #222;
@@ -45,7 +45,7 @@ html {
     hsl(17, 100%, 42%)
   );
   border: 0.5px solid rgba(0, 0, 0, 0.5);
-  transition: transform 0.25s, background 0.25s;
+  transition: transform 0.25s;
 }
 
 #board div.adjacent:hover {
@@ -54,20 +54,25 @@ html {
 }
 
 #board div.adjacent.up:hover {
-  transform: scale(0.99) translateY(0.25em);
+  transform: scale(0.95) translateY(0.25em);
 }
 #board div.adjacent.down:hover {
-  transform: scale(0.99) translateY(-0.25em);
+  transform: scale(0.95) translateY(-0.25em);
 }
 #board div.adjacent.left:hover {
-  transform: scale(0.99) translateX(0.25em);
+  transform: scale(0.95) translateX(0.25em);
 }
 #board div.adjacent.right:hover {
-  transform: scale(0.99) translateX(-0.25em);
+  transform: scale(0.95) translateX(-0.25em);
+}
+
+#board div.adjacent:active {
+  box-shadow: none;
+  cursor: pointer;
 }
 
 #board div#empty-tile {
-  background: black;
+  visibility: hidden;
 }
 
 /*
@@ -223,7 +228,7 @@ textarea {
 
 .clearfix:before,
 .clearfix:after {
-  content: ' '; /* 1 */
+  content: " "; /* 1 */
   display: table; /* 2 */
 }
 
@@ -271,11 +276,11 @@ textarea {
   }
 
   a[href]:after {
-    content: ' (' attr(href) ')';
+    content: " (" attr(href) ")";
   }
 
   abbr[title]:after {
-    content: ' (' attr(title) ')';
+    content: " (" attr(title) ")";
   }
 
   /*
@@ -283,9 +288,9 @@ textarea {
      * or use the `javascript:` pseudo protocol
      */
 
-  a[href^='#']:after,
-  a[href^='javascript:']:after {
-    content: '';
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
   }
 
   pre {
