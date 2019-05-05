@@ -67,6 +67,18 @@ header p:last-of-type small span{
 
 /* Logo Styles  */
 
+.logo {
+  height: 20vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center
+
+}
+.logo-svg {
+  height: inherit;
+  flex-shrink: 0;
+}
+
 /* topHeadlines Styles  */
 
 /* bottomHeadlines Styles  */
