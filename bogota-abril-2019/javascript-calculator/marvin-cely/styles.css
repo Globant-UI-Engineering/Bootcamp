@@ -13,3 +13,11 @@ body>main {
     background-position: 75%;
     box-sizing: content-box;
 }
+
+p:first-of-type {
+    background: red;
+}
+
+p:last-of-type {
+    background: blue;
+}
