@@ -1,0 +1,8 @@
+/* Blue background;  Backgroung image and settings */
+body {
+  background-image: url('../images/Backgroung-Jim-Parsons-sin-fondo.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+  background-color: #238ED1;
+}
