@@ -79,8 +79,46 @@ header p:last-of-type small span{
   flex-shrink: 0;
 }
 
+/* hero Styles  */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-20vh);
+}
+
+.hero h1 {
+  font-family: 'Didact Gothic', sans-serif;
+  margin: 0;
+  color: #0f0f0f;
+  font-size: 26vh;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.7vh;
+}
+
+.hero h3:first-of-type {
+  border-top: 0.5vh solid #0f0f0f;
+  border-bottom: 0.5vh solid #0f0f0f;
+  padding: 1vh;
+  margin: 0;
+  font-size: 2.8vh;
+  text-transform: uppercase;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 4vh;
+}
+.hero h2  :first-child{
+  text-transform: uppercase;
+}
+
+.hero h3:last-of-type{
+  text-transform:capitalize;
+  font-size: 3vh;
+  margin: 0;
+}
+
 /* topHeadlines Styles  */
 
 /* bottomHeadlines Styles  */
-
-/* hero Styles  */
