@@ -2,6 +2,7 @@ const RANDOMIZATION_MOVES = 100;
 const BOARD = document.querySelector("#board");
 const EMPTY_TILE = document.querySelector("#empty-tile");
 let TILES = [...document.querySelectorAll("#board div")];
+const VICTORY_TILES = [...TILES];
 
 addListeners(...document.querySelectorAll("#board div.adjacent"));
 document
@@ -11,8 +12,54 @@ document
 function addListeners(...elements) {
   elements.forEach(el => el.addEventListener("click", onClick));
 }
+
 function removeListeners(...elements) {
   elements.forEach(el => el.removeEventListener("click", onClick));
+}
+
+async function onClick(e) {
+  await makeMove(e.target);
+  if (didWin()) {
+    alert("YOU WIN!");
+  }
+}
+
+function didWin() {
+  for (let i = 0; i < VICTORY_TILES.length; ++i) {
+    if (TILES[i] !== VICTORY_TILES[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
+ * Randomize the board by a given number of moves from the initial sorted state.
+ * @param {number} moves
+ */
+async function randomizeBoard(moves) {
+  let adjacent = [...document.querySelectorAll("#board div.adjacent")];
+  let lastTile;
+  for (let i = 0; i < moves; ++i) {
+    let tile = adjacent[Math.floor(Math.random() * adjacent.length)];
+    if (tile === lastTile) {
+      tile = adjacent[Math.floor(Math.random() * adjacent.length)];
+    }
+    adjacent = await makeMove(tile);
+    lastTile = tile;
+  }
+}
+
+async function makeMove(tile) {
+  const oldAdjacent = [...document.querySelectorAll("#board div.adjacent")];
+  removeListeners(...oldAdjacent);
+  oldAdjacent.forEach(tile =>
+    tile.classList.remove("down", "up", "left", "right", "adjacent"),
+  );
+
+  const newAdjacent = calculateNewAdjacent(await swap(tile));
+  addListeners(...newAdjacent);
+  return newAdjacent;
 }
 
 /**
@@ -90,23 +137,6 @@ function calculateNewAdjacent(emptyTileInd) {
   return [upTile, downTile, leftTile, rightTile].filter(tile => !!tile);
 }
 
-async function makeMove(tile) {
-  const oldAdjacent = [...document.querySelectorAll("#board div.adjacent")];
-  removeListeners(...oldAdjacent);
-  oldAdjacent.forEach(tile =>
-    tile.classList.remove("down", "up", "left", "right", "adjacent"),
-  );
-
-  const newAdjacent = calculateNewAdjacent(await swap(tile));
-  addListeners(...newAdjacent);
-  return newAdjacent;
-}
-
-function onClick(e) {
-  makeMove(e.target);
-  // TODO: Detect wins.
-}
-
 function translateTowards(element, dstElement) {
   const x = dstElement.offsetLeft - element.offsetLeft;
   const y = dstElement.offsetTop - element.offsetTop;
@@ -119,21 +149,4 @@ function translateTowards(element, dstElement) {
 
     element.style.transform = `translate(${x}px, ${y}px)`;
   });
-}
-
-/**
- * Randomize the board by a given number of moves from the initial sorted state.
- * @param {number} moves
- */
-async function randomizeBoard(moves) {
-  let adjacent = [...document.querySelectorAll("#board div.adjacent")];
-  let lastTile;
-  for (let i = 0; i < moves; ++i) {
-    let tile = adjacent[Math.floor(Math.random() * adjacent.length)];
-    if (tile === lastTile) {
-      tile = adjacent[Math.floor(Math.random() * adjacent.length)];
-    }
-    adjacent = await makeMove(tile);
-    lastTile = tile;
-  }
 }
