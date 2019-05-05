@@ -32,7 +32,7 @@ header h3 *{
   font-family: serif;
   font-size: 5vh;
   color: white;
-  letter-spacing: 1.4px;
+  letter-spacing: 0.1vh;
   margin: 0;
   padding : 0.5vh;
   font-weight: lighter;
@@ -130,8 +130,6 @@ header p:last-of-type small span{
 .headlines article {
   padding-left: 1em;
   padding-right: 1em;
-  margin-left: 2em;
-  margin-right: 2em;
 }
 
 .headlines article h4,
@@ -171,6 +169,20 @@ header p:last-of-type small span{
 [class*="-Left"]{
   text-align: left;
 }
+
+
+
 /* topHeadlines Styles  */
 
+.topHeadlines-Right article{
+  border-right: 0.5vh solid black;
+}
+
+.topHeadlines-Left article:first-of-type{
+  border-bottom: 0.5vh solid white;
+}
+
+.topHeadlines-Left article h5{
+  color: white;
+}
 /* bottomHeadlines Styles  */
