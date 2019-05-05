@@ -20,6 +20,10 @@ h6 {
   color: black;
 }
 
+h5{
+  font-weight: normal;
+}
+
 /* Header Styles */
   /* Header text properties */
 header {
@@ -185,4 +189,13 @@ header p:last-of-type small span{
 .topHeadlines-Left article h5{
   color: white;
 }
+
 /* bottomHeadlines Styles  */
+
+.bottomHeadlines-Left article:first-of-type,
+.bottomHeadlines-Right article:first-of-type{
+  border-bottom: 0.5vh solid black;
+}
+.bottomHeadlines-Right article h5{
+  color: black;
+}
