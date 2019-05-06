@@ -1,0 +1,88 @@
+body {
+  font-family: 'Muli', system-ui;
+}
+
+.calculator {
+  margin: auto;
+  width: 300px;
+  height: 60vh;
+  border: 2px solid rgb(222, 224, 227);
+  background: rgb(102, 102, 102);
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20% 10% 70%;
+}
+
+.calculator__display {
+  width: 90%;
+  height: 70%;
+  border: 2px solid rgb(222, 224, 227); 
+  background: white;
+  border-radius: 20px;
+  justify-self: center;
+  align-self: center;
+}
+
+.calculator__display span {
+  display: block;
+  text-align: end;
+  padding: 0 15px;
+}
+
+.calculator__display span:last-child {
+  font-size: 25px;
+}
+
+.calculator__buttons_top {
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100%;
+  grid-column-gap: 10px;
+}
+
+.calculator__buttons_main {
+  padding: 15px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-row-gap: 15px;
+  grid-column-gap: 10px;
+}
+
+.calculator__buttons_button  button {
+  height: 100%;
+  width: 100%;
+  border:1px solid grey; 
+  border-radius: 10px;
+  background: rgb(241, 243, 244);
+  font-size: 12px;
+  font-weight: bold;
+  background-position: center;
+  transition: background 0.4s;
+}
+
+.calculator__buttons_button  button:hover {
+  background: rgb(184, 186, 187) radial-gradient(circle, transparent 1%, rgb(184, 186, 187) 1%) center/15000%;
+}
+.calculator__buttons_button  button:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+#equal {
+  color: white;
+  background: rgb(63, 133, 244);
+  transition: background 0.4s;
+}
+
+#equal:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+}
+#equal:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
+}
