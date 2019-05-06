@@ -1,15 +1,16 @@
 // ------------------ GUI elements declaration  ------------------
 const board = document.querySelector('.board');
 const boardSizeSelect = document.querySelector('#boardSize');
+const moveCountSpan = document.querySelector('#moveCount');
 
 // Variables
 let pieces = [];
 let movable;
 let boardSize = 2;
 let prevPiece = null;
+let moveCount = 0;
 
 initBoard();
-alert(validateWin());
 
 // ------------------ Event assignation ------------------
 boardSizeSelect.addEventListener('change', () => {
@@ -34,6 +35,8 @@ function initBoard() {
  * @param {Number} boardSize the board size (NxN).
  */
 function createPieces(boardSize) {
+    moveCount = 0;
+    updateMoveCount();
     pieces = [];
     board.innerHTML = '';
     board.style.setProperty('grid-template-columns', 'repeat(' + boardSize + ', 1fr)');
@@ -182,14 +185,34 @@ function dragLeave() {
 function dragDrop() {
     this.className = 'piece';    
     if(validateIfDraggable(this, prevPiece)) {
+        incrementMoveCount();
         const pieceNumDiv = this.querySelector(".pieceNum");
         this.removeChild(pieceNumDiv);
         prevPiece.append(pieceNumDiv);
         this.append(movable); 
         if(validateWin()) {
-            alert("Win!");
+            alert("You win! Total moves: " + moveCount);
+            moveCount = 0;
+            updateMoveCount();
         }        
     }
+}
+
+/**
+ * Increments the move count in 1.
+ *
+ */
+function incrementMoveCount() { 
+    moveCount += 1;
+    updateMoveCount();
+}
+
+/**
+ * Updates the move count SPAN element.
+ *
+ */
+function updateMoveCount() {
+    moveCountSpan.textContent = moveCount;
 }
 
 // ------------------ Validation functions  ------------------
