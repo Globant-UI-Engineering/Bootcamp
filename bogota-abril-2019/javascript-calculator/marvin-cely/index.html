@@ -3,89 +3,114 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Author: Marvin Cely,Calculadora creada en Javascript">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>My Calculator</title>
+    <title>Mi Calculadora</title>
 </head>
 
 <body>
-
-    <head>My Calculator</head>
     <main>
-        <p></p>
-        <p></p>
-        <table>
-            <tr>
-                <td>
-                    <button aria-label="Limpiar todo">AC</button>
-                </td>
-                <td>
-                    <button aria-label="Retroceso">🡐</button>
-                </td>
-                <td>
-                    <button aria-label="Respuesta">Ans</button>
-                </td>
-                <td>
-                    <button aria-label="Cambiar signo">+/-</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button aria-label="Siete">7</button>
-                </td>
-                <td>
-                    <button aria-label="Ocho">8</button>
-                </td>
-                <td>
-                    <button aria-label="Nueve">9</button>
-                </td>
-                <td>
-                    <button aria-label="Dividir">÷</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button aria-label="Cuatro">4</button>
-                </td>
-                <td>
-                    <button aria-label="Cinco">5</button>
-                </td>
-                <td>
-                    <button aria-label="Seis">6</button>
-                </td>
-                <td>
-                    <button aria-label="Multiplicar">×</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button aria-label="Uno">1</button>
-                </td>
-                <td>
-                    <button aria-label="Dos">2</button>
-                </td>
-                <td>
-                    <button aria-label="Tres">3</button>
-                </td>
-                <td>
-                    <button aria-label="Restar">-</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button aria-label="Cero">0</button></td>
-                <td>
-                    <button aria-label="Punto">.</button></td>
-                <td>
-                    <button aria-label="Igual">=</button></td>
-                <td>
-                    <button aria-label="Sumar">+</button></td>
-            </tr>
-        </table>
+        <header role="banner" aria-label="Mi Calculadora">
+            <h1>
+                Calculadora FX
+            </h1>
+            <ul role="img" aria-label="Panel solar">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </header>
+        <section aria-labelledby="pantalla-calculadora" aria-describedby="calc-descriptor">
+            <article id="pantalla-calculadora">
+                <p aria-label="entrada"></p>
+                <p aria-label="respuesta"></p>
+            </article>
+            <table role="grid" aria-label="Calculadora botones">
+                <tr>
+                    <td>
+                        <button aria-label="Parentesis abre">(</button>
+                    </td>
+                    <td>
+                        <button aria-label="Parentesis cierra">)</button>
+                    </td>
+                    <td>
+                        <button aria-label="Cambiar signo">+/-</button>
+                    </td>
+                    <td>
+                        <button aria-label="Retroceso">🡐</button>
+                    </td>
+                    <td>
+                        <button aria-label="Limpiar todo">AC</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button aria-label="Siete">7</button>
+                    </td>
+                    <td>
+                        <button aria-label="Ocho">8</button>
+                    </td>
+                    <td>
+                        <button aria-label="Nueve">9</button>
+                    </td>
+                    <td>
+                        <button aria-label="Multiplicar">×</button>
+                    </td>
+                    <td>
+                        <button aria-label="Dividir">÷</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button aria-label="Cuatro">4</button>
+                    </td>
+                    <td>
+                        <button aria-label="Cinco">5</button>
+                    </td>
+                    <td>
+                        <button aria-label="Seis">6</button>
+                    </td>
+                    <td rowspan="2">
+                        <button aria-label="Sumar">+</button>
+                    </td>
+                    <td>
+                        <button aria-label="Restar">-</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button aria-label="Uno">1</button>
+                    </td>
+                    <td>
+                        <button aria-label="Dos">2</button>
+                    </td>
+                    <td>
+                        <button aria-label="Tres">3</button>
+                    </td>
+                    <td rowspan="2">
+                        <button aria-label="Igual">=</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button aria-label="Cero">0</button>
+                    </td>
+                    <td>
+                        <button aria-label="Punto">.</button>
+                    </td>
+                    <td>
+                        <button aria-label="Respuesta">Ans</button>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <span id="calc-descriptor" class="visuallyhidden">Calculadora en Javacript</span>
+        <footer aria-labelledby="footer-autor">
+            <h1 id="footer-autor">Marvin Cely</h1>
+        </footer>
     </main>
-    <footer>I am a footer</footer>
     <script type='text/javascript' src='calculator.js'></script>
 </body>
 

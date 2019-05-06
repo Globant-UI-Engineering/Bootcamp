@@ -1,23 +1,160 @@
 body {
-    font-family: Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #212f3d;
 }
 
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
 body>main {
-    width: 424px;
-    height: 610px;
-    padding: 0px 10px 0px 10px;
+    width: 510px;
+    height: 580px;
+    padding: 40px 50px 60px 50px;
     margin: auto;
-    background-color: aquamarine;
-    background-size: cover;
-    background-position: 75%;
-    box-sizing: content-box;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #2e4053;
+    background-image: linear-gradient(to bottom right, #f8f9f9, #c9c9c9);
+    border: transparent;
+    border-top: 8px solid #979a9a;
+    border-bottom: 10px solid #757777;
+    border-radius: 14px;
+    box-shadow: 12px 22px 6px #17202a;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-stretch: extra-condensed;
+    font-size: 24px;
+    color: #0b5345;
+}
+
+ul {
+    display: flex;
+    border: 4px inset #2a3847;
+    border-radius: 5px;
+}
+
+li:nth-of-type(2) {
+    border-right: 4px solid #641e16;
+    border-left: 4px solid #641e16;
+}
+
+li {
+    width: 45px;
+    height: 38px;
+    background: #48160f;
+}
+
+article {
+    border: 25px inset #a5a5a5;
+    border-radius: 15px;
+}
+
+p {
+    font-family: "Lucida Console", Monaco, monospace;
+    background: #d0d3d4;
+    padding: 10px;
+    overflow: auto;
 }
 
 p:first-of-type {
-    background: red;
+    color: #2c3e50;
+    height: 32px;
+    font-size: 18px;
 }
 
 p:last-of-type {
-    background: blue;
+    color: #212f3d;
+    text-align: end;
+    font-size: 32px;
+}
+
+table {
+    margin-top: 20px;
+    align-content: center;
+}
+
+button {
+    font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+    font-size: 24px;
+    color: #d0d3d4;
+    background: #2e4053;
+    background-image: linear-gradient(to bottom right, #11171c, #2e4053);
+    border: transparent;
+    border-top: 2px solid #979a9a;
+    border-radius: 14px;
+    box-shadow: 3px 3px 3px #17202a;
+    width: 90px;
+    height: 60px;
+    margin: 5px;
+}
+
+button:hover {
+    background: #212e3b;
+    color: #afb0b1;
+}
+
+button:active {
+    background: #10151b;
+    box-shadow: 1px 1px 3px #17202a;
+}
+
+[colspan="2"]>button {
+    width: 94%;
+}
+
+[rowspan="2"]>button {
+    vertical-align: top;
+    height: 128px;
+    position: relative;
+    bottom: 30px;
+}
+
+[aria-label="Retroceso"],
+[aria-label*="Limpiar"] {
+    background: #ff6600;
+    background-image: linear-gradient(to bottom right, #be2f03, #ff6600);
+}
+
+[aria-label="Retroceso"]:hover,
+[aria-label*="Limpiar"]:hover {
+    background: #b44901;
+}
+
+[aria-label="Retroceso"]:active,
+[aria-label*="Limpiar"]:active {
+    background: #8a3801;
+}
+
+[disabled],
+[disabled]:hover {
+    background: #313f4d;
+    color: #afb0b1;
+    box-shadow: 1px 1px 3px #17202a;
+}
+
+footer>h1 {
+    text-align: end;
+    position: relative;
+    top: 25px;
+    right: 16px;
+    font-style: oblique;
+    font-family: initial;
 }
