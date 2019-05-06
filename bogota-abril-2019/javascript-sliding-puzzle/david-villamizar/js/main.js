@@ -5,19 +5,22 @@ let TILES = [...document.querySelectorAll("#board div")];
 const VICTORY_TILES = [...TILES];
 
 addListeners(...document.querySelectorAll("#board div.adjacent"));
-document
-  .querySelector("#randomize-button")
-  .addEventListener("click", e => randomizeBoard(RANDOMIZATION_MOVES));
+const RANDOMIZE_BUTTON = document.querySelector("#randomize-button");
 
+RANDOMIZE_BUTTON.addEventListener("click", async e => {
+  RANDOMIZE_BUTTON.disabled = true;
+  await randomizeBoard(RANDOMIZATION_MOVES);
+  RANDOMIZE_BUTTON.disabled = false;
+});
 function addListeners(...elements) {
-  elements.forEach(el => el.addEventListener("click", onClick));
+  elements.forEach(el => el.addEventListener("click", onClickTile));
 }
 
 function removeListeners(...elements) {
-  elements.forEach(el => el.removeEventListener("click", onClick));
+  elements.forEach(el => el.removeEventListener("click", onClickTile));
 }
 
-async function onClick(e) {
+async function onClickTile(e) {
   await makeMove(e.target);
   if (didWin()) {
     alert("YOU WIN!");
