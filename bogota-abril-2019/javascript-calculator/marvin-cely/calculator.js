@@ -77,6 +77,22 @@ Array.from(buttons).forEach(btn => {
                 entry = screenToAdd() ? entry + "Ans" : "Ans";
                 isAnswered = false;
                 break;
+            case '+':
+                entry = screenToAdd() ? entry + buttonTxt : "Ans" + buttonTxt;
+                isAnswered = false;
+                break;
+            case '-':
+                entry = screenToAdd() ? entry + buttonTxt : "Ans" + buttonTxt;
+                isAnswered = false;
+                break;
+            case '×':
+                entry = screenToAdd() ? entry + buttonTxt : "Ans" + buttonTxt;
+                isAnswered = false;
+                break;
+            case '÷':
+                entry = screenToAdd() ? entry + buttonTxt : "Ans" + buttonTxt;
+                isAnswered = false;
+                break;
             case '=':
                 Ans = Ans.operate(entry);
                 isAnswered = true;
