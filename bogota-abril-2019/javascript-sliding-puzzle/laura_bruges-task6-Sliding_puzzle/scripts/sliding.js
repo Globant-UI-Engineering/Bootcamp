@@ -91,7 +91,7 @@ function addPieceValue(piece, index, pieceNumbers) {
  */
 function createPieceNumberDiv(pieceNumber) {
     let divNode = document.createElement("div");
-    divNode.textContent = pieceNumber + "";
+    divNode.textContent = pieceNumber;
     let pieceNumClass = document.createAttribute("class");
     pieceNumClass.value = 'pieceNum';
     divNode.setAttributeNode(pieceNumClass);
@@ -160,13 +160,11 @@ function makeMovablePieceDraggable(movablePiece) {
 // ------------------ Drag events ------------------
 function dragStart(event) {
     event.dataTransfer.setData('Text', this.id); // For firefox drag n drop compatibility
-    this.classList.add('hold');
-    setTimeout(() => (this.className = 'invisible'), 0); 
     prevPiece = this.parentNode;
 }
  
 function dragEnd() {
-    this.className = 'movable';    
+    this.className = 'movable';
 }
 
 function dragOver(event) {
@@ -191,7 +189,7 @@ function dragDrop() {
         prevPiece.append(pieceNumDiv);
         this.append(movable); 
         if(validateWin()) {
-            alert("You win! Total moves: " + moveCount);
+            alert(`You win! Total moves: ${moveCount}`);
             moveCount = 0;
             updateMoveCount();
         }        

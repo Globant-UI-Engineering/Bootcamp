@@ -40,17 +40,9 @@ body {
     position: relative;
 }
 
-.hold {
-    border: solid #ccc 4px;
-}
-
 .hovered {
     background-color: #f4f4f4;
     border-style: dashed;
-}
-
-.invisible {
-    visibility: hidden;
 }
 
 .pieceNum {
