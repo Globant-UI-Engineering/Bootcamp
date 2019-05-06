@@ -1,3 +1,6 @@
+h1 {
+    font-size: 3em;
+}
 body {
     background-color: darksalmon;
     font-family: Arial, Helvetica, sans-serif;
@@ -15,12 +18,11 @@ body {
 
 .board {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
     grid-gap: 0.5em;
-    height: 50vh;
-    width: 50vw;
-    grid-auto-columns: 40%;
-    grid-auto-rows: 40%;
+    height: 80vh;
+    width: 55vw;
+    grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr;
 }
 
 .piece {
@@ -44,10 +46,10 @@ body {
     visibility: hidden;
 }
 
-.piece > span {
+.pieceNum {
     position: absolute;
     font-size: 3em;
-    top: 35%;
+    top: 40%;
     bottom: 0;
     left: 0;
     right: 0;
@@ -55,7 +57,7 @@ body {
     text-align: center;
 }
 
-span:hover {
+.pieceNum:hover {
     cursor: default;
 }
 

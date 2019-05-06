@@ -2,29 +2,25 @@
 <html>
 <head>
     <title>Sliding puzzle</title>
-	<link rel="stylesheet" type="text/css" href="styles/sliding.css">
+    <link rel="stylesheet" type="text/css" href="styles/sliding.css">
+    <h1>Sliding puzzle</h1>
 </head>
 <body>
-    <div class="board">
-        <div class="piece">
-        </div>
-        <div class="piece">
-        </div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-        <div class="piece"></div>
-    </div>
+    <article>
+        <header>
+            <label for="boardSize">Board size: </label>
+            <select id="boardSize">
+                <option value="2">2x2</option>
+                <option value="3">3x3</option>
+                <option value="4">4x4</option>
+                <option value="5">5x5</option>
+            </select>
+        </header>
+        <section>
+            <div class="board">
+            </div>
+        </section>
+    </article>
 </body>
 <script type="text/javascript" src="scripts/sliding.js"></script>
 </html>
