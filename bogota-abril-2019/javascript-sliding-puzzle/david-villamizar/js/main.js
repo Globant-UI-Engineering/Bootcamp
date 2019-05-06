@@ -13,17 +13,6 @@ RANDOMIZE_BUTTON.addEventListener("click", async e => {
   RANDOMIZE_BUTTON.disabled = false;
 });
 
-// Disable scrolling.
-document.ontouchmove = function(e) {
-  e.preventDefault();
-};
-
-// Enable scrolling.
-document.ontouchmove = function(e) {
-  e.preventDefault();
-  return true;
-};
-
 function addListeners(...elements) {
   elements.forEach(el => el.addEventListener("click", onClickTile));
 }
