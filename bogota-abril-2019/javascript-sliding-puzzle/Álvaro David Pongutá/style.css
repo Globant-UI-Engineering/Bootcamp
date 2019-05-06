@@ -1,0 +1,50 @@
+h1 {
+    font-size: 28px;
+}
+
+footer {
+    margin-top: 12px;
+}
+
+.body-general {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    width: 370px;
+    font-family: 'Times New Roman';
+    background-color: #A4A4A4;
+}
+
+.row-puzzle {
+    display: flex;
+    flex-direction: row;
+}
+
+.frame,
+.white_frame {
+    font-size: 32px;
+    display: table-cell;
+    width: 90px;
+    height: 90px;
+    border: 1px solid white;
+    cursor: pointer;
+    background-color: #9E0F0F;
+    color: #EBE40B;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+}
+
+.white_frame {
+    background: white;
+    cursor: default;
+}
+
+.button-MixUp {
+    margin-top: 8px;
+}
+
+.puzzle {
+    border: 8px solid white;
+}
