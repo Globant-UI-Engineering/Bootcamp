@@ -54,6 +54,9 @@ body {
     right: 0;
     margin: auto;
     text-align: center;
+    user-select: none;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
 }
 
 .pieceNum:hover {
