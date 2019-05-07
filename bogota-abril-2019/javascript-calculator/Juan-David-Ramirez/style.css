@@ -1,18 +1,63 @@
 body{
+	background-color: black;
 }
 
 article{
 }
 
-article div{
+.container{
     background-color: yellow;
     margin: 0 auto;
     width: 300px;
-    height: 200px;
+    height: 500px;
+	border: 3px solid white;
 }
 
 h1, footer{
     text-align: center;
+	color: white;
 }
+
+
+button{
+	width: 41px;
+	height: 41px;
+	margin: 5%;
+	border-radius: 50%;
+	border: 0;
+	font-size: 12pt;
+	cursor: pointer
+}
+
+button:hover{
+	background-color: red;
+}
+
+button:active{
+	border: 3px solid black;
+	font-size: 12pt;
+}
+
+button:focus{
+	outline:none;
+}
+
+.container div:last-child {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.container div:first-child  {
+	border: 2px solid black;
+	height: 110px;
+}
+
+
+.operation{
+	background-color: white;
+}
+
+.number{}
+
 
 
