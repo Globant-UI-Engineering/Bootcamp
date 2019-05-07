@@ -18,23 +18,29 @@ Number.prototype.operate = function(entry) {
     }
 }
 
-let screenChange = () => {
+let updateScreen = () => {
     entryScreen.innerHTML = entry;
     AnsScreen.innerHTML = Ans;
-    if (entry.length > 0) {
-        clearButton.innerHTML = "CE";
-        clearButton.setAttribute("aria-label", "Limpiar entrada");
-    } else {
-        clearButton.innerHTML = "AC";
-        clearButton.setAttribute("aria-label", "Limpiar todo");
-    }
+};
+
+let updateClearButton = (nameButton, ariaLabel) => {
+    clearButton.innerHTML = nameButton;
+    clearButton.setAttribute("aria-label", ariaLabel);
+};
+
+let screenChange = () => {
+    updateScreen();
+    if (entry.length > 0)
+        updateClearButton("CE", "Limpiar entrada");
+    else
+        updateClearButton("AC", "Limpiar todo");
+
 }
 
 let disablebuttonGroup = (isDisable) => {
     if (isDisable) {
         entry = "";
-        clearButton.innerHTML = "AC";
-        clearButton.setAttribute("aria-label", "Limpiar todo");
+        updateClearButton("AC", "Limpiar todo");
         buttonGroup.forEach(button => {
             if (button.innerHTML !== "AC") {
                 button.setAttribute("disabled", true);
@@ -49,7 +55,7 @@ let disablebuttonGroup = (isDisable) => {
     }
 }
 
-let screenToAdd = () => !isAnswered && entry.length > 0;
+let isScreenToAdd = () => !isAnswered && entry.length > 0;
 
 screenChange();
 
@@ -74,23 +80,23 @@ Array.from(buttonGroup).forEach(button => {
                 entry = "";
                 break;
             case 'Ans':
-                entry = screenToAdd() ? entry + "Ans" : "Ans";
+                entry = isScreenToAdd() ? entry + "Ans" : "Ans";
                 isAnswered = false;
                 break;
             case '+':
-                entry = screenToAdd() ? entry + buttonTxt : "Ans" + buttonTxt;
+                entry = isScreenToAdd() ? entry + buttonTxt : "Ans" + buttonTxt;
                 isAnswered = false;
                 break;
             case '-':
-                entry = screenToAdd() ? entry + buttonTxt : "Ans" + buttonTxt;
+                entry = isScreenToAdd() ? entry + buttonTxt : "Ans" + buttonTxt;
                 isAnswered = false;
                 break;
             case '×':
-                entry = screenToAdd() ? entry + buttonTxt : "Ans" + buttonTxt;
+                entry = isScreenToAdd() ? entry + buttonTxt : "Ans" + buttonTxt;
                 isAnswered = false;
                 break;
             case '÷':
-                entry = screenToAdd() ? entry + buttonTxt : "Ans" + buttonTxt;
+                entry = isScreenToAdd() ? entry + buttonTxt : "Ans" + buttonTxt;
                 isAnswered = false;
                 break;
             case '=':
@@ -102,7 +108,7 @@ Array.from(buttonGroup).forEach(button => {
                     Ans = +Ans.toFixed(12);
                 break;
             default:
-                entry = screenToAdd() ? entry + buttonTxt : buttonTxt;
+                entry = isScreenToAdd() ? entry + buttonTxt : buttonTxt;
                 isAnswered = false;
                 break;
         }
