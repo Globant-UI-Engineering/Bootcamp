@@ -1,0 +1,18 @@
+body{
+}
+
+article{
+}
+
+article div{
+    background-color: yellow;
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
+}
+
+h1, footer{
+    text-align: center;
+}
+
+
