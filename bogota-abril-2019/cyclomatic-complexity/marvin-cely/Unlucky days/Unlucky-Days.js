@@ -1,11 +1,11 @@
 function unluckyDays(year) {
     let unluckyDay = 0;
-    let d = new Date();
-    d.setFullYear(year);
-    d.setDate(13);
+    let date = new Date();
+    date.setFullYear(year);
+    date.setDate(13);
     for (let i = 0; i < 12; i++) {
-        d.setMonth(i);
-        if (d.getDay() === 5) {
+        date.setMonth(i);
+        if (date.getDay() === 5) {
             unluckyDay++;
         }
     }
