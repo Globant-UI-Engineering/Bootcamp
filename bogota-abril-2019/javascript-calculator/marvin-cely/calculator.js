@@ -1,8 +1,8 @@
 let entry = "";
-let Ans = 0;
+let Ans = 0; // Answer Value
 let isAnswered = false;
 
-let buttons = document.querySelectorAll("button");
+let buttonGroup = document.querySelectorAll("button");
 let entryScreen = document.querySelector("p:first-of-type");
 let AnsScreen = document.querySelector("p:last-of-type");
 let clearButton = document.querySelector('[aria-label="Limpiar todo"]');
@@ -30,20 +30,20 @@ let screenChange = () => {
     }
 }
 
-let disableButtons = (isDisable) => {
+let disablebuttonGroup = (isDisable) => {
     if (isDisable) {
         entry = "";
         clearButton.innerHTML = "AC";
         clearButton.setAttribute("aria-label", "Limpiar todo");
-        buttons.forEach(btn => {
-            if (btn.innerHTML !== "AC") {
-                btn.setAttribute("disabled", true);
+        buttonGroup.forEach(button => {
+            if (button.innerHTML !== "AC") {
+                button.setAttribute("disabled", true);
             }
         });
     } else {
-        buttons.forEach(btn => {
-            if (btn.innerHTML !== "AC") {
-                btn.removeAttribute("disabled");
+        buttonGroup.forEach(button => {
+            if (button.innerHTML !== "AC") {
+                button.removeAttribute("disabled");
             }
         });
     }
@@ -53,8 +53,8 @@ let screenToAdd = () => !isAnswered && entry.length > 0;
 
 screenChange();
 
-Array.from(buttons).forEach(btn => {
-    btn.addEventListener("click", (event) => {
+Array.from(buttonGroup).forEach(button => {
+    button.addEventListener("click", (event) => {
         let buttonTxt = event.target.textContent;
         switch (buttonTxt) {
             case '🡐':
@@ -68,7 +68,7 @@ Array.from(buttons).forEach(btn => {
             case 'AC':
                 entry = "";
                 Ans = 0;
-                disableButtons(false);
+                disablebuttonGroup(false);
                 break;
             case 'CE':
                 entry = "";
@@ -97,7 +97,7 @@ Array.from(buttons).forEach(btn => {
                 Ans = Ans.operate(entry);
                 isAnswered = true;
                 if (Ans === 'Error Sintáctico')
-                    disableButtons(true);
+                    disablebuttonGroup(true);
                 else
                     Ans = +Ans.toFixed(12);
                 break;
