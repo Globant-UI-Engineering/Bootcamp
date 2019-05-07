@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form WCAG AA Standard</title>
+</head>
+
+<body>
+    <form action="submit">
+        <label for="name">Full name : </label>
+        <input type="text" required aria-required="true" title="Full name" id="name">
+        <br>
+        <label for="invocator_name">Invocator name : </label>
+        <input id="invocator_name" type="text" name="invocator_name" required aria-required="true"
+            title="Invocator name whitout spaces" pattern="[a-zA-Z][a-zA-Z0-9-_\.]{1,20}" placeholder="fatpromqueen">
+        <br>
+        <label for="rank">Invocator rank : </label>
+        <select id="rank" name="rank">
+            <option value="Iron">Iron</option>
+            <option value="Bronze">Bronze</option>
+            <option value="Silver">Silver</option>
+            <option value="Gold">Gold</option>
+            <option value="Platinum">Platinum</option>
+            <option value="Diamon">Diamon</option>
+            <option value="Master">Master</option>
+            <option value="GrandMaster">GrandMaster</option>
+            <option value="Challenger">Challenger</option>
+
+        </select>
+        <br>
+        <label for="when_start">When did you start to play LoL ? : </label>
+        <input id="when_start" type="date" name="when_start" title="Date ">
+        <br>
+        <label for="hours_at_day">How many time at day do you spend playing lol ? </label>
+        <input id="hours_at_day" type="number" name="hours_at_day" title="Hours at day" min="0">
+        <br>
+        <label for="fav_color">Favorite Color : </label>
+        <input id="fav_color" type="color" name="fav_color" title="Favorite Color">
+        <br>
+        <fieldset>
+            <legend>Sex</legend>
+            <div>
+                <input type="radio" name="sex" id="male">
+                <label for="male">Male</label>
+            </div>
+            <div>
+                <input type="radio" name="sex" id="female">
+                <label for="female">Female</label>
+            </div>
+            <div>
+                <input type="radio" name="sex" id="non_binary">
+                <label for="non_binary">Dude, i'm not binary UwU</label>
+            </div>
+        </fieldset>
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+
+</html>
