@@ -12,13 +12,15 @@ footer {
     margin-right: auto;
     color: black;
     width: 370px;
-    font-family: 'Times New Roman';
+    font-family: "Montserrat", sans-serif;
     background-color: #A4A4A4;
 }
 
 .row-puzzle {
     display: flex;
     flex-direction: row;
+    margin-bottom: 8px;
+    justify-content: space-between;
 }
 
 .frame,
@@ -27,24 +29,69 @@ footer {
     display: table-cell;
     width: 90px;
     height: 90px;
-    border: 1px solid white;
+    border: 1px solid #750A0A;
     cursor: pointer;
     background-color: #9E0F0F;
     color: #EBE40B;
     text-align: center;
     vertical-align: middle;
     line-height: 90px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    background-image: linear-gradient(bottom, rgb(158, 15, 15) 0%, rgb(158, 15, 15) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(158, 15, 15) 0%, rgb(158, 15, 15) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(158, 15, 15) 0%, rgb(158, 15, 15) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(158, 15, 15) 0%, rgb(158, 15, 15) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(158, 15, 15) 0%, rgb(158, 15, 15) 100%);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0px 6px 0px #9E0F0F, 0px 3px 15px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 0px 6px 0px #9E0F0F, 0px 3px 15px rgba(0, 0, 0, .4);
+    box-shadow: 0px 6px 0px #9E0F0F, 0px 3px 15px rgba(0, 0, 0, .4);
 }
 
 .white_frame {
+    font-size: 16px;
+    color: black;
     background: white;
     cursor: default;
+    border: 1px solid rgb(238, 232, 232);
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0px 6px 0px white, 0px 3px 15px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 0px 6px 0px white, 0px 3px 15px rgba(0, 0, 0, .4);
+    box-shadow: 0px 6px 0px white, 0px 3px 15px rgba(0, 0, 0, .4);
+}
+
+.white_frame:focus,
+frame:focus {
+    outline: none;
 }
 
 .button-MixUp {
-    margin-top: 8px;
+    margin-top: 18px;
+    margin-bottom: 10px;
 }
 
 .puzzle {
-    border: 8px solid white;
+    padding: 17px;
+    border: 1px solid rgb(238, 232, 232);
+    background-color: white;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    background-image: linear-gradient(bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(1258, 15, 15) 0%, rgb(255, 255, 255) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(255, 255, 255) 0%, rgb(255, 255, 255)100%);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0px 6px 0px white, 0px 3px 15px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 0px 6px 0px white, 0px 3px 15px rgba(0, 0, 0, .4);
+    box-shadow: 0px 6px 0px white, 0px 3px 15px rgba(0, 0, 0, .4);
 }
