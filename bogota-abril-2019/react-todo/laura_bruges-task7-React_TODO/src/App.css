@@ -1,0 +1,76 @@
+body { 
+  background: linear-gradient(to right, #FAFFD1, #A1FFCE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+h1 {
+  background-color: #2980B9;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+h1 > span {
+  float: right;
+  cursor: pointer;
+}
+
+li > span {
+  background-color: red;
+  margin-right: 20px;
+  width: 0;
+  display: inline-block;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0;
+}
+
+li:hover > span {
+	width: 10%;
+	transition: 0.2s linear;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.container {
+  width: 35%;
+	margin: 100px auto;
+	background-color: #F7F7F7;
+	box-shadow: 0 0 3px rgba(0,0,0, 0.1);
+}
+
+input {
+  background-color: #F7F7F7;
+  width: 100%;
+  padding: 13px 13px 13px 20px;
+  color: #2980B9;
+  border: 3px solid rgba(0,0,0,0);
+  font-size: 1.1em;
+  box-sizing: border-box;
+}
+
+input:focus {
+  background-color: white;
+	border: 2px solid #2980B9;
+	outline: none;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+li {
+	background-color: white;
+	height: 40px;
+	line-height: 40px;
+	color: #666;
+}
+
+li:nth-child(2n) {
+	background-color: #F7F7F7;
+}
