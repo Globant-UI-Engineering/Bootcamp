@@ -34,7 +34,6 @@ let screenChange = () => {
         updateClearButton("CE", "Limpiar entrada");
     else
         updateClearButton("AC", "Limpiar todo");
-
 }
 
 let disablebuttonGroup = (isDisable) => {
