@@ -1,10 +1,18 @@
 const RANDOMIZATION_MOVES = 100;
 const BOARD = document.querySelector("#board");
 const EMPTY_TILE = document.querySelector("#empty-tile");
+
 let TILES = [...document.querySelectorAll("#board div")];
 const VICTORY_TILES = [...TILES];
 
-addListeners(...document.querySelectorAll("#board div.adjacent"));
+let adjacentTiles = ["up", "down", "left", "right"]
+  .map(key => ({
+    key,
+    element: document.querySelector(`#board div.adjacent.${key}`),
+  }))
+  .filter(tile => tile.element);
+
+addListeners();
 const RANDOMIZE_BUTTON = document.querySelector("#randomize-button");
 
 RANDOMIZE_BUTTON.addEventListener("click", async e => {
@@ -13,12 +21,27 @@ RANDOMIZE_BUTTON.addEventListener("click", async e => {
   RANDOMIZE_BUTTON.disabled = false;
 });
 
-function addListeners(...elements) {
-  elements.forEach(el => el.addEventListener("click", onClickTile));
+function addListeners() {
+  adjacentTiles.forEach(tile =>
+    tile.element.addEventListener("click", onClickTile),
+  );
+  document.addEventListener("keydown", onKeyDown);
 }
 
-function removeListeners(...elements) {
-  elements.forEach(el => el.removeEventListener("click", onClickTile));
+function removeListeners() {
+  adjacentTiles.forEach(tile =>
+    tile.element.removeEventListener("click", onClickTile),
+  );
+}
+
+function onKeyDown(e) {
+  const key = e.key.slice(5).toLowerCase();
+  console.log("KEY:", key);
+
+  const tile = adjacentTiles.find(tile => tile.key === key);
+  if (tile) {
+    tile.element.click();
+  }
 }
 
 async function onClickTile(e) {
@@ -42,28 +65,25 @@ function didWin() {
  * @param {number} moves
  */
 async function randomizeBoard(moves) {
-  let adjacent = [...document.querySelectorAll("#board div.adjacent")];
   let lastTile;
   for (let i = 0; i < moves; ++i) {
-    let tile = adjacent[Math.floor(Math.random() * adjacent.length)];
+    let tile = adjacentTiles[Math.floor(Math.random() * adjacentTiles.length)];
     if (tile === lastTile) {
-      tile = adjacent[Math.floor(Math.random() * adjacent.length)];
+      tile = adjacentTiles[Math.floor(Math.random() * adjacentTiles.length)];
     }
-    adjacent = await makeMove(tile);
+    await makeMove(tile.element);
     lastTile = tile;
   }
 }
 
 async function makeMove(tile) {
-  const oldAdjacent = [...document.querySelectorAll("#board div.adjacent")];
-  removeListeners(...oldAdjacent);
-  oldAdjacent.forEach(tile =>
-    tile.classList.remove("down", "up", "left", "right", "adjacent"),
+  removeListeners();
+  adjacentTiles.forEach(tile =>
+    tile.element.classList.remove("down", "up", "left", "right", "adjacent"),
   );
 
-  const newAdjacent = calculateNewAdjacent(await swap(tile));
-  addListeners(...newAdjacent);
-  return newAdjacent;
+  adjacentTiles = calculateNewAdjacent(await swap(tile));
+  addListeners();
 }
 
 /**
@@ -105,21 +125,19 @@ async function swap(tile) {
 }
 
 function calculateNewAdjacent(emptyTileInd) {
-  const upInd = emptyTileInd - 4;
+  const upInd = emptyTileInd + 4;
   const upTile = TILES[upInd];
 
-  const downInd = emptyTileInd + 4;
+  const downInd = emptyTileInd - 4;
   const downTile = TILES[downInd];
 
-  const leftInd = emptyTileInd - 1;
+  const leftInd = emptyTileInd + 1;
   const leftTile =
-    leftInd >= Math.floor(emptyTileInd / 4) * 4 ? TILES[leftInd] : undefined;
+    leftInd < Math.floor(emptyTileInd / 4 + 1) * 4 ? TILES[leftInd] : undefined;
 
-  const rightInd = emptyTileInd + 1;
+  const rightInd = emptyTileInd - 1;
   const rightTile =
-    rightInd < Math.floor(emptyTileInd / 4 + 1) * 4
-      ? TILES[rightInd]
-      : undefined;
+    rightInd >= Math.floor(emptyTileInd / 4) * 4 ? TILES[rightInd] : undefined;
 
   if (upTile) {
     upTile.classList.add("adjacent");
@@ -138,7 +156,12 @@ function calculateNewAdjacent(emptyTileInd) {
     rightTile.classList.add("right");
   }
 
-  return [upTile, downTile, leftTile, rightTile].filter(tile => !!tile);
+  return [
+    { key: "up", element: upTile },
+    { key: "down", element: downTile },
+    { key: "left", element: leftTile },
+    { key: "right", element: rightTile },
+  ].filter(tile => tile.element);
 }
 
 function translateTowards(element, dstElement) {
