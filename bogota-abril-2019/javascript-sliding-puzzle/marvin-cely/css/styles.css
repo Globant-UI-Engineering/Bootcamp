@@ -1,7 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: azure;
-    background: #212f3d;
+    background: #154360;
 }
 
 .visuallyhidden {
@@ -13,4 +13,36 @@ body {
     padding: 0;
     position: absolute;
     width: 1px;
+}
+
+header h1 {
+    font-size: 64px;
+    text-align: center;
+    margin: 20px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main>section:first-of-type {
+    display: inline-block;
+    border-top: 15px solid #17A589;
+    border-left: 15px solid #17A589;
+    border-right: 15px solid #0B5345;
+    border-bottom: 15px solid #0B5345;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px #212F3C;
+}
+
+button {
+    padding: 0px;
+    transition-duration: 5s;
+}
+
+img {
+    width: 150px;
+    height: 150px;
 }
