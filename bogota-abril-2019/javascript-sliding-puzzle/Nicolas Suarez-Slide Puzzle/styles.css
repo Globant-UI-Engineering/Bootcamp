@@ -1,0 +1,53 @@
+body{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.rand{
+    background-color: rgb(0, 155, 216);
+    color: white;
+    border-style: none;
+    border-radius: 5%;
+    height: 40px;
+    width: 100px;
+}
+
+.slidePuzzle{
+    margin-top: 50px;
+    background-color: white;
+    height: 400px;
+    width: 400px;
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
+}
+
+.buttons{
+    display:flex;
+    justify-content: center;    
+    
+}
+
+.buttons button{
+    height: 100px;
+    width: 100px;
+    border-style: none;
+    border-width: 0.5px;
+    border-color: gray;
+
+}
+
+.winner{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-310px);     
+    background-color: white;
+    height: 200px;
+    width: 300px;
+    border-style: solid;
+    border-width: 3px;    
+}
