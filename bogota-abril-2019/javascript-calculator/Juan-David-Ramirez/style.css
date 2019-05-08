@@ -1,16 +1,17 @@
 body{
-	background-color: black;
+	background-color: #228B22;
 }
 
 article{
 }
 
 .container{
-    background-color: yellow;
+    background-color: #383838;
     margin: 0 auto;
     width: 300px;
-    height: 500px;
-	border: 3px solid white;
+	height: 500px;
+	border-radius: 15px;
+	border: 3px solid #181818;
 }
 
 h1, footer{
@@ -26,17 +27,34 @@ button{
 	border-radius: 50%;
 	border: 0;
 	font-size: 12pt;
+	font-weight: bold;
 	cursor: pointer
 }
 
-button:hover{
-	background-color: red;
+#number0{
+	width: 115px;
+	border-radius: 3px;
 }
 
-button:active{
-	border: 3px solid black;
-	font-size: 12pt;
+.operation:hover{
+	background-color: rgba(255, 166, 0, 0.493);
 }
+
+.operation:active{
+	background-color: rgba(255, 166, 0, 0.493);
+}
+
+.number:hover{
+	background-color: #C0C0C0;
+}
+
+.number:active{
+	background-color: #C0C0C0;
+}
+
+button:active {
+	transform: translateY(4px);
+  }
 
 button:focus{
 	outline:none;
@@ -48,16 +66,22 @@ button:focus{
 }
 
 .container div:first-child  {
-	border: 2px solid black;
+	border: 1px solid #202020;
 	height: 110px;
+	margin: 15px;
+	background-color: white;
+	border-radius: 7px;
 }
 
 
 .operation{
+	background-color: #FFA500;
+}
+
+.number{
 	background-color: white;
 }
 
-.number{}
 
 
 
