@@ -36,7 +36,6 @@ function removeListeners() {
 
 function onKeyDown(e) {
   const key = e.key.slice(5).toLowerCase();
-  console.log("KEY:", key);
 
   const tile = adjacentTiles.find(tile => tile.key === key);
   if (tile) {
