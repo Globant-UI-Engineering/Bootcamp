@@ -41,7 +41,6 @@ table button {
     position: relative;
     width: 100%;
     height: 100%;
-    background: red;
 }
 
 img {
@@ -49,7 +48,7 @@ img {
     height: 150px;
 }
 
-hr~button {
+hr+button {
     padding: 15px 25px;
     font-size: 24px;
     text-align: center;
