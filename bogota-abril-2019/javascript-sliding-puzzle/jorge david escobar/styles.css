@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.blockLine1, .blockLine2, .blockLine3, .blockLine4{
+    display: inline-block;
+}
+
+.box{
+    height: 100px;
+    width: 100px;
+    margin-right: -4px;
+    line-height: 100px;
+    border: solid 1px;
+    text-align: center;
+    font-size: 40px;
+    background-color: yellow;
+    cursor: pointer;
+}
+
+.nonbox{
+    background-color: grey;
+}

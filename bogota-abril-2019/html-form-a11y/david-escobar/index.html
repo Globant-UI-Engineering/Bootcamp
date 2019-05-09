@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <label for="name">Name</label><br>
+            <input type="text" id="name" aria-describedby="name-hint" required>
+            <p id="name-hint"> the name must contain at least 4 charactres</p>
+        </div>
+        <br>
+        <div>
+            <label for="surname">Surname</label><br>
+            <input type="text" id="surname" aria-describedby="surname-hint">
+            <p id="surname-hint">the surname must contain at least 4 charactres</p>
+        </div>
+        <br>
+        <div>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" aria-describedby="email-hint" required>
+            <p id="email-hint">enter a valid email</p>
+        </div>
+        <br>
+        <div>
+            <label for="date">Date</label><br>
+            <input type="date" id="date" aria-describedby="date-hint" required>
+            <p id="date-hint">enter the current date in the format: day, month, year</p>
+        </div>
+        <br>
+        <div>
+            <label for="location">Location</label><br>
+            <select id="location" aria-describedby="location-hint">
+                <option id="us" aria-describedby="us-hint">US</option>
+                <option id="uk" aria-describedby="uk-hint">UK</option>
+                <option id="germany" aria-describedby="germany-hint">Germany</option>
+                <option id="chile" aria-describedby="chile-hint">Chile</option>
+                <option id="japan" aria-describedby="japan-hint">Japan</option>
+            </select>
+            <p hidden id="us-hint">United Estates</p>
+            <p hidden id="uk-hint">United Kingdom</p>
+            <p hidden id="germany-hint">Germany</p>
+            <p hidden id="chile-hint">Chile</p>
+            <p hidden id="japan-hint">Japan</p>
+            <p id="location-hint">select your location in this list</p>
+        </div>
+        <br>
+        <div>
+            <label for="check">Customer agreement</label><br>
+            <input type="checkbox" id="check" aria-describedby="check-hint" required>
+            <p id="check-hint">check this box to indicate you accept terms and conditions</p>
+        </div>
+
+        <button type="button">Submit</button>
+    </form>
+
+</body>
+
+</html>
