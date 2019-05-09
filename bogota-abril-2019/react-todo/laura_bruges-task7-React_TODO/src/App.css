@@ -15,9 +15,7 @@ h1 > span {
   cursor: pointer;
 }
 
-li > span {
-  background-color: red;
-  margin-right: 20px;
+.option {
   width: 0;
   display: inline-block;
   color: white;
@@ -26,7 +24,32 @@ li > span {
   opacity: 0;
 }
 
-li:hover > span {
+.delete {
+  background-color: red;
+}
+
+.status {
+  background-color: rgb(91, 168, 219);
+}
+
+.taskTitle {
+  margin-left: 20px;
+}
+
+.editable {
+  background-color: blanchedalmond;
+}
+
+li > input {
+  border: none;
+  font-size: 1em;
+  color: #666;
+  background-color: inherit;
+  width: 70%;
+  height: 90%;
+}
+
+li:hover > .option {
 	width: 10%;
 	transition: 0.2s linear;
   opacity: 1;
@@ -40,7 +63,7 @@ li:hover > span {
 	box-shadow: 0 0 3px rgba(0,0,0, 0.1);
 }
 
-input {
+.addTodo {
   background-color: #F7F7F7;
   width: 100%;
   padding: 13px 13px 13px 20px;
@@ -50,7 +73,7 @@ input {
   box-sizing: border-box;
 }
 
-input:focus {
+.addTodo:focus {
   background-color: white;
 	border: 2px solid #2980B9;
 	outline: none;
@@ -62,7 +85,12 @@ ul {
 	padding: 0;
 }
 
-
+span {
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
 
 li {
 	background-color: white;
@@ -73,4 +101,17 @@ li {
 
 li:nth-child(2n) {
 	background-color: #F7F7F7;
+}
+
+li.editable:nth-child(2n) {
+	background-color: blanchedalmond;
+}
+
+.hidden {
+  display: none;
+}
+
+.completed {
+	color: gray;
+	text-decoration: line-through;
 }
