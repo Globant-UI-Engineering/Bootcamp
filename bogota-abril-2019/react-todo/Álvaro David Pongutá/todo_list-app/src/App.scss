@@ -1,0 +1,207 @@
+.App {
+  display: flex;
+  justify-content: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 6vmin;
+  pointer-events: none;
+  align-self: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 6vh;
+  max-height: 7vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-content: stretch;
+
+  h1{
+    margin: 0; 
+    font-size: calc(17px + 2vmin);
+  }
+
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App-body {
+  background-color: #D8D8D8;
+}
+
+.App-button {
+  display: inline-block;
+  border: 0.1em solid #282c34;
+  border-radius: 0.12em;
+  padding: 0.35em 1.2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: calc(7px + 1vmin);
+  font-weight: 300;
+  color: #282c34;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: white;
+  margin-right: 1.5%;
+
+  &:hover{
+    color: white;
+    background-color: #282c34;
+  }
+  &:focus{
+    outline: none;
+  }
+  @media all and (max-width: 30em){
+    display: block;
+    margin: 0.4em auto;
+  }
+}
+
+.App-button-icon{
+  padding: 0.2em 0.4em;
+}
+
+.App-footer {
+  margin-top: 12px;
+  font-size: calc(9px + 1vmin);
+  color: #282c34;
+  text-decoration: underline;
+  position: absolute;
+  bottom: 20px;
+  vertical-align: middle;
+}
+
+.App-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10%;
+  margin-top: 3vh;
+  max-width: 80%;
+  border: 0.1em solid #E6E6E6;
+  background-color: white;
+  flex-direction: column;
+
+  .App-row-elements{
+    margin: 12px 0px 12px 18px;
+
+    h2{
+      max-width: 77vw;
+      border-bottom: 0.1em solid black;
+    }
+
+    input {
+      margin-right: 12px;
+      padding: 0.35em 1.2em;
+
+      &:active, &:focus{
+        outline-color: #282c34;
+      }
+    }
+  }
+
+  .App-container_firstRow{
+    width: 100%;
+    border-bottom: 0.1em solid #E6E6E6;
+  }
+}
+
+.App-task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 77vw;
+  margin-bottom: 12px;
+}
+
+.App-container-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 12px;
+  max-width: 65vw;
+
+  input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  &:hover input ~ .App-checkmark{
+    background-color: #ccc;
+  }
+
+  input:checked ~ .App-checkmark {
+    background-color: #282c34;
+  }
+
+  input:checked ~ .App-checkmark:after{
+    display: block;
+  }
+
+  .App-checkmark:after{
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+}
+
+.App-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  margin-top: 6px;
+
+  &:after{
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+}
+
+.App-hideButton{
+  background-color: white;
+  border-color: black;
+  &:focus{
+    outline: none;
+  }
+}
+
+.App-task-checked{
+  background-color: #F2F2F2;
+  border-radius: 10px;
+}
