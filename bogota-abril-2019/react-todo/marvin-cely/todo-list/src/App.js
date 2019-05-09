@@ -1,27 +1,28 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
+import { todos } from "./todo.json";
 
-class App extends React.Component {   
+class App extends Component {   
   constructor (props) {
     super(props);    
     this.state = {
-      clicked: false,
-      inputValue: ''
-    }    
+      todos
+    }
+    // Crear métodos del componente y darles el scope del this con el .bind(this)
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
   
   render () {
     return (
-      <React.Fragment>
+      <Fragment>
         <input type="text" onChange={this.handleInputChange} value={this.state.inputValue} />
         <br />
         <br />
         <button onClick={this.handleClick} >
           Hello :D
         </button>
-      </React.Fragment>
+      </Fragment>
     )
   }
         
