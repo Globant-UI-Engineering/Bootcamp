@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
+//import { BrowserRouter, Route, Link } from "react-router-dom";
 
 class Header extends React.Component {
     render () {
@@ -59,6 +60,7 @@ class Container_ToDo extends React.Component {
     render () {
         return (
             <section className="App-container">
+                
                 <article className="App-container_firstRow">
                     <div className="App-row-elements">
                         <input type="text" onChange={ this.handleInputChange }/>
@@ -82,14 +84,21 @@ class Container_ToDo extends React.Component {
     }
       
     handleAddTask (event) {
-        if(this.state.inputTaskInfo.length > 0 && !this.state.inputTaskInfo.startsWith(' ')){
-            let auxiliarTaskList = this.state.generalTaskList;
-            let inputValue= this.state.inputTaskInfo;
-            auxiliarTaskList.push(inputValue);
-            
-            this.setState({
-                generalTaskList: auxiliarTaskList
-            })
+        let flagAlreadyNamed= false;
+        this.state.generalTaskList.forEach(task => {
+            if(task === this.state.inputTaskInfo)
+                flagAlreadyNamed = true;
+        });
+        if(!flagAlreadyNamed){
+            if(this.state.inputTaskInfo.length > 0 && !this.state.inputTaskInfo.startsWith(' ')){
+                let auxiliarTaskList = this.state.generalTaskList;
+                let inputValue= this.state.inputTaskInfo;
+                auxiliarTaskList.push(inputValue);
+                
+                this.setState({
+                    generalTaskList: auxiliarTaskList
+                })
+            }
         }
     }
 
@@ -152,72 +161,39 @@ class Task extends React.Component {
 
     handleCheck(event) {
         this.setState({
-            checked: !this.state.checked,
-        });
+            checked: !this.state.checked
+          });
     }
 
     
     handleDeleteTask (event) {
+        if(this.state.checked){
+            this.handleCheck();
+        }
         this.props.onDeleteTask(this.props.taskInfo);
     }
 
     render () {
 
         let checkedCss;
-
-        if(this.state.checked){
-            checkedCss= 'App-task App-task-checked';
-        } else {
-            checkedCss= 'App-task';
-        }
-
-        return (
-            <div className={checkedCss}>
-                <Checkmark onChecked={this.handleCheck} taskInfo={this.props.taskInfo}/>
-                <ButtonIcon iconHTML={<i className='tiny material-icons' onClick={this.handleDeleteTask} >delete</i>}/>
-            </div>
-        );
-    }
-
-}
-
-class Checkmark extends React.Component {
-    
-
-    constructor (props) {
-        super(props);
-        
-        this.state = {
-          checked: false
-        }
-        
-        this.handleCheck = this.handleCheck.bind(this);
-    }
-
-    handleCheck(event) {
-        this.setState({
-            checked: !this.state.checked
-          }, function (){
-            this.props.onChecked();
-          });
-    }
-    
-
-    render () {
-
         let checkedString;
 
         if(this.state.checked){
+            checkedCss= 'App-task App-task-checked';
             checkedString= 'checked';
         } else {
+            checkedCss= 'App-task';
             checkedString= '';
         }
 
         return (
-            <label className="App-container-checkbox">{this.props.taskInfo}
-                <input type="checkbox" checked= {checkedString} onChange={this.handleCheck} />
-                <span className="App-checkmark"></span>
-            </label>
+            <div className={checkedCss}>
+                <label className="App-container-checkbox">{this.props.taskInfo}
+                    <input type="checkbox" checked= {checkedString} onChange={this.handleCheck} />
+                    <span className="App-checkmark"></span>
+                </label>
+                <ButtonIcon iconHTML={<i className='tiny material-icons' onClick={this.handleDeleteTask} >delete</i>}/>
+            </div>
         );
     }
 
