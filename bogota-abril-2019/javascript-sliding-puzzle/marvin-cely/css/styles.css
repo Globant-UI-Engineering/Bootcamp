@@ -18,7 +18,9 @@ body {
 header h1 {
     font-size: 64px;
     text-align: center;
-    margin: 20px;
+    padding: 20px;
+    background: #0B5345;
+    margin-bottom: 20px;
 }
 
 main {
@@ -28,6 +30,7 @@ main {
 }
 
 main>section:first-of-type {
+    background: rgb(7, 54, 45);
     display: inline-block;
     border-top: 15px solid #17A589;
     border-left: 15px solid #17A589;
@@ -39,13 +42,48 @@ main>section:first-of-type {
 
 table button {
     position: relative;
-    width: 100%;
-    height: 100%;
+    display: block;
+    padding: 0;
+    width: 103px;
+    height: 103px;
+    border: 2px solid #1B2631;
+    cursor: pointer;
+}
+
+figure>img {
+    display: block;
+    width: 412px;
+    height: 412px;
 }
 
 img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
+}
+
+section:last-of-type {
+    margin: 30px;
+    padding: 30px;
+    border-top: 5px solid #607D8B;
+    border-left: 5px solid #607D8B;
+    border-bottom: 5px solid #1C2833;
+    border-right: 5px solid #1C2833;
+    background: #2E4053;
+}
+
+h4 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h4+p {
+    font-size: 24px;
+    text-align: center;
+}
+
+hr {
+    border: 1px solid #607D8B;
 }
 
 hr+button {
@@ -54,19 +92,38 @@ hr+button {
     text-align: center;
     cursor: pointer;
     outline: none;
-    color: #fff;
-    background-color: #4CAF50;
+    color: azure;
+    background-color: #28B463;
     border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
+    border-radius: 25px;
+    box-shadow: 0 9px #607D8B;
+    width: 130px;
+    height: 60px;
 }
 
 hr~button:hover {
-    background-color: #3e8e41
+    background-color: #1D8348
 }
 
 hr~button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+    background-color: #1D8348;
+    box-shadow: 0 5px #212F3C;
+    transform: translateY(8px);
+}
+
+footer {
+    margin-top: 20px;
+    padding: 20px;
+    background: #1B2631;
+    text-align: end;
+}
+
+footer h1 {
+    font-size: 18px;
+    font-style: oblique;
+    color: azure;
+}
+
+a {
+    color: azure;
 }

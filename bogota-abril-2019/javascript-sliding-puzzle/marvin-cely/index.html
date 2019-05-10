@@ -11,114 +11,120 @@
 </head>
 
 <body>
-    <header>
+    <header role="banner" aria-label="Juego Sliding Puzzle">
         <h1>Sliding Puzzle</h1>
     </header>
     <main>
-        <section>
+        <section aria-describedby="tablero-descripcion">
             <table>
                 <tr>
                     <td>
                         <button aria-label="ficha 1">
-                            <img src="img/aurora_0_0.png" alt="Imagen 1">
+                            <img src="img/cosmos_0_0.png" alt="Imagen 1">
                         </button>
                     </td>
                     <td>
                         <button aria-label="ficha 2">
-                            <img src="img/aurora_0_1.png" alt="Imagen 2">
+                            <img src="img/cosmos_0_1.png" alt="Imagen 2">
                         </button>
                     </td>
                     <td>
                         <button aria-label="ficha 3">
-                            <img src="img/aurora_0_2.png" alt="Imagen 3">
+                            <img src="img/cosmos_0_2.png" alt="Imagen 3">
                         </button>
                     </td>
                     <td>
                         <button aria-label="ficha 4">
-                            <img src="img/aurora_0_3.png" alt="Imagen 4">
+                            <img src="img/cosmos_0_3.png" alt="Imagen 4">
                         </button>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <button aria-label="ficha 5">
-                            <img src="img/aurora_1_0.png" alt="Imagen 1">
+                            <img src="img/cosmos_1_0.png" alt="Imagen 1">
                         </button>
                     </td>
                     <td>
                         <button aria-label="ficha 6">
-                            <img src="img/aurora_1_1.png" alt="Imagen 2">
+                            <img src="img/cosmos_1_1.png" alt="Imagen 2">
                         </button>
                     </td>
                     <td>
                         <button aria-label="ficha 7">
-                            <img src="img/aurora_1_2.png" alt="Imagen 3">
+                            <img src="img/cosmos_1_2.png" alt="Imagen 3">
                         </button>
                     </td>
                     <td>
                         <button aria-label="ficha 8">
-                            <img src="img/aurora_1_3.png" alt="Imagen 4">
+                            <img src="img/cosmos_1_3.png" alt="Imagen 4">
                         </button>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <button aria-label="ficha 9">
-                            <img src="img/aurora_2_0.png" alt="Imagen 1">
+                            <img src="img/cosmos_2_0.png" alt="Imagen 1">
                         </button>
                     </td>
                     <td>
                         <button aria-label="ficha 10">
-                            <img src="img/aurora_2_1.png" alt="Imagen 2">
+                            <img src="img/cosmos_2_1.png" alt="Imagen 2">
                         </button>
                     </td>
                     <td>
                         <button aria-label="ficha 11">
-                            <img src="img/aurora_2_2.png" alt="Imagen 3">
+                            <img src="img/cosmos_2_2.png" alt="Imagen 3">
                         </button>
                     </td>
                     <td>
                         <button aria-label="ficha 12">
-                            <img src="img/aurora_2_3.png" alt="Imagen 4">
+                            <img src="img/cosmos_2_3.png" alt="Imagen 4">
                         </button>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <button aria-label="ficha 13">
-                            <img src="img/aurora_3_0.png" alt="Imagen 1">
+                            <img src="img/cosmos_3_0.png" alt="Imagen 1">
                         </button>
                     </td>
                     <td>
                         <button aria-label="ficha 14">
-                            <img src="img/aurora_3_1.png" alt="Imagen 2">
+                            <img src="img/cosmos_3_1.png" alt="Imagen 2">
                         </button>
                     </td>
                     <td>
                         <button aria-label="ficha 15">
-                            <img src="img/aurora_3_2.png" alt="Imagen 3">
+                            <img src="img/cosmos_3_2.png" alt="Imagen 3">
                         </button>
                     </td>
-                    <td aria-label="Espacio vacío">
+                    <td>
+                        <span class="visuallyhidden" aria-label="Sin ficha">Espacio Vacío</span>
                     </td>
                 </tr>
             </table>
+            <figure>
+                <img src="img/cosmos.png" alt="Imagen de una cosmos">
+            </figure>
         </section>
-        <section>
+        <span id="tablero-descripcion" class="visuallyhidden">Area de juego del rompecabezas</span>
+        <section aria-describedby="puntaje-descripcion">
             <h4>Movements</h4>
-            <p>1</p>
+            <p aria-label="Movimientos"></p>
             <hr>
-            <h4>Time</h4>
-            <time>10:00</time>
+            <h4>Score</h4>
+            <p aria-label="Puntaje"></p>
             <hr>
-            <button>Start</button>
+            <button aria-label="Empezar a jugar">Start</button>
         </section>
+        <span id="puntaje-descripcion" class="visuallyhidden">Tablero de puntos y de movimientos</span>
     </main>
     <footer>
         <h1>
             Design by Marvin Cely
         </h1>
-        <p>Photo by Samir Belhamra @Grafixart_photo from Pexels</p>
+        <a href="https://www.pexels.com/photo/time-lapse-photography-of-mountain-934964/" target="_blank">Photo by James Wheeler from Pexels</a>
     </footer>
     <script type='text/javascript' src='js/sliding-puzzle.js'></script>
 </body>
