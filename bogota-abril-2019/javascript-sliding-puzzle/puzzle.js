@@ -81,7 +81,6 @@ function moveElement(row, column) {
     var { rowDistance, columnDistance } = this.getDistanceCell(selectedCell, emptyCell);
 
     if ((rowDistance == 1 && columnDistance == 0) || (rowDistance == 0 && columnDistance == 1)) {
-        debugger
         let value = selectedCell.value;
         let imageStyle = 'cell' + value;
         selectedCell.setValue(' ');

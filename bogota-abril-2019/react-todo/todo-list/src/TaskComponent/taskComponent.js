@@ -8,8 +8,7 @@ import { deleteTask } from '../Actions/taskActions';
 class TaskComponent extends Component {
 
     deleteTask = () => {
-        debugger
-        this.props.deleteTask(this.props.children);
+        this.props.deleteTask(this.props.children,this.props.id);
     }
 
     constructor(props) {

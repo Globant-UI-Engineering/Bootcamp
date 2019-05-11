@@ -40,7 +40,7 @@ class FormComponent extends Component {
             this.setState({
                 inputValue: ''
             })
-            this.props.addTask(this.state.inputValue);
+            this.props.addTask(this.state.inputValue,this.props.id);
         })
     }
 

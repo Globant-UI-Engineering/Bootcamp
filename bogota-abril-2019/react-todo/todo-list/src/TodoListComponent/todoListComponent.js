@@ -1,4 +1,4 @@
-import React, { } from 'react'
+import React, { Component } from 'react'
 import './todoListComponent.css'
 import TaskComponent from '../TaskComponent/taskComponent.js';
 import FormComponent from '../FormComponent/formComponent.js';
@@ -6,21 +6,29 @@ import FormComponent from '../FormComponent/formComponent.js';
 import { connect } from 'react-redux';
 import { listTasks } from '../Actions/taskActions';
 
-function TodoList(props) {
-    props.listTasks(props.id);
-    const tasks = props.tasks;
-    return (
-        <div className="listado">
-            <FormComponent />
-            <ul>
-                {tasks.map((task,index) => {
-                    return <li key={index}>
-                        <TaskComponent>{task}</TaskComponent>
-                    </li>
-                })}
-            </ul>
-        </div>
-    )
+class TodoList extends Component {
+
+    constructor(props) {
+        super(props);
+        props.listTasks(props.id);
+    }
+
+    render() {
+        const tasks = this.props.tasks;
+
+        return (
+            <div className="listado">
+                <FormComponent id={this.props.id} />
+                <ul>
+                    {tasks.map((task, index) => {
+                        return <li key={index}>
+                            <TaskComponent id={this.props.id}>{task}</TaskComponent>
+                        </li>
+                    })}
+                </ul>
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = state => ({
