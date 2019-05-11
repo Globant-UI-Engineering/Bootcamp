@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import './todoListComponent.css'
-import TaskComponent from '../TaskComponent/taskComponent.js';
-import FormComponent from '../FormComponent/formComponent.js';
+import TaskComponent from '../taskComponent/taskComponent.js';
+import FormComponent from '../formComponent/formComponent.js'; 
 
 import { connect } from 'react-redux';
-import { listTasks } from '../Actions/taskActions';
-
+import { getTasks } from '../actions/taskActions';
+ 
 class TodoList extends Component {
 
     constructor(props) {
         super(props);
-        props.listTasks(props.id);
+        props.getTasks(props.id);
     }
 
     render() {
         const tasks = this.props.tasks;
 
-        return (
+        return ( 
             <div className="listado">
                 <FormComponent id={this.props.id} />
                 <ul>
@@ -35,4 +35,4 @@ const mapStateToProps = state => ({
     tasks: state.tasks.tasks
 })
 
-export default connect(mapStateToProps, { listTasks })(TodoList);
+export default connect(mapStateToProps, { getTasks })(TodoList);

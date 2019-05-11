@@ -1,6 +1,6 @@
 import React from 'react';
 import './app.css';
-import TodoList from './TodoListComponent/todoListComponent.js';
+import TodoList from './todoListComponent/todoListComponent.js';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Provider } from 'react-redux';
 import store from './store';
@@ -11,7 +11,7 @@ function App() {
     return (
       <article>
         <h1>To do</h1>
-        <TodoList id="1" />
+        <TodoList id="toDoList" />
       </article>
     )
   }
@@ -20,7 +20,7 @@ function App() {
     return (
       <article>
         <h1>In Progress</h1>
-        <TodoList id="2" />
+        <TodoList id="inProgressList" />
       </article>
     )
   }
@@ -29,7 +29,7 @@ function App() {
     return (
       <article>
         <h1>Done</h1>
-        <TodoList id="3" />
+        <TodoList id="doneList" />
       </article>
     )
   }

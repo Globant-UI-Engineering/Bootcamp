@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './formComponent.css'
 
 import { connect } from 'react-redux';
-import { addTask } from '../Actions/taskActions';
+import { createTask } from '../actions/taskActions';
 
 class FormComponent extends Component {
 
@@ -40,7 +40,7 @@ class FormComponent extends Component {
             this.setState({
                 inputValue: ''
             })
-            this.props.addTask(this.state.inputValue,this.props.id);
+            this.props.createTask(this.state.inputValue,this.props.id);
         })
     }
 
@@ -50,4 +50,4 @@ const mapStateToProps = state => ({
     tasks: state.tasks.tasks
 })
 
-export default connect(mapStateToProps, { addTask })(FormComponent);
+export default connect(mapStateToProps, { createTask })(FormComponent);

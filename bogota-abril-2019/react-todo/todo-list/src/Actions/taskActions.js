@@ -1,15 +1,15 @@
-import { LIST_TASKS, ADD_TASK, DELETE_TASK } from './types';
+import { GET_TASKS, CREATE_TASK, DELETE_TASK } from './types';
 
-export const listTasks = (id) => {
+export const getTasks = (id) => {
     return {
-        type: LIST_TASKS,
+        type: GET_TASKS,
         payload:id
     }
 }
 
-export const addTask = (task,id) => {
+export const createTask = (task,id) => {
     return {
-        type: ADD_TASK,
+        type: CREATE_TASK,
         payload: task,
         id:id
     }

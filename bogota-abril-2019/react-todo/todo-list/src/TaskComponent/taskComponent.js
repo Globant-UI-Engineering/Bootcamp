@@ -3,7 +3,7 @@ import './taskComponent.css'
 
 
 import { connect } from 'react-redux';
-import { deleteTask } from '../Actions/taskActions';
+import { deleteTask } from '../actions/taskActions';
 
 class TaskComponent extends Component {
 

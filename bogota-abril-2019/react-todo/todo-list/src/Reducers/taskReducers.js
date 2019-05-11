@@ -1,9 +1,9 @@
-import { LIST_TASKS, ADD_TASK, DELETE_TASK } from '../Actions/types';
+import { GET_TASKS, CREATE_TASK, DELETE_TASK } from '../actions/types';
 
 
-const toDo = [
+const initialState = [
     {
-        id: "1",
+        id: "toDoList",
         tasks: ['1 task to do',
             '2 task to do',
             '3 task to do',
@@ -12,7 +12,7 @@ const toDo = [
         ]
     },
     {
-        id: "2",
+        id: "inProgressList",
         tasks: [
             '1 in progress',
             '2 in progress',
@@ -22,7 +22,7 @@ const toDo = [
         ]
     },
     {
-        id: "3",
+        id: "doneList",
         tasks: [
             '1 done',
             '2 done',
@@ -34,19 +34,19 @@ const toDo = [
 ]
 
 const getList = (id) => {
-    var taskList = toDo.filter(tasks => (tasks.id === id));
+    var taskList = initialState.filter(tasks => (tasks.id === id));
     return taskList[0];
 }
 
-export default function (state = getList("1"), action) {
+export default function (state = getList("toDoList"), action) {
 
     switch (action.type) {
-        case LIST_TASKS:
+        case GET_TASKS:
             state = getList(action.payload);
             return {
                 ...state
             }
-        case ADD_TASK:
+        case CREATE_TASK:
             state = getList(action.id);
             state.tasks.push(action.payload)
             return {
