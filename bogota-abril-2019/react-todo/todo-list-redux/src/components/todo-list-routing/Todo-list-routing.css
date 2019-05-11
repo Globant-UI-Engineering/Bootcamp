@@ -25,3 +25,16 @@
  }
 
 
+ .content article{
+  text-align: left;
+  width: 450px;
+}
+
+li:hover{
+  background-color: #89c9f2;
+  color: #d8408d;
+}
+
+.checked{
+  text-decoration: line-through;
+}
