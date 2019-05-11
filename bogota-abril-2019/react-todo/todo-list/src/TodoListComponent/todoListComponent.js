@@ -3,18 +3,28 @@ import './todoListComponent.css'
 import TaskComponent from '../TaskComponent/taskComponent.js';
 import FormComponent from '../FormComponent/formComponent.js';
 
+import { connect } from 'react-redux';
+import { listTasks } from '../Actions/taskActions';
+
 function TodoList(props) {
-    const tasks = Array.from(props.tasks);
+    props.listTasks();
+    const tasks = props.tasks;
     return (
         <div className="listado">
-            <FormComponent/>
+            <FormComponent />
             <ul>
-                {tasks.map(task => {
-                    return <li><TaskComponent>{task}</TaskComponent></li>
+                {tasks.map((task,index) => {
+                    return <li key={index}>
+                        <TaskComponent>{task}</TaskComponent>
+                    </li>
                 })}
             </ul>
         </div>
     )
 }
 
-export default TodoList
+const mapStateToProps = state => ({
+    tasks: state.tasks.tasks
+})
+
+export default connect(mapStateToProps, { listTasks })(TodoList);

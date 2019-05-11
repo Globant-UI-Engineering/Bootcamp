@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import './formComponent.css'
 
+import { connect } from 'react-redux';
+import { addTask } from '../Actions/taskActions';
+
 class FormComponent extends Component {
 
     constructor(props) {
@@ -33,9 +36,15 @@ class FormComponent extends Component {
     handleClick(event) {
         this.setState({
             clicked: !this.state.clicked
+        },function() {
+            this.props.addTask(this.state.inputValue);
         })
     }
 
 }
 
-export default FormComponent
+const mapStateToProps= state=>({
+    tasks: state.tasks.tasks
+})
+
+export default connect(mapStateToProps, {addTask}) (FormComponent);

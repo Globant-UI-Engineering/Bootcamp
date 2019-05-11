@@ -18,6 +18,7 @@ class TaskComponent extends Component {
             <div className="container">
                 <input type="checkbox" value={this.state.checked} onChange={this.stateCheckEvent}></input>
                 <p className={this.state.checked ? 'checkedStyle' : ''}>{this.props.children}</p>
+                <button>X</button>
             </div>
         )
     }
