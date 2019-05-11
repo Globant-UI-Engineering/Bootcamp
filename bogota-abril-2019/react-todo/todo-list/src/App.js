@@ -11,7 +11,7 @@ function App() {
     return (
       <article>
         <h1>To do</h1>
-        <TodoList/>
+        <TodoList id="1" />
       </article>
     )
   }
@@ -20,7 +20,7 @@ function App() {
     return (
       <article>
         <h1>In Progress</h1>
-        <TodoList />
+        <TodoList id="2" />
       </article>
     )
   }
@@ -29,7 +29,7 @@ function App() {
     return (
       <article>
         <h1>Done</h1>
-        <TodoList />
+        <TodoList id="3" />
       </article>
     )
   }

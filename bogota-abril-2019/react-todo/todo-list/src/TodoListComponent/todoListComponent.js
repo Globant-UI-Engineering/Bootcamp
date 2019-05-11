@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { listTasks } from '../Actions/taskActions';
 
 function TodoList(props) {
-    props.listTasks();
+    props.listTasks(props.id);
     const tasks = props.tasks;
     return (
         <div className="listado">

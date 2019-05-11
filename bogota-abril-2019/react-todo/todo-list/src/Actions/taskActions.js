@@ -1,8 +1,9 @@
 import { LIST_TASKS, ADD_TASK, DELETE_TASK } from './types';
 
-export const listTasks = () => {
+export const listTasks = (task) => {
     return {
-        type: LIST_TASKS
+        type: LIST_TASKS,
+        payload:task
     }
 }
 
