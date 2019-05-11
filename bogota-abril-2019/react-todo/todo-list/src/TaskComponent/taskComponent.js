@@ -1,7 +1,16 @@
 import React, { Component } from 'react'
 import './taskComponent.css'
 
+
+import { connect } from 'react-redux';
+import { deleteTask } from '../Actions/taskActions';
+
 class TaskComponent extends Component {
+
+    deleteTask = () => {
+        debugger
+        this.props.deleteTask(this.props.children);
+    }
 
     constructor(props) {
         super(props);
@@ -18,7 +27,7 @@ class TaskComponent extends Component {
             <div className="container">
                 <input type="checkbox" value={this.state.checked} onChange={this.stateCheckEvent}></input>
                 <p className={this.state.checked ? 'checkedStyle' : ''}>{this.props.children}</p>
-                <button>X</button>
+                <button onClick={this.deleteTask}>X</button>
             </div>
         )
     }
@@ -30,4 +39,4 @@ class TaskComponent extends Component {
     }
 }
 
-export default TaskComponent
+export default connect(null, { deleteTask })(TaskComponent);

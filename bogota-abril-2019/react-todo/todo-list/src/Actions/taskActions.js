@@ -6,10 +6,16 @@ export const listTasks = () => {
     }
 }
 
-
 export const addTask = (task) => {
     return {
         type: ADD_TASK,
-        payload:task
+        payload: task
+    }
+}
+
+export const deleteTask = (task) => {
+    return {
+        type: DELETE_TASK,
+        payload: task
     }
 }

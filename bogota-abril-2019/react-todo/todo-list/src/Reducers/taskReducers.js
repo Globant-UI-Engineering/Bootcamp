@@ -20,6 +20,12 @@ export default function (state = initialState, action) {
                 ...state,
                 tasks: [...state.tasks, action.payload]
             }
+        case DELETE_TASK:
+            return {
+                ...state,
+                tasks: state.tasks.filter(task => task !== action.payload)
+
+            }
         default:
             return state;
     }

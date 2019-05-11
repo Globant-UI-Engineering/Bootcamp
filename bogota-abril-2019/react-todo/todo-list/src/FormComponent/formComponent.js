@@ -36,15 +36,18 @@ class FormComponent extends Component {
     handleClick(event) {
         this.setState({
             clicked: !this.state.clicked
-        },function() {
+        }, function () {
+            this.setState({
+                inputValue: ''
+            })
             this.props.addTask(this.state.inputValue);
         })
     }
 
 }
 
-const mapStateToProps= state=>({
+const mapStateToProps = state => ({
     tasks: state.tasks.tasks
 })
 
-export default connect(mapStateToProps, {addTask}) (FormComponent);
+export default connect(mapStateToProps, { addTask })(FormComponent);

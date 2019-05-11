@@ -32,8 +32,13 @@ input[type="checkbox"] {
     background: red;
     width: 20px;
     height: 20px;
-    align-content: right;
+    float: right;
     border-radius: 20%;
-    font-size: 10px;
+    font-size: 11px;
+    margin: 5px 5px;
+}
 
+.container button:hover{
+    background: rgb(185, 2, 2);
+    color: rgb(250, 106, 106);
 }
