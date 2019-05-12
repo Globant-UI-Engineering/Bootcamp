@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
-//import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 class Header extends React.Component {
     render () {
         return (
             <header className = "App-header">
-                <h1>To-Do List</h1>
+                <h1>To Do List</h1>
                 <img src = { logo } className = "App-logo" alt = "logo"></img>
             </header>
         );
@@ -48,56 +48,48 @@ class Container_ToDo extends React.Component {
         super(props);
         
         this.state = {
-          generalTaskList: ['Task', 'Another task'],
-          inputTaskInfo: ''
+          generalTaskList: ['Task', 'Another task']
         }
         
-        this.handleInputChange = this.handleInputChange.bind(this);
         this.handleAddTask = this.handleAddTask.bind(this);
         this.handleDeleteTask = this.handleDeleteTask.bind(this);
     }
 
     render () {
         return (
-            <section className="App-container">
-                
-                <article className="App-container_firstRow">
-                    <div className="App-row-elements">
-                        <input type="text" onChange={ this.handleInputChange }/>
-                        <Button onClick={this.handleAddTask} buttonInfo="Add Task"/>
-                    </div>
-                </article>
-                <article>
-                    <div className="App-row-elements">
-                        <h2>Tasks:</h2>
-                    </div>
-                </article>
-                <List taskList= {this.state.generalTaskList} onDeleteTask= {this.handleDeleteTask}/>
-            </section>
+            <BrowserRouter>
+                <section className="App-container">
+                    <article className="App-container_firstRow">
+                        <div className="App-row-elements">
+                            <nav>
+                                <Link className="App-link" to= {`/showTasks`}>Show Tasks</Link>
+                                <Link className="App-link" to= {`/addTask`}>Add Task</Link>
+                            </nav>
+                        </div>
+                    </article>
+                    <Route path='/showTasks' render={(props) => <TasksList {...props} taskList= {this.state.generalTaskList} onDeleteTask= {this.handleDeleteTask} />}/>
+                    <Route path='/addTask' render={(props) => <AddTask {...props} onAddTask= {this.handleAddTask} />}/>
+                </section>
+            </BrowserRouter>
         );
-    }
-
-    handleInputChange (event) {
-        this.setState({
-            inputTaskInfo: event.target.value
-        })
     }
       
     handleAddTask (event) {
         let flagAlreadyNamed= false;
         this.state.generalTaskList.forEach(task => {
-            if(task === this.state.inputTaskInfo)
+            if(task === event)
                 flagAlreadyNamed = true;
         });
         if(!flagAlreadyNamed){
-            if(this.state.inputTaskInfo.length > 0 && !this.state.inputTaskInfo.startsWith(' ')){
+            if(event.length > 0 && !event.startsWith(' ')){
                 let auxiliarTaskList = this.state.generalTaskList;
-                let inputValue= this.state.inputTaskInfo;
+                let inputValue= event;
                 auxiliarTaskList.push(inputValue);
                 
                 this.setState({
                     generalTaskList: auxiliarTaskList
                 })
+                alert("The task was added succesfullly");
             }
         }
     }
@@ -116,7 +108,52 @@ class Container_ToDo extends React.Component {
     }
 }
 
-class List extends React.Component {
+class AddTask extends React.Component {
+
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            inputTaskInfo: ''
+        }
+        
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleAddTask = this.handleAddTask.bind(this);
+    }
+
+    render () {
+        return (
+            <article>
+                <div className="App-row-elements">
+                    <h2>Add Task:</h2>
+                </div>
+                <div className="App-column-elements">
+                    <div className="App-element">
+                        <label>Name of the task:</label>
+                        <input type="text" onChange={this.handleInputChange}/>
+                    </div>
+                    <div>
+                        <Button buttonInfo="Add Task" onClick={this.handleAddTask}></Button>
+                    </div>
+                </div>
+            </article>
+        );
+    }
+
+    handleInputChange (event) {
+        this.setState({
+            inputTaskInfo: event.target.value
+        })
+    }
+
+    handleAddTask(event){
+        this.props.onAddTask(this.state.inputTaskInfo);
+    }
+}
+
+
+
+class TasksList extends React.Component {
 
     constructor (props) {
         super(props);
@@ -127,6 +164,9 @@ class List extends React.Component {
     render () {
         return (
             <article>
+                <div className="App-row-elements">
+                    <h2>Tasks:</h2>
+                </div>
                 <div className="App-row-elements">
                     {this.printTaskList()}
                 </div>
