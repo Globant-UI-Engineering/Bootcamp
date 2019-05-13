@@ -115,3 +115,14 @@ li.editable:nth-child(2n) {
 	color: gray;
 	text-decoration: line-through;
 }
+
+.links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.footerLink {
+  margin: 0 5%;
+}
