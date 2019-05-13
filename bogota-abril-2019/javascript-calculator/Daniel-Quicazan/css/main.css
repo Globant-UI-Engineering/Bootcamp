@@ -102,259 +102,49 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-@font-face {
-  font-family: "Playfair";
-  src: url("../font/PlayfairDisplay-Regular.ttf");
-}
-
-@font-face {
-  font-family: "Egyptienne Mn Condensed Bold";
-  src: url("../font/Egyptienne MN Condensed Bold.ttf");
-}
-
-.master-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: black;
-}
-
-.container {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: 452px;
-  overflow: hidden;
-  height: 100%;
-  /*background-image: linear-gradient(to bottom right, #cac3b9, #cac3b9, #39322c);*/
-    background-image: linear-gradient(to bottom right, #cac3b9, #cac3b9, #39322c);
-}
-
-.header {
-  padding: 0;
-  margin: 0;
-}
-
-.eyebrow {
-  padding: 2.5% 0 0;
-  margin: 0;
-  text-align: center;
+.main-container {
   width: 100%;
-  text-transform: uppercase;
-  font-family: Arial, serif;
-  font-weight: 800;
-  font-size: 1.1vh;
-}
-
-.right-arrow {
-  font-size: 1.5vh;
-  color: darkblue;
-  line-height: 1.2vh;
-}
-
-.eyebrow-items-separator {
-  color: darkblue;
-}
-
-.eyebrow > .eyebrow-item:nth-child(3n+1) {
-  color: black;
-}
-
-.eyebrow > .eyebrow-item:nth-child(3n+1) {
-  color: white;
-}
-
-.eyebrow > .eyebrow-item:nth-child(3n+2) {
-  color: #e30000;
-}
-
-.masthead {
   text-align: center;
-  font-size: 7vh;
 }
 
-.masthead > h1 {
-  padding: 0;
-  margin: 0;
+.calculator-container {
+  max-width: 400px;
 }
 
-.first-masthead {
-  font-weight: 100;
-  font-family: "Playfair", serif;
-  line-height: 10vh;
-  font-size: 12.8vh;
-  color: white;
+.calculator-table {
+  width: 100%;
 }
 
-.second-masthead {
-  height: 17.2vh;
-  margin-left: -5.3vh;
-
+.calculator-row {
+  width: 100%;
 }
 
-.samuel-l-jackson-image {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: auto;
+.calculator-column {
+  width: 25%;
+  min-height: 40px;
+  font-size: x-large;
 }
 
-.main-cover-line {
-  position: absolute;
-  top: 26vh;
-  left: 2.7vh;
-  width: 34%;
-}
-
-.main-cover-line > * {
-  margin: 0;
-}
-
-.blue-caps {
-  text-transform: uppercase;
-  color: #6c86a2;
-  font-style: italic;
-  font-size: 1.1vh;
-  font-weight: 600;
-  margin: 0;
-}
-
-.white-caps {
-  text-transform: uppercase;
-  color: white;
-  font-style: italic;
-  font-size: 1.1vh;
-  font-weight: 100;
-  margin: 0;
-}
-
-.red-font {
-  color: #e30000;
-}
-
-.white-font {
-  color: white;
-}
-
-.blue-font {
-  color: #5668a1;
-}
-
-.italic {
-  font-style: italic;
-}
-
-.main-cover-line-names {
-  font-weight: bolder;
-  font-family: "Egyptienne Mn Condensed Bold", serif;
-  font-size: 5.6vh;
-  line-height: 4.5vh;
-  letter-spacing: -0.2vh;
-}
-
-.main-cover-line-page-number {
-  font-size: 1vh;
-  line-height: 1vh;
-  font-family: Arial, serif;
-  font-weight: bolder;
-  margin-left: -1.5vh;
-}
-
-.main-cover-line-subtitle {
-  font-size: 1.4vh;
-  line-height: 1.7vh;
-  font-family: Arial, serif;
-  font-weight: bolder;
-}
-
-.main-cover-line-subsubtitle-container {
-  color: black;
-  display: inline-block;
-}
-
-.main-cover-line-subsubtitle {
-  position: absolute;
-  top: 20.1vh;
-  left: 8.6vh;
-  font-size: 1.1vh;
-  font-style: italic;
-}
-
-.main-cover-line-subsubtitle-2 {
-  position: absolute;
-  top: 21.1vh;
-  left: 8.5vh;
-  font-size: 1.1vh;
-  font-style: italic;
-}
-
-.space-for-multiline-subsubtitle {
-  width: 5vh;
-  display: inline-block;
-}
-
-.cover-lines-container {
-  margin: 0;
-  position: absolute;
-  top: 29vh;
-  right: 2vh;
+.calculator-visor {
+  width: 100%;
+  font-size: xx-large;
   text-align: right;
 }
 
-.first-cover-lines {
-
+.calculator-button {
+  width: 100%;
 }
 
-.cover-line {
-  margin: 0;
-  font-family: Arial, serif;
-  font-size: 1.25vh;
-  line-height: 1.4vh;
-  font-weight: lighter;
-}
 
-.first-cover-lines > .cover-line:nth-child(odd) {
-  color: #e30000;
-}
 
-.first-cover-lines > .cover-line:nth-child(even) {
-  color: white;
-}
 
-.second-cover-lines {
-  margin: 1vh 0;
-}
 
-.second-cover-lines > .cover-line:nth-child(odd) {
-  color: white;
-}
 
-.second-cover-lines > .cover-line:nth-child(even) {
-  color: #e30000;
-}
 
-.second-cover-lines > .cover-line {
-  margin-top: 0.3vh;
-}
 
-.third-cover-lines {
 
-}
 
-.smaller-cover-line {
-  font-size: 0.7vh;
-}
 
-.cover-line-plus {
-  font-size: 2.7vh;
-}
-
-.cover-line-page-number {
-  font-style: italic;
-  font-size: 0.2vh;
-}
 
 
  /* ==========================================================================
