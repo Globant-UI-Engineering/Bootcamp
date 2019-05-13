@@ -5,17 +5,22 @@ import styles from "./Todo.module.css";
 export default function Todo(props) {
   return (
     <div className={styles.todo}>
-      <input
-        name="check"
-        type="checkbox"
-        checked={props.checked}
-        onChange={e => props.onChangeChecked(e.target.checked, e)}
-      />
-      <input
-        type="text"
-        value={props.title}
-        onChange={e => props.onChangeTitle(e.target.value, e)}
-      />
+      <label>
+        <div className={styles.checkContainer}>
+          <input
+            name="check"
+            type="checkbox"
+            checked={props.checked}
+            onChange={e => props.onChangeChecked(e.target.checked, e)}
+          />
+          <span className={styles.checkToggle} />
+        </div>
+        <input
+          type="text"
+          value={props.title}
+          onChange={e => props.onChangeTitle(e.target.value, e)}
+        />
+      </label>
     </div>
   );
 }

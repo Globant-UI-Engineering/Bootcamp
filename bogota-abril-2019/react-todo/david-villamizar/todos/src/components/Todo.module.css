@@ -1,21 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light");
 
-.todo input[type="checkbox"] {
-  /* position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden; */
-}
 .todo {
   width: 100%;
   margin: 0.5em 0 0.5em 0;
   font-size: 24px;
   box-sizing: border-box;
   border-radius: 0.5em;
+}
+
+.todo label {
+  width: 100%;
   appearance: none;
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .todo input[type="text"] {
@@ -28,15 +26,81 @@
   border: none;
   background: #fff;
   appearance: none;
-  transition: background-color 0.1s;
-  border-bottom: 1px solid black;
+  transition: background-color 0.1s, border-color 0.1s;
+  border-bottom: 2px solid #969696;
+  color: #4a4a4a;
 }
 
 .todo input[type="text"]:hover:not(:focus) {
+  border-color: #4a4a4a;
   background: #e7e7e7;
 }
 
 .todo input[type="text"]:focus {
+  border-color: #1785ff;
   outline: none;
   appearance: none;
+}
+
+.checkContainer {
+  flex: 0 0 1em;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Adapted from https://hackernoon.com/hacking-custom-checkboxes-and-radios-5d48230440d */
+
+/* Styles for hiding the native checkbox */
+.todo input[type="checkbox"] {
+  flex: 1 1 1px;
+  width: 1px;
+  height: 1px;
+  margin-left: -10000px;
+
+  /* The following properties can't be used since they produce accesibility and keyboard navigation issues. */
+  /* visibility: hidden; */
+  /* display: hidden; */
+  /*
+     width: 0px;
+     height: 0px;
+  */
+}
+
+/* Styles for the basic appearance of the custom checkbox */
+.todo input[type="checkbox"] ~ .checkToggle {
+  box-sizing: border-box;
+  flex: 0 0 1em;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  border: 2px solid #969696;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Styles for the hover state appearance of the custom checkbox */
+.todo input[type="checkbox"]:hover ~ .checkToggle {
+  border-color: #4a4a4a;
+}
+
+/* Styles for the focus state appearance of the custom checkbox */
+.todo input[type="checkbox"]:focus ~ .checkToggle {
+  border-color: #1785ff;
+  outline: none;
+}
+
+/* Styles for the checked state appearance of the custom checkbox */
+.todo input[type="checkbox"]:checked ~ .checkToggle {
+  border-color: #4a4a4a;
+  background: #4a4a4a
+    url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSIyMCA2IDkgMTcgNCAxMiI+PC9wb2x5bGluZT48L3N2Zz4=)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.todo input[type="checkbox"]:checked:focus ~ .checkToggle {
+  border-color: #1785ff;
 }
