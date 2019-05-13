@@ -1,0 +1,84 @@
+body {
+  background-color: #f8f8f8;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5em;
+  color: #000000;
+}
+
+.todoapp {
+  margin: 0 auto;
+  width: 480px;
+  min-height: 500px;
+
+  position: relative;
+  background: #fefefe;
+  border: 3px solid #efefef;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.todoapp header {
+  text-align: center;
+  color: #aa0000;
+}
+
+.todoapp article {
+  padding-bottom: 2em;
+}
+
+.todoapp article input {
+  height: 3em;
+  padding: 0.8em;
+  width: 100%;
+  font: inherit;
+  border: 3px solid #efefef;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.todoapp article li span {
+  opacity: 0;
+  color: #aa0000;
+  text-decoration: none;
+  cursor: pointer; 
+}
+.todoapp article li:hover span {
+  opacity: 1;
+}
+
+.todoapp footer {
+  padding: 1em;
+  position: absolute;
+  display: block;
+  bottom: -1px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.todoapp footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: .5em 1em;
+}
+
+.todoapp footer li {
+  margin: auto;
+  cursor: pointer;
+}
+
+li:hover {
+  color: #888888;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.completed {
+  text-decoration: line-through #666666;
+}
