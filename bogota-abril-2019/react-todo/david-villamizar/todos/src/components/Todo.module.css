@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light");
+
+.todo input[type="checkbox"] {
+  /* position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden; */
+}
+.todo {
+  width: 100%;
+  margin: 0.5em 0 0.5em 0;
+  font-size: 24px;
+  box-sizing: border-box;
+  border-radius: 0.5em;
+  appearance: none;
+  display: flex;
+}
+
+.todo input[type="text"] {
+  font-family: Shadows Into Light;
+  font-size: 1em;
+  height: 1em;
+  line-height: 1em;
+  width: auto;
+  flex: 1 1;
+  border: none;
+  background: #fff;
+  appearance: none;
+  transition: background-color 0.1s;
+  border-bottom: 1px solid black;
+}
+
+.todo input[type="text"]:hover:not(:focus) {
+  background: #e7e7e7;
+}
+
+.todo input[type="text"]:focus {
+  outline: none;
+  appearance: none;
+}
