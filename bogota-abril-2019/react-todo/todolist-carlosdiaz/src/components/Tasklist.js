@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Task from './Task';
 
 class Tasklist extends Component {
@@ -24,6 +25,12 @@ class Tasklist extends Component {
             </Fragment>
         );
     }
+}
+
+Tasklist.propTypes = {
+    tareas: PropTypes.array.isRequired,
+    borrarTarea: PropTypes.func.isRequired,
+    agregarEliminados: PropTypes.func.isRequired,
 }
 
 export default Tasklist;

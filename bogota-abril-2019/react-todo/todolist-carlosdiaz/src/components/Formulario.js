@@ -1,4 +1,5 @@
 import React, { Component, createRef } from 'react';
+import PropTypes from 'prop-types';
 import uuid from 'uuid';
 
 class Formulario extends Component {
@@ -52,6 +53,10 @@ class Formulario extends Component {
             </form>
         );
     }
+}
+
+Formulario.propTypes = {
+    agregarTarea: PropTypes.func.isRequired,
 }
 
 export default Formulario;

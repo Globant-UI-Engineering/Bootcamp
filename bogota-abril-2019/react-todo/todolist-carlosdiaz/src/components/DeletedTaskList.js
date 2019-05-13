@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import DeletedTask from './DeletedTask';
 
 class DeletedTasklist extends Component {
@@ -8,7 +9,6 @@ class DeletedTasklist extends Component {
     }
 
     showDeletedTaskList = () =>{
-        console.log(this.props.tareasEliminadas);
         if(Object.keys(this.props.tareasEliminadas).length!==0){
             return(
             <div>
@@ -34,6 +34,11 @@ class DeletedTasklist extends Component {
             </Fragment>
         );
     }
+}
+
+DeletedTasklist.propTypes = {
+    tareasEliminadas: PropTypes.array.isRequired,
+    borrarTodo: PropTypes.func.isRequired,
 }
 
 export default DeletedTasklist;

@@ -52,7 +52,6 @@ constructor(props){
   agregarEliminados = eliminado =>{
     const tareasEliminadas = [...this.state.tareasEliminadas];
     tareasEliminadas.push(eliminado);
-    console.log(tareasEliminadas);
     this.setState({
       tareasEliminadas
     });

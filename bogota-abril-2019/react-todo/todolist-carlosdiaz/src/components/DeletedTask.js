@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class DeletedTask extends Component {
 
@@ -19,6 +20,10 @@ class DeletedTask extends Component {
             </div>
         );
     }
+}
+
+DeletedTask.propTypes = {
+    eliminada: PropTypes.object.isRequired,
 }
 
 export default DeletedTask;

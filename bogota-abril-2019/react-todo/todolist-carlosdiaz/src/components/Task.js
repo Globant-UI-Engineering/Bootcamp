@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Task extends Component {
 
@@ -22,6 +23,12 @@ class Task extends Component {
             </div>
         );
     }
+}
+
+Task.propTypes = {
+    borrarTarea:PropTypes.func.isRequired,
+    agregarEliminados:PropTypes.func.isRequired,
+    tarea: PropTypes.object.isRequired,
 }
 
 export default Task;
