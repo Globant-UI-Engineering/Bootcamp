@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light");
 
 .todo {
+  background: #fff;
   width: 100%;
   margin: 0.5em 0 0.5em 0;
   font-size: 24px;
-  box-sizing: border-box;
-  border-radius: 0.5em;
 }
 
 .todo label {
