@@ -3,8 +3,9 @@ import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import React from "react";
 import Todo from "../components/Todo";
+import Todos from "../components/Todos";
 
-const store = new Store({
+const EDITABLE_TODO_STORE = new Store({
   title: "",
   checked: false,
 });
@@ -31,18 +32,25 @@ storiesOf("Todo", module)
     />
   ))
   .add("editable title and check", () => (
-    <State store={store}>
+    <State store={EDITABLE_TODO_STORE}>
       <Todo
         onChangeChecked={e => {
-          store.set({ checked: e });
+          EDITABLE_TODO_STORE.set({ checked: e });
           action("onChangeChecked");
         }}
         onChangeTitle={e => {
-          store.set({ title: e });
+          EDITABLE_TODO_STORE.set({ title: e });
           action("onChangeTitle");
         }}
       />
     </State>
   ));
 
-storiesOf("Todos", module);
+const TODOS = Array(10)
+  .fill(0)
+  .map((v, i) => ({ title: `Task ${i}`, checked: i % 2 === 0 }));
+
+storiesOf("Todos", module)
+  .add("all tasks", () => <Todos todos={TODOS} filterType="all" />)
+  .add("done tasks", () => <Todos todos={TODOS} filterType="done" />)
+  .add("pending tasks", () => <Todos todos={TODOS} filterType="pending" />);

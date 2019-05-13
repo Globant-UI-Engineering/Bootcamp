@@ -1,25 +1,30 @@
 import React from "react";
+import { Redirect, Route, Switch } from "react-router";
+import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
-import logo from "./logo.svg";
+import NavBar from "./components/NavBar";
+import Todos from "./components/Todos";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar />
+      <Switch>
+        <Route
+          path="/done"
+          render={props => <Todos {...props} filterType="done" />}
+        />
+        <Route
+          path="/pending"
+          render={props => <Todos {...props} filterType="pending" />}
+        />
+        <Route
+          path="/all"
+          render={props => <Todos {...props} filterType="all" />}
+        />
+        <Redirect to="/all" />
+      </Switch>
+    </Router>
   );
 }
 

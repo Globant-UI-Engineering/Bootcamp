@@ -2,7 +2,12 @@ import PropTypes from "prop-types";
 import React from "react";
 import styles from "./Todo.module.css";
 
-export default function Todo(props) {
+export default function Todo({
+  checked,
+  title,
+  onChangeChecked,
+  onChangeTitle,
+}) {
   return (
     <div className={styles.todo}>
       <label>
@@ -10,15 +15,15 @@ export default function Todo(props) {
           <input
             name="check"
             type="checkbox"
-            checked={props.checked}
-            onChange={e => props.onChangeChecked(e.target.checked, e)}
+            checked={checked}
+            onChange={e => onChangeChecked(e.target.checked, e)}
           />
           <span className={styles.checkToggle} />
         </div>
         <input
           type="text"
-          value={props.title}
-          onChange={e => props.onChangeTitle(e.target.value, e)}
+          value={title}
+          onChange={e => onChangeTitle(e.target.value, e)}
         />
       </label>
     </div>
@@ -28,8 +33,8 @@ export default function Todo(props) {
 Todo.propTypes = {
   title: PropTypes.string,
   checked: PropTypes.bool,
-  onChangeTitle: PropTypes.func,
-  onChangeChecked: PropTypes.func,
+  onChangeTitle: PropTypes.func.isRequired,
+  onChangeChecked: PropTypes.func.isRequired,
 };
 
 Todo.defaultProps = {
