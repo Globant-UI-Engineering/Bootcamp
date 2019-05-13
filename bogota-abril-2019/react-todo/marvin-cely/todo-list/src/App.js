@@ -1,39 +1,71 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
+import TodoForm from "./components/TodoForm/TodoForm";
 import './App.css';
+import logo from './logo.svg';
+import Board from './components/Board/Board';
 
-class App extends Component {   
+import { taskList } from "./tasks.json";
+
+
+class App extends React.Component {   
   constructor (props) {
     super(props);
     
     this.state = {
-      clicked: false,
-      inputValue: ''
+      Todo: taskList,
+      Doing: [],
+      Done: [],
     }
-    
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+
+    this.handleAddTodo = this.handleAddTodo.bind(this);
+    this.handleRemoveTask = this.handleRemoveTask.bind(this);
+    this.handleStatusTask = this.handleStatusTask.bind(this);
   }
   
   render () {
     return (
-      <Fragment>
-             
-      </Fragment>
+      <React.Fragment>
+        <header>
+          <h1>To Do List in React</h1>
+        </header>
+        <section className="container-fluid">
+          <div className="row">
+            <aside className="col-md-3">
+              <img src={logo} className="App-logo" alt="logo"/>
+              <TodoForm addTask={ this.handleAddTodo }/>
+            </aside>
+            <main className="col-md-9">
+                <Board
+                  taskList={this.state.Todo}
+                  removeTask={(task, index) => this.handleRemoveTask(task, index)}
+                  changeTaskState={(task, index) => this.handleStatusTask(task, index)}
+                />
+            </main>
+          </div>
+        </section>     
+      </React.Fragment>
     )
   }
-        
-  handleInputChange (event) {
+
+  handleAddTodo(newTask) {
+    let task = Object.assign({}, newTask);
     this.setState({
-      inputValue: event.target.value
-    })
+      Todo: [...this.state.taskList, task],
+    });
+  };
+
+  handleRemoveTask(oldTask, index) {
+    this.setState({
+      [oldTask.taskState]: this.state[oldTask.taskState].filter((task,i) => i !== index),
+    });
   }
-  
-  handleClick (event) {
+
+  handleStatusTask(oldTask, index) {
+    this.handleRemoveTask(oldTask, index);
+    let task = Object.assign({}, oldTask);
     this.setState({
-      clicked: !this.state.clicked
-    }, function () {
-      console.log(this.state);
-    })
+      [task.taskState]: [...this.state.taskList, task],
+    });
   }
 }
 

@@ -1,0 +1,53 @@
+{
+    "taskList": [
+        {
+            "description": "task 1",
+            "priority": "Media",
+            "responsible": "Marvin",
+            "taskState": "Todo",
+            "title": "Terminar Código"
+        },
+        {
+            "description": "task 2",
+            "priority": "Media",
+            "responsible": "Adriana",
+            "taskState": "Todo",
+            "title": "Estudiar Alemán"
+        },
+        {
+            "description": "task 3",
+            "priority": "Alta",
+            "responsible": "Dayra",
+            "taskState": "Todo",
+            "title": "Practicar Tenis"
+        },
+        {
+            "description": "task 4",
+            "priority": "Baja",
+            "responsible": "Nina",
+            "taskState": "Todo",
+            "title": "Dormir"
+        },
+        {
+            "description": "task 2",
+            "priority": "Media",
+            "responsible": "Adriana",
+            "taskState": "Todo",
+            "title": "Estudiar Alemán"
+        },
+        {
+            "description": "task 2",
+            "priority": "Media",
+            "responsible": "Adriana",
+            "taskState": "Todo",
+            "title": "Estudiar Alemán"
+        },
+        {
+            "description": "task 2",
+            "priority": "Media",
+            "responsible": "Adriana",
+            "taskState": "Doing",
+            "title": "Estudiar Alemán"
+        }
+    ]
+}
