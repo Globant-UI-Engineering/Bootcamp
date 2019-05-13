@@ -114,12 +114,17 @@ textarea {
     font-size: 85px;
     text-align: center;
     font-family: Old Standard TT, serif;
+    text-transform: uppercase;
   }
 
   h1 span{
     font-size: 75px;
     display: block;
     line-height: 45px;
+  }
+
+  h2{
+    text-transform: uppercase;
   }
 
   ul{
@@ -187,6 +192,7 @@ textarea {
     margin-top: 9px;
     font-weight: bold;
     color: red;
+    text-transform: uppercase;
   }
 
 
