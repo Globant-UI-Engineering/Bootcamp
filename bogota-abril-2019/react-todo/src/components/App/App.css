@@ -1,0 +1,42 @@
+.App {
+  margin: 50px auto;
+  text-align: left;
+  padding: 20px;
+  height: 500px;
+  width: 500px;
+}
+
+.App-header {
+  display: block;
+  align-items: left;
+  color: rgb(48, 48, 153);
+}
+
+.listLink, .formLink{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  background-size: contain;
+  border: none;
+  transition: box-shadow .3s;
+}
+
+.listLink:hover, .formLink:hover{
+  box-shadow: 0 0 5px 5px rgb(156, 179, 255);
+}
+
+.listLink{
+  background-image: url(../../images/list.png);
+  margin: 10px 0;
+}
+
+.formLink{
+  background-image: url(../../images/add_task.png);
+  margin: 10px 10px;
+}
+
+
+
+
+

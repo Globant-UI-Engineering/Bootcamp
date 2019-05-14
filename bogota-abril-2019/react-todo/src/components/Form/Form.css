@@ -1,0 +1,28 @@
+.newTask{
+    display: inline-block;
+    background-color: whitesmoke;
+    width: 70%;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 10px;
+    box-shadow: black;
+    font-family: inherit;
+}
+
+.taskLabel{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.createTaskButton{
+    display: inline-block;
+    background-color: rgb(103, 126, 255);
+    width: 20%;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 10px;
+    box-shadow: black;
+    font-family: inherit;
+}
