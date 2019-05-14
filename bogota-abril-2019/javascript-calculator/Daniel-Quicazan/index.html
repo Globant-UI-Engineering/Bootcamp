@@ -31,13 +31,13 @@
       </tr>
       <tr class="calculator-row">
         <td class="calculator-column">
-          <input type="button" class="calculator-button" value="CE"/>
+          <input type="button" class="calculator-button" value="CE" onclick="onDeleteValueButtonClick(this)"/>
         </td>
         <td class="calculator-column">
-          <input type="button" class="calculator-button" value="C"/>
+          <input type="button" class="calculator-button" value="C" onclick="onClearButtonClick(this)"/>
         </td>
         <td class="calculator-column">
-          <input type="button" class="calculator-button" value="<="/>
+          <input type="button" class="calculator-button" value="<=" onclick="onDeleteButtonClick(this)"/>
         </td>
         <td class="calculator-column">
           <input type="button" class="calculator-button" value="/" onclick="onOperationClick(this)"/>
@@ -93,7 +93,7 @@
           <input type="button" class="calculator-button" value="0" onclick="onNumberButtonClick(this)"/>
         </td>
         <td class="calculator-column">
-          <input type="button" class="calculator-button" value="."/>
+          <input type="button" class="calculator-button" value="." onclick="onDotButtonClick(this)"/>
         </td>
         <td class="calculator-column">
           <input type="button" class="calculator-button" value="=" onclick="setResult()"/>

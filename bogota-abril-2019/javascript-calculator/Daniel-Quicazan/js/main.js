@@ -2,10 +2,51 @@ let firstValue = "";
 let secondValue = "";
 let operation = "";
 let writingFirstValue = true;
+let writingOperation = false;
+
+function resetValues($event) {
+  firstValue = "";
+  secondValue = "";
+  operation = "";
+  writingFirstValue = true;
+}
+
+function onClearButtonClick($event) {
+  resetValues($event);
+  setCalculatorView("");
+}
+
+function onDeleteValueButtonClick($event) {
+  printCurrentState();
+  if (writingFirstValue) {
+    firstValue = "";
+    setCalculatorView("");
+  } else if (writingOperation) {
+    operation = "";
+    setCalculatorView(firstValue);
+  } else {
+    secondValue = "";
+    setCalculatorView(firstValue + " " + operation);
+  }
+}
+
+function onDeleteButtonClick($event) {
+  printCurrentState();
+  if (writingFirstValue) {
+    firstValue = firstValue.substring(0, firstValue.length - 1);
+    setCalculatorView(firstValue);
+  } else if (writingOperation) {
+    operation = "";
+    setCalculatorView(firstValue);
+  } else {
+    secondValue = secondValue.substring(0, secondValue.length - 1);
+    setCalculatorView(firstValue + " " + operation + secondValue);
+  }
+}
 
 function onNumberButtonClick($event) {
   printCurrentState();
-  value = $event.value;
+  let value = $event.value;
   if (writingFirstValue) {
     firstValue += value;
     setCalculatorView(firstValue);
@@ -15,6 +56,24 @@ function onNumberButtonClick($event) {
   }
   printCurrentState();
 }
+
+
+function onDotButtonClick($event) {
+  printCurrentState();
+  let value = $event.value;
+  if (writingFirstValue && !firstValue.includes('.')) {
+    if (firstValue === "")
+      firstValue = "0";
+    firstValue += value;
+    setCalculatorView(firstValue);
+  } else if (!writingFirstValue && !secondValue.includes('.')) {
+    if (secondValue=== "")
+      secondValue = "0";
+    secondValue += value;
+    setCalculatorView(firstValue + " " + operation + " " + secondValue);
+  }
+}
+
 
 function onOperationClick($event) {
   printCurrentState();
