@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Todos from './Todos';
 
 class App extends Component {
 
@@ -10,10 +10,18 @@ class App extends Component {
     ]
   }
 
+  deleteTodo = (id) => {
+    console.log(id);
+  }
+
   render() {
     return (
-      <div className="App">
-
+      <div className="todo-app container">
+        <h1 className="center blue-text">To-do's</h1>
+        <Todos
+          todos={this.state.todos}
+          deleteTodo={this.deleteTodo}
+        />
       </div>
     );
   }
