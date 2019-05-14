@@ -4,20 +4,24 @@ let operation = "";
 let writingFirstValue = true;
 let writingOperation = false;
 
+let debugging = false;
+
 function resetValues($event) {
   firstValue = "";
   secondValue = "";
   operation = "";
   writingFirstValue = true;
+  let writingOperation = false;
 }
 
 function onClearButtonClick($event) {
   resetValues($event);
   setCalculatorView("");
+  printCurrentState(debugging);
 }
 
 function onDeleteValueButtonClick($event) {
-  printCurrentState();
+  printCurrentState(debugging);
   if (writingFirstValue) {
     firstValue = "";
     setCalculatorView("");
@@ -28,38 +32,46 @@ function onDeleteValueButtonClick($event) {
     secondValue = "";
     setCalculatorView(firstValue + " " + operation);
   }
+  printCurrentState(debugging);
 }
 
 function onDeleteButtonClick($event) {
-  printCurrentState();
+  printCurrentState(debugging);
   if (writingFirstValue) {
     firstValue = firstValue.substring(0, firstValue.length - 1);
     setCalculatorView(firstValue);
   } else if (writingOperation) {
     operation = "";
     setCalculatorView(firstValue);
+    writingOperation = false;
+    writingFirstValue = true;
   } else {
     secondValue = secondValue.substring(0, secondValue.length - 1);
+    if (secondValue === "") {
+      writingOperation = true;
+    }
     setCalculatorView(firstValue + " " + operation + secondValue);
   }
+  printCurrentState(debugging);
 }
 
 function onNumberButtonClick($event) {
-  printCurrentState();
+  printCurrentState(debugging);
   let value = $event.value;
   if (writingFirstValue) {
     firstValue += value;
     setCalculatorView(firstValue);
   } else {
+    writingOperation = false;
     secondValue += value;
     setCalculatorView(firstValue + " " + operation + " " + secondValue);
   }
-  printCurrentState();
+  printCurrentState(debugging);
 }
 
 
 function onDotButtonClick($event) {
-  printCurrentState();
+  printCurrentState(debugging);
   let value = $event.value;
   if (writingFirstValue && !firstValue.includes('.')) {
     if (firstValue === "")
@@ -72,19 +84,24 @@ function onDotButtonClick($event) {
     secondValue += value;
     setCalculatorView(firstValue + " " + operation + " " + secondValue);
   }
+  printCurrentState(debugging);
 }
 
 
 function onOperationClick($event) {
-  printCurrentState();
+  printCurrentState(debugging);
   if (firstValue === "") {
     firstValue = "0";
+  }
+  if (firstValue[firstValue.length - 1] === ".") {
+    firstValue = firstValue.substring(0, firstValue.length - 1)
   }
   operation = $event.value;
   secondValue = "";
   writingFirstValue = false;
+  writingOperation = true;
   setCalculatorView(firstValue + " " + operation);
-  printCurrentState();
+  printCurrentState(debugging);
 }
 
 
@@ -109,12 +126,22 @@ function calculateResult() {
 }
 
 function setResult() {
-  setCalculatorView(calculateResult())
+  printCurrentState(debugging);
+  result = calculateResult().toString();
+  firstValue = result;
+  setCalculatorView(result);
+  console.log(result);
+  writingFirstValue = true;
+  writingOperation = false;
+  printCurrentState(debugging);
 }
 
-function printCurrentState() {
-  console.log("fValue: " + firstValue);
-  console.log("operation: " + operation);
-  console.log("sValue: " + secondValue);
-  console.log("writingFirstValue: " + writingFirstValue)
+function printCurrentState(debuging = false) {
+  if (debuging) {
+    console.log("fValue: " + firstValue);
+    console.log("operation: " + operation);
+    console.log("sValue: " + secondValue);
+    console.log("writingFirstValue: " + writingFirstValue);
+    console.log("writingOperation: " + writingOperation);
+  }
 }
