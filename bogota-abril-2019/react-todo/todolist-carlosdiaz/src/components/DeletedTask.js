@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 
 class DeletedTask extends Component {
 
-    eliminarTarea= () => {
-        this.props.borrarTarea(this.props.tarea.id);
-    }
-
     render() {
-        
         const {tarea} = this.props.eliminada;
         return (
             <div className="row m-2 border p-2">

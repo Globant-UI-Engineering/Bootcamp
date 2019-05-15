@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { deleteTask, addDeletedTask } from '../actions/taskActions'
 
 class Task extends Component {
 
     eliminarTarea= () => {
-        this.props.borrarTarea(this.props.tarea.id);
-        this.props.agregarEliminados(this.props.tarea);
+        this.props.deleteTask(this.props.tarea.id);
+        this.props.addDeletedTask(this.props.tarea);
     }
-
     render() {
         const {tarea} = this.props.tarea;
         return (
@@ -26,9 +27,8 @@ class Task extends Component {
 }
 
 Task.propTypes = {
-    borrarTarea:PropTypes.func.isRequired,
-    agregarEliminados:PropTypes.func.isRequired,
-    tarea: PropTypes.object.isRequired,
+    deleteTask:PropTypes.func.isRequired,
+    addDeletedTask : PropTypes.func.isRequired,
 }
 
-export default Task;
+export default connect(null,{deleteTask, addDeletedTask})(Task);

@@ -1,7 +1,8 @@
 import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
-
+import { connect } from 'react-redux';
+import {addTask} from '../actions/taskActions';
 class Formulario extends Component {
 
     state= {
@@ -36,7 +37,7 @@ class Formulario extends Component {
                 id: uuid(),
                 tarea: this.tareaRef.current.value,
             }
-            this.props.agregarTarea(tarea);
+            this.props.addTask(tarea);
             e.currentTarget.reset();
         }
     }
@@ -56,7 +57,11 @@ class Formulario extends Component {
 }
 
 Formulario.propTypes = {
-    agregarTarea: PropTypes.func.isRequired,
+    addTask: PropTypes.func.isRequired,
 }
 
-export default Formulario;
+const mapStateToProps = state =>({
+    tareas: state.tareas.tareas
+})
+
+export default connect(mapStateToProps, {addTask})(Formulario);

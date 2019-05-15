@@ -1,15 +1,25 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Task from './Task';
+import { connect } from 'react-redux';
+import { getTasks } from '../actions/taskActions';
+import store from '../store';
+store.subscribe( () => {
+    localStorage.setItem('tareas',JSON.stringify(store.getState()));
+})
 
 class Tasklist extends Component {
 
+    componentDidMount(){
+        this.props.getTasks();
+    }
+    
     showTaskList = () =>{
         if(Object.keys(this.props.tareas).length!==0){
             return(
            <div className="pt-2">
                 {Object.keys(this.props.tareas).map( tareaKey =>(
-                    <Task key={tareaKey} borrarTarea={this.props.borrarTarea} agregarEliminados={this.props.agregarEliminados} tarea={this.props.tareas[tareaKey]} />
+                    <Task key={tareaKey}  tarea={this.props.tareas[tareaKey]} />
                 ))}
             </div>
         )
@@ -17,6 +27,7 @@ class Tasklist extends Component {
             return null;
         }
     }
+
 
     render() {
         return (
@@ -29,8 +40,10 @@ class Tasklist extends Component {
 
 Tasklist.propTypes = {
     tareas: PropTypes.array.isRequired,
-    borrarTarea: PropTypes.func.isRequired,
-    agregarEliminados: PropTypes.func.isRequired,
 }
 
-export default Tasklist;
+const mapStateToProps = state => ({
+    tareas : state.tareas.tareas
+})
+ 
+export default connect(mapStateToProps, {getTasks}) (Tasklist);

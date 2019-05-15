@@ -1,23 +1,31 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import DeletedTask from './DeletedTask';
+import { connect } from 'react-redux';
+import { getDeletedTasks } from '../actions/taskActions';
+import { clearTasks} from '../actions/taskActions';
+import store from '../store';
+store.subscribe( () => {
+    localStorage.setItem('tareas',JSON.stringify(store.getState()));
+})
 
 class DeletedTasklist extends Component {
 
-    borrarTodo = () =>{
-        this.props.borrarTodo();
+    componentDidMount(){
+        this.props.getDeletedTasks();
     }
 
+
     showDeletedTaskList = () =>{
-        if(Object.keys(this.props.tareasEliminadas).length!==0){
+        if(Object.keys(this.props.eliminadas).length>0){
             return(
             <div>
                 <div className=" text-center">
-                    <button className="btn btn-danger" onClick={this.borrarTodo}>Borrar Todo</button>
+                    <button className="btn btn-danger" onClick={ () => this.props.clearTasks()} >Borrar Todo</button>
                 </div>
                 <div className="pt-2">
-                    {Object.keys(this.props.tareasEliminadas).map( deletedKey => (
-                    <DeletedTask key={deletedKey}  eliminada={this.props.tareasEliminadas[deletedKey]} />
+                    {Object.keys(this.props.eliminadas).map( deletedKey => (
+                    <DeletedTask key={deletedKey}  eliminada={this.props.eliminadas[deletedKey]} />
                     ))}
                 </div>
             </div>
@@ -37,8 +45,13 @@ class DeletedTasklist extends Component {
 }
 
 DeletedTasklist.propTypes = {
-    tareasEliminadas: PropTypes.array.isRequired,
-    borrarTodo: PropTypes.func.isRequired,
+    getDeletedTasks: PropTypes.func.isRequired,
+    clearTasks: PropTypes.func.isRequired,
 }
 
-export default DeletedTasklist;
+const mapStateToProps = state =>(
+    {
+    eliminadas: state.tareas.eliminadas
+});
+
+export default connect(mapStateToProps,{getDeletedTasks, clearTasks})(DeletedTasklist);
