@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import {addTask} from '../actions/taskActions';
+import {validateForm} from '../actions/formAction';
 class Formulario extends Component {
 
-    state= {
-        empty:false
-    }
     
     tareaRef = createRef();
 
     showInvalidFeedback = () =>{
-        if(this.state.empty){
+        if(this.props.error){
            return( 
             <div className="invalid-feedback text-white">
                 Campo obligatorio.
@@ -23,16 +21,12 @@ class Formulario extends Component {
         }
     }
 
-    validateForm = (e) =>{
+    validateFormSubmit = (e) =>{
         e.preventDefault();
         if(this.tareaRef.current.value===''){
-            this.setState({
-                empty:true
-            })
+            this.props.validateForm(true);
         }else{
-            this.setState({
-                empty:false
-            })
+            this.props.validateForm(false);
             const tarea = {
                 id: uuid(),
                 tarea: this.tareaRef.current.value,
@@ -44,12 +38,12 @@ class Formulario extends Component {
 
     render() {
         return (
-            <form  onSubmit={this.validateForm}>
+            <form  onSubmit={this.validateFormSubmit}>
                 <div className="mb-3">
                     <label htmlFor="task"><strong>Tarea/Actividad</strong></label>
-                    <textarea ref={this.tareaRef} className={this.state.empty? "form-control is-invalid":"form-control"} id="task" placeholder="Escribe una actividad/tarea"></textarea>
+                    <textarea ref={this.tareaRef} className={this.props.error? "form-control is-invalid":"form-control"} id="task" placeholder="Escribe una actividad/tarea"></textarea>
                     {this.showInvalidFeedback()}
-                    <button className="btn btn-success mt-2" type="submit">Agregar</button>
+                    <button className="btn btn-success mt-2" type="submit">Add</button>
                 </div>
             </form>
         );
@@ -61,7 +55,8 @@ Formulario.propTypes = {
 }
 
 const mapStateToProps = state =>({
-    tareas: state.tareas.tareas
+    tareas: state.tareas.tareas,
+    error: state.error.error
 })
 
-export default connect(mapStateToProps, {addTask})(Formulario);
+export default connect(mapStateToProps, {addTask, validateForm})(Formulario);
