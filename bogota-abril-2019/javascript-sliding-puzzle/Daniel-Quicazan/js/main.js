@@ -1,8 +1,8 @@
 /*let puzzlePositions = [0, 1, 2, 3, 4, 5, 6, 7, undefined];
 puzzlePositions = [0, 1, 2, 3, 4, 5, 6, 7, undefined];
 puzzlePositions = [0, 1, 2, 3, 4, 5, 6, 7, undefined];*/
-puzzlePositions = [0, 1, 2, 3, undefined, 4, 5, 6, 7];
-puzzleImages = {
+let puzzlePositions = [0, 1, 2, 3, 4, 5, 6, 7, undefined];
+let puzzleImages = {
   0: "img/image_part_0.png",
   1: "img/image_part_1.png",
   2: "img/image_part_2.png",
@@ -14,6 +14,8 @@ puzzleImages = {
   8: "img/image_part_8.png"
 };
 
+let emptyImage = "img/empty.png";
+
 document.body.addEventListener('keydown', keyPressHappened);
 
 setImages();
@@ -22,6 +24,12 @@ function setImages() {
   for (let i = 0; i < 9; i++){
     document.getElementById("puzzle-piece-image-" + i).src = puzzleImages[puzzlePositions[i]]
   }
+  document.getElementById("puzzle-piece-image-" + getEmptyPosition()).src = emptyImage;
+}
+
+function scramble() {
+  puzzlePositions = puzzlePositions.sort(() => Math.random() - 0.5);
+  setImages();
 }
 
 function isUpAllowed(position) {
