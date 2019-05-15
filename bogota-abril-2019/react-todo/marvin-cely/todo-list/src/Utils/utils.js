@@ -18,10 +18,17 @@ const utils = {
     },
 
     nextTaskState: (taskState) => {
-        if (taskState === 'Doing')
+        if (taskState === 'Todo')
+            return 'Doing';
+        else if (taskState === 'Doing')
             return 'Done';
         else
-            return 'Doing';
+            return 'NoState';
+    },
+
+    // Code taken by https://gist.github.com/gordonbrander/2230317
+    uniqueIdGenerator: () => {
+        return '_' + Math.random().toString(36).substr(2, 9);
     },
 }
 

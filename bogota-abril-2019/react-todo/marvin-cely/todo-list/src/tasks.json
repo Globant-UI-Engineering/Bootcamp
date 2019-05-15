@@ -11,14 +11,14 @@
             "description": "task 2",
             "priority": "Media",
             "responsible": "Adriana",
-            "taskState": "Todo",
+            "taskState": "Doing",
             "title": "Estudiar Alemán"
         },
         {
             "description": "task 3",
             "priority": "Alta",
             "responsible": "Dayra",
-            "taskState": "Todo",
+            "taskState": "Doing",
             "title": "Practicar Tenis"
         },
         {
@@ -46,7 +46,7 @@
             "description": "task 2",
             "priority": "Media",
             "responsible": "Adriana",
-            "taskState": "Doing",
+            "taskState": "Todo",
             "title": "Estudiar Alemán"
         }
     ]

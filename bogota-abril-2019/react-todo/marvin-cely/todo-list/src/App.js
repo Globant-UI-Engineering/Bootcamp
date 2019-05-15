@@ -1,28 +1,38 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import TodoForm from "./components/TodoForm/TodoForm";
 import './App.css';
 import logo from './logo.svg';
 import Board from './components/Board/Board';
+import utils from './Utils/utils'
 
 import { taskList } from "./tasks.json";
-
 
 class App extends React.Component {   
   constructor (props) {
     super(props);
     
     this.state = {
-      Todo: taskList,
-      Doing: [],
-      Done: [],
+      taskList: taskList.map(task => Object.assign({}, task, {id: utils.uniqueIdGenerator()})),
     }
 
     this.handleAddTodo = this.handleAddTodo.bind(this);
     this.handleRemoveTask = this.handleRemoveTask.bind(this);
     this.handleStatusTask = this.handleStatusTask.bind(this);
   }
+
+  rederBoard = (boardState) => {
+    return(
+      <Board
+      taskList={this.state.taskList}
+      removeTask={(taskId) => this.handleRemoveTask(taskId)}
+      changeTaskState={(taskId) => this.handleStatusTask(taskId)}
+      boardState={boardState}
+      />
+    );
+  }
   
-  render () {
+  render () { 
     return (
       <React.Fragment>
         <header>
@@ -35,11 +45,34 @@ class App extends React.Component {
               <TodoForm addTask={ this.handleAddTodo }/>
             </aside>
             <main className="col-md-9">
-                <Board
-                  taskList={this.state.Todo}
-                  removeTask={(task, index) => this.handleRemoveTask(task, index)}
-                  changeTaskState={(task, index) => this.handleStatusTask(task, index)}
-                />
+              <Router>
+                <nav>
+                  <ul>
+                    <li>
+                      <Link to="/todo">To Do</Link>
+                    </li>
+                    <li>
+                      <Link to="/doing">Doing</Link>
+                    </li>
+                    <li>
+                      <Link to="/done">Done</Link>
+                    </li>
+                  </ul>
+                </nav>
+                <section>
+                  {/* TODO: Realizar Router  */}
+                  {/* <Route path="/todo" component={} />
+                  <Route path="/doing" component={} />
+                  <Route path="/done" component={} /> */}
+                  {/* <Route component={props => <h1>Not Found</h1>} /> */}
+                  <Board
+                    taskList={this.state.taskList}
+                    removeTask={(taskId) => this.handleRemoveTask(taskId)}
+                    changeTaskState={(taskId) => this.handleStatusTask(taskId)}
+                    boardState={'Todo'}
+                  />
+                </section>
+              </Router>
             </main>
           </div>
         </section>     
@@ -47,24 +80,29 @@ class App extends React.Component {
     )
   }
 
-  handleAddTodo(newTask) {
-    let task = Object.assign({}, newTask);
+  handleAddTodo(task) {
+    let newTask = Object.assign({}, task, {id: utils.uniqueIdGenerator()});
     this.setState({
-      Todo: [...this.state.taskList, task],
+      taskList: [...this.state.taskList, newTask],
     });
   };
 
-  handleRemoveTask(oldTask, index) {
+  handleRemoveTask(taskId) {
     this.setState({
-      [oldTask.taskState]: this.state[oldTask.taskState].filter((task,i) => i !== index),
+      taskList: this.state.taskList.filter((task) => task.id !== taskId),
     });
   }
 
-  handleStatusTask(oldTask, index) {
-    this.handleRemoveTask(oldTask, index);
-    let task = Object.assign({}, oldTask);
+  handleStatusTask(taskId) {
+    let newTaskList = this.state.taskList.slice();
+    newTaskList.forEach(task => {
+        if(task.id === taskId) {
+          task.taskState = utils.nextTaskState(task.taskState);//TODO: Revizar actualización del boton!!!!
+        }
+    });
+
     this.setState({
-      [task.taskState]: [...this.state.taskList, task],
+      taskList: newTaskList,
     });
   }
 }

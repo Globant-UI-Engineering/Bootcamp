@@ -1,5 +1,6 @@
 import React from 'react';
 import './TodoForm.css';
+import utils from '../../Utils/utils'
 
 class TodoForm extends React.Component {
     constructor(props) {
@@ -9,23 +10,10 @@ class TodoForm extends React.Component {
             responsible: '',
             description: '',
             priority: '',
-            taskState: 'To Do'
+            taskState: 'Todo'
         };
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleInput(event) {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        });
-    }
-    
-    handleSubmit(event) {
-        event.preventDefault();
-        this.props.addTask(this.state);
-        // TODO: Create a message confirmation
     }
 
     render() {
@@ -127,6 +115,19 @@ class TodoForm extends React.Component {
                 </form>
             </section>
         )
+    }
+
+    handleInput = (event) => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    }
+    
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.addTask(this.state);
+        // TODO: Create a message confirmation
     }
 }
 

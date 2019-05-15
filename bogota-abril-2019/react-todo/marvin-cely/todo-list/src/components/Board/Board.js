@@ -7,18 +7,18 @@ class Board extends React.Component {
         super(props);
     }
     render() {
-        let taskList = this.props.taskList;
-        const tasksToBoard = taskList.map((task,index) => {
+        let taskList = this.props.taskList.filter(task => task.taskState === this.props.boardState);
+        const tasksToBoard = taskList.map((task) => {
             return (
                 <TaskCard 
-                    key={index}
+                    key={task.id}
                     title={task.title}
                     responsible={task.responsible}
                     description={task.description}
                     priority={task.priority}
                     taskState={task.taskState}
-                    removeItSelf={() => this.props.removeTask(task, index)}
-                    changeState={() => this.props.changeTaskState(task, index) }
+                    removeItSelf={() => this.props.removeTask(task.id)}
+                    changeState={() => this.props.changeTaskState(task.id) }
                 />
             );
         });
@@ -29,6 +29,10 @@ class Board extends React.Component {
             </section>
         );
     }
+}
+
+Board.defaultProps = {
+    boardState: 'Todo',
 }
 
 export default Board;
