@@ -1,18 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import styles from "./NavBar.module.css";
 
 export default function NavBar() {
   return (
-    <nav>
+    <nav className={styles.navBar}>
       <ul>
         <li>
-          <Link to="/">All</Link>
+          <NavLink to="/all" exact activeClassName={styles.activeLink}>
+            All
+          </NavLink>
         </li>
         <li>
-          <Link to="/done">Done</Link>
+          <NavLink to="/done" activeClassName={styles.activeLink}>
+            Done
+          </NavLink>
         </li>
         <li>
-          <Link to="/pending">Pending</Link>
+          <NavLink to="/pending" activeClassName={styles.activeLink}>
+            Pending
+          </NavLink>
         </li>
       </ul>
     </nav>

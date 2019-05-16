@@ -1,10 +1,28 @@
 import PropTypes from "prop-types";
 import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { setChecked, setTitle } from "../store/actions";
 import Todo from "./Todo";
+import styles from "./Todos.module.css";
 import { FILTER_FUNCTIONS } from "./TodosFilterFunctions";
 
-export default function Todos({ todos, filterType }) {
-  return todos.filter(FILTER_FUNCTIONS[filterType]).map(v => <Todo {...v} />);
+function Todos({ todos, filterType, onCheckedChange, onTitleChange }) {
+  return (
+    <ul className={styles.todos}>
+      {todos
+        .filter(FILTER_FUNCTIONS[filterType])
+        .map(({ id, checked, title }) => (
+          <Todo
+            key={id}
+            checked={checked}
+            title={title}
+            onCheckedChange={e => onCheckedChange(id, e)}
+            onTitleChange={e => onTitleChange(id, e)}
+          />
+        ))}
+    </ul>
+  );
 }
 
 Todos.propTypes = {
@@ -17,8 +35,40 @@ Todos.propTypes = {
   filterType: PropTypes.string.isRequired,
 };
 
-Todos.defaultProps = {
-  todos: Array(10)
-    .fill(0)
-    .map((v, i) => ({ title: `Task ${i}`, checked: i % 2 === 0 })),
+const getVisibleTodos = (todos, filter) => {
+  switch (filter) {
+    case "SHOW_COMPLETED":
+      return todos.filter(t => t.completed);
+    case "SHOW_ACTIVE":
+      return todos.filter(t => !t.completed);
+    case "SHOW_ALL":
+    default:
+      return todos;
+  }
 };
+
+const mapStateToProps = state => {
+  return {
+    todos: getVisibleTodos(state.todos, state.visibilityFilter),
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onTitleChange: (id, value) => {
+      dispatch(setTitle(id, value));
+    },
+    onCheckedChange: (id, value) => {
+      dispatch(setChecked(id, value));
+    },
+  };
+};
+
+const VisibleTodoList = withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(Todos),
+);
+
+export default VisibleTodoList;

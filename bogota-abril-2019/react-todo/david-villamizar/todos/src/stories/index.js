@@ -13,34 +13,34 @@ const EDITABLE_TODO_STORE = new Store({
 storiesOf("Todo", module)
   .add("default", () => (
     <Todo
-      onChangeChecked={action("onChangeChecked")}
-      onChangeTitle={action("onChangeTitle")}
+      onCheckedChange={action("onCheckedChange")}
+      onTitleChange={action("onTitleChange")}
     />
   ))
   .add("with title", () => (
     <Todo
       title="Add redux"
-      onChangeChecked={action("onChangeChecked")}
-      onChangeTitle={action("onChangeTitle")}
+      onCheckedChange={action("onCheckedChange")}
+      onTitleChange={action("onTitleChange")}
     />
   ))
   .add("checked", () => (
     <Todo
       checked={true}
-      onChangeChecked={action("onChangeChecked")}
-      onChangeTitle={action("onChangeTitle")}
+      onCheckedChange={action("onCheckedChange")}
+      onTitleChange={action("onTitleChange")}
     />
   ))
   .add("editable title and check", () => (
     <State store={EDITABLE_TODO_STORE}>
       <Todo
-        onChangeChecked={e => {
+        onCheckedChange={e => {
           EDITABLE_TODO_STORE.set({ checked: e });
-          action("onChangeChecked");
+          action("onCheckedChange");
         }}
-        onChangeTitle={e => {
+        onTitleChange={e => {
           EDITABLE_TODO_STORE.set({ title: e });
-          action("onChangeTitle");
+          action("onTitleChange");
         }}
       />
     </State>
