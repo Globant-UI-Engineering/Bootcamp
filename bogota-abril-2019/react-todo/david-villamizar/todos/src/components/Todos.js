@@ -22,6 +22,7 @@ function Todos({
           .map(({ id, checked, title }) => (
             <Todo
               key={id}
+              id={id}
               checked={checked}
               title={title}
               onCheckedChange={e => onCheckedChange(id, e)}

@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { createStore } from "../../../../../../../../../Library/Caches/typescript/3.4.3/node_modules/redux";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import VisibleTodoList from "./components/Todos";
+import Todos from "./components/Todos";
 import todoApp from "./store/reducers";
 
 const store = createStore(todoApp);
@@ -19,17 +19,15 @@ function App() {
         <Switch>
           <Route
             path="/done"
-            render={props => <VisibleTodoList {...props} filterType="done" />}
+            render={props => <Todos {...props} filterType="done" />}
           />
           <Route
             path="/pending"
-            render={props => (
-              <VisibleTodoList {...props} filterType="pending" />
-            )}
+            render={props => <Todos {...props} filterType="pending" />}
           />
           <Route
             path="/all"
-            render={props => <VisibleTodoList {...props} filterType="all" />}
+            render={props => <Todos {...props} filterType="all" />}
           />
           <Redirect to="/all" />
         </Switch>

@@ -1,12 +1,16 @@
 import PropTypes from "prop-types";
 import React from "react";
+import { connect } from "react-redux";
+import { deleteTodo } from "../store/actions";
 import styles from "./Todo.module.css";
 
-export default function Todo({
+function Todo({
+  id,
   checked,
   title,
   onCheckedChange,
   onTitleChange,
+  onDelete,
 }) {
   return (
     <li className={styles.todo}>
@@ -25,12 +29,14 @@ export default function Todo({
           value={title}
           onChange={e => onTitleChange(e.target.value, e)}
         />
+        <button onClick={e => onDelete(id)}>X</button>
       </label>
     </li>
   );
 }
 
 Todo.propTypes = {
+  id: PropTypes.number,
   title: PropTypes.string,
   checked: PropTypes.bool,
   onTitleChange: PropTypes.func.isRequired,
@@ -41,3 +47,16 @@ Todo.defaultProps = {
   title: "",
   checked: false,
 };
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onDelete: id => {
+      dispatch(deleteTodo(id));
+    },
+  };
+};
+
+export default connect(
+  undefined,
+  mapDispatchToProps,
+)(Todo);

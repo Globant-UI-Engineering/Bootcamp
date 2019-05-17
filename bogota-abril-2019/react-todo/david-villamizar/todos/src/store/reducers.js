@@ -27,6 +27,7 @@ function todos(
         return todo;
       });
     case DELETE_TODO:
+      debugger;
       return state.filter(todo => todo.id !== action.id);
     default:
       return state;
