@@ -21,6 +21,7 @@ class App extends React.Component {
     this.setNotificationRef = this.setNotificationRef.bind(this);
     this.closeNotification = this.closeNotification.bind(this);
     this.showNotification = this.showNotification.bind(this);
+    this.totalTask = this.totalTask.bind(this);
   }
   
   render () { 
@@ -40,13 +41,25 @@ class App extends React.Component {
                 <nav>
                   <ul className="nav nav-tabs">
                     <li className="nav-item">
-                      <Link className="nav-link" to="/">To Do</Link>
+                      <Link className="nav-link" to="/">
+                        To Do
+                        &nbsp;
+                        <span className="badge badge-pill badge-secondary">{this.totalTask("Todo")}</span>
+                      </Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to="/doing">Doing</Link>
+                      <Link className="nav-link" to="/doing">
+                        Doing
+                        &nbsp;
+                        <span className="badge badge-pill badge-primary">{this.totalTask("Doing")}</span>
+                      </Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to="/done">Done</Link>
+                      <Link className="nav-link" to="/done">
+                        Done
+                        &nbsp;
+                        <span className="badge badge-pill badge-success">{this.totalTask("Done")}</span>
+                      </Link>
                     </li>
                   </ul>
                 </nav>
@@ -133,6 +146,8 @@ class App extends React.Component {
       taskList: newTaskList,
     });
   }
+
+  totalTask = (taskState) => this.state.taskList.filter(task => task.taskState === taskState).length;
 
   setNotificationRef = (element) => this.notificationRef = element;
 

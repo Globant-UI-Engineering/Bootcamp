@@ -3,9 +3,6 @@ import './Board.css';
 import TaskCard from '../TaskCard/TaskCard'
 
 class Board extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         let taskList = this.props.taskList.filter(task => task.taskState === this.props.boardState);
         const tasksToBoard = taskList.map((task) => {
