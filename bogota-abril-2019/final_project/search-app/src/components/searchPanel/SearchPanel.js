@@ -1,7 +1,9 @@
 import React from 'react';
 import './SearchPanel.css';
 import fireBaseInit from '../FirebaseInit'
-import logo from '../../../src/logo.svg'
+import logo from '../../../src/images/logo.svg'
+import loading from '../../../src/images/loading.gif'
+import Card from '../card/Card'
 
 const firebaseRef = fireBaseInit.database().ref().child("technology");
 class SearchPanel extends React.Component {
@@ -11,7 +13,7 @@ class SearchPanel extends React.Component {
     
     this.state = {
       allTechnologys : [],
-      technologys : ["prueba1","prueba2"],
+      technologys : [{title:"Loading",id:1,image:loading},{title:"Loading",id:2,image:loading}],
       dataNotLoaded:true
       
     }
@@ -23,7 +25,7 @@ class SearchPanel extends React.Component {
     // read from firebase 
     firebaseRef.once('value', snapshot => {
        let allTechnologys  = this.allTechnologys = snapshot.val()
-        this.setState({technologys : allTechnologys.map((object) => (object.title)),
+        this.setState({technologys : allTechnologys,
           dataNotLoaded:false,allTechnologys});
       });
       
@@ -34,7 +36,7 @@ class SearchPanel extends React.Component {
     let results = this.allTechnologys.filter((element) =>{
       return element.title.toLowerCase().includes(userInput)?element.title:"";
     })
-    this.setState({technologys : results.map((element) => (element.title))});
+    this.setState({technologys : results.map((element) => ({title:element.title,image:element.image,id:element.id}))});
   }
 
 
@@ -50,10 +52,10 @@ class SearchPanel extends React.Component {
               disabled = {this.state.dataNotLoaded}></input>
         <img src = {logo} alt = "logo" ></img>
       </header>
-      <article>
-        <p>
-          {this.state.technologys}
-        </p>
+      <article className = "results-content">
+          {this.state.technologys.map (object => (
+            <Card key={object.id}  title = {object.title} image = {object.image}></Card>
+          ))}
       </article>
     </div>
     )}

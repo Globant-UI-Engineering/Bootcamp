@@ -44,3 +44,27 @@ img:nth-child(3)  {
       transform: rotate(360deg);
     }
   }
+
+.results-content{
+  margin-top: 50px;
+  display: inline-block;
+}
+
+.card {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: solid;
+  width: 300px;
+  height: 250px;
+}
+
+.result-image{
+  animation:  none;
+  width: 250px;
+  height: 100px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+

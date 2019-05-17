@@ -1,0 +1,31 @@
+.card {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: solid;
+  width: 300px;
+  height: 250px;
+}
+
+.result-image{
+  animation:  none;
+  width: 250px;
+  height: 100px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.card:hover{
+  background-color: #d5c7ff;
+}
+
+.card h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #7b3bb3;
+  border-bottom: double;
+  border-color: black;
+}
