@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+.weatherCard{
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px; 
+  background-color:#fff600;
+}
+.card{
+  max-width: 18rem;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
