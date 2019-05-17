@@ -6,30 +6,21 @@ import logo from './logo.svg';
 import Board from './components/Board/Board';
 import utils from './Utils/utils'
 
-import { taskList } from "./tasks.json";
+import { taskList } from "./data/tasks.json";
 
 class App extends React.Component {   
   constructor (props) {
-    super(props);
-    
+    super(props);    
     this.state = {
       taskList: taskList.map(task => Object.assign({}, task, {id: utils.uniqueIdGenerator()})),
     }
-
+    this.notificationRef = null;
     this.handleAddTodo = this.handleAddTodo.bind(this);
     this.handleRemoveTask = this.handleRemoveTask.bind(this);
     this.handleStatusTask = this.handleStatusTask.bind(this);
-  }
-
-  rederBoard = (boardState) => {
-    return(
-      <Board
-      taskList={this.state.taskList}
-      removeTask={(taskId) => this.handleRemoveTask(taskId)}
-      changeTaskState={(taskId) => this.handleStatusTask(taskId)}
-      boardState={boardState}
-      />
-    );
+    this.setNotificationRef = this.setNotificationRef.bind(this);
+    this.closeNotification = this.closeNotification.bind(this);
+    this.showNotification = this.showNotification.bind(this);
   }
   
   render () { 
@@ -47,35 +38,71 @@ class App extends React.Component {
             <main className="col-md-9">
               <Router>
                 <nav>
-                  <ul>
-                    <li>
-                      <Link to="/todo">To Do</Link>
+                  <ul className="nav nav-tabs">
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/">To Do</Link>
                     </li>
-                    <li>
-                      <Link to="/doing">Doing</Link>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/doing">Doing</Link>
                     </li>
-                    <li>
-                      <Link to="/done">Done</Link>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/done">Done</Link>
                     </li>
                   </ul>
                 </nav>
+                <p 
+                  className="alert alert-primary alert-dismissible fade show"
+                  role="alert" 
+                  ref={this.setNotificationRef}>
+                    <strong>Nueva tarea Agregada!</strong> Se creó en la lista To Do.
+                    <button 
+                      type="button" 
+                      className="close" 
+                      data-dismiss="alert" 
+                      aria-label="Close"
+                      onClick={this.closeNotification}>
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </p>
                 <section>
-                  {/* TODO: Realizar Router  */}
-                  {/* <Route path="/todo" component={} />
-                  <Route path="/doing" component={} />
-                  <Route path="/done" component={} /> */}
-                  {/* <Route component={props => <h1>Not Found</h1>} /> */}
-                  <Board
-                    taskList={this.state.taskList}
-                    removeTask={(taskId) => this.handleRemoveTask(taskId)}
-                    changeTaskState={(taskId) => this.handleStatusTask(taskId)}
-                    boardState={'Todo'}
+                  <Route exact path="/" render={ (props) => 
+                      <Board
+                        {...props}
+                        taskList={this.state.taskList}
+                        removeTask={(taskId) => this.handleRemoveTask(taskId)}
+                        changeTaskState={(taskId) => this.handleStatusTask(taskId)}
+                        boardState={'Todo'}
+                      />
+                    }
                   />
+                  <Route path="/doing" render={ (props) => 
+                      <Board
+                        {...props}
+                        taskList={this.state.taskList}
+                        removeTask={(taskId) => this.handleRemoveTask(taskId)}
+                        changeTaskState={(taskId) => this.handleStatusTask(taskId)}
+                        boardState={'Doing'}
+                      />
+                    } 
+                  />
+                  <Route path="/done" render={ (props) => 
+                      <Board
+                        {...props}
+                        taskList={this.state.taskList}
+                        removeTask={(taskId) => this.handleRemoveTask(taskId)}
+                        changeTaskState={(taskId) => this.handleStatusTask(taskId)}
+                        boardState={'Done'}
+                      />
+                    }
+                  />                  
                 </section>
               </Router>
             </main>
           </div>
-        </section>     
+        </section> 
+        <footer>
+          <p><strong>Design by:</strong>&nbsp;Marvin Cely</p>
+        </footer>    
       </React.Fragment>
     )
   }
@@ -85,6 +112,7 @@ class App extends React.Component {
     this.setState({
       taskList: [...this.state.taskList, newTask],
     });
+    this.showNotification();
   };
 
   handleRemoveTask(taskId) {
@@ -97,13 +125,23 @@ class App extends React.Component {
     let newTaskList = this.state.taskList.slice();
     newTaskList.forEach(task => {
         if(task.id === taskId) {
-          task.taskState = utils.nextTaskState(task.taskState);//TODO: Revizar actualización del boton!!!!
+          task.taskState = utils.nextTaskState(task.taskState);
         }
     });
 
     this.setState({
       taskList: newTaskList,
     });
+  }
+
+  setNotificationRef = (element) => this.notificationRef = element;
+
+  closeNotification = () => this.notificationRef.style.display = 'none';
+  showNotification = () => {
+    this.notificationRef.style.display = 'block';
+    setTimeout(() => {
+      this.closeNotification(); 
+    },3000);
   }
 }
 

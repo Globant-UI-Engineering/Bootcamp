@@ -3,3 +3,7 @@ button.close {
     right: 5px;
     top: 5px;
 }
+
+main > p {
+    margin-bottom: 0; 
+}

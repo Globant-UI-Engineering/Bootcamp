@@ -34,8 +34,8 @@ class TaskCard extends React.Component {
 
     render(){
         return(
-            <div className="col-md-4">
-                <section className="card mt-4" ref={this.setCardRef}>
+            <section className="col-md-4">
+                <div className="card mt-4 mb-4" ref={this.setCardRef}>
                     <header className="card-header">
                         <button 
                             type="button" 
@@ -67,8 +67,8 @@ class TaskCard extends React.Component {
                         {utils.nextTaskState(this.props.taskState)}
                         </button>
                     </footer>
-                </section>
-            </div>
+                </div>
+            </section>
         );
     }
 

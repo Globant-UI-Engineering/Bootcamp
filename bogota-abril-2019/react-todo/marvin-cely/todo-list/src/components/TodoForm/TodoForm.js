@@ -1,6 +1,5 @@
 import React from 'react';
 import './TodoForm.css';
-import utils from '../../Utils/utils'
 
 class TodoForm extends React.Component {
     constructor(props) {
@@ -17,7 +16,6 @@ class TodoForm extends React.Component {
     }
 
     render() {
-        // TODO: Refactorizar cógigo a más pequeño en funciones
         return(
             <section className="card">
                 <form className="card-body" onSubmit={ this.handleSubmit }>
@@ -109,7 +107,7 @@ class TodoForm extends React.Component {
                             </label>
                         </article>
                     </fieldset>
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-secondary">
                         Agregar tarea
                     </button>
                 </form>
@@ -127,7 +125,7 @@ class TodoForm extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.addTask(this.state);
-        // TODO: Create a message confirmation
+        event.target.reset();
     }
 }
 

@@ -1,0 +1,74 @@
+{
+    "taskList": [
+        {
+            "description": "Tener encuenta aspecto visual",
+            "priority": "Media",
+            "responsible": "Marvin",
+            "taskState": "Done",
+            "title": "Mejorar Calculadora"
+        },
+        {
+            "description": "Resolver algoritmo del juego",
+            "priority": "Media",
+            "responsible": "Marvin",
+            "taskState": "Done",
+            "title": "Desarrolllar Sibling Puzzle"
+        },
+        {
+            "description": "Realizar implementación al Todo List",
+            "priority": "Media",
+            "responsible": "Marvin",
+            "taskState": "Done",
+            "title": "Agregar Mobx"
+        },
+        {
+            "description": "Estudiar vocabulario",
+            "priority": "Media",
+            "responsible": "Adriana",
+            "taskState": "Doing",
+            "title": "Estudiar Alemán"
+        },
+        {
+            "description": "Ejercicios de saque",
+            "priority": "Media",
+            "responsible": "Dayra",
+            "taskState": "Doing",
+            "title": "Practicar Tenis"
+        },
+        {
+            "description": "Limpiar código de los talleres",
+            "priority": "Media",
+            "responsible": "Marvin",
+            "taskState": "Done",
+            "title": "Realizar Clean Code"
+        },
+        {
+            "description": "Elegir elementos relevantes del proyecto",
+            "priority": "Baja",
+            "responsible": "Marvin",
+            "taskState": "Todo",
+            "title": "Crear documento entrega final"
+        },
+        {
+            "description": "Elegir lementos para la última entrega",
+            "priority": "Media",
+            "responsible": "Marvin",
+            "taskState": "Todo",
+            "title": "Investigar Apredizaje de Máquina"
+        },
+        {
+            "description": "Elegir Historias de usuario relevantes para una entrega mínimo funcional",
+            "priority": "Media",
+            "responsible": "Marvin",
+            "taskState": "Todo",
+            "title": "Priorizar Historias de Usuario"
+        },
+        {
+            "description": "Realizar Mock-Ups para el proyecto final",
+            "priority": "Alta",
+            "responsible": "Marvin",
+            "taskState": "Todo",
+            "title": "Bosquejar Mock-Ups"
+        }
+    ]
+}

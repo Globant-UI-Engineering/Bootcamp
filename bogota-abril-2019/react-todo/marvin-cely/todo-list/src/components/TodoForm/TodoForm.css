@@ -1,3 +1,7 @@
+section.card {
+    margin-bottom: 50px;
+}
+
 article.form-group {
     margin: auto;
 }

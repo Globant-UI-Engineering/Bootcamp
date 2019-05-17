@@ -16,3 +16,25 @@ aside, main {
       transform: rotate(360deg);
   }
 }
+
+header>h1 {
+  display: flex;
+  justify-content: center;
+  background: #316D7D;
+  color: #FBFCFC;
+  padding: 30px;
+  border-bottom: 3px solid #24525E;
+}
+
+nav + p {
+  display: none;
+}
+
+footer > p {
+  display: flex;
+  justify-content: flex-end;
+  background: #081823;
+  margin: auto;
+  padding: 30px;
+  color: #FBFCFC;
+}
