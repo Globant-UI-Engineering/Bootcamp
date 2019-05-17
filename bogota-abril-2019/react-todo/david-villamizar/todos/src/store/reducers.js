@@ -6,15 +6,12 @@ let lastId = 10;
 function todos(
   state = Array(lastId)
     .fill(0)
-    .map((v, i) => ({ id: i, title: `Task ${i}`, checked: i % 2 === 0 })),
+    .map((v, i) => ({ id: i, checked: i % 2 === 0, title: `Task ${i}` })),
   action,
 ) {
   switch (action.type) {
     case ADD_TODO:
-      return [
-        ...state,
-        { id: action.id, title: action.title, checked: action.checked },
-      ];
+      return [...state, { id: lastId++, checked: false, title: "" }];
     case SET_CHECKED:
       return state.map(todo => {
         if (todo.id === action.id) {

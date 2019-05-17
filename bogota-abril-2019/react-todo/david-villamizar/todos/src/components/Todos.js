@@ -2,26 +2,35 @@ import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { setChecked, setTitle } from "../store/actions";
+import { addTodo, setChecked, setTitle } from "../store/actions";
 import Todo from "./Todo";
 import styles from "./Todos.module.css";
 import { FILTER_FUNCTIONS } from "./TodosFilterFunctions";
 
-function Todos({ todos, filterType, onCheckedChange, onTitleChange }) {
+function Todos({
+  todos,
+  filterType,
+  onCheckedChange,
+  onTitleChange,
+  onAddTodo,
+}) {
   return (
-    <ul className={styles.todos}>
-      {todos
-        .filter(FILTER_FUNCTIONS[filterType])
-        .map(({ id, checked, title }) => (
-          <Todo
-            key={id}
-            checked={checked}
-            title={title}
-            onCheckedChange={e => onCheckedChange(id, e)}
-            onTitleChange={e => onTitleChange(id, e)}
-          />
-        ))}
-    </ul>
+    <>
+      <ul className={styles.todos}>
+        {todos
+          .filter(FILTER_FUNCTIONS[filterType])
+          .map(({ id, checked, title }) => (
+            <Todo
+              key={id}
+              checked={checked}
+              title={title}
+              onCheckedChange={e => onCheckedChange(id, e)}
+              onTitleChange={e => onTitleChange(id, e)}
+            />
+          ))}
+      </ul>
+      <button onClick={onAddTodo}>Add To Do</button>
+    </>
   );
 }
 
@@ -60,6 +69,9 @@ const mapDispatchToProps = dispatch => {
     },
     onCheckedChange: (id, value) => {
       dispatch(setChecked(id, value));
+    },
+    onAddTodo: () => {
+      dispatch(addTodo());
     },
   };
 };
