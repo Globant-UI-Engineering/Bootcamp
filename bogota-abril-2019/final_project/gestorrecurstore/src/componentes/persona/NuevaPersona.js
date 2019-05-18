@@ -102,7 +102,6 @@ class NuevaPersona extends Component {
                         <input type="submit" value="Agregar Usuario" />
                     </form>
                 </section>
-
             </article>
         );
     }

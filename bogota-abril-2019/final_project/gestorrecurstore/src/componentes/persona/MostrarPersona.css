@@ -4,5 +4,20 @@ button.editarButtonStyle{
     margin-right: 35%;
 }
 section.mostrarPersonaContainer{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section.mostrarPersonaContainer h1{
     text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+section.mostrarPersonaContainer h2{
+    text-align: center;
+    font-size: 15px;
+    margin:0;
+    text-decoration: underline;
 }

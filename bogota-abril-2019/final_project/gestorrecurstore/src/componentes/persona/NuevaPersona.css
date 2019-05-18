@@ -13,7 +13,7 @@ section.undoButton{
 section.undoButton button{
     background:#5b727c;
     border: 1px solid black ;
-    width: 100px;
+    width: 180px;
     height: 30px;
     color: white;
 }

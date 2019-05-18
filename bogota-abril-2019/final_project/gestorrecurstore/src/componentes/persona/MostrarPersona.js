@@ -28,10 +28,10 @@ const MostrarPersona = ({ usuario }) => {
             <section className="mostrarPersonaContainer">
 
                 <h1>{usuario.primerNombre} {usuario.segundoNombre} {usuario.primerApellido} {usuario.segundoApellido} </h1>
-                <h2>{usuario.tipo}</h2>
-                <p>telefono: {usuario.telefono}</p>
-                <p>telefono: {usuario.correoElectronico}</p>
-                <p>telefono: {usuario.facultad}</p>
+                <h2>{usuario.codigoUniversitario} - {usuario.tipo}</h2>
+                <p>Telefono: {usuario.telefono}</p>
+                <p>Correo Electronico: {usuario.correoElectronico}</p>
+                <p>Facultad: {usuario.facultad}</p>
             </section>
         </article>
     );
