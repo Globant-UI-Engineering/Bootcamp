@@ -21,3 +21,20 @@ li a {
 li a:hover {   
     background-color: #111;
 }
+
+nav ul p{
+    color: white;
+    display: block;
+    float: right;
+}
+
+button.cerrarSesion{
+    float: right;
+    width: 130px;
+    margin: 5px 20px;
+    background-color: #f8524d;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+}

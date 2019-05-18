@@ -8,14 +8,15 @@ import MostrarPersona from './componentes/persona/MostrarPersona';
 import EditarPersona from './componentes/persona/EditarPersona';
 import NuevaPersona from './componentes/persona/NuevaPersona';
 
-import Herramienta from'./componentes/herramientas/Herramientas';
-import EditarHerramienta from'./componentes/herramientas/EditarHerramienta';
-import NuevaHerramienta from'./componentes/herramientas/NuevaHerramienta';
-import MostrarHerramienta from'./componentes/herramientas/MostrarHerramienta';
-import PestamoHerramienta from'./componentes/herramientas/PrestamoHerramienta';
+import Herramienta from './componentes/herramientas/Herramientas';
+import EditarHerramienta from './componentes/herramientas/EditarHerramienta';
+import NuevaHerramienta from './componentes/herramientas/NuevaHerramienta';
+import MostrarHerramienta from './componentes/herramientas/MostrarHerramienta';
+import PrestamoHerramienta from './componentes/herramientas/PrestamoHerramienta';
+import Login from './componentes/autenticacion/Login';
 
 import BarraNavegacion from './componentes/layout/BarraNavegacion.js';
-import PrestamoHerramienta from './componentes/herramientas/PrestamoHerramienta';
+import { UserIsAuthenticated, UserIsNotAuthenticated } from './componentes/autenticacion/authHelper';
 
 
 function App() {
@@ -24,16 +25,18 @@ function App() {
       <Router>
         <BarraNavegacion />
         <Switch>
-          <Route exact path="/" component={Herramienta} />
-          <Route exact path="/herramientas/mostrar/:id" component={MostrarHerramienta} />
-          <Route exact path="/herramientas/nueva" component={NuevaHerramienta} />
-          <Route exact path="/herramientas/editar/:id" component={EditarHerramienta} />
-          <Route exact path="/herramientas/prestamo/:id" component={PrestamoHerramienta} />
+          <Route exact path="/login" component={UserIsNotAuthenticated(Login)} />
 
-          <Route exact path="/Usuarios" component={Persona} />
-          <Route exact path="/personas/nueva" component={NuevaPersona} />
-          <Route exact path="/personas/mostrar/:id" component={MostrarPersona} />
-          <Route exact path="/personas/editar/:id" component={EditarPersona} />
+          <Route exact path="/" component={UserIsAuthenticated(Herramienta)} />
+          <Route exact path="/herramientas/mostrar/:id" component={UserIsAuthenticated(MostrarHerramienta)} />
+          <Route exact path="/herramientas/nueva" component={UserIsAuthenticated(NuevaHerramienta)} />
+          <Route exact path="/herramientas/editar/:id" component={UserIsAuthenticated(EditarHerramienta)} />
+          <Route exact path="/herramientas/prestamo/:id" component={UserIsAuthenticated(PrestamoHerramienta)} />
+
+          <Route exact path="/Usuarios" component={UserIsAuthenticated(Persona)} />
+          <Route exact path="/personas/nueva" component={UserIsAuthenticated(NuevaPersona)} />
+          <Route exact path="/personas/mostrar/:id" component={UserIsAuthenticated(MostrarPersona)} />
+          <Route exact path="/personas/editar/:id" component={UserIsAuthenticated(EditarPersona)} />
         </Switch>
       </Router>
     </Provider>
