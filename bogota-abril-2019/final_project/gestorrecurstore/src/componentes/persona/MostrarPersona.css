@@ -1,0 +1,8 @@
+button.editarButtonStyle{
+    background: red!important;
+    float: right;
+    margin-right: 35%;
+}
+section.mostrarPersonaContainer{
+    text-align: center;
+}

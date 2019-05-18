@@ -1,0 +1,77 @@
+section.container h1{
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-size: 25px;
+}
+
+section.undoButton{
+    padding-left: 25%;
+    margin-top:10px;
+}
+
+section.undoButton button{
+    background:#5b727c;
+    border: 1px solid black ;
+    width: 100px;
+    height: 30px;
+    color: white;
+}
+
+section.container h1{
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+section form{
+    width: 43%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section form input, form select {
+    max-width: 70%;
+    display: inline-block;
+    margin: 8px 0px;
+}
+
+section form label {
+    width: 25%;
+    margin: 8px 8px;
+}
+
+section form div {
+    text-align: center;
+}
+
+.nombreStyle{
+    width: 50%;
+    display: inline-block;
+}
+
+fieldset{
+    margin: 8px 8px;
+    background: #b2fff8;
+    border: 0.5px solid black;
+}
+
+fieldset legend{
+    font-size: 16px;
+    font-weight: bold;
+    border: 0.8px solid black;
+    background: white;
+}
+
+input[type="submit"] {
+    background: #f5a474;
+    border: 1px solid black;
+    width: 122px;
+    height: 30px;
+    color: black;
+    display: block;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+

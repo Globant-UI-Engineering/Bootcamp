@@ -49,7 +49,7 @@ const Persona = ({personas,firestore}) => {
                         {personas.map(persona => (
                             <tr key={persona.id}>
                                 <td>{persona.codigoUniversitario}</td>
-                                <td>{persona.nombre} {persona.apellido}</td>
+                                <td>{persona.primerNombre} {persona.segundoNombre} {persona.primerApellido} {persona.segundoApellido}</td>
                                 <td>{persona.facultad} </td>
                                 <td>
                                     <Link to={`/personas/mostrar/${persona.id}`}>
