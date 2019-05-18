@@ -13,9 +13,19 @@ import EscanerImage from '../../images/escaner.png';
 import MonitorImage from '../../images/monitor.png';
 import ImpresoraImage from '../../images/impresora.png';
 import './MostrarHerramientas.css';
+import FichaPrestamo from './FichaPrestamo.js';
 
 class MostrarHerramienta extends Component {
-    state = {}
+    devolucion = (id) => {
+        const { firestore } = this.props;
+        const herramientaActualizada = { ...this.props.herramienta };
+        herramientaActualizada.prestado = [];
+        herramientaActualizada.disponible = true;
+        firestore.update({
+            collection: 'herramientas',
+            doc: herramientaActualizada.id
+        }, herramientaActualizada);
+    }
     render() {
         const { herramienta } = this.props
 
@@ -25,6 +35,8 @@ class MostrarHerramienta extends Component {
         const editIcon = <FontAwesomeIcon icon={faPencilAlt} />;
         const image = this.getImageHerramienta(herramienta);
         const buttonPrestamo = this.getButtonPrestamo(herramienta);
+        const usuarioPrestamo = this.getUsuarioPrestamo(herramienta);
+        const buttonDevolucion = this.getButtonDevolucion(herramienta);
 
         return (
             <article>
@@ -37,14 +49,16 @@ class MostrarHerramienta extends Component {
                     </Link>
                 </section>
                 <section className="mostrarHerramientaContainer">
-
                     <h1>{herramienta.descripcion} - {herramienta.marca}</h1>
                     {image}
                     <p>Tipo: {herramienta.tipo}</p>
                     <p>Serial: {herramienta.serial}</p>
                     <p>Modelo: {herramienta.modelo}</p>
-                    <p>Disponible: {herramienta.disponible ? 'Si' : 'No'}</p>
                     {buttonPrestamo}
+                </section>
+                <section className="mostrarPrestamoContainer">
+                    {usuarioPrestamo}
+                    {buttonDevolucion}
                 </section>
             </article>
         )
@@ -72,6 +86,23 @@ class MostrarHerramienta extends Component {
             return (<Link to={`/herramientas/prestamo/${herramienta.id}`}>
                 <button className="prestamoButton">{calendarIcon} Prestamo</button>
             </Link>);
+        }
+        return (<p>La herramienta no esta disponible!</p>);
+    }
+
+    getButtonDevolucion(herramienta) {
+        if (!herramienta.disponible) {
+            return (<button className="prestamoButton" onClick={this.devolucion}> Devolucion</button>);
+        }
+        return null;
+    }
+
+    getUsuarioPrestamo(herramienta) {
+        const usuario = herramienta.prestado[0];
+        if (!herramienta.disponible) {
+            return (
+                <FichaPrestamo usuario={usuario} />
+            );
         }
         return null;
     }

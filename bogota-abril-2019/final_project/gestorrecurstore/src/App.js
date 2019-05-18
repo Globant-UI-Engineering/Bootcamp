@@ -15,6 +15,7 @@ import MostrarHerramienta from'./componentes/herramientas/MostrarHerramienta';
 import PestamoHerramienta from'./componentes/herramientas/PrestamoHerramienta';
 
 import BarraNavegacion from './componentes/layout/BarraNavegacion.js';
+import PrestamoHerramienta from './componentes/herramientas/PrestamoHerramienta';
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
           <Route exact path="/herramientas/mostrar/:id" component={MostrarHerramienta} />
           <Route exact path="/herramientas/nueva" component={NuevaHerramienta} />
           <Route exact path="/herramientas/editar/:id" component={EditarHerramienta} />
-          <Route exact path="/herramientas/prestamo/:id" component={EditarHerramienta} />
+          <Route exact path="/herramientas/prestamo/:id" component={PrestamoHerramienta} />
 
           <Route exact path="/Usuarios" component={Persona} />
           <Route exact path="/personas/nueva" component={NuevaPersona} />

@@ -26,7 +26,6 @@ const MostrarPersona = ({ usuario }) => {
                 </Link>
             </section>
             <section className="mostrarPersonaContainer">
-
                 <h1>{usuario.primerNombre} {usuario.segundoNombre} {usuario.primerApellido} {usuario.segundoApellido} </h1>
                 <h2>{usuario.codigoUniversitario} - {usuario.tipo}</h2>
                 <p>Telefono: {usuario.telefono}</p>
