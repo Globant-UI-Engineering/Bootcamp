@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { firestoreConnect } from 'react-redux-firebase';
+import Spinner from '../layout/Spinner.js';
+import { Link } from 'react-router-dom';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faUndo } from '@fortawesome/free-solid-svg-icons';
 import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
-import { firestoreConnect } from 'react-redux-firebase';
-import { Link } from 'react-router-dom';
-import Spinner from '../layout/Spinner.js';
 
 const userIcon = <FontAwesomeIcon icon={faUser} />;
 const undoIcon = <FontAwesomeIcon icon={faUndo} />;
@@ -48,8 +48,6 @@ class EditarPersona extends Component {
             doc:usuario.id
         },usuarioActualizado).then(history.push('/Usuarios'))
 
-
-        console.log(usuarioActualizado);
     }
 
     render() {

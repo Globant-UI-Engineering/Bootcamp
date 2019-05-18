@@ -27,6 +27,7 @@ section.tableContainer td:last-child{
 
 section.tableContainer td{
     background: #b2fff8;
+    text-align: center;
 }
 
 section.tableContainer td button{

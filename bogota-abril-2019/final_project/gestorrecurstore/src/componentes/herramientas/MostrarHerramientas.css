@@ -1,0 +1,32 @@
+img {
+    width: 250px;
+    float: left;
+}
+
+section.mostrarHerramientaContainer{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section.mostrarHerramientaContainer h1{
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 18px 0px;
+}
+
+section.mostrarHerramientaContainer p{
+    text-align: left;
+    font-size: 16px;
+    margin: 0px 0px;
+}
+
+.prestamoButton{
+    border: 1px solid black;
+    width: 180px;
+    height: 30px;
+    color: white;
+    margin: 30px 70px;
+    background: orangered;
+}

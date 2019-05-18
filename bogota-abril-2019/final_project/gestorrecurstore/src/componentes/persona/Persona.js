@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
 import Spinner from '../layout/Spinner.js';
-import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -65,11 +64,6 @@ const Persona = ({personas,firestore}) => {
         </article>
     );
 }
-
-/*personas.propTypes ={
-    firestore: PropTypes.object.isRequired,
-    personas:PropTypes.array
-}*/
 
 export default compose(
     firestoreConnect([{ collection: 'personas' }]),
