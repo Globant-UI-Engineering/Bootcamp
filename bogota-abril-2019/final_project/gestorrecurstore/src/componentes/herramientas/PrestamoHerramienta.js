@@ -11,13 +11,14 @@ import { faUndo } from '@fortawesome/free-solid-svg-icons';
 
 import FichaPersona from '../persona/FichaPersona';
 
+import { buscarUsuario } from '../../acciones/buscarUsuarioAction';
+
 const userIcon = <FontAwesomeIcon icon={faUserPlus} />;
 const undoIcon = <FontAwesomeIcon icon={faUndo} />;
 
 class PrestamoHerramienta extends Component {
     state = {
         codigoUsuario: '',
-        usuario: {},
         conResultados: false
     }
 
@@ -27,40 +28,45 @@ class PrestamoHerramienta extends Component {
         })
     }
 
-    bucarUsuario = (e) => {
+    getUsuario = (e) => {
         e.preventDefault();
+
         const { codigoUsuario } = this.state;
-        const { firestore } = this.props;
+        const { firestore, buscarUsuario } = this.props;
         const colection = firestore.collection('personas');
         const consulta = colection.where("codigoUniversitario", "==", codigoUsuario).get();
 
         consulta.then(resultado => {
             if (resultado.empty) {
+                buscarUsuario({});
                 this.setState({
-                    usuario: {},
                     conResultados: false
                 })
             } else {
                 const datos = resultado.docs[0];
+                buscarUsuario(datos.data());
                 this.setState({
-                    usuario: datos.data(),
                     conResultados: true
                 })
             }
         })
     }
-    solicitarPrestamo = (e) => {
-        const usuario= this.state.usuario;
-        usuario.fecha_solicitud= new Date().toLocaleDateString();
-        const herramientaActualizada= this.props.herramienta;
-        herramientaActualizada.prestado.push(usuario);
-        herramientaActualizada.disponible=false;
-        const {firestore, history, herramienta}=this.props;
 
+    solicitarPrestamo = (e) => {
+        const { usuario } = this.props;
+        usuario.fecha_solicitud = new Date().toLocaleDateString();
+
+        let prestado = [];
+        prestado = [...this.props.herramienta.prestado, usuario]
+        const herramientaActualizada = { ...this.props.herramienta };
+        herramientaActualizada.prestado = prestado;
+        herramientaActualizada.disponible = false;
+
+        const { firestore, history } = this.props;
         firestore.update({
-            collection:'herramientas',
-            doc: herramienta.id
-        },herramientaActualizada).then(history.push('/'));
+            collection: 'herramientas',
+            doc: herramientaActualizada.id
+        }, herramientaActualizada).then(history.push('/'));
     }
 
 
@@ -69,7 +75,8 @@ class PrestamoHerramienta extends Component {
 
         if (!herramienta) return <Spinner />;
 
-        const { conResultados, usuario } = this.state;
+        const { conResultados } = this.state;
+        const { usuario } = this.props;
         let fichaUsuario, botonPrestamo;
         if (conResultados) {
             fichaUsuario = <FichaPersona usuario={usuario} />
@@ -88,7 +95,7 @@ class PrestamoHerramienta extends Component {
                 </section>
                 <section className="container">
                     <h1>{userIcon} Solicitar Prestamo: {herramienta.descripcion} </h1>
-                    <form onSubmit={this.bucarUsuario}>
+                    <form onSubmit={this.getUsuario}>
                         <fieldset>
                             <legend> Busqueda de usuario </legend>
                             <div>
@@ -116,7 +123,8 @@ export default compose(
             doc: props.match.params.id
         }
     ]),
-    connect(({ firestore: { ordered } }, props) => ({
-        herramienta: ordered.herramienta && ordered.herramienta[0]
-    }))
+    connect(({ firestore: { ordered }, usuario }, props) => ({
+        herramienta: ordered.herramienta && ordered.herramienta[0],
+        usuario: usuario
+    }), { buscarUsuario })
 )(PrestamoHerramienta);

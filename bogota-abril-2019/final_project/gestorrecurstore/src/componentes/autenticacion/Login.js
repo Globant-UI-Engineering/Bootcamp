@@ -27,7 +27,7 @@ class Login extends Component {
 
         return (
             <article>
-                <section>
+                <section className="loginSection">
                     <form onSubmit={this.login}>
                         <label htmlFor="email"><b>Email</b></label>
                         <input type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.cambia} required />
