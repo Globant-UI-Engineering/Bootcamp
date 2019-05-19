@@ -2,8 +2,12 @@ import React from 'react';
 import './SearchPanel.css';
 import fireBaseInit from '../FirebaseInit'
 import logo from '../../../src/images/logo.svg'
-import loading from '../../../src/images/loading.gif'
 import Card from '../card/Card'
+import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import findTechnologys from '../../redux/actions/findTechnologys'
+import updateAllTechnologys from '../../redux/actions/updateAllTechnologys'
+import Detail from '../detail/Detail';
 
 const firebaseRef = fireBaseInit.database().ref().child("technology");
 class SearchPanel extends React.Component {
@@ -12,37 +16,34 @@ class SearchPanel extends React.Component {
     super();
     
     this.state = {
-      allTechnologys : [],
-      technologys : [{title:"Loading",id:1,image:loading},{title:"Loading",id:2,image:loading}],
       dataNotLoaded:true
-      
     }
 
     this.findTechnologys = this.findTechnologys.bind(this);
+    this.cardClickHandler = this.cardClickHandler.bind(this);
   }
 
   componentDidMount(){
     // read from firebase 
     firebaseRef.once('value', snapshot => {
-       let allTechnologys  = this.allTechnologys = snapshot.val()
-        this.setState({technologys : allTechnologys,
-          dataNotLoaded:false,allTechnologys});
+       let allTechnologys  = snapshot.val();
+        this.setState({dataNotLoaded:false});
+        this.props.updateAllTechnologys(allTechnologys);
+        this.props.findTechnologys({userInput:"", technologys:allTechnologys})
       });
       
   }
 
   findTechnologys(event){
-    var userInput = event.target.value.toLowerCase();
-    let results = this.allTechnologys.filter((element) =>{
-      return element.title.toLowerCase().includes(userInput)?element.title:"";
-    })
-    this.setState({technologys : results.map((element) => ({title:element.title,image:element.image,id:element.id}))});
+    this.props.findTechnologys({userInput:event.target.value.toLowerCase(), technologys:this.props.allTechnologys})
   }
 
-
+  cardClickHandler(object){
+    Detail.defaultProps = object;
+  }
 
   render () {
-    
+    const {technologys} = this.props;
     return (
     <div className="SearchPanel">
       <header className="SearchPanel-header">
@@ -53,13 +54,28 @@ class SearchPanel extends React.Component {
         <img src = {logo} alt = "logo" ></img>
       </header>
       <article className = "results-content">
-          {this.state.technologys.map (object => (
-            <Card key={object.id}  title = {object.title} image = {object.image}></Card>
+          {technologys.map (object => (
+             <Link key={object.id} to= {`/detail/`+object.id} 
+             onClick={() => this.cardClickHandler(object)}>
+              <Card title = {object.title} image = {object.image} 
+               ></Card>
+            </Link>
           ))}
       </article>
     </div>
     )}
 }
 
-export default SearchPanel;
+const mapStateToProps = (state) => {
+  return {
+    technologys:state.restultList,
+    allTechnologys:state.allTechnologys
+  }
+};
 
+const mapDispatchToProps = {
+  findTechnologys,
+  updateAllTechnologys
+};
+
+export default connect(mapStateToProps,mapDispatchToProps) (SearchPanel);

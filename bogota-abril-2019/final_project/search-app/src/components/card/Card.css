@@ -4,6 +4,7 @@
   border: solid;
   width: 300px;
   height: 250px;
+  border-color: black;
 }
 
 .result-image{
@@ -17,7 +18,7 @@
 }
 
 .card:hover{
-  background-color: #d5c7ff;
+  background-color:#d5b1d6;
 }
 
 .card h1 {
@@ -28,4 +29,5 @@
   color: #7b3bb3;
   border-bottom: double;
   border-color: black;
+  text-decoration: underline;
 }
