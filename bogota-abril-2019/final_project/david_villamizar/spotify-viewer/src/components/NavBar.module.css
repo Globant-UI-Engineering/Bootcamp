@@ -1,0 +1,35 @@
+.navBar {
+  transition: 1s background-color;
+}
+.navBar ul {
+  margin: 0;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.navBar ul li {
+  transition: 1s background-color, 1s color;
+
+  flex: 1 1;
+  text-align: center;
+  max-width: 120px;
+}
+
+.navBar ul li:hover {
+  background: #aaa;
+  color: white;
+}
+
+.navBar ul li a {
+  display: block;
+  padding: 0.5em;
+  /* width: 100%; */
+}
+
+.activeLink {
+  background: #888;
+  color: white;
+}
