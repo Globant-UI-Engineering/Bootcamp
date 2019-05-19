@@ -2,29 +2,31 @@
   flex: 1 1 auto;
   display: flex;
   height: 100%;
+  padding: 0;
   flex-direction: row;
   overflow-y: auto;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 2em 0 2em 0;
+  /* margin: 2rem 0 2rem 0; */
 }
 
 .album {
+  list-style: none;
   position: relative;
-  flex: 0 0 10em;
-  height: 10em;
-  width: 10em;
-  padding: 1em;
-  margin: 1em;
+  flex: 0 0 10rem;
+  height: 10rem;
+  width: 10rem;
+  padding: 1rem;
+  margin: 1rem;
   cursor: pointer;
-  transition: box-shadow 0.5s, transform 0.5s;
-  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.25s, transform 0.25s;
+  box-shadow: 0 2px 5px 5px rgba(0, 0, 0, 0.5);
   transform: scale(1);
 }
 
 .album:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 10px 5px rgba(0, 0, 0, 0.25);
+  transform: scale(0.995);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 .album:hover::after {
   content: "";

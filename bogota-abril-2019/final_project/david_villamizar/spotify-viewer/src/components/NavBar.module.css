@@ -11,25 +11,27 @@
 }
 
 .navBar ul li {
-  transition: 1s background-color, 1s color;
+  transition: 0.25s background-color, 0.5s color;
 
   flex: 1 1;
   text-align: center;
   max-width: 120px;
+  background: #aaa;
 }
 
 .navBar ul li:hover {
-  background: #aaa;
-  color: white;
+  background: #555;
 }
 
 .navBar ul li a {
   display: block;
+  color: #000;
   padding: 0.5em;
+  text-decoration: none;
   /* width: 100%; */
 }
 
-.activeLink {
-  background: #888;
+.navBar ul li a.active {
+  background: #333;
   color: white;
 }

@@ -1,33 +1,59 @@
 import React from "react";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, Redirect, Route, Switch } from "react-router-dom";
+import NavBar from "../components/NavBar";
 import Albums from "./Albums";
 import styles from "./Artists.module.css";
+import Tracks from "./Tracks";
 
 export default function Artists({ artists, ...props }) {
   return (
-    <div className={styles.artists}>
+    <ul className={styles.artists}>
       {artists.map(artist => (
         <ArtistListItem key={artist.id} {...artist} {...props} />
       ))}
-    </div>
+    </ul>
   );
 }
 
-function ArtistListItem({ name, images, genres, id, match, history }) {
+function ArtistListItem({
+  name,
+  images,
+  genres,
+  id,
+  match,
+  history,
+  location,
+}) {
   return (
-    <NavLink
-      className={styles.artist}
-      activeClassName={styles.active}
-      to={`${match.path}/${id}`}
-      tabIndex="0"
+    <li
+      className={`${styles.artist} ${
+        location.pathname.startsWith(`${match.path}/${id}`) ? styles.active : ""
+      }`}
       style={{ maxHeight: Math.min(images[0].height, 500) }}
-      onFocus={e => history.push(`${match.path}/${id}`)}
+      // onFocus={e => {
+      //   history.push(`${match.path}/${id}`);
+      // }}
     >
-      <h1>{name}</h1>
       <img src={images[0].url} alt={name} />
-      <p>{genres.join(", ")}</p>
-      <Route path={`${match.path}/${id}`} component={Albums} />
-    </NavLink>
+      <NavLink activeClassName={styles.active} to={`${match.path}/${id}`}>
+        <h1>{name}</h1>
+        <p>{genres.join(", ")}</p>
+      </NavLink>
+      <NavBar
+        links={[
+          { name: "Albums", href: `${match.path}/${id}/albums` },
+          { name: "Top Tracks", href: `${match.path}/${id}/top-tracks` },
+        ]}
+      />
+      <Switch>
+        <Route path={`${match.path}/${id}/albums`} component={Albums} />
+        <Route path={`${match.path}/${id}/top-tracks`} component={Tracks} />
+        <Redirect
+          from={`${match.path}/${id}`}
+          to={`${match.path}/${id}/albums`}
+        />
+      </Switch>
+    </li>
   );
 }
 

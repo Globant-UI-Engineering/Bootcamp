@@ -2,21 +2,20 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
 
-export default function NavBar() {
+export default function NavBar({ links }) {
   return (
     <nav className={styles.navBar}>
-      <ul>
-        <li>
-          <NavLink to="/login" exact activeClassName={styles.activeLink}>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/artists" activeClassName={styles.activeLink}>
-            Artists
-          </NavLink>
-        </li>
-      </ul>
+      <ul>{links.map(Link)}</ul>
     </nav>
+  );
+}
+
+function Link({ href, name }, i) {
+  return (
+    <li key={href + name}>
+      <NavLink to={href} activeClassName={styles.active}>
+        {name}
+      </NavLink>
+    </li>
   );
 }

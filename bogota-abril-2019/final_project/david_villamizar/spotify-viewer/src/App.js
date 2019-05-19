@@ -7,7 +7,12 @@ import Login from "./routes/Login";
 function App() {
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar
+        links={[
+          { name: "Login", href: "/login" },
+          { name: "Artists", href: "/artists" },
+        ]}
+      />
       <Switch>
         <Route path="/login" component={Login} />
         <Route path="/artists" component={Artists} />
