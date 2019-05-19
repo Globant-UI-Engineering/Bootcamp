@@ -31,14 +31,15 @@
   z-index: 10;
 }
 
-.artist:focus {
+.artist:focus,
+.artist.active {
   margin-top: 1em;
   margin-bottom: 1em;
   height: 1000px;
   outline: none;
 }
 
-.artist:hover:not(:focus) {
+.artist:hover:not(:focus):not(.active) {
   height: 200px;
   transition: height 0.25s, margin 0.25s;
 }

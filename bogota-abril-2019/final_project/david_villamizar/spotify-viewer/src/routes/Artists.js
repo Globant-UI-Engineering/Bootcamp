@@ -13,13 +13,15 @@ export default function Artists({ artists, ...props }) {
   );
 }
 
-function ArtistListItem({ name, images, genres, id, match, ...props }) {
+function ArtistListItem({ name, images, genres, id, match, history }) {
   return (
     <NavLink
       className={styles.artist}
+      activeClassName={styles.active}
       to={`${match.path}/${id}`}
       tabIndex="0"
       style={{ maxHeight: Math.min(images[0].height, 500) }}
+      onFocus={e => history.push(`${match.path}/${id}`)}
     >
       <h1>{name}</h1>
       <p>{genres.join(", ")}</p>
