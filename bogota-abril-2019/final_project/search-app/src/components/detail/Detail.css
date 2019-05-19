@@ -13,7 +13,7 @@
     margin-left: 268px;
     margin-right: 268px;
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
@@ -62,3 +62,26 @@ h1{
 
 }
 
+
+button{
+    width: 166px;
+    height: 56px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    margin-left: 600px;
+    margin-right: 600px;
+    background-color: cornsilk;
+    color: brown;
+  }
+
+  button:active{
+    border-style: inset;
+    border-top-width: 3px;
+    border-left-width: 3px;
+  }
+
+  button:hover{
+    color:#d4b4da;
+  }
