@@ -3,7 +3,7 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #05678e;
 }
   
 li {
@@ -19,7 +19,7 @@ li a {
 }
   
 li a:hover {   
-    background-color: #111;
+    background-color: #034661;
 }
 
 nav ul p{
@@ -30,9 +30,8 @@ nav ul p{
 
 button.cerrarSesion{
     float: right;
-    width: 130px;
     margin: 5px 20px;
-    background-color: #f8524d;
+    background-color: #ff0700;
     color: white;
     padding: 14px 20px;
     border: none;

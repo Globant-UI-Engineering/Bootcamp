@@ -19,8 +19,8 @@ const Herramientas = ({ herramientas,firestore }) => {
     const plusIcon = <FontAwesomeIcon icon={faPlus} />;
     const infoIcon = <FontAwesomeIcon icon={faInfo} />;
     const trashIcon = <FontAwesomeIcon icon={faTrash} />;
-    const checkIcon = <FontAwesomeIcon icon={faCheck} />;
-    const timesIcon = <FontAwesomeIcon icon={faTimes} />;
+    const checkIcon = <FontAwesomeIcon icon={faCheck} color="green"/>;
+    const timesIcon = <FontAwesomeIcon icon={faTimes} color="red" />;
 
     const eliminarHerramienta = (id) => {
         firestore.delete({

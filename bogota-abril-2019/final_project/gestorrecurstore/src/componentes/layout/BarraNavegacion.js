@@ -3,7 +3,11 @@ import { firebaseConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import './BarraNavegacion.css';
+
+const closeIcon = <FontAwesomeIcon icon={faSignOutAlt} size="1x" />;
 
 class BarraNavegacion extends Component {
     state = {
@@ -38,7 +42,7 @@ class BarraNavegacion extends Component {
                             <Link to={'/Usuarios'}>Usuarios</Link>
                         </li>
                         <section>
-                            <button className="cerrarSesion" onClick={this.cerrarSesion}>Cerrar Sesión</button>
+                            <button className="cerrarSesion" onClick={this.cerrarSesion}>{closeIcon}Cerrar Sesión</button>
                             <p>{auth.email}</p>
                         </section>
                     </ul>

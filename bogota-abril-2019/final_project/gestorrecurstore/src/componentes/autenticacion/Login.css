@@ -1,26 +1,32 @@
 section.loginSection form {
-    width: 30%;
+    width: 25%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 200px;
+    margin-top: 170px;
     text-align: right;
 }
+section.loginSection h1{
+  text-align: center;
+  font-size: 40px;
+  margin-left: 70px;
+}
 
-input[type=text], input[type=password] {
+section.loginSection input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 10px 15px;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
 
 button.login {
-    background-color: #4c98af;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 50%;
-  }
+  background-color: #4c98af;
+  color: white;
+  padding: 14px 20px;
+  margin: 15px 50px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  font-size: 15px;
+}

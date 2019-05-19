@@ -1,12 +1,18 @@
 img {
-    width: 250px;
+    width: 202px;
     float: left;
+    margin-right: 20px;
 }
 
 section.mostrarHerramientaContainer{
-    width: 50%;
+    border: solid;
+    width: 511px;
+    height: 233px;
+    margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
+    background: #a5cede94;
+    border: 0.5px solid black;
 }
 
 section.mostrarHerramientaContainer h1{
@@ -22,19 +28,22 @@ section.mostrarHerramientaContainer p{
     margin: 0px 0px;
 }
 
-.prestamoButton{
+.prestamoButton, .solicitudPrestamoButton{
     border: 1px solid black;
     width: 180px;
     height: 30px;
     color: white;
     margin: 30px 70px;
     background: orangered;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
     display: block;
 }
 
+.solicitudPrestamoButton{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .mostrarPrestamoContainer{
-    margin-top: 120px;
+    margin-top: 0px;
 }

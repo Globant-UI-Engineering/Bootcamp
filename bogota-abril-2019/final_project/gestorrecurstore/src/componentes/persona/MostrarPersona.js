@@ -28,9 +28,9 @@ const MostrarPersona = ({ usuario }) => {
             <section className="mostrarPersonaContainer">
                 <h1>{usuario.primerNombre} {usuario.segundoNombre} {usuario.primerApellido} {usuario.segundoApellido} </h1>
                 <h2>{usuario.codigoUniversitario} - {usuario.tipo}</h2>
-                <p>Telefono: {usuario.telefono}</p>
-                <p>Correo Electronico: {usuario.correoElectronico}</p>
-                <p>Facultad: {usuario.facultad}</p>
+                <p>Telefono: <span> {usuario.telefono}</span></p>
+                <p>Correo Electronico: <span>{usuario.correoElectronico}</span></p>
+                <p>Facultad: <span>{usuario.facultad} </span></p>
             </section>
         </article>
     );

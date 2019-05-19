@@ -92,7 +92,7 @@ class MostrarHerramienta extends Component {
 
     getButtonDevolucion(herramienta) {
         if (!herramienta.disponible) {
-            return (<button className="prestamoButton" onClick={this.devolucion}> Devolucion</button>);
+            return (<button className="solicitudPrestamoButton" onClick={this.devolucion}> Devolucion</button>);
         }
         return null;
     }

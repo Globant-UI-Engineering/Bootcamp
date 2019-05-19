@@ -34,7 +34,7 @@ class EditarPersona extends Component {
             primerNombre: this.primerNombreInput.current.value,
             segundoNombre: this.segundoNombreInput.current.value,
             primerApellido: this.primerApellidoInput.current.value,
-            segundoapellido: this.segundoApellidoInput.current.value,
+            segundoApellido: this.segundoApellidoInput.current.value,
             tipo: this.tipoInput.current.value,
             facultad: this.facultadInput.current.value,
             correoElectronico: this.correoElectronicoInput.current.value,

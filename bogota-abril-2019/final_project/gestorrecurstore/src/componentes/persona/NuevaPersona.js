@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { faUndo } from '@fortawesome/free-solid-svg-icons';
 import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './NuevaPersona.css';
 import { firestoreConnect } from 'react-redux-firebase'
 
@@ -99,7 +99,7 @@ class NuevaPersona extends Component {
                                 </select>
                             </div>
                         </fieldset>
-                        <input type="submit" value="Agregar Usuario" />
+                        <input type="submit" value={`Agregar Usuario`} />
                     </form>
                 </section>
             </article>

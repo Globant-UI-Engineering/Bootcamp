@@ -10,7 +10,7 @@ export default function (state = initialState, action) {
                 primerNombre:action.usuario.primerNombre,
                 segundoNombre:action.usuario.segundoNombre,
                 primerApellido:action.usuario.primerApellido,
-                segundoApellido:action.usuario.segundoapellido,
+                segundoApellido:action.usuario.segundoApellido,
                 correoElectronico:action.usuario.correoElectronico,
                 telefono:action.usuario.telefono,
                 codigoUniversitario:action.usuario.codigoUniversitario,

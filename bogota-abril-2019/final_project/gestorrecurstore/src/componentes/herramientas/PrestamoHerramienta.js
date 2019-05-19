@@ -6,14 +6,13 @@ import { firestoreConnect } from 'react-redux-firebase';
 import Spinner from '../layout/Spinner.js';
 import { Link } from 'react-router-dom';
 
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { faUndo } from '@fortawesome/free-solid-svg-icons';
+import { faHandHolding, faUndo } from '@fortawesome/free-solid-svg-icons';
 
 import FichaPersona from '../persona/FichaPersona';
 
 import { buscarUsuario } from '../../acciones/buscarUsuarioAction';
 
-const userIcon = <FontAwesomeIcon icon={faUserPlus} />;
+const holdingIcon = <FontAwesomeIcon icon={faHandHolding} />;
 const undoIcon = <FontAwesomeIcon icon={faUndo} />;
 
 class PrestamoHerramienta extends Component {
@@ -55,7 +54,7 @@ class PrestamoHerramienta extends Component {
     solicitarPrestamo = (e) => {
         const { usuario } = this.props;
         usuario.fecha_solicitud = new Date().toLocaleDateString();
-
+        console.log(usuario)
         let prestado = [];
         prestado = [...this.props.herramienta.prestado, usuario]
         const herramientaActualizada = { ...this.props.herramienta };
@@ -80,7 +79,7 @@ class PrestamoHerramienta extends Component {
         let fichaUsuario, botonPrestamo;
         if (conResultados) {
             fichaUsuario = <FichaPersona usuario={usuario} />
-            botonPrestamo = <button className="prestamoButton" onClick={this.solicitarPrestamo}> Solicitar Prestamo</button>
+            botonPrestamo = <button className="solicitudPrestamoButton" onClick={this.solicitarPrestamo}> Solicitar Prestamo</button>
         } else {
             fichaUsuario = null;
             botonPrestamo = null;
@@ -94,7 +93,7 @@ class PrestamoHerramienta extends Component {
                     </Link>
                 </section>
                 <section className="container">
-                    <h1>{userIcon} Solicitar Prestamo: {herramienta.descripcion} </h1>
+                    <h1>{holdingIcon} Prestamo de {herramienta.descripcion} </h1>
                     <form onSubmit={this.getUsuario}>
                         <fieldset>
                             <legend> Busqueda de usuario </legend>

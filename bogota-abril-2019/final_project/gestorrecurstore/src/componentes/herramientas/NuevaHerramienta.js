@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { faUndo } from '@fortawesome/free-solid-svg-icons';
-import { faUniversity } from '@fortawesome/free-solid-svg-icons';
-import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
+import { faTools, faToolbox, faUndo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { firestoreConnect } from 'react-redux-firebase';
 
 
-const newUserIcon = <FontAwesomeIcon icon={faUserPlus} />;
+const toolIcon = <FontAwesomeIcon icon={faTools} />;
 const undoIcon = <FontAwesomeIcon icon={faUndo} />;
-const universityIcon = <FontAwesomeIcon icon={faUniversity} />;
-const informationIcon = <FontAwesomeIcon icon={faAddressCard} />;
+const toolBoxIcon = <FontAwesomeIcon icon={faToolbox} />;
 
 class NuevaHerramienta extends Component {
     state = {
@@ -46,10 +42,10 @@ class NuevaHerramienta extends Component {
                     </Link>
                 </section>
                 <section className="container">
-                    <h1>{newUserIcon} Nueva Herramienta</h1>
+                    <h1>{toolIcon} Nueva Herramienta</h1>
                     <form onSubmit={this.agregarHerramienta}>
                         <fieldset>
-                            <legend>{informationIcon} Descripción </legend>
+                            <legend>{toolBoxIcon} Descripción </legend>
                             <div>
                                 <label htmlFor="serial">Serial:</label>
                                 <input type="text" placeholder="Serial" name="serial" id="serial" onChange={this.changeData} value={this.state.serial} required />

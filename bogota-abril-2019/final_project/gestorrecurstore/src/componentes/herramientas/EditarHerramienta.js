@@ -6,14 +6,10 @@ import { firestoreConnect } from 'react-redux-firebase';
 import Spinner from '../layout/Spinner.js';
 import { Link } from 'react-router-dom';
 
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { faUndo } from '@fortawesome/free-solid-svg-icons';
-import { faUniversity } from '@fortawesome/free-solid-svg-icons';
-import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus, faUndo, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 
 const userIcon = <FontAwesomeIcon icon={faUserPlus} />;
 const undoIcon = <FontAwesomeIcon icon={faUndo} />;
-const universityIcon = <FontAwesomeIcon icon={faUniversity} />;
 const informationIcon = <FontAwesomeIcon icon={faAddressCard} />;
 
 class EditarHerramienta extends Component {
@@ -40,10 +36,8 @@ class EditarHerramienta extends Component {
             collection: 'herramientas',
             doc: herramienta.id
         }, herramientaActualizada).then(history.push('/'))
-
     }
 
-    state = {}
     render() {
         const { herramienta } = this.props;
         if (!herramienta) return <Spinner />;
