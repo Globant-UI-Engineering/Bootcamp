@@ -1,0 +1,16 @@
+.Todo__fab {
+  position: fixed;
+  right: 25%;
+  bottom: 2%;
+  margin: 0;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  background: #FFC107;
+  border-radius: 50% 50%;
+  background-image: url(../../assets/note_add.png);
+  background-size: 32px;
+  background-repeat: no-repeat;
+  background-position-x: 6px;
+  background-position-y: 5px;
+}

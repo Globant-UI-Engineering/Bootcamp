@@ -1,0 +1,50 @@
+.Todo__form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    justify-content: center;
+}
+
+.Todo__form > label {
+  margin: 15px 0 5px 0;
+  font-family: 'Baloo Bhai', cursive;
+  font-style: italic;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-color: #FFC107;
+}
+
+.Todo__form > input {
+  height: 15px;
+  border-radius: 5px;
+  border: 2px solid #4CAF50;
+}
+
+.Todo__form > input::placeholder {
+  margin-right: 15px;
+  font-size: 12px;
+  color: rgb(151, 151, 151)
+}
+
+.Todo__form > textarea {
+  border: 2px solid #4CAF50;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.Todo__form > textarea::placeholder {
+  margin-right: 15px;
+  font-size: 12px;
+  color: rgb(151, 151, 151)
+}
+
+.Todo__form > button {
+  width: 25%;
+  height: 30px;
+  align-self: center;
+  background-color: #FFC107;
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+}

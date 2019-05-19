@@ -1,0 +1,36 @@
+.Todo__header {
+  height: 70px;
+  color: white;
+  background-color: #388E3C;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Todo__header > nav {
+  width: 25%;
+}
+
+.Todo__header > h1 {
+  font-family: 'Baloo Bhai', cursive;
+  margin-left: 50px;
+}
+
+.Todo__links {
+  height: 100%;
+  padding-right: 50px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+li > a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 5px 8px;
+}

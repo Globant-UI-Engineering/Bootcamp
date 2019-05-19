@@ -1,0 +1,7 @@
+.wrapper {
+  margin: 0 auto;
+  height: 100vh;
+  width: 60%;
+  position: relative;
+  background-color: white;
+}
