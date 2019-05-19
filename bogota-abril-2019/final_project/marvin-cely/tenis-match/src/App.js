@@ -1,59 +1,45 @@
 import React from 'react';
 import './App.css';
-import firebase from 'firebase';
-import config from './services/config/firebaseConfig';
+import { observer } from "mobx-react";
+import serviceGetData from './services/serviceGetData';
+import utils from './utils/utils'
 
-firebase.initializeApp(config);
-const dataBase = firebase.firestore();
+const App = observer(
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      unSubcribePlayers: null,
+    }
+    // Here is the firestore's onSnapshot when gets the "()" Unlink a listening agent. See componentWillMount
+    this.unSubcribePlayers = serviceGetData.obtainAll(this.props.store, this.props.fireStore, utils.collectionsName.PLAYERS);
+    this.unSubcribeMatches = serviceGetData.obtainAll(this.props.store, this.props.fireStore, utils.collectionsName.MATCHES);
+    this.unSubcribePoints = serviceGetData.obtainAll(this.props.store, this.props.fireStore, utils.collectionsName.POINTS);
   }
 
-  componentDidMount() {
-    // Crear Nuevo con ID automático
-    /* dataBase.collection("users").add({
-      first: "Holiiii",
-      last: "Helooo",
-      born: 1994
-    })
-    .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-    })
-    .catch(function(error) {
-        console.error("Error adding document: ", error);
-    }); */
-
-    // Crear y actualizar
-    /* dataBase.collection("cities").doc("LA").set({
-      name: "Bogotá",
-      state: "Cundi",
-      country: "Colombia"
-    })
-    .then(function() {
-      console.log("Document successfully written!");
-    })
-    .catch(function(error) {
-      console.error("Error writing document: ", error);
-    }); */
-
-    /**
-     * add -> Nuevo con Id automático
-     * set -> Nuevo o actualización especificando todo 
-     * doc -> elemento con id automático pero vacio
-     * update-> Actualizar documento
-     * delete -> Eliminar documento
-     *  */
+  componentWillUnmount() {
+    this.unSubcribePlayers();
+    this.unSubcribeMatches();
+    this.unSubcribePoints();
   }
 
-
+  
   render() {
+
     return (
         <div>
-          Hello world!
+          Hello world! Soy Marvin Cely
+          <p>Helooooo </p>
+          <p>
+            {(this.props.store.isLoading) ? <marquee>Loading...</marquee>: this.props.store.players[0].name}
+          </p>
+          <p>
+          {this.props.store.players.length}
+          </p>
         </div>
     );
   }
 }
+);
 
 export default App;
