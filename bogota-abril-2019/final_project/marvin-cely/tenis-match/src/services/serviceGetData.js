@@ -1,15 +1,15 @@
 const serviceGetData = {
   obtainAll: (store, fireStore, collectionType) => {
-    store.isLoading = true; 
+    store['isLoading'+collectionType.capitalize()] = true;
     let unsubcribe = fireStore.collection(collectionType)
       .onSnapshot((querySnapshot) => {
         let dataList = [];
         querySnapshot.forEach((doc) => {
-            dataList.push(doc.data());
+          const data = Object.assign({}, doc.data(), {id: doc.id});
+          dataList.push(data);
         });
-        
         store[collectionType] = dataList;
-        store.isLoading = false;
+        store['isLoading' + collectionType.capitalize()] = false;
       })
       return unsubcribe;
     },

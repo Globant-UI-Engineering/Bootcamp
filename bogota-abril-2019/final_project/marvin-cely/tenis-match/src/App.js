@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css';
-import { observer } from "mobx-react";
+import { observer } from 'mobx-react';
 import serviceGetData from './services/serviceGetData';
-import utils from './utils/utils'
+import serviceAddData from './services/serviceAddData';
+import serviceUpdateData from './services/serviceUpdateData';
+import serviceDeleteData from './services/serviceDeleteData';
+import thesaurus from './utils/thesaurus';
 
 const App = observer(
 class App extends React.Component {
@@ -12,9 +15,13 @@ class App extends React.Component {
       unSubcribePlayers: null,
     }
     // Here is the firestore's onSnapshot when gets the "()" Unlink a listening agent. See componentWillMount
-    this.unSubcribePlayers = serviceGetData.obtainAll(this.props.store, this.props.fireStore, utils.collectionsName.PLAYERS);
-    this.unSubcribeMatches = serviceGetData.obtainAll(this.props.store, this.props.fireStore, utils.collectionsName.MATCHES);
-    this.unSubcribePoints = serviceGetData.obtainAll(this.props.store, this.props.fireStore, utils.collectionsName.POINTS);
+    this.unSubcribePlayers = serviceGetData.obtainAll(this.props.store, this.props.fireStore, thesaurus.collectionsName.PLAYERS);
+    this.unSubcribeMatches = serviceGetData.obtainAll(this.props.store, this.props.fireStore, thesaurus.collectionsName.MATCHES);
+    this.unSubcribePoints = serviceGetData.obtainAll(this.props.store, this.props.fireStore, thesaurus.collectionsName.POINTS);
+  }
+
+  async componentDidMount() {
+
   }
 
   componentWillUnmount() {
@@ -22,7 +29,6 @@ class App extends React.Component {
     this.unSubcribeMatches();
     this.unSubcribePoints();
   }
-
   
   render() {
 
@@ -31,10 +37,10 @@ class App extends React.Component {
           Hello world! Soy Marvin Cely
           <p>Helooooo </p>
           <p>
-            {(this.props.store.isLoading) ? <marquee>Loading...</marquee>: this.props.store.players[0].name}
+            {(this.props.store.isLoadingPlayers) ? <marquee>Loading...</marquee>: this.props.store.players[0].name}
           </p>
           <p>
-          {this.props.store.players.length}
+            {this.props.store.players.length}
           </p>
         </div>
     );

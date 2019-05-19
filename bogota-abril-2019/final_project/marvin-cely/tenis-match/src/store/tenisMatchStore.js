@@ -2,16 +2,20 @@ import { observable, decorate } from "mobx";
 
 class TenisMatchStore {    
     players = [];
-    matchesList = [];
-    pointsList = [];
-    isLoading = false;
-    example = null;
+    matches = [];
+    points = [];
+    isLoadingPlayers = false;
+    isLoadingMatches = false;
+    isLoadingPoints = false;
+    // TODO: Funciones para manejar 
 }
 decorate(TenisMatchStore,{
   players: observable,
   matches: observable,
   points: observable,
-  isLoading: observable,
+  isLoadingPlayers: observable,
+  isLoadingMatches: observable,
+  isLoadingPoints: observable,
 });
 
 const tenisMatchStore = new TenisMatchStore();
