@@ -1,0 +1,59 @@
+.albums {
+  flex: 1 1 auto;
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  overflow-y: auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 2em 0 2em 0;
+}
+
+.album {
+  position: relative;
+  flex: 0 0 10em;
+  height: 10em;
+  width: 10em;
+  padding: 1em;
+  margin: 1em;
+  cursor: pointer;
+  transition: box-shadow 0.5s, transform 0.5s;
+  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5);
+  transform: scale(1);
+}
+
+.album:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 10px 5px rgba(0, 0, 0, 0.25);
+}
+.album:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  z-index: 10;
+}
+
+.album > *:not(img) {
+  position: relative;
+  z-index: 100;
+  visibility: hidden;
+}
+.album:hover > *:not(img) {
+  visibility: visible;
+}
+.album h3 {
+  margin-top: 0;
+}
+
+.album > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}

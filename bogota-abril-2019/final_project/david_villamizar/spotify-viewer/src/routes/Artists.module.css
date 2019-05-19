@@ -8,6 +8,9 @@
 }
 
 .artist {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   height: 100px;
   position: relative;
   list-style: none;
@@ -18,16 +21,19 @@
   padding: 1em;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   cursor: pointer;
-  flex-wrap: wrap;
   text-decoration: none;
-  transition: height 0.5s, margin 0.5s;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.5s, height 0.5s, margin 0.5s;
 }
 
 .artist::after {
+  content: "";
   position: absolute;
-  bottom: 0;
-  height: 1em;
-  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   z-index: 10;
 }
 
@@ -37,19 +43,34 @@
   margin-bottom: 1em;
   height: 1000px;
   outline: none;
+  cursor: default;
+  box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.25);
 }
 
 .artist:hover:not(:focus):not(.active) {
   height: 200px;
-  transition: height 0.25s, margin 0.25s;
+  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.25s, height 0.25s, margin 0.25s;
 }
 
-.artist h1,
-.artist p {
+.artist > h1 {
   margin: 0;
 }
 
-.artist img {
+.artist > h1,
+.artist > p {
+  flex: 0 0 auto;
+}
+
+.artist > *:not(img) {
+  /* margin: 0; */
+  /* width: 100%; */
+  /* height: 100%; */
+  position: relative;
+  z-index: 100;
+}
+
+.artist > img {
   top: 0;
   bottom: 0;
   left: 0;
@@ -59,5 +80,5 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 0;
 }

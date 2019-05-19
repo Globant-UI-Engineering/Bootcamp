@@ -24,9 +24,9 @@ function ArtistListItem({ name, images, genres, id, match, history }) {
       onFocus={e => history.push(`${match.path}/${id}`)}
     >
       <h1>{name}</h1>
-      <p>{genres.join(", ")}</p>
       <img src={images[0].url} alt={name} />
-      <Route path={`${match.path}/:id`} component={Albums} />
+      <p>{genres.join(", ")}</p>
+      <Route path={`${match.path}/${id}`} component={Albums} />
     </NavLink>
   );
 }
