@@ -1,24 +1,29 @@
 import React from "react";
+import { Provider } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import Artists from "./routes/Artists";
+import TopArtists from "./containers/TopArtists";
 import Login from "./routes/Login";
+import { store } from "./store/store";
+
 function App() {
   return (
-    <BrowserRouter>
-      <NavBar
-        links={[
-          { name: "Login", href: "/login" },
-          { name: "Artists", href: "/artists" },
-        ]}
-      />
-      <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/artists" component={Artists} />
-        <Redirect to="/login" />
-      </Switch>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <NavBar
+          links={[
+            { name: "Login", href: "/login" },
+            { name: "Artists", href: "/artists" },
+          ]}
+        />
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/artists" component={TopArtists} />
+          <Redirect to="/login" />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
