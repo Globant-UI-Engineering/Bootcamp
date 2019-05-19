@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink, Redirect, Route, Switch } from "react-router-dom";
+import Albums from "../components/Albums";
 import NavBar from "../components/NavBar";
-import Albums from "./Albums";
+import Tracks from "../components/Tracks";
 import styles from "./Artists.module.css";
-import Tracks from "./Tracks";
 
 export default function Artists({ artists, ...props }) {
   return (
@@ -15,24 +15,13 @@ export default function Artists({ artists, ...props }) {
   );
 }
 
-function ArtistListItem({
-  name,
-  images,
-  genres,
-  id,
-  match,
-  history,
-  location,
-}) {
+function ArtistListItem({ name, images, genres, id, match, location }) {
   return (
     <li
       className={`${styles.artist} ${
         location.pathname.startsWith(`${match.path}/${id}`) ? styles.active : ""
       }`}
       style={{ maxHeight: Math.min(images[0].height, 500) }}
-      // onFocus={e => {
-      //   history.push(`${match.path}/${id}`);
-      // }}
     >
       <img src={images[0].url} alt={name} />
       <NavLink activeClassName={styles.active} to={`${match.path}/${id}`}>
