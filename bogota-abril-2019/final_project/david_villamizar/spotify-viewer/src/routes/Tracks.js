@@ -1,9 +1,9 @@
 import React from "react";
-// import styles from "./Albums.module.css";
+import styles from "./Tracks.module.css";
 
 function Track({ name, id, album, popularity }) {
   return (
-    <li key={id}>
+    <li key={id} className={styles.track}>
       <h3>{name}</h3>
       <p>{album.name}</p>
       <p>{popularity}</p>
@@ -12,7 +12,7 @@ function Track({ name, id, album, popularity }) {
 }
 
 export default function Tracks({ id, tracks }) {
-  return <ol>{tracks.map(Track)}</ol>;
+  return <ol className={styles.tracks}>{tracks.map(Track)}</ol>;
 }
 
 Tracks.defaultProps = {
