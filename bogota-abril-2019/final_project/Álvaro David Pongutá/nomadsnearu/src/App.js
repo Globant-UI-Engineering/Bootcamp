@@ -31,12 +31,19 @@ class Header extends React.Component {
         this.showSignIn_signOut = this.showSignIn_signOut.bind(this);
     }
 
+    state = {
+        signIn: false
+    }
+
     showSignIn_signOut(){
+        this.setState({
+            signIn: !this.state.signIn
+        })
         this.forceUpdate();
     }
 
     render () {
-        if(firebase.auth().currentUser != null){
+        if(this.state.signIn){
             return (
                 <header className = "App-header">
                     <h1>NomadsNearU</h1>
