@@ -1,4 +1,4 @@
-import { observable, computed, decorate, autorun } from "mobx";
+import { observable, computed, decorate } from "mobx";
 
 class TenisMatchStore {   
     players = [];

@@ -1,4 +1,5 @@
 import React from 'react';
+import { countries } from "../countries.json";
 
 function LoadingComponent() {
   return (
@@ -10,4 +11,10 @@ function LoadingComponent() {
   );
 }
 
-export {LoadingComponent};
+function CountryOptionComponent() {
+  return countries.map(({nationality, num_code}) => <option key={num_code}>{nationality}</option>);
+}
+
+
+
+export {LoadingComponent, CountryOptionComponent};

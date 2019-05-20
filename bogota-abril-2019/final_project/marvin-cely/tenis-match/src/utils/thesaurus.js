@@ -20,7 +20,11 @@ const thesaurus = {
         FOREHAND: 'doublefault',
         BACKHANDVOLLEY: 'doublefault',
         BACKHAND: 'doublefault',
-    }
+    },
+    nationality: [
+        'Colombia',
+        
+    ],
 
 }
 export default thesaurus;
