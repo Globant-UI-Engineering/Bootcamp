@@ -16,12 +16,12 @@ export class MenuIconComponent extends Component {
 
   render() {
     return(
-      <div style={this.props.style} className={'menu-icon-container'}>
+      <button style={this.props.style} className={'menu-icon-container'}>
         <div className={'menu-icon-bar'}/>
         <div className={'menu-icon-bar'}/>
         <div className={'menu-icon-bar'}/>
         <div className={'menu-icon-bar'}/>
-      </div>
+      </button>
     )
   }
 }

@@ -1,5 +1,12 @@
 .menu-icon-container {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    padding: 0;
+}
 
+.menu-icon-container:focus {
+    outline: none;
 }
 
 .menu-icon-bar {
