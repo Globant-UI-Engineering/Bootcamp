@@ -43,7 +43,6 @@ export class ScreenComponent extends Component {
   }
   
   handleSearchChange($event) {
-    this.setState({playDescription: false});
     this.setState({searchText: $event.target.value.toLowerCase()});
   }
   
@@ -58,19 +57,17 @@ export class ScreenComponent extends Component {
   }
   
   search($event) {
+    this.setState({
+      pokemonDescription: undefined,
+    });
     PokeapiService.search(this.state.searchText)
       .then((response) => {
         console.log(response.data);
         this.setState({
           currentPokemon: response.data,
           playDescription: true,
+          pokemonDescription: this.buildDescription(response.data),
           showIntro: false
-        }, () =>{
-          this.setState(
-            {
-              pokemonDescription: this.buildDescription()
-            }
-          )
         });
       }).catch(error => {
       console.log(error)
@@ -80,20 +77,23 @@ export class ScreenComponent extends Component {
   showSprite() {
     if (this.state.currentPokemon !== undefined) {
       return (
-        <img src={this.state.currentPokemon.sprites.front_default}/>
+        <div>
+          <img src={this.state.currentPokemon.sprites.front_default}/>
+          <img src={this.state.currentPokemon.sprites.back_default}/>
+        </div>
       )
     }
   }
   
-  buildDescription() {
-    let typesArray = this.state.currentPokemon.types;
+  buildDescription(currentPokemon) {
+    let typesArray = currentPokemon.types;
     let typesText = '';
     if (typesArray.length === 1) {
       typesText = typesArray[0].type.name
     } else {
       typesText = typesArray.reduce((a, b) => a.type.name + ' ' + b.type.name);
     }
-    let abilitiesArray = this.state.currentPokemon.abilities;
+    let abilitiesArray = currentPokemon.abilities;
     let abilitiesText = abilitiesArray.map(x => x.ability.name).reduce((a, b) => a + ' and ' + b);
     return this.state.searchText
       + ', '
@@ -102,13 +102,13 @@ export class ScreenComponent extends Component {
       + abilitiesText
   }
   
-  showDescription() {
-    if (this.state.pokemonDescription !== undefined) {
+  static showDescription(pokemonDescription) {
+    if (pokemonDescription !== undefined) {
       return (
         <Typist>
           <span className={'pokemon-description'}>
           {
-            this.state.pokemonDescription
+            pokemonDescription
           }
           </span>
         </Typist>
@@ -160,7 +160,7 @@ export class ScreenComponent extends Component {
             this.showSprite()
           }
           {
-            this.showDescription()
+            ScreenComponent.showDescription(this.state.pokemonDescription)
           }
         </div>
         <div className={'container-fluid'}>
