@@ -18,7 +18,10 @@
 
 .search-bar {
     width: 60%;
+}
 
+.pokemon-description {
+    font-size: xx-small;
 }
 
 .screen-footer {
