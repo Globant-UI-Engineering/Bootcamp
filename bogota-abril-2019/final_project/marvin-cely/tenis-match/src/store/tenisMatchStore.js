@@ -1,4 +1,4 @@
-import { observable, decorate } from "mobx";
+import { observable, computed, decorate } from "mobx";
 
 class TenisMatchStore {    
     players = [];
@@ -7,7 +7,26 @@ class TenisMatchStore {
     isLoadingPlayers = false;
     isLoadingMatches = false;
     isLoadingPoints = false;
-    // TODO: Funciones para manejar 
+
+    playerManager = null;
+    matchManager = null;
+    pointManager = null;
+    pointsHistory = [];
+ 
+    addHistoryPoint(point) {
+      this.pointsHistory.unshift(point);
+    }
+
+    removeHistoryPoint() {
+      if(this.pointsHistory.legth>0)
+        this.pointsHistory.shift();
+    }
+
+    get allPointsHistory() {
+      return this.pointsHistory;
+    }
+
+    //TODO: agregar comupet get si es necesario
 }
 decorate(TenisMatchStore,{
   players: observable,
@@ -16,6 +35,11 @@ decorate(TenisMatchStore,{
   isLoadingPlayers: observable,
   isLoadingMatches: observable,
   isLoadingPoints: observable,
+  playerManager: observable,
+  matchManager: observable,
+  pointManager: observable,
+  pointsHistory: observable,
+  allPointsHistory: computed,
 });
 
 const tenisMatchStore = new TenisMatchStore();

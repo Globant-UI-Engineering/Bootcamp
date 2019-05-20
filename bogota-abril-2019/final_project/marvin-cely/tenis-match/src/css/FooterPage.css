@@ -1,0 +1,32 @@
+section + footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--font-color-white);
+    background: var(--neutro-color-deep);
+    font-family: var(--font-group-1);
+    font-size: var(--size-small);
+    height: 150px;
+}
+
+footer i {
+    color: var(--font-color-white);
+    font-size: var(--size-large);
+}
+
+footer > p{
+    margin: 0;
+}
+
+footer p:last-of-type {
+    display: flex;
+    align-items: center;
+}
+
+footer a {
+    color: var(--primary-color-ligth);
+}
+
+section>img {
+    width: 300px;
+}
