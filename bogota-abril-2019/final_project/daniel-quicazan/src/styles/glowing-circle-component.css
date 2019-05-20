@@ -1,0 +1,24 @@
+.glowing-circle-main {
+    border: black 3px solid;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+}
+
+.glowing-circle-light {
+    border-radius: 50%;
+    top: -22%;
+    left: -24%;
+    position: absolute;
+}
+
+.glowing-circle-shine {
+    background-color: #c6cae7;
+    border-radius: 50%;
+    width: 35%;
+    height: 35%;
+    top: 15%;
+    left: 15%;
+    position: absolute;
+}

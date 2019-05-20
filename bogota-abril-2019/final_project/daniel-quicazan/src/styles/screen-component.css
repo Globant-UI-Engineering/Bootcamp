@@ -1,0 +1,26 @@
+.screen-container {
+    border: 2px black solid;
+    border-radius: 3px 3px 3px 20px;
+    background-color: white;
+    font-family: Pokemon GB, serif;
+    text-transform: initial;
+}
+
+.screen-display {
+    background-color: #98cb98;
+    border: 2px black solid;
+    border-radius: 5px;
+    margin: 0 5%;
+    height: 60vh;
+    max-height: 200px;
+}
+
+.screen-footer {
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.bottom-screen-light {
+    margin-top: auto;
+    margin-bottom: auto;
+}

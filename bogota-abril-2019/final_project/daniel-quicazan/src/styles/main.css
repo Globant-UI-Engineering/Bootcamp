@@ -1,0 +1,73 @@
+.main-container {
+    background-color: #ed1e24;
+    border-radius: 20px;
+    padding: 3%;
+    min-width: 320px;
+    width: 100%;
+    max-width: 600px;
+
+    min-height: 560px;
+    height: 100%;
+    max-height: 700px;
+}
+
+header {
+    position: relative;
+    display: block;
+}
+
+.camera-icon {
+    border: black 3px solid;
+    background-color: #e7e3e4;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    /*float: left;*/
+}
+
+.circles-component {
+
+}
+
+.circles-component > * {
+    margin: 5% 1.5%;
+}
+
+
+.content-container {
+    border: 3px black solid;
+    border-radius: 6px;
+    display: block;
+    position: relative;
+    padding: 5%;
+}
+
+.controller-row {
+    margin: 5% 0 0;
+}
+
+.main-button {
+    width: 90%;
+    height: 60px;
+    border: 2px solid black;
+    border-radius: 50%;
+    outline: none;
+    background-color: #585858;
+}
+
+.wide-button {
+    width: 44%;
+    margin: 0 3px;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 15%;
+}
+
+.wide-button:focus {
+    outline: none;
+}
+
+.main-button:focus {
+    outline: none;
+}

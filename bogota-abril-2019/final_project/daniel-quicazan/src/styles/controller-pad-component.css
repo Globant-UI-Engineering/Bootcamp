@@ -1,0 +1,45 @@
+.controller-pad-up {
+    border: 2px solid black;
+    border-bottom-width: 0;
+    border-radius: 7px 7px 0 0;
+    height: 40px;
+}
+
+.controller-pad-right {
+    border: 2px solid black;
+    border-left-width: 0;
+    border-radius: 0 7px 7px 0;
+    height: 40px;
+}
+
+.controller-pad-down {
+    border: 2px solid black;
+    border-top-width: 0;
+    border-radius: 0 0 7px 7px;
+    height: 40px;
+}
+
+.controller-pad-left {
+    border: 2px solid black;
+    border-right-width: 0;
+    border-radius: 7px 0 0 7px;
+    height: 40px;
+}
+
+.controller-pad-button {
+    background-color: #585858;
+    padding: 0;
+    outline: none;
+}
+
+.controller-pad-button:focus {
+    outline: none;
+}
+
+.controller-pad-circle {
+    width: 50%;
+    height: 50%;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin: 25%;
+}

@@ -1,0 +1,8 @@
+.secondary-screen-container {
+    margin: 5%;
+    width: 90%;
+    height: 70%;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #32cb65;
+}
