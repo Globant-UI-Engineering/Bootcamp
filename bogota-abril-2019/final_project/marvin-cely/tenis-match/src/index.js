@@ -8,7 +8,7 @@ import tenisMatchStore from './store/tenisMatchStore';
 import utils from './utils/utils';
 
 
-utils.capitalizeString(); // Add prototype fuction
+utils.capitalizeString(); // Add prototype fuction string
 ReactDOM.render(
     <App 
         fireStore={dataBase.fireStore}

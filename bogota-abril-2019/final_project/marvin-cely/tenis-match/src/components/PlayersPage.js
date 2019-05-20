@@ -1,6 +1,9 @@
 import React from 'react';
 import '../css/PlayersPage.css';
 import { observer } from 'mobx-react';
+import TablePlayer from './TablePlayer';
+import utils from '../utils/utils';
+import {LoadingComponent} from './SmallPieceComponent';
 
 const PlayersPage = observer(
   class PlayersPage extends React.Component {
@@ -17,24 +20,6 @@ const PlayersPage = observer(
     }
 
     render() {
-      let playersList = this.props.store.players.map(({id, name, nationality, birthYear, ranking}) => {
-            return (
-              <section className="row" key={id}>
-                <article className="col-lg-3">
-                  {name}
-                </article>
-                <article className="col-lg-3">
-                  {nationality}
-                </article>
-                <article className="col-lg-3">
-                  {birthYear}
-                </article>
-                <article className="col-lg-3">
-                  {ranking}
-                </article>
-              </section>
-            );
-          });
       return(
         <React.Fragment>
           <aside>
@@ -51,13 +36,10 @@ const PlayersPage = observer(
                   &nbsp;{this.state.newPlayerButton.name}
                 </button>
               </header>
-            </section>        
-              {(this.props.store.players.length > 0) ? playersList : <p>Cargando...</p>}
-
-              <section>algo</section><div>algo</div><div>algo</div><div>algo</div><div>algo</div>
-              <div>algo</div><div>algo</div><div>algo</div><div>algo</div><div>algo</div>
-              <div>algo</div><div>algo</div><div>algo</div><div>algo</div><div>algo</div>
-
+            </section>            
+            {utils.validationComponent(this.props.store.players.length > 0,
+                                      <TablePlayer players={this.props.store.players}/>,
+                                      <LoadingComponent/>)}
           </main>
         </React.Fragment>
       );

@@ -3,7 +3,7 @@
   min-height: 100vh;
 }
 nav + section {
-  padding-bottom: 10rem;    /* Footer height TODO: Revisar */ 
+  padding-bottom: 15rem;    /* Footer height TODO: Revisar */ 
 }
 
 section + footer {
