@@ -20,9 +20,7 @@ class SignOut extends React.Component {
 
     render () {
         return (
-            <div>
-                <Button className={"App-button"} onClick={this.signOut} buttonInfo="Cerrar Sesión"></Button>
-            </div>
+            <Button className={"App-button"} onClick={this.signOut} buttonInfo="Cerrar Sesión"></Button>
         );
     }
 }

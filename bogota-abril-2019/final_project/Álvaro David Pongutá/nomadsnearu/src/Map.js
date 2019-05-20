@@ -1,58 +1,40 @@
 import React from 'react';
 import './App.scss';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import { GoogleApiWrapper, Map, Marker, InfoWindow } from 'google-maps-react';
-import Home from './App';
 import Button from './Atoms/Button';
+import SearchBar from './SearchBar';
+import firebase from './Firebase';
 
 /* global google */
 
-class SearchBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.autocompleteInput = React.createRef();
-        this.autocomplete = null;
-        this.handlePlaceChanged = this.handlePlaceChanged.bind(this);
-    }
-
-    componentDidMount() {
-        this.autocomplete = new google.maps.places.Autocomplete(this.autocompleteInput.current,
-            {"types": ["geocode","establishment"]});
-
-        this.autocomplete.addListener('place_changed', this.handlePlaceChanged);
-    }
-
-    handlePlaceChanged(){
-        const place = this.autocomplete.getPlace();
-        this.props.onPlaceLoaded(place);
-    }
-
-
-    render() {
-        return (
-            <div className="App-column-elements">
-                <input ref={this.autocompleteInput}  className="App-map-searchbar" placeholder="Ingrese la dirección"
-                    type="text"/>
-            </div>
-        );
-    }
-}
-
 export class MapContainer extends React.Component {
+
+    defaultProps = {
+        center: {
+            lat: 4.659361,
+            lng: -74.108208
+        }, 
+        actualPosition: {
+            lat: 4.659361,
+            lng: -74.108208
+        },
+        zoom: 16
+    }
 
     state = {
         showingInfoWindow: false,
         activeMarker: {},
         selectedPlace: {},
         center: {
-            lat: 4.659361,
-            lng: -74.108208
+            lat: 0,
+            lng: 0
         },
         actualPosition: {
-            lat: 4.659361,
-            lng: -74.108208
-        },
-        zoom: 16
+            lat: 0,
+            lng: 0
+        }, 
+        markersList: []
     };
 
     showCurrentLocation = () => {
@@ -77,17 +59,37 @@ export class MapContainer extends React.Component {
     onMarkerClick = (props, marker, e) =>
     this.setState({
       selectedPlace: props,
+      selectedId: marker.id,
       activeMarker: marker,
       showingInfoWindow: true
     });
 
-    onMapClicked = (props) => {
+    onMapDragged = () => {
         if (this.state.showingInfoWindow) {
-            this.setState({
+          this.setState({
             showingInfoWindow: false,
             activeMarker: null
-            })
+          })
         }
+    };
+
+    onMapReady = () => {
+        let auxiliarMarkersList = this.state.markersList;
+        firebase.database().ref('/events').on('value', snapshot => {
+            snapshot.forEach(snap => {
+                let marker = {
+                    onClick: this.onMarkerClick,
+                    title: snap.child("description").val(),
+                    name: snap.child("name").val(),
+                    position: {lat: snap.child("location").val().lat, lng: snap.child("location").val().lng},
+                    id: snap.key
+                }
+                auxiliarMarkersList.push(marker);
+            });
+            this.setState({
+                markersList: auxiliarMarkersList
+            });
+        });
     };
 
     onPlaceLoaded = (place) => {
@@ -106,43 +108,48 @@ export class MapContainer extends React.Component {
             alert("Por favor ingrese una dirección válida");
         }
     }
-
+    
     render() {
         return (
         <div className="App-map-searchbar-container">
             <div className="App-searchbar-container App-column-elements">
-                <SearchBar className="App-searchbar" onPlaceLoaded={this.onPlaceLoaded}/>
+                <SearchBar className={"App-map-searchbar"} onPlaceLoaded={this.onPlaceLoaded}/>
                 <Button className={"App-button-map App-button"} onClick={this.showCurrentLocation} buttonInfo="Localización Actual"></Button>
             </div>
             <div className="App-map-container">
-                <Map className="App-map" google={this.props.google} zoom={this.state.zoom} initialCenter={this.state.center} center={this.state.center}>
+                <Map className="App-map" google={this.props.google} onDragstart={this.onMapDragged} onReady={this.onMapReady} zoom={this.defaultProps.zoom} initialCenter={this.defaultProps.center} center={this.state.center}>
 
                     <Marker
-                            title={'Tu posición actual'}
-                            position={ this.state.actualPosition }/>
-                    
-                    <Marker onClick={this.onMarkerClick}
-                            title={'Curso de aprendizaje sobre la libreria React.'}
-                            name={'Bootcamp REACT'}
-                            position={{lat: 4.659361, lng: -74.108209}} />
+                        title={'Tu posición actual'}
+                        position={ this.state.actualPosition }/>
+
+                    {   
+                        this.state.markersList.map(marker => (
+                            <Marker onClick={marker.onClick}
+                                title={marker.title}
+                                name={marker.name}
+                                position={{lat: marker.position.lat, lng: marker.position.lng}}
+                                id={marker.id}
+                            />
+                        ))
+                    }
 
                     <InfoWindow
                         marker={this.state.activeMarker}
                         visible={this.state.showingInfoWindow}>
                             <div>
                                 <BrowserRouter>
-                                    <Link to= {`/viewEvent`}>{this.state.selectedPlace.name}</Link>
-                                    <Route path='/viewEvent' render={(props) => <Home {...props}/>}/>
+                                    <Link to= {`/viewEvent/${this.state.selectedId}`}>{this.state.selectedPlace.name}</Link>
                                 </BrowserRouter>
                             </div>
                     </InfoWindow>
                 </Map>
             </div>
-        </div>   
+        </div>
         );
     }
 }
 
 export default GoogleApiWrapper({
-    apiKey: ("key")
+    apiKey: ("google_key")
 })(MapContainer)

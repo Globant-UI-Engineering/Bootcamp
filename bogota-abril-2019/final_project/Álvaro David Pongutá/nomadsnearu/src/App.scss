@@ -68,6 +68,12 @@
   }
 }
 
+.App-button-create{
+  background-color: white;
+  width: 15%;
+  margin-left: 128px;
+}
+
 .App-button-map{
   margin-left: 16px;
   width: 195px;
@@ -116,6 +122,14 @@
       float: left;
     }
 
+    .image-event{
+      border-radius: 25px;
+      width: 580px;
+      height: 420px;
+      margin-right: 8px;
+      margin-bottom: 24px;
+    }
+
     p{
       text-align: justify;
       margin: 0px 12px 12px 0px;
@@ -133,37 +147,34 @@
       border-bottom: 0.1em solid black;
     }
 
-    .home{
-      border-bottom: 0px;
+    h2.signin{
+      max-width: 97%;
+      border-bottom: 0;
     }
 
     h3{
       color: #FD8006;
       text-align: center;
-    }
-
-    .subtitle-home{
-      text-align: center;
-      font-size: 18px;
-      @media (max-width: 768px) {
-        margin-left: 12px;
-      }
-      margin-left: 28px;
-      margin-top: 36px;
-    }
-
-    .center-subtitle{
-      text-align: center;
+      margin-top: 10px;
     }
 
     .images-services{
       width: 180px;
       height: 120px;
     }
-  }
 
-  .no-margin-left{
-    margin-left: 0px;
+    .App-element-start{
+      position: relative;
+      bottom: 260px;
+      @media (max-width: 1631px) {
+        bottom: 0px;
+        left: 145px;
+      }
+      @media (max-width: 1376px){
+        bottom: 260px;
+        left: 0px;
+      }
+    }
   }
 
   .App-column-elements{
@@ -176,22 +187,41 @@
       font-size: 16px;
       margin-bottom: 4px;
     }
-
-    input{
-      max-width: 30%;
-      padding: 0.35em 1.2em;
-      font-size: 14px;
-      margin-top: 16px;
-  
-      &:active, &:focus{
-        outline-color: #282c34;
-      }
-    }
-
     .App-element{
       margin-bottom: 16px;
     }
 
+    .center-tools{
+      text-align: center;
+    }
+
+    .center-text{
+      text-align: center;
+      max-width: 500px;
+    }
+
+    .subtitle-home{
+      text-align: center;
+      font-size: 18px;
+      border-bottom: 0px;
+      @media (max-width: 768px) {
+        margin-left: 12px;
+      }
+      margin-left: 28px;
+      margin-top: 36px;
+    }
+
+  }
+
+  .App-center-elements{
+    justify-content: center;
+    margin-right: 12px;
+    max-width: 500px;
+    display: inline-block;
+  }
+
+  .App-font-event{
+    font-size: 1rem;
   }
 
   .App-container_firstRow{
@@ -316,6 +346,29 @@
   }
 }
 
+.App-private-link{
+  @media (max-width: 768px) {
+    padding: 8px 0px 4px 0px;
+  }
+  padding: 8px 8px 8px 8px;
+  font-size: 16px;
+  color: #FD8006;
+  border-radius: 5px;
+  transition: all 0.2s;
+  border: 1px solid #FD8006;
+
+  i{
+    position: relative;
+    top: 5px;
+    left: 3px;
+  }
+
+  &:hover{
+    background-color: #FD8006;;
+    color: white;
+  }
+}
+
 .App-map-container{
   width: 100%;
   height: 75vh;
@@ -328,8 +381,22 @@
 }
 
 .App-map-searchbar{
-  min-width: 75%;
+  min-width: 82%;
+  padding: 0.35em;
+  margin-bottom: 16px;
+  margin-left: 16px;
+  font-size: 14px;
+  margin-top: 16px;
+
+  &:active, &:focus{
+    outline-color: #282c34;
+  }
 }
+
+.App-map-searchbar-create{
+  width: 15%;
+}
+
 
 .App-map-searchbar-container{
   display: flex;
@@ -343,3 +410,109 @@
   height: 75vh;
 }
 
+.App-create-searchbar{
+  width: 20%;
+  padding: 0.35em;
+  margin-bottom: 16px;
+  margin-left: 16px;
+  font-size: 14px;
+  margin-top: 16px;
+  text-align: center;
+
+  &:active, &:focus{
+    outline-color: #282c34;
+  }
+}
+
+.App-container-checkbox {
+  display: inline-block;
+  position: relative;
+  padding-top: 4px;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 12px;
+  max-width: 65vw;
+
+  input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  &:hover input ~ .App-checkmark{
+    background-color: #ccc;
+  }
+
+  input:checked ~ .App-checkmark {
+    background-color: #282c34;
+  }
+
+  input:checked ~ .App-checkmark:after{
+    display: block;
+  }
+
+  .App-checkmark:after{
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+}
+
+.App-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  margin-top: 6px;
+
+  &:after{
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+}
+
+.App-select{
+  margin-top: 12px;
+  width: 30%;
+  color: #282c34;
+  font-size: 14px;
+
+  div.css-1szy77t-control{
+    box-shadow: 0 0 0 1px #282c34;
+    border-color: #282c34;
+  }
+
+  div.css-kj6f9i-menu{
+    div.css-11unzgr{
+      div.css-fk865s-option{
+        &:hover{
+          background-color: #282c34;
+        }
+      }
+    }
+  }
+  
+
+}
+
+.App-upload-image{
+  width: 40%;
+}
