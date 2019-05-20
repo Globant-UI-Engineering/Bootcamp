@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { tryGetOnlineCountFake } from '../../controllers/BobbaProxy';
+import { tryGetOnlineCount } from '../../controllers/BobbaProxy';
 import { setOnlineCount } from '../../actions';
 
 import Logo from './Logo';
@@ -10,7 +10,7 @@ class GenericHeader extends React.Component {
         const { fetched } = this.props.miscContext;
         const { dispatch } = this.props;
         if (!fetched) {
-            tryGetOnlineCountFake().then(data => {
+            tryGetOnlineCount().then(data => {
                 dispatch(setOnlineCount(data.count));
             });
         }

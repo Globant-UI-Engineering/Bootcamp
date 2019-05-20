@@ -2,6 +2,7 @@ import NProgress from 'nprogress';
 
 const API_URL = 'http://api.bobba.io:1232/';
 const FAKE_DELAY = 2000;
+const DELAY = 1000;
 
 export const tryLoginFake = (username, password) => {
     return new Promise((resolve, reject) => {
@@ -25,7 +26,7 @@ export const tryLoginFake = (username, password) => {
     });
 };
 
-export const tryGetOnlineCountFake = () => {
+export const tryGetOnlineCountFake2 = () => {
     return new Promise((resolve, reject) => {
         NProgress.start();
         setTimeout(() => {
@@ -39,7 +40,7 @@ export const tryGetOnlineCountFake = () => {
     });
 };
 
-export const tryGetNewsFake = (id) => {
+export const tryGetNewsFake2 = (id) => {
     return new Promise((resolve, reject) => {
         NProgress.start();
         setTimeout(() => {
@@ -58,7 +59,7 @@ export const tryGetNewsFake = (id) => {
     });
 };
 
-export const tryGetLastNewsFake = () => {
+export const tryGetLastNewsFake2 = () => {
     return new Promise((resolve, reject) => {
         NProgress.start();
         setTimeout(() => {
@@ -85,67 +86,150 @@ export const tryGetLastNewsFake = () => {
     });
 };
 
+export const tryGetLastNews = () => {
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+            const options = {
+                method: 'GET',
+                mode: 'cors',
+                headers,
+            };
+
+            fetch(API_URL + 'articles', options)
+                .then(response => response.json())
+                .then(data => {
+                    NProgress.done();
+                    resolve(data);
+                })
+                .catch(err => {
+                    NProgress.done();
+                    reject(err);
+                });
+        }, DELAY);
+    });
+};
+
+export const tryGetNews = (id) => {
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+            const options = {
+                method: 'GET',
+                mode: 'cors',
+                headers,
+            };
+
+            fetch(API_URL + 'articles/' + id, options)
+                .then(response => response.json())
+                .then(data => {
+                    NProgress.done();
+                    resolve(data);
+                })
+                .catch(err => {
+                    NProgress.done();
+                    reject(err);
+                });
+        }, DELAY);
+    });
+};
+
+export const tryGetOnlineCount = () => {
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+            const options = {
+                method: 'GET',
+                mode: 'cors',
+                headers,
+            };
+
+            fetch(API_URL + 'onlines', options)
+                .then(response => response.json())
+                .then(data => {
+                    NProgress.done();
+                    resolve({ count: data });
+                })
+                .catch(err => {
+                    NProgress.done();
+                    reject(err);
+                });
+        }, DELAY);
+    });
+};
+
 export const tryLogin = (username, password) => {
     NProgress.start();
     return new Promise((resolve, reject) => {
-
-        const body = JSON.stringify({
-            username,
-            password
-        });
-
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        const options = {
-            method: 'POST',
-            mode: 'cors',
-            headers,
-            body
-        };
-
-        fetch(API_URL + 'login', options)
-            .then(response => response.json())
-            .then(data => {
-                NProgress.done();
-                resolve(data);
-            })
-            .catch(err => {
-                NProgress.done();
-                reject(err);
+        setTimeout(() => {
+            const body = JSON.stringify({
+                username,
+                password
             });
+
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+            const options = {
+                method: 'POST',
+                mode: 'cors',
+                headers,
+                body
+            };
+
+            fetch(API_URL + 'login', options)
+                .then(response => response.json())
+                .then(data => {
+                    NProgress.done();
+                    resolve(data);
+                })
+                .catch(err => {
+                    NProgress.done();
+                    reject(err);
+                });
+        }, DELAY);
     });
 };
 
 export const tryRegister = (username, email, password) => {
     NProgress.start();
     return new Promise((resolve, reject) => {
-
-        const body = JSON.stringify({
-            username,
-            password,
-            email
-        });
-
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        const options = {
-            method: 'POST',
-            mode: 'cors',
-            headers,
-            body
-        };
-
-        fetch(API_URL + 'register', options)
-            .then(response => response.json())
-            .then(data => {
-                NProgress.done();
-                resolve(data);
-            })
-            .catch(err => {
-                NProgress.done();
-                reject(err);
+        setTimeout(() => {
+            const body = JSON.stringify({
+                username,
+                password,
+                email
             });
+
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+            const options = {
+                method: 'POST',
+                mode: 'cors',
+                headers,
+                body
+            };
+
+            fetch(API_URL + 'register', options)
+                .then(response => response.json())
+                .then(data => {
+                    NProgress.done();
+                    resolve(data);
+                })
+                .catch(err => {
+                    NProgress.done();
+                    reject(err);
+                });
+        }, DELAY);
     });
 };

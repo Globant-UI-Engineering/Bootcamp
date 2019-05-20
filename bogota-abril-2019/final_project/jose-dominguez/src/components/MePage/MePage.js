@@ -7,7 +7,7 @@ import NavigatorContainer from '../../containers/NavigatorContainer';
 import MeContainer from '../../containers/MeContainer';
 import Radio from './Radio';
 import LoggedRedirectorContainer from '../../containers/LoggedRedirectorContainer';
-import { tryGetLastNewsFake } from '../../controllers/BobbaProxy';
+import { tryGetLastNews } from '../../controllers/BobbaProxy';
 import { addNewsList } from '../../actions';
 import HeaderContainer from '../../containers/HeaderContainer';
 
@@ -17,7 +17,7 @@ class MePage extends React.Component {
         const { newsFetched, newsFetching } = this.props.newsContext;
         const { dispatch } = this.props;
         if (!newsFetched && !newsFetching) {
-            tryGetLastNewsFake().then(list => {
+            tryGetLastNews().then(list => {
                 dispatch(addNewsList(list));
             });
         }

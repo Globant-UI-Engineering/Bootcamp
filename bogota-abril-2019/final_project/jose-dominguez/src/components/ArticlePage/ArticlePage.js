@@ -4,7 +4,7 @@ import Footer from '../Generic/Footer';
 import HeaderContainer from '../../containers/HeaderContainer';
 import NewsPreviewSkeleton from '../Generic/NewsPreviewSkeleton';
 import NavigatorContainer from '../../containers/NavigatorContainer';
-import { tryGetLastNewsFake, tryGetNewsFake } from '../../controllers/BobbaProxy';
+import { tryGetLastNews, tryGetNews } from '../../controllers/BobbaProxy';
 import { addNewsList } from '../../actions';
 import Article from './Article';
 import ArticleList from './ArticleList';
@@ -15,37 +15,53 @@ class ArticlePage extends React.Component {
     constructor(props) {
         super(props);
 
+        this.unlistener = () => {};
+
         this.state = {
             currentArticle: null,
         };
     }
 
-    getIdFromUrl() {
-        const { pathname } = this.props.location;
+    getIdFromUrl(pathname) {
         const seo = pathname.split('/')[2];
         if (seo != null) {
             const id = seo.split('-')[0];
-            console.log(id);
             return id;
         }
         return null;
     }
 
-    componentDidMount() {
-        const { newsFetched, newsFetching } = this.props.newsContext;
-        const { dispatch } = this.props;
-        if (!newsFetched && !newsFetching) {
-            tryGetLastNewsFake().then(list => {
-                dispatch(addNewsList(list));
-            });
-        }
-
-        const id = this.getIdFromUrl();
+    updateCurrentArticle(pathname) {
+        const id = this.getIdFromUrl(pathname);
         if (id != null) {
-            tryGetNewsFake(id).then(article => {
+            tryGetNews(id).then(article => {
+                this.setState({ currentArticle: article });
+            });
+        } else {
+            tryGetNews(0).then(article => {
                 this.setState({ currentArticle: article });
             });
         }
+    }
+
+    componentWillUnmount() {
+        this.unlistener();
+    }
+
+    componentDidMount() {
+        this.unlistener = this.props.history.listen((location, action) => {
+            if (location.pathname.includes("articles")) {
+                this.updateCurrentArticle(location.pathname);
+            }
+        });
+        const { newsFetched, newsFetching } = this.props.newsContext;
+        const { dispatch } = this.props;
+        if (!newsFetched && !newsFetching) {
+            tryGetLastNews().then(list => {
+                dispatch(addNewsList(list));
+            });
+        }
+        this.updateCurrentArticle(this.props.location.pathname);
     }
 
     render() {
