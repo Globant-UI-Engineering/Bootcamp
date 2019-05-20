@@ -2,20 +2,19 @@
   text-align: center;
 }
 
-.weatherCard{
-  width: 100%;
-  margin: 0 auto;
-  padding: 30px; 
+.weatherCard{  
+  padding: 20px;
   background-color:#fff600;
 }
 .card{
-  max-width: 18rem;
+  max-width: 18rem;  
 }
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#newsCard{
+  padding: 20px;
+  background-color: #007BFF;
+}
+.nonSpace{
+  position:relative;width:100%;
+  padding-right:0;
+  padding-left:0;
 }
