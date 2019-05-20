@@ -10,7 +10,7 @@ import {
   getTopArtistsList,
 } from "../store/reducers";
 import { store } from "../store/store";
-
+import styles from "./TopArtists.module.css";
 function TopArtists({ artists, fetchTopArtists, isLoading, error, ...props }) {
   const offset = artists.length;
   if (error) {
@@ -19,7 +19,11 @@ function TopArtists({ artists, fetchTopArtists, isLoading, error, ...props }) {
   return (
     <>
       <Artists artists={artists} {...props} />
-      <button disabled={isLoading} onClick={e => fetchTopArtists(offset)}>
+      <button
+        className={styles.loadMore}
+        disabled={isLoading}
+        onClick={e => fetchTopArtists(offset)}
+      >
         Load More
       </button>
     </>

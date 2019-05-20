@@ -1,0 +1,25 @@
+.loadMore {
+  border: 0;
+  width: 100%;
+  appearance: none;
+  text-align: center;
+  font-size: 24px;
+  background: #aaa;
+  transition: 0.25s background-color, 0.5s color;
+  cursor: pointer;
+  margin: 1em 0 1em 0;
+  padding: 1em;
+}
+
+.loadMore:disabled {
+  cursor: default;
+}
+
+.loadMore:hover:not(:disabled) {
+  background: #555;
+}
+
+.loadMore:active {
+  background: #333;
+  color: white;
+}
