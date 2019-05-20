@@ -1,8 +1,10 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 import queryString from 'query-string';
 import axios from 'axios';
-
+import { USER_INFO_URL,
+  PLAY_TRACK_URL } from '../utils/EndpointSettings';
+//https://levelup.gitconnected.com/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -11,42 +13,32 @@ class App extends React.Component {
     }
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.playCurrentTrack = this.playCurrentTrack.bind(this);
+    this.updateNowPlaying = this.updateNowPlaying.bind(this);
   }
 
   componentDidMount() {
    let parsed = queryString.parse(window.location.search);
    let accessToken = parsed.access_token;
+   let refreshToken = parsed.refresh_token;
 
    if(accessToken) {
-    axios.get('https://api.spotify.com/v1/me', { headers: { Authorization: `Bearer ${accessToken}` } })
-    .then((response) => {
-      this.setState({
-       user: response.data,
-       accessToken: accessToken
-      }, () => {console.log(this.state.user)})
-    });
-    
-    axios.get('https://api.spotify.com/v1/me/player/currently-playing', { headers: { "Authorization": `Bearer ${accessToken}` } })
-    .then((response) => {
-      let data = response.data;
-      let playing = {
-        item: data.item,
-        isPlaying: data.is_playing,
-        progressMs: data.progress_ms
-      }
-      this.setState({
-        playing: playing
-      }, () => {
-        console.log(data);
+     this.setState({
+       accessToken: accessToken,
+       refreshToken: refreshToken
+     }, () => {
+      axios.get(USER_INFO_URL, { headers: { Authorization: `Bearer ${this.state.accessToken}` } })
+      .then((response) => {
+        this.setState({
+         user: response.data
+        }, () => {
+          console.log(this.state.user)})
       });
-    }).catch((err) => {
-      console.log(err);
-    })
+     })    
 
    }   
   }
 
-  playCurrentTrack() {
+  updateNowPlaying() {
     axios.get('https://api.spotify.com/v1/me/player', { headers: { Authorization: `Bearer ${this.state.accessToken}` } })
     .then((response) => {
       let data = response.data;
@@ -56,19 +48,20 @@ class App extends React.Component {
         progressMs: data.progress_ms
       }
       this.setState({
-        playing: playing
+        playing: playing.item
       }, () => {
-        console.log(data);
+        console.log(this.state.playing);
       });
     })
-    /* 
-    axios.put("https://api.spotify.com/v1/me/player/play", {}, { headers: { Authorization: `Bearer ${this.state.accessToken}` } })
-    .then((response) => {
-      console.log(response);
+  }
+
+  playCurrentTrack() {   
+    axios.put(PLAY_TRACK_URL, {}, { headers: { Authorization: `Bearer ${this.state.accessToken}` } })
+    .then(() => {
+      this.updateNowPlaying();
     }).catch((err) => {
       console.log(err);
     })
-    */
   }
 
   handleLoginClick() {
@@ -85,7 +78,7 @@ class App extends React.Component {
         </div> : 
         <button onClick={this.handleLoginClick}>Log in with Spotify</button>
         }
-        {this.state.playing ? <div>{this.state.playing.item}</div> : <div>No track playing</div>}
+        {this.state.playing ? <div>{this.state.playing.name}</div> : <div>No track playing</div>}
       </div>
     );
   }
