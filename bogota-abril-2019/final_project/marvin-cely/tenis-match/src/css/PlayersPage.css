@@ -1,0 +1,40 @@
+figure[aira-lable$="jugadores"] {
+    background-image: url("../images/jugadoresImagen.jpg");
+    /* Specific height */
+    min-height: 200px; 
+    /* Parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 0;
+}
+
+figure[aira-lable$="jugadores"] > figcaption {
+    margin: 0;
+    padding-right: 1rem;
+    font-family: var(--font-group-1);
+    color: var(--font-color-white);
+    font-style: oblique;
+    opacity: 0.2;
+}
+
+main.container > section:first-of-type {
+    padding-top: 4rem;
+    margin-top: -4rem;
+    z-index: 1;
+}
+
+section > header {
+    background: white;
+    padding: 1rem;
+    border-bottom: 1px solid var(--font-color-gray);
+}
+
+section.row {
+    margin: auto;
+}
+

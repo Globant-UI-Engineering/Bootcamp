@@ -11,6 +11,7 @@ import RankingPage from './components/RankingPage';
 import FooterPage from './components/FooterPage';
 import serviceGetData from './services/serviceGetData';
 import thesaurus from './utils/thesaurus';
+import menuLinkList from './utils/menuLinkList';
 
 import serviceAddData from './services/serviceAddData'; // TODO: Utilizar importación Luego
 import serviceUpdateData from './services/serviceUpdateData'; // TODO: Utilizar importación Luego
@@ -21,6 +22,9 @@ const App = observer(
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      nameApp: 'Tennis Match',
+    }
     // Here is the firestore's onSnapshot when gets the "()" Unlink a listening agent. See componentWillMount.
     this.unSubcribePlayers = serviceGetData.obtainAll(this.props.store, this.props.fireStore, thesaurus.collectionsName.PLAYERS);
     this.unSubcribeMatches = serviceGetData.obtainAll(this.props.store, this.props.fireStore, thesaurus.collectionsName.MATCHES);
@@ -34,60 +38,42 @@ class App extends React.Component {
   }
   
   render() {
+    const linkList = menuLinkList.map(({to, id, role, ariaControls, icon, title}, key) => {
+      return (
+        <Link
+          key={key}
+          to={to}
+          id={id} 
+          role={role} 
+          aria-controls={ariaControls}>
+            <i className={icon}></i>
+            &nbsp;{title}
+        </Link>
+      );
+    });
     return (
       <React.Fragment>
-        <main>       
+        <main>
           <Router>   
-            <nav className="sticky-top shadow-lg pl-5 pr-5 mb-2 rounded-bottom" role="tablist">
+            <nav className="sticky-top shadow-lg pl-5 pr-5" role="tablist">
               <Link
                 to="/"
                 id="navegacion-inicio-tab" 
                 role="tab" 
                 aria-controls="navegacion-inicio" 
                 aria-selected="true">
-                  <article>
+                  <header>
                     <img src={tennisLogo} alt="Logo Pelota de tenis"/>
                     <h1>                    
-                      Tennis Match
+                      {this.state.nameApp}
                     </h1>
-                  </article>
+                  </header>
               </Link>
-              <section>              
-                <Link
-                  to="/new-match"
-                  id="navegacion-nuevo-partido-tab" 
-                  role="tab" 
-                  aria-controls="navegacion-nuevo-partido">
-                    <i class="fas fa-plus"></i>
-                    &nbsp;Nuevo Partido
-                </Link>
-                <Link
-                  to="/matches"
-                  id="navegacion-partidos-tab" 
-                  role="tab" 
-                  aria-controls="navegacion-partidos">
-                    <i class="fab fa-font-awesome-flag"></i>
-                    &nbsp;Partidos
-                </Link>
-                <Link
-                  to="/players"
-                  id="navegacion-jugadores-tab" 
-                  role="tab" 
-                  aria-controls="navegacion-jugadores">
-                    <i class="fas fa-users"></i>
-                    &nbsp;Jugadores
-                </Link>
-                <Link
-                  to="/ranking"
-                  id="navegacion-ranking-tab" 
-                  role="tab" 
-                  aria-controls="navegacion-ranking">
-                    <i class="fas fa-level-up-alt"></i>
-                    &nbsp;Ranking
-                </Link>
+              <section>  
+                {linkList}            
               </section>
             </nav>
-            <section className="tab-content" id="nav-tabContent">
+            <section>
               <Route
                 id="navegacion-inicio"
                 role="tabpanel"
@@ -129,6 +115,7 @@ class App extends React.Component {
                   <PlayersPage
                     {...props}
                     store={this.props.store}
+                    fireStore={this.props.fireStore}
                   />
                 }
               />

@@ -1,6 +1,6 @@
-import { observable, computed, decorate } from "mobx";
+import { observable, computed, decorate, autorun } from "mobx";
 
-class TenisMatchStore {    
+class TenisMatchStore {   
     players = [];
     matches = [];
     points = [];

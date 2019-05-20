@@ -3,7 +3,7 @@
   min-height: 100vh;
 }
 nav + section {
-  padding-bottom: 2.5rem;    /* Footer height TODO: Revisar */ 
+  padding-bottom: 10rem;    /* Footer height TODO: Revisar */ 
 }
 
 section + footer {
@@ -33,7 +33,7 @@ a:hover {
   color: var(--font-color-white);
 }
 
-article > h1 {
+header > h1 {
   font-family: var(--font-group-3);
   font-size: var(--size-large);
   margin-top: 18px;
@@ -41,7 +41,7 @@ article > h1 {
   text-shadow: 1.5px 1.5px 5px var(--font-color-black);
 }
 
-article img[alt="Logo Pelota de tenis"] {
+header img[alt="Logo Pelota de tenis"] {
   width: 4.5rem;
   float: left;
 }
