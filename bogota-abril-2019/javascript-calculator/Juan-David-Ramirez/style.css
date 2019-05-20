@@ -2,21 +2,22 @@ body{
 	background-color: #228B22;
 }
 
-article{
-}
-
 .container{
-  background-color: #383838;
-  margin: 0 auto;
-  width: 300px;
+	background-color: #383838;
+	margin: 0 auto;
+	width: 300px;
 	height: 500px;
 	border-radius: 15px;
 	border: 3px solid #181818;
 }
 
 h1, footer{
-  text-align: center;
+  	text-align: center;
 	color: white;
+}
+
+footer{
+	margin-top: 15px;
 }
 
 
