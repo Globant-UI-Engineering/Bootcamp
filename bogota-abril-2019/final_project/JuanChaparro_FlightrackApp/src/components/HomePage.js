@@ -15,7 +15,7 @@ class HomePage extends Component {
             action: 'login',
             name: 'Log In',
             desc: 'Member Login',
-            input: {
+            inputs: {
                 username: '',
                 password: '',
             },
@@ -45,12 +45,14 @@ class HomePage extends Component {
                     <div className="home-btn-container">
                         <button 
                             type="button"
+                            aria-label="login"
                             className={this.state.action === "login" ?  "selected" : null}
                             onClick={() => this.showLogin()}>
                             Log In
                         </button>
                         <button 
                             type="button"
+                            aria-label="signup"
                             className={this.state.action === "signup" ?  "selected" : null}
                             onClick={() => this.showSignup()}>
                             Sign Up
@@ -58,18 +60,20 @@ class HomePage extends Component {
                     </div>
                     <h1>{this.state.desc}</h1>
                     <div className="input-container">
-                        <input 
+                        <input
                             type="text"
                             name="username"
                             placeholder="Username"
+                            aria-label="Username is required"
                             onChange={(event) => this.onChangeHandler(event)}/>
                         <input 
                             type="password"
                             name="password"
                             placeholder="Password"
+                            aria-label="Password is required"
                             onChange={(event) => this.onChangeHandler(event)}/>
                     </div>
-                    <button type="submit" onClick={() => {this.handleSubmit()}}>{this.state.name}</button>
+                    <button type="submit" aria-label="submit" onClick={() => {this.handleSubmit()}}>{this.state.name}</button>
                     {this.state.message.success ? 
                         <p className="success-message">{this.state.message.description}</p> : 
                         <p className="error-message">{this.state.message.description}</p>}
@@ -106,42 +110,41 @@ class HomePage extends Component {
 
     onChangeHandler(event) {
         this.setState({
-            input: {
+            inputs: {
                 username: 
-                    event.target.name === "username" ? event.target.value : this.state.input.username,
+                    event.target.name === "username" ? event.target.value : this.state.inputs.username,
                 password: 
-                    event.target.name === "password" ? event.target.value : this.state.input.password,
+                    event.target.name === "password" ? event.target.value : this.state.inputs.password,
             }
         });
     }
 
     handleSubmit() {
         if (this.validateInputs()) {
-            this.setState({
-                message: {
-                    description: 'Loading...',
-                    success: true
-                }
-            });
+            this.showMessage('Loading...', true);
 
             if (this.state.action === "login") {
-                logIn(this.state.input.username, this.state.input.password);
+                logIn(this.state.inputs.username, this.state.inputs.password);
             } else if (this.state.action === "signup") {
-                signUp(this.state.input.username, this.state.input.password);
+                signUp(this.state.inputs.username, this.state.inputs.password);
             }
         }
         else {
-            this.setState({
-                message: {
-                    description: 'It is not possible to have empty fields',
-                    success: false,
-                },
-            });
+            this.showMessage('It is not possible to have empty fields', false);
         }
     }
 
+    showMessage(description, success) {
+        this.setState({
+            message: {
+                description,
+                success,
+            }
+        });
+    }
+
     validateInputs() {
-        return this.state.input.username !== '' && this.state.input.password !== '';
+        return this.state.inputs.username !== '' && this.state.inputs.password !== '';
     }
 
     componentWillUnmount() {

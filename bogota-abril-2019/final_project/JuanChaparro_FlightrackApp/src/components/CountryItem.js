@@ -15,8 +15,7 @@ class CountryItem extends Component {
             countryCode: props.match.params.countryCode,
             airportList: [],
             airportSelected: '',
-            successfulResponse: false,
-            buttonClicked: false,
+            showAirportInfo: false,
         }
 
         store.subscribe(() => {
@@ -47,7 +46,7 @@ class CountryItem extends Component {
                     <div className="airports-container">
                         {this.state.airportList.length > 0 ? airportSelect : <p>Loading...</p>}
                     </div>
-                    {this.state.successfulResponse ? this.showAirport() : null}
+                    {this.state.showAirportInfo ? this.showAirport() : null}
                 </div>
             );
         }
@@ -64,42 +63,32 @@ class CountryItem extends Component {
                     <span>{`Iata Code Airport: ${airportInfo.codeIataAirport}`}</span>
                     <span>{`Phone: ${airportInfo.phone ? airportInfo.phone : "-" }`}</span>
                 </p>
-                <button className="btn-arrivals" type="button">Arrivals</button>
-                <button className="btn-departures" type="button">Departures</button>
+                <button className="btn-arrivals" aria-label="arrivals" type="button">Arrivals</button>
+                <button className="btn-departures" aria-label="departures" type="button">Departures</button>
             </div>
         );
     }
 
-    componentDidMount() { 
+    componentDidMount() {
         this._isMounted = true;
         if (this.state.airportList.length === 0 && this.state.isAuthenticated) {
             getAirports(this.state.countryCode).then(response => {
                 if (response.error) {
-                    this.setState({
-                        successfulResponse: false,
-                    });
-                } else {
+                    this.setState({showAirportInfo: false});
+                } 
+                else {
                     this.setState({
                         airportList: response,
+                        airportSelected: response[0].airportId,
+                        showAirportInfo: true
                     });
                 }
             });
         }
     }
 
-    componentDidUpdate() {
-        if (this.state.airportSelected === '') {
-            this.setState({
-                airportSelected: this.state.airportList[0].airportId,
-                successfulResponse: true
-            });
-        }
-    }
-
     onChangeHandler(event) {
-        this.setState({
-            airportSelected: event.target.value,
-        });
+        this.setState({airportSelected: event.target.value});
     }
 
     componentWillUnmount() {

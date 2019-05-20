@@ -6,7 +6,7 @@ export const signUp = (username, password) => postRequest(username, password, "u
 
 const postRequest = (username, password, path, type) => {
     let requestSettings = getRequestSettings(username, password);
-
+    
     fetch(AUTH_BASE_URL + path, requestSettings)
     .then(response => response.json())
     .then(jsonResponse => {
@@ -27,5 +27,3 @@ const getRequestSettings  = (mail, pass) => {
         body: JSON.stringify({mail, pass}),
     }
 }
-
-

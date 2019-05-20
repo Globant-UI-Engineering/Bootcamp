@@ -10,14 +10,12 @@ const Navbar = () => (
             <button className="home" type="button">Home</button>
         </Link>
         <img src={AppLogo} alt="Flightrack Logo"/>
-        <button className="link" type="button" onClick={logoutHandler}>Logout</button>
+        <button className="link" type="button" aria-label="logout" onClick={logoutHandler}>Logout</button>
     </nav>
 );
 
 const logoutHandler = () => {
-    store.dispatch({
-        type: 'LOG_OUT',
-    });
+    store.dispatch({type: 'LOG_OUT'});
 }
 
 export default Navbar;

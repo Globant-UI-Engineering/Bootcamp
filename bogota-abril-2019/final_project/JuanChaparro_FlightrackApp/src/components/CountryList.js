@@ -34,11 +34,11 @@ class CountryList extends Component {
         } else {
             const countrySelect = (
                 <div>
-                    <select onChange={(event) => this.onChangeHandler(event)}>
+                    <select id="favcountry" onChange={(event) => this.onChangeHandler(event)}>
                         {this.state.countryList.map((country)=> 
                         <option key={country.countryId} value={country.codeIso2Country}>{country.nameCountry}</option>)}
                     </select>
-                    <button type="submit" onClick={() => this.submitHandler()}>Submit</button>
+                    <button type="submit" aria-label="submit" onClick={() => this.submitHandler()}>Submit</button>
                 </div>
             );
 
@@ -46,7 +46,7 @@ class CountryList extends Component {
                 <div>
                     <Navbar/>
                     <div className="countrylist-container">
-                        <h2>{`Welcome ${this.state.username}, please select a country:`}</h2>
+                        <label htmlFor="favcountry">{`Welcome ${this.state.username}, please select a country:`}</label>
                         {this.state.countryList.length > 0 ? countrySelect : <p>Loading...</p>}
                         {this.state.submitted ? this.goToCountry(this.state.countrySelected) : null}
                     </div>
@@ -63,18 +63,14 @@ class CountryList extends Component {
     }
 
     onChangeHandler(event) {
-        this.setState({
-            countrySelected: event.target.value,
-        });
+        this.setState({countrySelected: event.target.value});
     }
 
     submitHandler() {
         if (this.state.countrySelected === '')
-            this.setState({countrySelected: this.state.countryList[0].codeIso2Country,});
+            this.setState({countrySelected: this.state.countryList[0].codeIso2Country});
 
-        this.setState({
-            submitted: true,
-        });
+        this.setState({submitted: true});
     }
 
     goToCountry(countryCode) {
