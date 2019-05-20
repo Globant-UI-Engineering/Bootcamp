@@ -4,23 +4,18 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import TopArtists from "./containers/TopArtists";
-import Login from "./routes/Login";
+import LoginRedirect from "./routes/LoginRedirect";
 import { store } from "./store/store";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <NavBar
-          links={[
-            { name: "Login", href: "/login" },
-            { name: "Artists", href: "/artists" },
-          ]}
-        />
+        <NavBar links={[{ name: "My Top Artists", href: "/top-artists" }]} />
         <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/artists" component={TopArtists} />
-          <Redirect to="/login" />
+          <Route path={"/spotify-redirect"} component={LoginRedirect} />
+          <Route path="/top-artists" component={TopArtists} />
+          <Redirect to="/top-artists" />
         </Switch>
       </BrowserRouter>
     </Provider>

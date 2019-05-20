@@ -1,24 +1,13 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { addCredentials } from "../store/actions";
 
-export default function Login({ match }) {
-  return (
-    <div>
-      <button onClick={login}>Login to Spotify</button>
-      <Route
-        path={match.path + "/spotify-redirect"}
-        component={LoginRedirect}
-      />
-    </div>
-  );
-}
-
-function login() {
+export function login() {
   // https://developer.spotify.com/dashboard/login
   const clientId = "37073364f98646ebb1f587b1a5747043";
   // The exact redirectUri must be registered with spotify first.
-  // https://developer.spotify.com/dashboard/login
-  const redirectUri = "http://localhost:3000/login/spotify-redirect/";
+  const redirectUri = "http://localhost:3000/spotify-redirect/";
   // https://developer.spotify.com/documentation/general/guides/scopes/#user-read-recently-played
   const scopes = ["user-read-email", "user-top-read"].join(" ");
   const e = encodeURIComponent;
@@ -38,23 +27,23 @@ function LoginRedirect(props) {
         .map(token => encodeURIComponent(token));
       params[key] = val;
     });
+
+  useEffect(() => {
+    props.addCredentials(params);
+  });
   console.log(params);
-  return (
-    <div>
-      <input
-        className="accessToken"
-        type="text"
-        readOnly
-        value={params.access_token}
-      />
-      <button
-        onClick={e => {
-          document.querySelector(".accessToken").select();
-          document.execCommand("copy");
-        }}
-      >
-        Copy
-      </button>
-    </div>
-  );
+  if (!params.access_token) {
+    return <p>There was a problem logging in to Spotify</p>;
+  }
+  return <Redirect to="/artists" />;
 }
+
+const mapDispatchToProps = dispatch => ({
+  addCredentials: ({ access_token, expires_in, token_type }) =>
+    dispatch(addCredentials({ access_token, expires_in, token_type })),
+});
+
+export default connect(
+  undefined,
+  mapDispatchToProps,
+)(LoginRedirect);
