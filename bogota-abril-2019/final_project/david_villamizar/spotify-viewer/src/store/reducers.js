@@ -123,10 +123,8 @@ export const getAccessToken = state => state.credentials.access_token;
 
 export const getTopArtistsList = state =>
   [].concat(...state.topArtists.map(page => page.items));
-
 export const getTopArtistsIsLoading = state =>
   state.topArtistsLoading.isLoading;
-
 export const getTopArtistsError = state => state.topArtistsLoading.error;
 
 export const getArtistAlbumsList = (state, artistId) => {
@@ -138,5 +136,16 @@ export const getArtistAlbumsList = (state, artistId) => {
 };
 export const getArtistAlbumsIsLoading = state =>
   state.artistAlbumsLoading.isLoading;
-
 export const getArtistAlbumsError = state => state.artistAlbumsLoading.error;
+
+export const getArtistTopTracksList = (state, artistId) => {
+  let albums = state.artistTopTracks[artistId];
+  if (!albums) {
+    albums = [];
+  }
+  return albums;
+};
+export const getArtistTopTracksIsLoading = state =>
+  state.artistTopTracksLoading.isLoading;
+export const getArtistTopTracksError = state =>
+  state.artistTopTracksLoading.error;
