@@ -1,0 +1,45 @@
+{
+  "name": "juandavidramirez-final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js, jsx, css, json} \" ",
+    "format:check": "prettier --list-different \"src/**/*.{js, jsx, css, json} \" ",
+    "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CAPJackie/Intro-to-React-FEM.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CAPJackie/Intro-to-React-FEM/issues"
+  },
+  "homepage": "https://github.com/CAPJackie/Intro-to-React-FEM#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^5.14.1",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "parcel-bundler": "^1.11.0",
+    "prettier": "^1.16.4"
+  },
+  "dependencies": {
+    "@reach/router": "^1.2.1",
+    "petfinder-client": "^2.0.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
