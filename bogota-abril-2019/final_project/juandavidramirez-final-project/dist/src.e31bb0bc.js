@@ -30510,7 +30510,12 @@ function (_React$Component) {
 
 var _default = ChampionList;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../../../utils/api.js":"utils/api.js","../../App/Loading":"components/App/Loading.js","./RenderChampionList":"components/Content/ChampionList/RenderChampionList.js"}],"components/App/Search.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../../utils/api.js":"utils/api.js","../../App/Loading":"components/App/Loading.js","./RenderChampionList":"components/Content/ChampionList/RenderChampionList.js"}],"components/Content/Search/Search.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Content/Search/SummonerProfile/SummonerProfile.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30519,6 +30524,31 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var SummonerProfile = function SummonerProfile(_ref) {
+  var info = _ref.info;
+  return _react.default.createElement("h2", null, info.name);
+};
+
+var _default = SummonerProfile;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"components/Content/Search/Search.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Search.css");
+
+var _api = require("../../../utils/api");
+
+var _SummonerProfile = _interopRequireDefault(require("./SummonerProfile/SummonerProfile"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30546,15 +30576,64 @@ function (_React$Component) {
   _inherits(Search, _React$Component);
 
   function Search() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    var _temp;
+
     _classCallCheck(this, Search);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Search).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Search)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
+      summonerName: ""
+    }, _this.handleChange = function (event) {
+      _this.setState({
+        summonerName: event.target.value
+      });
+    }, _this.handleSubmit = function (event) {
+      event.preventDefault();
+      var callback = {
+        onSuccess: function onSuccess(response) {
+          _this.setState({
+            summonerName: "",
+            summonerInfo: response.data
+          });
+        },
+        onFailed: function onFailed(error) {
+          console.log(error);
+        }
+      };
+
+      if (_this.state.summonerName) {
+        (0, _api.getSummoner)(_this.state.summonerName, callback);
+      }
+    }, _temp));
   }
 
   _createClass(Search, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null);
+      var _this$state = this.state,
+          summonerName = _this$state.summonerName,
+          summonerInfo = _this$state.summonerInfo;
+      return _react.default.createElement("div", null, _react.default.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, _react.default.createElement("label", {
+        htmlFor: "summoner-name-input"
+      }, "summoner name"), _react.default.createElement("input", {
+        id: "summoner-name-input",
+        value: summonerName,
+        type: "text",
+        onChange: this.handleChange
+      }), _react.default.createElement("button", {
+        type: "submit"
+      })), _react.default.createElement("div", null, summonerInfo && _react.default.createElement(_SummonerProfile.default, {
+        info: summonerInfo
+      })));
     }
   }]);
 
@@ -30563,7 +30642,7 @@ function (_React$Component) {
 
 var _default = Search;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"components/Content/Content.css":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Search.css":"components/Content/Search/Search.css","../../../utils/api":"utils/api.js","./SummonerProfile/SummonerProfile":"components/Content/Search/SummonerProfile/SummonerProfile.js"}],"components/Content/Content.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -30742,7 +30821,7 @@ var _Home = _interopRequireDefault(require("./Home/Home"));
 
 var _ChampionList = _interopRequireDefault(require("./ChampionList/ChampionList"));
 
-var _Search = _interopRequireDefault(require("../App/Search"));
+var _Search = _interopRequireDefault(require("./Search/Search"));
 
 require("../Content/Content.css");
 
@@ -30765,7 +30844,7 @@ var Content = function Content() {
 
 var _default = Content;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Home/Home":"components/Content/Home/Home.js","./ChampionList/ChampionList":"components/Content/ChampionList/ChampionList.js","../App/Search":"components/App/Search.js","../Content/Content.css":"components/Content/Content.css","./TopTierList/TopTierList":"components/Content/TopTierList/TopTierList.js"}],"components/Footer/Footer.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Home/Home":"components/Content/Home/Home.js","./ChampionList/ChampionList":"components/Content/ChampionList/ChampionList.js","./Search/Search":"components/Content/Search/Search.js","../Content/Content.css":"components/Content/Content.css","./TopTierList/TopTierList":"components/Content/TopTierList/TopTierList.js"}],"components/Footer/Footer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30926,7 +31005,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57753" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49432" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

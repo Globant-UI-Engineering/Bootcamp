@@ -2,7 +2,7 @@ import React from "react";
 import { Router } from "@reach/router";
 import Home from "./Home/Home";
 import ChampionList from "./ChampionList/ChampionList";
-import Search from "../App/Search";
+import Search from "./Search/Search";
 import "../Content/Content.css";
 import TopTierList from "./TopTierList/TopTierList";
 
