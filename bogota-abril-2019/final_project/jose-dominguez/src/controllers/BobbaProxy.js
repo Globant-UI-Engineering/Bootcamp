@@ -1,6 +1,6 @@
-import NProgress from 'nprogress';
+﻿import NProgress from 'nprogress';
 
-const API_URL = 'http://api.bobba.io:1232/';
+const API_URL = 'http://localhost:1232/';
 const FAKE_DELAY = 2000;
 const DELAY = 1000;
 
