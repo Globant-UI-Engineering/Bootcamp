@@ -1,48 +1,32 @@
 import React from "react";
-import "../ChampionList/ChampionList.css";
-import {getChampions} from "../../../utils/api.js";
-import Champion from "../../Champion/Champion";
+import { getChampions } from "../../../utils/api.js";
+import Loading from "../../App/Loading";
+import RenderChampionList from "./RenderChampionList";
 class ChampionList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      champions: [],
-      loading: true
-    };
-  }
+  state = {
+    loading: true
+  };
 
-  componentDidMount(){
+  componentDidMount() {
     var callback = {
-      onSuccess: (response) => {
-        this.setState({champions:response.data.data, loading:false});
+      onSuccess: response => {
+        this.setState({ champions: response.data.data, loading: false });
       },
-      onFailed: (error) =>{
+      onFailed: error => {
         console.error(error);
       }
     };
 
-      getChampions(callback);
-    
+    getChampions(callback);
   }
 
   render() {
-    if(this.state.loading){
-      return <h1>Is Loading ...</h1>
-    }
+    const { champions, loading } = this.state;
 
-    const { champions } = this.state;
-
-    return (
-      <div>
-        {Object.keys(champions).map(key => (
-              <Champion
-                key
-                name = {key}
-                image = {champions[key].image.full}
-              />
-      
-        ))}
-      </div>
+    return loading ? (
+      <Loading name="Champions" />
+    ) : (
+      <RenderChampionList champions={champions} />
     );
   }
 }

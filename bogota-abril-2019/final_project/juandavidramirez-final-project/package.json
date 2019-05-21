@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CAPJackie/Intro-to-React-FEM.git"
+    "url": "git+https://github.com/Globant-UI-Engineering/Bootcamp.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Juan David Ramirez Mendoza",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CAPJackie/Intro-to-React-FEM/issues"
+    "url": "https://github.com/Globant-UI-Engineering/Bootcamp/issues"
   },
-  "homepage": "https://github.com/CAPJackie/Intro-to-React-FEM#readme",
+  "homepage": "https://github.com/Globant-UI-Engineering/Bootcamp/tree/JuanDavidRamirezFinalProject/bogota-abril-2019/final_project/juandavidramirez-final-project#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "axios": "^0.18.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0"
+    "react-dom": "^16.8.6"
   }
 }

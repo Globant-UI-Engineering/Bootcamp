@@ -37,13 +37,16 @@ header nav a {
 p{
     color: white;
 }
-ul{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.champion-name {
+  color: white;
 }
 
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */
