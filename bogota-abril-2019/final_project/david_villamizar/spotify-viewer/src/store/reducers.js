@@ -1,14 +1,18 @@
 import { combineReducers } from "redux";
 import {
   ADD_ARTIST_ALBUMS_PAGE,
+  ADD_ARTIST_TOP_TRACKS,
   ADD_CREDENTIALS,
   ADD_TOP_ARTISTS_PAGE,
   CLEAR_ARTIST_ALBUMS,
+  CLEAR_ARTIST_TOP_TRACKS,
   CLEAR_CREDENTIALS,
   CLEAR_TOP_ARTISTS,
   SET_ARTIST_ALBUMS_LOADING,
+  SET_ARTIST_TOP_TRACKS_LOADING,
   SET_TOP_ARTISTS_LOADING,
   SHOW_ARTIST_ALBUMS_ERROR,
+  SHOW_ARTIST_TOP_TRACKS_ERROR,
   SHOW_TOP_ARTISTS_ERROR,
 } from "./actions";
 
@@ -64,6 +68,31 @@ function artistAlbumsLoading(
   }
 }
 
+function artistTopTracks(state = {}, { type, artistId, tracks }) {
+  switch (type) {
+    case ADD_ARTIST_TOP_TRACKS:
+      return { ...state, [artistId]: tracks };
+    case CLEAR_ARTIST_TOP_TRACKS:
+      return { ...state, [artistId]: undefined };
+    default:
+      return state;
+  }
+}
+
+function artistTopTracksLoading(
+  state = { isLoading: false },
+  { type, isLoading, error },
+) {
+  switch (type) {
+    case SET_ARTIST_TOP_TRACKS_LOADING:
+      return { isLoading };
+    case SHOW_ARTIST_TOP_TRACKS_ERROR:
+      return { isLoading, error };
+    default:
+      return state;
+  }
+}
+
 function credentials(
   state = {},
   { type, access_token, expires_in, token_type },
@@ -83,6 +112,8 @@ const appReducer = combineReducers({
   topArtistsLoading,
   artistAlbums,
   artistAlbumsLoading,
+  artistTopTracks,
+  artistTopTracksLoading,
   credentials,
 });
 

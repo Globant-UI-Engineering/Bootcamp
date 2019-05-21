@@ -8,6 +8,10 @@ export const ADD_ARTIST_ALBUMS_PAGE = "ADD_ARTIST_ALBUMS_PAGE";
 export const CLEAR_ARTIST_ALBUMS = "CLEAR_ARTIST_ALBUMS";
 export const SHOW_ARTIST_ALBUMS_ERROR = "SHOW_ARTIST_ALBUMS_ERROR";
 export const SET_ARTIST_ALBUMS_LOADING = "SET_ARTIST_ALBUMS_LOADING";
+export const ADD_ARTIST_TOP_TRACKS = "ADD_ARTIST_TOP_TRACKS";
+export const CLEAR_ARTIST_TOP_TRACKS = "CLEAR_ARTIST_TOP_TRACKS";
+export const SHOW_ARTIST_TOP_TRACKS_ERROR = "SHOW_ARTIST_TOP_TRACKS_ERROR";
+export const SET_ARTIST_TOP_TRACKS_LOADING = "SET_ARTIST_TOP_TRACKS_LOADING";
 
 export const addCredentials = ({ access_token, expires_in, token_type }) => ({
   type: ADD_CREDENTIALS,
@@ -36,7 +40,7 @@ export const addArtistAlbumsPage = (artistId, page) => ({
   page,
   artistId,
 });
-export const clearArtistAlbums = (artistId, page) => ({
+export const clearArtistAlbums = artistId => ({
   type: CLEAR_ARTIST_ALBUMS,
   artistId,
 });
@@ -47,6 +51,25 @@ export const showArtistAlbumsError = error => ({
 });
 export const setArtistAlbumsLoading = isLoading => ({
   type: SET_ARTIST_ALBUMS_LOADING,
+  isLoading,
+});
+
+export const addArtistTopTracksPage = (artistId, tracks) => ({
+  type: ADD_ARTIST_TOP_TRACKS,
+  tracks,
+  artistId,
+});
+export const clearArtistTopTracks = artistId => ({
+  type: CLEAR_ARTIST_TOP_TRACKS,
+  artistId,
+});
+export const showArtistTopTracksError = error => ({
+  type: SHOW_ARTIST_TOP_TRACKS_ERROR,
+  isLoading: false,
+  error,
+});
+export const setArtistTopTracksLoading = isLoading => ({
+  type: SET_ARTIST_TOP_TRACKS_LOADING,
   isLoading,
 });
 
@@ -103,6 +126,34 @@ export function fetchArtistAlbums(artistId, offset, access_token) {
         dispatch(
           showArtistAlbumsError(
             `Artists request failed for access_token ${access_token} artistId ${artistId} and offset ${offset}.`,
+          ),
+        ),
+      );
+  };
+}
+
+export function fetchArtistTopTracks(artistId, access_token, countryIso) {
+  return dispatch => {
+    dispatch(setArtistTopTracksLoading(true));
+    fetch(
+      `https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=${countryIso}`,
+      {
+        headers: getHeaders(access_token),
+      },
+    )
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        dispatch(setArtistTopTracksLoading(false));
+        return response;
+      })
+      .then(response => response.json())
+      .then(tracks => dispatch(addArtistTopTracksPage(artistId, tracks)))
+      .catch(() =>
+        dispatch(
+          showArtistTopTracksError(
+            `Artists request failed for access_token ${access_token} artistId ${artistId} and country ISO ${countryIso}.`,
           ),
         ),
       );
