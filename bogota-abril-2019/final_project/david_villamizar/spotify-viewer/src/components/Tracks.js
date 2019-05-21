@@ -6,7 +6,7 @@ function Track({ name, id, album, popularity }) {
     <li key={id} className={styles.track}>
       <h3>{name}</h3>
       <p>{album.name}</p>
-      <p>{popularity}</p>
+      {popularity ? <p>{popularity}</p> : null}
     </li>
   );
 }
