@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import LoginWarning from "../components/LoginWarning";
 import Artists from "../routes/Artists";
-import { fetchTopArtists } from "../store/actions";
+import { clearTopArtists, fetchTopArtists } from "../store/actions";
 import {
   getAccessToken,
   getTopArtistsError,
@@ -11,7 +11,20 @@ import {
 } from "../store/reducers";
 import { store } from "../store/store";
 import styles from "./TopArtists.module.css";
-function TopArtists({ artists, fetchTopArtists, isLoading, error, ...props }) {
+
+function TopArtists({
+  artists,
+  fetchArtists,
+  clearArtists,
+  isLoading,
+  error,
+  ...props
+}) {
+  useEffect(() => {
+    fetchArtists(0);
+    return () => clearArtists();
+  }, [fetchArtists, clearArtists]);
+
   const offset = artists.length;
   if (error) {
     return <LoginWarning />;
@@ -22,7 +35,7 @@ function TopArtists({ artists, fetchTopArtists, isLoading, error, ...props }) {
       <button
         className={styles.loadMore}
         disabled={isLoading}
-        onClick={e => fetchTopArtists(offset)}
+        onClick={e => fetchArtists(offset)}
       >
         Load More
       </button>
@@ -37,8 +50,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchTopArtists: offset =>
+  fetchArtists: offset =>
     dispatch(fetchTopArtists(offset, getAccessToken(store.getState()))),
+  clearArtists: () => dispatch(clearTopArtists()),
 });
 
 export default connect(

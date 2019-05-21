@@ -1,9 +1,14 @@
 import { combineReducers } from "redux";
 import {
+  ADD_ARTIST_ALBUMS_PAGE,
   ADD_CREDENTIALS,
   ADD_TOP_ARTISTS_PAGE,
+  CLEAR_ARTIST_ALBUMS,
   CLEAR_CREDENTIALS,
+  CLEAR_TOP_ARTISTS,
+  SET_ARTIST_ALBUMS_LOADING,
   SET_TOP_ARTISTS_LOADING,
+  SHOW_ARTIST_ALBUMS_ERROR,
   SHOW_TOP_ARTISTS_ERROR,
 } from "./actions";
 
@@ -11,6 +16,8 @@ function topArtists(state = [], { type, page }) {
   switch (type) {
     case ADD_TOP_ARTISTS_PAGE:
       return [...state, page];
+    case CLEAR_TOP_ARTISTS:
+      return [];
     default:
       return state;
   }
@@ -24,6 +31,33 @@ function topArtistsLoading(
     case SET_TOP_ARTISTS_LOADING:
       return { isLoading };
     case SHOW_TOP_ARTISTS_ERROR:
+      return { isLoading, error };
+    default:
+      return state;
+  }
+}
+
+function artistAlbums(state = {}, { type, artistId, page }) {
+  switch (type) {
+    case ADD_ARTIST_ALBUMS_PAGE:
+      const prevPages = state[artistId];
+      const newPages = [...(prevPages ? prevPages : []), page];
+      return { ...state, [artistId]: newPages };
+    case CLEAR_ARTIST_ALBUMS:
+      return { ...state, [artistId]: undefined };
+    default:
+      return state;
+  }
+}
+
+function artistAlbumsLoading(
+  state = { isLoading: false },
+  { type, isLoading, error },
+) {
+  switch (type) {
+    case SET_ARTIST_ALBUMS_LOADING:
+      return { isLoading };
+    case SHOW_ARTIST_ALBUMS_ERROR:
       return { isLoading, error };
     default:
       return state;
@@ -47,6 +81,8 @@ function credentials(
 const appReducer = combineReducers({
   topArtists,
   topArtistsLoading,
+  artistAlbums,
+  artistAlbumsLoading,
   credentials,
 });
 
@@ -61,3 +97,15 @@ export const getTopArtistsIsLoading = state =>
   state.topArtistsLoading.isLoading;
 
 export const getTopArtistsError = state => state.topArtistsLoading.error;
+
+export const getArtistAlbumsList = (state, artistId) => {
+  let albums = state.artistAlbums[artistId];
+  if (!albums) {
+    albums = [];
+  }
+  return [].concat(...albums.map(page => page.items));
+};
+export const getArtistAlbumsIsLoading = state =>
+  state.artistAlbumsLoading.isLoading;
+
+export const getArtistAlbumsError = state => state.artistAlbumsLoading.error;

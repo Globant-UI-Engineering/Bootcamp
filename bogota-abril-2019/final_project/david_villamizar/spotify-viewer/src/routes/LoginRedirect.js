@@ -31,7 +31,6 @@ function LoginRedirect(props) {
   useEffect(() => {
     props.addCredentials(params);
   });
-  console.log(params);
   if (!params.access_token) {
     return <p>There was a problem logging in to Spotify</p>;
   }
