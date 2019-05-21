@@ -1,6 +1,7 @@
 import React from 'react';
 import './Detail.css';
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 class Detail extends React.Component {
 
@@ -30,5 +31,10 @@ class Detail extends React.Component {
     )}
 }
 
+Detail.propTypes  = {
+  title:PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  content:PropTypes.string.isRequired
+}
 export default Detail;
 
