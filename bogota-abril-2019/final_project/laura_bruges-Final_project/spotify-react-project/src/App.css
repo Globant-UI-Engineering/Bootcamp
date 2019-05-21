@@ -8,6 +8,10 @@
   pointer-events: none;
 }
 
+input[type='range'] {
+  width: 300px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

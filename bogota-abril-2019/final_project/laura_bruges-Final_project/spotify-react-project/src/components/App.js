@@ -4,6 +4,8 @@ import queryString from 'query-string';
 import axios from 'axios';
 import { USER_INFO_URL,
   PLAY_TRACK_URL } from '../utils/EndpointSettings';
+
+import {VideoSeekSlider} from 'react-video-seek-slider';
 //https://levelup.gitconnected.com/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +16,7 @@ class App extends React.Component {
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.playCurrentTrack = this.playCurrentTrack.bind(this);
     this.updateNowPlaying = this.updateNowPlaying.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -39,8 +42,23 @@ class App extends React.Component {
   }
 
   updateNowPlaying() {
-    axios.get('https://api.spotify.com/v1/me/player', { headers: { Authorization: `Bearer ${this.state.accessToken}` } })
+    /*
+    axios.get(NOW_PLAYING_URL, { headers: { Authorization: `Bearer ${this.state.accessToken}` } })
     .then((response) => {
+      let trackData = response.data;
+      this.setState({
+        playing: {
+          progressMs: trackData.progress_ms,
+          durationMs: trackData.item.duration_ms
+        }
+      })
+    })
+    */
+    setInterval(() => {
+      console.log('hello');
+      axios.get('https://api.spotify.com/v1/me/player', { headers: { Authorization: `Bearer ${this.state.accessToken}` } })
+    .then((response) => {
+      
       let data = response.data;
       let playing = {
         item: data.item,
@@ -48,11 +66,11 @@ class App extends React.Component {
         progressMs: data.progress_ms
       }
       this.setState({
-        playing: playing.item
-      }, () => {
-        console.log(this.state.playing);
+        playing: playing
       });
     })
+    }, 1000)
+    
   }
 
   playCurrentTrack() {   
@@ -68,6 +86,11 @@ class App extends React.Component {
     window.location="http://localhost:8888/login"; 
   }
 
+  handleChange(time) {
+    console.log("triggered");
+    console.log(time);
+  }
+
   render() {
     return (
       <div className="App">
@@ -78,7 +101,23 @@ class App extends React.Component {
         </div> : 
         <button onClick={this.handleLoginClick}>Log in with Spotify</button>
         }
-        {this.state.playing ? <div>{this.state.playing.name}</div> : <div>No track playing</div>}
+        {this.state.playing  && this.state.playing.item &&
+        <VideoSeekSlider
+        max={this.state.playing.item.duration_ms/1000}
+        progress={this.state.playing.progressMs/1000}
+        currentTime={this.state.playing.progressMs/1000}
+        onChange={(time)=>{
+          this.handleChange(time);
+        }}
+        offset={0}
+        secondsPrefix="00:00:"
+        minutesPrefix="00:" />
+        /*
+        <input type="range" min="0" max={this.state.playing.item.duration_ms} value={this.state.playing.progressMs}  step="1000" onMouseUp={(event)=>this.handleChange(event)} />
+        */
+        }
+        {/*this.state.playing ? <div>{this.state.playing.name}</div> : <div>No track playing</div>*/}
+
       </div>
     );
   }
