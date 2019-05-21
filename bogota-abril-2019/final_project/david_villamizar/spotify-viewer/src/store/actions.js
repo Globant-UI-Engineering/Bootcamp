@@ -54,7 +54,7 @@ export const setArtistAlbumsLoading = isLoading => ({
   isLoading,
 });
 
-export const addArtistTopTracksPage = (artistId, tracks) => ({
+export const addArtistTopTracks = (artistId, tracks) => ({
   type: ADD_ARTIST_TOP_TRACKS,
   tracks,
   artistId,
@@ -132,7 +132,11 @@ export function fetchArtistAlbums(artistId, offset, access_token) {
   };
 }
 
-export function fetchArtistTopTracks(artistId, access_token, countryIso) {
+export function fetchArtistTopTracks(
+  artistId,
+  access_token,
+  countryIso = "from_token",
+) {
   return dispatch => {
     dispatch(setArtistTopTracksLoading(true));
     fetch(
@@ -149,7 +153,9 @@ export function fetchArtistTopTracks(artistId, access_token, countryIso) {
         return response;
       })
       .then(response => response.json())
-      .then(tracks => dispatch(addArtistTopTracksPage(artistId, tracks)))
+      .then(topTracks =>
+        dispatch(addArtistTopTracks(artistId, topTracks.tracks)),
+      )
       .catch(() =>
         dispatch(
           showArtistTopTracksError(

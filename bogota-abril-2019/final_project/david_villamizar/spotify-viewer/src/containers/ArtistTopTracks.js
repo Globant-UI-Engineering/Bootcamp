@@ -1,64 +1,58 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import Albums from "../components/Albums";
 import LoginWarning from "../components/LoginWarning";
-import { clearArtistAlbums, fetchArtistAlbums } from "../store/actions";
+import Tracks from "../components/Tracks";
+import { clearArtistTopTracks, fetchArtistTopTracks } from "../store/actions";
 import {
   getAccessToken,
-  getArtistAlbumsError,
-  getArtistAlbumsIsLoading,
-  getArtistAlbumsList,
+  getArtistTopTracksError,
+  getArtistTopTracksIsLoading,
+  getArtistTopTracksList,
 } from "../store/reducers";
 import { store } from "../store/store";
-import styles from "./ArtistAlbums.module.css";
 
-function ArtistAlbums({
-  albums,
+function ArtistTopTracks({
+  tracks,
   artistId,
-  fetchAlbums,
-  clearAlbums,
-  isLoading,
+  fetchTopTracks,
+  clearTopTracks,
   error,
   ...props
 }) {
   useEffect(() => {
-    fetchAlbums(artistId, 0);
-    return () => clearAlbums();
-  }, [artistId, fetchAlbums, clearAlbums]);
+    fetchTopTracks(artistId);
+    return () => clearTopTracks();
+  }, [artistId, fetchTopTracks, clearTopTracks]);
 
-  const offset = albums.length;
   if (error) {
     return <LoginWarning />;
   }
   return (
     <>
-      <Albums albums={albums} {...props} />
-      <button
-        className={styles.loadMore}
-        disabled={isLoading}
-        onClick={e => fetchAlbums(artistId, offset)}
-      >
-        Load More
-      </button>
+      <Tracks tracks={tracks} {...props} />
     </>
   );
 }
 
 const mapStateToProps = (state, { artistId }) => ({
-  albums: getArtistAlbumsList(state, artistId),
-  isLoading: getArtistAlbumsIsLoading(state),
-  error: getArtistAlbumsError(state),
+  tracks: getArtistTopTracksList(state, artistId),
+  isLoading: getArtistTopTracksIsLoading(state),
+  error: getArtistTopTracksError(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAlbums: (artistId, offset) =>
+  fetchTopTracks: (artistId, countryIso) =>
     dispatch(
-      fetchArtistAlbums(artistId, offset, getAccessToken(store.getState())),
+      fetchArtistTopTracks(
+        artistId,
+        getAccessToken(store.getState()),
+        countryIso,
+      ),
     ),
-  clearAlbums: artistId => dispatch(clearArtistAlbums(artistId)),
+  clearTopTracks: artistId => dispatch(clearArtistTopTracks(artistId)),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ArtistAlbums);
+)(ArtistTopTracks);

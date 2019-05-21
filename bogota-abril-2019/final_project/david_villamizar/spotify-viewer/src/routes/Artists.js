@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink, Redirect, Route, Switch } from "react-router-dom";
 import NavBar from "../components/NavBar";
-import Tracks from "../components/Tracks";
 import ArtistAlbums from "../containers/ArtistAlbums";
+import ArtistTopTracks from "../containers/ArtistTopTracks";
 import styles from "./Artists.module.css";
 
 export default function Artists({ artists, ...props }) {
@@ -41,7 +41,7 @@ function ArtistListItem({ name, images, genres, id, match, location }) {
         />
         <Route
           path={`${match.path}/${id}/top-tracks`}
-          render={props => <Tracks artistId={id} {...props} />}
+          render={props => <ArtistTopTracks artistId={id} {...props} />}
         />
         <Redirect
           from={`${match.path}/${id}`}

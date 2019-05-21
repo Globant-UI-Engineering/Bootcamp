@@ -139,11 +139,11 @@ export const getArtistAlbumsIsLoading = state =>
 export const getArtistAlbumsError = state => state.artistAlbumsLoading.error;
 
 export const getArtistTopTracksList = (state, artistId) => {
-  let albums = state.artistTopTracks[artistId];
-  if (!albums) {
-    albums = [];
+  let topTracks = state.artistTopTracks[artistId];
+  if (!topTracks) {
+    topTracks = [];
   }
-  return albums;
+  return topTracks;
 };
 export const getArtistTopTracksIsLoading = state =>
   state.artistTopTracksLoading.isLoading;
