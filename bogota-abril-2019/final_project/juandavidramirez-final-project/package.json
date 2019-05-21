@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write \"src/**/*.{js, jsx, css, json} \" ",
+    "format": "prettier --write \"**/*.{js, jsx, css, json} \" ",
     "format:check": "prettier --list-different \"src/**/*.{js, jsx, css, json} \" ",
-    "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"**/*.{js,jsx}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel src/index.html"
   },
@@ -38,7 +38,6 @@
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
-    "petfinder-client": "^2.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0"

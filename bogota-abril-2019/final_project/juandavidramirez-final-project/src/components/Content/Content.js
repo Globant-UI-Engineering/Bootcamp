@@ -1,9 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import Home from "./Home";
-import ChampionList from "./ChampionList";
-import ChallengerSummonerList from "./ChallengerSummonerList";
-import Search from "./Search";
+import Home from "./Home/Home";
+import ChampionList from "./ChampionList/ChampionList";
+import ChallengerSummonerList from "../App/ChallengerSummonerList";
+import Search from "../App/Search";
+import "../Content/Content.css";
 
 class Content extends React.Component {
   render() {
