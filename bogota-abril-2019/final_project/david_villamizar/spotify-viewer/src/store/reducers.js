@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import {
+  ADD_ALBUM_DETAIL,
   ADD_ARTIST_ALBUMS_PAGE,
   ADD_ARTIST_TOP_TRACKS,
   ADD_CREDENTIALS,
@@ -8,13 +9,30 @@ import {
   CLEAR_ARTIST_TOP_TRACKS,
   CLEAR_CREDENTIALS,
   CLEAR_TOP_ARTISTS,
+  REMOVE_ALBUM_DETAIL,
+  SET_ALBUM_LOADING,
   SET_ARTIST_ALBUMS_LOADING,
   SET_ARTIST_TOP_TRACKS_LOADING,
   SET_TOP_ARTISTS_LOADING,
+  SHOW_ALBUM_ERROR,
   SHOW_ARTIST_ALBUMS_ERROR,
   SHOW_ARTIST_TOP_TRACKS_ERROR,
   SHOW_TOP_ARTISTS_ERROR,
 } from "./actions";
+
+function credentials(
+  state = {},
+  { type, access_token, expires_in, token_type },
+) {
+  switch (type) {
+    case ADD_CREDENTIALS:
+      return { access_token, expires_in, token_type };
+    case CLEAR_CREDENTIALS:
+      return {};
+    default:
+      return state;
+  }
+}
 
 function topArtists(state = [], { type, page }) {
   switch (type) {
@@ -93,15 +111,26 @@ function artistTopTracksLoading(
   }
 }
 
-function credentials(
-  state = {},
-  { type, access_token, expires_in, token_type },
+function albums(state = {}, { type, album, albumId }) {
+  switch (type) {
+    case ADD_ALBUM_DETAIL:
+      return { ...state, [album.id]: album };
+    case REMOVE_ALBUM_DETAIL:
+      return { ...state, [albumId]: undefined };
+    default:
+      return state;
+  }
+}
+
+function albumLoading(
+  state = { isLoading: false },
+  { type, isLoading, error },
 ) {
   switch (type) {
-    case ADD_CREDENTIALS:
-      return { access_token, expires_in, token_type };
-    case CLEAR_CREDENTIALS:
-      return {};
+    case SET_ALBUM_LOADING:
+      return { isLoading };
+    case SHOW_ALBUM_ERROR:
+      return { isLoading, error };
     default:
       return state;
   }
@@ -114,6 +143,8 @@ const appReducer = combineReducers({
   artistAlbumsLoading,
   artistTopTracks,
   artistTopTracksLoading,
+  albums,
+  albumLoading,
   credentials,
 });
 
@@ -149,3 +180,7 @@ export const getArtistTopTracksIsLoading = state =>
   state.artistTopTracksLoading.isLoading;
 export const getArtistTopTracksError = state =>
   state.artistTopTracksLoading.error;
+
+export const getAlbum = (state, albumId) => state.albums[albumId];
+export const getAlbumIsLoading = state => state.albumLoading.isLoading;
+export const getAlbumError = state => state.albumLoading.error;

@@ -1,17 +1,25 @@
 export const ADD_CREDENTIALS = "ADD_CREDENTIALS";
 export const CLEAR_CREDENTIALS = "CLEAR_CREDENTIALS";
+
 export const ADD_TOP_ARTISTS_PAGE = "ADD_TOP_ARTISTS_PAGE";
 export const CLEAR_TOP_ARTISTS = "CLEAR_TOP_ARTISTS";
 export const SHOW_TOP_ARTISTS_ERROR = "SHOW_TOP_ARTISTS_ERROR";
 export const SET_TOP_ARTISTS_LOADING = "SET_TOP_ARTISTS_LOADING";
+
 export const ADD_ARTIST_ALBUMS_PAGE = "ADD_ARTIST_ALBUMS_PAGE";
 export const CLEAR_ARTIST_ALBUMS = "CLEAR_ARTIST_ALBUMS";
 export const SHOW_ARTIST_ALBUMS_ERROR = "SHOW_ARTIST_ALBUMS_ERROR";
 export const SET_ARTIST_ALBUMS_LOADING = "SET_ARTIST_ALBUMS_LOADING";
+
 export const ADD_ARTIST_TOP_TRACKS = "ADD_ARTIST_TOP_TRACKS";
 export const CLEAR_ARTIST_TOP_TRACKS = "CLEAR_ARTIST_TOP_TRACKS";
 export const SHOW_ARTIST_TOP_TRACKS_ERROR = "SHOW_ARTIST_TOP_TRACKS_ERROR";
 export const SET_ARTIST_TOP_TRACKS_LOADING = "SET_ARTIST_TOP_TRACKS_LOADING";
+
+export const ADD_ALBUM_DETAIL = "ADD_ALBUM_DETAIL";
+export const REMOVE_ALBUM_DETAIL = "REMOVE_ALBUM_DETAIL";
+export const SHOW_ALBUM_ERROR = "SHOW_ALBUM_ERROR";
+export const SET_ALBUM_LOADING = "SET_ALBUM_LOADING";
 
 export const addCredentials = ({ access_token, expires_in, token_type }) => ({
   type: ADD_CREDENTIALS,
@@ -70,6 +78,24 @@ export const showArtistTopTracksError = error => ({
 });
 export const setArtistTopTracksLoading = isLoading => ({
   type: SET_ARTIST_TOP_TRACKS_LOADING,
+  isLoading,
+});
+
+export const addAlbumDetail = album => ({
+  type: ADD_ALBUM_DETAIL,
+  album,
+});
+export const removeAlbumDetail = albumId => ({
+  type: REMOVE_ALBUM_DETAIL,
+  albumId,
+});
+export const showAlbumError = error => ({
+  type: SHOW_ALBUM_ERROR,
+  isLoading: false,
+  error,
+});
+export const setAlbumLoading = isLoading => ({
+  type: SET_ALBUM_LOADING,
   isLoading,
 });
 
@@ -160,6 +186,31 @@ export function fetchArtistTopTracks(
         dispatch(
           showArtistTopTracksError(
             `Artists request failed for access_token ${access_token} artistId ${artistId} and country ISO ${countryIso}.`,
+          ),
+        ),
+      );
+  };
+}
+
+export function fetchAlbumDetail(albumId, access_token) {
+  return dispatch => {
+    dispatch(setAlbumLoading(true));
+    fetch(`https://api.spotify.com/v1/albums/${albumId}`, {
+      headers: getHeaders(access_token),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        dispatch(setAlbumLoading(false));
+        return response;
+      })
+      .then(response => response.json())
+      .then(album => dispatch(addAlbumDetail(album)))
+      .catch(() =>
+        dispatch(
+          showAlbumError(
+            `Artists request failed for access_token ${access_token} and album ${albumId}.`,
           ),
         ),
       );

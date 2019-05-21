@@ -2,8 +2,8 @@ import React from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
-import AlbumWithTracks from "./components/AlbumWithTracks";
 import NavBar from "./components/NavBar";
+import AlbumDetail from "./containers/AlbumDetail";
 import TopArtists from "./containers/TopArtists";
 import LoginRedirect from "./routes/LoginRedirect";
 import { store } from "./store/store";
@@ -15,7 +15,7 @@ function App() {
         <NavBar links={[{ name: "My Top Artists", href: "/top-artists" }]} />
         <Switch>
           <Route path={"/spotify-redirect"} component={LoginRedirect} />
-          <Route path="/album/:albumId" component={AlbumWithTracks} />
+          <Route path="/album/:albumId" component={AlbumDetail} />
           <Route path="/top-artists" component={TopArtists} />
           <Redirect to="/top-artists" />
         </Switch>

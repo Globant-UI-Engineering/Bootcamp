@@ -4,8 +4,8 @@ import styles from "./Albums.module.css";
 
 function Album({ name, images, id, release_date, total_tracks }) {
   return (
-    <Link to={`/album/${id}`}>
-      <li className={styles.album} key={id}>
+    <Link to={`/album/${id}`} key={id}>
+      <li className={styles.album}>
         <h3>{name}</h3>
         <img src={images[0].url} alt={name} />
         <p>Released on {new Date(release_date).toLocaleDateString()}</p>
