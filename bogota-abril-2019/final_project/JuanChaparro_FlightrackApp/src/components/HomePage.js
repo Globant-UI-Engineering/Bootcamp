@@ -4,6 +4,7 @@ import { logIn, signUp }  from '../services/authservice';
 import { Redirect } from 'react-router-dom';
 import './styles/HomePage.css';
 import store from '../store';
+import { HOME_PATH } from './../constants/routes';
 
 class HomePage extends Component {
     constructor() {
@@ -16,12 +17,12 @@ class HomePage extends Component {
             name: 'Log In',
             desc: 'Member Login',
             inputs: {
-                username: '',
-                password: '',
+                username: null,
+                password: null,
             },
             message: {
-                description: '',
-                success: false,
+                description: null,
+                success: null,
             },
         };
 
@@ -37,9 +38,9 @@ class HomePage extends Component {
 
     render() {
         if (this.state.isAuthenticated) {
-            return <Redirect to="/"></Redirect>;
+            return <Redirect to={HOME_PATH}/>;
         } else {
-            return (   
+            return(   
                 <div className="main-container">
                     <img className="main-logo" src={AppLogo} alt="Flightrack Logo"/>
                     <div className="home-btn-container">
@@ -87,24 +88,19 @@ class HomePage extends Component {
     }
 
     showLogin() {
-        this.setState({
-            name: 'Log In',
-            action: 'login',
-            desc: 'Member Login',
-            message: {
-                description: '',
-            },
-        });
+        this.resetState('Log In', 'login', 'Member Login');
     }
 
     showSignup() {
+        this.resetState('Sign Up', 'signup', 'Sign Up Now');
+    }
+
+    resetState(name, action, desc) {
         this.setState({
-            name: 'Sign Up',
-            action: 'signup',
-            desc: 'Sign Up Now',
-            message: {
-                description: '',
-            },
+            name,
+            action,
+            desc,
+            message: {description: null, success: null}
         });
     }
 
@@ -136,15 +132,12 @@ class HomePage extends Component {
 
     showMessage(description, success) {
         this.setState({
-            message: {
-                description,
-                success,
-            }
+            message: {description, success}
         });
     }
 
     validateInputs() {
-        return this.state.inputs.username !== '' && this.state.inputs.password !== '';
+        return this.state.inputs.username && this.state.inputs.password;
     }
 
     componentWillUnmount() {

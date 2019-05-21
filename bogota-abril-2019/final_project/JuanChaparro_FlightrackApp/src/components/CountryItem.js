@@ -1,94 +1,54 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Navbar from './Navbar';
 import { getAirports } from './../services/flightrackservice';
+import { LOGIN_PATH } from './../constants/routes';
+import AirportSelection from './AirportSelection';
+import Navbar from './Navbar';
 import store from './../store';
 import './styles/CountryItem.css';
 
 class CountryItem extends Component {
-    constructor(props) {
-        super(props);
+    constructor({match}) {
+        super();
         this._isMounted = false;
 
         this.state = {
             isAuthenticated: store.getState().user.isAuthenticated,
-            countryCode: props.match.params.countryCode,
+            countryCode: match.params.countryCode,
             airportList: [],
-            airportSelected: '',
-            showAirportInfo: false,
         }
 
         store.subscribe(() => {
             if (this._isMounted) {
-                this.setState({
-                    isAuthenticated: store.getState().user.isAuthenticated,
-                });
+                this.setState({ isAuthenticated: store.getState().user.isAuthenticated});
             }
         });
     }
 
     render() {
         if (!this.state.isAuthenticated) {
-            return <Redirect to="/login"></Redirect>
+            return <Redirect to={LOGIN_PATH}/>;
         } else {
-            const airportSelect = (
-                <div>
-                    <select onChange={(event) => this.onChangeHandler(event)}>
-                        {this.state.airportList.map((airport)=> 
-                        <option key={airport.airportId} value={airport.airportId}>{airport.nameAirport}</option>)}
-                    </select>
-                </div>
-            );
-
-            return (
+            return(
                 <div>
                     <Navbar/>
                     <div className="airports-container">
-                        {this.state.airportList.length > 0 ? airportSelect : <p>Loading...</p>}
+                        {!this.isEmpty(this.state.airportList) ? <AirportSelection airportList={this.state.airportList}/> : <p>Loading...</p>}
                     </div>
-                    {this.state.showAirportInfo ? this.showAirport() : null}
                 </div>
             );
         }
-    }
-
-    showAirport() {
-        let airportInfo = 
-            this.state.airportList.find(airport => airport.airportId === this.state.airportSelected);
-
-        return (
-            <div className="airport-selected">
-                <h2>{`${airportInfo.nameAirport}`}</h2>
-                <p>
-                    <span>{`Iata Code Airport: ${airportInfo.codeIataAirport}`}</span>
-                    <span>{`Phone: ${airportInfo.phone ? airportInfo.phone : "-" }`}</span>
-                </p>
-                <button className="btn-arrivals" aria-label="arrivals" type="button">Arrivals</button>
-                <button className="btn-departures" aria-label="departures" type="button">Departures</button>
-            </div>
-        );
     }
 
     componentDidMount() {
         this._isMounted = true;
-        if (this.state.airportList.length === 0 && this.state.isAuthenticated) {
-            getAirports(this.state.countryCode).then(response => {
-                if (response.error) {
-                    this.setState({showAirportInfo: false});
-                } 
-                else {
-                    this.setState({
-                        airportList: response,
-                        airportSelected: response[0].airportId,
-                        showAirportInfo: true
-                    });
-                }
-            });
+        if (this.isEmpty(this.state.airportList) && this.state.isAuthenticated) {
+            getAirports(this.state.countryCode).then(response => this.setState({airportList: response}));
         }
     }
 
-    onChangeHandler(event) {
-        this.setState({airportSelected: event.target.value});
+    isEmpty(list) {
+        return list.length === 0;
     }
 
     componentWillUnmount() {

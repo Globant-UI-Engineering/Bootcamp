@@ -5,13 +5,13 @@ const userLocalStorage = JSON.parse(localStorage.getItem("user"));
 const initialState = {
     user: {
         isAuthenticated: userLocalStorage ? userLocalStorage.isAuthenticated : false,
-		username: userLocalStorage ? userLocalStorage.username : '',
-		_id: userLocalStorage ? userLocalStorage._id : '',
+		username: userLocalStorage ? userLocalStorage.username : null,
+		_id: userLocalStorage ? userLocalStorage._id : null
     },
     response: {
-        description: '',
-        success: false,
-    },
+        description: null,
+        success: null
+    }
 }
 
 const reducer = (state = initialState, action) => {

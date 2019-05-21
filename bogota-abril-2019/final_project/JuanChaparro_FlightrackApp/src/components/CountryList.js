@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Navbar from './Navbar';
-import './styles/CountryList.css';
 import { getCountries } from './../services/flightrackservice';
+import { LOGIN_PATH } from './../constants/routes';
+import CountrySelection from './CountrySelection';
+import Navbar from './Navbar';
 import store from '../store';
+import './styles/CountryList.css';
 
 class CountryList extends Component {
     constructor() {
@@ -13,42 +15,29 @@ class CountryList extends Component {
         this.state = {
             isAuthenticated: store.getState().user.isAuthenticated,
             username: store.getState().user.username,
-            countryList: [],
-            countrySelected: '',
-            submitted: false,
+            countryList: []
         }
 
         store.subscribe(() => {
             if (this._isMounted) {
                 this.setState({
                     isAuthenticated: store.getState().user.isAuthenticated,
-                    username: store.getState().user.username,
+                    username: store.getState().user.username
                 });
             }
-        });        
+        });
     }
 
     render() {
         if (!this.state.isAuthenticated) {
-            return <Redirect to="/login"></Redirect>;
+            return <Redirect to={LOGIN_PATH}/>;
         } else {
-            const countrySelect = (
-                <div>
-                    <select id="favcountry" onChange={(event) => this.onChangeHandler(event)}>
-                        {this.state.countryList.map((country)=> 
-                        <option key={country.countryId} value={country.codeIso2Country}>{country.nameCountry}</option>)}
-                    </select>
-                    <button type="submit" aria-label="submit" onClick={() => this.submitHandler()}>Submit</button>
-                </div>
-            );
-
-            return (
+            return(
                 <div>
                     <Navbar/>
                     <div className="countrylist-container">
                         <label htmlFor="favcountry">{`Welcome ${this.state.username}, please select a country:`}</label>
-                        {this.state.countryList.length > 0 ? countrySelect : <p>Loading...</p>}
-                        {this.state.submitted ? this.goToCountry(this.state.countrySelected) : null}
+                        {!this.isEmpty(this.state.countryList) ? <CountrySelection countryList={this.state.countryList}/> : <p>Loading...</p>}
                     </div>
                 </div>
             );
@@ -57,25 +46,14 @@ class CountryList extends Component {
 
     componentDidMount() {
         this._isMounted = true;
-        if (this.state.countryList.length === 0 && this.state.isAuthenticated) {
+        if (this.isEmpty(this.state.countryList) && this.state.isAuthenticated) {
             getCountries().then(response => this.setState({countryList: response}));
         }
     }
 
-    onChangeHandler(event) {
-        this.setState({countrySelected: event.target.value});
+    isEmpty(list) {
+        return list.length === 0;
     }
-
-    submitHandler() {
-        if (this.state.countrySelected === '')
-            this.setState({countrySelected: this.state.countryList[0].codeIso2Country});
-
-        this.setState({submitted: true});
-    }
-
-    goToCountry(countryCode) {
-        return <Redirect to={`/countries/${countryCode}`}></Redirect>;
-    }   
 
     componentWillUnmount() {
         this._isMounted = false;
