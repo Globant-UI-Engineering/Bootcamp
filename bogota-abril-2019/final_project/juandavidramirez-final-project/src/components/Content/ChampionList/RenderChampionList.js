@@ -1,5 +1,5 @@
 import React from "react";
-import Champion from "../Champion/Champion";
+import Champion from "./Champion/Champion";
 import "./RenderChampionList.css";
 
 const RenderChampionList = ({ champions }) => {

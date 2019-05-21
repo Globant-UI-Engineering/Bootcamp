@@ -2,9 +2,9 @@ import React from "react";
 import { Router } from "@reach/router";
 import Home from "./Home/Home";
 import ChampionList from "./ChampionList/ChampionList";
-import ChallengerSummonerList from "../App/ChallengerSummonerList";
 import Search from "../App/Search";
 import "../Content/Content.css";
+import TopTierList from "./TopTierList/TopTierList";
 
 const Content = () => {
   return (
@@ -12,7 +12,7 @@ const Content = () => {
       <Router>
         <Home exact path="/" />
         <ChampionList path="/champions" />
-        <ChallengerSummonerList path="/tierList" />
+        <TopTierList path="/tierList" />
         <Search path="/search" />
       </Router>
     </article>

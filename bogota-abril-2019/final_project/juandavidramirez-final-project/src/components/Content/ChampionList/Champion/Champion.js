@@ -1,5 +1,5 @@
 import React from "react";
-import Loading from "../../App/Loading";
+import Loading from "../../../App/Loading";
 import RenderChampion from "./RenderChampion";
 
 class Champion extends React.Component {

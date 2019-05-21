@@ -27,10 +27,11 @@ export function getChampions(callback) {
 export function getSummoner(summonerName, callback) {
   axios
     .get(
-      apiInfo.apiUrl +
+      "https://cors-anywhere.herokuapp.com/" +
+        apiInfo.apiUrl +
         "/summoner/v4/summoners/by-name/" +
         summonerName +
-        concatApiKey
+        concatApiKey()
     )
     .then(function(response) {
       callback.onSuccess(response);
@@ -43,10 +44,11 @@ export function getSummoner(summonerName, callback) {
 export function getChallengerLeagueByQueue(queue, callback) {
   axios
     .get(
-      apiInfo.apiUrl +
+      "https://cors-anywhere.herokuapp.com/" +
+        apiInfo.apiUrl +
         "/league/v4/challengerleagues/by-queue/" +
         queue +
-        concatApiKey
+        concatApiKey()
     )
     .then(function(response) {
       callback.onSuccess(response);

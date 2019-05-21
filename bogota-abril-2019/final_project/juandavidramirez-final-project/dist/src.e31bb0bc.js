@@ -30227,7 +30227,7 @@ function getChampions(callback) {
 }
 
 function getSummoner(summonerName, callback) {
-  _axios.default.get(apiInfo.apiUrl + "/summoner/v4/summoners/by-name/" + summonerName + concatApiKey).then(function (response) {
+  _axios.default.get("https://cors-anywhere.herokuapp.com/" + apiInfo.apiUrl + "/summoner/v4/summoners/by-name/" + summonerName + concatApiKey()).then(function (response) {
     callback.onSuccess(response);
   }).catch(function (error) {
     callback.onFailed(error);
@@ -30235,7 +30235,7 @@ function getSummoner(summonerName, callback) {
 }
 
 function getChallengerLeagueByQueue(queue, callback) {
-  _axios.default.get(apiInfo.apiUrl + "/league/v4/challengerleagues/by-queue/" + queue + concatApiKey).then(function (response) {
+  _axios.default.get("https://cors-anywhere.herokuapp.com/" + apiInfo.apiUrl + "/league/v4/challengerleagues/by-queue/" + queue + concatApiKey()).then(function (response) {
     callback.onSuccess(response);
   }).catch(function (error) {
     callback.onFailed(error);
@@ -30260,12 +30260,12 @@ var Loading = function Loading(_ref) {
 
 var _default = Loading;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"components/Content/Champion/RenderChampion.css":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"components/Content/ChampionList/Champion/RenderChampion.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Content/Champion/RenderChampion.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Content/ChampionList/Champion/RenderChampion.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30292,7 +30292,7 @@ var RenderChampion = function RenderChampion(_ref) {
 
 var _default = RenderChampion;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./RenderChampion.css":"components/Content/Champion/RenderChampion.css"}],"components/Content/Champion/Champion.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./RenderChampion.css":"components/Content/ChampionList/Champion/RenderChampion.css"}],"components/Content/ChampionList/Champion/Champion.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30302,7 +30302,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _Loading = _interopRequireDefault(require("../../App/Loading"));
+var _Loading = _interopRequireDefault(require("../../../App/Loading"));
 
 var _RenderChampion = _interopRequireDefault(require("./RenderChampion"));
 
@@ -30377,7 +30377,7 @@ function (_React$Component) {
 
 var _default = Champion;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../../App/Loading":"components/App/Loading.js","./RenderChampion":"components/Content/Champion/RenderChampion.js"}],"components/Content/ChampionList/RenderChampionList.css":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../../App/Loading":"components/App/Loading.js","./RenderChampion":"components/Content/ChampionList/Champion/RenderChampion.js"}],"components/Content/ChampionList/RenderChampionList.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -30392,7 +30392,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _Champion = _interopRequireDefault(require("../Champion/Champion"));
+var _Champion = _interopRequireDefault(require("./Champion/Champion"));
 
 require("./RenderChampionList.css");
 
@@ -30414,7 +30414,7 @@ var RenderChampionList = function RenderChampionList(_ref) {
 
 var _default = RenderChampionList;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../Champion/Champion":"components/Content/Champion/Champion.js","./RenderChampionList.css":"components/Content/ChampionList/RenderChampionList.css"}],"components/Content/ChampionList/ChampionList.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Champion/Champion":"components/Content/ChampionList/Champion/Champion.js","./RenderChampionList.css":"components/Content/ChampionList/RenderChampionList.css"}],"components/Content/ChampionList/ChampionList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30510,60 +30510,7 @@ function (_React$Component) {
 
 var _default = ChampionList;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../../../utils/api.js":"utils/api.js","../../App/Loading":"components/App/Loading.js","./RenderChampionList":"components/Content/ChampionList/RenderChampionList.js"}],"components/App/ChallengerSummonerList.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var ChallengerSummonerList =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(ChallengerSummonerList, _React$Component);
-
-  function ChallengerSummonerList() {
-    _classCallCheck(this, ChallengerSummonerList);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ChallengerSummonerList).apply(this, arguments));
-  }
-
-  _createClass(ChallengerSummonerList, [{
-    key: "render",
-    value: function render() {
-      return _react.default.createElement("div", null);
-    }
-  }]);
-
-  return ChallengerSummonerList;
-}(_react.default.Component);
-
-var _default = ChallengerSummonerList;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"components/App/Search.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../../utils/api.js":"utils/api.js","../../App/Loading":"components/App/Loading.js","./RenderChampionList":"components/Content/ChampionList/RenderChampionList.js"}],"components/App/Search.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30621,7 +30568,165 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Content/Content.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Content/TopTierList/Summoner/Summoner.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Content/TopTierList/Summoner/Summoner.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Summoner.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Summoner = function Summoner(_ref) {
+  var name = _ref.name,
+      leaguePoints = _ref.leaguePoints,
+      wins = _ref.wins,
+      losses = _ref.losses;
+  return _react.default.createElement("li", {
+    className: "summoner-container"
+  }, _react.default.createElement("h4", null, name), _react.default.createElement("p", null, "leaguePoints: ", leaguePoints, ", wins: ", wins, " losses: ", losses));
+};
+
+var _default = Summoner;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Summoner.css":"components/Content/TopTierList/Summoner/Summoner.css"}],"components/Content/TopTierList/RenderSummonerList.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Summoner = _interopRequireDefault(require("./Summoner/Summoner"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var RenderSummonerList = function RenderSummonerList(_ref) {
+  var summoners = _ref.summoners;
+  return _react.default.createElement("ul", {
+    className: "summoners-list"
+  }, summoners.map(function (value, index) {
+    return _react.default.createElement(_Summoner.default, {
+      key: index,
+      name: value.summonerName,
+      leaguePoints: value.leaguePoints,
+      wins: value.wins,
+      losses: value.losses
+    });
+  }));
+};
+
+var _default = RenderSummonerList;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Summoner/Summoner":"components/Content/TopTierList/Summoner/Summoner.js"}],"components/Content/TopTierList/TopTierList.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Loading = _interopRequireDefault(require("../../App/Loading"));
+
+var _api = require("../../../utils/api");
+
+var _RenderSummonerList = _interopRequireDefault(require("./RenderSummonerList"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var TopTierList =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(TopTierList, _React$Component);
+
+  function TopTierList() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    var _temp;
+
+    _classCallCheck(this, TopTierList);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(TopTierList)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
+      loading: true
+    }, _temp));
+  }
+
+  _createClass(TopTierList, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var callback = {
+        onSuccess: function onSuccess(response) {
+          _this2.setState({
+            summoners: response.data.entries,
+            loading: false
+          });
+        },
+        onFailed: function onFailed(error) {
+          console.error(error);
+        }
+      };
+      (0, _api.getChallengerLeagueByQueue)("RANKED_SOLO_5x5", callback);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          summoners = _this$state.summoners,
+          loading = _this$state.loading;
+      return loading ? _react.default.createElement(_Loading.default, {
+        name: "Top Tier Summoners"
+      }) : _react.default.createElement(_RenderSummonerList.default, {
+        summoners: summoners
+      });
+    }
+  }]);
+
+  return TopTierList;
+}(_react.default.Component);
+
+var _default = TopTierList;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../../App/Loading":"components/App/Loading.js","../../../utils/api":"utils/api.js","./RenderSummonerList":"components/Content/TopTierList/RenderSummonerList.js"}],"components/Content/Content.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30637,11 +30742,11 @@ var _Home = _interopRequireDefault(require("./Home/Home"));
 
 var _ChampionList = _interopRequireDefault(require("./ChampionList/ChampionList"));
 
-var _ChallengerSummonerList = _interopRequireDefault(require("../App/ChallengerSummonerList"));
-
 var _Search = _interopRequireDefault(require("../App/Search"));
 
 require("../Content/Content.css");
+
+var _TopTierList = _interopRequireDefault(require("./TopTierList/TopTierList"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30651,7 +30756,7 @@ var Content = function Content() {
     path: "/"
   }), _react.default.createElement(_ChampionList.default, {
     path: "/champions"
-  }), _react.default.createElement(_ChallengerSummonerList.default, {
+  }), _react.default.createElement(_TopTierList.default, {
     path: "/tierList"
   }), _react.default.createElement(_Search.default, {
     path: "/search"
@@ -30660,7 +30765,7 @@ var Content = function Content() {
 
 var _default = Content;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Home/Home":"components/Content/Home/Home.js","./ChampionList/ChampionList":"components/Content/ChampionList/ChampionList.js","../App/ChallengerSummonerList":"components/App/ChallengerSummonerList.js","../App/Search":"components/App/Search.js","../Content/Content.css":"components/Content/Content.css"}],"components/Footer/Footer.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Home/Home":"components/Content/Home/Home.js","./ChampionList/ChampionList":"components/Content/ChampionList/ChampionList.js","../App/Search":"components/App/Search.js","../Content/Content.css":"components/Content/Content.css","./TopTierList/TopTierList":"components/Content/TopTierList/TopTierList.js"}],"components/Footer/Footer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30821,7 +30926,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58007" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57753" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
