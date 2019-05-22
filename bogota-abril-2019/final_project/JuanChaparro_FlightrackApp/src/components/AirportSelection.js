@@ -4,7 +4,7 @@ import FlightsList from './FlightsList';
 import { getArrivals, getDepartures } from './../services/flightrackservice';
 import './styles/AirportSelection.css';
 
-class AirportSelection extends Component {s
+class AirportSelection extends Component {
     constructor({airportList}) {
         super();
 
