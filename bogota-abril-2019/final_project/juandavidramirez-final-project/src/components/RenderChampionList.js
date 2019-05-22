@@ -9,7 +9,7 @@ const RenderChampionList = ({ champions }) => {
       {Object.keys(champions).map(key => (
         <Champion
           key={key}
-          name={key}
+          name={champions[key].name}
           image={`${apiStaticUrlImg}/${champions[key].image.full}`}
         />
       ))}

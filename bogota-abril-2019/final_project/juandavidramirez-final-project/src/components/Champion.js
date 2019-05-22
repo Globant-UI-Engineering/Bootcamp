@@ -4,9 +4,9 @@ class Champion extends React.Component {
     const { name, image } = this.props;
 
     return (
-      <li>
-        <h2 className="champion-name">{name}</h2>
+      <li className="champions-item">
         <img alt={name} src={image} />
+        <h3 className="champion-name">{name}</h3>
       </li>
     );
   }

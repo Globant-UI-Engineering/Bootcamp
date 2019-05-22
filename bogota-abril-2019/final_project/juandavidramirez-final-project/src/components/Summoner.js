@@ -2,12 +2,12 @@ import React from "react";
 
 const Summoner = ({ name, leaguePoints, wins, losses }) => {
   return (
-    <li className="summoner-container">
-      <h4>{name}</h4>
-      <p>
-        leaguePoints: {leaguePoints}, wins: {wins} losses: {losses}
-      </p>
-    </li>
+    <tr>
+      <td>{name}</td>
+      <td>{wins}</td>
+      <td>{losses}</td>
+      <td>{leaguePoints}</td>
+    </tr>
   );
 };
 export default Summoner;

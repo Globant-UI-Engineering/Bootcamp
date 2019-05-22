@@ -3,6 +3,49 @@ body {
   background-color: black;
 }
 
+/*Champions List*/
+
+article {
+  margin: 5%;
+}
+
+ul.champions-container {
+  margin: 0;
+  padding-left: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+li.champions-item {
+  display: inline-block;
+  list-style-type: none;
+  margin-bottom: 3%;
+  padding-right: 4%;
+}
+
+li.champions-item img:first-child {
+  cursor: pointer;
+  border: 2px solid goldenrod;
+}
+
+li.champions-item img:first-child:hover {
+  opacity: 0.5;
+}
+
+li.champions-item :last-child {
+  font-family: "Heebo";
+  margin: 0;
+  font-size: 12pt;
+  text-align: center;
+  cursor: default;
+}
+
+/*Challenger List*/
+td {
+  color: white;
+}
+
 header {
   background-color: #1f1f1f;
   border-bottom: 3px solid #4d4c4c;
@@ -43,13 +86,6 @@ header nav a {
 
 p {
   color: white;
-}
-
-ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
 }
 
 
