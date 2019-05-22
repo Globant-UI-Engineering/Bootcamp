@@ -5,19 +5,23 @@ import {
   ADD_ARTIST_TOP_TRACKS,
   ADD_CREDENTIALS,
   ADD_TOP_ARTISTS_PAGE,
+  ADD_TOP_TRACKS_PAGE,
   CLEAR_ARTIST_ALBUMS,
   CLEAR_ARTIST_TOP_TRACKS,
   CLEAR_CREDENTIALS,
   CLEAR_TOP_ARTISTS,
+  CLEAR_TOP_TRACKS,
   REMOVE_ALBUM_DETAIL,
   SET_ALBUM_LOADING,
   SET_ARTIST_ALBUMS_LOADING,
   SET_ARTIST_TOP_TRACKS_LOADING,
   SET_TOP_ARTISTS_LOADING,
+  SET_TOP_TRACKS_LOADING,
   SHOW_ALBUM_ERROR,
   SHOW_ARTIST_ALBUMS_ERROR,
   SHOW_ARTIST_TOP_TRACKS_ERROR,
   SHOW_TOP_ARTISTS_ERROR,
+  SHOW_TOP_TRACKS_ERROR,
 } from "./actions";
 
 function credentials(
@@ -136,6 +140,31 @@ function albumLoading(
   }
 }
 
+function topTracks(state = [], { type, page }) {
+  switch (type) {
+    case ADD_TOP_TRACKS_PAGE:
+      return [...state, page];
+    case CLEAR_TOP_TRACKS:
+      return [];
+    default:
+      return state;
+  }
+}
+
+function topTracksLoading(
+  state = { isLoading: false },
+  { type, isLoading, error },
+) {
+  switch (type) {
+    case SET_TOP_TRACKS_LOADING:
+      return { isLoading };
+    case SHOW_TOP_TRACKS_ERROR:
+      return { isLoading, error };
+    default:
+      return state;
+  }
+}
+
 const appReducer = combineReducers({
   topArtists,
   topArtistsLoading,
@@ -145,6 +174,8 @@ const appReducer = combineReducers({
   artistTopTracksLoading,
   albums,
   albumLoading,
+  topTracks,
+  topTracksLoading,
   credentials,
 });
 
