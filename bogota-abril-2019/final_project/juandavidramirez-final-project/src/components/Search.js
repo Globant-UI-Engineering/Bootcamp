@@ -1,7 +1,7 @@
 import React from "react";
-import "./Search.css";
-import { getSummoner } from "../../../utils/api";
-import SummonerProfile from "./SummonerProfile/SummonerProfile";
+
+import { getSummoner } from "../utils/api";
+import SummonerProfile from "./SummonerProfile";
 
 class Search extends React.Component {
   state = {
@@ -20,7 +20,7 @@ class Search extends React.Component {
         this.setState({ summonerName: "", summonerInfo: response.data });
       },
       onFailed: error => {
-        console.log(error);
+        console.erro(error);
       }
     };
 

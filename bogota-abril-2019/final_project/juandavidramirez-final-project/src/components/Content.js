@@ -1,10 +1,10 @@
 import React from "react";
 import { Router } from "@reach/router";
-import Home from "./Home/Home";
-import ChampionList from "./ChampionList/ChampionList";
-import Search from "./Search/Search";
-import "../Content/Content.css";
-import TopTierList from "./TopTierList/TopTierList";
+
+import Home from "./Home";
+import ChampionList from "./ChampionList";
+import Search from "./Search";
+import TopTierList from "./TopTierList";
 
 const Content = () => {
   return (

@@ -1,21 +1,15 @@
 import axios from "axios";
+import { apiStaticUrl, apiUrl } from "./Constants/urls";
 
-const apiInfo = {
-  key: process.env.API_KEY,
-  apiStaticUrl: {
-    data: "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US",
-    img: "http://ddragon.leagueoflegends.com/cdn/6.24.1/img"
-  },
-  apiUrl: "https://la1.api.riotgames.com/lol"
-};
+const key = process.env.API_KEY;
 
 const concatApiKey = () => {
-  return "?api_key=" + apiInfo.key;
+  return "?api_key=" + key;
 };
 
 export function getChampions(callback) {
   axios
-    .get(apiInfo.apiStaticUrl.data + "/champion.json")
+    .get(apiStaticUrl.data + "/champion.json")
     .then(function(response) {
       callback.onSuccess(response);
     })
@@ -28,7 +22,7 @@ export function getSummoner(summonerName, callback) {
   axios
     .get(
       "https://cors-anywhere.herokuapp.com/" +
-        apiInfo.apiUrl +
+        apiUrl +
         "/summoner/v4/summoners/by-name/" +
         summonerName +
         concatApiKey()
@@ -45,7 +39,7 @@ export function getChallengerLeagueByQueue(queue, callback) {
   axios
     .get(
       "https://cors-anywhere.herokuapp.com/" +
-        apiInfo.apiUrl +
+        apiUrl +
         "/league/v4/challengerleagues/by-queue/" +
         queue +
         concatApiKey()

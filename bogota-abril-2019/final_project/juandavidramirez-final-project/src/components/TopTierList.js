@@ -1,7 +1,9 @@
 import React from "react";
-import Loading from "../../App/Loading";
-import { getChallengerLeagueByQueue } from "../../../utils/api";
-import RenderSummonerList from "./RenderSummonerList";
+
+import RenderTopTierList from "./RenderSummonerList";
+import Loading from "./Loading";
+import { getChallengerLeagueByQueue } from "../utils/api";
+
 class TopTierList extends React.Component {
   state = {
     loading: true
@@ -25,7 +27,7 @@ class TopTierList extends React.Component {
     return loading ? (
       <Loading name="Top Tier Summoners" />
     ) : (
-      <RenderSummonerList summoners={summoners} />
+      <RenderTopTierList summoners={summoners} />
     );
   }
 }

@@ -1,10 +1,9 @@
 import React from "react";
-import Champion from "./Champion/Champion";
-import "./RenderChampionList.css";
+import Champion from "./Champion";
+import { apiStaticUrl } from "../utils/Constants/urls";
 
 const RenderChampionList = ({ champions }) => {
-  const apiStaticUrlImg =
-    "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion";
+  const apiStaticUrlImg = apiStaticUrl.img + "/champion";
   return (
     <ul className="champions-container">
       {Object.keys(champions).map(key => (

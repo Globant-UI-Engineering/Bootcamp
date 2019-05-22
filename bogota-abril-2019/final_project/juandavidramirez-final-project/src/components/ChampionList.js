@@ -1,6 +1,6 @@
 import React from "react";
-import { getChampions } from "../../../utils/api.js";
-import Loading from "../../App/Loading";
+import { getChampions } from "../utils/api.js";
+import Loading from "./Loading";
 import RenderChampionList from "./RenderChampionList";
 class ChampionList extends React.Component {
   state = {

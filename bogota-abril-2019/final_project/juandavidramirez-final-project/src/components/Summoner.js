@@ -1,5 +1,5 @@
 import React from "react";
-import "./Summoner.css";
+
 const Summoner = ({ name, leaguePoints, wins, losses }) => {
   return (
     <li className="summoner-container">
