@@ -104,14 +104,12 @@ export const setAlbumLoading = isLoading => ({
   isLoading,
 });
 
-export const addTopTracksPage = (artistId, tracks) => ({
+export const addTopTracksPage = (page) => ({
   type: ADD_TOP_TRACKS_PAGE,
-  tracks,
-  artistId,
+  page,
 });
-export const clearTopTracks = artistId => ({
+export const clearTopTracks = () => ({
   type: CLEAR_TOP_TRACKS,
-  artistId,
 });
 export const showTopTracksError = error => ({
   type: SHOW_TOP_TRACKS_ERROR,
@@ -251,7 +249,7 @@ export function fetchTopTracks(offset, access_token) {
         if (!response.ok) {
           throw Error(response.statusText);
         }
-        dispatch(setTopArtistsLoading(false));
+        dispatch(setTopTracksLoading(false));
         return response;
       })
       .then(response => response.json())

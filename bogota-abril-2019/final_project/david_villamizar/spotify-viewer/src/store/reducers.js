@@ -215,3 +215,8 @@ export const getArtistTopTracksError = state =>
 export const getAlbum = (state, albumId) => state.albums[albumId];
 export const getAlbumIsLoading = state => state.albumLoading.isLoading;
 export const getAlbumError = state => state.albumLoading.error;
+
+export const getTopTracksList = state =>
+  [].concat(...state.topTracks.map(page => page.items));
+export const getTopTracksIsLoading = state => state.topTracksLoading.isLoading;
+export const getTopTracksError = state => state.topTracksLoading.error;
