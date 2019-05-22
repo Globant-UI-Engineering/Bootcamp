@@ -46,6 +46,12 @@ td {
   color: white;
 }
 
+.tier-route-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+
 header {
   background-color: #1f1f1f;
   border-bottom: 3px solid #4d4c4c;

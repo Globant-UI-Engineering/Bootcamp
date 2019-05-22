@@ -1,7 +1,7 @@
 import React from "react";
 
 import Summoner from "./Summoner";
-import { url } from "inspector";
+import challenger from "../../public/images/challenger.png";
 
 class RenderTierList extends React.Component {
   handleOnKeyUp = event => {
@@ -31,11 +31,7 @@ class RenderTierList extends React.Component {
   render() {
     return (
       <div className="tier-route-container">
-        <img
-          id="leagueIcon"
-          alt="League icon"
-          src="../static/images/challenger.png"
-        />
+        <img id="leagueIcon" alt="League icon" src={challenger} />
         <section>
           <header>
             <h2>Summoners</h2>

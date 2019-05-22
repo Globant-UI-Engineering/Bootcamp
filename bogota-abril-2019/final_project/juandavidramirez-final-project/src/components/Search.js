@@ -20,7 +20,7 @@ class Search extends React.Component {
         this.setState({ summonerName: "", summonerInfo: response.data });
       },
       onFailed: error => {
-        console.erro(error);
+        console.error(error);
       }
     };
 
