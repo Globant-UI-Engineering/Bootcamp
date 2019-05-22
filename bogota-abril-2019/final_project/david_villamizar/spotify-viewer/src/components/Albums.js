@@ -17,7 +17,7 @@ function Album({ name, images, id, release_date, total_tracks }) {
   );
 }
 
-export default function Albums({ id, albums }) {
+export default function Albums({ albums }) {
   return <ul className={styles.albums}>{albums.map(Album)}</ul>;
 }
 

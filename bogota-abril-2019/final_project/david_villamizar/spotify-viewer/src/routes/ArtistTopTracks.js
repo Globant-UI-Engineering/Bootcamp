@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import LoginWarning from "../components/LoginWarning";
+import LoginWarningModal from "../components/LoginWarningModal";
 import Tracks from "../components/Tracks";
 import { clearArtistTopTracks, fetchArtistTopTracks } from "../store/actions";
 import {
@@ -17,7 +17,7 @@ function ArtistTopTracks({
   fetchTopTracks,
   clearTopTracks,
   error,
-  ...props
+  ...routerProps
 }) {
   useEffect(() => {
     fetchTopTracks(artistId);
@@ -25,11 +25,11 @@ function ArtistTopTracks({
   }, [artistId, fetchTopTracks, clearTopTracks]);
 
   if (error) {
-    return <LoginWarning />;
+    return <LoginWarningModal />;
   }
   return (
     <>
-      <Tracks tracks={tracks} {...props} />
+      <Tracks tracks={tracks} {...routerProps} />
     </>
   );
 }

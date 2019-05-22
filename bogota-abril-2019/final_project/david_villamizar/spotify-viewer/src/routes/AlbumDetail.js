@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import AlbumWithTracks from "../components/AlbumWithTracks";
-import LoginWarning from "../components/LoginWarning";
 import { fetchAlbumDetail, removeAlbumDetail } from "../store/actions";
 import {
   getAccessToken,
@@ -11,26 +10,21 @@ import {
 } from "../store/reducers";
 import { store } from "../store/store";
 
-function AlbumDetail({
-  album,
-  match,
-  fetchAlbum,
-  removeAlbum,
-  isLoading,
-  error,
-  ...props
-}) {
+function AlbumDetail({ album, fetchAlbum, removeAlbum, error, match }) {
   const { albumId } = match.params;
   useEffect(() => {
     fetchAlbum(albumId);
     return () => removeAlbum(albumId);
   }, [fetchAlbum, removeAlbum, albumId]);
+
   if (error) {
-    return <LoginWarning />;
+    return null;
   }
+
   if (!album) {
-    return <div />;
+    return null;
   }
+
   return <AlbumWithTracks {...album} />;
 }
 

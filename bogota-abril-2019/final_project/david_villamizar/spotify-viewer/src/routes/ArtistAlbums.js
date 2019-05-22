@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Albums from "../components/Albums";
-import LoginWarning from "../components/LoginWarning";
 import { clearArtistAlbums, fetchArtistAlbums } from "../store/actions";
 import {
   getAccessToken,
@@ -19,20 +18,21 @@ function ArtistAlbums({
   clearAlbums,
   isLoading,
   error,
-  ...props
+  ...routerProps
 }) {
   useEffect(() => {
     fetchAlbums(artistId, 0);
     return () => clearAlbums();
   }, [artistId, fetchAlbums, clearAlbums]);
 
-  const offset = albums.length;
   if (error) {
-    return <LoginWarning />;
+    return null;
   }
+
+  const offset = albums.length;
   return (
     <>
-      <Albums albums={albums} {...props} />
+      <Albums albums={albums} {...routerProps} />
       <button
         className={styles.loadMore}
         disabled={isLoading}

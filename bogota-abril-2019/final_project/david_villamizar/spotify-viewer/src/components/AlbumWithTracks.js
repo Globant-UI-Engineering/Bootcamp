@@ -16,6 +16,7 @@ export default function AlbumWithTracks({
         <h3>{genres.map(genre => genre.name).join(",")}</h3>
       ) : null}
       <img src={images[0].url} alt={`${name}'s cover.`} />
+
       <Tracks
         tracks={tracks.items.map(track => ({ ...track, album: { name } }))}
       />

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import LoginWarning from "../components/LoginWarning";
-import Artists from "../routes/Artists";
+import Artists from "../components/Artists";
 import { clearTopArtists, fetchTopArtists } from "../store/actions";
 import {
   getAccessToken,
@@ -18,20 +17,21 @@ function TopArtists({
   clearArtists,
   isLoading,
   error,
-  ...props
+  ...routerProps
 }) {
   useEffect(() => {
     fetchArtists(0);
     return () => clearArtists();
   }, [fetchArtists, clearArtists]);
 
-  const offset = artists.length;
   if (error) {
-    return <LoginWarning />;
+    return null;
   }
+
+  const offset = artists.length;
   return (
     <>
-      <Artists artists={artists} {...props} />
+      <Artists artists={artists} {...routerProps} />
       <button
         className={styles.loadMore}
         disabled={isLoading}

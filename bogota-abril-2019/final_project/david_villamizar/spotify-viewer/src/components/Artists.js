@@ -1,15 +1,15 @@
 import React from "react";
 import { NavLink, Redirect, Route, Switch } from "react-router-dom";
-import NavBar from "../components/NavBar";
-import ArtistAlbums from "../containers/ArtistAlbums";
-import ArtistTopTracks from "../containers/ArtistTopTracks";
+import ArtistAlbums from "../routes/ArtistAlbums";
+import ArtistTopTracks from "../routes/ArtistTopTracks";
 import styles from "./Artists.module.css";
+import NavBar from "./NavBar";
 
-export default function Artists({ artists, ...props }) {
+export default function Artists({ artists, ...routerProps }) {
   return (
     <ul className={styles.artists}>
       {artists.map(artist => (
-        <ArtistListItem key={artist.id} {...artist} {...props} />
+        <ArtistListItem key={artist.id} {...artist} {...routerProps} />
       ))}
     </ul>
   );
@@ -37,11 +37,15 @@ function ArtistListItem({ name, images, genres, id, match, location }) {
       <Switch>
         <Route
           path={`${match.path}/${id}/albums`}
-          render={props => <ArtistAlbums artistId={id} {...props} />}
+          render={routerProps => (
+            <ArtistAlbums artistId={id} {...routerProps} />
+          )}
         />
         <Route
           path={`${match.path}/${id}/top-tracks`}
-          render={props => <ArtistTopTracks artistId={id} {...props} />}
+          render={routerProps => (
+            <ArtistTopTracks artistId={id} {...routerProps} />
+          )}
         />
         <Redirect
           from={`${match.path}/${id}`}

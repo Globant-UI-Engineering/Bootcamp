@@ -7,7 +7,9 @@ export function login() {
   // https://developer.spotify.com/dashboard/login
   const clientId = "37073364f98646ebb1f587b1a5747043";
   // The exact redirectUri must be registered with spotify first.
-  const redirectUri = "http://localhost:3000/spotify-redirect/";
+  const redirectUri = `${window.location.origin}${
+    process.env.PUBLIC_URL
+  }/spotify-redirect/`;
   // https://developer.spotify.com/documentation/general/guides/scopes/#user-read-recently-played
   const scopes = ["user-read-email", "user-top-read"].join(" ");
   const e = encodeURIComponent;
@@ -16,9 +18,9 @@ export function login() {
   )}&response_type=token&scope=${e(scopes)}`;
 }
 
-function LoginRedirect(props) {
+function LoginRedirect({ addCredentials, location }) {
   const params = {};
-  props.location.hash
+  location.hash
     .slice(1)
     .split("&")
     .forEach(keyVal => {
@@ -29,7 +31,7 @@ function LoginRedirect(props) {
     });
 
   useEffect(() => {
-    props.addCredentials(params);
+    addCredentials(params);
   });
   if (!params.access_token) {
     return <p>There was a problem logging in to Spotify</p>;

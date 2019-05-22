@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import LoginWarning from "../components/LoginWarning";
 import Tracks from "../components/Tracks";
 import { clearTopTracks, fetchTopTracks } from "../store/actions";
 import {
@@ -18,20 +17,21 @@ function TopTracks({
   fetchTopTracks,
   clearTopTracks,
   error,
-  ...props
+  ...routerProps
 }) {
   useEffect(() => {
     fetchTopTracks(0);
     return () => clearTopTracks();
   }, [fetchTopTracks, clearTopTracks]);
 
-  const offset = tracks.length;
   if (error) {
-    return <LoginWarning />;
+    return null;
   }
+
+  const offset = tracks.length;
   return (
     <>
-      <Tracks tracks={tracks} {...props} />
+      <Tracks tracks={tracks} {...routerProps} />
       <button
         className={styles.loadMore}
         disabled={isLoading}
