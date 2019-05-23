@@ -7,6 +7,7 @@ import './styles/AirportSelection.css';
 class AirportSelection extends Component {
     constructor({airportList}) {
         super();
+        this._isMounted = false;
 
         this.state = {
             airportList,
@@ -57,6 +58,10 @@ class AirportSelection extends Component {
         );
     }
 
+    componentDidMount() {
+        this._isMounted = true;
+    }
+
     showFlightsList(event) {
         let flightsResponse = null;
         let type = event.target.name;
@@ -70,11 +75,13 @@ class AirportSelection extends Component {
         
         if (flightsResponse) {
             flightsResponse.then(response => {
-                this.setState({loading: false});
-                this.setState({
-                    action: type,
-                    flightsList: response
-                });
+                if (this._isMounted) {
+                    this.setState({
+                        loading: false,
+                        action: type,
+                        flightsList: response
+                    });
+                }
             });
         }
     }
@@ -85,6 +92,10 @@ class AirportSelection extends Component {
 
     onChangeHandler(event) {
         this.setState({airportSelected: event.target.value, action: null});
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 }
 

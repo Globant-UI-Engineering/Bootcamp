@@ -30,7 +30,7 @@ class HomePage extends Component {
             if (this._isMounted) {
                 this.setState({
                     isAuthenticated: store.getState().user.isAuthenticated,
-                    message: store.getState().response,
+                    message: store.getState().response
                 });
             }
         })

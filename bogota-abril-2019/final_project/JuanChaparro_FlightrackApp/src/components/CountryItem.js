@@ -15,7 +15,7 @@ class CountryItem extends Component {
         this.state = {
             isAuthenticated: store.getState().user.isAuthenticated,
             countryCode: match.params.countryCode,
-            airportList: [],
+            airportList: []
         }
 
         store.subscribe(() => {

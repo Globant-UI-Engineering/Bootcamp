@@ -1,49 +1,36 @@
-import NINEE from './../images/airlines/9E.png';
-import A3 from './../images/airlines/A3.png';
-import AH from './../images/airlines/AH.png';
-import AS from './../images/airlines/AS.png';
-import BA from './../images/airlines/BA.png';
-import BI from './../images/airlines/BI.png';
-import BY from './../images/airlines/BY.png';
-import DY from './../images/airlines/DY.png';
-import FX from './../images/airlines/FX.png';
-import F9 from './../images/airlines/F9.png';
-import G4 from './../images/airlines/G4.png';
-import IA from './../images/airlines/IA.png';
-import LA from './../images/airlines/LA.png';
-import LS from './../images/airlines/LS.png';
-import OH from './../images/airlines/OH.png';
-import OO from './../images/airlines/OO.png';
-import UA from './../images/airlines/UA.png';
-import VY from './../images/airlines/VY.png';
-import WN from './../images/airlines/WN.png';
-import FIVEX from './../images/airlines/5X.png';
-import XC from './../images/airlines/XC.png';
-import NO_MATCH from './../images/airlines/no-match.png';
+export class IconHandler {
+    constructor() {
+        this.icons = new Map();
+        this.loadIcons();
+    }
 
-export const getImageByCode = airlineCode => {
-    switch(airlineCode) {
-        case "9E": return NINEE;
-        case "A3": return A3;
-        case "AS": return AS;
-        case "AH": return AH;
-        case "BA": return BA;
-        case "BI": return BI;
-        case "BY": return BY;
-        case "DY": return DY;
-        case "FX": return FX;
-        case "F9": return F9;
-        case "G4": return G4;
-        case "IA": return IA;
-        case "JJ": return LA;
-        case "LS": return LS;
-        case "OH": return OH;
-        case "OO": return OO;
-        case "UA": return UA;
-        case "VY": return VY;
-        case "WN": return WN;
-        case "5X": return FIVEX;
-        case "XC": return XC;
-        default: return NO_MATCH;
+    loadIcons() {
+        this.icons.set('9E', 'https://i.imgur.com/ZhfyUaF.png');
+        this.icons.set('AH', 'https://i.imgur.com/0YU55me.png');
+        this.icons.set('AS', 'https://i.imgur.com/REFlIsu.png');
+        this.icons.set('A3', 'https://i.imgur.com/GptlZQn.png');
+        this.icons.set('BA', 'https://i.imgur.com/bCSAn3A.png');
+        this.icons.set('BI', 'https://i.imgur.com/wyPmxdS.png');
+        this.icons.set('BY', 'https://i.imgur.com/d1wVtk2.png');
+        this.icons.set('DY', 'https://i.imgur.com/lQ76g3S.png');
+        this.icons.set('FX', 'https://i.imgur.com/T0ysl3R.png');
+        this.icons.set('F9', 'https://i.imgur.com/CAOMwgc.png');
+        this.icons.set('G4', 'https://i.imgur.com/32EAZo6.png');
+        this.icons.set('IA', 'https://i.imgur.com/uc9BQ9O.png');
+        this.icons.set('JJ', 'https://i.imgur.com/Rq3bnzU.png');
+        this.icons.set('LS', 'https://i.imgur.com/6GBFBnC.png');
+        this.icons.set('OH', 'https://i.imgur.com/NwvFtpj.png');
+        this.icons.set('OO', 'https://i.imgur.com/Z661giO.png');
+        this.icons.set('UA', 'https://i.imgur.com/Pcvzr5g.png');
+        this.icons.set('VY', 'https://i.imgur.com/ZWBSLCv.png');
+        this.icons.set('WN', 'https://i.imgur.com/T2RcRJU.png');
+        this.icons.set('5X', 'https://i.imgur.com/y1Wvg6O.png');
+        this.icons.set('XC', 'https://i.imgur.com/eoFkQw9.png');
+        this.icons.set('NO_MATCH', 'https://i.imgur.com/6VUnwfq.png');
+    }
+
+    getAirlineIconByCode(airlineCode) {
+        return this.icons.get(airlineCode) ? 
+            this.icons.get(airlineCode) : this.icons.get("NO_MATCH");
     }
 }

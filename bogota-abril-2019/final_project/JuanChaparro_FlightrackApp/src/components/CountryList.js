@@ -20,7 +20,7 @@ class CountryList extends Component {
 
         store.subscribe(() => {
             if (this._isMounted) {
-                this.setState({isAuthenticated: store.getState().user.isAuthenticated,});
+                this.setState({isAuthenticated: store.getState().user.isAuthenticated});
             }
         });
     }

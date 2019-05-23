@@ -3,7 +3,7 @@ import NavBar from './Navbar';
 import { Redirect } from 'react-router-dom';
 import { getFlights } from './../services/flightrackservice';
 import { LOGIN_PATH } from './../constants/routes';
-import { getImageByCode } from './../utils/airlinesimages';
+import { IconHandler } from './../utils/airlinesimages';
 import store from '../store';
 import './styles/Flightrack.css';
 
@@ -11,6 +11,7 @@ class Flightrack extends Component {
     constructor() {
         super();
         this._isMounted = false;
+        this.iconHandler = new IconHandler();
 
         this.state = {
             isAuthenticated: store.getState().user.isAuthenticated,
@@ -59,7 +60,9 @@ class Flightrack extends Component {
         this.setState({loading: true});
         if (this.state.isAuthenticated) {
             getFlights().then(response => {
-                if (this._isMounted) this.setState({flightsList: response, loading: false});
+                if (this._isMounted) {
+                    this.setState({flightsList: response, loading: false});
+                }
             });
         }
     }
@@ -84,7 +87,9 @@ class Flightrack extends Component {
                     <div className="flights-info">
                         {this.state.flightsFilter.map((flight) => (
                             <div key={flight.flight.iataNumber} className="flights-found">
-                                <img src={getImageByCode(flight.airline.iataCode)} alt="airline-icon"></img>
+                                <img 
+                                    src={this.iconHandler.getAirlineIconByCode(flight.airline.iataCode)} 
+                                    alt="airline-icon"></img>
                                 <p>
                                     <span>ID: {flight.flight.iataNumber}</span>
                                     <span>Status: {flight.status}</span>
@@ -106,5 +111,6 @@ class Flightrack extends Component {
         this._isMounted = false;
     }
 }
+
 
 export default Flightrack;
