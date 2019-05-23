@@ -47,9 +47,90 @@ td {
 }
 
 .tier-route-container {
-  display: flex;
-  justify-content: center;
-  flex-flow: column nowrap;
+  background-color: green;
+  text-align: center;
+}
+
+.tier-route-container img {
+}
+
+.tier-route-container section:nth-child(2) {
+  background-color: blue;
+}
+
+.tier-route-container section:nth-child(2) div:nth-child(2) {
+  background-color: red;
+  position: relative;
+  padding: 0 1%;
+}
+
+.tier-route-container section:nth-child(2) div:nth-child(2) div {
+  text-align: start;
+  padding-bottom: 2%;
+}
+
+table {
+  background: green;
+  border-collapse: separate;
+  border-spacing: 0 2em;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+table td,
+table th {
+  text-align: left;
+  padding: 12px;
+}
+
+table tr.header,
+table tr:hover {
+  background-color: yellow;
+}
+
+tr:hover {
+  cursor: pointer;
+}
+
+table tr.header {
+  cursor: default;
+}
+table td {
+  padding: 0;
+}
+
+thead {
+  margin: 0;
+  padding: 0;
+}
+
+thead tr th:nth-child(1) {
+  width: 16%;
+}
+
+thead tr th:nth-child(2) {
+  width: 20%;
+}
+
+thead tr th:nth-child(3) {
+  width: 30%;
+}
+
+thead tr th:nth-child(4) {
+  width: 8%;
+}
+
+thead tr th:nth-child(5) {
+  width: 8%;
+}
+
+thead tr th:nth-child(6) {
+  width: 7%;
+}
+
+thead tr th:nth-child(7) {
+  width: 11%;
 }
 
 header {

@@ -30211,7 +30211,7 @@ var _urls = require("./Constants/urls");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var key = "RGAPI-0542e6af-a181-4885-8826-3c2c55d75f6e";
+var key = "RGAPI-d160291c-0bc0-4f17-b7b6-381b4dfd7238";
 
 var concatApiKey = function concatApiKey() {
   return "?api_key=" + key;
@@ -30226,7 +30226,7 @@ function getChampions(callback) {
 }
 
 function getSummoner(summonerName, callback) {
-  _axios.default.get("https://cors-anywhere.herokuapp.com/" + _urls.apiUrl + "/summoner/v4/summoners/by-name/" + summonerName + concatApiKey()).then(function (response) {
+  _axios.default.get(_urls.apiUrl + "/summoner/v4/summoners/by-name/" + summonerName + concatApiKey()).then(function (response) {
     callback.onSuccess(response);
   }).catch(function (error) {
     callback.onFailed(error);
@@ -30234,7 +30234,7 @@ function getSummoner(summonerName, callback) {
 }
 
 function getChallengerLeagueByQueue(queue, callback) {
-  _axios.default.get("https://cors-anywhere.herokuapp.com/" + _urls.apiUrl + "/league/v4/challengerleagues/by-queue/" + queue + concatApiKey()).then(function (response) {
+  _axios.default.get(_urls.apiUrl + "/league/v4/challengerleagues/by-queue/" + queue + concatApiKey()).then(function (response) {
     callback.onSuccess(response);
   }).catch(function (error) {
     callback.onFailed(error);
@@ -30575,7 +30575,7 @@ function (_React$Component) {
 
 var _default = Search;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"../src/utils/api.js","./SummonerProfile":"../src/components/SummonerProfile.js"}],"../src/components/Summoner.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api":"../src/utils/api.js","./SummonerProfile":"../src/components/SummonerProfile.js"}],"../src/components/WinPercentage.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30587,17 +30587,160 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var WinPercentage =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(WinPercentage, _React$Component);
+
+  function WinPercentage() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    var _temp;
+
+    _classCallCheck(this, WinPercentage);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(WinPercentage)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.calculatesPercentage = function (wins, losses) {
+      return Math.round(wins / (wins + losses) * 100);
+    }, _temp));
+  }
+
+  _createClass(WinPercentage, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          wins = _this$props.wins,
+          losses = _this$props.losses;
+      return _react.default.createElement("div", null, _react.default.createElement("p", null, wins, "/", losses, " ", _react.default.createElement("span", null, this.calculatesPercentage(wins, losses)), _react.default.createElement("span", null, "%")));
+    }
+  }]);
+
+  return WinPercentage;
+}(_react.default.Component);
+
+var _default = WinPercentage;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../src/components/Veteran.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Veteran = function Veteran() {
+  return _react.default.createElement("img", {
+    alt: "the player has played more than 100 games on this league"
+  });
+};
+
+var _default = Veteran;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../src/components/HotStreak.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var HotStreak = function HotStreak() {
+  return _react.default.createElement("img", {
+    alt: "the player has won at least 3 games in a row"
+  });
+};
+
+var _default = HotStreak;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../src/components/FreshBlood.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var FreshBlood = function FreshBlood() {
+  return _react.default.createElement("img", {
+    alt: "the player has played no more than 100 games on this league"
+  });
+};
+
+var _default = FreshBlood;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../src/components/Summoner.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _WinPercentage = _interopRequireDefault(require("./WinPercentage"));
+
+var _Veteran = _interopRequireDefault(require("./Veteran"));
+
+var _HotStreak = _interopRequireDefault(require("./HotStreak"));
+
+var _FreshBlood = _interopRequireDefault(require("./FreshBlood"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var Summoner = function Summoner(_ref) {
-  var name = _ref.name,
-      leaguePoints = _ref.leaguePoints,
+  var rankNumber = _ref.rankNumber,
+      name = _ref.name,
       wins = _ref.wins,
-      losses = _ref.losses;
-  return _react.default.createElement("tr", null, _react.default.createElement("td", null, name), _react.default.createElement("td", null, wins), _react.default.createElement("td", null, losses), _react.default.createElement("td", null, leaguePoints));
+      losses = _ref.losses,
+      hotStreak = _ref.hotStreak,
+      veteran = _ref.veteran,
+      freshBlood = _ref.freshBlood,
+      leaguePoints = _ref.leaguePoints;
+  return _react.default.createElement("tr", null, _react.default.createElement("td", null, rankNumber), _react.default.createElement("td", null, name), _react.default.createElement("td", null, _react.default.createElement(_WinPercentage.default, {
+    wins: wins,
+    losses: losses
+  })), _react.default.createElement("td", null, hotStreak && _react.default.createElement(_HotStreak.default, null)), _react.default.createElement("td", null, veteran && _react.default.createElement(_Veteran.default, null)), _react.default.createElement("td", null, freshBlood && _react.default.createElement(_FreshBlood.default, null)), _react.default.createElement("td", null, leaguePoints));
 };
 
 var _default = Summoner;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"images/challenger.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./WinPercentage":"../src/components/WinPercentage.js","./Veteran":"../src/components/Veteran.js","./HotStreak":"../src/components/HotStreak.js","./FreshBlood":"../src/components/FreshBlood.js"}],"images/challenger.png":[function(require,module,exports) {
 module.exports = "/challenger.b214a38d.png";
 },{}],"../src/components/RenderTierList.js":[function(require,module,exports) {
 "use strict";
@@ -30661,7 +30804,7 @@ function (_React$Component) {
       tr = table.getElementsByTagName("tr");
 
       for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
+        td = tr[i].getElementsByTagName("td")[1];
 
         if (td) {
           txtValue = td.textContent || td.innerText;
@@ -30685,23 +30828,31 @@ function (_React$Component) {
         id: "leagueIcon",
         alt: "League icon",
         src: _challenger.default
-      }), _react.default.createElement("section", null, _react.default.createElement("header", null, _react.default.createElement("h2", null, "Summoners")), _react.default.createElement("div", null, _react.default.createElement("input", {
+      }), _react.default.createElement("section", null, _react.default.createElement("header", null, _react.default.createElement("h2", null, "Summoners")), _react.default.createElement("div", null, _react.default.createElement("div", {
+        className: "input-container"
+      }, _react.default.createElement("input", {
         type: "text",
         id: "FilterEntriesInput",
         onKeyUp: this.handleOnKeyUp,
         placeholder: "Search for summoner names...",
         title: "Type in a summoner name"
-      }), _react.default.createElement("table", {
-        id: "tierSummonersTable"
-      }, _react.default.createElement("tbody", null, _react.default.createElement("tr", {
-        className: "header-table"
-      }, _react.default.createElement("th", null, "Name"), _react.default.createElement("th", null, "Wins"), _react.default.createElement("th", null, "Losses"), _react.default.createElement("th", null, "League Points")), this.props.summoners.map(function (value, index) {
+      })), _react.default.createElement("table", {
+        id: "tierSummonersTable",
+        className: "table"
+      }, _react.default.createElement("thead", null, _react.default.createElement("tr", {
+        id: "table-head-row",
+        className: "header"
+      }, _react.default.createElement("th", null, "#"), _react.default.createElement("th", null, "summoner"), _react.default.createElement("th", null, "victory percentage"), _react.default.createElement("th", null, "hot streak"), _react.default.createElement("th", null, "veteran"), _react.default.createElement("th", null, "fresh blood"), _react.default.createElement("th", null, "lp"))), _react.default.createElement("tbody", null, this.props.summoners.map(function (value, index) {
         return _react.default.createElement(_Summoner.default, {
           key: index,
+          rankNumber: value.rankNumber,
           name: value.summonerName,
           leaguePoints: value.leaguePoints,
           wins: value.wins,
-          losses: value.losses
+          losses: value.losses,
+          hotStreak: value.hotStreak,
+          veteran: value.veteran,
+          freshBlood: value.freshBlood
         });
       }))))));
     }
@@ -30731,6 +30882,14 @@ var _api = require("../utils/api");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -30768,6 +30927,21 @@ function (_React$Component) {
 
     return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(TopTierList)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
       loading: true
+    }, _this.orderByLeaguePoints = function (summoners) {
+      var summonersSortedList = _toConsumableArray(summoners);
+
+      summonersSortedList.sort(function (a, b) {
+        return b.leaguePoints - a.leaguePoints;
+      });
+      summonersSortedList = summonersSortedList.map(function (summoner, index) {
+        summoner.rankNumber = index + 1;
+        return summoner;
+      });
+
+      _this.setState({
+        summoners: summonersSortedList,
+        loading: false
+      });
     }, _temp));
   }
 
@@ -30778,10 +30952,7 @@ function (_React$Component) {
 
       var callback = {
         onSuccess: function onSuccess(response) {
-          _this2.setState({
-            summoners: response.data.entries,
-            loading: false
-          });
+          _this2.orderByLeaguePoints(response.data.entries);
         },
         onFailed: function onFailed(error) {
           console.error(error);
@@ -31001,7 +31172,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62725" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51999" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

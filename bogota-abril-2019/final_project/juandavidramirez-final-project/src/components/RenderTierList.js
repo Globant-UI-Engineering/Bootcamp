@@ -16,7 +16,7 @@ class RenderTierList extends React.Component {
     tr = table.getElementsByTagName("tr");
 
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
+      td = tr[i].getElementsByTagName("td")[1];
       if (td) {
         txtValue = td.textContent || td.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -37,29 +37,40 @@ class RenderTierList extends React.Component {
             <h2>Summoners</h2>
           </header>
           <div>
-            <input
-              type="text"
-              id="FilterEntriesInput"
-              onKeyUp={this.handleOnKeyUp}
-              placeholder="Search for summoner names..."
-              title="Type in a summoner name"
-            />
-            <table id="tierSummonersTable">
-              <tbody>
-                <tr className="header-table">
-                  <th>Name</th>
-                  <th>Wins</th>
-                  <th>Losses</th>
-                  <th>League Points</th>
+            <div className="input-container">
+              <input
+                type="text"
+                id="FilterEntriesInput"
+                onKeyUp={this.handleOnKeyUp}
+                placeholder="Search for summoner names..."
+                title="Type in a summoner name"
+              />
+            </div>
+            <table id="tierSummonersTable" className="table">
+              <thead>
+                <tr id="table-head-row" className="header">
+                  <th>#</th>
+                  <th>summoner</th>
+                  <th>victory percentage</th>
+                  <th>hot streak</th>
+                  <th>veteran</th>
+                  <th>fresh blood</th>
+                  <th>lp</th>
                 </tr>
+              </thead>
+              <tbody>
                 {this.props.summoners.map((value, index) => {
                   return (
                     <Summoner
                       key={index}
+                      rankNumber={value.rankNumber}
                       name={value.summonerName}
                       leaguePoints={value.leaguePoints}
                       wins={value.wins}
                       losses={value.losses}
+                      hotStreak={value.hotStreak}
+                      veteran={value.veteran}
+                      freshBlood={value.freshBlood}
                     />
                   );
                 })}

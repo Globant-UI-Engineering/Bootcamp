@@ -9,10 +9,25 @@ class TopTierList extends React.Component {
     loading: true
   };
 
+  orderByLeaguePoints = summoners => {
+    var summonersSortedList = [...summoners];
+
+    summonersSortedList.sort((a, b) => {
+      return b.leaguePoints - a.leaguePoints;
+    });
+
+    summonersSortedList = summonersSortedList.map((summoner, index) => {
+      summoner.rankNumber = index + 1;
+      return summoner;
+    });
+
+    this.setState({ summoners: summonersSortedList, loading: false });
+  };
+
   componentDidMount() {
     var callback = {
       onSuccess: response => {
-        this.setState({ summoners: response.data.entries, loading: false });
+        this.orderByLeaguePoints(response.data.entries);
       },
       onFailed: error => {
         console.error(error);
