@@ -1,8 +1,12 @@
 import React from "react";
+import newPlayer from "../../public/images/new-player.png";
 
 const FreshBlood = () => {
   return (
-    <img alt="the player has played no more than 100 games on this league" />
+    <img
+      src={newPlayer}
+      alt="the player has played no more than 100 games on this league"
+    />
   );
 };
 

@@ -37,6 +37,7 @@
     "prettier": "^1.16.4"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
     "@reach/router": "^1.2.1",
     "axios": "^0.18.0",
     "cors": "^2.8.5",

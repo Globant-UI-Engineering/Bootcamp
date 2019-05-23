@@ -1,16 +1,18 @@
 import React from "react";
 import { Link } from "@reach/router";
+import { AppBar, Typography, Toolbar, CssBaseline } from "@material-ui/core";
 
-const Header = () => (
-  <header>
-    <h1> LoL Master</h1>
-    <nav>
-      <Link to="/">home</Link>
+const Header = props => (
+  <nav className="navigation-header-bar">
+    <Link to="/">
+      <h1>lol master</h1>
+    </Link>
+    <div className="section-links-container">
       <Link to="/champions">champions</Link>
       <Link to="/tierList">tier list</Link>
       <Link to="/search">search</Link>
-    </nav>
-  </header>
+    </div>
+  </nav>
 );
 
 export default Header;
