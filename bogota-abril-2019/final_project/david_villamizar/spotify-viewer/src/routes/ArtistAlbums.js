@@ -22,7 +22,7 @@ function ArtistAlbums({
 }) {
   useEffect(() => {
     fetchAlbums(artistId, 0);
-    return () => clearAlbums();
+    return () => clearAlbums(artistId);
   }, [artistId, fetchAlbums, clearAlbums]);
 
   if (error) {

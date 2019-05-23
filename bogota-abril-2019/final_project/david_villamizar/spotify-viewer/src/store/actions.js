@@ -104,7 +104,7 @@ export const setAlbumLoading = isLoading => ({
   isLoading,
 });
 
-export const addTopTracksPage = (page) => ({
+export const addTopTracksPage = page => ({
   type: ADD_TOP_TRACKS_PAGE,
   page,
 });
