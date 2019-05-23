@@ -4,7 +4,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import AlbumDetail from "./routes/AlbumDetail";
-import LoginRedirect from "./routes/LoginRedirect";
+import Login from "./routes/Login";
 import TopArtists from "./routes/TopArtists";
 import TopTracks from "./routes/TopTracks";
 import { store } from "./store/store";
@@ -26,7 +26,7 @@ function App() {
           <Route path="/album/:albumId" component={AlbumDetail} />
           <Redirect to="/top-artists" />
         </Switch>
-        <Route component={LoginRedirect} />
+        <Route component={Login} />
       </BrowserRouter>
     </Provider>
   );

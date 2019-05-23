@@ -12,7 +12,11 @@ export function login(location) {
     process.env.PUBLIC_URL
   }/spotify-redirect/`;
   // https://developer.spotify.com/documentation/general/guides/scopes/#user-read-recently-played
-  const scopes = ["user-read-email", "user-top-read"].join(" ");
+  const scopes = [
+    "user-read-email",
+    "user-top-read",
+    "playlist-read-private",
+  ].join(" ");
   const state = JSON.stringify({
     url: location.pathname,
     token: Math.random()
@@ -55,7 +59,7 @@ function SpotifyRedirect({ addCredentials, location, history }) {
   return <Redirect to={url} />;
 }
 
-function LoginRedirect({ addCredentials, errors, location }) {
+function Login({ addCredentials, errors, location }) {
   useEffect(() => {
     document.title = "Redirecting to Spotify login...";
   }, []);
@@ -88,4 +92,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(LoginRedirect);
+)(Login);
