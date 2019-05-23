@@ -74,6 +74,12 @@
   margin-left: 128px;
 }
 
+.App-button-view{
+  background-color: white;
+  margin-top: 18px;
+  margin-left: 4px;
+}
+
 .App-button-map{
   margin-left: 16px;
   width: 195px;
@@ -401,7 +407,7 @@
 .App-map-searchbar-container{
   display: flex;
   flex-direction: row;
-
+  margin-left: -18px;
 }
 
 .App-searchbar-container{
@@ -514,5 +520,53 @@
 }
 
 .App-upload-image{
-  width: 40%;
+  width: 30%;
+}
+
+.App-carousel{
+  width: 500px;
+  height: 500px;
+  display: inline-block;
+
+  div.carousel.carousel-slider{
+    ul{
+      padding-left: 0;
+      li{
+        div{
+            a.legend{
+              font-size: 16px;
+            }
+            label.legend{
+              font-size: 16px;
+            }
+        }
+      }
+    }
+    p{
+      font-size: 16px;
+    }
+  }
+}
+
+.App-yourEvents{
+  max-width: 540px;
+  display: inline-block;
+}
+
+.App-yourEvents-justify-center{
+  display: flex;
+  justify-content: center;
+  margin: 12px 0px 12px 0px;
+
+  @media (max-width: 1400px) {
+    display: block;
+    text-align: center;
+  }
+
+  .yourEvents-left{
+    margin-right: 18px;
+  }
+  .yourEvents-right{
+    margin-left: 8px;
+  }
 }

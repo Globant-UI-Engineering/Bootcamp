@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import '../App.scss';
 import { GoogleApiWrapper } from 'google-maps-react';
 
 /* global google */

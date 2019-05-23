@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.scss';
+import '../App.scss';
 import { BrowserRouter, Link } from "react-router-dom";
 import { GoogleApiWrapper, Map, Marker, InfoWindow } from 'google-maps-react';
-import Button from './Atoms/Button';
+import Button from '../Atoms/Button';
 import SearchBar from './SearchBar';
-import firebase from './Firebase';
+import firebase from '../Firebase';
 
 /* global google */
 
