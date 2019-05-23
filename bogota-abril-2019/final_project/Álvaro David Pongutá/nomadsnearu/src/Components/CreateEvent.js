@@ -127,7 +127,7 @@ class CreateEvent extends React.Component {
                 var refEventsXusers = firebase.database().ref("eventsXusers/"+eventXusersKey);
 
                 refEventsXusers.set({
-                    [userUID]: [eventXusersKey]
+                    [userUID]: [eventKey]
                 });
 
                 alert('El evento se creó satisfactoriamente.')
