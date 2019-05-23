@@ -3,25 +3,6 @@ import '../App.scss';
 import firebase from '../Firebase';
 import Button from '../Atoms/Button';
 
-class ListActivities extends React.Component {
-
-    printActivities(){
-        if(this.props.objectActivities !== undefined){
-                return Object.values(this.props.objectActivities).map(activity => 
-                    <li>{activity}</li>
-            );
-        }
-    }
-
-    render () {  
-        return (
-            <ol>
-                {this.printActivities()}
-            </ol>
-        );
-    }
-}
-
 class ViewEvent extends React.Component {
 
     constructor(props) {

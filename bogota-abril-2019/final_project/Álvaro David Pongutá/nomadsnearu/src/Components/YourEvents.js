@@ -93,7 +93,7 @@ class YourEvents extends React.Component {
     printCreatedEvents(){
         if(this.state.createdEvents.length > 0){
             return this.state.createdEvents.map(createdEvent => (
-                <div className="App-carousel">
+                <div key={createdEvent.eventID} className="App-carousel">
                     <Image
                         src= {createdEvent.urlImage}
                         height={ 500 }
@@ -114,7 +114,7 @@ class YourEvents extends React.Component {
     printGoingEvents(){
         if(this.state.goingToAssistEvents.length > 0 ){
             return this.state.goingToAssistEvents.map(assistingEvent => (
-                <div className="App-carousel">
+                <div key={assistingEvent.eventID} className="App-carousel">
                     <Image
                         src= {assistingEvent.urlImage}
                         height={ 500 }

@@ -8,19 +8,14 @@ import firebase from '../Firebase';
 
 /* global google */
 
-export class MapContainer extends React.Component {
+const center = {
+    lat: 4.659361,
+    lng: -74.108208
+};
 
-    defaultProps = {
-        center: {
-            lat: 4.659361,
-            lng: -74.108208
-        }, 
-        actualPosition: {
-            lat: 4.659361,
-            lng: -74.108208
-        },
-        zoom: 16
-    }
+const zoom = 16;
+
+export class MapContainer extends React.Component {
 
     state = {
         showingInfoWindow: false,
@@ -117,7 +112,7 @@ export class MapContainer extends React.Component {
                 <Button className={"App-button-map App-button"} onClick={this.showCurrentLocation} buttonInfo="Localización Actual"></Button>
             </div>
             <div className="App-map-container">
-                <Map className="App-map" google={this.props.google} onDragstart={this.onMapDragged} onReady={this.onMapReady} zoom={this.defaultProps.zoom} initialCenter={this.defaultProps.center} center={this.state.center}>
+                <Map className="App-map" google={this.props.google} onDragstart={this.onMapDragged} onReady={this.onMapReady} zoom={zoom} initialCenter={center} center={this.state.center}>
 
                     <Marker
                         title={'Tu posición actual'}
@@ -125,7 +120,8 @@ export class MapContainer extends React.Component {
 
                     {   
                         this.state.markersList.map(marker => (
-                            <Marker onClick={marker.onClick}
+                            <Marker key= {marker.id}
+                                onClick={marker.onClick}
                                 title={marker.title}
                                 name={marker.name}
                                 position={{lat: marker.position.lat, lng: marker.position.lng}}

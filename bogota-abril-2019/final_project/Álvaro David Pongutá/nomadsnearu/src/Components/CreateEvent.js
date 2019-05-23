@@ -67,7 +67,9 @@ class CreateEvent extends React.Component {
         
     }
 
-    writeEventInDatabase(){
+    writeEventInDatabase(e){
+
+        e.preventDefault();
 
         let numberOfRemainingAsisstants = (this.state.checkBox) ? this.state.eventAssistants - 1 : this.state.eventAssistants;
         let userUID = firebase.auth().currentUser.uid;
@@ -102,10 +104,6 @@ class CreateEvent extends React.Component {
             storageRef.child(this.state.eventImage.name).getDownloadURL().then(function(url) {
                 var eventKey = firebase.database().ref("events/").push().key;
                 var refEvents = firebase.database().ref("events/"+eventKey);
-
-                var time = new Date().getTime();
-                var eventDate = new Date(time);
-                eventDate = eventDate.toString();
 
                 refEvents.set({
                     name: event.name,
@@ -159,41 +157,47 @@ class CreateEvent extends React.Component {
                     <h2>Crear Evento:</h2>
                 </article>
                 <article className="App-column-elements">
-                    <div>
-                        <label>Escoja un nombre para su evento: </label>
-                        <input type="text" name="eventName" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange}/>
-                    </div>
-                        <label>Seleccione una dirección: </label> 
-                        <SearchBar className={"App-create-searchbar"} onPlaceLoaded={this.onPlaceLoaded} aria-required="true"/>
-                    <div>
-                        <label>Seleccione una fecha: </label>
-                        <input type="date" name="eventDate" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange}/>
-                    </div>
-                    <div>
-                        <label>Seleccione una hora: </label>
-                        <input type="time" name="eventHour" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange}/>
-                    </div>
-                    <div>
-                        <label>Añada una descripción: </label>
-                        <input type="text" name="eventDescription" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange}/>
-                    </div>
-                    <div>
-                        <label>Escoja un número de asistentes: </label>
-                        <input type="number" name="eventAssistants" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange}/>
-                        <label className="App-container-checkbox">¿Tu vas a asistir?
-                            <input type="checkbox" checked={this.state.checkBox} onClick={this.changeCheckBox}/>
-                            <span className="App-checkmark"></span>
-                        </label>
-                    </div>
-                    <div>
-                        <label>Escoja el tipo de evento: </label>
-                        <Select className="App-select" options={ eventTypes } value={this.state.eventType} onChange={this.changeEventType} placeholder="Seleccione un tipo" aria-required="true"/>
-                    </div>
-                    <div>
-                        <label>Seleccione una imagen: </label>
-                        <input type="file" name="eventImage" className={"App-create-searchbar App-upload-image"} aria-required="true" onChange={this.handleInputsChange}/>
-                    </div>
-                    <Button className={"App-button App-button-create"} onClick={this.writeEventInDatabase} buttonInfo="Agregar Evento"></Button>
+                    <form onSubmit={this.writeEventInDatabase}>
+                        <div>
+                            <label>Escoja un nombre para su evento: </label>
+                            <input type="text" name="eventName" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange} required/>
+                        </div>
+                        <div className="App-create-searchbar-fix">
+                            <label>Seleccione una dirección: </label> 
+                            <div className="App-create-searchbar-fix">
+                                <SearchBar className={"App-create-searchbar"} onPlaceLoaded={this.onPlaceLoaded} aria-required="true" required/>
+                            </div>
+                        </div>
+                        <div>
+                            <label>Seleccione una fecha: </label>
+                            <input type="date" name="eventDate" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange} required/>
+                        </div>
+                        <div>
+                            <label>Seleccione una hora: </label>
+                            <input type="time" name="eventHour" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange} required/>
+                        </div>
+                        <div className="App-create-searchbar-textarea">
+                            <label>Añada una descripción: </label>
+                            <textarea type="text" name="eventDescription" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange} required/>
+                        </div>
+                        <div>
+                            <label>Escoja un número de asistentes: </label>
+                            <input type="number" name="eventAssistants" min={2} className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange} required/>
+                            <label className="App-container-checkbox">¿Tu vas a asistir?
+                                <input type="checkbox" checked={this.state.checkBox} onChange={this.changeCheckBox}/>
+                                <span className="App-checkmark"></span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>Escoja el tipo de evento: </label>
+                            <Select className="App-select" options={ eventTypes } value={this.state.eventType} onChange={this.changeEventType} placeholder="Seleccione un tipo" aria-required="true" required/>
+                        </div>
+                        <div>
+                            <label>Seleccione una imagen: </label>
+                            <input type="file" name="eventImage" className={"App-create-searchbar App-upload-image"} aria-required="true" onChange={this.handleInputsChange} required/>
+                        </div>
+                        <Button type="submit" className={"App-button App-button-create"} buttonInfo="Agregar Evento"></Button>
+                    </form>
                 </article>
             </section>
         );

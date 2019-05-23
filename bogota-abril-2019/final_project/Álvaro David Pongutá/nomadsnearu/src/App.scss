@@ -217,6 +217,14 @@
       margin-top: 36px;
     }
 
+    div{
+      label{
+        max-width: 245px;
+        min-width: 245px;
+        display: inline-block;
+      }
+    }
+
   }
 
   .App-center-elements{
@@ -339,6 +347,7 @@
   border-radius: 5px;
   transition: all 0.2s;
   border: 1px solid #FD8006;
+  text-decoration: none;
 
   i{
     position: relative;
@@ -347,7 +356,7 @@
   }
 
   &:hover{
-    background-color: #FD8006;;
+    background-color: #FD8006;
     color: white;
   }
 }
@@ -362,6 +371,7 @@
   border-radius: 5px;
   transition: all 0.2s;
   border: 1px solid #FD8006;
+  text-decoration: none;
 
   i{
     position: relative;
@@ -370,7 +380,7 @@
   }
 
   &:hover{
-    background-color: #FD8006;;
+    background-color: #FD8006;
     color: white;
   }
 }
@@ -497,9 +507,11 @@
 
 .App-select{
   margin-top: 12px;
-  width: 30%;
+  width: 20.9%;
   color: #282c34;
   font-size: 14px;
+  display: inline-block;
+  margin-left: 16px;
 
   div.css-1szy77t-control{
     box-shadow: 0 0 0 1px #282c34;
@@ -535,6 +547,7 @@
         div{
             a.legend{
               font-size: 16px;
+              text-decoration: none;
             }
             label.legend{
               font-size: 16px;
@@ -568,5 +581,29 @@
   }
   .yourEvents-right{
     margin-left: 8px;
+  }
+}
+
+.App-create-searchbar-fix{
+    display: inline-block;
+    div{
+      width: 15.8vw;
+      .App-create-searchbar{
+        width: 100%;
+      }
+    }
+}
+
+.App-create-searchbar-textarea{
+  label{
+    position: relative;
+    bottom: 36px;
+  }
+  textarea{
+    margin-bottom: 0;
+    height: 72px;
+    max-width: 430px;
+    text-align: initial;
+    min-height: 72px;
   }
 }

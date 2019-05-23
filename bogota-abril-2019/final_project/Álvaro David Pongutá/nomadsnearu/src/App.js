@@ -10,7 +10,6 @@ import CreateEvent from './Components/CreateEvent';
 import Home from './Components/Home';
 import EventsMap from './Components/EventsMap';
 import YourEvents from './Components/YourEvents';
-import PopularEvents from './Components/PopularEvents';
 
 //Components
 
@@ -110,7 +109,6 @@ class Container extends React.Component {
                     <article className="App-container_firstRow">
                         <nav>
                             <Link className="App-link" to= {`/`}>Home<i className="material-icons md-16">home</i></Link>
-                            <Link className="App-link" to= {`/popularEvents`}>Eventos populares<i className="material-icons md-16">favorite</i></Link>
                             <Link className="App-link" to= {`/eventsMap`}>Mapa de eventos<i className="material-icons md-16">map</i></Link>
                             <div onClick={() => this.checkSignIn()}>
                                 <Link className="App-private-link" to= {`/yourEvents`}>Tus Eventos<i className="material-icons md-16">face</i></Link>
@@ -121,7 +119,6 @@ class Container extends React.Component {
                         </nav>
                     </article>
                     <Route exact path='/' render={(props) => <Home {...props}/>}/>
-                    <Route path='/popularEvents' render={(props) => <PopularEvents {...props}/>}/>
                     <Route path='/eventsMap' render={(props) => <EventsMap {...props}/>}/>
                     <PrivateRoute path='/yourEvents' render={(props) => <YourEvents {...props}/>}/>
                     <PrivateRoute path='/createEvent' render={(props) => <CreateEvent {...props}/>}/>
