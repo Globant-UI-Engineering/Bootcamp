@@ -20,6 +20,10 @@ function TopTracks({
   ...routerProps
 }) {
   useEffect(() => {
+    document.title = "My Top Tracks";
+  }, []);
+
+  useEffect(() => {
     fetchTopTracks(0);
     return () => clearTopTracks();
   }, [fetchTopTracks, clearTopTracks]);

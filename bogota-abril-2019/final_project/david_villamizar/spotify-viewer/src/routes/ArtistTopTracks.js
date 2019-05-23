@@ -13,11 +13,16 @@ import { store } from "../store/store";
 function ArtistTopTracks({
   tracks,
   artistId,
+  artistName,
   fetchTopTracks,
   clearTopTracks,
   error,
   ...routerProps
 }) {
+  useEffect(() => {
+    document.title = `Top ${artistName} Tracks`;
+  }, [artistName]);
+
   useEffect(() => {
     fetchTopTracks(artistId);
     return () => clearTopTracks();

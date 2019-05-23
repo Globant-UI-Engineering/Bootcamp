@@ -20,6 +20,10 @@ function TopArtists({
   ...routerProps
 }) {
   useEffect(() => {
+    document.title = "My Top Artists";
+  }, []);
+
+  useEffect(() => {
     fetchArtists(0);
     return () => clearArtists();
   }, [fetchArtists, clearArtists]);

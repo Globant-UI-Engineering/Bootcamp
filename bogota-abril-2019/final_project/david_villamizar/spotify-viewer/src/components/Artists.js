@@ -38,13 +38,13 @@ function ArtistListItem({ name, images, genres, id, match, location }) {
         <Route
           path={`${match.path}/${id}/albums`}
           render={routerProps => (
-            <ArtistAlbums artistId={id} {...routerProps} />
+            <ArtistAlbums artistId={id} artistName={name} {...routerProps} />
           )}
         />
         <Route
           path={`${match.path}/${id}/top-tracks`}
           render={routerProps => (
-            <ArtistTopTracks artistId={id} {...routerProps} />
+            <ArtistTopTracks artistId={id} artistName={name} {...routerProps} />
           )}
         />
         <Redirect

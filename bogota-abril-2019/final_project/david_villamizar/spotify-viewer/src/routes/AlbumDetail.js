@@ -12,6 +12,13 @@ import { store } from "../store/store";
 
 function AlbumDetail({ album, fetchAlbum, removeAlbum, error, match }) {
   const { albumId } = match.params;
+
+  useEffect(() => {
+    if (album) {
+      document.title = `${album.name}`;
+    }
+  }, [album]);
+
   useEffect(() => {
     fetchAlbum(albumId);
     return () => removeAlbum(albumId);

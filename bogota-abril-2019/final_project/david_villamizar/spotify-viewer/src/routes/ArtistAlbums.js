@@ -14,12 +14,17 @@ import styles from "./ArtistAlbums.module.css";
 function ArtistAlbums({
   albums,
   artistId,
+  artistName,
   fetchAlbums,
   clearAlbums,
   isLoading,
   error,
   ...routerProps
 }) {
+  useEffect(() => {
+    document.title = `${artistName}'s Albums`;
+  }, [artistName]);
+
   useEffect(() => {
     fetchAlbums(artistId, 0);
     return () => clearAlbums(artistId);

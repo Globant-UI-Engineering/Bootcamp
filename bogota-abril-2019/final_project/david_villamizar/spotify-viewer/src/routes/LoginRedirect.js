@@ -38,6 +38,10 @@ function SpotifyRedirect({ addCredentials, location, history }) {
       params[key] = val;
     });
 
+  useEffect(() => {
+    document.title = "Receiving credentials from Spotify...";
+  }, []);
+
   const { url } = JSON.parse(decodeURIComponent(params.state));
   useEffect(() => {
     addCredentials(params);
@@ -52,6 +56,10 @@ function SpotifyRedirect({ addCredentials, location, history }) {
 }
 
 function LoginRedirect({ addCredentials, errors, location }) {
+  useEffect(() => {
+    document.title = "Redirecting to Spotify login...";
+  }, []);
+
   useEffect(() => {
     if (errors.length > 0) {
       login(location);
