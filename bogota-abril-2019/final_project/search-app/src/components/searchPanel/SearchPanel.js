@@ -3,13 +3,13 @@ import './SearchPanel.css';
 import fireBaseInit from '../FirebaseInit'
 import logo from '../../../src/images/logo.svg'
 import Card from '../card/Card'
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import findTechnologys from '../../redux/actions/findTechnologys'
 import updateAllTechnologys from '../../redux/actions/updateAllTechnologys'
+import updateUserInput from '../../redux/actions/updateUserInput'
 import Detail from '../detail/Detail';
 
-const firebaseRef = fireBaseInit.database().ref().child("technology");
+const firebaseRef = fireBaseInit.database().ref();
 
 class SearchPanel extends React.Component {
   
@@ -26,13 +26,15 @@ class SearchPanel extends React.Component {
 
   render () {
     const {technologys} = this.props;
+    const {inputValue} = this.props;
     return (
     <div className="SearchPanel">
       <header className="SearchPanel-header">
         
         <img src = {logo} alt = "logo"></img>
         <input placeholder = "What are you looking for..." onKeyUp = {this.findTechnologys}
-              disabled = {this.state.dataNotLoaded}></input>
+              disabled = {this.state.dataNotLoaded} value = {inputValue}
+              onChange={event=>this.props.updateUserInput(event.target.value)}></input>
         <img src = {logo} alt = "logo" ></img>
       </header>
       <article className = "results-content">
@@ -42,11 +44,10 @@ class SearchPanel extends React.Component {
   )}
 
   technologysAsCard = (object)=>(
-    <Link key={object.id} to= {`/detail/`+object.id} 
-      onClick={() => this.cardClickHandler(object)}>
+    <div  key={object.id}  onClick={() => this.cardClickHandler(object)}>
       <Card title = {object.title} image = {object.image} 
-        ></Card>
-    </Link>
+        id = {object.id} ></Card>
+    </div>
   );
   
   componentDidMount(){
@@ -72,13 +73,15 @@ class SearchPanel extends React.Component {
 const mapStateToProps = (state) => {
   return {
     technologys:state.restultList,
-    allTechnologys:state.allTechnologys
+    allTechnologys:state.allTechnologys,
+    inputValue:state.userInput
   }
 };
 
 const mapDispatchToProps = {
   findTechnologys,
-  updateAllTechnologys
+  updateAllTechnologys,
+  updateUserInput
 };
 
 export default connect(mapStateToProps,mapDispatchToProps) (SearchPanel);

@@ -24,7 +24,7 @@ class Detail extends React.Component {
         </div>
         <footer className = "detail-back-button">
           <Link to= {`/`} >
-            <button >Back to Search</button>
+            <button className = "back-button">Back to Search</button>
           </Link>
         </footer>
     </div>

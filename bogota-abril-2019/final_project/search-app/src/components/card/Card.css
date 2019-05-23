@@ -31,3 +31,14 @@
   border-color: black;
   text-decoration: underline;
 }
+
+.delete-button{
+  width: 46px;
+  height: 26px;
+  font-size: 10px;
+  background-color: cornsilk;
+  color: brown;
+  font-family: 'Oswald', sans-serif;
+  float: right;
+
+}
