@@ -2,7 +2,6 @@ import React from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
-import LoginWarningModal from "./components/LoginWarningModal";
 import NavBar from "./components/NavBar";
 import AlbumDetail from "./routes/AlbumDetail";
 import LoginRedirect from "./routes/LoginRedirect";
@@ -14,7 +13,7 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <LoginWarningModal />
+        {/* <ErrorModal /> */}
         <NavBar
           links={[
             { name: "My Top Artists", href: "/top-artists" },
@@ -25,9 +24,9 @@ function App() {
           <Route path="/top-artists" component={TopArtists} />
           <Route path="/top-tracks" component={TopTracks} />
           <Route path="/album/:albumId" component={AlbumDetail} />
-          <Route path={"/spotify-redirect"} component={LoginRedirect} />
           <Redirect to="/top-artists" />
         </Switch>
+        <Route component={LoginRedirect} />
       </BrowserRouter>
     </Provider>
   );

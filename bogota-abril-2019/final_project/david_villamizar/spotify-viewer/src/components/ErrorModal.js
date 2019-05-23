@@ -1,11 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { login } from "../routes/LoginRedirect";
 import { getAllErrorsList } from "../store/reducers";
 import styles from "./LoginWarningModal.module.css";
 
-function LoginWarningModal({ errors, location }) {
+function ErrorModal({ errors }) {
   if (errors.length === 0) {
     return null;
   }
@@ -13,9 +12,8 @@ function LoginWarningModal({ errors, location }) {
   return (
     <div className={styles.modalBackdrop}>
       <div className={styles.loginWarning}>
-        <h1>Log in</h1>
-        <p>You need to log in to Spotify first.</p>
-        <button onClick={e => login(location)}>Log in</button>
+        <h1>Error</h1>
+        <p>{errors[0]}</p>
       </div>
     </div>
   );
@@ -25,4 +23,4 @@ const mapStateToProps = state => ({
   errors: getAllErrorsList(state),
 });
 
-export default withRouter(connect(mapStateToProps)(LoginWarningModal));
+export default withRouter(connect(mapStateToProps)(ErrorModal));

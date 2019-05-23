@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import { addCredentials } from "../store/actions";
+import { getAllErrorsList } from "../store/reducers";
 
 export function login(location) {
   // https://developer.spotify.com/dashboard/login
@@ -25,7 +26,7 @@ export function login(location) {
   )}&response_type=token&scope=${e(scopes)}&state=${state}`;
 }
 
-function LoginRedirect({ addCredentials, location, history }) {
+function SpotifyRedirect({ addCredentials, location, history }) {
   const params = {};
   location.hash
     .slice(1)
@@ -40,13 +41,36 @@ function LoginRedirect({ addCredentials, location, history }) {
   const { url } = JSON.parse(decodeURIComponent(params.state));
   useEffect(() => {
     addCredentials(params);
-    history.push(url);
+    history.replace(url);
   });
+
   if (!params.access_token) {
     return <p>There was a problem logging in to Spotify</p>;
   }
-  return <Redirect to="/artists" />;
+
+  return <Redirect to={url} />;
 }
+
+function LoginRedirect({ addCredentials, errors, location }) {
+  useEffect(() => {
+    if (errors.length > 0) {
+      login(location);
+    }
+  }, [location, errors]);
+
+  return (
+    <Route
+      path="/spotify-redirect"
+      render={routerProps => (
+        <SpotifyRedirect addCredentials={addCredentials} {...routerProps} />
+      )}
+    />
+  );
+}
+
+const mapStateToProps = state => ({
+  errors: getAllErrorsList(state),
+});
 
 const mapDispatchToProps = dispatch => ({
   addCredentials: ({ access_token, expires_in, token_type }) =>
@@ -54,6 +78,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  undefined,
+  mapStateToProps,
   mapDispatchToProps,
 )(LoginRedirect);
