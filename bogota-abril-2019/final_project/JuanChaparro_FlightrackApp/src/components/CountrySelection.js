@@ -20,7 +20,7 @@ class CountrySelection extends Component {
                     {this.state.countryList.map((country) => 
                         <option key={country.countryId} value={country.codeIso2Country}>{country.nameCountry}</option>)}
                 </select>
-                <button type="submit" aria-label="submit" onClick={() => this.submitHandler()}>Submit</button>
+                <button className ="btn-home" type="submit" aria-label="submit" onClick={() => this.submitHandler()}>Submit</button>
                 {this.state.submitted ? <Redirect to={`/countries/${this.state.countrySelected}`}/> : null}
             </div>
         );

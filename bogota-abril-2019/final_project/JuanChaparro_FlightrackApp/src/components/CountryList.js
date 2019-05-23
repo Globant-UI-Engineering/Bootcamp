@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { getCountries } from './../services/flightrackservice';
-import { LOGIN_PATH } from './../constants/routes';
+import { LOGIN_PATH, TRACKER } from './../constants/routes';
 import CountrySelection from './CountrySelection';
 import Navbar from './Navbar';
 import store from '../store';
@@ -14,16 +14,13 @@ class CountryList extends Component {
 
         this.state = {
             isAuthenticated: store.getState().user.isAuthenticated,
-            username: store.getState().user.username,
-            countryList: []
+            countryList: [],
+            goToTracker: false
         }
 
         store.subscribe(() => {
             if (this._isMounted) {
-                this.setState({
-                    isAuthenticated: store.getState().user.isAuthenticated,
-                    username: store.getState().user.username
-                });
+                this.setState({isAuthenticated: store.getState().user.isAuthenticated,});
             }
         });
     }
@@ -36,8 +33,14 @@ class CountryList extends Component {
                 <div>
                     <Navbar/>
                     <div className="countrylist-container">
-                        <label htmlFor="favcountry">{`Welcome ${this.state.username}, please select a country:`}</label>
+                        <label htmlFor="favcountry">{"Flights Schedules by Country:"}</label>
                         {!this.isEmpty(this.state.countryList) ? <CountrySelection countryList={this.state.countryList}/> : <p>Loading...</p>}
+                    </div>
+                    <hr/>
+                    <div className="trackflights-container">
+                        <label>{"Track Flights:"}</label>
+                        <button className="btn-home" type="button" aria-label="track" onClick={() => this.trackerBtnHandler()}>Track It Now!</button>
+                        {this.state.goToTracker ? <Redirect to={TRACKER}/> : null}
                     </div>
                 </div>
             );
@@ -47,12 +50,18 @@ class CountryList extends Component {
     componentDidMount() {
         this._isMounted = true;
         if (this.isEmpty(this.state.countryList) && this.state.isAuthenticated) {
-            getCountries().then(response => this.setState({countryList: response}));
+            getCountries().then(response => {
+                if (this._isMounted) this.setState({countryList: response})
+            });
         }
     }
 
     isEmpty(list) {
         return list.length === 0;
+    }
+
+    trackerBtnHandler() {
+        this.setState({goToTracker: true})
     }
 
     componentWillUnmount() {

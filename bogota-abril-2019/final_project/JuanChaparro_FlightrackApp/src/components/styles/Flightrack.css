@@ -1,0 +1,41 @@
+.flightrack-container {
+    margin: 50px auto;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+}
+
+.flightrack-container input {
+    width: 150px;
+    height: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+.message-flightrack {
+    margin-top: 50px;
+    font-size: 20px;
+    color: grey;
+}
+
+.flights-info {
+    padding-top: 20px;
+    border-top: 2px solid rgb(239, 228, 14);
+}
+
+.flights-found img {
+    width: 50%;
+}
+
+.flights-found span{
+    display: block;
+    font-size: 25px;
+}
+
+.flights-found {
+    width: 25%;
+    display: inline-block;
+    padding: 30px;
+}

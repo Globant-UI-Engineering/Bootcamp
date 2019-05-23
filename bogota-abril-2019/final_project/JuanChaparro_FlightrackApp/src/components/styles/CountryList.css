@@ -9,12 +9,26 @@
 }
 .countrylist-container select {
     margin-top: 30px;
-    width: 200px;
+    width: 300px;
     height: 50px;
     font-size: 20px;
 }
 
-.countrylist-container button {
+.countrylist-container p {
+    font-size: 30px;
+}
+
+.trackflights-container {
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.trackflights-container label {
+    font-size: 30px;
+}
+
+.btn-home {
     display: block;
     margin: 30px auto;
     background-color: rgb(25, 158, 218);
@@ -25,6 +39,6 @@
     font-size: 20px;
 }
 
-.countrylist-container p {
-    font-size: 30px;
+hr {
+    width: 95%;
 }

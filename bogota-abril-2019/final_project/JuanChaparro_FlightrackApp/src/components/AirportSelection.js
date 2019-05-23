@@ -22,7 +22,8 @@ class AirportSelection extends Component {
 
         return(
             <div>
-                <select onChange={(event) => this.onChangeHandler(event)}>
+                <label htmlFor="favairport">Select an Airport: </label>
+                <select id="favairport" onChange={(event) => this.onChangeHandler(event)}>
                     {this.state.airportList.map((airport) => 
                         <option key={airport.airportId} value={airport.airportId}>{airport.nameAirport}</option>)}
                 </select>

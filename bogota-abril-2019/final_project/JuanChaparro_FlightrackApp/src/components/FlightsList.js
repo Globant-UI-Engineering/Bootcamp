@@ -13,9 +13,15 @@ const FlightsList = ({type, flightsList}) => (
             <div className="flight-description" key={index}>
                 {isArrival(flight.type) ? <img src={ArrivalIcon} alt="Arrival-Icon"/> :  <img src={DepartureIcon} alt="Departure-Icon"/>}
                 <p>
-                    <span className="info"><span className="key">Status: </span><span className="value">{flight.status}</span></span>
-                    <span className="info"><span className="key">Airline: </span><span className="value">{flight.airline.name}</span></span>
-                    <span className="info"><span className="key">Flight Number: </span><span className="value">{flight.flight.iataNumber}</span></span>
+                    <span className="info"><span className="key">Status: </span>
+                        <span className="value">{flight.status}</span>
+                    </span>
+                    <span className="info"><span className="key">Airline: </span>
+                        <span className="value">{flight.airline.name}</span>
+                    </span>
+                    <span className="info"><span className="key">Flight Number: </span>
+                        <span className="value">{flight.flight.iataNumber}</span>
+                    </span>
                     <span className="info"><span className="key">Gate: </span>
                         <span className="value">{isArrival(flight.type) ? flight.arrival.gate : flight.departure.gate}</span>
                     </span>
@@ -29,7 +35,6 @@ const FlightsList = ({type, flightsList}) => (
                 </p>
             </div>
         ))}
-
     </div>
 );
 

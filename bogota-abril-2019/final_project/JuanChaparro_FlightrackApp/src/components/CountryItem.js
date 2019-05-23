@@ -20,7 +20,7 @@ class CountryItem extends Component {
 
         store.subscribe(() => {
             if (this._isMounted) {
-                this.setState({ isAuthenticated: store.getState().user.isAuthenticated});
+                this.setState({isAuthenticated: store.getState().user.isAuthenticated});
             }
         });
     }
@@ -43,7 +43,9 @@ class CountryItem extends Component {
     componentDidMount() {
         this._isMounted = true;
         if (this.isEmpty(this.state.airportList) && this.state.isAuthenticated) {
-            getAirports(this.state.countryCode).then(response => this.setState({airportList: response}));
+            getAirports(this.state.countryCode).then(response => {
+                if (this._isMounted) this.setState({airportList: response})
+            });
         }
     }
 

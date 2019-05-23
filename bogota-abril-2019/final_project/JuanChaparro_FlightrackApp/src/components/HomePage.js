@@ -18,12 +18,12 @@ class HomePage extends Component {
             desc: 'Member Login',
             inputs: {
                 username: null,
-                password: null,
+                password: null
             },
             message: {
                 description: null,
-                success: null,
-            },
+                success: null
+            }
         };
 
         store.subscribe(() => {
