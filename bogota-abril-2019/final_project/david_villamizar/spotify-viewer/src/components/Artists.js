@@ -21,7 +21,7 @@ function ArtistListItem({ name, images, genres, id, match, location }) {
       className={`${styles.artist} ${
         location.pathname.startsWith(`${match.path}/${id}`) ? styles.active : ""
       }`}
-      style={{ maxHeight: Math.min(images[0].height, 500) }}
+      // style={{ maxHeight: Math.min(images[0].height, 500) }}
     >
       <img src={images[0].url} alt={name} />
       <NavLink activeClassName={styles.active} to={`${match.path}/${id}`}>

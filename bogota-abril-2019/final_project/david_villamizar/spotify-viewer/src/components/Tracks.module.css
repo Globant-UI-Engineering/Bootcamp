@@ -12,23 +12,58 @@
 }
 
 .track {
-  flex-direction: row;
+  flex-direction: column;
   display: flex;
   flex-wrap: nowrap;
   align-items: baseline;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  background: rgba(0, 0, 0, 0);
+  transition: background-color 0.25s;
+  padding: 1rem;
 }
 
-.track > p {
-  margin: 1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: right;
-  flex: 1 1 auto;
+.track:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.track > * {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .track > h3 {
-  margin-right: 1em;
-  flex: 1000 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 10 1 70%;
+  max-width: 100%;
+}
+.track > h4 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: normal;
+  text-align: right;
+  flex: 1 2 50%;
+  max-width: 100%;
+}
+.track > p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: right;
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .track {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .track > * {
+    margin-left: 1rem;
+  }
+  .track > *:first-child {
+    margin-left: 0;
+  }
 }

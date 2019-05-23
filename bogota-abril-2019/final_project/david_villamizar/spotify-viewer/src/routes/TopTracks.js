@@ -31,7 +31,9 @@ function TopTracks({
   const offset = tracks.length;
   return (
     <>
-      <Tracks tracks={tracks} {...routerProps} />
+      <div className={styles.container}>
+        <Tracks tracks={tracks} {...routerProps} />
+      </div>
       <button
         className={styles.loadMore}
         disabled={isLoading}

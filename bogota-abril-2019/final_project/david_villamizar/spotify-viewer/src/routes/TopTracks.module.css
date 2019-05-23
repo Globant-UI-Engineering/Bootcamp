@@ -1,3 +1,8 @@
+.container {
+  background: #444;
+  color: white;
+}
+
 .loadMore {
   border: 0;
   width: 100%;

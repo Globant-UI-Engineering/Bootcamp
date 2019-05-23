@@ -47,8 +47,9 @@
 .album:hover > *:not(img) {
   visibility: visible;
 }
-.album h3 {
-  margin-top: 0;
+.album h3,
+.album p {
+  margin: 0;
 }
 
 .album > img {
