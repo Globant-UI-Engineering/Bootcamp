@@ -125,6 +125,10 @@ thead tr.MuiTableRow-root-30 th {
   height: 300px;
 }
 
+/**:focus {
+  outline: solid 3px red !important ;
+}*/
+
 /*Challenger List*/
 /*td {
   color: white;

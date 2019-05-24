@@ -1,5 +1,4 @@
 import React from "react";
-
 import { getSummoner } from "../utils/api";
 import SummonerProfile from "./SummonerProfile";
 import search from "../../public/images/search.png";
@@ -14,7 +13,7 @@ import {
   InputBase,
   IconButton
 } from "@material-ui/core";
-import { redirectTo } from "@reach/router";
+import { redirectTo, Router, Link } from "@reach/router";
 import { navigate } from "@reach/router/lib/history";
 
 class Search extends React.Component {
@@ -28,14 +27,12 @@ class Search extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
-    if (this.state.summonerName) {
-      navigate("/summoners/" + this.state.summonerName);
-    }
+    //this.setState({ summonerName: "" });
   };
 
   render() {
     const { summonerName } = this.state;
+    const { children } = this.props;
     return (
       <React.Fragment>
         <Paper className="search-section-container">
@@ -47,12 +44,12 @@ class Search extends React.Component {
             aria-describedby="Search a summoner name"
           />
           <Button onClick={this.handleSubmit}>
-            <img src={search} alt="icon button" />
+            <Link to={`summoners/${summonerName}`}>
+              <img src={search} alt="icon button" />
+            </Link>
           </Button>
         </Paper>
-        <section>
-          {summonerName && <SummonerProfile name={summonerName} />}
-        </section>
+        {children}
       </React.Fragment>
     );
   }

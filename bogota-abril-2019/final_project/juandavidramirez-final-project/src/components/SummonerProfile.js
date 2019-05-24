@@ -9,20 +9,22 @@ class SummonerProfile extends React.Component {
   state = {
     loading: true
   };
-  getSummonerMatches = () => {
-    var callback = {
-      onSuccess: response => {
-        this.setState({ loading: false, matches: response.data });
-      },
-      onFailed: error => {
-        console.log(error);
-      }
-    };
-    console.log(this.state);
-    getSummonerMatches(20, this.state.profileInfo.accountId, callback);
-  };
 
-  componentDidMount() {
+  UNSAFE_componentWillReceiveProps(newProps) {
+    const upperNewProps = newProps.name.toUpperCase();
+    const upperOldProps = this.props.name.toUpperCase();
+    if (!(upperNewProps === upperOldProps)) {
+      this.setState({ loading: true, matches: null, profileInfo: null });
+    }
+  }
+
+  componentDidUpdate() {
+    if (!this.state.profileInfo && this.state.loading) {
+      this.handleProfileRequest();
+    }
+  }
+
+  handleProfileRequest = () => {
     var callback = {
       onSuccess: response => {
         this.setState({ profileInfo: response.data }, () => {
@@ -34,15 +36,18 @@ class SummonerProfile extends React.Component {
               console.log(error);
             }
           };
-          console.log(this.state);
           getSummonerMatches(20, this.state.profileInfo.accountId, callback);
         });
       },
       onFailed: error => {
-        console.log(error);
+        this.setState({ loading: false });
       }
     };
     getSummoner(this.props.name, callback);
+  };
+
+  componentDidMount() {
+    this.handleProfileRequest();
   }
   render() {
     const { loading, matches, profileInfo } = this.state;
@@ -52,6 +57,8 @@ class SummonerProfile extends React.Component {
       : "";
     return loading ? (
       <Loading name="Summoner profile" />
+    ) : !profileInfo ? (
+      <h1>This summoner doesnt exist</h1>
     ) : (
       <Paper className="summoner-info-paper-container">
         {" "}

@@ -74066,36 +74066,15 @@ function (_React$Component) {
 
     return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(SummonerProfile)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
       loading: true
-    }, _this.getSummonerMatches = function () {
+    }, _this.handleProfileRequest = function () {
       var callback = {
         onSuccess: function onSuccess(response) {
           _this.setState({
-            loading: false,
-            matches: response.data
-          });
-        },
-        onFailed: function onFailed(error) {
-          console.log(error);
-        }
-      };
-      console.log(_this.state);
-      (0, _api.getSummonerMatches)(20, _this.state.profileInfo.accountId, callback);
-    }, _temp));
-  }
-
-  _createClass(SummonerProfile, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var callback = {
-        onSuccess: function onSuccess(response) {
-          _this2.setState({
             profileInfo: response.data
           }, function () {
             var callback = {
               onSuccess: function onSuccess(response) {
-                _this2.setState({
+                _this.setState({
                   loading: false,
                   matches: response.data
                 });
@@ -74104,15 +74083,44 @@ function (_React$Component) {
                 console.log(error);
               }
             };
-            console.log(_this2.state);
-            (0, _api.getSummonerMatches)(20, _this2.state.profileInfo.accountId, callback);
+            (0, _api.getSummonerMatches)(20, _this.state.profileInfo.accountId, callback);
           });
         },
         onFailed: function onFailed(error) {
-          console.log(error);
+          _this.setState({
+            loading: false
+          });
         }
       };
-      (0, _api.getSummoner)(this.props.name, callback);
+      (0, _api.getSummoner)(_this.props.name, callback);
+    }, _temp));
+  }
+
+  _createClass(SummonerProfile, [{
+    key: "UNSAFE_componentWillReceiveProps",
+    value: function UNSAFE_componentWillReceiveProps(newProps) {
+      var upperNewProps = newProps.name.toUpperCase();
+      var upperOldProps = this.props.name.toUpperCase();
+
+      if (!(upperNewProps === upperOldProps)) {
+        this.setState({
+          loading: true,
+          matches: null,
+          profileInfo: null
+        });
+      }
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      if (!this.state.profileInfo && this.state.loading) {
+        this.handleProfileRequest();
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.handleProfileRequest();
     }
   }, {
     key: "render",
@@ -74124,7 +74132,7 @@ function (_React$Component) {
       var profileIconUrl = profileInfo ? _urls.apiStaticUrl.img + "/profileicon/" + profileInfo.profileIconId + ".png" : "";
       return loading ? _react.default.createElement(_Loading.default, {
         name: "Summoner profile"
-      }) : _react.default.createElement(_core.Paper, {
+      }) : !profileInfo ? _react.default.createElement("h1", null, "This summoner doesnt exist") : _react.default.createElement(_core.Paper, {
         className: "summoner-info-paper-container"
       }, " ", _react.default.createElement("img", {
         className: "profile-icon-image",
@@ -74372,11 +74380,7 @@ function (_React$Component) {
         summonerName: event.target.value
       });
     }, _this.handleSubmit = function (event) {
-      event.preventDefault();
-
-      if (_this.state.summonerName) {
-        (0, _history.navigate)("/summoners/" + _this.state.summonerName);
-      }
+      event.preventDefault(); //this.setState({ summonerName: "" });
     }, _temp));
   }
 
@@ -74384,6 +74388,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var summonerName = this.state.summonerName;
+      var children = this.props.children;
       return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_core.Paper, {
         className: "search-section-container"
       }, _react.default.createElement(_core.InputBase, {
@@ -74394,12 +74399,12 @@ function (_React$Component) {
         "aria-describedby": "Search a summoner name"
       }), _react.default.createElement(_core.Button, {
         onClick: this.handleSubmit
+      }, _react.default.createElement(_router.Link, {
+        to: "summoners/".concat(summonerName)
       }, _react.default.createElement("img", {
         src: _search.default,
         alt: "icon button"
-      }))), _react.default.createElement("section", null, summonerName && _react.default.createElement(_SummonerProfile.default, {
-        name: summonerName
-      })));
+      })))), children);
     }
   }]);
 
@@ -74437,13 +74442,15 @@ var Content = function Content() {
     exact: true,
     path: "/"
   }), _react.default.createElement(_ChampionList.default, {
-    path: "/champions"
+    path: "champions"
   }), _react.default.createElement(_TopTierList.default, {
-    path: "/tierList"
+    path: "tierList"
   }), _react.default.createElement(_Search.default, {
-    path: "/search"
-  }), _react.default.createElement(_SummonerProfile.default, {
-    path: "/summoners/:id"
+    path: "search"
+  }, _react.default.createElement(_SummonerProfile.default, {
+    path: "summoners/:name"
+  })), _react.default.createElement(_SummonerProfile.default, {
+    path: "summoners/:name"
   })));
 };
 
@@ -74603,7 +74610,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50022" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57882" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

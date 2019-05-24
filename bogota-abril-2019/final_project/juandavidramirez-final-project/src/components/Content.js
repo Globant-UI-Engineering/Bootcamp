@@ -12,10 +12,12 @@ const Content = () => {
     <article>
       <Router>
         <Home exact path="/" />
-        <ChampionList path="/champions" />
-        <TopTierList path="/tierList" />
-        <Search path="/search" />
-        <SummonerProfile path="/summoners/:id" />
+        <ChampionList path="champions" />
+        <TopTierList path="tierList" />
+        <Search path="search">
+          <SummonerProfile path="summoners/:name" />
+        </Search>
+        <SummonerProfile path="summoners/:name" />
       </Router>
     </article>
   );
