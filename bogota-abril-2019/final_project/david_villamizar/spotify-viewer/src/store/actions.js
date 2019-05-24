@@ -26,6 +26,11 @@ export const CLEAR_TOP_TRACKS = "CLEAR_TOP_TRACKS";
 export const SHOW_TOP_TRACKS_ERROR = "SHOW_TOP_TRACKS_ERROR";
 export const SET_TOP_TRACKS_LOADING = "SET_TOP_TRACKS_LOADING";
 
+export const ADD_PLAYLISTS_PAGE = "ADD_TOP_TRACKS_PAGE";
+export const CLEAR_PLAYLISTS = "CLEAR_TOP_TRACKS";
+export const SHOW_PLAYLISTS_ERROR = "SHOW_TOP_TRACKS_ERROR";
+export const SET_PLAYLISTS_LOADING = "SET_TOP_TRACKS_LOADING";
+
 export const addCredentials = ({ access_token, expires_in, token_type }) => ({
   type: ADD_CREDENTIALS,
   access_token,
@@ -121,6 +126,23 @@ export const setTopTracksLoading = isLoading => ({
   isLoading,
 });
 
+export const addPlaylistsPage = page => ({
+  type: ADD_PLAYLISTS_PAGE,
+  page,
+});
+export const clearPlaylists = () => ({
+  type: CLEAR_PLAYLISTS,
+});
+export const showPlaylistsError = error => ({
+  type: SHOW_PLAYLISTS_ERROR,
+  isLoading: false,
+  error,
+});
+export const setPlaylistsLoading = isLoading => ({
+  type: SET_PLAYLISTS_LOADING,
+  isLoading,
+});
+
 function getHeaders(access_token) {
   return {
     Authorization: "Bearer " + access_token,
@@ -145,7 +167,7 @@ export function fetchTopArtists(offset, access_token) {
       .catch(() =>
         dispatch(
           showTopArtistsError(
-            `Artists request failed for access_token ${access_token} and offset ${offset}.`,
+            `Top artists request failed for access_token ${access_token} and offset ${offset}.`,
           ),
         ),
       );
@@ -173,7 +195,7 @@ export function fetchArtistAlbums(artistId, offset, access_token) {
       .catch(() =>
         dispatch(
           showArtistAlbumsError(
-            `Artists request failed for access_token ${access_token} artistId ${artistId} and offset ${offset}.`,
+            `Artist's albums request failed for access_token ${access_token} artistId ${artistId} and offset ${offset}.`,
           ),
         ),
       );
@@ -207,7 +229,7 @@ export function fetchArtistTopTracks(
       .catch(() =>
         dispatch(
           showArtistTopTracksError(
-            `Artists request failed for access_token ${access_token} artistId ${artistId} and country ISO ${countryIso}.`,
+            `Artist's top tracks request failed for access_token ${access_token} artistId ${artistId} and country ISO ${countryIso}.`,
           ),
         ),
       );
@@ -232,7 +254,7 @@ export function fetchAlbumDetail(albumId, access_token) {
       .catch(() =>
         dispatch(
           showAlbumError(
-            `Artists request failed for access_token ${access_token} and album ${albumId}.`,
+            `Album detail request failed for access_token ${access_token} and album ${albumId}.`,
           ),
         ),
       );
@@ -257,7 +279,32 @@ export function fetchTopTracks(offset, access_token) {
       .catch(() =>
         dispatch(
           showTopTracksError(
-            `Artists request failed for access_token ${access_token} and offset ${offset}.`,
+            `Top tracks request failed for access_token ${access_token} and offset ${offset}.`,
+          ),
+        ),
+      );
+  };
+}
+
+export function fetchPlaylists(offset, access_token) {
+  return dispatch => {
+    dispatch(setPlaylistsLoading(true));
+    fetch(`https://api.spotify.com/v1/me/playlists?offset=${offset}`, {
+      headers: getHeaders(access_token),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        dispatch(setPlaylistsLoading(false));
+        return response;
+      })
+      .then(response => response.json())
+      .then(page => dispatch(addPlaylistsPage(page)))
+      .catch(() =>
+        dispatch(
+          showPlaylistsError(
+            `Playlists request failed for access_token ${access_token} and offset ${offset}.`,
           ),
         ),
       );

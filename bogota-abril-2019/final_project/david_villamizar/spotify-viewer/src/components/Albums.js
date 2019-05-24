@@ -4,7 +4,7 @@ import styles from "./Albums.module.css";
 
 function Album({ name, images, id, release_date, total_tracks }) {
   return (
-    <Link to={`/album/${id}`} key={id}>
+    <Link to={`/albums/${id}`} key={id}>
       <li className={styles.album}>
         <h3>{name}</h3>
         <img src={images[0].url} alt={name} />

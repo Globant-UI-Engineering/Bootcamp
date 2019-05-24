@@ -16,6 +16,7 @@ export function login(location) {
     "user-read-email",
     "user-top-read",
     "playlist-read-private",
+    "playlist-read-collaborative",
   ].join(" ");
   const state = JSON.stringify({
     url: location.pathname,
