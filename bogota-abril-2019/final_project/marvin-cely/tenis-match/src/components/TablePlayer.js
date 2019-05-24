@@ -19,7 +19,7 @@ const TablePlayer = observer(
         );
       }
 
-      const playersList = this.props.players.map(({id, name, nationality, birthYear, ranking}) => {
+      const playersList = this.props.players.map(({id, name, nationality, birthDate, ranking}) => {
         return (
           <section className="row" key={id} role="row">
             <span className="col-md-3" role="cell">
@@ -29,7 +29,7 @@ const TablePlayer = observer(
               {nationality}
             </span>
             <span className="col-md-3" role="cell">
-              {utils.getAge(birthYear)}
+              {utils.getAge(birthDate)}
             </span>
             <span className="col-md-3" role="cell">
               {ranking}

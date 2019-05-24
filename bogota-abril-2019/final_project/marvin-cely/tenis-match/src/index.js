@@ -3,16 +3,13 @@ import ReactDOM from 'react-dom';
 import './css/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import dataBase from './store/firebaseStore';
-import tenisMatchStore from './store/tenisMatchStore';
+import store from './store/store';
 import utils from './utils/utils';
-
 
 utils.capitalizeString(); // Add prototype fuction string
 ReactDOM.render(
     <App 
-        fireStore={dataBase.fireStore}
-        store={tenisMatchStore}
+        store={store}
     />
     , document.getElementById('root'));
 

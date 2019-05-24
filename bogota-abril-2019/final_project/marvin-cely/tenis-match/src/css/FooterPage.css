@@ -14,12 +14,31 @@ footer i {
     font-size: var(--size-large);
 }
 
-footer > p{
+footer p {
     margin: 0;
+    text-align: center;
 }
 
 footer p:last-of-type {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+footer > section a {
+    margin: 10px;
+    font-family: var(--font-group-1);
+    font-size: var(--size-medium);
+}
+
+footer > section {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -27,6 +46,6 @@ footer a {
     color: var(--primary-color-ligth);
 }
 
-section>img {
-    width: 300px;
+section > p + picture {
+    max-width: 500px;
 }

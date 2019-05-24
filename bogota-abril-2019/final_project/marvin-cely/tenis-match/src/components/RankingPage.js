@@ -5,7 +5,7 @@ class RankingPage extends React.Component {
   render() { 
     return(
       <React.Fragment>
-        <div>RANKING PAGE</div>
+        <h1>RANKING PAGE</h1>
       </React.Fragment>
     );
   }

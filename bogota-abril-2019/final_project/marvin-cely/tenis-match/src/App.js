@@ -25,10 +25,12 @@ class App extends React.Component {
     this.state = {
       nameApp: 'Tennis Match',
     }
+
     // Here is the firestore's onSnapshot when gets the "()" Unlink a listening agent. See componentWillMount.
-    this.unSubcribePlayers = serviceGetData.obtainAll(this.props.store, this.props.fireStore, thesaurus.collectionsName.PLAYERS);
-    this.unSubcribeMatches = serviceGetData.obtainAll(this.props.store, this.props.fireStore, thesaurus.collectionsName.MATCHES);
-    this.unSubcribePoints = serviceGetData.obtainAll(this.props.store, this.props.fireStore, thesaurus.collectionsName.POINTS);
+    const {PLAYERS, MATCHES, POINTS} = thesaurus.collectionsName;
+    this.unSubcribePlayers = serviceGetData.listenAllElements(this.props.store, PLAYERS);
+    this.unSubcribeMatches = serviceGetData.listenAllElements(this.props.store, MATCHES);
+    this.unSubcribePoints = serviceGetData.listenAllElements(this.props.store, POINTS);
   }
 
   componentWillUnmount() {
@@ -42,6 +44,7 @@ class App extends React.Component {
       return (
         <Link
           key={key}
+          className="nav-link"
           to={to}
           id={id} 
           role={role} 
@@ -51,11 +54,33 @@ class App extends React.Component {
         </Link>
       );
     });
+
     return (
       <React.Fragment>
         <main>
-          <Router>   
-            <nav className="sticky-top shadow-lg pl-5 pr-5" role="tablist">
+          <Router>
+            <nav class="navbar sticky-top navbar-expand-md navbar-dark">
+              <Link
+                to="/"
+                id="navegacion-inicio-tab" 
+                role="tab" 
+                aria-controls="navegacion-inicio" 
+                aria-selected="true">
+                  <header>
+                    <img className="img-fluid" src={tennisLogo} alt="Logo Pelota de tenis" />
+                    <h1>{this.state.nameApp}</h1>
+                  </header>
+              </Link>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <section class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <article class="navbar-nav mr-auto ml-3 mt-2 mt-lg-0">
+                  {linkList}
+                </article>
+              </section>
+            </nav>
+            {/* <nav className="sticky-top shadow-lg pl-5 pr-5" role="tablist">
               <Link
                 to="/"
                 id="navegacion-inicio-tab" 
@@ -72,7 +97,7 @@ class App extends React.Component {
               <section>  
                 {linkList}            
               </section>
-            </nav>
+            </nav> */}
             <section>
               <Route
                 id="navegacion-inicio"

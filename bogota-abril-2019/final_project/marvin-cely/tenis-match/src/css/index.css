@@ -16,12 +16,19 @@
   --secundary-color-deep: #902b20;
 
   /**Font size*/
-  --size-small: 16px;
+  /* --size-small: 16px;
   --size-medium: 18px;
   --size-normal: 24px;
-  --size-large: 32px;
+  --size-large: 36px;
   --size-extra-large: 48px;
-  --size-ultra-large: 64px;
+  --size-ultra-large: 64px; */
+
+  --size-small: 1rem;
+  --size-medium: 1.2rem;
+  --size-normal: 1.4rem;
+  --size-large: 2.4rem;
+  --size-extra-large: 2.8rem;
+  --size-ultra-large: 5.2rem;
 
   /**Font styles*/
   --font-group-1: Arial, Helvetica, sans-serif;
