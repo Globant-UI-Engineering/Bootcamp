@@ -9,7 +9,7 @@ import {
   getPlaylistsIsLoading,
 } from "../store/reducers";
 import { store } from "../store/store";
-import styles from "./TopTracks.module.css";
+import styles from "./MyPlaylists.module.css";
 
 function MyPlaylists({
   playlists,
