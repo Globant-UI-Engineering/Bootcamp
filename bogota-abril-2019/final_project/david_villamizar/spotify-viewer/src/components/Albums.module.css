@@ -48,8 +48,9 @@
   visibility: visible;
 }
 .album h3,
+.album h4,
 .album p {
-  margin: 0;
+  margin: 0.5rem 0 0.5rem 0;
 }
 
 .album > img {
