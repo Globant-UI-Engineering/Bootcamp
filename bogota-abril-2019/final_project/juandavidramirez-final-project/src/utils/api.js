@@ -3,17 +3,17 @@ import { apiStaticUrl, apiUrl } from "./Constants/urls";
 
 const key = process.env.API_KEY;
 
-const concatApiKey = () => {
-  return "?api_key=" + key;
+const concatApiKey = option => {
+  return option + "api_key=" + key;
 };
 
 export function getChampions(callback) {
   axios
     .get(apiStaticUrl.data + "/champion.json")
-    .then(function(response) {
+    .then(response => {
       callback.onSuccess(response);
     })
-    .catch(function(error) {
+    .catch(error => {
       callback.onFailed(error);
     });
 }
@@ -21,15 +21,40 @@ export function getChampions(callback) {
 export function getSummoner(summonerName, callback) {
   axios
     .get(
-        apiUrl +
+      apiUrl +
         "/summoner/v4/summoners/by-name/" +
         summonerName +
-        concatApiKey()
+        concatApiKey("?")
     )
-    .then(function(response) {
+    .then(response => {
       callback.onSuccess(response);
     })
-    .catch(function(error) {
+    .catch(error => {
+      callback.onFailed(error);
+    });
+}
+
+export function getSummonerById(id, callback) {
+  axios
+    .get()
+    .then()
+    .catch();
+}
+
+export function getSummonerMatches(number, accountId, callback) {
+  axios
+    .get(
+      apiUrl +
+        "/match/v4/matchlists/by-account/" +
+        accountId +
+        "?endIndex=" +
+        number +
+        concatApiKey("&")
+    )
+    .then(response => {
+      callback.onSuccess(response);
+    })
+    .catch(error => {
       callback.onFailed(error);
     });
 }
@@ -37,15 +62,15 @@ export function getSummoner(summonerName, callback) {
 export function getChallengerLeagueByQueue(queue, callback) {
   axios
     .get(
-        apiUrl +
+      apiUrl +
         "/league/v4/challengerleagues/by-queue/" +
         queue +
-        concatApiKey()
+        concatApiKey("?")
     )
-    .then(function(response) {
+    .then(response => {
       callback.onSuccess(response);
     })
-    .catch(function(error) {
+    .catch(error => {
       callback.onFailed(error);
     });
 }

@@ -2,6 +2,18 @@ import React from "react";
 
 import { getSummoner } from "../utils/api";
 import SummonerProfile from "./SummonerProfile";
+import search from "../../public/images/search.png";
+import {
+  FormControl,
+  InputLabel,
+  Input,
+  Button,
+  SearchIcon,
+  CssBaseline,
+  Paper,
+  InputBase,
+  IconButton
+} from "@material-ui/core";
 
 class Search extends React.Component {
   state = {
@@ -17,7 +29,7 @@ class Search extends React.Component {
 
     var callback = {
       onSuccess: response => {
-        this.setState({ summonerName: "", summonerInfo: response.data });
+        this.setState({ summonerName: "", info: response.data });
       },
       onFailed: error => {
         console.error(error);
@@ -30,23 +42,35 @@ class Search extends React.Component {
   };
 
   render() {
-    const { summonerName, summonerInfo } = this.state;
+    const { summonerName, info } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="summoner-name-input">summoner name</label>
-          <input
-            id="summoner-name-input"
+      <React.Fragment>
+        <Paper className="search-section-container">
+          <InputBase
+            id="search-summoner-input"
             value={summonerName}
-            type="text"
             onChange={this.handleChange}
+            placeholder="Summoner name..."
+            aria-describedby="Search a summoner name"
           />
-
-          <button type="submit" />
-        </form>
-
-        <div>{summonerInfo && <SummonerProfile info={summonerInfo} />}</div>
-      </div>
+          <Button onClick={this.handleSubmit}>
+            <img src={search} alt="icon button" />
+          </Button>
+        </Paper>
+        <section>
+          {info && (
+            <SummonerProfile
+              id={info.id}
+              accountId={info.accountId}
+              puuid={info.puuid}
+              name={info.name}
+              profileIconId={info.profileIconId}
+              summonerLevel={info.summonerLevel}
+              revisionDate={info.revisionDate}
+            />
+          )}
+        </section>
+      </React.Fragment>
     );
   }
 }

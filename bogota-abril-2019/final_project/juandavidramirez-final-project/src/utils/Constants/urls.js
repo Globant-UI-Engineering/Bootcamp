@@ -1,6 +1,11 @@
+import { realpath } from "fs";
+
+const realmVersion = "9.10.1";
+
 export const apiStaticUrl = {
-  data: "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US",
-  img: "http://ddragon.leagueoflegends.com/cdn/6.24.1/img"
+  data:
+    "http://ddragon.leagueoflegends.com/cdn/" + realmVersion + "/data/en_US",
+  img: "http://ddragon.leagueoflegends.com/cdn/" + realmVersion + "/img"
 };
 
 export const apiUrl = "https://la1.api.riotgames.com/lol";

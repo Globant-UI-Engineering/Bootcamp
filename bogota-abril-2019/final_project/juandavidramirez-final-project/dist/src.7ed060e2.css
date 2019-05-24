@@ -105,6 +105,26 @@ thead tr.MuiTableRow-root-30 th {
   font-family: "Noto Sans", sans-serif;
 }
 
+.search-section-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 250px;
+  margin: 0 auto;
+}
+.search-section-container div:first-child {
+  margin-left: 15px;
+}
+
+.summoner-info-paper-container {
+  margin-top: 3%;
+}
+
+.profile-icon-image {
+  width: 300px;
+  height: 300px;
+}
+
 /*Challenger List*/
 /*td {
   color: white;

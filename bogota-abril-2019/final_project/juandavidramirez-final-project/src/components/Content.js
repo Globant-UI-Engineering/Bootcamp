@@ -3,8 +3,9 @@ import { Router } from "@reach/router";
 
 import Home from "./Home";
 import ChampionList from "./ChampionList";
-import Search from "./Search";
 import TopTierList from "./TopTierList";
+import Search from "./Search";
+import SummonerProfile from "./SummonerProfile";
 
 const Content = () => {
   return (
@@ -14,6 +15,7 @@ const Content = () => {
         <ChampionList path="/champions" />
         <TopTierList path="/tierList" />
         <Search path="/search" />
+        <SummonerProfile path="/summoners/:id" />
       </Router>
     </article>
   );

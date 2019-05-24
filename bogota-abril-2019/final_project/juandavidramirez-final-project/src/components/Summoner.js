@@ -6,10 +6,11 @@ import FreshBlood from "./FreshBlood";
 
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
+import { navigate } from "@reach/router";
 
 class Summoner extends React.Component {
   handleClick = (event, id) => {
-    console.log(id);
+    navigate("/summoners/" + id);
   };
 
   render() {

@@ -71231,23 +71231,29 @@ var Header = function Header(props) {
 
 var _default = Header;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js"}],"../src/utils/Constants/urls.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js"}],"../node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
+
+},{}],"../src/utils/Constants/urls.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.LeagueOfLegendsUrl = exports.apiUrl = exports.apiStaticUrl = void 0;
+
+var _fs = require("fs");
+
+var realmVersion = "9.10.1";
 var apiStaticUrl = {
-  data: "http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US",
-  img: "http://ddragon.leagueoflegends.com/cdn/6.24.1/img"
+  data: "http://ddragon.leagueoflegends.com/cdn/" + realmVersion + "/data/en_US",
+  img: "http://ddragon.leagueoflegends.com/cdn/" + realmVersion + "/img"
 };
 exports.apiStaticUrl = apiStaticUrl;
 var apiUrl = "https://la1.api.riotgames.com/lol";
 exports.apiUrl = apiUrl;
 var LeagueOfLegendsUrl = "https://lan.leagueoflegends.com/es/";
 exports.LeagueOfLegendsUrl = LeagueOfLegendsUrl;
-},{}],"../src/components/Home.js":[function(require,module,exports) {
+},{"fs":"../node_modules/parcel-bundler/src/builtins/_empty.js"}],"../src/components/Home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -72957,6 +72963,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getChampions = getChampions;
 exports.getSummoner = getSummoner;
+exports.getSummonerById = getSummonerById;
+exports.getSummonerMatches = getSummonerMatches;
 exports.getChallengerLeagueByQueue = getChallengerLeagueByQueue;
 
 var _axios = _interopRequireDefault(require("axios"));
@@ -72967,8 +72975,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var key = "RGAPI-be46225d-0ed5-4ede-8c46-344d73c6e710";
 
-var concatApiKey = function concatApiKey() {
-  return "?api_key=" + key;
+var concatApiKey = function concatApiKey(option) {
+  return option + "api_key=" + key;
 };
 
 function getChampions(callback) {
@@ -72980,7 +72988,19 @@ function getChampions(callback) {
 }
 
 function getSummoner(summonerName, callback) {
-  _axios.default.get(_urls.apiUrl + "/summoner/v4/summoners/by-name/" + summonerName + concatApiKey()).then(function (response) {
+  _axios.default.get(_urls.apiUrl + "/summoner/v4/summoners/by-name/" + summonerName + concatApiKey("?")).then(function (response) {
+    callback.onSuccess(response);
+  }).catch(function (error) {
+    callback.onFailed(error);
+  });
+}
+
+function getSummonerById(id, callback) {
+  _axios.default.get().then().catch();
+}
+
+function getSummonerMatches(number, accountId, callback) {
+  _axios.default.get(_urls.apiUrl + "/match/v4/matchlists/by-account/" + accountId + "?endIndex=" + number + concatApiKey("&")).then(function (response) {
     callback.onSuccess(response);
   }).catch(function (error) {
     callback.onFailed(error);
@@ -72988,7 +73008,7 @@ function getSummoner(summonerName, callback) {
 }
 
 function getChallengerLeagueByQueue(queue, callback) {
-  _axios.default.get(_urls.apiUrl + "/league/v4/challengerleagues/by-queue/" + queue + concatApiKey()).then(function (response) {
+  _axios.default.get(_urls.apiUrl + "/league/v4/challengerleagues/by-queue/" + queue + concatApiKey("?")).then(function (response) {
     callback.onSuccess(response);
   }).catch(function (error) {
     callback.onFailed(error);
@@ -73060,9 +73080,7 @@ function (_React$Component) {
       var _this$props = this.props,
           name = _this$props.name,
           image = _this$props.image;
-      return _react.default.createElement("li", {
-        className: "champions-item"
-      }, _react.default.createElement("img", {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("img", {
         alt: name,
         src: image
       }), _react.default.createElement("h3", {
@@ -73098,11 +73116,13 @@ var RenderChampionList = function RenderChampionList(_ref) {
   return _react.default.createElement("ul", {
     className: "champions-container"
   }, Object.keys(champions).map(function (key) {
-    return _react.default.createElement(_Champion.default, {
+    return _react.default.createElement("li", {
       key: key,
+      className: "champions-item"
+    }, _react.default.createElement(_Champion.default, {
       name: champions[key].name,
       image: "".concat(apiStaticUrlImg, "/").concat(champions[key].image.full)
-    });
+    }));
   }));
 };
 
@@ -73204,132 +73224,7 @@ function (_React$Component) {
 
 var _default = ChampionList;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api.js":"../src/utils/api.js","./Loading":"../src/components/Loading.js","./RenderChampionList":"../src/components/RenderChampionList.js"}],"../src/components/SummonerProfile.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var SummonerProfile = function SummonerProfile(_ref) {
-  var info = _ref.info;
-  return _react.default.createElement("h2", null, info.name);
-};
-
-var _default = SummonerProfile;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../src/components/Search.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _api = require("../utils/api");
-
-var _SummonerProfile = _interopRequireDefault(require("./SummonerProfile"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var Search =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Search, _React$Component);
-
-  function Search() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    var _temp;
-
-    _classCallCheck(this, Search);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Search)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
-      summonerName: ""
-    }, _this.handleChange = function (event) {
-      _this.setState({
-        summonerName: event.target.value
-      });
-    }, _this.handleSubmit = function (event) {
-      event.preventDefault();
-      var callback = {
-        onSuccess: function onSuccess(response) {
-          _this.setState({
-            summonerName: "",
-            summonerInfo: response.data
-          });
-        },
-        onFailed: function onFailed(error) {
-          console.error(error);
-        }
-      };
-
-      if (_this.state.summonerName) {
-        (0, _api.getSummoner)(_this.state.summonerName, callback);
-      }
-    }, _temp));
-  }
-
-  _createClass(Search, [{
-    key: "render",
-    value: function render() {
-      var _this$state = this.state,
-          summonerName = _this$state.summonerName,
-          summonerInfo = _this$state.summonerInfo;
-      return _react.default.createElement("div", null, _react.default.createElement("form", {
-        onSubmit: this.handleSubmit
-      }, _react.default.createElement("label", {
-        htmlFor: "summoner-name-input"
-      }, "summoner name"), _react.default.createElement("input", {
-        id: "summoner-name-input",
-        value: summonerName,
-        type: "text",
-        onChange: this.handleChange
-      }), _react.default.createElement("button", {
-        type: "submit"
-      })), _react.default.createElement("div", null, summonerInfo && _react.default.createElement(_SummonerProfile.default, {
-        info: summonerInfo
-      })));
-    }
-  }]);
-
-  return Search;
-}(_react.default.Component);
-
-var _default = Search;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"../src/utils/api.js","./SummonerProfile":"../src/components/SummonerProfile.js"}],"../src/components/WinPercentage.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api.js":"../src/utils/api.js","./Loading":"../src/components/Loading.js","./RenderChampionList":"../src/components/RenderChampionList.js"}],"../src/components/WinPercentage.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -73494,6 +73389,8 @@ var _TableRow = _interopRequireDefault(require("@material-ui/core/TableRow"));
 
 var _TableCell = _interopRequireDefault(require("@material-ui/core/TableCell"));
 
+var _router = require("@reach/router");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -73533,7 +73430,7 @@ function (_React$Component) {
     }
 
     return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Summoner)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.handleClick = function (event, id) {
-      console.log(id);
+      (0, _router.navigate)("/summoners/" + id);
     }, _temp));
   }
 
@@ -73584,7 +73481,7 @@ function (_React$Component) {
 
 var _default = Summoner;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./WinPercentage":"../src/components/WinPercentage.js","./Veteran":"../src/components/Veteran.js","./HotStreak":"../src/components/HotStreak.js","./FreshBlood":"../src/components/FreshBlood.js","@material-ui/core/TableRow":"../node_modules/@material-ui/core/TableRow/index.js","@material-ui/core/TableCell":"../node_modules/@material-ui/core/TableCell/index.js"}],"images/challenger.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./WinPercentage":"../src/components/WinPercentage.js","./Veteran":"../src/components/Veteran.js","./HotStreak":"../src/components/HotStreak.js","./FreshBlood":"../src/components/FreshBlood.js","@material-ui/core/TableRow":"../node_modules/@material-ui/core/TableRow/index.js","@material-ui/core/TableCell":"../node_modules/@material-ui/core/TableCell/index.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"images/challenger.png":[function(require,module,exports) {
 module.exports = "/challenger.b214a38d.png";
 },{}],"../src/components/EnhancedTableHead.js":[function(require,module,exports) {
 "use strict";
@@ -73880,6 +73777,7 @@ function (_React$Component) {
         orderBy: orderBy,
         onRequestSort: this.handleRequestSort
       }), _react.default.createElement(_TableBody.default, null, stableSort(summoners, getSorting(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(function (value, index) {
+        console.log(value);
         return _react.default.createElement(_Summoner.default, {
           summonerId: value.summonerId,
           key: index,
@@ -74031,7 +73929,342 @@ function (_React$Component) {
 
 var _default = TopTierList;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./RenderTierList":"../src/components/RenderTierList.js","./Loading":"../src/components/Loading.js","../utils/api":"../src/utils/api.js"}],"../src/components/Content.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./RenderTierList":"../src/components/RenderTierList.js","./Loading":"../src/components/Loading.js","../utils/api":"../src/utils/api.js"}],"../src/components/Match.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _core = require("@material-ui/core");
+
+var _urls = require("../utils/Constants/urls");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Match =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Match, _React$Component);
+
+  function Match() {
+    _classCallCheck(this, Match);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Match).apply(this, arguments));
+  }
+
+  _createClass(Match, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          platformId = _this$props.platformId,
+          gameId = _this$props.gameId,
+          champion = _this$props.champion,
+          queue = _this$props.queue,
+          season = _this$props.season,
+          timestamp = _this$props.timestamp,
+          role = _this$props.role,
+          lane = _this$props.lane;
+      var championImgUrl = "";
+      /*apiStaticUrl.img + */
+
+      return _react.default.createElement(_core.Card, {
+        className: "flex-row-match-card"
+      }, _react.default.createElement("img", {
+        src: championImgUrl,
+        alt: "The champion used was ".concat(champion)
+      }), _react.default.createElement("p", null, "season ", season, ", gameId ", gameId, ", queue ", queue, ", main role ", role, ", lane ", lane));
+    }
+  }]);
+
+  return Match;
+}(_react.default.Component);
+
+var _default = Match;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","../utils/Constants/urls":"../src/utils/Constants/urls.js"}],"../src/components/SummonerProfile.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _core = require("@material-ui/core");
+
+var _urls = require("../utils/Constants/urls");
+
+var _api = require("../utils/api");
+
+var _Match = _interopRequireDefault(require("./Match"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var SummonerProfile =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(SummonerProfile, _React$Component);
+
+  function SummonerProfile() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    var _temp;
+
+    _classCallCheck(this, SummonerProfile);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(SummonerProfile)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
+      loading: true
+    }, _this.getSummoner = function () {
+      var callback = {
+        onSuccess: function onSuccess(response) {
+          console.log(response.data);
+        },
+        onFailed: function onFailed(error) {
+          console.log(error);
+        }
+      };
+      getSummonerById(_this.props.id, callback);
+    }, _temp));
+  }
+
+  _createClass(SummonerProfile, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var callback = {
+        onSuccess: function onSuccess(response) {
+          _this2.setState({
+            loading: false,
+            matches: response.data
+          });
+        },
+        onFailed: function onFailed(error) {
+          console.log(error);
+        }
+      };
+
+      if (this.props.accountId) {
+        (0, _api.getSummonerMatches)(20, this.props.accountId, callback);
+      } else {
+        this.getSummoner();
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          loading = _this$state.loading,
+          matches = _this$state.matches;
+      var _this$props = this.props,
+          id = _this$props.id,
+          accountId = _this$props.accountId,
+          puuid = _this$props.puuid,
+          name = _this$props.name,
+          profileIconId = _this$props.profileIconId,
+          summonerLevel = _this$props.summonerLevel,
+          revisionDate = _this$props.revisionDate;
+      var profileIconUrl = _urls.apiStaticUrl.img + "/profileicon/" + profileIconId + ".png";
+      return _react.default.createElement(_core.Paper, {
+        className: "summoner-info-paper-container"
+      }, " ", accountId && _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("img", {
+        className: "profile-icon-image",
+        src: profileIconUrl,
+        alt: "Summoner Profile Icon"
+      }), _react.default.createElement("h2", null, name), _react.default.createElement("p", null, "level ", summonerLevel, ", # of played games for 3 years", " ", matches ? matches.totalGames : "have not played"), _react.default.createElement("div", {
+        className: "additional-info"
+      }, matches && _react.default.createElement("div", null, _react.default.createElement("h3", null, "Recent Matches"), _react.default.createElement("ul", {
+        className: "matches-list"
+      }, matches.matches.map(function (value, index) {
+        return _react.default.createElement("li", {
+          key: index
+        }, _react.default.createElement(_Match.default, {
+          platformId: value.platformId,
+          gameId: value.gameId,
+          champion: value.champion,
+          queue: value.queue,
+          season: value.season,
+          timestamp: value.timestamp,
+          role: value.role,
+          lane: value.lane
+        }));
+      })))), " "));
+    }
+  }]);
+
+  return SummonerProfile;
+}(_react.default.Component);
+
+var _default = SummonerProfile;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","../utils/Constants/urls":"../src/utils/Constants/urls.js","../utils/api":"../src/utils/api.js","./Match":"../src/components/Match.js"}],"images/search.png":[function(require,module,exports) {
+module.exports = "/search.b89461e4.png";
+},{}],"../src/components/Search.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _api = require("../utils/api");
+
+var _SummonerProfile = _interopRequireDefault(require("./SummonerProfile"));
+
+var _search = _interopRequireDefault(require("../../public/images/search.png"));
+
+var _core = require("@material-ui/core");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Search =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Search, _React$Component);
+
+  function Search() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    var _temp;
+
+    _classCallCheck(this, Search);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Search)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
+      summonerName: ""
+    }, _this.handleChange = function (event) {
+      _this.setState({
+        summonerName: event.target.value
+      });
+    }, _this.handleSubmit = function (event) {
+      event.preventDefault();
+      var callback = {
+        onSuccess: function onSuccess(response) {
+          _this.setState({
+            summonerName: "",
+            info: response.data
+          });
+        },
+        onFailed: function onFailed(error) {
+          console.error(error);
+        }
+      };
+
+      if (_this.state.summonerName) {
+        (0, _api.getSummoner)(_this.state.summonerName, callback);
+      }
+    }, _temp));
+  }
+
+  _createClass(Search, [{
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          summonerName = _this$state.summonerName,
+          info = _this$state.info;
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_core.Paper, {
+        className: "search-section-container"
+      }, _react.default.createElement(_core.InputBase, {
+        id: "search-summoner-input",
+        value: summonerName,
+        onChange: this.handleChange,
+        placeholder: "Summoner name...",
+        "aria-describedby": "Search a summoner name"
+      }), _react.default.createElement(_core.Button, {
+        onClick: this.handleSubmit
+      }, _react.default.createElement("img", {
+        src: _search.default,
+        alt: "icon button"
+      }))), _react.default.createElement("section", null, info && _react.default.createElement(_SummonerProfile.default, {
+        id: info.id,
+        accountId: info.accountId,
+        puuid: info.puuid,
+        name: info.name,
+        profileIconId: info.profileIconId,
+        summonerLevel: info.summonerLevel,
+        revisionDate: info.revisionDate
+      })));
+    }
+  }]);
+
+  return Search;
+}(_react.default.Component);
+
+var _default = Search;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../utils/api":"../src/utils/api.js","./SummonerProfile":"../src/components/SummonerProfile.js","../../public/images/search.png":"images/search.png","@material-ui/core":"../node_modules/@material-ui/core/index.es.js"}],"../src/components/Content.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74047,9 +74280,11 @@ var _Home = _interopRequireDefault(require("./Home"));
 
 var _ChampionList = _interopRequireDefault(require("./ChampionList"));
 
+var _TopTierList = _interopRequireDefault(require("./TopTierList"));
+
 var _Search = _interopRequireDefault(require("./Search"));
 
-var _TopTierList = _interopRequireDefault(require("./TopTierList"));
+var _SummonerProfile = _interopRequireDefault(require("./SummonerProfile"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -74063,12 +74298,14 @@ var Content = function Content() {
     path: "/tierList"
   }), _react.default.createElement(_Search.default, {
     path: "/search"
+  }), _react.default.createElement(_SummonerProfile.default, {
+    path: "/summoners/:id"
   })));
 };
 
 var _default = Content;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Home":"../src/components/Home.js","./ChampionList":"../src/components/ChampionList.js","./Search":"../src/components/Search.js","./TopTierList":"../src/components/TopTierList.js"}],"../src/components/Footer.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Home":"../src/components/Home.js","./ChampionList":"../src/components/ChampionList.js","./TopTierList":"../src/components/TopTierList.js","./Search":"../src/components/Search.js","./SummonerProfile":"../src/components/SummonerProfile.js"}],"../src/components/Footer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74222,7 +74459,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61981" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62492" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

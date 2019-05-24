@@ -7,11 +7,12 @@ const RenderChampionList = ({ champions }) => {
   return (
     <ul className="champions-container">
       {Object.keys(champions).map(key => (
-        <Champion
-          key={key}
-          name={champions[key].name}
-          image={`${apiStaticUrlImg}/${champions[key].image.full}`}
-        />
+        <li key={key} className="champions-item">
+          <Champion
+            name={champions[key].name}
+            image={`${apiStaticUrlImg}/${champions[key].image.full}`}
+          />
+        </li>
       ))}
     </ul>
   );

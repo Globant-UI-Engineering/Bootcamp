@@ -4,10 +4,10 @@ class Champion extends React.Component {
     const { name, image } = this.props;
 
     return (
-      <li className="champions-item">
+      <React.Fragment>
         <img alt={name} src={image} />
         <h3 className="champion-name">{name}</h3>
-      </li>
+      </React.Fragment>
     );
   }
 }
