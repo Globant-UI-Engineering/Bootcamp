@@ -1,0 +1,17 @@
+{
+  "short_name": "Hestia",
+  "name": "Hestia App",
+  "icons": [
+    {
+      "src": "../src/assets/hestia_logo.png",
+      "sizes": "48x48 ",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#FEFCE2",
+  "theme_color": "#FEFCE2",
+  "related_applications": [],
+  "prefer_related_applications": false
+}
