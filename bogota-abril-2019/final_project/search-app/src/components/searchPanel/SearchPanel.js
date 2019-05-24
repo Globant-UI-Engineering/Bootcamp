@@ -27,12 +27,12 @@ class SearchPanel extends React.Component {
   render () {
     const {technologys} = this.props;
     const {inputValue} = this.props;
-    return (
+    return ( 
     <div className="SearchPanel">
       <header className="SearchPanel-header">
         
         <img src = {logo} alt = "logo"></img>
-        <input placeholder = "What are you looking for..." onKeyUp = {this.findTechnologys}
+        <input className="search-input" placeholder = "What are you looking for..." onKeyUp = {this.findTechnologys}
               disabled = {this.state.dataNotLoaded} value = {inputValue}
               onChange={event=>this.props.updateUserInput(event.target.value)}></input>
         <img src = {logo} alt = "logo" ></img>
@@ -53,10 +53,10 @@ class SearchPanel extends React.Component {
   componentDidMount(){
     // read from firebase 
     firebaseRef.once('value', snapshot => {
-       let allTechnologys  = snapshot.val();
+       let allTechnologys  = Object.values(snapshot.val()); 
         this.setState({dataNotLoaded:false});
         this.props.updateAllTechnologys(allTechnologys);
-        this.props.findTechnologys({userInput:"", technologys:allTechnologys})
+        this.props.findTechnologys({userInput:this.props.inputValue, technologys:allTechnologys})
     });  
   }
 

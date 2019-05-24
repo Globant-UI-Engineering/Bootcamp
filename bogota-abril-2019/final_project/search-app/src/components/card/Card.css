@@ -30,6 +30,7 @@
   border-bottom: double;
   border-color: black;
   text-decoration: underline;
+  max-width: 300px;
 }
 
 .delete-button{

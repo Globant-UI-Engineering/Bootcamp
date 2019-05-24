@@ -1,6 +1,6 @@
 import { type as updateUserInput } from '../actions/updateUserInput';
 
-const defaultState = [];
+const defaultState = "";
 
 function reducer(state = defaultState, { type, payload }) {
     switch (type) {
