@@ -3,20 +3,15 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { observer } from 'mobx-react';
 import './css/App.css';
 import tennisLogo from './images/tennisLogo.png';
-import HomePage from './components/HomePage';
-import NewMatchPage from './components/NewMatchPage';
-import MatchesPage from './components/MatchesPage';
-import PlayersPage from './components/PlayersPage';
-import RankingPage from './components/RankingPage';
-import FooterPage from './components/FooterPage';
+import FooterPage from './components/FooterComponent/FooterPage';
 import serviceGetData from './services/serviceGetData';
 import thesaurus from './utils/thesaurus';
-import menuLinkList from './utils/menuLinkList';
+import menuList from './components/menuList';
+import routesPages from './components/routesPages';
 
 import serviceAddData from './services/serviceAddData'; // TODO: Utilizar importación Luego
 import serviceUpdateData from './services/serviceUpdateData'; // TODO: Utilizar importación Luego
 import serviceDeleteData from './services/serviceDeleteData'; // TODO: Utilizar importación Luego
-
 
 const App = observer(
 class App extends React.Component {
@@ -40,18 +35,27 @@ class App extends React.Component {
   }
   
   render() {
-    const linkList = menuLinkList.map(({to, id, role, ariaControls, icon, title}, key) => {
+    const linkList = menuList.map(({to, icon, title}, key) => {
       return (
         <Link
           key={key}
           className="nav-link"
           to={to}
-          id={id} 
-          role={role} 
-          aria-controls={ariaControls}>
-            <i className={icon}></i>
-            &nbsp;{title}
+        >
+          <i className={icon}></i>
+          &nbsp;{title}
         </Link>
+      );
+    });
+
+    const routesList = routesPages.map(({path, exact, component: ComponentPage}, key) => {
+      return (
+        <Route
+          key={key}
+          exact={exact}
+          path={path}
+          render={(props) => <ComponentPage {...props} store={this.props.store}/>}
+        />
       );
     });
 
@@ -59,102 +63,29 @@ class App extends React.Component {
       <React.Fragment>
         <main>
           <Router>
-            <nav class="navbar sticky-top navbar-expand-md navbar-dark">
+            <nav class="navbar sticky-top navbar-expand-lg navbar-dark justify-content-between">
               <Link
                 to="/"
                 id="navegacion-inicio-tab" 
                 role="tab" 
                 aria-controls="navegacion-inicio" 
                 aria-selected="true">
-                  <header>
+                  <header class="d-flex align-items-center">
                     <img className="img-fluid" src={tennisLogo} alt="Logo Pelota de tenis" />
                     <h1>{this.state.nameApp}</h1>
                   </header>
               </Link>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-controls="barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <section class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <article class="navbar-nav mr-auto ml-3 mt-2 mt-lg-0">
+              <section class="collapse navbar-collapse" id="barraNavegacion">
+                <article class="navbar-nav ml-3 mt-2 mt-lg-0 ml-md-auto">
                   {linkList}
                 </article>
               </section>
             </nav>
-            {/* <nav className="sticky-top shadow-lg pl-5 pr-5" role="tablist">
-              <Link
-                to="/"
-                id="navegacion-inicio-tab" 
-                role="tab" 
-                aria-controls="navegacion-inicio" 
-                aria-selected="true">
-                  <header>
-                    <img src={tennisLogo} alt="Logo Pelota de tenis"/>
-                    <h1>                    
-                      {this.state.nameApp}
-                    </h1>
-                  </header>
-              </Link>
-              <section>  
-                {linkList}            
-              </section>
-            </nav> */}
             <section>
-              <Route
-                id="navegacion-inicio"
-                role="tabpanel"
-                aria-labelledby="navegacion-inicio-tab"
-                exact path="/" render={ (props) => 
-                  <HomePage
-                    {...props}
-                    store={this.props.store}
-                  />
-                }
-              />
-              <Route
-                id="navegacion-nuevo-partido"
-                role="tabpanel"
-                aria-labelledby="navegacion-nuevo-partido-tab"
-                exact path="/new-match" render={ (props) => 
-                  <NewMatchPage
-                    {...props}
-                    store={this.props.store}
-                  />
-                }
-              />
-              <Route
-                id="navegacion-partidos"
-                role="tabpanel"
-                aria-labelledby="navegacion-partidos-tab"
-                exact path="/matches" render={ (props) => 
-                  <MatchesPage
-                    {...props}
-                    store={this.props.store}
-                  />
-                }
-              />
-              <Route
-                id="navegacion-jugadores"
-                role="tabpanel"
-                aria-labelledby="navegacion-jugadores-tab"
-                exact path="/players" render={ (props) => 
-                  <PlayersPage
-                    {...props}
-                    store={this.props.store}
-                    fireStore={this.props.fireStore}
-                  />
-                }
-              />
-              <Route
-                id="navegacion-ranking"
-                role="tabpanel"
-                aria-labelledby="navegacion-ranking-tab"
-                exact path="/ranking" render={ (props) => 
-                  <RankingPage
-                    {...props}
-                    store={this.props.store}
-                  />
-                }
-              />
+              {routesList}
             </section>
           </Router>
           <FooterPage/>

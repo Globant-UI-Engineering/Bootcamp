@@ -1,6 +1,6 @@
 import React from 'react';
-import '../css/FooterPage.css';
-import globantLogo from '../images/globantLogo.png';
+import '../../css/FooterPage.css';
+import globantLogo from '../../images/globantLogo.png';
 
 class FooterPage extends React.Component {
   constructor(props) {

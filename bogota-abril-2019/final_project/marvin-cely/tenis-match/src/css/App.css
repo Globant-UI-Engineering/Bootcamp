@@ -3,7 +3,7 @@
   min-height: 100vh;
 }
 nav + section {
-  padding-bottom: 30rem;    /* Footer height TODO: Revisar */ 
+  padding-bottom: 25rem;    /* Footer height TODO: Revisar */ 
 }
 
 section + footer.container-fluid {
@@ -22,11 +22,13 @@ header > img {
 }
 
 nav > section {
-  font-size: var(--size-medium);
+  font-size: var(--size-normal);
 }
 
 img + h1 {
   display: inline;
+  margin: 0;
+  margin-left: 10px;
   color: var(--font-color-white);
   font-size: var(--size-large);
 }

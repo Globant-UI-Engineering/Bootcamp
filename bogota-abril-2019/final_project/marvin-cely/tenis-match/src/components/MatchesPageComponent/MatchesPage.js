@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/MatchesPage.css';
+import '../../css/MatchesPage.css';
 
 class MatchesPage extends React.Component {
   render() { 

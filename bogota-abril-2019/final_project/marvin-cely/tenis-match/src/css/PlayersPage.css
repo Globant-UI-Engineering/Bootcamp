@@ -1,10 +1,10 @@
 figure[aira-lable$="jugadores"] {
     background-image: url("../images/jugadoresImagen.jpg");
     /* Specific height */
-    min-height: 18rem; 
+    min-height: 40vh; 
     /* Parallax scrolling effect */
     background-attachment: fixed;
-    background-position: center;
+    background-position: center 40%;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;

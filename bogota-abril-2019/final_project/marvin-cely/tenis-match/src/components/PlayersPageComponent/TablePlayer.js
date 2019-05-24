@@ -1,8 +1,8 @@
 import React from 'react';
-import '../css/TablePlayer.css';
+import '../../css/TablePlayer.css';
 import { observer } from 'mobx-react';
-import playerListHeader from '../utils/playersTableHead';
-import utils from '../utils/utils';
+import playerListHeader from './playersTableHead';
+import utils from '../../utils/utils';
 
 
 const TablePlayer = observer(
@@ -43,7 +43,7 @@ const TablePlayer = observer(
           <section role="table" 
             aria-label="Estadisticas de Jugadores" 
             summary="Tabla de los jugadores y sus esetadísticas">
-              <section className="shadow-sm p-2 mb-1 bg-white rounded-pill">
+              <section className="shadow-sm p-2 mb-1 bg-white rounded-pill d-none d-md-block">
                 {tableHeader(playerListHeader)}
               </section>
               {playersList}

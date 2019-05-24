@@ -1,12 +1,12 @@
 import React from 'react';
-import '../css/PlayersPage.css';
+import '../../css/PlayersPage.css';
 import { observer } from 'mobx-react';
 import TablePlayer from './TablePlayer';
 import FormNewPlayer from './FormNewPlayer';
-import utils from '../utils/utils';
-import {LoadingComponent} from './SmallPieceComponent';
-import serviceAddData from '../services/serviceAddData';
-import thesaurus from '../utils/thesaurus';
+import utils from '../../utils/utils';
+import {LoadingComponent} from '../SmallPieceComponent';
+import serviceAddData from '../../services/serviceAddData';
+import thesaurus from '../../utils/thesaurus';
 
 const PlayersPage = observer(
   class PlayersPage extends React.Component {
@@ -74,10 +74,13 @@ const PlayersPage = observer(
           </aside>        
           <main className="container">    
             <section className="sticky-top">
-              <header className="d-flex justify-content-between">
+              <header className="d-flex justify-content-between flex-wrap">
                 <h2>{this.state.nameComponent}</h2>
-                <button type="button" className="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">
-                  <i className={this.state.newPlayerButton.icon}></i>
+                <button type="button" 
+                  className="btn btn-info" 
+                  data-toggle="modal" 
+                  data-target="#exampleModalCenter">
+                      <i className={this.state.newPlayerButton.icon}></i>
                   &nbsp;{this.state.newPlayerButton.name}
                 </button>
               </header>

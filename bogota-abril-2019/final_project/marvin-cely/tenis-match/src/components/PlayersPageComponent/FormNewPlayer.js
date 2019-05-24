@@ -1,6 +1,6 @@
 import React from 'react';
-import '../css/FormNewPlayer.css';
-import {CountryOptionComponent} from './SmallPieceComponent';
+import '../../css/FormNewPlayer.css';
+import {CountryOptionComponent} from '../SmallPieceComponent';
 
 
 class FormNewPlayer extends React.Component {
