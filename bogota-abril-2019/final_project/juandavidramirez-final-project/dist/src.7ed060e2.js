@@ -72973,7 +72973,7 @@ var _urls = require("./Constants/urls");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var key = "RGAPI-be46225d-0ed5-4ede-8c46-344d73c6e710";
+var key = "RGAPI-69b49d59-29aa-458a-89c6-2a77fa5e49e2";
 
 var concatApiKey = function concatApiKey(option) {
   return option + "api_key=" + key;
@@ -72996,7 +72996,11 @@ function getSummoner(summonerName, callback) {
 }
 
 function getSummonerById(id, callback) {
-  _axios.default.get().then().catch();
+  _axios.default.get(_urls.apiUrl + "/summoner/v4/summoners/" + id + concatApiKey("?")).then(function (response) {
+    callback.onSuccess(response);
+  }).catch(function (error) {
+    callback.onFailed(error);
+  });
 }
 
 function getSummonerMatches(number, accountId, callback) {
@@ -73429,8 +73433,8 @@ function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Summoner)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.handleClick = function (event, id) {
-      (0, _router.navigate)("/summoners/" + id);
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Summoner)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.handleClick = function (event, name) {
+      (0, _router.navigate)("/summoners/" + name);
     }, _temp));
   }
 
@@ -73452,7 +73456,7 @@ function (_React$Component) {
       return _react.default.createElement(_TableRow.default, {
         hover: true,
         onClick: function onClick(event) {
-          return _this2.handleClick(event, summonerId);
+          return _this2.handleClick(event, name);
         }
       }, _react.default.createElement(_TableCell.default, {
         component: "th",
@@ -73777,7 +73781,6 @@ function (_React$Component) {
         orderBy: orderBy,
         onRequestSort: this.handleRequestSort
       }), _react.default.createElement(_TableBody.default, null, stableSort(summoners, getSorting(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(function (value, index) {
-        console.log(value);
         return _react.default.createElement(_Summoner.default, {
           summonerId: value.summonerId,
           key: index,
@@ -74021,6 +74024,8 @@ var _api = require("../utils/api");
 
 var _Match = _interopRequireDefault(require("./Match"));
 
+var _Loading = _interopRequireDefault(require("./Loading"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -74061,16 +74066,20 @@ function (_React$Component) {
 
     return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(SummonerProfile)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
       loading: true
-    }, _this.getSummoner = function () {
+    }, _this.getSummonerMatches = function () {
       var callback = {
         onSuccess: function onSuccess(response) {
-          console.log(response.data);
+          _this.setState({
+            loading: false,
+            matches: response.data
+          });
         },
         onFailed: function onFailed(error) {
           console.log(error);
         }
       };
-      getSummonerById(_this.props.id, callback);
+      console.log(_this.state);
+      (0, _api.getSummonerMatches)(20, _this.state.profileInfo.accountId, callback);
     }, _temp));
   }
 
@@ -74082,45 +74091,48 @@ function (_React$Component) {
       var callback = {
         onSuccess: function onSuccess(response) {
           _this2.setState({
-            loading: false,
-            matches: response.data
+            profileInfo: response.data
+          }, function () {
+            var callback = {
+              onSuccess: function onSuccess(response) {
+                _this2.setState({
+                  loading: false,
+                  matches: response.data
+                });
+              },
+              onFailed: function onFailed(error) {
+                console.log(error);
+              }
+            };
+            console.log(_this2.state);
+            (0, _api.getSummonerMatches)(20, _this2.state.profileInfo.accountId, callback);
           });
         },
         onFailed: function onFailed(error) {
           console.log(error);
         }
       };
-
-      if (this.props.accountId) {
-        (0, _api.getSummonerMatches)(20, this.props.accountId, callback);
-      } else {
-        this.getSummoner();
-      }
+      (0, _api.getSummoner)(this.props.name, callback);
     }
   }, {
     key: "render",
     value: function render() {
       var _this$state = this.state,
           loading = _this$state.loading,
-          matches = _this$state.matches;
-      var _this$props = this.props,
-          id = _this$props.id,
-          accountId = _this$props.accountId,
-          puuid = _this$props.puuid,
-          name = _this$props.name,
-          profileIconId = _this$props.profileIconId,
-          summonerLevel = _this$props.summonerLevel,
-          revisionDate = _this$props.revisionDate;
-      var profileIconUrl = _urls.apiStaticUrl.img + "/profileicon/" + profileIconId + ".png";
-      return _react.default.createElement(_core.Paper, {
+          matches = _this$state.matches,
+          profileInfo = _this$state.profileInfo;
+      var profileIconUrl = profileInfo ? _urls.apiStaticUrl.img + "/profileicon/" + profileInfo.profileIconId + ".png" : "";
+      return loading ? _react.default.createElement(_Loading.default, {
+        name: "Summoner profile"
+      }) : _react.default.createElement(_core.Paper, {
         className: "summoner-info-paper-container"
-      }, " ", accountId && _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("img", {
+      }, " ", _react.default.createElement("img", {
         className: "profile-icon-image",
         src: profileIconUrl,
         alt: "Summoner Profile Icon"
-      }), _react.default.createElement("h2", null, name), _react.default.createElement("p", null, "level ", summonerLevel, ", # of played games for 3 years", " ", matches ? matches.totalGames : "have not played"), _react.default.createElement("div", {
+      }), _react.default.createElement("h2", null, profileInfo.name), _react.default.createElement("p", null, "level ", profileInfo.summonerLevel, ", # of played games for 3 years", " ", matches.totalGames), _react.default.createElement("div", {
         className: "additional-info"
-      }, matches && _react.default.createElement("div", null, _react.default.createElement("h3", null, "Recent Matches"), _react.default.createElement("ul", {
+      }, _react.default.createElement("div", null, _react.default.createElement("h3", null, "Recent Matches"), _react.default.createElement("ul", {
         className: "matches-list"
       }, matches.matches.map(function (value, index) {
         return _react.default.createElement("li", {
@@ -74135,7 +74147,7 @@ function (_React$Component) {
           role: value.role,
           lane: value.lane
         }));
-      })))), " "));
+      })))), " ", ")");
     }
   }]);
 
@@ -74144,8 +74156,155 @@ function (_React$Component) {
 
 var _default = SummonerProfile;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","../utils/Constants/urls":"../src/utils/Constants/urls.js","../utils/api":"../src/utils/api.js","./Match":"../src/components/Match.js"}],"images/search.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","../utils/Constants/urls":"../src/utils/Constants/urls.js","../utils/api":"../src/utils/api.js","./Match":"../src/components/Match.js","./Loading":"../src/components/Loading.js"}],"images/search.png":[function(require,module,exports) {
 module.exports = "/search.b89461e4.png";
+},{}],"../node_modules/@reach/router/lib/history.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var getLocation = function getLocation(source) {
+  return _extends({}, source.location, {
+    state: source.history.state,
+    key: source.history.state && source.history.state.key || "initial"
+  });
+};
+
+var createHistory = function createHistory(source, options) {
+  var listeners = [];
+  var location = getLocation(source);
+  var transitioning = false;
+  var resolveTransition = function resolveTransition() {};
+
+  return {
+    get location() {
+      return location;
+    },
+
+    get transitioning() {
+      return transitioning;
+    },
+
+    _onTransitionComplete: function _onTransitionComplete() {
+      transitioning = false;
+      resolveTransition();
+    },
+    listen: function listen(listener) {
+      listeners.push(listener);
+
+      var popstateListener = function popstateListener() {
+        location = getLocation(source);
+        listener({ location: location, action: "POP" });
+      };
+
+      source.addEventListener("popstate", popstateListener);
+
+      return function () {
+        source.removeEventListener("popstate", popstateListener);
+        listeners = listeners.filter(function (fn) {
+          return fn !== listener;
+        });
+      };
+    },
+    navigate: function navigate(to) {
+      var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+          state = _ref.state,
+          _ref$replace = _ref.replace,
+          replace = _ref$replace === undefined ? false : _ref$replace;
+
+      state = _extends({}, state, { key: Date.now() + "" });
+      // try...catch iOS Safari limits to 100 pushState calls
+      try {
+        if (transitioning || replace) {
+          source.history.replaceState(state, null, to);
+        } else {
+          source.history.pushState(state, null, to);
+        }
+      } catch (e) {
+        source.location[replace ? "replace" : "assign"](to);
+      }
+
+      location = getLocation(source);
+      transitioning = true;
+      var transition = new Promise(function (res) {
+        return resolveTransition = res;
+      });
+      listeners.forEach(function (listener) {
+        return listener({ location: location, action: "PUSH" });
+      });
+      return transition;
+    }
+  };
+};
+
+////////////////////////////////////////////////////////////////////////////////
+// Stores history entries in memory for testing or other platforms like Native
+var createMemorySource = function createMemorySource() {
+  var initialPathname = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "/";
+
+  var index = 0;
+  var stack = [{ pathname: initialPathname, search: "" }];
+  var states = [];
+
+  return {
+    get location() {
+      return stack[index];
+    },
+    addEventListener: function addEventListener(name, fn) {},
+    removeEventListener: function removeEventListener(name, fn) {},
+
+    history: {
+      get entries() {
+        return stack;
+      },
+      get index() {
+        return index;
+      },
+      get state() {
+        return states[index];
+      },
+      pushState: function pushState(state, _, uri) {
+        var _uri$split = uri.split("?"),
+            pathname = _uri$split[0],
+            _uri$split$ = _uri$split[1],
+            search = _uri$split$ === undefined ? "" : _uri$split$;
+
+        index++;
+        stack.push({ pathname: pathname, search: search });
+        states.push(state);
+      },
+      replaceState: function replaceState(state, _, uri) {
+        var _uri$split2 = uri.split("?"),
+            pathname = _uri$split2[0],
+            _uri$split2$ = _uri$split2[1],
+            search = _uri$split2$ === undefined ? "" : _uri$split2$;
+
+        stack[index] = { pathname: pathname, search: search };
+        states[index] = state;
+      }
+    }
+  };
+};
+
+////////////////////////////////////////////////////////////////////////////////
+// global history - uses window.history as the source if available, otherwise a
+// memory history
+var canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
+var getSource = function getSource() {
+  return canUseDOM ? window : createMemorySource();
+};
+
+var globalHistory = createHistory(getSource());
+var navigate = globalHistory.navigate;
+
+////////////////////////////////////////////////////////////////////////////////
+
+exports.globalHistory = globalHistory;
+exports.navigate = navigate;
+exports.createHistory = createHistory;
+exports.createMemorySource = createMemorySource;
 },{}],"../src/components/Search.js":[function(require,module,exports) {
 "use strict";
 
@@ -74163,6 +74322,10 @@ var _SummonerProfile = _interopRequireDefault(require("./SummonerProfile"));
 var _search = _interopRequireDefault(require("../../public/images/search.png"));
 
 var _core = require("@material-ui/core");
+
+var _router = require("@reach/router");
+
+var _history = require("@reach/router/lib/history");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -74210,20 +74373,9 @@ function (_React$Component) {
       });
     }, _this.handleSubmit = function (event) {
       event.preventDefault();
-      var callback = {
-        onSuccess: function onSuccess(response) {
-          _this.setState({
-            summonerName: "",
-            info: response.data
-          });
-        },
-        onFailed: function onFailed(error) {
-          console.error(error);
-        }
-      };
 
       if (_this.state.summonerName) {
-        (0, _api.getSummoner)(_this.state.summonerName, callback);
+        (0, _history.navigate)("/summoners/" + _this.state.summonerName);
       }
     }, _temp));
   }
@@ -74231,9 +74383,7 @@ function (_React$Component) {
   _createClass(Search, [{
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          summonerName = _this$state.summonerName,
-          info = _this$state.info;
+      var summonerName = this.state.summonerName;
       return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_core.Paper, {
         className: "search-section-container"
       }, _react.default.createElement(_core.InputBase, {
@@ -74247,14 +74397,8 @@ function (_React$Component) {
       }, _react.default.createElement("img", {
         src: _search.default,
         alt: "icon button"
-      }))), _react.default.createElement("section", null, info && _react.default.createElement(_SummonerProfile.default, {
-        id: info.id,
-        accountId: info.accountId,
-        puuid: info.puuid,
-        name: info.name,
-        profileIconId: info.profileIconId,
-        summonerLevel: info.summonerLevel,
-        revisionDate: info.revisionDate
+      }))), _react.default.createElement("section", null, summonerName && _react.default.createElement(_SummonerProfile.default, {
+        name: summonerName
       })));
     }
   }]);
@@ -74264,7 +74408,7 @@ function (_React$Component) {
 
 var _default = Search;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"../src/utils/api.js","./SummonerProfile":"../src/components/SummonerProfile.js","../../public/images/search.png":"images/search.png","@material-ui/core":"../node_modules/@material-ui/core/index.es.js"}],"../src/components/Content.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api":"../src/utils/api.js","./SummonerProfile":"../src/components/SummonerProfile.js","../../public/images/search.png":"images/search.png","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","@reach/router":"../node_modules/@reach/router/es/index.js","@reach/router/lib/history":"../node_modules/@reach/router/lib/history.js"}],"../src/components/Content.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74459,7 +74603,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62492" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50022" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

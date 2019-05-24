@@ -9,8 +9,8 @@ import TableCell from "@material-ui/core/TableCell";
 import { navigate } from "@reach/router";
 
 class Summoner extends React.Component {
-  handleClick = (event, id) => {
-    navigate("/summoners/" + id);
+  handleClick = (event, name) => {
+    navigate("/summoners/" + name);
   };
 
   render() {
@@ -27,7 +27,7 @@ class Summoner extends React.Component {
     } = this.props;
 
     return (
-      <TableRow hover onClick={event => this.handleClick(event, summonerId)}>
+      <TableRow hover onClick={event => this.handleClick(event, name)}>
         <TableCell component="th" scope="row">
           {rankNumber}
         </TableCell>

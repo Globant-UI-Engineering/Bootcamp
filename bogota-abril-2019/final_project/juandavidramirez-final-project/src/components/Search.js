@@ -14,6 +14,8 @@ import {
   InputBase,
   IconButton
 } from "@material-ui/core";
+import { redirectTo } from "@reach/router";
+import { navigate } from "@reach/router/lib/history";
 
 class Search extends React.Component {
   state = {
@@ -27,22 +29,13 @@ class Search extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    var callback = {
-      onSuccess: response => {
-        this.setState({ summonerName: "", info: response.data });
-      },
-      onFailed: error => {
-        console.error(error);
-      }
-    };
-
     if (this.state.summonerName) {
-      getSummoner(this.state.summonerName, callback);
+      navigate("/summoners/" + this.state.summonerName);
     }
   };
 
   render() {
-    const { summonerName, info } = this.state;
+    const { summonerName } = this.state;
     return (
       <React.Fragment>
         <Paper className="search-section-container">
@@ -58,17 +51,7 @@ class Search extends React.Component {
           </Button>
         </Paper>
         <section>
-          {info && (
-            <SummonerProfile
-              id={info.id}
-              accountId={info.accountId}
-              puuid={info.puuid}
-              name={info.name}
-              profileIconId={info.profileIconId}
-              summonerLevel={info.summonerLevel}
-              revisionDate={info.revisionDate}
-            />
-          )}
+          {summonerName && <SummonerProfile name={summonerName} />}
         </section>
       </React.Fragment>
     );

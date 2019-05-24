@@ -93,7 +93,6 @@ class RenderTierList extends React.Component {
               {stableSort(summoners, getSorting(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((value, index) => {
-                  console.log(value);
                   return (
                     <Summoner
                       summonerId={value.summonerId}

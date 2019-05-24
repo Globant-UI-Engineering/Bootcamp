@@ -36,9 +36,13 @@ export function getSummoner(summonerName, callback) {
 
 export function getSummonerById(id, callback) {
   axios
-    .get()
-    .then()
-    .catch();
+    .get(apiUrl + "/summoner/v4/summoners/" + id + concatApiKey("?"))
+    .then(response => {
+      callback.onSuccess(response);
+    })
+    .catch(error => {
+      callback.onFailed(error);
+    });
 }
 
 export function getSummonerMatches(number, accountId, callback) {
