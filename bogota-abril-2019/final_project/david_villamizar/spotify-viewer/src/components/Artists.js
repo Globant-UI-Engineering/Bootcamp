@@ -37,15 +37,11 @@ function ArtistListItem({ name, images, genres, id, match, location }) {
       <Switch>
         <Route
           path={`${match.path}/${id}/albums`}
-          render={routerProps => (
-            <ArtistAlbums artistId={id} artistName={name} {...routerProps} />
-          )}
+          render={() => <ArtistAlbums artistId={id} artistName={name} />}
         />
         <Route
           path={`${match.path}/${id}/top-tracks`}
-          render={routerProps => (
-            <ArtistTopTracks artistId={id} artistName={name} {...routerProps} />
-          )}
+          render={() => <ArtistTopTracks artistId={id} artistName={name} />}
         />
         <Redirect
           from={`${match.path}/${id}`}

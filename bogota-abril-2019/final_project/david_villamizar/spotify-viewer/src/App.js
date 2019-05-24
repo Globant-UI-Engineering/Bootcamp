@@ -3,9 +3,9 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import Playlists from "./components/Playlists";
 import AlbumDetail from "./routes/AlbumDetail";
 import Login from "./routes/Login";
+import MyPlaylists from "./routes/MyPlaylists";
 import TopArtists from "./routes/TopArtists";
 import TopTracks from "./routes/TopTracks";
 import { store } from "./store/store";
@@ -25,7 +25,7 @@ function App() {
         <Switch>
           <Route path="/top-artists" component={TopArtists} />
           <Route path="/top-tracks" component={TopTracks} />
-          <Route path="/playlists" component={Playlists} />
+          <Route path="/playlists" component={MyPlaylists} />
           <Route path="/albums/:albumId" component={AlbumDetail} />
           <Redirect to="/top-artists" />
         </Switch>

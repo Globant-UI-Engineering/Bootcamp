@@ -19,7 +19,6 @@ function ArtistAlbums({
   clearAlbums,
   isLoading,
   error,
-  ...routerProps
 }) {
   useEffect(() => {
     document.title = `${artistName}'s Albums`;
@@ -37,7 +36,7 @@ function ArtistAlbums({
   const offset = albums.length;
   return (
     <>
-      <Albums albums={albums} {...routerProps} />
+      <Albums albums={albums} />
       <button
         className={styles.loadMore}
         disabled={isLoading}

@@ -17,7 +17,6 @@ function ArtistTopTracks({
   fetchTopTracks,
   clearTopTracks,
   error,
-  ...routerProps
 }) {
   useEffect(() => {
     document.title = `Top ${artistName} Tracks`;
@@ -28,7 +27,11 @@ function ArtistTopTracks({
     return () => clearTopTracks();
   }, [artistId, fetchTopTracks, clearTopTracks]);
 
-  return <Tracks tracks={tracks} {...routerProps} />;
+  if (error) {
+    return null;
+  }
+
+  return <Tracks tracks={tracks} />;
 }
 
 const mapStateToProps = (state, { artistId }) => ({

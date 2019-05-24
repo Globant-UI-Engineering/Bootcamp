@@ -17,7 +17,6 @@ function TopTracks({
   fetchTopTracks,
   clearTopTracks,
   error,
-  ...routerProps
 }) {
   useEffect(() => {
     document.title = "My Top Tracks";
@@ -36,7 +35,7 @@ function TopTracks({
   return (
     <>
       <div className={styles.container}>
-        <Tracks tracks={tracks} {...routerProps} />
+        <Tracks tracks={tracks} />
       </div>
       <button
         className={styles.loadMore}
