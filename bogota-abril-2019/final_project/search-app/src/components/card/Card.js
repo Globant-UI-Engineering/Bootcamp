@@ -31,11 +31,16 @@ class Card extends React.Component {
     )}
 
     deleteClickHandler(id){
-      firebaseRef.child(id).remove().then((result)=>{
-        let newArray = this.props.allTechnologys.filter(element => element.id!==id);
-        this.props.updateAllTechnologys(newArray);
-        this.props.findTechnologys({userInput:"", technologys:newArray})
-        this.props.updateUserInput("")
+      var props = this.props;
+      firebaseRef.child(id).remove(function(error){
+        if(error){
+          console.log("unexpected error");
+        }else{
+          let newArray = props.allTechnologys.filter(element => element.id!==id);
+          props.updateAllTechnologys(newArray);
+          props.findTechnologys({userInput:"", technologys:newArray})
+          props.updateUserInput("")
+        }
       });
     }
 }

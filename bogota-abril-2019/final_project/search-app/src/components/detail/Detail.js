@@ -2,8 +2,6 @@ import React from 'react';
 import './Detail.css';
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';
-import updateAllTechnologys from '../../redux/actions/updateAllTechnologys'
-import findTechnologys from '../../redux/actions/findTechnologys'
 import updateUserInput from '../../redux/actions/updateUserInput'
 import fireBaseInit from '../FirebaseInit'
 import {connect} from 'react-redux'
@@ -65,22 +63,30 @@ class Detail extends React.Component {
   }
 
   updateTechnology(text,attribute){
-
+    var props = this.props;
     if(attribute === CONTENT && text !== beforeContent){
-      // actualizarrrrr valor anteiror
+      firebaseRef.child(this.state.id).update({content:text},function(error){
+        if(error){
+          console.log("unexpected error");
+        }
+        else{
+          beforeContent = text;
+          props.updateUserInput("");
+        }  
+      });
     }else if(attribute === TITLE && text !== beforeTitle){
-      // actualizarrrrr valor anteiror
-     let currentObject =  this.props.allTechnologys.find(element => element.id === this.state.id);
-     currentObject.title = text;
-      this.updateLocalData();
+      firebaseRef.child(this.state.id).update({title:text},function(error){
+        if(error){
+          console.log("unexpected error");
+        }
+        else{
+          beforeTitle = text;
+          props.updateUserInput("");
+        }
+      })
     }
   }
 
-  updateLocalData(){
-    this.props.updateAllTechnologys(this.props.allTechnologys);
-    this.props.findTechnologys({userInput:"", technologys:this.props.allTechnologys})
-    this.props.updateUserInput("")
-  }
 
 }
 
@@ -92,15 +98,11 @@ Detail.propTypes  = {
 
 const mapStateToProps = (state) => {
   return {
-    technologys:state.restultList,
-    allTechnologys:state.allTechnologys,
     inputValue:state.inputValue
   }
 };
 
 const mapDispatchToProps = {
-  findTechnologys,
-  updateAllTechnologys,
   updateUserInput
 };
 
