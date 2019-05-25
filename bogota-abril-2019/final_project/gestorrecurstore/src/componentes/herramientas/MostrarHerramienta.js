@@ -19,13 +19,33 @@ class MostrarHerramienta extends Component {
     devolucion = (id) => {
         const { firestore } = this.props;
         const herramientaActualizada = { ...this.props.herramienta };
+
+        this.actualizarUsuario(firestore, herramientaActualizada);
+
         herramientaActualizada.prestado = [];
         herramientaActualizada.disponible = true;
+
         firestore.update({
             collection: 'herramientas',
             doc: herramientaActualizada.id
         }, herramientaActualizada);
     }
+
+    actualizarUsuario(firestore, herramientaActualizada) {
+        const colection = firestore.collection('personas');
+        const consulta = colection.where("codigoUniversitario", "==", herramientaActualizada.prestado[0].codigoUniversitario).get();
+        consulta.then(resultado => {
+            const datos = resultado.docs[0];
+            const usuario = datos.data();
+            usuario.id = datos.id;
+            usuario.herramientasSolicitadas = usuario.herramientasSolicitadas.filter(x => x.serial !== herramientaActualizada.serial)
+            firestore.update({
+                collection: 'personas',
+                doc: usuario.id
+            }, usuario);
+        });
+    }
+
     render() {
         const { herramienta } = this.props
 

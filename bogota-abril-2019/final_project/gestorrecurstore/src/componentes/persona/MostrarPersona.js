@@ -32,6 +32,29 @@ const MostrarPersona = ({ usuario }) => {
                 <p>Correo Electronico: <span>{usuario.correoElectronico}</span></p>
                 <p>Facultad: <span>{usuario.facultad} </span></p>
             </section>
+            {usuario.herramientasSolicitadas && usuario.herramientasSolicitadas.length  ?
+                (<section className="tableContainer">
+                    <h1> Herramientas en Préstamo</h1>
+                    <table className="blueTable">
+                        <thead>
+                            <tr>
+                                <th>Serial</th>
+                                <th>Descripción</th>
+                                <th>Marca</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {usuario.herramientasSolicitadas.map(herramienta => (
+                                <tr key={herramienta.id}>
+                                    <td>{herramienta.serial}</td>
+                                    <td>{herramienta.descripcion}</td>
+                                    <td>{herramienta.marca}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </section>) : null
+            }
         </article>
     );
 }

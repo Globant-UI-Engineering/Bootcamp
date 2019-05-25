@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome';
 import { firestoreConnect } from 'react-redux-firebase';
 import Spinner from '../layout/Spinner.js';
+import Alerta from '../layout/Alerta';
 import { Link } from 'react-router-dom';
 
 import { faHandHolding, faUndo } from '@fortawesome/free-solid-svg-icons';
@@ -18,7 +19,8 @@ const undoIcon = <FontAwesomeIcon icon={faUndo} />;
 class PrestamoHerramienta extends Component {
     state = {
         codigoUsuario: '',
-        conResultados: false
+        conResultados: true,
+        mostrarUsuario: false
     }
 
     leerCodigo = (e) => {
@@ -37,35 +39,47 @@ class PrestamoHerramienta extends Component {
 
         consulta.then(resultado => {
             if (resultado.empty) {
-                buscarUsuario({});
+                buscarUsuario(-1,{});
                 this.setState({
-                    conResultados: false
+                    conResultados: false,
+                    mostrarUsuario: false
                 })
             } else {
                 const datos = resultado.docs[0];
-                buscarUsuario(datos.data());
+                buscarUsuario(datos.id, datos.data());
                 this.setState({
-                    conResultados: true
+                    conResultados: true,
+                    mostrarUsuario: true
                 })
             }
         })
     }
 
     solicitarPrestamo = (e) => {
-        const { usuario } = this.props;
+        let { usuario } = this.props;
         usuario.fecha_solicitud = new Date().toLocaleDateString();
-        console.log(usuario)
+
         let prestado = [];
         prestado = [...this.props.herramienta.prestado, usuario]
         const herramientaActualizada = { ...this.props.herramienta };
         herramientaActualizada.prestado = prestado;
         herramientaActualizada.disponible = false;
 
+        let usuarioActualizado = { ...usuario };
+        usuarioActualizado.herramientasSolicitadas = usuarioActualizado.herramientasSolicitadas ? usuarioActualizado.herramientasSolicitadas : [];
+        usuarioActualizado.herramientasSolicitadas.push(this.props.herramienta);
+
         const { firestore, history } = this.props;
+
+        firestore.update({
+            collection: 'personas',
+            doc: usuario.id
+        }, usuarioActualizado);
+
         firestore.update({
             collection: 'herramientas',
             doc: herramientaActualizada.id
-        }, herramientaActualizada).then(history.push('/'));
+        }, herramientaActualizada).then(this.usuario = undefined, history.push('/'));
     }
 
 
@@ -74,15 +88,23 @@ class PrestamoHerramienta extends Component {
 
         if (!herramienta) return <Spinner />;
 
-        const { conResultados } = this.state;
+        const { conResultados,mostrarUsuario } = this.state;
         const { usuario } = this.props;
-        let fichaUsuario, botonPrestamo;
-        if (conResultados) {
+        let fichaUsuario, botonPrestamo, alerta;
+
+        if (mostrarUsuario) {
             fichaUsuario = <FichaPersona usuario={usuario} />
             botonPrestamo = <button className="solicitudPrestamoButton" onClick={this.solicitarPrestamo}> Solicitar Prestamo</button>
         } else {
             fichaUsuario = null;
             botonPrestamo = null;
+        }
+
+        if (conResultados) {
+            alerta = null;
+        } else {
+            alerta = <Alerta mensaje="No se ha encontrado ningún usuario!" />;
+
         }
 
         return (
@@ -108,6 +130,7 @@ class PrestamoHerramienta extends Component {
                 <section>
                     {fichaUsuario}
                     {botonPrestamo}
+                    {alerta}
                 </section>
             </article>
         )

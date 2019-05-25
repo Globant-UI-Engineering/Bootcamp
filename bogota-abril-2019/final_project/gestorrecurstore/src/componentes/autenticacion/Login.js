@@ -3,11 +3,13 @@ import { firebaseConnect } from 'react-redux-firebase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import Spinner from '../layout/Spinner.js';
 
 import './Login.css';
 
 const passIcon = <FontAwesomeIcon icon={faLock} size="2x" />;
 const mailIcon = <FontAwesomeIcon icon={faUserAlt} size="2x" />;
+const loading = false
 class Login extends Component {
     state = {
         email: '',
@@ -21,16 +23,18 @@ class Login extends Component {
     }
 
     login = (e) => {
+        this.loading = true;
+        console.log(this.loading)
         e.preventDefault();
         const { firebase } = this.props;
         const { email, password } = this.state;
         firebase.login({ email, password })
-            .then(resultado => console.log('Exito'))
-            .catch(erro => console.log('error'))
+            .then(resultado => this.loading = false)
+            .catch(error => {alert('El usuario o la contraseña son incorrectos');this.loading = false})
     }
 
     render() {
-
+        if (this.loading) return <Spinner />;
         return (
             <article>
                 <section className="loginSection">

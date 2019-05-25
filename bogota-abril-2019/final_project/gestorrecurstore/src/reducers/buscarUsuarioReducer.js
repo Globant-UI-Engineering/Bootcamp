@@ -7,15 +7,17 @@ export default function (state = initialState, action) {
         case BUSCAR_USUARIO:
             return {
                 ...state,
-                primerNombre:action.usuario.primerNombre,
-                segundoNombre:action.usuario.segundoNombre,
-                primerApellido:action.usuario.primerApellido,
-                segundoApellido:action.usuario.segundoApellido,
-                correoElectronico:action.usuario.correoElectronico,
-                telefono:action.usuario.telefono,
-                codigoUniversitario:action.usuario.codigoUniversitario,
-                facultad:action.usuario.facultad,
-                tipo:action.usuario.tipo,
+                id: action.usuario.id,
+                primerNombre: action.usuario.primerNombre,
+                segundoNombre: action.usuario.segundoNombre,
+                primerApellido: action.usuario.primerApellido,
+                segundoApellido: action.usuario.segundoApellido,
+                correoElectronico: action.usuario.correoElectronico,
+                telefono: action.usuario.telefono,
+                codigoUniversitario: action.usuario.codigoUniversitario,
+                facultad: action.usuario.facultad,
+                tipo: action.usuario.tipo,
+                herramientasSolicitadas: action.usuario.herramientasSolicitadas ? action.usuario.herramientasSolicitadas : [],
             }
         default:
             return state;
