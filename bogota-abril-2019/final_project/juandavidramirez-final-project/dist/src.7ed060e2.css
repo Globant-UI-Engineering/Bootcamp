@@ -60,10 +60,99 @@ ul.champions-container {
   text-align: center;
 }
 
-.page-wrapper > h2 {
+.page-wrapper > h2,
+.summoner-info-paper-container > h2 {
   text-transform: uppercase;
   font-family: "Noto Sans", sans-serif;
   font-size: 40px;
+}
+
+.summoner-info-paper-container > h2 {
+  margin-bottom: 0;
+}
+
+.summoner-info-paper-container > :nth-child(3) {
+  text-transform: uppercase;
+}
+
+.additional-info {
+  margin-top: 5%;
+}
+
+.additional-info h3 {
+  text-transform: uppercase;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 20px;
+}
+
+.additional-info > div {
+  padding: 5px;
+}
+
+.additional-info ul {
+  list-style-type: none;
+  padding: 2% 2% 0 2%;
+}
+
+.additional-info ul li {
+  margin-bottom: 20px;
+}
+
+.details-panel > :first-child {
+  padding: 2%;
+}
+
+.details-panel > :first-child h5,
+.details-panel > :first-child dt {
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.details-panel > :first-child h5 {
+  font-size: 17px;
+}
+
+.details-panel > :first-child dt {
+  font-weight: 600;
+  display: inline;
+  margin-right: 10px;
+}
+
+.details-panel > :first-child dd {
+  display: inline;
+  margin: 0;
+}
+
+.flex-row-match-card {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 4px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-row-match-card > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.column-flex {
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-row-match-card h4 {
+  text-transform: uppercase;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 18px;
 }
 
 li.champions-item {
@@ -142,7 +231,9 @@ thead tr.MuiTableRow-root-30 th {
 }
 
 .summoner-info-paper-container {
-  margin-top: 3%;
+  margin: 3% 10%;
+  padding: 4%;
+  text-align: center;
 }
 
 .profile-icon-image {

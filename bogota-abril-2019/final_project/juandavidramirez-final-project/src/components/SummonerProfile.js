@@ -61,19 +61,15 @@ class SummonerProfile extends React.Component {
       <h1>This summoner doesnt exist</h1>
     ) : (
       <Paper className="summoner-info-paper-container">
-        {" "}
         <img
           className="profile-icon-image"
           src={profileIconUrl}
           alt="Summoner Profile Icon"
         />
         <h2>{profileInfo.name}</h2>
-        <p>
-          level {profileInfo.summonerLevel}, # of played games for 3 years{" "}
-          {matches.totalGames}
-        </p>
-        <div className="additional-info">
-          <div>
+        <p>level {profileInfo.summonerLevel}</p>
+        <section className="additional-info">
+          <Paper>
             <h3>Recent Matches</h3>
             <ul className="matches-list">
               {matches.matches.map((value, index) => {
@@ -93,9 +89,8 @@ class SummonerProfile extends React.Component {
                 );
               })}
             </ul>
-          </div>
-        </div>{" "}
-        )
+          </Paper>
+        </section>
       </Paper>
     );
   }

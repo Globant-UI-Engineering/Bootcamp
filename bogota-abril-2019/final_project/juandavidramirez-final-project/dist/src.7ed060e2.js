@@ -72970,7 +72970,7 @@ var _urls = require("./Constants/urls");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var key = "RGAPI-69b49d59-29aa-458a-89c6-2a77fa5e49e2";
+var key = "RGAPI-8ef45c5a-21a9-403d-805c-5ca894cd67aa";
 
 var concatApiKey = function concatApiKey(option) {
   return option + "api_key=" + key;
@@ -74371,7 +74371,65 @@ function (_React$Component) {
 
 var _default = TopTierList;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./RenderTierList":"../src/components/RenderTierList.js","./Loading":"../src/components/Loading.js","../utils/api":"../src/utils/api.js"}],"../src/components/Match.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./RenderTierList":"../src/components/RenderTierList.js","./Loading":"../src/components/Loading.js","../utils/api":"../src/utils/api.js"}],"../src/utils/Constants/game.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.serviceProxies = exports.queues = exports.seasons = void 0;
+var seasons = {
+  0: "preseason 3",
+  1: "season 3",
+  2: "preseason 4",
+  3: "season 4",
+  4: "preseason 5",
+  5: "season 5",
+  6: "preseason 6",
+  7: "season 6",
+  8: "preseason 7",
+  9: "season 7",
+  10: "preseason 8",
+  11: "season 8",
+  12: "preseason 9",
+  13: "season 9"
+};
+exports.seasons = seasons;
+var queues = {
+  400: {
+    map: "Summoner's Rift",
+    description: "5v5 Draft Pick games"
+  },
+  420: {
+    map: "Summoner's Rift",
+    description: "5v5 Ranked Solo games"
+  },
+  430: {
+    map: "Summoner's Rift",
+    description: "5v5 Blind Pick games"
+  },
+  440: {
+    map: "Summoner's Rift",
+    description: "5v5 Ranked Flex games"
+  },
+  450: {
+    map: "Howling Abyss",
+    description: "5v5 ARAM games"
+  }
+};
+exports.queues = queues;
+var serviceProxies = {
+  BR1: {
+    region: "BR",
+    host: "br1.api.riotgames.com"
+  },
+  LA1: {
+    region: "LAN",
+    host: "la1.api.riotgames.com"
+  }
+};
+exports.serviceProxies = serviceProxies;
+},{}],"../src/components/Match.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74390,6 +74448,8 @@ var _api = require("../utils/api");
 var _router = require("@reach/router");
 
 var _Loading = _interopRequireDefault(require("./Loading"));
+
+var _game = require("../utils/Constants/game");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -74429,7 +74489,9 @@ function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Match)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {}, _temp));
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Match)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
+      loading: true
+    }, _temp));
   }
 
   _createClass(Match, [{
@@ -74450,11 +74512,34 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
+      var _this$props = this.props,
+          platformId = _this$props.platformId,
+          gameId = _this$props.gameId,
+          champion = _this$props.champion,
+          queue = _this$props.queue,
+          season = _this$props.season,
+          timestamp = _this$props.timestamp,
+          role = _this$props.role,
+          lane = _this$props.lane;
+      console.log(queue);
+      var seasonValue = _game.seasons[season];
+      var queueValue = _game.queues[queue] ? _game.queues[queue] : queue;
+      var platformValue = _game.serviceProxies[platformId];
+      var realDate = new Date(timestamp).toDateString();
+      var roleValue = role === "NONE" ? null : role;
+      var laneValue = lane === "NONE" ? null : lane;
       var callback = {
         onSuccess: function onSuccess(response) {
           //console.log(response.data.data);
           _this3.setState({
-            championInfo: _this3.getChampionInfo(response.data.data)
+            championInfo: _this3.getChampionInfo(response.data.data),
+            seasonValue: seasonValue,
+            queueValue: queueValue,
+            platformValue: platformValue,
+            realDate: realDate,
+            roleValue: roleValue,
+            laneValue: laneValue,
+            loading: false
           });
         },
         onFailed: function onFailed(error) {
@@ -74466,25 +74551,30 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var championInfo = this.state.championInfo;
-      var _this$props = this.props,
-          platformId = _this$props.platformId,
-          gameId = _this$props.gameId,
-          champion = _this$props.champion,
-          queue = _this$props.queue,
-          season = _this$props.season,
-          timestamp = _this$props.timestamp,
-          role = _this$props.role,
-          lane = _this$props.lane;
-      var championImgUrl = championInfo ? _urls.apiStaticUrl.img + "/champion/" + championInfo.image.full : "";
-      return championInfo ? _react.default.createElement(_core.Card, {
+      var _this$state = this.state,
+          championInfo = _this$state.championInfo,
+          loading = _this$state.loading,
+          seasonValue = _this$state.seasonValue,
+          queueValue = _this$state.queueValue,
+          platformValue = _this$state.platformValue,
+          realDate = _this$state.realDate,
+          roleValue = _this$state.roleValue,
+          laneValue = _this$state.laneValue;
+      var champion = this.props.champion;
+      var championImgUrl = championInfo ? _urls.apiStaticUrl.img + "/champion/" + championInfo.image.full : ""; //const roleValue = ;
+
+      return !loading ? _react.default.createElement(_core.Card, {
         className: "flex-row-match-card"
       }, _react.default.createElement(_router.Link, {
         to: "/champion/".concat(championInfo.id)
       }, _react.default.createElement("img", {
         src: championImgUrl,
         alt: "The champion used was ".concat(champion)
-      })), _react.default.createElement("p", null, "season ", season, ", gameId ", gameId, ", queue ", queue, ", main role ", role, ", lane ", lane)) : _react.default.createElement(_Loading.default, {
+      })), _react.default.createElement("h4", null, seasonValue), _react.default.createElement("article", {
+        className: "details-panel"
+      }, _react.default.createElement(_core.Paper, {
+        className: "flex column-flex flex-center"
+      }, _react.default.createElement("h5", null, "".concat(queueValue.map, ", ").concat(queueValue.description)), _react.default.createElement("dl", null, _react.default.createElement("div", null, _react.default.createElement("dt", null, "server"), _react.default.createElement("dd", null, platformValue.region)), _react.default.createElement("div", null, _react.default.createElement("dt", null, "date"), _react.default.createElement("dd", null, realDate)), roleValue && _react.default.createElement("div", null, _react.default.createElement("dt", null, "role"), _react.default.createElement("dd", null, roleValue)), laneValue && _react.default.createElement("div", null, _react.default.createElement("dt", null, "lane"), _react.default.createElement("dd", null, laneValue)))))) : _react.default.createElement(_Loading.default, {
         name: "loading champion"
       });
     }
@@ -74495,7 +74585,7 @@ function (_React$Component) {
 
 var _default = Match;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","../utils/Constants/urls":"../src/utils/Constants/urls.js","../utils/api":"../src/utils/api.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Loading":"../src/components/Loading.js"}],"../src/components/SummonerProfile.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","../utils/Constants/urls":"../src/utils/Constants/urls.js","../utils/api":"../src/utils/api.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Loading":"../src/components/Loading.js","../utils/Constants/game":"../src/utils/Constants/game.js"}],"../src/components/SummonerProfile.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74623,13 +74713,13 @@ function (_React$Component) {
         name: "Summoner profile"
       }) : !profileInfo ? _react.default.createElement("h1", null, "This summoner doesnt exist") : _react.default.createElement(_core.Paper, {
         className: "summoner-info-paper-container"
-      }, " ", _react.default.createElement("img", {
+      }, _react.default.createElement("img", {
         className: "profile-icon-image",
         src: profileIconUrl,
         alt: "Summoner Profile Icon"
-      }), _react.default.createElement("h2", null, profileInfo.name), _react.default.createElement("p", null, "level ", profileInfo.summonerLevel, ", # of played games for 3 years", " ", matches.totalGames), _react.default.createElement("div", {
+      }), _react.default.createElement("h2", null, profileInfo.name), _react.default.createElement("p", null, "level ", profileInfo.summonerLevel), _react.default.createElement("section", {
         className: "additional-info"
-      }, _react.default.createElement("div", null, _react.default.createElement("h3", null, "Recent Matches"), _react.default.createElement("ul", {
+      }, _react.default.createElement(_core.Paper, null, _react.default.createElement("h3", null, "Recent Matches"), _react.default.createElement("ul", {
         className: "matches-list"
       }, matches.matches.map(function (value, index) {
         return _react.default.createElement("li", {
@@ -74644,7 +74734,7 @@ function (_React$Component) {
           role: value.role,
           lane: value.lane
         }));
-      })))), " ", ")");
+      })))));
     }
   }]);
 
@@ -75284,7 +75374,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50666" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65003" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
