@@ -3,6 +3,14 @@ const thesaurus = {
         PLAYERS: 'players',
         MATCHES: 'matches',
         POINTS: 'points',
+        COUNTRIES: 'countries',
+        HANDLE_PLAYER: 'handlePlayer',
+        HANDLE_MATCH: 'handleMatche',
+        HANDLE_POINT: 'handlePoint',
+    },
+    elementKey: {
+        NATIONALITY: 'nationality',
+        NATIONALITY_ABBREVIATION: 'abbreviation',
     },
     pointType: {
         WINNER: 'winner',

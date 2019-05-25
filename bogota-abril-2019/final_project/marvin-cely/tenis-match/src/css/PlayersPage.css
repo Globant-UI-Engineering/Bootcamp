@@ -23,8 +23,8 @@ figure[aira-lable$="jugadores"] > figcaption {
 }
 
 main.container > section:first-of-type {
-    padding-top: 4rem;
-    margin-top: -4rem;
+    padding-top: 3.8rem;
+    margin-top: -3.8rem;
     z-index: 1;
 }
 
@@ -32,6 +32,10 @@ section > header {
     background: white;
     padding: 1rem;
     border-bottom: 1px solid var(--font-color-gray);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 section.row {

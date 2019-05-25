@@ -2,10 +2,9 @@ import React from 'react';
 import '../../css/PlayersPage.css';
 import { observer } from 'mobx-react';
 import TablePlayer from './TablePlayer';
-import FormNewPlayer from './FormNewPlayer';
+import ModalAddPlayer from './ModalAddPlayer';
 import utils from '../../utils/utils';
-import {LoadingComponent} from '../SmallPieceComponent';
-import serviceAddData from '../../services/serviceAddData';
+import { LoadingComponent, ErrorServiceComponent } from '../SmallPieceComponent';
 import thesaurus from '../../utils/thesaurus';
 
 const PlayersPage = observer(
@@ -19,51 +18,16 @@ const PlayersPage = observer(
           icon: 'fas fa-user-plus',
         },
         photoDescription: 'Photo by Christopher Burns on Unsplash',
-        enrollPlayerForm: {
-          name: '',
-          nationality: '',
-          birthDate: null,
-        },
       }
-      this.handleForm = this.handleForm.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleForm(valuesForm) {
-      this.setState({
-          enrollPlayerForm: Object.assign({}, this.state.enrollPlayerForm, valuesForm), 
-      });
-    }
-
-    handleSubmit(event) {
-      event.preventDefault();
-      // serviceAddData.serviceAddData(this.props.fireStore, thesaurus.collectionsName.PLAYERS ,this.state.enrollPlayerForm); // TODO:Enviar nuevo jugador
-      event.target.reset();
     }
 
     render() {
-      const AddPlayerModal = 
-      <React.Fragment>
-            <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <form className="modal-content" onSubmit={this.handleSubmit}>
-                  <header className="modal-header">
-                    <h5 className="modal-title" id="exampleModalCenterTitle">Perfil del Jugador</h5>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </header>
-                  <main className="modal-body Container pl-5 pr-5">
-                    <FormNewPlayer sendValue={this.handleForm}/>
-                  </main>
-                  <footer className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" className="btn btn-info" data-toggle="modal">Inscribir</button>
-                  </footer>
-                </form>
-              </div>
-            </div>
-        </React.Fragment>;
+      const store = this.props.store;
+      const collectionsName = [ thesaurus.collectionsName.PLAYERS, thesaurus.collectionsName.COUNTRIES];
+      const stateComponent = [<TablePlayer store={this.props.store}/>,
+                              <LoadingComponent/>,
+                              <ErrorServiceComponent/>];
+      const validationComponent = () => utils.validationService( store, collectionsName, stateComponent);
 
       return (
         <React.Fragment>
@@ -74,21 +38,23 @@ const PlayersPage = observer(
           </aside>        
           <main className="container">    
             <section className="sticky-top">
-              <header className="d-flex justify-content-between flex-wrap">
-                <h2>{this.state.nameComponent}</h2>
-                <button type="button" 
-                  className="btn btn-info" 
-                  data-toggle="modal" 
-                  data-target="#exampleModalCenter">
+              <header>
+                <article>
+                  <h2>{this.state.nameComponent}</h2>
+                </article>
+                <section>
+                  <button type="button"
+                    className="btn btn-info"
+                    data-toggle="modal"
+                    data-target="#modalAddPlayer">
                       <i className={this.state.newPlayerButton.icon}></i>
-                  &nbsp;{this.state.newPlayerButton.name}
-                </button>
+                      &nbsp;{this.state.newPlayerButton.name}
+                  </button>
+                </section>
               </header>
             </section>
-            {AddPlayerModal}       
-            {utils.validationComponent(this.props.store.players.length > 0,
-                                      <TablePlayer players={this.props.store.players}/>,
-                                      <LoadingComponent/>)}
+            <ModalAddPlayer store={this.props.store}/>      
+            {validationComponent()}
           </main>
         </React.Fragment>
       );

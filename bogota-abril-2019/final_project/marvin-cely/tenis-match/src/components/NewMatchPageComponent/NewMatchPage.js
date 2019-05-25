@@ -6,6 +6,7 @@ class NewMatchPage extends React.Component {
     return(
       <React.Fragment>
         <div>NEW MATCH PAGE</div>
+        <img src="https://www.countryflags.io/co/flat/64.png"></img>
       </React.Fragment>
     );
   }

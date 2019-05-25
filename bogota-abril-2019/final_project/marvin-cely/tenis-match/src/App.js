@@ -22,16 +22,18 @@ class App extends React.Component {
     }
 
     // Here is the firestore's onSnapshot when gets the "()" Unlink a listening agent. See componentWillMount.
-    const {PLAYERS, MATCHES, POINTS} = thesaurus.collectionsName;
-    this.unSubcribePlayers = serviceGetData.listenAllElements(this.props.store, PLAYERS);
-    this.unSubcribeMatches = serviceGetData.listenAllElements(this.props.store, MATCHES);
-    this.unSubcribePoints = serviceGetData.listenAllElements(this.props.store, POINTS);
+    const {PLAYERS, MATCHES, POINTS, COUNTRIES} = thesaurus.collectionsName;
+    this.unSubcribePlayers = serviceGetData.listenAllElementsList(this.props.store, PLAYERS);// TODO: Revisar con que tipo de dato conviene list o map
+    this.unSubcribeMatches = serviceGetData.listenAllElementsList(this.props.store, MATCHES); // TODO: Revisar con que tipo de dato conviene list o map
+    this.unSubcribePoints = serviceGetData.listenAllElementsList(this.props.store, POINTS); // TODO: Revisar con que tipo de dato conviene list o map
+    this.unSubcribeCountires = serviceGetData.listenAllElementsMap(this.props.store, COUNTRIES);
   }
 
   componentWillUnmount() {
     this.unSubcribePlayers();
     this.unSubcribeMatches();
     this.unSubcribePoints();
+    this.unSubcribeCountires();
   }
   
   render() {
@@ -48,6 +50,32 @@ class App extends React.Component {
       );
     });
 
+    const navBar = () => {
+      return(
+        <nav className="navbar sticky-top navbar-expand-lg navbar-dark justify-content-between">
+              <Link
+                to="/"
+                id="navegacion-inicio-tab" 
+                role="tab" 
+                aria-controls="navegacion-inicio" 
+                aria-selected="true">
+                  <header className="d-flex align-items-center">
+                    <img className="img-fluid" src={tennisLogo} alt="Logo Pelota de tenis" />
+                    <h1>{this.state.nameApp}</h1>
+                  </header>
+              </Link>
+              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-controls="barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <section className="collapse navbar-collapse" id="barraNavegacion">
+                <article className="navbar-nav ml-3 mt-2 mt-lg-0 ml-md-auto">
+                  {linkList}
+                </article>
+              </section>
+            </nav>
+      );
+    };
+
     const routesList = routesPages.map(({path, exact, component: ComponentPage}, key) => {
       return (
         <Route
@@ -63,27 +91,7 @@ class App extends React.Component {
       <React.Fragment>
         <main>
           <Router>
-            <nav class="navbar sticky-top navbar-expand-lg navbar-dark justify-content-between">
-              <Link
-                to="/"
-                id="navegacion-inicio-tab" 
-                role="tab" 
-                aria-controls="navegacion-inicio" 
-                aria-selected="true">
-                  <header class="d-flex align-items-center">
-                    <img className="img-fluid" src={tennisLogo} alt="Logo Pelota de tenis" />
-                    <h1>{this.state.nameApp}</h1>
-                  </header>
-              </Link>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-controls="barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <section class="collapse navbar-collapse" id="barraNavegacion">
-                <article class="navbar-nav ml-3 mt-2 mt-lg-0 ml-md-auto">
-                  {linkList}
-                </article>
-              </section>
-            </nav>
+            {navBar()}
             <section>
               {routesList}
             </section>

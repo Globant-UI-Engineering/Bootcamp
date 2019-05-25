@@ -3,10 +3,20 @@ import '../../css/TablePlayer.css';
 import { observer } from 'mobx-react';
 import playerListHeader from './playersTableHead';
 import utils from '../../utils/utils';
+import thesaurus from '../../utils/thesaurus';
 
 
 const TablePlayer = observer(
   class TablePlayer extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        flagSize: 64,
+        NATIONALITY: thesaurus.elementKey.NATIONALITY,
+        NATIONALITY_ABBREVIATION: thesaurus.elementKey.NATIONALITY_ABBREVIATION,
+      }
+    }
+
     render() { 
       const tableHeader = (headerList) => {
         return(
@@ -19,14 +29,18 @@ const TablePlayer = observer(
         );
       }
 
-      const playersList = this.props.players.map(({id, name, nationality, birthDate, ranking}) => {
+      const countries = this.props.store.countries; 
+      const playersList = this.props.store.players.map(({id, name, idCountry, birthDate, ranking}) => {
         return (
           <section className="row" key={id} role="row">
             <span className="col-md-3" role="cell">
               {name}
             </span>
             <span className="col-md-3" role="cell">
-              {nationality}
+              <img 
+                src={`https://www.countryflags.io/${countries.get(idCountry)[this.state.NATIONALITY_ABBREVIATION]}/shiny/${this.state.flagSize}.png`} 
+                title={countries.get(idCountry)[this.state.NATIONALITY]} 
+                alt={countries.get(idCountry)[this.state.NATIONALITY]}/>
             </span>
             <span className="col-md-3" role="cell">
               {utils.getAge(birthDate)}
