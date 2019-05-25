@@ -1,6 +1,8 @@
 import React from "react";
 import { Paper } from "@material-ui/core";
 import { apiStaticUrl } from "../utils/Constants/urls";
+import HashTagList from "./HashTagList";
+import InfoCategory from "./InfoCategory";
 
 class RenderChampionDetail extends React.Component {
   render() {
@@ -22,20 +24,29 @@ class RenderChampionDetail extends React.Component {
     const championImageUrl =
       apiStaticUrl.noVersionImg + "/champion/loading/" + id + "_0.jpg";
     return (
-      <Paper className="champion-detail-paper-flex-container">
+      <article className="champion-detail">
         <h2>{name}</h2>
-        <p>{title}</p>
-        <br />
-        <img alt={`${name} Splash art`} src={championImageUrl} />
-        <p>{blurb}</p>
-        <br />
+        <h3>{title}</h3>
         <p>
-          attack: {info.attack}, defense: {info.defense}, magic: {info.magic},
-          difficulty:{info.difficulty}
+          <span>version </span>
+          {version}
         </p>
-        <br />
-        <p>hashtags: {tags}</p>
-      </Paper>
+        <div>
+          <div>
+            <img alt={`${name} Splash art`} src={championImageUrl} />
+            <HashTagList values={tags} />
+          </div>
+          <div>
+            <p>{blurb}</p>
+            <div>
+              <InfoCategory label="attack" value={info.attack} />
+              <InfoCategory label="defense" value={info.defense} />
+              <InfoCategory label="magic" value={info.magic} />
+              <InfoCategory label="difficulty" value={info.difficulty} />
+            </div>
+          </div>
+        </div>
+      </article>
     );
   }
 }

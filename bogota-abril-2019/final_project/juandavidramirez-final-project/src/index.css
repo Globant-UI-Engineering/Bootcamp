@@ -9,7 +9,7 @@ body {
   padding: 0 15px;
   position: sticky;
   top: 0;
-
+  z-index: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -155,9 +155,12 @@ ul.champions-container {
   font-size: 18px;
 }
 
-li.champions-item {
+.champions-item {
   list-style-type: none;
   margin: 30px;
+}
+
+.champions-item:hover {
 }
 
 li.champions-item img:first-child {
@@ -165,7 +168,8 @@ li.champions-item img:first-child {
   border: 2px solid goldenrod;
 }
 
-li.champions-item img:first-child:hover {
+li.champions-item img:first-child:hover,
+.flex-row-match-card > a img:hover {
   opacity: 0.5;
 }
 
@@ -199,9 +203,22 @@ li.champions-item :last-child {
   background-color: blue;
 }
 
-tbody tr td .MuiLinearProgress-root-73 {
+.linear-progress-bar {
+  background-color: rgb(201, 206, 234);
   height: 10px;
+  position: relative;
 }
+
+.progress-bar-child {
+  background-color: #3f51b5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  transform-origin: left;
+}
+
 .progress :last-child {
   background-color: red;
 }
@@ -247,4 +264,92 @@ thead tr.MuiTableRow-root-30 th {
 
 .challenger-section-title {
   margin-top: 0;
+}
+
+.champion-detail {
+  text-align: center;
+  padding: 1% 5%;
+}
+
+.champion-detail > h2 {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 40px;
+  margin-bottom: 0;
+}
+
+.champion-detail > h3 {
+  font-family: "Noto Sans", sans-serif;
+  text-transform: capitalize;
+  font-size: 18px;
+}
+
+.champion-detail > p {
+  font-style: italic;
+}
+.champion-detail > p span {
+  font-family: "Noto Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.champion-detail > div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 1%;
+}
+
+.champion-detail > div > :first-child {
+  text-align: start;
+}
+
+.champion-detail > div > :first-child > p {
+  padding-left: 3%;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 800;
+}
+
+.champion-detail > div > :first-child > p span {
+  padding-left: 1%;
+}
+
+.champion-detail img {
+  border: 2px solid black;
+}
+
+.champion-detail > div > :last-child {
+  text-align: justify;
+  width: 60%;
+}
+
+.champion-detail > div > :last-child > p {
+  font-family: "Mandali", sans-serif;
+}
+
+.champion-detail > div > :last-child > div {
+  margin-top: 18%;
+}
+
+.champion-detail > div > :last-child > div > div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.champion-detail > div > :last-child > div > div > p {
+  text-transform: capitalize;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 800;
+}
+
+.champion-detail > div > :last-child > div > div > div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.champion-detail > div > :last-child > div > div > div div.linear-progress-bar {
+  height: 16px;
 }

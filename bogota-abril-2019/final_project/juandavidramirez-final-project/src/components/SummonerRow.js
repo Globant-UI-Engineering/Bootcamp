@@ -1,5 +1,5 @@
 import React from "react";
-import WinPercentage from "./WinPercentage";
+import ProgressBar from "./ProgressBar";
 import Veteran from "./Veteran";
 import HotStreak from "./HotStreak";
 import FreshBlood from "./FreshBlood";
@@ -33,7 +33,7 @@ class Summoner extends React.Component {
         </TableCell>
         <TableCell align="center">{name}</TableCell>
         <TableCell align="center">
-          <WinPercentage wins={wins} losses={losses} />
+          <ProgressBar value={wins} total={wins + losses} type="percentage" />
         </TableCell>
         <TableCell align="center">{hotStreak && <HotStreak />}</TableCell>
         <TableCell align="center">{veteran && <Veteran />}</TableCell>

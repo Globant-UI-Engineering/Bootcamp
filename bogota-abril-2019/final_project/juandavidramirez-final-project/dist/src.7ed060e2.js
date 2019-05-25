@@ -73247,407 +73247,7 @@ function (_React$Component) {
 
 var _default = ChampionList;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api.js":"../src/utils/api.js","./Loading":"../src/components/Loading.js","./RenderChampionList":"../src/components/RenderChampionList.js"}],"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireWildcard.js":[function(require,module,exports) {
-function _interopRequireWildcard(obj) {
-  if (obj && obj.__esModule) {
-    return obj;
-  } else {
-    var newObj = {};
-
-    if (obj != null) {
-      for (var key in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, key)) {
-          var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};
-
-          if (desc.get || desc.set) {
-            Object.defineProperty(newObj, key, desc);
-          } else {
-            newObj[key] = obj[key];
-          }
-        }
-      }
-    }
-
-    newObj["default"] = obj;
-    return newObj;
-  }
-}
-
-module.exports = _interopRequireWildcard;
-},{}],"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js":[function(require,module,exports) {
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-
-module.exports = _interopRequireDefault;
-},{}],"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js":[function(require,module,exports) {
-function _extends() {
-  module.exports = _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-module.exports = _extends;
-},{}],"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js":[function(require,module,exports) {
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-module.exports = _objectWithoutPropertiesLoose;
-},{}],"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/inheritsLoose.js":[function(require,module,exports) {
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
-}
-
-module.exports = _inheritsLoose;
-},{}],"../node_modules/@restart/context/forwardRef.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-exports.default = forwardRef;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function forwardRef(renderFn, _temp) {
-  var _ref = _temp === void 0 ? {} : _temp,
-      propTypes = _ref.propTypes,
-      defaultProps = _ref.defaultProps,
-      _ref$allowFallback = _ref.allowFallback,
-      allowFallback = _ref$allowFallback === void 0 ? false : _ref$allowFallback,
-      _ref$displayName = _ref.displayName,
-      displayName = _ref$displayName === void 0 ? renderFn.name || renderFn.displayName : _ref$displayName;
-
-  var render = function render(props, ref) {
-    return renderFn(props, ref);
-  };
-
-  return Object.assign(_react.default.forwardRef || !allowFallback ? _react.default.forwardRef(render) : function (props) {
-    return render(props, null);
-  }, {
-    displayName: displayName,
-    propTypes: propTypes,
-    defaultProps: defaultProps
-  });
-}
-},{"react":"../node_modules/react/index.js"}],"../node_modules/react-bootstrap/ThemeProvider.js":[function(require,module,exports) {
-"use strict";
-
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.useBootstrapPrefix = useBootstrapPrefix;
-exports.createBootstrapComponent = createBootstrapComponent;
-exports.default = exports.ThemeConsumer = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
-
-var _forwardRef = _interopRequireDefault(require("@restart/context/forwardRef"));
-
-var _react = _interopRequireWildcard(require("react"));
-
-var ThemeContext = _react.default.createContext(new Map());
-
-var Consumer = ThemeContext.Consumer,
-    Provider = ThemeContext.Provider;
-exports.ThemeConsumer = Consumer;
-
-var ThemeProvider =
-/*#__PURE__*/
-function (_React$Component) {
-  (0, _inheritsLoose2.default)(ThemeProvider, _React$Component);
-
-  function ThemeProvider() {
-    var _this;
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
-    _this.prefixes = new Map();
-    Object.keys(_this.props.prefixes).forEach(function (key) {
-      _this.prefixes.set(key, _this.props.prefixes[key]);
-    });
-    return _this;
-  }
-
-  var _proto = ThemeProvider.prototype;
-
-  _proto.render = function render() {
-    return _react.default.createElement(Provider, {
-      value: this.prefixes
-    }, this.props.children);
-  };
-
-  return ThemeProvider;
-}(_react.default.Component);
-
-function useBootstrapPrefix(prefix, defaultPrefix) {
-  var prefixes = (0, _react.useContext)(ThemeContext);
-  return prefix || prefixes.get(defaultPrefix) || defaultPrefix;
-}
-
-function createBootstrapComponent(Component, opts) {
-  if (typeof opts === 'string') opts = {
-    prefix: opts
-  };
-  var isClassy = Component.prototype && Component.prototype.isReactComponent; // If it's a functional component make sure we don't break it with a ref
-
-  var _opts = opts,
-      prefix = _opts.prefix,
-      _opts$forwardRefAs = _opts.forwardRefAs,
-      forwardRefAs = _opts$forwardRefAs === void 0 ? isClassy ? 'ref' : 'innerRef' : _opts$forwardRefAs;
-  return (0, _forwardRef.default)(function (_ref, ref) {
-    var props = (0, _extends2.default)({}, _ref);
-    props[forwardRefAs] = ref;
-    var prefixes = (0, _react.useContext)(ThemeContext);
-    return _react.default.createElement(Component, (0, _extends2.default)({}, props, {
-      // eslint-disable-next-line react/prop-types
-      bsPrefix: props.bsPrefix || prefixes.get(prefix) || prefix
-    }));
-  }, {
-    displayName: "Bootstrap(" + (Component.displayName || Component.name) + ")"
-  });
-}
-
-var _default = ThemeProvider;
-exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireWildcard":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireWildcard.js","@babel/runtime/helpers/interopRequireDefault":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/inheritsLoose":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/inheritsLoose.js","@restart/context/forwardRef":"../node_modules/@restart/context/forwardRef.js","react":"../node_modules/react/index.js"}],"../node_modules/react-bootstrap/utils/ElementChildren.js":[function(require,module,exports) {
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.map = map;
-exports.forEach = forEach;
-
-var _react = _interopRequireDefault(require("react"));
-
-/**
- * Iterates through children that are typically specified as `props.children`,
- * but only maps over children that are "valid elements".
- *
- * The mapFunction provided index will be normalised to the components mapped,
- * so an invalid component would not increase the index.
- *
- */
-function map(children, func) {
-  var index = 0;
-  return _react.default.Children.map(children, function (child) {
-    return _react.default.isValidElement(child) ? func(child, index++) : child;
-  });
-}
-/**
- * Iterates through children that are "valid elements".
- *
- * The provided forEachFunc(child, index) will be called for each
- * leaf child with the index reflecting the position relative to "valid components".
- */
-
-
-function forEach(children, func) {
-  var index = 0;
-
-  _react.default.Children.forEach(children, function (child) {
-    if (_react.default.isValidElement(child)) func(child, index++);
-  });
-}
-},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"../node_modules/react/index.js"}],"../node_modules/react-bootstrap/ProgressBar.js":[function(require,module,exports) {
-"use strict";
-
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-exports.__esModule = true;
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
-
-var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _ThemeProvider = require("./ThemeProvider");
-
-var _ElementChildren = require("./utils/ElementChildren");
-
-var ROUND_PRECISION = 1000;
-/**
- * Validate that children, if any, are instances of `<ProgressBar>`.
- */
-
-function onlyProgressBar(props, propName, componentName) {
-  var children = props[propName];
-
-  if (!children) {
-    return null;
-  }
-
-  var error = null;
-
-  _react.default.Children.forEach(children, function (child) {
-    if (error) {
-      return;
-    }
-    /**
-     * Compare types in a way that works with libraries that patch and proxy
-     * components like react-hot-loader.
-     *
-     * see https://github.com/gaearon/react-hot-loader#checking-element-types
-     */
-
-
-    var element = _react.default.createElement(DecoratedProgressBar, null);
-
-    if (child.type === element.type) return;
-    var childIdentifier = _react.default.isValidElement(child) ? child.type.displayName || child.type.name || child.type : child;
-    error = new Error("Children of " + componentName + " can contain only ProgressBar " + ("components. Found " + childIdentifier + "."));
-  });
-
-  return error;
-}
-
-var defaultProps = {
-  min: 0,
-  max: 100,
-  animated: false,
-  isChild: false,
-  srOnly: false,
-  striped: false
-};
-
-function getPercentage(now, min, max) {
-  var percentage = (now - min) / (max - min) * 100;
-  return Math.round(percentage * ROUND_PRECISION) / ROUND_PRECISION;
-}
-
-var ProgressBar =
-/*#__PURE__*/
-function (_React$Component) {
-  (0, _inheritsLoose2.default)(ProgressBar, _React$Component);
-
-  function ProgressBar() {
-    return _React$Component.apply(this, arguments) || this;
-  }
-
-  var _proto = ProgressBar.prototype;
-
-  _proto.renderProgressBar = function renderProgressBar(_ref) {
-    var _classNames;
-
-    var min = _ref.min,
-        now = _ref.now,
-        max = _ref.max,
-        label = _ref.label,
-        srOnly = _ref.srOnly,
-        striped = _ref.striped,
-        animated = _ref.animated,
-        className = _ref.className,
-        style = _ref.style,
-        variant = _ref.variant,
-        bsPrefix = _ref.bsPrefix,
-        props = (0, _objectWithoutPropertiesLoose2.default)(_ref, ["min", "now", "max", "label", "srOnly", "striped", "animated", "className", "style", "variant", "bsPrefix"]);
-    return _react.default.createElement("div", (0, _extends2.default)({}, props, {
-      role: "progressbar",
-      className: (0, _classnames.default)(className, bsPrefix + "-bar", (_classNames = {}, _classNames["bg-" + variant] = variant, _classNames[bsPrefix + "-bar-animated"] = animated, _classNames[bsPrefix + "-bar-striped"] = animated || striped, _classNames)),
-      style: (0, _extends2.default)({
-        width: getPercentage(now, min, max) + "%"
-      }, style),
-      "aria-valuenow": now,
-      "aria-valuemin": min,
-      "aria-valuemax": max
-    }), srOnly ? _react.default.createElement("span", {
-      className: "sr-only"
-    }, label) : label);
-  };
-
-  _proto.render = function render() {
-    var _this$props = this.props,
-        isChild = _this$props.isChild,
-        props = (0, _objectWithoutPropertiesLoose2.default)(_this$props, ["isChild"]);
-
-    if (isChild) {
-      return this.renderProgressBar(props);
-    }
-
-    var min = props.min,
-        now = props.now,
-        max = props.max,
-        label = props.label,
-        srOnly = props.srOnly,
-        striped = props.striped,
-        animated = props.animated,
-        bsPrefix = props.bsPrefix,
-        variant = props.variant,
-        className = props.className,
-        children = props.children,
-        wrapperProps = (0, _objectWithoutPropertiesLoose2.default)(props, ["min", "now", "max", "label", "srOnly", "striped", "animated", "bsPrefix", "variant", "className", "children"]);
-    return _react.default.createElement("div", (0, _extends2.default)({}, wrapperProps, {
-      className: (0, _classnames.default)(className, bsPrefix)
-    }), children ? (0, _ElementChildren.map)(children, function (child) {
-      return (0, _react.cloneElement)(child, {
-        isChild: true
-      });
-    }) : this.renderProgressBar({
-      min: min,
-      now: now,
-      max: max,
-      label: label,
-      srOnly: srOnly,
-      striped: striped,
-      animated: animated,
-      bsPrefix: bsPrefix,
-      variant: variant
-    }));
-  };
-
-  return ProgressBar;
-}(_react.default.Component);
-
-ProgressBar.defaultProps = defaultProps;
-var DecoratedProgressBar = (0, _ThemeProvider.createBootstrapComponent)(ProgressBar, 'progress');
-var _default = DecoratedProgressBar;
-exports.default = _default;
-module.exports = exports["default"];
-},{"@babel/runtime/helpers/interopRequireWildcard":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireWildcard.js","@babel/runtime/helpers/interopRequireDefault":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/objectWithoutPropertiesLoose":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/inheritsLoose":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/inheritsLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","./ThemeProvider":"../node_modules/react-bootstrap/ThemeProvider.js","./utils/ElementChildren":"../node_modules/react-bootstrap/utils/ElementChildren.js"}],"../src/components/WinPercentage.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api.js":"../src/utils/api.js","./Loading":"../src/components/Loading.js","./RenderChampionList":"../src/components/RenderChampionList.js"}],"../src/components/ProgressBar.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -73656,8 +73256,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
-
-var _ProgressBar = _interopRequireDefault(require("react-bootstrap/ProgressBar"));
 
 var _core = require("@material-ui/core");
 
@@ -73681,54 +73279,70 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var WinPercentage =
+var ProgressBar =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(WinPercentage, _React$Component);
+  _inherits(ProgressBar, _React$Component);
 
-  function WinPercentage() {
+  function ProgressBar() {
     var _getPrototypeOf2;
 
     var _this;
 
     var _temp;
 
-    _classCallCheck(this, WinPercentage);
+    _classCallCheck(this, ProgressBar);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(WinPercentage)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.calculatesPercentage = function (wins, losses) {
-      return Math.round(wins / (wins + losses) * 100);
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ProgressBar)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.calculatePercentage = function (value, total) {
+      return Math.round(value / total * 100);
     }, _temp));
   }
 
-  _createClass(WinPercentage, [{
+  _createClass(ProgressBar, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          wins = _this$props.wins,
-          losses = _this$props.losses;
-      var percentage = this.calculatesPercentage(wins, losses);
+          value = _this$props.value,
+          total = _this$props.total,
+          type = _this$props.type;
+      var percentage = this.calculatePercentage(value, total);
+      var label = "";
+
+      if (type === "percentage") {
+        label = value + "/" + (total - value) + " " + percentage + "%";
+      } else if (type === "value") {
+        label = value;
+      }
+
       return _react.default.createElement(_core.Tooltip, {
-        title: "".concat(wins, "/").concat(losses, " ").concat(percentage, "%"),
+        title: label,
         placement: "bottom-start",
         enterDelay: 300
-      }, _react.default.createElement(_core.LinearProgress, {
+      }, _react.default.createElement("div", {
+        role: "progressbar",
+        "aria-valuenow": percentage,
         className: "linear-progress-bar",
         variant: "determinate",
         value: percentage
-      }));
+      }, _react.default.createElement("div", {
+        className: "progress-bar-child",
+        style: {
+          transform: "scaleX(".concat(percentage / 100, ")")
+        }
+      })));
     }
   }]);
 
-  return WinPercentage;
+  return ProgressBar;
 }(_react.default.Component);
 
-var _default = WinPercentage;
+var _default = ProgressBar;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-bootstrap/ProgressBar":"../node_modules/react-bootstrap/ProgressBar.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js"}],"images/veteran.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js"}],"images/veteran.png":[function(require,module,exports) {
 module.exports = "/veteran.eb35a075.png";
 },{}],"../src/components/Veteran.js":[function(require,module,exports) {
 "use strict";
@@ -73813,7 +73427,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _WinPercentage = _interopRequireDefault(require("./WinPercentage"));
+var _ProgressBar = _interopRequireDefault(require("./ProgressBar"));
 
 var _Veteran = _interopRequireDefault(require("./Veteran"));
 
@@ -73897,9 +73511,10 @@ function (_React$Component) {
         align: "center"
       }, name), _react.default.createElement(_TableCell.default, {
         align: "center"
-      }, _react.default.createElement(_WinPercentage.default, {
-        wins: wins,
-        losses: losses
+      }, _react.default.createElement(_ProgressBar.default, {
+        value: wins,
+        total: wins + losses,
+        type: "percentage"
       })), _react.default.createElement(_TableCell.default, {
         align: "center"
       }, hotStreak && _react.default.createElement(_HotStreak.default, null)), _react.default.createElement(_TableCell.default, {
@@ -73917,7 +73532,7 @@ function (_React$Component) {
 
 var _default = Summoner;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./WinPercentage":"../src/components/WinPercentage.js","./Veteran":"../src/components/Veteran.js","./HotStreak":"../src/components/HotStreak.js","./FreshBlood":"../src/components/FreshBlood.js","@material-ui/core/TableRow":"../node_modules/@material-ui/core/TableRow/index.js","@material-ui/core/TableCell":"../node_modules/@material-ui/core/TableCell/index.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"images/challenger.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./ProgressBar":"../src/components/ProgressBar.js","./Veteran":"../src/components/Veteran.js","./HotStreak":"../src/components/HotStreak.js","./FreshBlood":"../src/components/FreshBlood.js","@material-ui/core/TableRow":"../node_modules/@material-ui/core/TableRow/index.js","@material-ui/core/TableCell":"../node_modules/@material-ui/core/TableCell/index.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"images/challenger.png":[function(require,module,exports) {
 module.exports = "/challenger.b214a38d.png";
 },{}],"../src/components/EnhancedTableHead.js":[function(require,module,exports) {
 "use strict";
@@ -74992,7 +74607,91 @@ function (_React$Component) {
 
 var _default = Search;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"../src/utils/api.js","./SummonerProfile":"../src/components/SummonerProfile.js","../../public/images/search.png":"images/search.png","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","@reach/router":"../node_modules/@reach/router/es/index.js","@reach/router/lib/history":"../node_modules/@reach/router/lib/history.js"}],"../src/components/RenderChampionDetail.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api":"../src/utils/api.js","./SummonerProfile":"../src/components/SummonerProfile.js","../../public/images/search.png":"images/search.png","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","@reach/router":"../node_modules/@reach/router/es/index.js","@reach/router/lib/history":"../node_modules/@reach/router/lib/history.js"}],"../src/components/HashTagList.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var HashTagList =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(HashTagList, _React$Component);
+
+  function HashTagList() {
+    _classCallCheck(this, HashTagList);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(HashTagList).apply(this, arguments));
+  }
+
+  _createClass(HashTagList, [{
+    key: "render",
+    value: function render() {
+      var values = this.props.values;
+      return values.map(function (value) {
+        return _react.default.createElement("p", {
+          key: value
+        }, "#", _react.default.createElement("span", null, value));
+      });
+    }
+  }]);
+
+  return HashTagList;
+}(_react.default.Component);
+
+var _default = HashTagList;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../src/components/InfoCategory.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _ProgressBar = _interopRequireDefault(require("./ProgressBar"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var InfoCategory = function InfoCategory(_ref) {
+  var label = _ref.label,
+      value = _ref.value;
+  return _react.default.createElement("div", null, _react.default.createElement("p", null, label), _react.default.createElement("div", null, _react.default.createElement(_ProgressBar.default, {
+    value: value,
+    total: 10,
+    type: "value"
+  })));
+};
+
+var _default = InfoCategory;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./ProgressBar":"../src/components/ProgressBar.js"}],"../src/components/RenderChampionDetail.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -75005,6 +74704,10 @@ var _react = _interopRequireDefault(require("react"));
 var _core = require("@material-ui/core");
 
 var _urls = require("../utils/Constants/urls");
+
+var _HashTagList = _interopRequireDefault(require("./HashTagList"));
+
+var _InfoCategory = _interopRequireDefault(require("./InfoCategory"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -75054,12 +74757,26 @@ function (_React$Component) {
           version = _this$props.version;
       console.log(version);
       var championImageUrl = _urls.apiStaticUrl.noVersionImg + "/champion/loading/" + id + "_0.jpg";
-      return _react.default.createElement(_core.Paper, {
-        className: "champion-detail-paper-flex-container"
-      }, _react.default.createElement("h2", null, name), _react.default.createElement("p", null, title), _react.default.createElement("br", null), _react.default.createElement("img", {
+      return _react.default.createElement("article", {
+        className: "champion-detail"
+      }, _react.default.createElement("h2", null, name), _react.default.createElement("h3", null, title), _react.default.createElement("p", null, _react.default.createElement("span", null, "version "), version), _react.default.createElement("div", null, _react.default.createElement("div", null, _react.default.createElement("img", {
         alt: "".concat(name, " Splash art"),
         src: championImageUrl
-      }), _react.default.createElement("p", null, blurb), _react.default.createElement("br", null), _react.default.createElement("p", null, "attack: ", info.attack, ", defense: ", info.defense, ", magic: ", info.magic, ", difficulty:", info.difficulty), _react.default.createElement("br", null), _react.default.createElement("p", null, "hashtags: ", tags));
+      }), _react.default.createElement(_HashTagList.default, {
+        values: tags
+      })), _react.default.createElement("div", null, _react.default.createElement("p", null, blurb), _react.default.createElement("div", null, _react.default.createElement(_InfoCategory.default, {
+        label: "attack",
+        value: info.attack
+      }), _react.default.createElement(_InfoCategory.default, {
+        label: "defense",
+        value: info.defense
+      }), _react.default.createElement(_InfoCategory.default, {
+        label: "magic",
+        value: info.magic
+      }), _react.default.createElement(_InfoCategory.default, {
+        label: "difficulty",
+        value: info.difficulty
+      })))));
     }
   }]);
 
@@ -75068,7 +74785,7 @@ function (_React$Component) {
 
 var _default = RenderChampionDetail;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","../utils/Constants/urls":"../src/utils/Constants/urls.js"}],"../src/components/ChampionDetail.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","../utils/Constants/urls":"../src/utils/Constants/urls.js","./HashTagList":"../src/components/HashTagList.js","./InfoCategory":"../src/components/InfoCategory.js"}],"../src/components/ChampionDetail.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -75374,7 +75091,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65003" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54211" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
