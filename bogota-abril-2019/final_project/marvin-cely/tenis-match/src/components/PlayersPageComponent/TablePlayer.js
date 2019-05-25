@@ -2,6 +2,7 @@ import React from 'react';
 import '../../css/TablePlayer.css';
 import { observer } from 'mobx-react';
 import playerListHeader from './playersTableHead';
+import { ImageCountry } from '../SmallPieceComponent';
 import utils from '../../utils/utils';
 import thesaurus from '../../utils/thesaurus';
 
@@ -33,21 +34,24 @@ const TablePlayer = observer(
       const playersList = this.props.store.players.map(({id, name, idCountry, birthDate, ranking}) => {
         return (
           <section className="row" key={id} role="row">
-            <span className="col-md-3" role="cell">
+            <p className="col-md-3" role="cell">
               {name}
-            </span>
-            <span className="col-md-3" role="cell">
-              <img 
-                src={`https://www.countryflags.io/${countries.get(idCountry)[this.state.NATIONALITY_ABBREVIATION]}/shiny/${this.state.flagSize}.png`} 
-                title={countries.get(idCountry)[this.state.NATIONALITY]} 
-                alt={countries.get(idCountry)[this.state.NATIONALITY]}/>
-            </span>
-            <span className="col-md-3" role="cell">
+            </p>
+            <p className="col-md-3" role="cell">
+                <ImageCountry
+                  abbreviation={countries.get(idCountry)[this.state.NATIONALITY_ABBREVIATION]}
+                  shinyTheme={true}
+                  flagSize={this.state.flagSize}
+                  countryName={countries.get(idCountry)[this.state.NATIONALITY]}
+                />
+            </p>
+            <p className="col-md-3" role="cell">
               {utils.getAge(birthDate)}
-            </span>
-            <span className="col-md-3" role="cell">
-              {ranking}
-            </span>
+              &nbsp;<span className="d-inline d-md-none">años</span>
+            </p>
+            <p className="col-md-3" role="cell">
+              {ranking}&nbsp;<span className="d-inline d-md-none">puntos</span>
+            </p>
           </section>
         );
       });

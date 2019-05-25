@@ -2,7 +2,7 @@ const playerListHeader = {
     name: 'Nombre',
     nationality: 'Nacionalidad',
     age: 'Edad',
-    ranking: 'Puntos',  
+    ranking: 'Ranking',  
 };
 
 export default playerListHeader;

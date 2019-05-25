@@ -29,6 +29,7 @@ const ModalAddPlayer = observer(
 
     handleSubmit(event) {
       event.preventDefault();
+      console.log(this.state.enrollPlayerForm);
       // serviceAddData.serviceAddData(this.props.fireStore, thesaurus.collectionsName.PLAYERS ,this.state.enrollPlayerForm); // TODO:Enviar nuevo jugador
       event.target.reset();
     }

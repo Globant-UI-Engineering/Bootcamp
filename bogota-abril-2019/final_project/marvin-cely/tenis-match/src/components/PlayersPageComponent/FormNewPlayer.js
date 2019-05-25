@@ -23,7 +23,7 @@ const FormNewPlayer = observer(
       return(
         <React.Fragment>
             <section className="form-row">
-              <article className="form-group col-md-8">
+              <article className="form-group col-md-7">
                 <label htmlFor="fullName">{this.state.fullNameForm}</label>
                 <input type="text" 
                   className="form-control" 
@@ -38,7 +38,7 @@ const FormNewPlayer = observer(
                   {this.state.instructionFullNameForm}
                 </small>
               </article>
-              <article className="form-group col-md-4">
+              <article className="form-group col-md-5">
                 <label htmlFor="birthDate">{this.state.birthDateForm}</label>
                 <input type="date" 
                   className="form-control" 
@@ -60,6 +60,8 @@ const FormNewPlayer = observer(
     }
 
     handleInput = (event) => {
+      const selectedIndex = event.target.options.selectedIndex;
+      console.log(event.target.options[selectedIndex].getAttribute('data-key'));//TODO: MAnejar select option
       const { name, value } = event.target;
       this.props.sendValue({ [name]: value });
     }

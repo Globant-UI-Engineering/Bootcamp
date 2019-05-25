@@ -1,4 +1,4 @@
-section > span {
+section > p[role="row"] {
     display: flex;
     justify-content: center;
     align-items: center;
