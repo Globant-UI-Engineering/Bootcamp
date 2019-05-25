@@ -50,17 +50,25 @@ article {
 
 ul.champions-container {
   margin: 0;
-  padding-left: 0;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   flex-flow: row wrap;
 }
 
+.page-wrapper {
+  text-align: center;
+}
+
+.page-wrapper > h2 {
+  text-transform: uppercase;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 40px;
+}
+
 li.champions-item {
-  display: inline-block;
   list-style-type: none;
-  margin-bottom: 3%;
-  padding-right: 4%;
+  margin: 30px;
 }
 
 li.champions-item img:first-child {
@@ -80,16 +88,33 @@ li.champions-item :last-child {
   cursor: default;
 }
 
-.table-paper {
-  margin: 3% 15%;
+.table-container {
+  margin: 2% 3%;
 }
 
-.summoners-table {
-  min-width: 1020;
-  width: 100%;
+.table-container p,
+.table-container span,
+.table-container td {
+  font-weight: 600;
 }
+
+.table-container thead tr th {
+  font-size: 16px;
+}
+
 .table-wrapper {
   overflow: auto;
+}
+
+.progress :first-child {
+  background-color: blue;
+}
+
+tbody tr td .MuiLinearProgress-root-73 {
+  height: 10px;
+}
+.progress :last-child {
+  background-color: red;
 }
 
 tbody tr:hover {
@@ -129,139 +154,9 @@ thead tr.MuiTableRow-root-30 th {
   outline: solid 3px red !important ;
 }*/
 
-/*Challenger List*/
-/*td {
-  color: white;
+.challenger-section-title {
+  margin-top: 0;
 }
-
-.tier-route-container {
-  background-color: green;
-  text-align: center;
-}
-
-.tier-route-container img {
-}
-
-.tier-route-container section:nth-child(2) {
-  background-color: blue;
-}
-
-.tier-route-container section:nth-child(2) div:nth-child(2) {
-  background-color: red;
-  position: relative;
-  padding: 0 1%;
-}
-
-.tier-route-container section:nth-child(2) div:nth-child(2) div {
-  text-align: start;
-  padding-bottom: 2%;
-}
-
-table {
-  background: green;
-  border-collapse: separate;
-  border-spacing: 0 2em;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-}
-
-table td,
-table th {
-  text-align: left;
-  padding: 12px;
-}
-
-table tr.header,
-table tr:hover {
-  background-color: yellow;
-}
-
-tr:hover {
-  cursor: pointer;
-}
-
-table tr.header {
-  cursor: default;
-}
-table td {
-  padding: 0;
-}
-
-thead {
-  margin: 0;
-  padding: 0;
-}
-
-thead tr th:nth-child(1) {
-  width: 16%;
-}
-
-thead tr th:nth-child(2) {
-  width: 20%;
-}
-
-thead tr th:nth-child(3) {
-  width: 30%;
-}
-
-thead tr th:nth-child(4) {
-  width: 8%;
-}
-
-thead tr th:nth-child(5) {
-  width: 8%;
-}
-
-thead tr th:nth-child(6) {
-  width: 7%;
-}
-
-thead tr th:nth-child(7) {
-  width: 11%;
-}
-header {
-  background-color: #1f1f1f;
-  border-bottom: 3px solid #4d4c4c;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  padding: 1%;
-}
-
-h1 {
-  color: white;
-  margin: 0;
-  font-size: 20pt;
-}
-
-header nav {
-  overflow: hidden;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-header nav a {
-  padding-right: 20px;
-}
-
-.champion-name {
-  color: white;
-}
-
-.summoner-container {
-  background-color: rgb(82, 82, 76);
-}
-
-p {
-  color: white;
-}
-*/
 
 
 /*# sourceMappingURL=/src.7ed060e2.css.map */

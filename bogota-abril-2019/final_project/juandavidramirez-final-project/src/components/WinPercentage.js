@@ -1,4 +1,6 @@
 import React from "react";
+import ProgressBar from "react-bootstrap/ProgressBar";
+import { LinearProgress, Tooltip } from "@material-ui/core";
 
 class WinPercentage extends React.Component {
   calculatesPercentage = (wins, losses) => {
@@ -7,13 +9,20 @@ class WinPercentage extends React.Component {
   render() {
     const { wins, losses } = this.props;
 
+    const percentage = this.calculatesPercentage(wins, losses);
+
     return (
-      <div>
-        <p>
-          {wins}/{losses} <span>{this.calculatesPercentage(wins, losses)}</span>
-          <span>%</span>
-        </p>
-      </div>
+      <Tooltip
+        title={`${wins}/${losses} ${percentage}%`}
+        placement={"bottom-start"}
+        enterDelay={300}
+      >
+        <LinearProgress
+          className="linear-progress-bar"
+          variant="determinate"
+          value={percentage}
+        />
+      </Tooltip>
     );
   }
 }

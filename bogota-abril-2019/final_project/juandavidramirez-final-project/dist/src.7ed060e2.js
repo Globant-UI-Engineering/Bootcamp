@@ -73133,7 +73133,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var RenderChampionList = function RenderChampionList(_ref) {
   var champions = _ref.champions;
   var apiStaticUrlImg = _urls.apiStaticUrl.img + "/champion";
-  return _react.default.createElement("ul", {
+  return _react.default.createElement("div", {
+    className: "page-wrapper"
+  }, _react.default.createElement("h2", null, "champions"), _react.default.createElement("ul", {
     className: "champions-container"
   }, Object.keys(champions).map(function (key) {
     return _react.default.createElement("li", {
@@ -73142,9 +73144,9 @@ var RenderChampionList = function RenderChampionList(_ref) {
     }, _react.default.createElement(_Champion.default, {
       name: champions[key].name,
       image: "".concat(apiStaticUrlImg, "/").concat(champions[key].image.full),
-      nameKey: champions[key]["id"]
+      nameKey: champions[key].id
     }));
-  }));
+  })));
 };
 
 var _default = RenderChampionList;
@@ -73245,7 +73247,407 @@ function (_React$Component) {
 
 var _default = ChampionList;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api.js":"../src/utils/api.js","./Loading":"../src/components/Loading.js","./RenderChampionList":"../src/components/RenderChampionList.js"}],"../src/components/WinPercentage.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api.js":"../src/utils/api.js","./Loading":"../src/components/Loading.js","./RenderChampionList":"../src/components/RenderChampionList.js"}],"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireWildcard.js":[function(require,module,exports) {
+function _interopRequireWildcard(obj) {
+  if (obj && obj.__esModule) {
+    return obj;
+  } else {
+    var newObj = {};
+
+    if (obj != null) {
+      for (var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+          var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};
+
+          if (desc.get || desc.set) {
+            Object.defineProperty(newObj, key, desc);
+          } else {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+    }
+
+    newObj["default"] = obj;
+    return newObj;
+  }
+}
+
+module.exports = _interopRequireWildcard;
+},{}],"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js":[function(require,module,exports) {
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
+},{}],"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js":[function(require,module,exports) {
+function _extends() {
+  module.exports = _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+module.exports = _extends;
+},{}],"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js":[function(require,module,exports) {
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+module.exports = _objectWithoutPropertiesLoose;
+},{}],"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/inheritsLoose.js":[function(require,module,exports) {
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+module.exports = _inheritsLoose;
+},{}],"../node_modules/@restart/context/forwardRef.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+exports.default = forwardRef;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function forwardRef(renderFn, _temp) {
+  var _ref = _temp === void 0 ? {} : _temp,
+      propTypes = _ref.propTypes,
+      defaultProps = _ref.defaultProps,
+      _ref$allowFallback = _ref.allowFallback,
+      allowFallback = _ref$allowFallback === void 0 ? false : _ref$allowFallback,
+      _ref$displayName = _ref.displayName,
+      displayName = _ref$displayName === void 0 ? renderFn.name || renderFn.displayName : _ref$displayName;
+
+  var render = function render(props, ref) {
+    return renderFn(props, ref);
+  };
+
+  return Object.assign(_react.default.forwardRef || !allowFallback ? _react.default.forwardRef(render) : function (props) {
+    return render(props, null);
+  }, {
+    displayName: displayName,
+    propTypes: propTypes,
+    defaultProps: defaultProps
+  });
+}
+},{"react":"../node_modules/react/index.js"}],"../node_modules/react-bootstrap/ThemeProvider.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.useBootstrapPrefix = useBootstrapPrefix;
+exports.createBootstrapComponent = createBootstrapComponent;
+exports.default = exports.ThemeConsumer = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
+
+var _forwardRef = _interopRequireDefault(require("@restart/context/forwardRef"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var ThemeContext = _react.default.createContext(new Map());
+
+var Consumer = ThemeContext.Consumer,
+    Provider = ThemeContext.Provider;
+exports.ThemeConsumer = Consumer;
+
+var ThemeProvider =
+/*#__PURE__*/
+function (_React$Component) {
+  (0, _inheritsLoose2.default)(ThemeProvider, _React$Component);
+
+  function ThemeProvider() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    _this.prefixes = new Map();
+    Object.keys(_this.props.prefixes).forEach(function (key) {
+      _this.prefixes.set(key, _this.props.prefixes[key]);
+    });
+    return _this;
+  }
+
+  var _proto = ThemeProvider.prototype;
+
+  _proto.render = function render() {
+    return _react.default.createElement(Provider, {
+      value: this.prefixes
+    }, this.props.children);
+  };
+
+  return ThemeProvider;
+}(_react.default.Component);
+
+function useBootstrapPrefix(prefix, defaultPrefix) {
+  var prefixes = (0, _react.useContext)(ThemeContext);
+  return prefix || prefixes.get(defaultPrefix) || defaultPrefix;
+}
+
+function createBootstrapComponent(Component, opts) {
+  if (typeof opts === 'string') opts = {
+    prefix: opts
+  };
+  var isClassy = Component.prototype && Component.prototype.isReactComponent; // If it's a functional component make sure we don't break it with a ref
+
+  var _opts = opts,
+      prefix = _opts.prefix,
+      _opts$forwardRefAs = _opts.forwardRefAs,
+      forwardRefAs = _opts$forwardRefAs === void 0 ? isClassy ? 'ref' : 'innerRef' : _opts$forwardRefAs;
+  return (0, _forwardRef.default)(function (_ref, ref) {
+    var props = (0, _extends2.default)({}, _ref);
+    props[forwardRefAs] = ref;
+    var prefixes = (0, _react.useContext)(ThemeContext);
+    return _react.default.createElement(Component, (0, _extends2.default)({}, props, {
+      // eslint-disable-next-line react/prop-types
+      bsPrefix: props.bsPrefix || prefixes.get(prefix) || prefix
+    }));
+  }, {
+    displayName: "Bootstrap(" + (Component.displayName || Component.name) + ")"
+  });
+}
+
+var _default = ThemeProvider;
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireWildcard":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireWildcard.js","@babel/runtime/helpers/interopRequireDefault":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/inheritsLoose":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/inheritsLoose.js","@restart/context/forwardRef":"../node_modules/@restart/context/forwardRef.js","react":"../node_modules/react/index.js"}],"../node_modules/react-bootstrap/utils/ElementChildren.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.map = map;
+exports.forEach = forEach;
+
+var _react = _interopRequireDefault(require("react"));
+
+/**
+ * Iterates through children that are typically specified as `props.children`,
+ * but only maps over children that are "valid elements".
+ *
+ * The mapFunction provided index will be normalised to the components mapped,
+ * so an invalid component would not increase the index.
+ *
+ */
+function map(children, func) {
+  var index = 0;
+  return _react.default.Children.map(children, function (child) {
+    return _react.default.isValidElement(child) ? func(child, index++) : child;
+  });
+}
+/**
+ * Iterates through children that are "valid elements".
+ *
+ * The provided forEachFunc(child, index) will be called for each
+ * leaf child with the index reflecting the position relative to "valid components".
+ */
+
+
+function forEach(children, func) {
+  var index = 0;
+
+  _react.default.Children.forEach(children, function (child) {
+    if (_react.default.isValidElement(child)) func(child, index++);
+  });
+}
+},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"../node_modules/react/index.js"}],"../node_modules/react-bootstrap/ProgressBar.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _ThemeProvider = require("./ThemeProvider");
+
+var _ElementChildren = require("./utils/ElementChildren");
+
+var ROUND_PRECISION = 1000;
+/**
+ * Validate that children, if any, are instances of `<ProgressBar>`.
+ */
+
+function onlyProgressBar(props, propName, componentName) {
+  var children = props[propName];
+
+  if (!children) {
+    return null;
+  }
+
+  var error = null;
+
+  _react.default.Children.forEach(children, function (child) {
+    if (error) {
+      return;
+    }
+    /**
+     * Compare types in a way that works with libraries that patch and proxy
+     * components like react-hot-loader.
+     *
+     * see https://github.com/gaearon/react-hot-loader#checking-element-types
+     */
+
+
+    var element = _react.default.createElement(DecoratedProgressBar, null);
+
+    if (child.type === element.type) return;
+    var childIdentifier = _react.default.isValidElement(child) ? child.type.displayName || child.type.name || child.type : child;
+    error = new Error("Children of " + componentName + " can contain only ProgressBar " + ("components. Found " + childIdentifier + "."));
+  });
+
+  return error;
+}
+
+var defaultProps = {
+  min: 0,
+  max: 100,
+  animated: false,
+  isChild: false,
+  srOnly: false,
+  striped: false
+};
+
+function getPercentage(now, min, max) {
+  var percentage = (now - min) / (max - min) * 100;
+  return Math.round(percentage * ROUND_PRECISION) / ROUND_PRECISION;
+}
+
+var ProgressBar =
+/*#__PURE__*/
+function (_React$Component) {
+  (0, _inheritsLoose2.default)(ProgressBar, _React$Component);
+
+  function ProgressBar() {
+    return _React$Component.apply(this, arguments) || this;
+  }
+
+  var _proto = ProgressBar.prototype;
+
+  _proto.renderProgressBar = function renderProgressBar(_ref) {
+    var _classNames;
+
+    var min = _ref.min,
+        now = _ref.now,
+        max = _ref.max,
+        label = _ref.label,
+        srOnly = _ref.srOnly,
+        striped = _ref.striped,
+        animated = _ref.animated,
+        className = _ref.className,
+        style = _ref.style,
+        variant = _ref.variant,
+        bsPrefix = _ref.bsPrefix,
+        props = (0, _objectWithoutPropertiesLoose2.default)(_ref, ["min", "now", "max", "label", "srOnly", "striped", "animated", "className", "style", "variant", "bsPrefix"]);
+    return _react.default.createElement("div", (0, _extends2.default)({}, props, {
+      role: "progressbar",
+      className: (0, _classnames.default)(className, bsPrefix + "-bar", (_classNames = {}, _classNames["bg-" + variant] = variant, _classNames[bsPrefix + "-bar-animated"] = animated, _classNames[bsPrefix + "-bar-striped"] = animated || striped, _classNames)),
+      style: (0, _extends2.default)({
+        width: getPercentage(now, min, max) + "%"
+      }, style),
+      "aria-valuenow": now,
+      "aria-valuemin": min,
+      "aria-valuemax": max
+    }), srOnly ? _react.default.createElement("span", {
+      className: "sr-only"
+    }, label) : label);
+  };
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        isChild = _this$props.isChild,
+        props = (0, _objectWithoutPropertiesLoose2.default)(_this$props, ["isChild"]);
+
+    if (isChild) {
+      return this.renderProgressBar(props);
+    }
+
+    var min = props.min,
+        now = props.now,
+        max = props.max,
+        label = props.label,
+        srOnly = props.srOnly,
+        striped = props.striped,
+        animated = props.animated,
+        bsPrefix = props.bsPrefix,
+        variant = props.variant,
+        className = props.className,
+        children = props.children,
+        wrapperProps = (0, _objectWithoutPropertiesLoose2.default)(props, ["min", "now", "max", "label", "srOnly", "striped", "animated", "bsPrefix", "variant", "className", "children"]);
+    return _react.default.createElement("div", (0, _extends2.default)({}, wrapperProps, {
+      className: (0, _classnames.default)(className, bsPrefix)
+    }), children ? (0, _ElementChildren.map)(children, function (child) {
+      return (0, _react.cloneElement)(child, {
+        isChild: true
+      });
+    }) : this.renderProgressBar({
+      min: min,
+      now: now,
+      max: max,
+      label: label,
+      srOnly: srOnly,
+      striped: striped,
+      animated: animated,
+      bsPrefix: bsPrefix,
+      variant: variant
+    }));
+  };
+
+  return ProgressBar;
+}(_react.default.Component);
+
+ProgressBar.defaultProps = defaultProps;
+var DecoratedProgressBar = (0, _ThemeProvider.createBootstrapComponent)(ProgressBar, 'progress');
+var _default = DecoratedProgressBar;
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireWildcard":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireWildcard.js","@babel/runtime/helpers/interopRequireDefault":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/objectWithoutPropertiesLoose":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/inheritsLoose":"../node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/inheritsLoose.js","classnames":"../node_modules/classnames/index.js","react":"../node_modules/react/index.js","./ThemeProvider":"../node_modules/react-bootstrap/ThemeProvider.js","./utils/ElementChildren":"../node_modules/react-bootstrap/utils/ElementChildren.js"}],"../src/components/WinPercentage.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -73254,6 +73656,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _ProgressBar = _interopRequireDefault(require("react-bootstrap/ProgressBar"));
+
+var _core = require("@material-ui/core");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -73304,7 +73710,16 @@ function (_React$Component) {
       var _this$props = this.props,
           wins = _this$props.wins,
           losses = _this$props.losses;
-      return _react.default.createElement("div", null, _react.default.createElement("p", null, wins, "/", losses, " ", _react.default.createElement("span", null, this.calculatesPercentage(wins, losses)), _react.default.createElement("span", null, "%")));
+      var percentage = this.calculatesPercentage(wins, losses);
+      return _react.default.createElement(_core.Tooltip, {
+        title: "".concat(wins, "/").concat(losses, " ").concat(percentage, "%"),
+        placement: "bottom-start",
+        enterDelay: 300
+      }, _react.default.createElement(_core.LinearProgress, {
+        className: "linear-progress-bar",
+        variant: "determinate",
+        value: percentage
+      }));
     }
   }]);
 
@@ -73313,7 +73728,7 @@ function (_React$Component) {
 
 var _default = WinPercentage;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"images/veteran.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap/ProgressBar":"../node_modules/react-bootstrap/ProgressBar.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js"}],"images/veteran.png":[function(require,module,exports) {
 module.exports = "/veteran.eb35a075.png";
 },{}],"../src/components/Veteran.js":[function(require,module,exports) {
 "use strict";
@@ -73388,7 +73803,7 @@ var FreshBlood = function FreshBlood() {
 
 var _default = FreshBlood;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../../public/images/new-player.png":"images/new-player.png"}],"../src/components/Summoner.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../public/images/new-player.png":"images/new-player.png"}],"../src/components/SummonerRow.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -73648,7 +74063,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _Summoner = _interopRequireDefault(require("./Summoner"));
+var _SummonerRow = _interopRequireDefault(require("./SummonerRow"));
 
 var _challenger = _interopRequireDefault(require("../../public/images/challenger.png"));
 
@@ -73772,8 +74187,15 @@ function (_React$Component) {
           orderBy = _this$state.orderBy,
           rowsPerPage = _this$state.rowsPerPage,
           page = _this$state.page;
-      return _react.default.createElement(_Paper.default, {
-        className: "table-paper"
+      return _react.default.createElement("section", {
+        className: "page-wrapper"
+      }, _react.default.createElement("h2", {
+        className: "challenger-section-title"
+      }, "challenger elo"), _react.default.createElement("img", {
+        src: _challenger.default,
+        alt: "Challenger icon"
+      }), _react.default.createElement(_Paper.default, {
+        className: "table-container"
       }, _react.default.createElement("div", {
         className: "table-wrapper"
       }, _react.default.createElement(_Table.default, {
@@ -73798,7 +74220,7 @@ function (_React$Component) {
         orderBy: orderBy,
         onRequestSort: this.handleRequestSort
       }), _react.default.createElement(_TableBody.default, null, stableSort(summoners, getSorting(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(function (value, index) {
-        return _react.default.createElement(_Summoner.default, {
+        return _react.default.createElement(_SummonerRow.default, {
           summonerId: value.summonerId,
           key: index,
           rankNumber: value.rankNumber,
@@ -73824,7 +74246,7 @@ function (_React$Component) {
         },
         onChangePage: this.handleChangePage,
         onChangeRowsPerPage: this.handleChangeRowsPerPage
-      }));
+      })));
     }
   }]);
 
@@ -73833,7 +74255,7 @@ function (_React$Component) {
 
 var _default = RenderTierList;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Summoner":"../src/components/Summoner.js","../../public/images/challenger.png":"images/challenger.png","@material-ui/core/Table":"../node_modules/@material-ui/core/Table/index.js","@material-ui/core/TableBody":"../node_modules/@material-ui/core/TableBody/index.js","@material-ui/core/Paper":"../node_modules/@material-ui/core/Paper/index.js","./EnhancedTableHead":"../src/components/EnhancedTableHead.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js"}],"../src/components/TopTierList.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./SummonerRow":"../src/components/SummonerRow.js","../../public/images/challenger.png":"images/challenger.png","@material-ui/core/Table":"../node_modules/@material-ui/core/Table/index.js","@material-ui/core/TableBody":"../node_modules/@material-ui/core/TableBody/index.js","@material-ui/core/Paper":"../node_modules/@material-ui/core/Paper/index.js","./EnhancedTableHead":"../src/components/EnhancedTableHead.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js"}],"../src/components/TopTierList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74862,7 +75284,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61286" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50666" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

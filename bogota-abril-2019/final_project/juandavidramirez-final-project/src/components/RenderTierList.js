@@ -1,6 +1,6 @@
 import React from "react";
 
-import Summoner from "./Summoner";
+import SummonerRow from "./SummonerRow";
 import challenger from "../../public/images/challenger.png";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -68,66 +68,71 @@ class RenderTierList extends React.Component {
     const { order, orderBy, rowsPerPage, page } = this.state;
 
     return (
-      <Paper className="table-paper">
-        <div className="table-wrapper">
-          <Table
-            className="summoners-table"
-            aria-labelledby="Challenger summoners"
-          >
-            <colgroup>
-              <col width="10%" />
-              <col width="30%" />
-              <col width="25%" />
-              <col width="7%" />
-              <col width="7%" />
-              <col width="7%" />
-              <col width="14%" />
-            </colgroup>
-            <EnhancedTableHead
-              order={order}
-              orderBy={orderBy}
-              onRequestSort={this.handleRequestSort}
-            />
+      <section className="page-wrapper">
+        <h2 className="challenger-section-title">challenger elo</h2>
+        <img src={challenger} alt="Challenger icon" />
 
-            <TableBody>
-              {stableSort(summoners, getSorting(order, orderBy))
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((value, index) => {
-                  return (
-                    <Summoner
-                      summonerId={value.summonerId}
-                      key={index}
-                      rankNumber={value.rankNumber}
-                      name={value.summonerName}
-                      leaguePoints={value.leaguePoints}
-                      wins={value.wins}
-                      losses={value.losses}
-                      hotStreak={value.hotStreak}
-                      veteran={value.veteran}
-                      freshBlood={value.freshBlood}
-                    />
-                  );
-                })}
-            </TableBody>
-          </Table>
-        </div>
+        <Paper className="table-container">
+          <div className="table-wrapper">
+            <Table
+              className="summoners-table"
+              aria-labelledby="Challenger summoners"
+            >
+              <colgroup>
+                <col width="10%" />
+                <col width="30%" />
+                <col width="25%" />
+                <col width="7%" />
+                <col width="7%" />
+                <col width="7%" />
+                <col width="14%" />
+              </colgroup>
+              <EnhancedTableHead
+                order={order}
+                orderBy={orderBy}
+                onRequestSort={this.handleRequestSort}
+              />
 
-        <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={summoners.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          backIconButtonProps={{
-            "aria-label": "Previous Page"
-          }}
-          nextIconButtonProps={{
-            "aria-label": "Next Page"
-          }}
-          onChangePage={this.handleChangePage}
-          onChangeRowsPerPage={this.handleChangeRowsPerPage}
-        />
-      </Paper>
+              <TableBody>
+                {stableSort(summoners, getSorting(order, orderBy))
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((value, index) => {
+                    return (
+                      <SummonerRow
+                        summonerId={value.summonerId}
+                        key={index}
+                        rankNumber={value.rankNumber}
+                        name={value.summonerName}
+                        leaguePoints={value.leaguePoints}
+                        wins={value.wins}
+                        losses={value.losses}
+                        hotStreak={value.hotStreak}
+                        veteran={value.veteran}
+                        freshBlood={value.freshBlood}
+                      />
+                    );
+                  })}
+              </TableBody>
+            </Table>
+          </div>
+
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={summoners.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            backIconButtonProps={{
+              "aria-label": "Previous Page"
+            }}
+            nextIconButtonProps={{
+              "aria-label": "Next Page"
+            }}
+            onChangePage={this.handleChangePage}
+            onChangeRowsPerPage={this.handleChangeRowsPerPage}
+          />
+        </Paper>
+      </section>
     );
   }
 }
