@@ -6,6 +6,7 @@ import ChampionList from "./ChampionList";
 import TopTierList from "./TopTierList";
 import Search from "./Search";
 import SummonerProfile from "./SummonerProfile";
+import ChampionDetail from "./ChampionDetail";
 
 const Content = () => {
   return (
@@ -18,6 +19,7 @@ const Content = () => {
           <SummonerProfile path="summoners/:name" />
         </Search>
         <SummonerProfile path="summoners/:name" />
+        <ChampionDetail path="champion/:id" />
       </Router>
     </article>
   );

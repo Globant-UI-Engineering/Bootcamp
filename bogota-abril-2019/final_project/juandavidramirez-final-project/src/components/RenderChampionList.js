@@ -11,6 +11,7 @@ const RenderChampionList = ({ champions }) => {
           <Champion
             name={champions[key].name}
             image={`${apiStaticUrlImg}/${champions[key].image.full}`}
+            nameKey={champions[key]["id"]}
           />
         </li>
       ))}

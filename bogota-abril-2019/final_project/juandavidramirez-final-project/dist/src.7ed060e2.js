@@ -71231,29 +71231,25 @@ var Header = function Header(props) {
 
 var _default = Header;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js"}],"../node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
-
-},{}],"../src/utils/Constants/urls.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js"}],"../src/utils/Constants/urls.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.LeagueOfLegendsUrl = exports.apiUrl = exports.apiStaticUrl = void 0;
-
-var _fs = require("fs");
-
 var realmVersion = "9.10.1";
 var apiStaticUrl = {
   data: "http://ddragon.leagueoflegends.com/cdn/" + realmVersion + "/data/en_US",
-  img: "http://ddragon.leagueoflegends.com/cdn/" + realmVersion + "/img"
+  img: "http://ddragon.leagueoflegends.com/cdn/" + realmVersion + "/img",
+  noVersionImg: "http://ddragon.leagueoflegends.com/cdn/img"
 };
 exports.apiStaticUrl = apiStaticUrl;
 var apiUrl = "https://la1.api.riotgames.com/lol";
 exports.apiUrl = apiUrl;
 var LeagueOfLegendsUrl = "https://lan.leagueoflegends.com/es/";
 exports.LeagueOfLegendsUrl = LeagueOfLegendsUrl;
-},{"fs":"../node_modules/parcel-bundler/src/builtins/_empty.js"}],"../src/components/Home.js":[function(require,module,exports) {
+},{}],"../src/components/Home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -72962,6 +72958,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.getChampions = getChampions;
+exports.getChampion = getChampion;
 exports.getSummoner = getSummoner;
 exports.getSummonerById = getSummonerById;
 exports.getSummonerMatches = getSummonerMatches;
@@ -72985,6 +72982,20 @@ function getChampions(callback) {
   }).catch(function (error) {
     callback.onFailed(error);
   });
+}
+
+function getChampion(key, callback) {
+  var championsCallback = {
+    onSuccess: function onSuccess(response) {
+      callback.onSuccess({
+        data: response.data.data[key]
+      });
+    },
+    onFailed: function onFailed(error) {
+      callback.onFailed(error);
+    }
+  };
+  getChampions(championsCallback);
 }
 
 function getSummoner(summonerName, callback) {
@@ -73047,6 +73058,8 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _router = require("@reach/router");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -73083,11 +73096,14 @@ function (_React$Component) {
     value: function render() {
       var _this$props = this.props,
           name = _this$props.name,
-          image = _this$props.image;
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("img", {
+          image = _this$props.image,
+          nameKey = _this$props.nameKey;
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_router.Link, {
+        to: "/champion/".concat(nameKey)
+      }, _react.default.createElement("img", {
         alt: name,
         src: image
-      }), _react.default.createElement("h3", {
+      })), _react.default.createElement("h3", {
         className: "champion-name"
       }, name));
     }
@@ -73098,7 +73114,7 @@ function (_React$Component) {
 
 var _default = Champion;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../src/components/RenderChampionList.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"../src/components/RenderChampionList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -73125,7 +73141,8 @@ var RenderChampionList = function RenderChampionList(_ref) {
       className: "champions-item"
     }, _react.default.createElement(_Champion.default, {
       name: champions[key].name,
-      image: "".concat(apiStaticUrlImg, "/").concat(champions[key].image.full)
+      image: "".concat(apiStaticUrlImg, "/").concat(champions[key].image.full),
+      nameKey: champions[key]["id"]
     }));
   }));
 };
@@ -73946,6 +73963,12 @@ var _core = require("@material-ui/core");
 
 var _urls = require("../utils/Constants/urls");
 
+var _api = require("../utils/api");
+
+var _router = require("@reach/router");
+
+var _Loading = _interopRequireDefault(require("./Loading"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -73972,14 +73995,56 @@ function (_React$Component) {
   _inherits(Match, _React$Component);
 
   function Match() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    var _temp;
+
     _classCallCheck(this, Match);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Match).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Match)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {}, _temp));
   }
 
   _createClass(Match, [{
+    key: "getChampionInfo",
+    value: function getChampionInfo(champions) {
+      var _this2 = this;
+
+      var championInfo;
+      var champion = Object.keys(champions).find(function (champion) {
+        return champions[champion].key == _this2.props.champion;
+      });
+      championInfo = champions[champion];
+      console.log(champion);
+      return championInfo;
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this3 = this;
+
+      var callback = {
+        onSuccess: function onSuccess(response) {
+          //console.log(response.data.data);
+          _this3.setState({
+            championInfo: _this3.getChampionInfo(response.data.data)
+          });
+        },
+        onFailed: function onFailed(error) {
+          console.log(error);
+        }
+      };
+      (0, _api.getChampions)(callback);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var championInfo = this.state.championInfo;
       var _this$props = this.props,
           platformId = _this$props.platformId,
           gameId = _this$props.gameId,
@@ -73989,15 +74054,17 @@ function (_React$Component) {
           timestamp = _this$props.timestamp,
           role = _this$props.role,
           lane = _this$props.lane;
-      var championImgUrl = "";
-      /*apiStaticUrl.img + */
-
-      return _react.default.createElement(_core.Card, {
+      var championImgUrl = championInfo ? _urls.apiStaticUrl.img + "/champion/" + championInfo.image.full : "";
+      return championInfo ? _react.default.createElement(_core.Card, {
         className: "flex-row-match-card"
+      }, _react.default.createElement(_router.Link, {
+        to: "/champion/".concat(championInfo.id)
       }, _react.default.createElement("img", {
         src: championImgUrl,
         alt: "The champion used was ".concat(champion)
-      }), _react.default.createElement("p", null, "season ", season, ", gameId ", gameId, ", queue ", queue, ", main role ", role, ", lane ", lane));
+      })), _react.default.createElement("p", null, "season ", season, ", gameId ", gameId, ", queue ", queue, ", main role ", role, ", lane ", lane)) : _react.default.createElement(_Loading.default, {
+        name: "loading champion"
+      });
     }
   }]);
 
@@ -74006,7 +74073,7 @@ function (_React$Component) {
 
 var _default = Match;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","../utils/Constants/urls":"../src/utils/Constants/urls.js"}],"../src/components/SummonerProfile.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","../utils/Constants/urls":"../src/utils/Constants/urls.js","../utils/api":"../src/utils/api.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Loading":"../src/components/Loading.js"}],"../src/components/SummonerProfile.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74413,7 +74480,188 @@ function (_React$Component) {
 
 var _default = Search;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../utils/api":"../src/utils/api.js","./SummonerProfile":"../src/components/SummonerProfile.js","../../public/images/search.png":"images/search.png","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","@reach/router":"../node_modules/@reach/router/es/index.js","@reach/router/lib/history":"../node_modules/@reach/router/lib/history.js"}],"../src/components/Content.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../utils/api":"../src/utils/api.js","./SummonerProfile":"../src/components/SummonerProfile.js","../../public/images/search.png":"images/search.png","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","@reach/router":"../node_modules/@reach/router/es/index.js","@reach/router/lib/history":"../node_modules/@reach/router/lib/history.js"}],"../src/components/RenderChampionDetail.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _core = require("@material-ui/core");
+
+var _urls = require("../utils/Constants/urls");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var RenderChampionDetail =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(RenderChampionDetail, _React$Component);
+
+  function RenderChampionDetail() {
+    _classCallCheck(this, RenderChampionDetail);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(RenderChampionDetail).apply(this, arguments));
+  }
+
+  _createClass(RenderChampionDetail, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          id = _this$props.id,
+          numberKey = _this$props.numberKey,
+          name = _this$props.name,
+          title = _this$props.title,
+          blurb = _this$props.blurb,
+          info = _this$props.info,
+          image = _this$props.image,
+          tags = _this$props.tags,
+          partype = _this$props.partype,
+          stats = _this$props.stats,
+          version = _this$props.version;
+      console.log(version);
+      var championImageUrl = _urls.apiStaticUrl.noVersionImg + "/champion/loading/" + id + "_0.jpg";
+      return _react.default.createElement(_core.Paper, {
+        className: "champion-detail-paper-flex-container"
+      }, _react.default.createElement("h2", null, name), _react.default.createElement("p", null, title), _react.default.createElement("br", null), _react.default.createElement("img", {
+        alt: "".concat(name, " Splash art"),
+        src: championImageUrl
+      }), _react.default.createElement("p", null, blurb), _react.default.createElement("br", null), _react.default.createElement("p", null, "attack: ", info.attack, ", defense: ", info.defense, ", magic: ", info.magic, ", difficulty:", info.difficulty), _react.default.createElement("br", null), _react.default.createElement("p", null, "hashtags: ", tags));
+    }
+  }]);
+
+  return RenderChampionDetail;
+}(_react.default.Component);
+
+var _default = RenderChampionDetail;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","@material-ui/core":"../node_modules/@material-ui/core/index.es.js","../utils/Constants/urls":"../src/utils/Constants/urls.js"}],"../src/components/ChampionDetail.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _api = require("../utils/api");
+
+var _Loading = _interopRequireDefault(require("./Loading"));
+
+var _RenderChampionDetail = _interopRequireDefault(require("./RenderChampionDetail"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var ChampionDetail =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ChampionDetail, _React$Component);
+
+  function ChampionDetail() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    var _temp;
+
+    _classCallCheck(this, ChampionDetail);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ChampionDetail)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
+      loading: true
+    }, _temp));
+  }
+
+  _createClass(ChampionDetail, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var id = this.props.id;
+      var callback = {
+        onSuccess: function onSuccess(response) {
+          _this2.setState({
+            loading: false,
+            champion: response.data
+          });
+        },
+        onFailed: function onFailed(error) {
+          console.log(error);
+        }
+      };
+      (0, _api.getChampion)(id, callback);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          loading = _this$state.loading,
+          champion = _this$state.champion;
+      return loading ? _react.default.createElement(_Loading.default, null) : _react.default.createElement(_RenderChampionDetail.default, {
+        version: champion.version,
+        id: champion.id,
+        numberKey: champion.key,
+        name: champion.name,
+        title: champion.title,
+        blurb: champion.blurb,
+        info: champion.info,
+        image: champion.image,
+        tags: champion.tags,
+        partype: champion.partype,
+        stats: champion.stats
+      });
+    }
+  }]);
+
+  return ChampionDetail;
+}(_react.default.Component);
+
+var _default = ChampionDetail;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../utils/api":"../src/utils/api.js","./Loading":"../src/components/Loading.js","./RenderChampionDetail":"../src/components/RenderChampionDetail.js"}],"../src/components/Content.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74435,6 +74683,8 @@ var _Search = _interopRequireDefault(require("./Search"));
 
 var _SummonerProfile = _interopRequireDefault(require("./SummonerProfile"));
 
+var _ChampionDetail = _interopRequireDefault(require("./ChampionDetail"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Content = function Content() {
@@ -74451,12 +74701,14 @@ var Content = function Content() {
     path: "summoners/:name"
   })), _react.default.createElement(_SummonerProfile.default, {
     path: "summoners/:name"
+  }), _react.default.createElement(_ChampionDetail.default, {
+    path: "champion/:id"
   })));
 };
 
 var _default = Content;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Home":"../src/components/Home.js","./ChampionList":"../src/components/ChampionList.js","./TopTierList":"../src/components/TopTierList.js","./Search":"../src/components/Search.js","./SummonerProfile":"../src/components/SummonerProfile.js"}],"../src/components/Footer.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./Home":"../src/components/Home.js","./ChampionList":"../src/components/ChampionList.js","./TopTierList":"../src/components/TopTierList.js","./Search":"../src/components/Search.js","./SummonerProfile":"../src/components/SummonerProfile.js","./ChampionDetail":"../src/components/ChampionDetail.js"}],"../src/components/Footer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -74610,7 +74862,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57882" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61286" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

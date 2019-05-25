@@ -18,6 +18,18 @@ export function getChampions(callback) {
     });
 }
 
+export function getChampion(key, callback) {
+  var championsCallback = {
+    onSuccess: response => {
+      callback.onSuccess({ data: response.data.data[key] });
+    },
+    onFailed: error => {
+      callback.onFailed(error);
+    }
+  };
+  getChampions(championsCallback);
+}
+
 export function getSummoner(summonerName, callback) {
   axios
     .get(
