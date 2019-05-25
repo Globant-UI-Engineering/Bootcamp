@@ -13,19 +13,19 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 
-const Herramientas = ({ herramientas,firestore }) => {
+const Herramientas = ({ herramientas, firestore }) => {
     if (!herramientas) return <Spinner />;
     const toolsIcon = <FontAwesomeIcon icon={faTools} />;
     const plusIcon = <FontAwesomeIcon icon={faPlus} />;
     const infoIcon = <FontAwesomeIcon icon={faInfo} />;
     const trashIcon = <FontAwesomeIcon icon={faTrash} />;
-    const checkIcon = <FontAwesomeIcon icon={faCheck} color="green"/>;
+    const checkIcon = <FontAwesomeIcon icon={faCheck} color="green" />;
     const timesIcon = <FontAwesomeIcon icon={faTimes} color="red" />;
 
     const eliminarHerramienta = (id) => {
         firestore.delete({
-            collection:'herramientas',
-            doc:id
+            collection: 'herramientas',
+            doc: id
         });
     }
 

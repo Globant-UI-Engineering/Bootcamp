@@ -64,7 +64,12 @@ class NuevaHerramienta extends Component {
                             </div>
                             <div>
                                 <label htmlFor="tipo">Tipo:</label>
-                                <input type="text" placeholder="Tipo" name="tipo" id="tipo" onChange={this.changeData} value={this.state.tipo} />
+                                <select id="tipo" name="tipo" onChange={this.changeData} value={this.state.tipo} required>
+                                    <option value="Computador">Computador</option>
+                                    <option value="Escaner">Escaner</option>
+                                    <option value="Impresora">Impresora</option>
+                                    <option value="Monitor">Monitor</option>
+                                </select>
                             </div>
                         </fieldset>
 

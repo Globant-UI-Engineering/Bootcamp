@@ -1,8 +1,7 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { faUndo } from '@fortawesome/free-solid-svg-icons';
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUndo, faPencilAlt, faBook } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { firestoreConnect } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
@@ -13,6 +12,7 @@ const MostrarPersona = ({ usuario }) => {
     if (!usuario) return <Spinner />;
     const undoIcon = <FontAwesomeIcon icon={faUndo} />;
     const editIcon = <FontAwesomeIcon icon={faPencilAlt} />;
+    const bookIcon = <FontAwesomeIcon icon={faBook} />;
 
 
     return (
@@ -32,9 +32,9 @@ const MostrarPersona = ({ usuario }) => {
                 <p>Correo Electronico: <span>{usuario.correoElectronico}</span></p>
                 <p>Facultad: <span>{usuario.facultad} </span></p>
             </section>
-            {usuario.herramientasSolicitadas && usuario.herramientasSolicitadas.length  ?
+            {usuario.herramientasSolicitadas && usuario.herramientasSolicitadas.length ?
                 (<section className="tableContainer">
-                    <h1> Herramientas en Préstamo</h1>
+                    <h1> {bookIcon} Herramientas en Solicitadas</h1>
                     <table className="blueTable">
                         <thead>
                             <tr>

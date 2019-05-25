@@ -20,24 +20,6 @@ class EditarHerramienta extends Component {
     modeloInput = React.createRef();
     tipoInput = React.createRef();
 
-    editarHerramienta = (e) => {
-        e.preventDefault();
-        const herramientaActualizada = {
-            serial: this.serialInput.current.value,
-            descripcion: this.descripcionInput.current.value,
-            marca: this.marcaInput.current.value,
-            modelo: this.modeloInput.current.value,
-            tipo: this.tipoInput.current.value,
-        }
-
-        const { herramienta, firestore, history } = this.props;
-
-        firestore.update({
-            collection: 'herramientas',
-            doc: herramienta.id
-        }, herramientaActualizada).then(history.push('/'))
-    }
-
     render() {
         const { herramienta } = this.props;
         if (!herramienta) return <Spinner />;
@@ -72,7 +54,12 @@ class EditarHerramienta extends Component {
                             </div>
                             <div>
                                 <label htmlFor="tipo">Tipo:</label>
-                                <input type="text" placeholder="Tipo" name="tipo" id="tipo" ref={this.tipoInput} defaultValue={herramienta.tipo} />
+                                <select id="tipo" name="tipo" ref={this.tipoInput} defaultValue={herramienta.tipo} required>
+                                    <option value="Computador">Computador</option>
+                                    <option value="Escaner">Escaner</option>
+                                    <option value="Impresora">Impresora</option>
+                                    <option value="Monitor">Monitor</option>
+                                </select>
                             </div>
                         </fieldset>
 
@@ -81,6 +68,24 @@ class EditarHerramienta extends Component {
                 </section>
             </article>
         )
+    }
+
+    editarHerramienta = (e) => {
+        e.preventDefault();
+        const herramientaActualizada = {
+            serial: this.serialInput.current.value,
+            descripcion: this.descripcionInput.current.value,
+            marca: this.marcaInput.current.value,
+            modelo: this.modeloInput.current.value,
+            tipo: this.tipoInput.current.value,
+        }
+
+        const { herramienta, firestore, history } = this.props;
+
+        firestore.update({
+            collection: 'herramientas',
+            doc: herramienta.id
+        }, herramientaActualizada).then(history.push('/'))
     }
 }
 
