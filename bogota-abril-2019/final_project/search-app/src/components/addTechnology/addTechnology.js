@@ -103,7 +103,7 @@ class AddTechnology extends React.Component {
     this.setState(states)
     setTimeout(()=>{
       this.setState({showPopup:false,backToSearch:back})
-    },2000)
+    },1000)
   }
 
   setLoading(show){

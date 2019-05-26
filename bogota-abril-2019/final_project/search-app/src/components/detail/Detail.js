@@ -25,7 +25,8 @@ class Detail extends React.Component {
     }
     beforeContent = this.state.content;
     beforeTitle = this.state.title;
-    this.auto_grow = this.auto_grow.bind(this);
+    this.myContentRef = React.createRef();
+    this.autoGrow = this.autoGrow.bind(this);
     this.updateTechnology = this.updateTechnology.bind(this);
   }
 
@@ -40,16 +41,18 @@ class Detail extends React.Component {
             {/* <h1>{this.props.title}</h1> */}
               <input className = "detail-title-input"value  = {this.state.title}
                 onChange = {event =>this.setState({title:event.target.value})}
-                onBlur = {event => this.updateTechnology(event.target.value,TITLE)}></input>
+                onBlur = {event => this.updateTechnology(event.target.value,TITLE)}
+                maxLength = "12"></input>
           </header>
           <content className = "detail-body">
             <section >
               {/* <p contentEditable="true">{this.props.content}</p> */}
               <textarea className = "detail-content" value = {this.state.content}
-                onKeyPress={event=>this.auto_grow(event.target)}
-                onMouseOver={event=>this.auto_grow(event.target)}
+                onKeyPress={event=>this.autoGrow(event.target)}
+                // onMouseOver={event=>this.autoGrow(event.target)}
                 onChange = {event =>this.setState({content:event.target.value})}
-                onBlur = {event => this.updateTechnology(event.target.value,CONTENT)} ></textarea>
+                onBlur = {event => this.updateTechnology(event.target.value,CONTENT)} 
+                ref={this.myContentRef}></textarea>
             </section>
             <section className = "detail-image">
               <img src = {this.props.image} alt = "detail" ></img>
@@ -64,7 +67,11 @@ class Detail extends React.Component {
     </div>
     )}
 
-  auto_grow(element) {
+  componentDidMount() {
+    this.autoGrow(this.myContentRef.current);
+  }
+
+  autoGrow(element) {
       element.style.height = "5px";
       element.style.height = (element.scrollHeight)+"px";
   }
@@ -107,7 +114,7 @@ class Detail extends React.Component {
     this.setState(states)
     setTimeout(()=>{
       this.setState({showPopup:false})
-    },2000)
+    },500)
   }
 
   setLoading(show){
