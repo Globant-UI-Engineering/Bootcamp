@@ -8,6 +8,7 @@ import findTechnologys from '../../redux/actions/findTechnologys'
 import updateAllTechnologys from '../../redux/actions/updateAllTechnologys'
 import updateUserInput from '../../redux/actions/updateUserInput'
 import Detail from '../detail/Detail';
+import {Link} from 'react-router-dom'
 
 const firebaseRef = fireBaseInit.database().ref();
 
@@ -37,6 +38,11 @@ class SearchPanel extends React.Component {
               onChange={event=>this.props.updateUserInput(event.target.value)}></input>
         <img src = {logo} alt = "logo" ></img>
       </header>
+      <section className = "add-result">
+        <Link to= {`/add`} >
+          <button >Add Technology</button>
+        </Link>
+      </section>
       <article className = "results-content">
           {technologys.map (this.technologysAsCard)}
       </article>

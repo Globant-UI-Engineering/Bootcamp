@@ -5,6 +5,7 @@ import SearchPanel from './components/searchPanel/SearchPanel';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom'
 import Detail from './components/detail/Detail'
+import AddTechnology from './components/addTechnology/addTechnology'
 import {Route} from 'react-router-dom'
 import store from './redux/store'
 import {Provider} from 'react-redux'
@@ -15,6 +16,7 @@ const Root = (
       <main>
         <Route exact path='/' component={SearchPanel}/>  
         <Route exact path='/detail/:id' component={Detail}/>
+        <Route exact path='/add' component={AddTechnology}/>
       </main>
       </BrowserRouter>
   </Provider>    

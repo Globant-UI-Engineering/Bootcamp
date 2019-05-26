@@ -46,7 +46,7 @@ img:nth-child(3)  {
   }
 
 .results-content{
-  margin-top: 50px;
+  margin-top: 30px;
   display: inline-block;
 }
 
@@ -66,5 +66,18 @@ img:nth-child(3)  {
   margin-right: 25px;
   margin-bottom: 25px;
   margin-top: 25px;
+}
+
+.SearchPanel-header{
+  margin-bottom: 50px;
+}
+
+.add-result button{
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  background-color: cornsilk;
+  color: brown;
+  width: 166px;
+  height: 30px;
 }
 
