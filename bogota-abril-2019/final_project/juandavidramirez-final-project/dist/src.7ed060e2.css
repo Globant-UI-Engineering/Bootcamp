@@ -406,6 +406,15 @@ footer {
   justify-content: space-between;
 }
 
+li svg:hover,
+li img:hover {
+  opacity: 0.5;
+}
+
+li img:active {
+  opacity: 1;
+}
+
 /*.Site-content {
   flex: 1 0 auto;
 }*/
