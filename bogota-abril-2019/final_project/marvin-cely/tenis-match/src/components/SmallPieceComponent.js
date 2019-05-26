@@ -27,22 +27,27 @@ const CountryOptionComponent = observer(
       super(props);
     }
     render() {
-      const elementKey = thesaurus.elementKey.NATIONALITY;
-      const countriesList = utils.sortByAlphaArrayMap(Array.from(this.props.countries), elementKey);
-      return countriesList.map(([key,{nationality, abbreviation}]) => {
+      const NATIONALITY = thesaurus.elementKey.NATIONALITY;
+      const countriesList = utils.sortByAlphaArrayMap(Array.from(this.props.countries), NATIONALITY);
+      const countriesOptions = () => {  
         return(
-          <option key={key} data-key={key} style="https://www.countryflags.io/:country_code/:style/:size.png">
-            {/* <ImageCountry
-              abbreviation={abbreviation}
-              shinyTheme={true}
-              flagSize={32}
-              countryName={nationality}
-            /> */}
-            &nbsp;
-            {nationality}
+          countriesList.map(([key,{nationality}]) => {
+            return(
+              <option key={key} value={key}>
+                {nationality}
+              </option>
+              )
+            })
+        );
+      }; 
+      return (
+        <React.Fragment>
+          <option selected disabled>
+              selecionar país
           </option>
-          )
-        });
+          {countriesOptions()}
+        </React.Fragment>
+      );
     }
   }
 );

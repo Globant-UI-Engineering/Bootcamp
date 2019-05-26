@@ -1,7 +1,9 @@
 import React from 'react';
 import FormNewPlayer from './FormNewPlayer';
 import { observer } from 'mobx-react';
+import firebase from 'firebase';
 import serviceAddData from '../../services/serviceAddData';
+import thesaurus from '../../utils/thesaurus';
 
 const ModalAddPlayer = observer(
   class ModalAddPlayer extends React.Component {
@@ -13,8 +15,9 @@ const ModalAddPlayer = observer(
         cancelButton: 'Cancelar',
         enrollPlayerForm: {
           name: '',
-          nationality: '',
+          idCountry: '',
           birthDate: null,
+          ranking: 0,
         },
       }
       this.handleForm = this.handleForm.bind(this);
@@ -22,6 +25,10 @@ const ModalAddPlayer = observer(
     }
 
     handleForm(valuesForm) {
+      let {birthDate} = valuesForm;
+      if(birthDate) {
+        Object.assign(valuesForm, {birthDate: firebase.firestore.Timestamp.fromDate(new Date(birthDate))});
+      }
       this.setState({
           enrollPlayerForm: Object.assign({}, this.state.enrollPlayerForm, valuesForm), 
       });
@@ -29,9 +36,9 @@ const ModalAddPlayer = observer(
 
     handleSubmit(event) {
       event.preventDefault();
-      console.log(this.state.enrollPlayerForm);
-      // serviceAddData.serviceAddData(this.props.fireStore, thesaurus.collectionsName.PLAYERS ,this.state.enrollPlayerForm); // TODO:Enviar nuevo jugador
       event.target.reset();
+      event.target.children[1].children[1].children[1].selectedIndex = 0; // put select to first position
+      serviceAddData.createData(this.props.store.fireStore, thesaurus.collectionsName.PLAYERS ,this.state.enrollPlayerForm);
     }
 
     render() {
@@ -41,13 +48,17 @@ const ModalAddPlayer = observer(
           <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
             <form className="modal-content" onSubmit={this.handleSubmit}>
               <header className="modal-header">
-                <h5 className="modal-title" id="exampleModalCenterTitle">{this.state.titleForm}</h5>
+                <h5 className="modal-title" id="exampleModalCenterTitle">
+                  {this.state.titleForm}
+                </h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </header>
               <main className="modal-body Container pl-5 pr-5">
-                <FormNewPlayer sendValue={this.handleForm} store={this.props.store}/>
+                <FormNewPlayer
+                  receiveValue={this.handleForm} 
+                  store={this.props.store}/>
               </main>
               <footer className="modal-footer">
                 <button type="button" 
@@ -56,8 +67,7 @@ const ModalAddPlayer = observer(
                     {this.state.cancelButton}
                 </button>
                 <button type="submit" 
-                  className="btn btn-info" 
-                  data-toggle="modal">
+                  className="btn btn-info">
                     {this.state.successButton}
                 </button>
               </footer>

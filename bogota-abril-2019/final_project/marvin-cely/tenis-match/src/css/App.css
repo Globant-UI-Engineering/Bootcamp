@@ -3,14 +3,14 @@
   min-height: 100vh;
 }
 nav + section {
-  padding-bottom: 25rem;    /* Footer height TODO: Revisar */ 
+  padding-bottom: 60vh;
 }
 
 section + footer.container-fluid {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: auto;
+  height: 60vh;
 }
 
 nav.navbar {

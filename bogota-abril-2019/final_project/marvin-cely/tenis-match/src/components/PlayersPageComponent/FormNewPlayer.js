@@ -16,7 +16,7 @@ const FormNewPlayer = observer(
         selectMessageForm: '--eliga el país--',
         defaultSelected: '',
       }
-      
+      this.optionRef = null;
       this.handleInput = this.handleInput.bind(this);
     }
     render() { 
@@ -50,8 +50,8 @@ const FormNewPlayer = observer(
               </article>
             </section>
             <article className="form-group">
-              <label htmlFor="nationalitySelector">{this.state.nationalityForm}</label>
-              <select className="form-control" name="nationality" id="nationalitySelector" onChange={ this.handleInput } required>
+              <label htmlFor="countrytySelector">{this.state.nationalityForm}</label>
+              <select className="form-control" name="idCountry" id="countrytySelector" onChange={ this.handleInput } required>
                 <CountryOptionComponent countries={this.props.store.countries}/>
               </select>
             </article>
@@ -60,10 +60,8 @@ const FormNewPlayer = observer(
     }
 
     handleInput = (event) => {
-      const selectedIndex = event.target.options.selectedIndex;
-      console.log(event.target.options[selectedIndex].getAttribute('data-key'));//TODO: MAnejar select option
       const { name, value } = event.target;
-      this.props.sendValue({ [name]: value });
+      this.props.receiveValue({ [name]: value });
     }
   }
 );
