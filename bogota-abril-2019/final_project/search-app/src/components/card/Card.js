@@ -7,6 +7,7 @@ import findTechnologys from '../../redux/actions/findTechnologys'
 import updateUserInput from '../../redux/actions/updateUserInput'
 import fireBaseInit from '../FirebaseInit'
 import {connect} from 'react-redux'
+import Loading from '../loading/Loading'
 
 const firebaseRef = fireBaseInit.database().ref()
 
@@ -14,12 +15,16 @@ class Card extends React.Component {
 
   constructor(){
     super();
+    this.state={
+      loading:false
+    }
     this.deleteClickHandler = this.deleteClickHandler.bind(this);
   }
 
   render () {
     return (
       <section  className="card">
+        {this.state.loading? <Loading></Loading>:null}
         <button className = "delete-button" onClick={() => this.deleteClickHandler(this.props.id)}>Delete</button>
         <Link to= {`/detail/`+this.props.id}>
           <section className="content">
@@ -32,16 +37,21 @@ class Card extends React.Component {
 
     deleteClickHandler(id){
       var props = this.props;
-      firebaseRef.child(id).remove(function(error){
-        if(error){
-          console.log("unexpected error");
-        }else{
-          let newArray = props.allTechnologys.filter(element => element.id!==id);
-          props.updateAllTechnologys(newArray);
-          props.findTechnologys({userInput:"", technologys:newArray})
-          props.updateUserInput("")
-        }
-      });
+      var context = this;
+      this.setLoading(true);
+      firebaseRef.child(id).remove().then(()=>{
+        let newArray = props.allTechnologys.filter(element => element.id!==id);
+        props.updateAllTechnologys(newArray);
+        props.findTechnologys({userInput:"", technologys:newArray})
+        props.updateUserInput("")
+        context.setLoading(false);
+      }
+        
+      );
+    }
+
+    setLoading(show){
+      this.setState({loading:show});
     }
 }
 

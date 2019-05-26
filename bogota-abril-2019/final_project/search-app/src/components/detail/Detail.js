@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import updateUserInput from '../../redux/actions/updateUserInput'
 import fireBaseInit from '../FirebaseInit'
 import {connect} from 'react-redux'
+import Popup from '../popup/Popup'
+import Loading from '../loading/Loading'
 
 var beforeTitle,beforeContent = "";
 const TITLE = "title", CONTENT = "content";
@@ -16,7 +18,10 @@ class Detail extends React.Component {
     this.state = {
       title:props.title,
       content:props.content,
-      id:props.id
+      id:props.id,
+      showPopup: false,
+      messagePopup:"",
+      loading:false
     }
     beforeContent = this.state.content;
     beforeTitle = this.state.title;
@@ -28,6 +33,8 @@ class Detail extends React.Component {
 
     return (
       <div className = "detail-layout">
+      {this.state.loading? <Loading></Loading>:null}
+      {this.state.showPopup ? <Popup text={this.state.messagePopup}/> : null}
         <div className = "detail">
           <header className = "detail-title">
             {/* <h1>{this.props.title}</h1> */}
@@ -64,29 +71,48 @@ class Detail extends React.Component {
 
   updateTechnology(text,attribute){
     var props = this.props;
+    var context = this;
     if(attribute === CONTENT && text !== beforeContent){
+      this.setLoading(true);
       firebaseRef.child(this.state.id).update({content:text},function(error){
         if(error){
-          console.log("unexpected error");
+          context.setLoading(false);
+          context.delayPopup({showPopup:true,messagePopup:"Unexpected error, try again"});
         }
         else{
+          context.setLoading(false);
           beforeContent = text;
           props.updateUserInput("");
+          context.delayPopup({showPopup:true,messagePopup:"Updated"});
         }  
       });
     }else if(attribute === TITLE && text !== beforeTitle){
+      this.setLoading(true);
       firebaseRef.child(this.state.id).update({title:text},function(error){
         if(error){
-          console.log("unexpected error");
+          context.setLoading(false);
+          context.delayPopup({showPopup:true,messagePopup:"Unexpected error, try again"});
         }
         else{
+          context.setLoading(false);
           beforeTitle = text;
           props.updateUserInput("");
+          context.delayPopup({showPopup:true,messagePopup:"Updated"});
         }
       })
     }
   }
 
+  delayPopup = function(states){
+    this.setState(states)
+    setTimeout(()=>{
+      this.setState({showPopup:false})
+    },2000)
+  }
+
+  setLoading(show){
+    this.setState({loading:show});
+  }
 
 }
 

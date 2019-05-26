@@ -2,25 +2,35 @@ import React from 'react';
 import './addTechnology.css';
 import fireBaseInit from '../FirebaseInit'
 import {Link} from 'react-router-dom'
-import {connect} from 'react-redux'
+import { Redirect } from 'react-router';
+import Popup from '../popup/Popup'
+import Loading from '../loading/Loading'
 
 const firebaseRef = fireBaseInit.database().ref()
 class AddTechnology extends React.Component {
-  constructor(props){
+  constructor(){
     super();
     this.state = {
       title:"",
       content:"",
-      imgUrl:""
+      imgUrl:"",
+      backToSearch:false,
+      showPopup: false,
+      messagePopup:"",
+      loading:false
     }
     this.auto_grow = this.auto_grow.bind(this);
     this.addClickHandler = this.addClickHandler.bind(this);
   }
 
   render () {
-
+    if(this.state.backToSearch){
+      return <Redirect push to = "/"></Redirect>
+    }
     return (
       <div className = "add-layout">
+      {this.state.loading? <Loading></Loading>:null}
+      {this.state.showPopup ? <Popup text={this.state.messagePopup}/> : null}
         <div className = "add">
           <h1>Add new technology</h1>
           <section className = "add-section">
@@ -55,19 +65,52 @@ class AddTechnology extends React.Component {
   }
 
   addClickHandler(){
-    
+    if(this.validateUpdate()){
+      this.setLoading(true);
+      var context = this;
+      var newChild = firebaseRef.push({
+        id : 0,
+        title: this.state.title,
+        content:this.state.content,
+        image:this.state.imgUrl
+      },function(error){
+        if(error){
+          context.setLoading(false);
+          context.delayPopup({showPopup:true,messagePopup:"Unexpected error, try again"},true);
+        }else{
+          var id = newChild.key;
+          firebaseRef.child(id).update({id:id},function(error){
+            if(error){
+              context.setLoading(false);
+              context.delayPopup({showPopup:true,messagePopup:"Unexpected Error"},true);
+            }else{
+              context.setLoading(false);
+              context.delayPopup({showPopup:true,messagePopup:"Created"},true);
+            }
+          })
+        }
+      })
+    }else{
+      this.delayPopup({showPopup:true,messagePopup:"Please at least fill the title"},false);
+    }
   }
 
+  validateUpdate(){
+    return this.state.title!==""?true:false;
+  }
+
+  delayPopup = function(states,back){
+    this.setState(states)
+    setTimeout(()=>{
+      this.setState({showPopup:false,backToSearch:back})
+    },2000)
+  }
+
+  setLoading(show){
+    this.setState({loading:show});
+  }
 }
 
 
-const mapStateToProps = (state) => {
-  return {
-    allTechnologys:state.allTechnologys
-  }
-};
-
-const mapDispatchToProps = {};
-
-export default  connect(mapStateToProps,mapDispatchToProps) (AddTechnology);
+export default  AddTechnology;
 
