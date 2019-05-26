@@ -27,3 +27,6 @@ export const serviceProxies = {
   BR1: { region: "BR", host: "br1.api.riotgames.com" },
   LA1: { region: "LAN", host: "la1.api.riotgames.com" }
 };
+
+export const description =
+  "League of Legends is a fast-paced, competitive online game that blends the speed and intensity of an RTS with RPG elements. Two teams of powerful champions, each with a unique design and playstyle, battle head-to-head across multiple battlefields and game modes. With an ever-expanding roster of champions, frequent updates and a thriving tournament scene, League of Legends offers endless replayability for players of every skill level.";

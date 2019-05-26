@@ -10,3 +10,8 @@ export const apiStaticUrl = {
 export const apiUrl = "https://la1.api.riotgames.com/lol";
 
 export const LeagueOfLegendsUrl = "https://lan.leagueoflegends.com/es/";
+
+export const githubBranchRepository =
+  "https://github.com/Globant-UI-Engineering/Bootcamp/tree/JuanDavidRamirezFinalProject";
+
+export const riotGamesDevelopers = "https://developer.riotgames.com/";

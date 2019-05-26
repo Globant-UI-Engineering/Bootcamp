@@ -7,11 +7,13 @@ import Footer from "./Footer";
 class App extends React.Component {
   render() {
     return (
-      <React.Fragment>
-        <Header />
-        <Content />
+      <div className="App Site">
+        <div className="Site-content">
+          <Header />
+          <Content />
+        </div>
         <Footer />
-      </React.Fragment>
+      </div>
     );
   }
 }
