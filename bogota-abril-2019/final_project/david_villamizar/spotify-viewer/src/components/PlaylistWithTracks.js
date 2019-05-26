@@ -14,7 +14,6 @@ export default function PlaylistWithTracks({
   fetchTracks,
   isLoadingTracks,
 }) {
-  debugger;
   const offset = playlistTracks.length;
   return (
     <div className={styles.container}>
