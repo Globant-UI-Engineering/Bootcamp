@@ -7,7 +7,7 @@ import FooterPage from './components/FooterComponent/FooterPage';
 import serviceGetData from './services/serviceGetData';
 import thesaurus from './utils/thesaurus';
 import menuList from './components/menuList';
-import routesPages from './components/routesPages';
+import routesPages from './components/router';
 
 import serviceAddData from './services/serviceAddData'; // TODO: Utilizar importación Luego
 import serviceUpdateData from './services/serviceUpdateData'; // TODO: Utilizar importación Luego

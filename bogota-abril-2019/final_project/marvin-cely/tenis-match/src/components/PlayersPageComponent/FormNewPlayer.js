@@ -51,9 +51,9 @@ const FormNewPlayer = observer(
             </section>
             <article className="form-group">
               <label htmlFor="countrytySelector">{this.state.nationalityForm}</label>
-              <select className="form-control" name="idCountry" id="countrytySelector" onChange={ this.handleInput } required>
+              <select className="form-control" name="idCountry" id="countrytySelector" defaultValue={'optionDefault'} onChange={ this.handleInput } required>
                 <CountryOptionComponent countries={this.props.store.countries}/>
-              </select>
+              </select>              
             </article>
         </React.Fragment>
       );

@@ -42,7 +42,7 @@ const CountryOptionComponent = observer(
       }; 
       return (
         <React.Fragment>
-          <option selected disabled>
+          <option value='optionDefault' disabled>
               selecionar país
           </option>
           {countriesOptions()}

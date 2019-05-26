@@ -25,7 +25,16 @@ const utils = {
 			return successComponent;
 	},
 	sortByAlphaArrayMap: (array, element) => {		
-		return array.sort((object1, object2) => (object1[1][element] > object2[1][element]) ? 1 : -1);
+		return array.slice().sort((object1, object2) => (object1[1][element] > object2[1][element]) ? 1 : -1);
 	},	
+	sortByAlphaArrayList: (array, element) => {		
+		return array.slice().sort((object1, object2) => (object1[element] > object2[element]) ? 1 : -1);
+	},
+	sortByNumberArrayList: (array, element) => {		
+		return array.slice().sort((object1, object2) => object2[element] - object1[element]);
+	},
+	sortByAgeArrayList: (array, element, getAge) => {		
+		return array.slice().sort((object1, object2) => getAge(object2[element]) - getAge(object1[element]));
+	},
 }
 export default utils;

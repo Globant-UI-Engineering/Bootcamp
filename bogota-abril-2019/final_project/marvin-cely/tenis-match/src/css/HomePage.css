@@ -3,20 +3,19 @@ main p, main figure{
 }
 
 main > figure {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
 main > figure:first-of-type {
     background-image: url("../images/racket&ball.jpg");
     height: 50vh; 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
     background-position: center 80%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 main > figure:first-of-type > p {
@@ -25,6 +24,7 @@ main > figure:first-of-type > p {
     font-family: var(--font-group-3);
     color: var(--font-color-white);
     background: var(--font-color-mate);
+    opacity: 0.9;
 }
 
 main > figure:first-of-type + section {
@@ -45,17 +45,9 @@ main > figure:first-of-type + section > h1 {
 main > figure:nth-of-type(2) {
     background-image: url("../images/tennisNet.jpg");
     height: 60vh; 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-main > figure:nth-of-type(2) > p {
+main > figure:not(:first-of-type) > p {
     padding: 2vh;
     font-size: var(--size-large);
     font-family: var(--font-group-3);
@@ -69,7 +61,6 @@ main > figure:nth-of-type(2) + section {
     color: var(--font-color-white);
     font-size: var(--size-normal);
     font-family: var(--font-group-3);
-    text-align: justify;
     box-shadow: 0 4px 10px 0 var(--font-color-black), 0 6px 20px 0 var(--font-color-black);
     display: flex;
     justify-content: space-evenly;
@@ -86,20 +77,5 @@ main > figure:nth-of-type(2) + section > img {
 main > figure:last-of-type {
     background-image: url("../images/playTennis.jpg");
     height: 60vh; 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
     background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-main > figure:last-of-type > p {
-    padding: 2vh;
-    font-size: var(--size-large);
-    font-family: var(--font-group-3);
-    color: var(--font-color-white);
-    text-shadow: 1px 1px 10px var(--font-color-black);
 }

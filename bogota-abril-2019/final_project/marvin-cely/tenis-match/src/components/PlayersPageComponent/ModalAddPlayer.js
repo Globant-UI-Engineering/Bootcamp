@@ -37,7 +37,6 @@ const ModalAddPlayer = observer(
     handleSubmit(event) {
       event.preventDefault();
       event.target.reset();
-      event.target.children[1].children[1].children[1].selectedIndex = 0; // put select to first position
       serviceAddData.createData(this.props.store.fireStore, thesaurus.collectionsName.PLAYERS ,this.state.enrollPlayerForm);
     }
 

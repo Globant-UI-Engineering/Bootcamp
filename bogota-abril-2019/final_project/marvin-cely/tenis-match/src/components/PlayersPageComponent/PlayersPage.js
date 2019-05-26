@@ -17,45 +17,97 @@ const PlayersPage = observer(
           name: 'Inscribir jugador',
           icon: 'fas fa-user-plus',
         },
-        photoDescription: 'Photo by Christopher Burns on Unsplash',
+        orderButton: [{
+            value: 'name',
+            namebutton: 'Nombre'
+          },
+          { 
+            value: 'birthDate',
+            namebutton: 'Edad'
+          }, 
+          {
+            value: 'ranking',
+            namebutton: 'Puntaje'
+        }],
+      }
+      this.handleInput = this.handleInput.bind(this);
+      this.orderTable = this.orderTable.bind(this);
+    }
+
+    handleInput = (event) => {
+      const { name, value } = event.target;
+      if (name === 'orderOption') {
+        this.orderTable(value);
+      }      
+    }
+    
+    orderTable = (value) => {
+      switch (value) {
+        case 'name':
+          this.props.store.players = utils.sortByAlphaArrayList(this.props.store.players, value);
+          break;
+        case 'birthDate':
+          this.props.store.players = utils.sortByAgeArrayList(this.props.store.players, value, utils.getAge);
+          break;
+        case 'ranking':
+          this.props.store.players = utils.sortByNumberArrayList(this.props.store.players, value);
+          break;    
       }
     }
 
-    render() {
-      const store = this.props.store;
-      const collectionsName = [ thesaurus.collectionsName.PLAYERS, thesaurus.collectionsName.COUNTRIES];
-      const stateComponent = [<TablePlayer store={this.props.store}/>,
-                              <LoadingComponent/>,
-                              <ErrorServiceComponent/>];
-      const validationComponent = () => utils.validationService( store, collectionsName, stateComponent);
+    render() {   
+      const orderOption = () => {
+        return this.state.orderButton.map(({value, namebutton}, index) => { 
+            return(
+              <label className="btn btn-info" key={index}>
+                <input type="radio" name="orderOption" value={value} onFocus ={this.handleInput} autoComplete="off"/> 
+                {namebutton}
+              </label>
+            );
+        });
+      };
 
-      return (
-        <React.Fragment>
-          <aside>
-            <figure aira-lable="Foto de la pagina jugadores">
-              <figcaption>{this.state.photoDescription}</figcaption>
-            </figure>
-          </aside>        
+      const tableContent = () => {
+        return(
           <main className="container">    
             <section className="sticky-top">
-              <header>
-                <article>
-                  <h2>{this.state.nameComponent}</h2>
-                </article>
+              <header>                
                 <section>
                   <button type="button"
-                    className="btn btn-info"
+                    className="btn btn-primary"
                     data-toggle="modal"
                     data-target="#modalAddPlayer">
                       <i className={this.state.newPlayerButton.icon}></i>
                       &nbsp;{this.state.newPlayerButton.name}
                   </button>
                 </section>
+                <section>
+                  <h5 className="text-muted">Ordenar Lista:</h5>
+                  <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                    {orderOption()}
+                  </div>
+                </section>
               </header>
             </section>
             <ModalAddPlayer store={this.props.store}/>      
-            {validationComponent()}
+            <TablePlayer store={this.props.store}/>
           </main>
+        );
+      };
+
+      const store = this.props.store;
+      const collectionsName = [ thesaurus.collectionsName.PLAYERS, thesaurus.collectionsName.COUNTRIES];
+      const statusComponent = [tableContent(), <LoadingComponent/>, <ErrorServiceComponent/>];
+      const validationComponent = () => utils.validationService( store, collectionsName, statusComponent);
+
+      return (
+        <React.Fragment>
+          <aside>
+            <figure aira-lable="Foto de la pagina jugadores">
+              <figcaption>{this.state.nameComponent}</figcaption>
+            </figure>
+          </aside>        
+          {validationComponent()}
         </React.Fragment>
       );
     }

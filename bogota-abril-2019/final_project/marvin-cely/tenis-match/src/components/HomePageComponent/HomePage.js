@@ -4,24 +4,18 @@ import tennisRacket from '../../images/tennisRacket.png';
 import rising from '../../images/rising.png';
 
 class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      photoDescription: 'Photo by Christopher Burns on Unsplash',
-    }
-  }
   render() { 
     return(
       <React.Fragment>    
         <main>
-          <figure className="parallax1" aira-lable="Foto de una pelota de tennis">
+          <figure aira-lable="Foto de una pelota de tennis" role="banner">
             <p>Anota tus puntos en vivo</p>
           </figure>
           <section>
             <h1>Tennis Match</h1>
             <p>Perfecto para los amantes del tenis, tú y tu amigos podrán ver estadísticas de partido, historial de partidos y puntaje de sus competidores. Con Tennis Match estarás preparado para tu próximo juego y así disfrutar lo mejor del deporte blanco.</p>
           </section>
-          <figure>
+          <figure role="banner">
             <p>Compite contra tus amigos por el mejor ranking.</p>
           </figure>
           <section>
@@ -29,7 +23,7 @@ class HomePage extends React.Component {
             <img className="img-fluid" src={tennisRacket} alt="Raqueta y pelota de tenis"/>
             <p>Mejora tus estadisticas, revisa en el historial. Observa tus fortalezas y habilidades por mejorar; y encuentra la mejor estrategia al instante.</p>
           </section>
-          <figure>
+          <figure role="banner">
             <p>¡Todo en tiempo real!</p>
           </figure>
         </main>

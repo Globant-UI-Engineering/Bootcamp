@@ -1,32 +1,33 @@
 figure[aira-lable$="jugadores"] {
     background-image: url("../images/jugadoresImagen.jpg");
-    /* Specific height */
     min-height: 40vh; 
-    /* Parallax scrolling effect */
     background-attachment: fixed;
     background-position: center 40%;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     margin: 0;
 }
 
 figure[aira-lable$="jugadores"] > figcaption {
-    margin: 0;
-    padding-right: 1rem;
-    font-family: var(--font-group-1);
+    padding: 2vh;
+    font-size: var(--size-large);
+    font-family: var(--font-group-3);
     color: var(--font-color-white);
-    font-style: oblique;
-    opacity: 0.2;
+    background: var(--font-color-mate);
+    opacity: 0.9;
+}
+
+.btn-group, header section > button {
+    margin: 0.8vh;
 }
 
 main.container > section:first-of-type {
     padding-top: 3.8rem;
     margin-top: -3.8rem;
     z-index: 1;
-    
 }
 
 section > header {
@@ -37,6 +38,18 @@ section > header {
     justify-content: space-evenly;
     align-items: center;
     flex-flow: row wrap;
+}
+
+header > section:last-of-type {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+header > section:last-of-type h5 {
+    text-align: center;
+    margin-bottom: 0;
 }
 
 section.row {

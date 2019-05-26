@@ -45,13 +45,18 @@ const TablePlayer = observer(
                   countryName={countries.get(idCountry)[this.state.NATIONALITY]}
                 />
             </p>
-            <p className="col-md-3" role="cell">
+            <p className="col-md-2" role="cell">
               {utils.getAge(birthDate)}
               &nbsp;<span className="d-inline d-md-none">años</span>
             </p>
             <p className="col-md-3" role="cell">
               {ranking}&nbsp;<span className="d-inline d-md-none">puntos</span>
             </p>
+            <div className="col-md-1" role="cell">
+              <button type="button" class="btn btn-light">
+                <i class="fas fa-ellipsis-v"></i>
+              </button>
+            </div>
           </section>
         );
       });

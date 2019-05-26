@@ -1,4 +1,4 @@
-section > p[role="row"] {
+section > p[role="cell"] {
     display: flex;
     justify-content: center;
     align-items: center;
