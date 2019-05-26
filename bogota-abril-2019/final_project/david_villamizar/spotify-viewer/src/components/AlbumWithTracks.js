@@ -19,10 +19,11 @@ export default function AlbumWithTracks({
         ) : null}
         <img src={images[0].url} alt={`${name}'s cover.`} />
       </div>
-
-      <Tracks
-        tracks={tracks.items.map(track => ({ ...track, album: { name } }))}
-      />
+      <div className={styles.tracksContainer}>
+        <Tracks
+          tracks={tracks.items.map(track => ({ ...track, album: { name } }))}
+        />
+      </div>
     </div>
   );
 }

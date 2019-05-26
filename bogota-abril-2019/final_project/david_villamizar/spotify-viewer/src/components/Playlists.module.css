@@ -70,8 +70,8 @@
 }
 
 .badges {
+  margin: 0.5rem 0 0.5rem 0;
   display: flex;
-  flex: 0 0 auto;
   flex-wrap: wrap;
   flex-direction: row;
   width: auto;
@@ -79,7 +79,8 @@
 
 .badge {
   list-style: none;
-  padding: 0.25rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  margin: 0.125rem;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;

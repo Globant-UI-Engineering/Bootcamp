@@ -38,20 +38,21 @@ export default function PlaylistWithTracks({
         </h3>
         <img src={images[0].url} alt={`${name}'s cover.`} />
       </div>
-
-      <Tracks
-        tracks={playlistTracks.map(playlistTrack => ({
-          ...playlistTrack.track,
-          id: `${playlistTrack.added_at}#${playlistTrack.track.id}`,
-        }))}
-      />
-      <button
-        className={styles.loadMore}
-        disabled={isLoadingTracks}
-        onClick={e => fetchTracks(id, offset)}
-      >
-        Load More
-      </button>
+      <div className={styles.tracksContainer}>
+        <Tracks
+          tracks={playlistTracks.map(playlistTrack => ({
+            ...playlistTrack.track,
+            id: `${playlistTrack.added_at}#${playlistTrack.track.id}`,
+          }))}
+        />
+        <button
+          className={styles.loadMore}
+          disabled={isLoadingTracks}
+          onClick={e => fetchTracks(id, offset)}
+        >
+          Load More
+        </button>
+      </div>
     </div>
   );
 }
