@@ -3,8 +3,15 @@ import { Paper } from "@material-ui/core";
 import { apiStaticUrl } from "../utils/Constants/urls";
 import HashTagList from "./HashTagList";
 import InfoCategory from "./InfoCategory";
+import animate from "@jam3/gsap-promise";
 
 class RenderChampionDetail extends React.Component {
+  componentDidMount() {
+    animate.from(this.h2, 0.2, { y: -200, delay: 0.4 });
+    animate.from(this.h3, 0.2, { y: -200, delay: 0.4 });
+    animate.from(this.p, 0.2, { y: -200, delay: 0.4 });
+    animate.from(this.container, 0.2, { x: -1000, delay: 0.4 });
+  }
   render() {
     const {
       id,
@@ -25,13 +32,13 @@ class RenderChampionDetail extends React.Component {
       apiStaticUrl.noVersionImg + "/champion/loading/" + id + "_0.jpg";
     return (
       <article className="champion-detail">
-        <h2>{name}</h2>
-        <h3>{title}</h3>
-        <p>
+        <h2 ref={h2 => (this.h2 = h2)}>{name}</h2>
+        <h3 ref={h3 => (this.h3 = h3)}>{title}</h3>
+        <p ref={p => (this.p = p)}>
           <span>version </span>
           {version}
         </p>
-        <div>
+        <div ref={container => (this.container = container)}>
           <div>
             <img alt={`${name} Splash art`} src={championImageUrl} />
             <HashTagList values={tags} />

@@ -86,34 +86,32 @@ class Match extends React.Component {
 
         <h4>{seasonValue}</h4>
 
-        <article className="details-panel">
-          <Paper className="flex column-flex flex-center">
-            <h5>{`${queueValue.map}, ${queueValue.description}`}</h5>
-            <dl>
-              <div>
-                <dt>server</dt>
-                <dd>{platformValue.region}</dd>
-              </div>
-              <div>
-                <dt>date</dt>
-                <dd>{realDate}</dd>
-              </div>
+        <article className="details-panel flex column-flex flex-center">
+          <h5>{`${queueValue.map}, ${queueValue.description}`}</h5>
+          <dl>
+            <div>
+              <dt>server</dt>
+              <dd>{platformValue.region}</dd>
+            </div>
+            <div>
+              <dt>date</dt>
+              <dd>{realDate}</dd>
+            </div>
 
-              {roleValue && (
-                <div>
-                  <dt>role</dt>
-                  <dd>{roleValue}</dd>
-                </div>
-              )}
+            {roleValue && (
+              <div>
+                <dt>role</dt>
+                <dd>{roleValue}</dd>
+              </div>
+            )}
 
-              {laneValue && (
-                <div>
-                  <dt>lane</dt>
-                  <dd>{laneValue}</dd>
-                </div>
-              )}
-            </dl>
-          </Paper>
+            {laneValue && (
+              <div>
+                <dt>lane</dt>
+                <dd>{laneValue}</dd>
+              </div>
+            )}
+          </dl>
         </article>
       </Card>
     ) : (

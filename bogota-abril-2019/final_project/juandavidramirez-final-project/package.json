@@ -37,6 +37,7 @@
     "prettier": "^1.16.4"
   },
   "dependencies": {
+    "@jam3/gsap-promise": "^4.0.1",
     "@material-ui/core": "^3.9.3",
     "@reach/router": "^1.2.1",
     "antd": "^3.18.2",

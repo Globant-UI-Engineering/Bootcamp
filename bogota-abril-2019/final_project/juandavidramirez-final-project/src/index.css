@@ -42,6 +42,10 @@ body {
   color: #e91e63;
 }
 
+.navigation-header-bar a:active {
+  opacity: 0.5;
+}
+
 /*Champions List*/
 
 article {
@@ -98,27 +102,28 @@ ul.champions-container {
   margin-bottom: 20px;
 }
 
-.details-panel > :first-child {
+.details-panel {
   padding: 2%;
 }
 
-.details-panel > :first-child h5,
-.details-panel > :first-child dt {
+.details-panel > h5,
+.details-panel dt {
   text-transform: uppercase;
   margin: 0;
 }
 
-.details-panel > :first-child h5 {
+.details-panel > h5 {
   font-size: 17px;
+  margin-bottom: 5px;
 }
 
-.details-panel > :first-child dt {
+.details-panel dt {
   font-weight: 600;
   display: inline;
   margin-right: 10px;
 }
 
-.details-panel > :first-child dd {
+.details-panel dd {
   display: inline;
   margin: 0;
 }
@@ -242,6 +247,18 @@ thead tr.MuiTableRow-root-30 th {
 }
 .search-section-container div:first-child {
   margin-left: 15px;
+}
+
+.search-section-container img {
+  width: 36px;
+}
+
+.search-section-container a {
+  width: 100%;
+}
+
+.search-section-container button {
+  padding: 0;
 }
 
 .summoner-info-paper-container {
@@ -417,6 +434,56 @@ li img:active {
   opacity: 1;
 }
 
-/*.Site-content {
-  flex: 1 0 auto;
-}*/
+.error-panel-container {
+  text-align: center;
+  margin-top: 8%;
+}
+
+.error-panel-container * {
+  font-family: "Mandali", sans-serif;
+}
+
+.error-panel-container > div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-panel-container > div * {
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.error-panel-container > div p {
+  margin-left: 15px;
+  font-size: 25px;
+}
+
+.summoner-info-paper-container > img {
+  border: 2px solid grey;
+  border-radius: 4px;
+}
+
+.loading-container {
+  text-align: center;
+  margin: 10%;
+}
+
+.loading-container p:last-child {
+  font-family: "Mandali", sans-serif;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+img:-moz-broken {
+  outline: solid red;
+}
+img:-moz-broken:after {
+  content: " (broken image)";
+}
+
+#not-rendered-msg {
+  text-transform: capitalize;
+  margin: 0 auto;
+}

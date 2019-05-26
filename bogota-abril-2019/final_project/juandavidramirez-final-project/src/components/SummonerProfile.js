@@ -4,6 +4,8 @@ import { apiStaticUrl } from "../utils/Constants/urls";
 import { getSummonerMatches, getSummonerById, getSummoner } from "../utils/api";
 import Match from "./Match";
 import Loading from "./Loading";
+import ErrorPanel from "./ErrorPanel";
+import { findDOMNode } from "react-dom";
 
 class SummonerProfile extends React.Component {
   state = {
@@ -14,12 +16,17 @@ class SummonerProfile extends React.Component {
     const upperNewProps = newProps.name.toUpperCase();
     const upperOldProps = this.props.name.toUpperCase();
     if (!(upperNewProps === upperOldProps)) {
-      this.setState({ loading: true, matches: null, profileInfo: null });
+      this.setState({
+        loading: true,
+        matches: null,
+        profileInfo: null,
+        error: null
+      });
     }
   }
 
   componentDidUpdate() {
-    if (!this.state.profileInfo && this.state.loading) {
+    if (!this.state.profileInfo && this.state.loading && !this.state.error) {
       this.handleProfileRequest();
     }
   }
@@ -33,14 +40,14 @@ class SummonerProfile extends React.Component {
               this.setState({ loading: false, matches: response.data });
             },
             onFailed: error => {
-              console.log(error);
+              this.setState({ error: error.response });
             }
           };
           getSummonerMatches(20, this.state.profileInfo.accountId, callback);
         });
       },
       onFailed: error => {
-        this.setState({ loading: false });
+        this.setState({ error: error.response });
       }
     };
     getSummoner(this.props.name, callback);
@@ -50,15 +57,18 @@ class SummonerProfile extends React.Component {
     this.handleProfileRequest();
   }
   render() {
-    const { loading, matches, profileInfo } = this.state;
+    const { loading, matches, profileInfo, error } = this.state;
 
     const profileIconUrl = profileInfo
       ? apiStaticUrl.img + "/profileicon/" + profileInfo.profileIconId + ".png"
       : "";
-    return loading ? (
-      <Loading name="Summoner profile" />
-    ) : !profileInfo ? (
-      <h1>This summoner doesnt exist</h1>
+
+    return error ? (
+      <ErrorPanel
+        status={{ code: error.status, message: error.data.status.message }}
+      />
+    ) : loading ? (
+      <Loading name="summoner profile" />
     ) : (
       <Paper className="summoner-info-paper-container">
         <img

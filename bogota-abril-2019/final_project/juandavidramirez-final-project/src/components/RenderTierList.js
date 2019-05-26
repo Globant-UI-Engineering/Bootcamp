@@ -7,6 +7,7 @@ import TableBody from "@material-ui/core/TableBody";
 import Paper from "@material-ui/core/Paper";
 import EnhancedTableHead from "./EnhancedTableHead";
 import { TablePagination } from "@material-ui/core";
+import animate from "@jam3/gsap-promise";
 
 function desc(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -62,6 +63,12 @@ class RenderTierList extends React.Component {
     this.setState({ rowsPerPage: event.target.value });
   };
 
+  componentDidMount() {
+    animate.from(this.table, 0.2, { x: -1280, delay: 0.8 });
+    animate.from(this.challengerLogo, 0.2, { x: -1280, delay: 0.8 });
+    animate.from(this.header, 0.2, { y: -200, delay: 0.8 });
+  }
+
   render() {
     const { summoners } = this.props;
 
@@ -69,11 +76,17 @@ class RenderTierList extends React.Component {
 
     return (
       <section className="page-wrapper">
-        <h2 className="challenger-section-title">challenger elo</h2>
-        <img src={challenger} alt="Challenger icon" />
+        <h2 className="challenger-section-title" ref={h2 => (this.header = h2)}>
+          challenger elo
+        </h2>
+        <img
+          src={challenger}
+          alt="Challenger icon"
+          ref={img => (this.challengerLogo = img)}
+        />
 
         <Paper className="table-container">
-          <div className="table-wrapper">
+          <div ref={div => (this.table = div)} className="table-wrapper">
             <Table
               className="summoners-table"
               aria-labelledby="Challenger summoners"

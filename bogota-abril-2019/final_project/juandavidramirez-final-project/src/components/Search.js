@@ -1,7 +1,8 @@
 import React from "react";
 import { getSummoner } from "../utils/api";
 import SummonerProfile from "./SummonerProfile";
-import search from "../../public/images/search.png";
+import search from "../../public/images/search.svg";
+import animate from "@jam3/gsap-promise";
 import {
   FormControl,
   InputLabel,
@@ -15,6 +16,7 @@ import {
 } from "@material-ui/core";
 import { redirectTo, Router, Link } from "@reach/router";
 import { navigate } from "@reach/router/lib/history";
+import { findDOMNode } from "react-dom";
 
 class Search extends React.Component {
   state = {
@@ -27,15 +29,21 @@ class Search extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    //this.setState({ summonerName: "" });
   };
+
+  componentDidMount() {
+    animate.from(this.container, 0.2, { y: -200, delay: 0.8 });
+  }
 
   render() {
     const { summonerName } = this.state;
     const { children } = this.props;
     return (
       <React.Fragment>
-        <Paper className="search-section-container">
+        <Paper
+          className="search-section-container"
+          ref={container => (this.container = findDOMNode(container))}
+        >
           <InputBase
             id="search-summoner-input"
             value={summonerName}
