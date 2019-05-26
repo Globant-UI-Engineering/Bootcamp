@@ -3,12 +3,10 @@ import { connect } from "react-redux";
 import Tracks from "../components/Tracks";
 import { clearTopTracks, fetchTopTracks } from "../store/actions";
 import {
-  getAccessToken,
   getTopTracksError,
   getTopTracksIsLoading,
   getTopTracksList,
 } from "../store/reducers";
-import { store } from "../store/store";
 import styles from "./TopTracks.module.css";
 
 function TopTracks({
@@ -55,8 +53,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchTopTracks: offset =>
-    dispatch(fetchTopTracks(offset, getAccessToken(store.getState()))),
+  fetchTopTracks: offset => dispatch(fetchTopTracks(offset)),
   clearTopTracks: () => dispatch(clearTopTracks()),
 });
 

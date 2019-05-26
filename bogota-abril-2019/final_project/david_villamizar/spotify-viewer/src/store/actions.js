@@ -1,3 +1,4 @@
+import axios from "axios";
 export const ADD_CREDENTIALS = "ADD_CREDENTIALS";
 export const CLEAR_CREDENTIALS = "CLEAR_CREDENTIALS";
 
@@ -31,12 +32,26 @@ export const CLEAR_PLAYLISTS = "CLEAR_PLAYLISTS";
 export const SHOW_PLAYLISTS_ERROR = "SHOW_PLAYLISTS_ERROR";
 export const SET_PLAYLISTS_LOADING = "SET_PLAYLISTS_LOADING";
 
-export const addCredentials = ({ access_token, expires_in, token_type }) => ({
-  type: ADD_CREDENTIALS,
-  access_token,
-  expires_in,
-  token_type,
-});
+export const ADD_PLAYLIST_TRACKS_PAGE = "ADD_PLAYLIST_TRACKS_PAGE";
+export const CLEAR_PLAYLIST_TRACKS = "CLEAR_PLAYLIST_TRACKS";
+export const SHOW_PLAYLIST_TRACKS_ERROR = "SHOW_PLAYLIST_TRACKS_ERROR";
+export const SET_PLAYLIST_TRACKS_LOADING = "SET_PLAYLIST_TRACKS_LOADING";
+
+export const ADD_PLAYLIST_DETAIL = "ADD_PLAYLIST_DETAIL";
+export const REMOVE_PLAYLIST_DETAIL = "REMOVE_PLAYLIST_DETAIL";
+export const SHOW_PLAYLIST_DETAILS_ERROR = "SHOW_PLAYLIST_DETAILS_ERROR";
+export const SET_PLAYLIST_DETAILS_LOADING = "SET_PLAYLIST_DETAILS_LOADING";
+
+export const addCredentials = ({ access_token, expires_in, token_type }) => {
+  access_token = `Bearer ${access_token}`;
+  axios.defaults.headers.common["Authorization"] = access_token;
+  return {
+    type: ADD_CREDENTIALS,
+    access_token,
+    expires_in,
+    token_type,
+  };
+};
 export const clearCredentials = () => ({
   type: CLEAR_CREDENTIALS,
 });
@@ -55,8 +70,8 @@ export const setTopArtistsLoading = isLoading => ({
 
 export const addArtistAlbumsPage = (artistId, page) => ({
   type: ADD_ARTIST_ALBUMS_PAGE,
-  page,
   artistId,
+  page,
 });
 export const clearArtistAlbums = artistId => ({
   type: CLEAR_ARTIST_ALBUMS,
@@ -74,8 +89,8 @@ export const setArtistAlbumsLoading = isLoading => ({
 
 export const addArtistTopTracks = (artistId, tracks) => ({
   type: ADD_ARTIST_TOP_TRACKS,
-  tracks,
   artistId,
+  tracks,
 });
 export const clearArtistTopTracks = artistId => ({
   type: CLEAR_ARTIST_TOP_TRACKS,
@@ -143,170 +158,236 @@ export const setPlaylistsLoading = isLoading => ({
   isLoading,
 });
 
-function getHeaders(access_token) {
-  return {
-    Authorization: "Bearer " + access_token,
+export const addPlaylistTracksPage = (playlistId, page) => ({
+  type: ADD_PLAYLIST_TRACKS_PAGE,
+  playlistId,
+  page,
+});
+export const clearPlaylistTracks = playlistId => ({
+  type: CLEAR_PLAYLIST_TRACKS,
+  playlistId,
+});
+export const showPlaylistTracksError = error => ({
+  type: SHOW_PLAYLIST_TRACKS_ERROR,
+  isLoading: false,
+  error,
+});
+export const setPlaylistTracksLoading = isLoading => ({
+  type: SET_PLAYLIST_TRACKS_LOADING,
+  isLoading,
+});
+
+export const addPlaylistDetail = playlist => ({
+  type: ADD_PLAYLIST_DETAIL,
+  playlist,
+});
+export const removePlaylistDetail = playlistId => ({
+  type: REMOVE_PLAYLIST_DETAIL,
+  playlistId,
+});
+export const showPlaylistDetailsError = error => ({
+  type: SHOW_PLAYLIST_DETAILS_ERROR,
+  isLoading: false,
+  error,
+});
+export const setPlaylistDetailsLoading = isLoading => ({
+  type: SET_PLAYLIST_DETAILS_LOADING,
+  isLoading,
+});
+
+export function fetchTopArtists(offset) {
+  return async dispatch => {
+    try {
+      dispatch(setTopArtistsLoading(true));
+      const response = await axios.get(
+        `https://api.spotify.com/v1/me/top/artists`,
+        { params: { offset } },
+      );
+
+      dispatch(addTopArtistsPage(response.data));
+    } catch (e) {
+      dispatch(
+        showTopArtistsError(
+          `Top artists request failed for access_token ${
+            axios.defaults.headers.common["Authorization"]
+          } and offset ${offset}.`,
+        ),
+      );
+      throw e;
+    } finally {
+      dispatch(setTopArtistsLoading(false));
+    }
   };
 }
 
-export function fetchTopArtists(offset, access_token) {
-  return dispatch => {
-    dispatch(setTopArtistsLoading(true));
-    fetch(`https://api.spotify.com/v1/me/top/artists?offset=${offset}`, {
-      headers: getHeaders(access_token),
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
-        dispatch(setTopArtistsLoading(false));
-        return response;
-      })
-      .then(response => response.json())
-      .then(page => dispatch(addTopArtistsPage(page)))
-      .catch(() =>
-        dispatch(
-          showTopArtistsError(
-            `Top artists request failed for access_token ${access_token} and offset ${offset}.`,
-          ),
+export function fetchArtistAlbums(artistId, offset) {
+  return async dispatch => {
+    try {
+      dispatch(setArtistAlbumsLoading(true));
+      const response = await axios.get(
+        `https://api.spotify.com/v1/artists/${artistId}/albums`,
+        { params: { offset } },
+      );
+      dispatch(addArtistAlbumsPage(artistId, response.data));
+    } catch (e) {
+      dispatch(
+        showArtistAlbumsError(
+          `Artist's albums request failed for access_token ${
+            axios.defaults.headers.common["Authorization"]
+          } artistId ${artistId} and offset ${offset}.`,
         ),
       );
+      throw e;
+    } finally {
+      dispatch(setArtistAlbumsLoading(false));
+    }
   };
 }
 
-export function fetchArtistAlbums(artistId, offset, access_token) {
-  return dispatch => {
-    dispatch(setArtistAlbumsLoading(true));
-    fetch(
-      `https://api.spotify.com/v1/artists/${artistId}/albums?offset=${offset}`,
-      {
-        headers: getHeaders(access_token),
-      },
-    )
-      .then(response => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
-        dispatch(setArtistAlbumsLoading(false));
-        return response;
-      })
-      .then(response => response.json())
-      .then(page => dispatch(addArtistAlbumsPage(artistId, page)))
-      .catch(() =>
-        dispatch(
-          showArtistAlbumsError(
-            `Artist's albums request failed for access_token ${access_token} artistId ${artistId} and offset ${offset}.`,
-          ),
+export function fetchArtistTopTracks(artistId, country = "from_token") {
+  return async dispatch => {
+    try {
+      dispatch(setArtistTopTracksLoading(true));
+      const response = await axios.get(
+        `https://api.spotify.com/v1/artists/${artistId}/top-tracks`,
+        { params: { country } },
+      );
+      dispatch(addArtistTopTracks(artistId, response.data.tracks));
+    } catch (e) {
+      dispatch(
+        showArtistTopTracksError(
+          `Artist's top tracks request failed for access_token ${
+            axios.defaults.headers.common["Authorization"]
+          } artistId ${artistId} and country ISO ${country}.`,
         ),
       );
+      throw e;
+    } finally {
+      dispatch(setArtistTopTracksLoading(false));
+    }
   };
 }
 
-export function fetchArtistTopTracks(
-  artistId,
-  access_token,
-  countryIso = "from_token",
-) {
-  return dispatch => {
-    dispatch(setArtistTopTracksLoading(true));
-    fetch(
-      `https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=${countryIso}`,
-      {
-        headers: getHeaders(access_token),
-      },
-    )
-      .then(response => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
-        dispatch(setArtistTopTracksLoading(false));
-        return response;
-      })
-      .then(response => response.json())
-      .then(topTracks =>
-        dispatch(addArtistTopTracks(artistId, topTracks.tracks)),
-      )
-      .catch(() =>
-        dispatch(
-          showArtistTopTracksError(
-            `Artist's top tracks request failed for access_token ${access_token} artistId ${artistId} and country ISO ${countryIso}.`,
-          ),
+export function fetchAlbumDetail(albumId) {
+  return async dispatch => {
+    try {
+      dispatch(setAlbumLoading(true));
+      const response = await axios.get(
+        `https://api.spotify.com/v1/albums/${albumId}`,
+      );
+      dispatch(addAlbumDetail(response.data));
+    } catch (e) {
+      dispatch(
+        showAlbumError(
+          `Album detail request failed for access_token ${
+            axios.defaults.headers.common["Authorization"]
+          } and album ${albumId}.`,
         ),
       );
+      throw e;
+    } finally {
+      dispatch(setAlbumLoading(false));
+    }
   };
 }
 
-export function fetchAlbumDetail(albumId, access_token) {
-  return dispatch => {
-    dispatch(setAlbumLoading(true));
-    fetch(`https://api.spotify.com/v1/albums/${albumId}`, {
-      headers: getHeaders(access_token),
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
-        dispatch(setAlbumLoading(false));
-        return response;
-      })
-      .then(response => response.json())
-      .then(album => dispatch(addAlbumDetail(album)))
-      .catch(() =>
-        dispatch(
-          showAlbumError(
-            `Album detail request failed for access_token ${access_token} and album ${albumId}.`,
-          ),
+export function fetchTopTracks(offset) {
+  return async dispatch => {
+    try {
+      dispatch(setTopTracksLoading(true));
+      const response = await axios.get(
+        `https://api.spotify.com/v1/me/top/tracks`,
+        {
+          params: { offset },
+        },
+      );
+      dispatch(addTopTracksPage(response.data));
+    } catch (e) {
+      dispatch(
+        showTopTracksError(
+          `Top tracks request failed for access_token ${
+            axios.defaults.headers.common["Authorization"]
+          } and offset ${offset}.`,
         ),
       );
+      throw e;
+    } finally {
+      dispatch(setTopTracksLoading(false));
+    }
   };
 }
 
-export function fetchTopTracks(offset, access_token) {
-  return dispatch => {
-    dispatch(setTopTracksLoading(true));
-    fetch(`https://api.spotify.com/v1/me/top/tracks?offset=${offset}`, {
-      headers: getHeaders(access_token),
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
-        dispatch(setTopTracksLoading(false));
-        return response;
-      })
-      .then(response => response.json())
-      .then(page => dispatch(addTopTracksPage(page)))
-      .catch(() =>
-        dispatch(
-          showTopTracksError(
-            `Top tracks request failed for access_token ${access_token} and offset ${offset}.`,
-          ),
+export function fetchPlaylists(offset) {
+  return async dispatch => {
+    try {
+      dispatch(setPlaylistsLoading(true));
+      const response = await axios.get(
+        `https://api.spotify.com/v1/me/playlists`,
+        {
+          params: { offset },
+        },
+      );
+      dispatch(addPlaylistsPage(response.data));
+    } catch (e) {
+      dispatch(
+        showPlaylistsError(
+          `Playlists request failed for access_token ${
+            axios.defaults.headers.common["Authorization"]
+          } and offset ${offset}.`,
         ),
       );
+      throw e;
+    } finally {
+      dispatch(setPlaylistsLoading(false));
+    }
   };
 }
 
-export function fetchPlaylists(offset, access_token) {
-  return dispatch => {
-    dispatch(setPlaylistsLoading(true));
-    fetch(`https://api.spotify.com/v1/me/playlists?offset=${offset}`, {
-      headers: getHeaders(access_token),
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
-        dispatch(setPlaylistsLoading(false));
-        return response;
-      })
-      .then(response => response.json())
-      .then(page => dispatch(addPlaylistsPage(page)))
-      .catch(() =>
-        dispatch(
-          showPlaylistsError(
-            `Playlists request failed for access_token ${access_token} and offset ${offset}.`,
-          ),
+export function fetchPlaylistTracks(playlistId, offset) {
+  return async dispatch => {
+    try {
+      dispatch(setPlaylistTracksLoading(true));
+      const response = await axios.get(
+        `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
+        {
+          params: { offset },
+        },
+      );
+      dispatch(addPlaylistTracksPage(playlistId, response.data));
+    } catch (e) {
+      dispatch(
+        showPlaylistTracksError(
+          `Playlist's tracks request failed for access_token ${
+            axios.defaults.headers.common["Authorization"]
+          } artistId ${playlistId} and offset ${offset}.`,
         ),
       );
+      throw e;
+    } finally {
+      dispatch(setPlaylistTracksLoading(false));
+    }
+  };
+}
+
+export function fetchPlaylistDetail(playlistId) {
+  return async dispatch => {
+    try {
+      dispatch(setPlaylistDetailsLoading(true));
+      const response = await axios.get(
+        `https://api.spotify.com/v1/playlists/${playlistId}`,
+      );
+      dispatch(addPlaylistDetail(response.data));
+    } catch (e) {
+      dispatch(
+        showPlaylistDetailsError(
+          `Playlist detail request failed for access_token ${
+            axios.defaults.headers.common["Authorization"]
+          } and playlist ${playlistId}.`,
+        ),
+      );
+      throw e;
+    } finally {
+      dispatch(setPlaylistDetailsLoading(false));
+    }
   };
 }

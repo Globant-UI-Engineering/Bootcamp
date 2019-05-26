@@ -3,12 +3,10 @@ import { connect } from "react-redux";
 import Playlists from "../components/Playlists";
 import { clearPlaylists, fetchPlaylists } from "../store/actions";
 import {
-  getAccessToken,
-  getPlaylists,
   getPlaylistsError,
   getPlaylistsIsLoading,
+  getPlaylistsList,
 } from "../store/reducers";
-import { store } from "../store/store";
 import styles from "./MyPlaylists.module.css";
 
 function MyPlaylists({
@@ -49,14 +47,13 @@ function MyPlaylists({
 }
 
 const mapStateToProps = state => ({
-  playlists: getPlaylists(state),
+  playlists: getPlaylistsList(state),
   isLoading: getPlaylistsIsLoading(state),
   error: getPlaylistsError(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPlaylists: offset =>
-    dispatch(fetchPlaylists(offset, getAccessToken(store.getState()))),
+  fetchPlaylists: offset => dispatch(fetchPlaylists(offset)),
   clearPlaylists: () => dispatch(clearPlaylists()),
 });
 

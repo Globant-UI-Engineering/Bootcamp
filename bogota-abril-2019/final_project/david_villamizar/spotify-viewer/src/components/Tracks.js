@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Tracks.module.css";
 
 function Track({ name, id, album, popularity }) {
-  console.log(popularity);
   return (
     <li key={id} className={styles.track}>
       <h3 title={name}>{name}</h3>

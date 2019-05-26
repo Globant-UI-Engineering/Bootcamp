@@ -1,0 +1,79 @@
+.container {
+  background: #444;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.titleAndCover {
+  padding: 1rem;
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleAndCover > img {
+  max-width: 70vh;
+  width: 100%;
+}
+
+.titleAndCover > h1 {
+  margin: 0;
+}
+
+.titleAndCover > h2 {
+  margin: 1rem 0 1rem 0;
+}
+
+.badges {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: auto;
+}
+
+.badge {
+  list-style: none;
+  padding: 0.25rem;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 5px;
+  width: auto;
+  font-weight: bold;
+}
+
+.badge > svg {
+  margin-right: 0.25rem;
+}
+
+.loadMore {
+  border: 0;
+  width: 100%;
+  appearance: none;
+  text-align: center;
+  font-size: 24px;
+  background: #aaa;
+  transition: 0.25s background-color, 0.5s color;
+  cursor: pointer;
+  margin: 1em 0 1em 0;
+  padding: 1em;
+}
+
+.loadMore:disabled {
+  cursor: default;
+}
+
+.loadMore:hover:not(:disabled) {
+  background: #555;
+}
+
+.loadMore:active {
+  background: #333;
+  color: white;
+}

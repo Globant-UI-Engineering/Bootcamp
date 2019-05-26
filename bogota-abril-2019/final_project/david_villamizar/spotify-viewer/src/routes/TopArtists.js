@@ -3,12 +3,10 @@ import { connect } from "react-redux";
 import Artists from "../components/Artists";
 import { clearTopArtists, fetchTopArtists } from "../store/actions";
 import {
-  getAccessToken,
   getTopArtistsError,
   getTopArtistsIsLoading,
   getTopArtistsList,
 } from "../store/reducers";
-import { store } from "../store/store";
 import styles from "./TopArtists.module.css";
 
 function TopArtists({
@@ -54,8 +52,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchArtists: offset =>
-    dispatch(fetchTopArtists(offset, getAccessToken(store.getState()))),
+  fetchArtists: offset => dispatch(fetchTopArtists(offset)),
   clearArtists: () => dispatch(clearTopArtists()),
 });
 

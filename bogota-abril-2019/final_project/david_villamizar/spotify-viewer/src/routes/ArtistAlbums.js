@@ -3,12 +3,10 @@ import { connect } from "react-redux";
 import Albums from "../components/Albums";
 import { clearArtistAlbums, fetchArtistAlbums } from "../store/actions";
 import {
-  getAccessToken,
   getArtistAlbumsError,
   getArtistAlbumsIsLoading,
   getArtistAlbumsList,
 } from "../store/reducers";
-import { store } from "../store/store";
 import styles from "./ArtistAlbums.module.css";
 
 function ArtistAlbums({
@@ -56,9 +54,7 @@ const mapStateToProps = (state, { artistId }) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchAlbums: (artistId, offset) =>
-    dispatch(
-      fetchArtistAlbums(artistId, offset, getAccessToken(store.getState())),
-    ),
+    dispatch(fetchArtistAlbums(artistId, offset)),
   clearAlbums: artistId => dispatch(clearArtistAlbums(artistId)),
 });
 

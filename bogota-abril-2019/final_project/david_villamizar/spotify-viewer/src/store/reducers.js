@@ -5,25 +5,33 @@ import {
   ADD_ARTIST_TOP_TRACKS,
   ADD_CREDENTIALS,
   ADD_PLAYLISTS_PAGE,
+  ADD_PLAYLIST_DETAIL,
+  ADD_PLAYLIST_TRACKS_PAGE,
   ADD_TOP_ARTISTS_PAGE,
   ADD_TOP_TRACKS_PAGE,
   CLEAR_ARTIST_ALBUMS,
   CLEAR_ARTIST_TOP_TRACKS,
   CLEAR_CREDENTIALS,
   CLEAR_PLAYLISTS,
+  CLEAR_PLAYLIST_TRACKS,
   CLEAR_TOP_ARTISTS,
   CLEAR_TOP_TRACKS,
   REMOVE_ALBUM_DETAIL,
+  REMOVE_PLAYLIST_DETAIL,
   SET_ALBUM_LOADING,
   SET_ARTIST_ALBUMS_LOADING,
   SET_ARTIST_TOP_TRACKS_LOADING,
   SET_PLAYLISTS_LOADING,
+  SET_PLAYLIST_DETAILS_LOADING,
+  SET_PLAYLIST_TRACKS_LOADING,
   SET_TOP_ARTISTS_LOADING,
   SET_TOP_TRACKS_LOADING,
   SHOW_ALBUM_ERROR,
   SHOW_ARTIST_ALBUMS_ERROR,
   SHOW_ARTIST_TOP_TRACKS_ERROR,
   SHOW_PLAYLISTS_ERROR,
+  SHOW_PLAYLIST_DETAILS_ERROR,
+  SHOW_PLAYLIST_TRACKS_ERROR,
   SHOW_TOP_ARTISTS_ERROR,
   SHOW_TOP_TRACKS_ERROR,
 } from "./actions";
@@ -52,7 +60,6 @@ function topArtists(state = [], { type, page }) {
       return state;
   }
 }
-
 function topArtistsLoading(
   state = { isLoading: false },
   { type, isLoading, error },
@@ -79,7 +86,6 @@ function artistAlbums(state = {}, { type, artistId, page }) {
       return state;
   }
 }
-
 function artistAlbumsLoading(
   state = { isLoading: false },
   { type, isLoading, error },
@@ -104,7 +110,6 @@ function artistTopTracks(state = {}, { type, artistId, tracks }) {
       return state;
   }
 }
-
 function artistTopTracksLoading(
   state = { isLoading: false },
   { type, isLoading, error },
@@ -129,7 +134,6 @@ function albums(state = {}, { type, album, albumId }) {
       return state;
   }
 }
-
 function albumLoading(
   state = { isLoading: false },
   { type, isLoading, error },
@@ -154,7 +158,6 @@ function topTracks(state = [], { type, page }) {
       return state;
   }
 }
-
 function topTracksLoading(
   state = { isLoading: false },
   { type, isLoading, error },
@@ -179,7 +182,6 @@ function playlists(state = [], { type, page }) {
       return state;
   }
 }
-
 function playlistsLoading(
   state = { isLoading: false },
   { type, isLoading, error },
@@ -194,25 +196,85 @@ function playlistsLoading(
   }
 }
 
+function playlistTracks(state = {}, { type, playlistId, page }) {
+  switch (type) {
+    case ADD_PLAYLIST_TRACKS_PAGE:
+      const prevPages = state[playlistId];
+      const newPages = [...(prevPages ? prevPages : []), page];
+      return { ...state, [playlistId]: newPages };
+    case CLEAR_PLAYLIST_TRACKS:
+      return { ...state, [playlistId]: undefined };
+    default:
+      return state;
+  }
+}
+function playlistTracksLoading(
+  state = { isLoading: false },
+  { type, isLoading, error },
+) {
+  switch (type) {
+    case SET_PLAYLIST_TRACKS_LOADING:
+      return { isLoading };
+    case SHOW_PLAYLIST_TRACKS_ERROR:
+      return { isLoading, error };
+    default:
+      return state;
+  }
+}
+
+function playlistDetails(state = {}, { type, playlistId, playlist }) {
+  switch (type) {
+    case ADD_PLAYLIST_DETAIL:
+      return { ...state, [playlist.id]: playlist };
+    case REMOVE_PLAYLIST_DETAIL:
+      return { ...state, [playlistId]: undefined };
+    default:
+      return state;
+  }
+}
+function playlistDetailsLoading(
+  state = { isLoading: false },
+  { type, isLoading, error },
+) {
+  switch (type) {
+    case SET_PLAYLIST_DETAILS_LOADING:
+      return { isLoading };
+    case SHOW_PLAYLIST_DETAILS_ERROR:
+      return { isLoading, error };
+    default:
+      return state;
+  }
+}
+
 const appReducer = combineReducers({
   credentials,
+
   topArtists,
   topArtistsLoading,
+
   artistAlbums,
   artistAlbumsLoading,
+
   artistTopTracks,
   artistTopTracksLoading,
+
   albums,
   albumLoading,
+
   topTracks,
   topTracksLoading,
+
   playlists,
   playlistsLoading,
+
+  playlistDetails,
+  playlistDetailsLoading,
+
+  playlistTracks,
+  playlistTracksLoading,
 });
 
 export default appReducer;
-
-export const getAccessToken = state => state.credentials.access_token;
 
 export const getTopArtistsList = state =>
   [].concat(...state.topArtists.map(page => page.items));
@@ -252,17 +314,38 @@ export const getTopTracksList = state =>
 export const getTopTracksIsLoading = state => state.topTracksLoading.isLoading;
 export const getTopTracksError = state => state.topTracksLoading.error;
 
-export const getPlaylists = state =>
+export const getPlaylistsList = state =>
   [].concat(...state.playlists.map(page => page.items));
 export const getPlaylistsIsLoading = state => state.playlistsLoading.isLoading;
 export const getPlaylistsError = state => state.playlistsLoading.error;
 
+export const getPlaylistTracksList = (state, playlistId) => {
+  let tracks = state.playlistTracks[playlistId];
+  if (!tracks) {
+    tracks = [];
+  }
+  return [].concat(...tracks.map(page => page.items));
+};
+export const getPlaylistTracksIsLoading = state =>
+  state.playlistTracksLoading.isLoading;
+export const getPlaylistTracksError = state =>
+  state.playlistTracksLoading.error;
+
+export const getPlaylistDetail = (state, playlistId) =>
+  state.playlistDetails[playlistId];
+export const getPlaylistDetailsIsLoading = state =>
+  state.playlistDetailsLoading.isLoading;
+export const getPlaylistDetailsError = state =>
+  state.playlistDetailsLoading.error;
+
 export const getAllErrorsList = state =>
   [
-    state.topArtistsLoading.error,
-    state.artistTopTracksLoading.error,
-    state.artistAlbumsLoading.error,
-    state.albumLoading.error,
-    state.topTracksLoading.error,
-    state.playlistsLoading.error,
+    getTopArtistsError(state),
+    getArtistAlbumsError(state),
+    getArtistTopTracksError(state),
+    getAlbumError(state),
+    getTopTracksError(state),
+    getPlaylistsError(state),
+    getPlaylistTracksError(state),
+    getPlaylistDetailsError(state),
   ].filter(error => error);

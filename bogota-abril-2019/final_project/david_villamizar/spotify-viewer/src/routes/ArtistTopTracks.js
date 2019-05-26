@@ -3,12 +3,10 @@ import { connect } from "react-redux";
 import Tracks from "../components/Tracks";
 import { clearArtistTopTracks, fetchArtistTopTracks } from "../store/actions";
 import {
-  getAccessToken,
   getArtistTopTracksError,
   getArtistTopTracksIsLoading,
   getArtistTopTracksList,
 } from "../store/reducers";
-import { store } from "../store/store";
 
 function ArtistTopTracks({
   tracks,
@@ -42,13 +40,7 @@ const mapStateToProps = (state, { artistId }) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchTopTracks: (artistId, countryIso) =>
-    dispatch(
-      fetchArtistTopTracks(
-        artistId,
-        getAccessToken(store.getState()),
-        countryIso,
-      ),
-    ),
+    dispatch(fetchArtistTopTracks(artistId, countryIso)),
   clearTopTracks: artistId => dispatch(clearArtistTopTracks(artistId)),
 });
 
