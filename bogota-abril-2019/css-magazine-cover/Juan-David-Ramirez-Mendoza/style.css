@@ -1,0 +1,223 @@
+
+* {
+    text-transform: uppercase;
+    font-family: 'Allerta Stencil';
+}
+
+.content, .inside-list-box-content{
+    padding: 2%;
+}
+
+.content {
+    background-image: url(img/city.jpg);
+}
+
+.list-box div:first-child, body > div:first-child, body > div:last-child, .square, #page-number{
+    background-color: #8b0000;
+}
+
+.list-box div:first-child, #page-number h4{
+    -webkit-transform: skew(-30deg);
+} 
+
+#page-number, #left-square{
+    float: right;
+}
+
+#right-square{
+    float: left;
+}
+
+
+.list-box div:first-child{
+    width: 70px; 
+    height: 35px;
+}
+
+
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+#logo-img{
+    margin-top: -1.5em;
+}
+
+p, h2, li, h1, h4{
+    color: white;
+}
+
+li, p{
+    font-size: 1em;
+    margin: -2%;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+h2{
+    font-weight: normal;
+    font-size: 1.7em;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.centered-text, .footer-content{
+    text-align: center;
+}
+
+
+body > div:first-child, body > div:last-child, .square{
+    background-image: url(img/hexagon.png);
+    
+}
+
+h1, h3, h4, ul{
+    margin: 0;
+}
+
+h3{
+    color: #8b0000;
+}
+
+.left-aligned{
+    text-align: left;
+}
+
+.right-aligned{
+    text-align: right;
+}
+
+
+body{
+    margin: 0em 27em 0 27em; 
+    background-color: black;
+}
+
+.list-box, body > div:first-child, body > div:last-child, .square{
+    background-repeat: repeat;
+    background-size: 0.5em;
+}
+
+.list-box, #page-number{
+    border: 1px solid black;
+}
+
+.list-box{
+    background-color: #000050;
+    background-image: url(img/blue-hexagon.png);
+    border-radius: 15px;
+    width: 20em;
+    font-size: 0.7em;
+    padding: 0.3cm;
+}
+
+#left-content-div{
+    top: 1em;
+    left: 0%;
+}
+
+#right-content-div{
+    top: 12em;
+    right: 0%;
+}
+
+#center-page, #spider-man-image, .image-child, #page-number, #title-second-part, #footer{
+    position: relative;
+}
+
+.list-box:not(#footer), #page-number h4, #main-title, #footer *{
+    position: absolute;
+}
+
+#center-page{
+    margin-bottom: -8em;
+}
+
+#spider-man-image{
+    top: -6em;
+}
+
+.footer-container, #flex-horizontal-footer{
+    display: flex;
+}
+
+.footer-container{
+    flex-direction: column;
+    justify-content: center;
+}
+
+#flex-horizontal-footer{
+    flex-direction: row;
+}
+
+.image-child{
+    width: 60px;
+    height: 35px;
+    bottom: -10px;
+}
+
+#page-number{
+    height: 20px;
+    width: 170px;
+    top: -25px;
+    -webkit-transform: skew(30deg); 
+}
+
+#page-number h4{
+    text-transform: lowercase;
+    font-family: 'Rajdhani', sans-serif;
+    right: 25px;
+    bottom: 1px;
+}
+
+#number-44, #title-first-part, #title-second-part{
+    font-family: 'Squada One';
+    font-weight: 200;
+}
+
+#title-first-part, #title-second-part{
+    font-style: italic;
+}
+
+
+#main-title{
+    text-align: end;
+    left: -210px;
+    top: -9px;
+    transform: scaleX(2);
+}
+
+
+#title-first-part{
+    font-size: 20pt;
+    display: block;
+}
+
+#title-second-part{
+    font-size: 26pt;
+    left: 20px;
+}
+
+#footer{
+    width: 28em;
+    height: 3em;
+    padding: 0%;
+    bottom: -8px;
+    right: -24px;
+}
+
+#footer h3{
+    top: 2px;
+    right: 7px;
+}
+
+#footer p{
+    top: 20px;
+    right: 13px;
+}
