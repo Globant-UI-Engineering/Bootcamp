@@ -356,7 +356,9 @@ article.home-container {
 }
 
 article.home-container img {
-  margin-top: 4%;
+  margin-top: 1%;
+  width: 500px;
+  height: auto;
 }
 .home-container p {
   text-align: justify;
@@ -371,7 +373,7 @@ footer {
 
 .footer-container {
   text-align: center;
-  border-top: 3px solid red !important ;
+  border-top: 3px solid #e91e63;
   padding: 1% 15%;
 }
 

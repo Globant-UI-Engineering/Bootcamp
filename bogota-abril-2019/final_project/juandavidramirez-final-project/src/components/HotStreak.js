@@ -1,5 +1,5 @@
 import React from "react";
-import hotStreak from "../../public/images/hotStreak.png";
+import hotStreak from "../../public/images/hotStreak.svg";
 
 const HotStreak = () => {
   return (
