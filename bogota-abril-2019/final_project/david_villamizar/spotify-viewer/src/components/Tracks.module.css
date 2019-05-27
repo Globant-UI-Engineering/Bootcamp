@@ -6,6 +6,7 @@
   flex-direction: column;
   display: flex;
   flex-wrap: nowrap;
+  user-select: none;
   /* 
   justify-content: space-around; */
   /* margin: 2rem 0 2rem 0; */
