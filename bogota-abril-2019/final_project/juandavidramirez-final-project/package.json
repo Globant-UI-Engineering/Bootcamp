@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clear-build-cache": "rm -rf .cache/ dist/",
     "format": "prettier --write \"**/*.{js, jsx, css, json} \" ",
     "format:check": "prettier --list-different \"src/**/*.{js, jsx, css, json} \" ",
     "lint": "eslint \"**/*.{js,jsx}\"",

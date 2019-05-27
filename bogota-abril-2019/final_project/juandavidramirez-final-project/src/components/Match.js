@@ -21,17 +21,7 @@ class Match extends React.Component {
   }
 
   componentDidMount() {
-    const {
-      platformId,
-      gameId,
-      champion,
-      queue,
-      season,
-      timestamp,
-      role,
-      lane
-    } = this.props;
-    console.log(queue);
+    const { platformId, queue, season, timestamp, role, lane } = this.props;
     const seasonValue = seasons[season];
     const queueValue = queues[queue] ? queues[queue] : queue;
     const platformValue = serviceProxies[platformId];

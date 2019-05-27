@@ -1,3 +1,4 @@
+/* eslint-disable react/no-find-dom-node */
 import React from "react";
 import animate from "@jam3/gsap-promise";
 import { findDOMNode } from "react-dom";
