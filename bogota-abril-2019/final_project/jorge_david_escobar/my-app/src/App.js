@@ -3,118 +3,148 @@ import './App.css';
 import NavBar from './components/navBar';
 import WeatherCard from './components/WeatherCard';
 import NewsCard from './components/NewsCard';
-import { async } from 'q';
-
+import { Route, BrowserRouter as Router, Switch as Sw, Link } from 'react-router-dom';
+import NewsPage from './components/NewsPage';
+import WeatherDetails from './components/WeatherPage';
 
 const weather_api_key = "36e2fa16b70a4422ed609a5ad91f71f5";
 const news_api = "baf89e91a399451dbf982a015897aea1";
-class App extends React.Component {
 
-  constructor(){
-    super();
-    
-  }
+class App extends React.Component {
   state = {
     city: "city",
     temperature: undefined,
-    description: undefined,
+    description: "Description",
     humidity: undefined,
     time: undefined,
     country: undefined,
     news: [1],
     newsImage: ["https://www.allenreproduction.com/wp-content/uploads/2016/08/latest_news_header_03.jpg"],
     newsTitle: ["pick a city to get the latest news"],
-    newsContent: []
+    newsContent: [],
+    newsLink: [],
   }
 
-  getWeatherNews(e) {
+  getWeather = (e) => {
     e.preventDefault();
-    this.getWeather;
-    
-  }
-
-  getWeather = async function weather(e){    
-    const city = e.target.elements.city.value
-    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${weather_api_key}&units=metric`);
-    const weather_object = await api_call.json();
-    if (city) {
-      this.setState({
-        city: weather_object.name,
-        description: weather_object.weather[0].main,
-        temperature: weather_object.main.temp + "°C",
-        humidity: weather_object.main.humidity + "%",
-        country: weather_object.sys.country
-      });      
-      console.log(this.state.news.slice(0,3))
-    } else {
-      this.setState({
-        city: "city",
-        temperature: undefined,
-        description: undefined,
-        humidity: undefined,
-        time: undefined,
+    var city = e.target.elements.city.value;
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${weather_api_key}&units=metric`)
+      .then(response => response.json())
+      .then(data => {
+        if (city) {
+          console.log(data.weather[0].main)
+          this.setState({
+            city: data.name,
+            description: data.weather[0].main,
+            temperature: data.main.temp + "°C",
+            humidity: data.main.humidity + "%",
+            country: data.sys.country
+          });
+        } else {
+          this.setState({
+            city: "city",
+            temperature: undefined,
+            description: undefined,
+            humidity: undefined,
+            time: undefined,
+          });
+          alert("Please enter a city name to get the weather and latest news");
+        }
+        this.getNews();
       });
-      alert("Please enter a city name to get the weather");
-    }
-
   }
 
-  getNews = async function news(e) {
-    const news_api_call = await fetch(`https://newsapi.org/v2/top-headlines?country=${this.state.country}&apiKey=${news_api}`);
-    var news_json = await news_api_call.json();
-    var imageUrl, title, url = [];
-    for (let i = 0; i < news_json.articles.length; i++) {
-      imageUrl.push(news_json.articles[i].urlToImage)
-    }
-    for (let i = 0; i < news_json.articles.length; i++) {
-      title.push(news_json.articles[i].title)
-    }
-    for (let i = 0; i < news_json.articles.length; i++) {
-      url.push(news_json.articles[i].url)
-    }
-    this.setState({
-      news: news_json.articles,
-      newsImage: imageUrl,
-      newsTitle: title,
-      newsContent: url
-    });
+  getNews = () => {
+    fetch(`https://newsapi.org/v2/top-headlines?country=${this.state.country}&apiKey=${news_api}`)
+      .then(response => response.json())
+      .then(data => {
+        var imageUrl = [];
+        var title = [];
+        var url = [];
+        var content = [];
+        for (let i = 0; i < data.articles.length; i++) {
+          imageUrl.push(data.articles[i].urlToImage)
+        }
+        for (let i = 0; i < data.articles.length; i++) {
+          title.push(data.articles[i].title)
+        }
+        for (let i = 0; i < data.articles.length; i++) {
+          url.push(data.articles[i].url)
+        }
+        for (let i = 0; i < data.articles.length; i++) {
+          content.push(data.articles[i].content)
+        }
+        this.setState({
+          news: data.articles,
+          newsImage: imageUrl,
+          newsTitle: title,
+          newsContent: content,
+          newsLink: url
+        });
+      })
   }
 
-  render() {    
-    const news = this.state.news.slice(0,2).map((item, i) => {
+  render() {
+    const news = this.state.news.slice(0, 2).map((index, i) => {
       return (
         <NewsCard
+          key={this.state.newsTitle[i]}
           image={this.state.newsImage[i]}
           title={this.state.newsTitle[i]}
-          content={this.state.newsContent[i]}
+          link={this.state.newsLink[i]}
         ></NewsCard>
       )
     });
-
+    var newsPage = this.state.news.map((index, i) => {
+      return (
+        <NewsPage
+          key={this.state.newsTitle[i]}
+          image={this.state.newsImage[i]}
+          title={this.state.newsTitle[i]}
+          content={this.state.newsContent[i]}
+          link={this.state.newsLink[i]}
+        ></NewsPage>
+      )
+    });
     return (
-      <div className="App">
-        <NavBar getWeather={this.getWeatherNews}></NavBar>
-        <div className="container-fluid">
-          <div className="row">
+      <Router>
+        <div className="App">
+          <NavBar getWeather={this.getWeather}></NavBar>
+          <Sw>
+            <Route path="/home" render={
+              props =>
+                <div className="container-fluid">
+                  <div className="row">
+                    <WeatherCard
+                      city={this.state.city}
+                      country={this.state.country}
+                      description={this.state.description}
+                      temperature={this.state.temperature}
+                      humidity={this.state.humidity}
+                    ></WeatherCard>
+                    <div className="col-sm-12 col-lg-6 nonSpace">
+                      <div className="container newsCard">
+                        <div className="row">
+                          {news}
+                        </div>
+                        <Link to="/news" className="btn btn-warning">More news about {this.state.country}</Link>
 
-            <WeatherCard
-              city={this.state.city}
-              description={this.state.description}
-              temperature={this.state.temperature}
-              humidity={this.state.humidity}
-            ></WeatherCard>
-
-            <div className="col-sm-12 col-lg-6 nonSpace" id="newsCard">
-              <div className="container">
-                <div className="row">
-                  {news}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
+            } />
+            <Route path="/news" render={
+              props =>
+                <div className="container-fluid newsPage pt-4">
+                  <div className="row ">
+                    {newsPage}
+                  </div>
+                </div>
+            } />
+          </Sw>
         </div>
-
-      </div>
+      </Router >
     );
   }
 }

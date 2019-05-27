@@ -9,12 +9,16 @@
 .card{
   max-width: 18rem;  
 }
-#newsCard{
+.newsCard{
   padding: 20px;
   background-color: #007BFF;
 }
+.newsPage{
+  background-color: #e8ecef;
+}
 .nonSpace{
-  position:relative;width:100%;
+  position:relative;
+  width:100%;
   padding-right:0;
   padding-left:0;
 }
