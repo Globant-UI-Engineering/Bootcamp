@@ -40,7 +40,7 @@ class ViewEvent extends React.Component {
     showLoader(){
         if(this.state.showLoader){
             return (
-                <div className= "App-loader-container">
+                <div role="presentation" className= "App-loader-container">
                     <div className= "App-loader">
                         <Loader 
                             type="Oval"
@@ -66,10 +66,10 @@ class ViewEvent extends React.Component {
                 if (event.val().numberOfRemainingAsisstants > 0){
                     //Revisar que la persona no esté asistiendo al evento
                     let assistingToEvent = false;
-                    firebase.database().ref('/eventsXusers').once('value', (snapshot) => {
-                        snapshot.forEach(snap => {
-                            if(snap.child(currentUID).key === currentUID){
-                                if(snap.child(currentUID).child(0).val() == actualEventId){
+                    firebase.database().ref('/eventsXusers').once('value', (eventXuserNode) => {
+                        eventXuserNode.forEach(node => {
+                            if(node.child(currentUID).key === currentUID){
+                                if(node.child(currentUID).child(0).val() == actualEventId){
                                     assistingToEvent = true;
                                 }
                             }
@@ -118,10 +118,10 @@ class ViewEvent extends React.Component {
             let actualEventId = this.props.match.params.eventId;
 
             //Buscar si este evento se encuentra en la lista de eventos por asistir del usuario autenticado
-            firebase.database().ref('/eventsXusers').once('value', (snapshot) => {
-                snapshot.forEach(snap => {
-                    if(snap.child(currentUID).key == currentUID){
-                        if(snap.child(currentUID).child(0).val() == actualEventId){
+            firebase.database().ref('/eventsXusers').once('value', (eventXusersNode) => {
+                eventXusersNode.forEach(node => {
+                    if(node.child(currentUID).key == currentUID){
+                        if(node.child(currentUID).child(0).val() == actualEventId){
                             this.setState({
                                 userIsAssiting: true
                             });
@@ -147,10 +147,10 @@ class ViewEvent extends React.Component {
             let actualEventId = this.props.match.params.eventId;
 
             //Buscar si este evento se encuentra en la lista de eventos por asistir del usuario autenticado
-            firebase.database().ref('/events').once('value', (snapshot) => {
-                snapshot.forEach(snap => {
-                    if(snap.key == actualEventId){
-                        if(snap.child("creatorUID").val() == currentUID){
+            firebase.database().ref('/events').once('value', (eventsNode) => {
+                eventsNode.forEach(event => {
+                    if(event.key == actualEventId){
+                        if(event.child("creatorUID").val() == currentUID){
                             this.setState({
                                 userIsCreator: true
                             });
@@ -178,11 +178,11 @@ class ViewEvent extends React.Component {
             let actualEventId = this.props.match.params.eventId;
             let eventXuserKey = 0;
 
-            firebase.database().ref('/eventsXusers').once('value', (snapshot) => {
-                snapshot.forEach(snap => {
-                    if(snap.child(currentUID).key == currentUID){
-                        if(actualEventId == snap.child(currentUID).child(0).val()){
-                            eventXuserKey = snap.key;
+            firebase.database().ref('/eventsXusers').once('value', (eventXuserNode) => {
+                eventXuserNode.forEach(node => {
+                    if(node.child(currentUID).key == currentUID){
+                        if(actualEventId == node.child(currentUID).child(0).val()){
+                            eventXuserKey = node.key;
                         }
                     }
                 });
@@ -222,9 +222,9 @@ class ViewEvent extends React.Component {
             let actualEventId = this.props.match.params.eventId;
             let eventExist = false;
 
-            firebase.database().ref('/events').once('value', (snapshot) => {
-                snapshot.forEach(snap => {
-                    if(actualEventId == snap.key){
+            firebase.database().ref('/events').once('value', (eventsNode) => {
+                eventsNode.forEach(event => {
+                    if(actualEventId == event.key){
                         eventExist = true;
                     }
                 });
@@ -235,11 +235,11 @@ class ViewEvent extends React.Component {
 
                     //Se llena la lista de llaves de los nodos de asistencia a este evento
                     let assistingKeys = [];
-                    firebase.database().ref('/eventsXusers').once('value', (snapshot) => {
-                        snapshot.forEach(snap => {
-                            snap.forEach(eventKey => {
+                    firebase.database().ref('/eventsXusers').once('value', (eventsXusersNode) => {
+                        eventsXusersNode.forEach(node => {
+                            node.forEach(eventKey => {
                                 if(actualEventId == eventKey.child(0).val()){
-                                    assistingKeys.push(snap.key);
+                                    assistingKeys.push(node.key);
                                 }
                             });
                         });
@@ -270,8 +270,8 @@ class ViewEvent extends React.Component {
                     <h2 className="home">{this.state.actualEvent.name}</h2>
                 </article>
                 <article className="App-row-elements">
-                    <img className="image-left image-event" src={this.state.actualEvent.urlImage} alt="Event Image"/>
-                    <article className="App-column-elements App-center-elements App-font-event">
+                    <img role="img" className="image-left image-event" src={this.state.actualEvent.urlImage} alt="Event Image"/>
+                    <article aria="list" className="App-column-elements App-center-elements App-font-event">
                         <div className="center-text">
                             <h3>Fecha</h3>{this.state.actualEvent.date}
                         </div>

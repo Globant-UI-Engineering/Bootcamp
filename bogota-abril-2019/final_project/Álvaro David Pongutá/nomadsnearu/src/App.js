@@ -34,7 +34,7 @@ class Header extends React.Component {
     render () {
         if(this.state.signIn){
             return (
-                <header className = "App-header">
+                <header className = "App-header" role="presentation">
                     <h1>NomadsNearU</h1>
                     <img src = { logo } className = "App-logo" alt = "logo"></img>
                     <div onClick={() => this.showSignIn_signOut()}><SignOut/></div>
@@ -42,7 +42,7 @@ class Header extends React.Component {
             );
         } else {
             return (
-                <header className = "App-header">
+                <header className = "App-header" role="presentation">
                     <h1>NomadsNearU</h1>
                     <img src = { logo } className = "App-logo" alt = "logo"></img>
                     <div onClick={() => this.showSignIn_signOut()}><SignIn/></div>
@@ -56,7 +56,7 @@ class Footer extends React.Component {
     render () {
         return (
             <div className = "App">
-                <footer className = "App-footer">
+                <footer className = "App-footer" role="presentation">
                     Made by: Alvaro Ponguta. Globant - Bootcamp
                 </footer>
             </div>
@@ -81,7 +81,7 @@ class PrivateRoute extends React.Component {
 class PleaseSignIn extends React.Component {
     render () {
         return (
-            <section>
+            <section role="alert">
               <article className="App-row-elements">
                 <h2 className="signin">¡Inicia sesión!</h2>
                 <p>Para hacer uso de esta funcionalidad tienes que haberte autenticado.</p>
@@ -105,16 +105,16 @@ class Container extends React.Component {
     render () {
         return (
             <BrowserRouter>
-                <section className="App-container">
+                <section className="App-container" role="main">
                     <article className="App-container_firstRow">
-                        <nav>
-                            <Link className="App-link" to= {`/`}>Home<i className="material-icons md-16">home</i></Link>
-                            <Link className="App-link" to= {`/eventsMap`}>Mapa de eventos<i className="material-icons md-16">map</i></Link>
+                        <nav role="navigation">
+                            <Link role="tab" className="App-link" to= {`/`}>Home<i className="material-icons md-16">home</i></Link>
+                            <Link role="tab" className="App-link" to= {`/eventsMap`}>Mapa de eventos<i className="material-icons md-16">map</i></Link>
                             <div onClick={() => this.checkSignIn()}>
-                                <Link className="App-private-link" to= {`/yourEvents`}>Tus Eventos<i className="material-icons md-16">face</i></Link>
+                                <Link role="tab" className="App-private-link" to= {`/yourEvents`}>Tus Eventos<i className="material-icons md-16">face</i></Link>
                             </div>
                             <div onClick={() => this.checkSignIn()}>
-                                <Link className="App-private-link" to= {`/createEvent`}>Crear Evento<i className="material-icons md-16">create</i></Link>
+                                <Link role="tab" className="App-private-link" to= {`/createEvent`}>Crear Evento<i className="material-icons md-16">create</i></Link>
                             </div>
                         </nav>
                     </article>

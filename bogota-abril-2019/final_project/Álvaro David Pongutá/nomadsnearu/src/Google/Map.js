@@ -142,13 +142,13 @@ export class MapContainer extends React.Component {
 
     render() {
         return (
-        <div className="App-map-searchbar-container">
-            <div className="App-searchbar-container App-column-elements">
+        <section className="App-map-searchbar-container">
+            <article className="App-searchbar-container App-column-elements">
                 <SearchBar className={"App-map-searchbar"} onPlaceLoaded={this.onPlaceLoaded}/>
                 <Button className={"App-button-map App-button"} onClick={this.showCurrentLocation} buttonInfo="Localización Actual"></Button>
-            </div>
-            <div className="App-map-container">
-                <Map className="App-map" google={this.props.google} onDragstart={this.onMapDragged} onReady={this.onMapReady} zoom={zoom} initialCenter={center} center={this.state.center}>
+            </article>
+            <article className="App-map-container">
+                <Map role="application" className="App-map" google={this.props.google} onDragstart={this.onMapDragged} onReady={this.onMapReady} zoom={zoom} initialCenter={center} center={this.state.center}>
 
                     {
                         this.markerShowCurrentLocation()
@@ -180,8 +180,8 @@ export class MapContainer extends React.Component {
                             </div>
                     </InfoWindow>
                 </Map>
-            </div>
-        </div>
+            </article>
+        </section>
         );
     }
 }

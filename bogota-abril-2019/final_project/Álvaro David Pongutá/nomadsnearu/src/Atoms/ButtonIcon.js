@@ -4,7 +4,7 @@ import '../App.scss';
 class ButtonIcon extends React.Component {
     render () {
         return (
-            <button className="App-button App-button-icon" onClick={this.props.onClick}>{this.props.iconHTML}</button>
+            <button role="button" className="App-button App-button-icon" onClick={this.props.onClick}>{this.props.iconHTML}</button>
         );
     }
 }

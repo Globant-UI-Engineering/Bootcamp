@@ -29,7 +29,7 @@ class YourEvents extends React.Component {
     fillListCreatedEvents(){
 
         let currentUID = firebase.auth().currentUser.uid;
-        let event = {
+        let auxiliarEvent = {
             urlImage: '',
             eventName: '',
             eventID: ''
@@ -37,15 +37,15 @@ class YourEvents extends React.Component {
 
         //Completar la lista de eventos creados por el usuario
         let auxiliarCreatedEvents = [];
-        firebase.database().ref('/events').once('value', (snapshot) => {
-            snapshot.forEach(snap => {
-                if(snap.child("creatorUID").val() == currentUID){
-                    event = {
-                        urlImage: snap.child("urlImage").val(),
-                        eventName: snap.child("name").val(),
-                        eventID: snap.key
+        firebase.database().ref('/events').once('value', (eventsNode) => {
+            eventsNode.forEach(event => {
+                if(event.child("creatorUID").val() == currentUID){
+                    auxiliarEvent = {
+                        urlImage: event.child("urlImage").val(),
+                        eventName: event.child("name").val(),
+                        eventID: event.key
                     }
-                    auxiliarCreatedEvents.push(event);
+                    auxiliarCreatedEvents.push(auxiliarEvent);
                 }
             });
             this.setState({
@@ -58,7 +58,7 @@ class YourEvents extends React.Component {
     fillListGoingToAssistEvents(){
 
         let currentUID = firebase.auth().currentUser.uid;
-        let event = {
+        let auxiliarEvent = {
             urlImage: '',
             eventName: '',
             eventID: ''
@@ -66,18 +66,18 @@ class YourEvents extends React.Component {
 
         //Completar la lista de eventos a los que asistirá el usuario
         let auxiliarGoingToAssistEvents = [];
-        firebase.database().ref('/eventsXusers').once('value', (snapshot) => {
-            snapshot.forEach(snap => {
-                if(snap.child(currentUID).key == currentUID){
-                    firebase.database().ref('/events').once('value', (snapshotEvents) => {
-                        snapshotEvents.forEach(snapEvents => {
-                            if(snapEvents.key == snap.child(currentUID).child(0).val()){
-                                event = {
-                                    urlImage: snapEvents.child("urlImage").val(),
-                                    eventName: snapEvents.child("name").val(),
-                                    eventID: snap.child(currentUID).child(0).val() 
+        firebase.database().ref('/eventsXusers').once('value', (eventXusersNode) => {
+            eventXusersNode.forEach(node => {
+                if(node.child(currentUID).key == currentUID){
+                    firebase.database().ref('/events').once('value', (eventsNode) => {
+                        eventsNode.forEach(event => {
+                            if(event.key == node.child(currentUID).child(0).val()){
+                                auxiliarEvent = {
+                                    urlImage: event.child("urlImage").val(),
+                                    eventName: event.child("name").val(),
+                                    eventID: node.child(currentUID).child(0).val() 
                                 }
-                                auxiliarGoingToAssistEvents.push(event);
+                                auxiliarGoingToAssistEvents.push(auxiliarEvent);
                             }
                         });
                         this.setState({
