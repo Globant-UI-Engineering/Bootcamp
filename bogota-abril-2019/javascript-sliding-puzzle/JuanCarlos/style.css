@@ -1,0 +1,83 @@
+:root {
+    --puzzle-width: 400px;
+    --puzzle-height: 400px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat( 3, calc( var(--puzzle-width)/3 ) );
+    grid-template-rows: repeat( 3, calc( var(--puzzle-height)/3 ) );;
+    grid-gap: 1px 1px;
+    grid-template-areas: 
+    "uno dos tre"
+    "cua cin sei"
+    "sie och nue";
+}
+
+.item {
+    overflow: hidden;
+    margin:0;
+}
+
+.item  img {
+    display: block;
+    width: var(--puzzle-width);
+    height: var(--puzzle-height);
+    object-fit: cover;
+}
+
+.item:nth-child(1) {
+    grid-area: uno;
+}
+.item:nth-child(2) {
+    grid-area: dos
+}
+.item:nth-child(3) {
+    grid-area: tre
+}
+.item:nth-child(4) {
+    grid-area: cua
+}
+.item:nth-child(5) {
+    grid-area: cin
+}
+.item:nth-child(6) {
+    grid-area: sei
+}
+.item:nth-child(7) {
+    grid-area: sie
+}
+.item:nth-child(8) {
+    grid-area: och
+}
+.item:nth-child(9) {
+    grid-area: nue
+}
+
+.item:nth-child(1) img {
+    margin: 0px 0px 0px 0px;
+}
+.item:nth-child(2) img {
+    margin: 0px 0px 0px calc(-1*var(--puzzle-width)/3);
+}
+.item:nth-child(3) img {
+    margin: 0px 0px 0px calc(-1*var(--puzzle-width)*2/3);
+}
+.item:nth-child(4) img {
+    margin: calc(-1*var(--puzzle-height)/3) 0px 0px 0px;
+}
+.item:nth-child(5) img {
+    margin: calc(-1*var(--puzzle-height)/3) 0px 0px calc(-1 * var(--puzzle-width)/3);
+}
+.item:nth-child(6) img {
+    margin: calc(-1*var(--puzzle-height)/3) 0px 0px calc(-1*var(--puzzle-width)*2/3);
+}
+.item:nth-child(7) img {
+    margin: calc(-1*var(--puzzle-height)*2/3) 0px 0px 0px;
+}
+.item:nth-child(8) img {
+    margin: calc(-1*var(--puzzle-height)*2/3) 0px 0px calc(-1*var(--puzzle-width) / 3);
+}
+.item:nth-child(9) img {
+    margin: calc(-1*var(--puzzle-height)*2/3) 0px 0px calc(-1*var(--puzzle-width)*2/3);
+}

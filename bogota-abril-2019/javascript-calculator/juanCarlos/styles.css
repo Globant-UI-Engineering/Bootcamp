@@ -1,0 +1,29 @@
+#calculator {
+    width: 300pt;
+}
+
+#calculator #keyboard {
+    display: flex;
+    flex-direction: row;
+}
+
+ol {
+    display: flex;
+    flex-flow: row wrap;
+    list-style-type: none;
+    padding: 0;
+}
+
+#calculator ol:first-of-type {
+    width: 130pt;
+}
+
+#calculator ol:nth-child(2) {
+    width: 100pt;
+    align-content: flex-start;
+}
+
+li button {
+    font-weight: 500;
+    font-size: 4em;
+}
