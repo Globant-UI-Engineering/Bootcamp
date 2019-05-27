@@ -160,7 +160,7 @@ class CreateEvent extends React.Component {
                     <form role="form" onSubmit={this.writeEventInDatabase}>
                         <div>
                             <label id="eventNameLabel">Escoja un nombre para su evento: </label>
-                            <input aria-labelledby="eventNameLabel" role="textbox" type="text" name="eventName" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange} required></input>/>
+                            <input aria-labelledby="eventNameLabel" role="textbox" type="text" name="eventName" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange} required></input>
                         </div>
                         <div className="App-create-searchbar-fix">
                             <label id="eventAddressLabel">Seleccione una dirección: </label> 
