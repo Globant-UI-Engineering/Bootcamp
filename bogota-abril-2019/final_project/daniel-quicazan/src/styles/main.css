@@ -14,6 +14,7 @@
 header {
     position: relative;
     display: block;
+    height: 12%;
 }
 
 .camera-icon {
@@ -41,6 +42,7 @@ header {
     display: block;
     position: relative;
     padding: 5%;
+    height: 83%;
 }
 
 .controller-row {
@@ -54,6 +56,10 @@ header {
     border-radius: 50%;
     outline: none;
     background-color: #585858;
+}
+
+.main-button:focus {
+    background: radial-gradient(#a8a8a8, #585858);
 }
 
 .wide-button {

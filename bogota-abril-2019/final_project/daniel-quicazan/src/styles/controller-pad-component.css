@@ -5,11 +5,20 @@
     height: 40px;
 }
 
+.controller-pad-up:focus {
+    background: linear-gradient(#a8a8a8, #585858);
+}
+
 .controller-pad-right {
     border: 2px solid black;
     border-left-width: 0;
     border-radius: 0 7px 7px 0;
     height: 40px;
+}
+
+
+.controller-pad-right:focus {
+    background: linear-gradient(to left, #a8a8a8, #585858);
 }
 
 .controller-pad-down {
@@ -19,11 +28,20 @@
     height: 40px;
 }
 
+.controller-pad-down:focus {
+    background: linear-gradient(#585858, #a8a8a8);
+}
+
 .controller-pad-left {
     border: 2px solid black;
     border-right-width: 0;
     border-radius: 7px 0 0 7px;
     height: 40px;
+}
+
+
+.controller-pad-left:focus {
+    background: linear-gradient(to left, #585858, #a8a8a8);
 }
 
 .controller-pad-button {

@@ -9,6 +9,7 @@ export class ScreenComponent extends Component {
   
   welcomeSentece = '¡Bienvenido a la Pokedex!';
   letsBeginSentence = 'Comencemos';
+  enterPokemonNameSentence = 'Ingresa el nombre de tu pokemon';
   
   // eslint-disable-next-line
   constructor(props) {
@@ -35,8 +36,10 @@ export class ScreenComponent extends Component {
       return (
         <Typist>
           {this.welcomeSentece}
-          <Typist.Backspace count={this.welcomeSentece.length} delay={100} />
+          <Typist.Backspace count={this.welcomeSentece.length} delay={150} />
           {this.letsBeginSentence}
+          <Typist.Backspace count={this.letsBeginSentence.length} delay={150} />
+          {this.enterPokemonNameSentence}
         </Typist>
       )
     }
@@ -60,7 +63,7 @@ export class ScreenComponent extends Component {
     this.setState({
       pokemonDescription: undefined,
     });
-    PokeapiService.search(this.state.searchText)
+    PokeapiService.search(this.state.searchText.trim())
       .then((response) => {
         console.log(response.data);
         this.setState({
@@ -147,15 +150,17 @@ export class ScreenComponent extends Component {
           {
             this.intro()
           }
-          <input className={'search-bar'}
-                 type={'text'}
-                 value={this.state.searchText}
-                 onChange={this.handleSearchChange}
-                 onKeyPress={this.handleKeyPress}
-          />
-          <button onClick={this.handleSearchClick}>
-            Buscar
-          </button>
+          <div className={'search-container'}>
+            <input className={'search-bar'}
+                   type={'text'}
+                   value={this.state.searchText}
+                   onChange={this.handleSearchChange}
+                   onKeyPress={this.handleKeyPress}
+            />
+            <button className={'search-button'} onClick={this.handleSearchClick}>
+              &#x1F50D;
+            </button>
+          </div>
           {
             this.showSprite()
           }
