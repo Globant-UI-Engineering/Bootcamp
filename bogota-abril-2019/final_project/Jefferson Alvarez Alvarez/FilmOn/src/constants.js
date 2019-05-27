@@ -1,0 +1,4 @@
+export default {
+    RECEIVED_MOVIES: 'RECEIVED_MOVIES',
+    RECEIVED_MOVIE: 'RECEIVED_MOVIE',
+}
