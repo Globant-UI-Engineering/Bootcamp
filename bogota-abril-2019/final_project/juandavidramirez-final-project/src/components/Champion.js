@@ -10,7 +10,7 @@ class Champion extends React.Component {
           <img alt={name} src={image} />
         </Link>
 
-        <h3 className="champion-name">{name}</h3>
+        <h3>{name}</h3>
       </React.Fragment>
     );
   }

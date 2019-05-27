@@ -7,8 +7,8 @@ import animate from "@jam3/gsap-promise";
 
 class Home extends React.Component {
   componentDidMount() {
-    animate.from(this.img, 0.2, { y: -300, delay: 0.8 });
-    animate.from(this.p, 0.2, { x: 1100, delay: 0.8 });
+    animate.from(this.img, 0.1, { y: -300, delay: 0.4 });
+    animate.from(this.p, 0.5, { x: 1050, delay: 0.2 });
   }
   render() {
     return (

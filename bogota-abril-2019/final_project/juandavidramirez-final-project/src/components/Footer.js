@@ -13,11 +13,7 @@ class Footer extends React.Component {
   }
   render() {
     return (
-      <footer
-        id="footer"
-        className="footer-container"
-        ref={f => (this.footer = f)}
-      >
+      <footer className="footer-container" ref={f => (this.footer = f)}>
         <div>
           <h3>lol master</h3>
           <li>

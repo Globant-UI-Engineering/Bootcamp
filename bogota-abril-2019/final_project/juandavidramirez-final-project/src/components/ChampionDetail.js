@@ -15,7 +15,7 @@ class ChampionDetail extends React.Component {
         this.setState({ loading: false, champion: response.data });
       },
       onFailed: error => {
-        console.log(error);
+        throw error;
       }
     };
 

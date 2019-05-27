@@ -5,8 +5,8 @@ import animate from "@jam3/gsap-promise";
 
 class RenderChampionList extends React.Component {
   componentDidMount() {
-    animate.from(this.h2, 0.2, { y: -200, delay: 0.1 });
-    animate.from(this.championList, 0.2, { x: -1300, delay: 0.8 });
+    animate.from(this.h2, 0.2, { y: -200, delay: 0.4 });
+    animate.from(this.championList, 0.4, { y: 1000, delay: 0.4 });
   }
 
   render() {

@@ -3,6 +3,7 @@ import React from "react";
 import RenderTierList from "./RenderTierList";
 import Loading from "./Loading";
 import { getChallengerLeagueByQueue } from "../utils/api";
+import ErrorPanel from "./ErrorPanel";
 
 class TopTierList extends React.Component {
   state = {
@@ -30,7 +31,7 @@ class TopTierList extends React.Component {
         this.orderByLeaguePoints(response.data.entries);
       },
       onFailed: error => {
-        console.error(error);
+        this.setState({ error: error.response });
       }
     };
 
@@ -38,9 +39,11 @@ class TopTierList extends React.Component {
   }
 
   render() {
-    const { summoners, loading } = this.state;
+    const { summoners, loading, error } = this.state;
     return loading ? (
       <Loading name="Top Tier Summoners" />
+    ) : error ? (
+      <ErrorPanel error={error} />
     ) : (
       <RenderTierList summoners={summoners} />
     );

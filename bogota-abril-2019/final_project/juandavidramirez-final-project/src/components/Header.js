@@ -5,8 +5,8 @@ import animate from "@jam3/gsap-promise";
 
 class Header extends React.Component {
   componentDidMount() {
-    animate.from(this.h1, 0.2, { x: -200, delay: 0.8 });
-    animate.from(this.links, 0.2, { x: 1000, delay: 0.8 });
+    animate.from(this.h1, 0.8, { x: -200, delay: 0.2 });
+    animate.from(this.links, 0.4, { x: 1000, delay: 0.2 });
   }
   render() {
     return (
@@ -18,7 +18,6 @@ class Header extends React.Component {
           ref={div => {
             this.links = div;
           }}
-          className="section-links-container"
         >
           <Link to="/champions">champions</Link>
           <Link to="/tierList">tier list</Link>

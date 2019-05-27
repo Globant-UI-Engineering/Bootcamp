@@ -32,7 +32,7 @@ class Search extends React.Component {
   };
 
   componentDidMount() {
-    animate.from(this.container, 0.2, { y: -200, delay: 0.8 });
+    animate.from(this.container, 0.2, { y: -200, delay: 0.4 });
   }
 
   render() {

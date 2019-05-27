@@ -64,18 +64,12 @@ class SummonerProfile extends React.Component {
       : "";
 
     return error ? (
-      <ErrorPanel
-        status={{ code: error.status, message: error.data.status.message }}
-      />
+      <ErrorPanel error={error} />
     ) : loading ? (
       <Loading name="summoner profile" />
     ) : (
-      <Paper className="summoner-info-paper-container">
-        <img
-          className="profile-icon-image"
-          src={profileIconUrl}
-          alt="Summoner Profile Icon"
-        />
+      <Paper className="summoner-info-container">
+        <img src={profileIconUrl} alt="Summoner Profile Icon" />
         <h2>{profileInfo.name}</h2>
         <p>level {profileInfo.summonerLevel}</p>
         <section className="additional-info">

@@ -9,8 +9,9 @@ class RenderChampionDetail extends React.Component {
   componentDidMount() {
     animate.from(this.h2, 0.2, { y: -200, delay: 0.4 });
     animate.from(this.h3, 0.2, { y: -200, delay: 0.4 });
-    animate.from(this.p, 0.2, { y: -200, delay: 0.4 });
-    animate.from(this.container, 0.2, { x: -1000, delay: 0.4 });
+    animate.from(this.p, 0.2, { y: -250, delay: 0.4 });
+    animate.from(this.imgContainer, 0.2, { x: -1000, delay: 0.2 });
+    animate.from(this.blurb, 0.5, { x: -1180, delay: 0.3 });
   }
   render() {
     const {
@@ -27,7 +28,6 @@ class RenderChampionDetail extends React.Component {
       version
     } = this.props;
 
-    console.log(version);
     const championImageUrl =
       apiStaticUrl.noVersionImg + "/champion/loading/" + id + "_0.jpg";
     return (
@@ -39,12 +39,16 @@ class RenderChampionDetail extends React.Component {
           {version}
         </p>
         <div ref={container => (this.container = container)}>
-          <div>
+          <div
+            ref={imgContainer => {
+              this.imgContainer = imgContainer;
+            }}
+          >
             <img alt={`${name} Splash art`} src={championImageUrl} />
             <HashTagList values={tags} />
           </div>
           <div>
-            <p>{blurb}</p>
+            <p ref={p => (this.blurb = p)}>{blurb}</p>
             <div>
               <InfoCategory label="attack" value={info.attack} />
               <InfoCategory label="defense" value={info.defense} />

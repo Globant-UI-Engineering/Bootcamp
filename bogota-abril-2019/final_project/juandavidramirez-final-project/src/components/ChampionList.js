@@ -2,6 +2,7 @@ import React from "react";
 import { getChampions } from "../utils/api.js";
 import Loading from "./Loading";
 import RenderChampionList from "./RenderChampionList";
+import ErrorPanel from "./ErrorPanel.js";
 class ChampionList extends React.Component {
   state = {
     loading: true
@@ -13,7 +14,7 @@ class ChampionList extends React.Component {
         this.setState({ champions: response.data.data, loading: false });
       },
       onFailed: error => {
-        console.error(error);
+        this.setState({ error: error });
       }
     };
 
@@ -21,10 +22,12 @@ class ChampionList extends React.Component {
   }
 
   render() {
-    const { champions, loading } = this.state;
+    const { champions, loading, error } = this.state;
 
     return loading ? (
       <Loading name="Champions" />
+    ) : error ? (
+      <ErrorPanel error={error} />
     ) : (
       <RenderChampionList champions={champions} />
     );

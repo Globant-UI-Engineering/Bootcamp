@@ -64,9 +64,9 @@ class RenderTierList extends React.Component {
   };
 
   componentDidMount() {
-    animate.from(this.table, 0.2, { x: -1280, delay: 0.8 });
-    animate.from(this.challengerLogo, 0.2, { x: -1280, delay: 0.8 });
-    animate.from(this.header, 0.2, { y: -200, delay: 0.8 });
+    animate.from(this.table, 0.3, { y: 1000, delay: 0.5 });
+    animate.from(this.challengerLogo, 0.4, { x: -1280, delay: 0.4 });
+    animate.from(this.header, 0.2, { y: -200, delay: 0.4 });
   }
 
   render() {
