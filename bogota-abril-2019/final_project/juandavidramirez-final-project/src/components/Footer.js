@@ -15,17 +15,24 @@ class Footer extends React.Component {
   render() {
     return (
       <footer className="footer-container" ref={f => (this.footer = f)}>
-        <div>
-          <h3>lol master</h3>
-          <li>
-            <a href={githubBranchRepository}>
-              <Icon type="github" theme="outlined" />
-            </a>
-            <a href={riotGamesDevelopers}>
-              <img alt="Riot games developers portal" src={riotGames} />
-            </a>
-          </li>
-        </div>
+        <nav>
+          <h3 aria-label="League of legends master">lol master</h3>
+          <ul>
+            <li>
+              <a
+                aria-label="Github repository link"
+                href={githubBranchRepository}
+              >
+                <Icon type="github" theme="outlined" />
+              </a>
+            </li>
+            <li>
+              <a href={riotGamesDevelopers}>
+                <img alt="Riot games developers portal" src={riotGames} />
+              </a>
+            </li>
+          </ul>
+        </nav>
       </footer>
     );
   }

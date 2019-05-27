@@ -5,10 +5,14 @@ const Champion = ({ name, image, nameKey }) => {
   return (
     <React.Fragment>
       <Link to={`/champion/${nameKey}`}>
-        <img alt={name} src={image} />
+        <img
+          alt={name}
+          src={image}
+          aria-labelledBy={`champion-name-${nameKey}`}
+        />
       </Link>
 
-      <h3>{name}</h3>
+      <h3 id={`champion-name-${nameKey}`}>{name}</h3>
     </React.Fragment>
   );
 };

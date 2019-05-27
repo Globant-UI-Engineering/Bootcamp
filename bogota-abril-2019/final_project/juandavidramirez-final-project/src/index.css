@@ -13,7 +13,7 @@ p#not-rendered-msg {
 nav.navigation-header-bar {
   background: black;
   border-bottom: 2px solid darkgrey;
-  padding: 0 15px;
+  padding: 20px 15px;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -36,6 +36,10 @@ nav.navigation-header-bar a {
   text-decoration: none;
   color: white;
   outline: none;
+}
+
+nav.navigation-header-bar a > h1 {
+  margin: 0;
 }
 
 nav.navigation-header-bar a:hover {
@@ -61,27 +65,27 @@ footer.footer-container {
   padding: 1% 15%;
 }
 
-footer.footer-container > div h3:first-of-type {
+footer.footer-container > nav h3:first-of-type {
   text-transform: uppercase;
   color: white;
 }
 
-footer.footer-container > div,
-footer.footer-container > div li {
+footer.footer-container > nav,
+footer.footer-container > nav ul {
   flex-flow: row wrap;
   justify-content: center;
   display: flex;
 }
 
-footer.footer-container > div li a {
+footer.footer-container > nav ul li > a {
   padding: 6px;
 }
 
-footer.footer-container > div li {
-  margin-left: 15px;
+footer.footer-container > nav ul {
+  margin: 0;
 }
 
-footer.footer-container > div li > :first-child {
+footer.footer-container > nav ul > :first-child {
   font-size: 50px;
 }
 
@@ -206,14 +210,19 @@ div.linear-progress-bar div {
   text-align: start;
 }
 
-.champion-detail > div > :first-child > p {
+.champion-detail > div > :first-child p {
   padding-left: 3%;
   font-family: "Noto Sans", sans-serif;
   font-weight: 800;
 }
 
-.champion-detail > div > :first-child > p span {
+.champion-detail > div > :first-child p span {
   padding-left: 1%;
+}
+
+.champion-detail > div > :first-child ul {
+  padding: 0;
+  list-style-type: none;
 }
 
 .champion-detail img {

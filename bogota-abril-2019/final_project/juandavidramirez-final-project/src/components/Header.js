@@ -11,7 +11,7 @@ class Header extends React.Component {
   render() {
     return (
       <nav className="navigation-header-bar">
-        <Link to="/">
+        <Link to="/" aria-label="Home page" title="Home">
           <h1 ref={h1 => (this.h1 = h1)}>lol master</h1>
         </Link>
         <div

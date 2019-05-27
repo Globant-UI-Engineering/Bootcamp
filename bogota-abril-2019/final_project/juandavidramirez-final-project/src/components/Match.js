@@ -73,7 +73,10 @@ class Match extends React.Component {
     ) : (
       <Card className="flex-row-match-card">
         <Link to={`/champion/${championInfo.id}`}>
-          <img src={championImgUrl} alt={`The champion used was ${champion}`} />
+          <img
+            src={championImgUrl}
+            alt={`The champion used was ${championInfo.name}`}
+          />
         </Link>
 
         <h4>{seasonValue}</h4>

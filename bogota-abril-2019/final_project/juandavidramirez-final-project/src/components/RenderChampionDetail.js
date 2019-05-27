@@ -35,7 +35,7 @@ class RenderChampionDetail extends React.Component {
             <img alt={`${name} Splash art`} src={championImageUrl} />
             <HashTagList values={tags} />
           </div>
-          <div>
+          <div aria-label="Additional info">
             <p ref={p => (this.blurb = p)}>{blurb}</p>
             <div>
               <InfoCategory label="attack" value={info.attack} />

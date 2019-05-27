@@ -15,7 +15,7 @@ class Home extends React.Component {
     return (
       <article className="home-container">
         <img
-          alt="League of Legends logo"
+          alt="League of Legends"
           src={league}
           ref={img => (this.img = img)}
         />

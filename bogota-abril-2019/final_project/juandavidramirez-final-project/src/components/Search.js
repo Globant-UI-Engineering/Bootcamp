@@ -32,6 +32,7 @@ class Search extends React.Component {
         <Paper
           className="search-section-container"
           ref={container => (this.container = findDOMNode(container))}
+          aria-label="Search a summoner name"
         >
           <InputBase
             id="search-summoner-input"

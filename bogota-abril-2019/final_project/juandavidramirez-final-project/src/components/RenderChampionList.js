@@ -14,14 +14,21 @@ class RenderChampionList extends React.Component {
     const { champions } = this.props;
     const apiStaticUrlImg = apiStaticUrl.img + "/champion";
     return (
-      <div className="page-wrapper">
-        <h2 ref={el => (this.h2 = el)}>champions</h2>
+      <section className="page-wrapper">
+        <h2 ref={el => (this.h2 = el)} aria-label="Champions">
+          champions
+        </h2>
         <ul
+          aria-label="List of champions"
           ref={ul => (this.championList = ul)}
           className="champions-container"
         >
           {Object.keys(champions).map(key => (
-            <li key={key} className="champions-item">
+            <li
+              key={key}
+              className="champions-item"
+              aria-label={champions[key].name}
+            >
               <Champion
                 name={champions[key].name}
                 image={`${apiStaticUrlImg}/${champions[key].image.full}`}
@@ -30,7 +37,7 @@ class RenderChampionList extends React.Component {
             </li>
           ))}
         </ul>
-      </div>
+      </section>
     );
   }
 }
