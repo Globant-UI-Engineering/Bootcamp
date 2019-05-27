@@ -40,7 +40,8 @@ const ModalAddPlayer = observer(
       this.getPlayerToUpdate = this.getPlayerToUpdate.bind(this);
       this.updateForm = this.updateForm.bind(this);
       this.hideblockSubmitBotton = this.hideblockSubmitBotton.bind(this);
-      this.adjustPlayer = this.adjustPlayer.bind(this);
+      this.adjustNewPlayer = this.adjustNewPlayer.bind(this);
+      this.adjustUpdatePlayer = this.adjustUpdatePlayer.bind(this);
       this.addPlayer = this.addPlayer.bind(this);
       this.updatePlayer = this.updatePlayer.bind(this);
       this.deletePlayer = this.deletePlayer.bind(this);
@@ -119,11 +120,19 @@ const ModalAddPlayer = observer(
       this.closeModal();
     }
 
-    adjustPlayer() {
+    adjustNewPlayer() {
       const {birthDate} = this.state.playerForm;
       const adjustData = {
         birthDate: firebase.firestore.Timestamp.fromDate(new Date(birthDate)),
         ranking: this.state.scoreDefault,
+      }
+      return Object.assign({}, this.state.playerForm, adjustData);
+    }
+
+    adjustUpdatePlayer() {
+      const {birthDate} = this.state.playerForm;
+      const adjustData = {
+        birthDate: firebase.firestore.Timestamp.fromDate(new Date(birthDate)),
       }
       return Object.assign({}, this.state.playerForm, adjustData);
     }
@@ -141,12 +150,14 @@ const ModalAddPlayer = observer(
 
     handleSubmit(event) {
       event.preventDefault();
-      const playerToSend = this.adjustPlayer();      
-      if(this.state.isUpdate)
+      if(this.state.isUpdate){
+        const playerToSend = this.adjustUpdatePlayer();      
         this.updatePlayer(playerToSend);
-      else
+      }
+      else{
+        const playerToSend = this.adjustNewPlayer();
         this.addPlayer(playerToSend);
-        
+      }  
       this.closeModal();  
     }
 
