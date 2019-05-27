@@ -1,5 +1,6 @@
 import React from "react";
-import { LinearProgress, Tooltip } from "@material-ui/core";
+
+import { Tooltip } from "@material-ui/core";
 
 class ProgressBar extends React.Component {
   calculatePercentage = (value, total) => {

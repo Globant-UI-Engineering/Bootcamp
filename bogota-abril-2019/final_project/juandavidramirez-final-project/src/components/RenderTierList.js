@@ -1,13 +1,13 @@
 import React from "react";
+import Paper from "@material-ui/core/Paper";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import { TablePagination } from "@material-ui/core";
+import animate from "@jam3/gsap-promise";
 
 import SummonerRow from "./SummonerRow";
 import challenger from "../../public/images/challenger.png";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import Paper from "@material-ui/core/Paper";
 import EnhancedTableHead from "./EnhancedTableHead";
-import { TablePagination } from "@material-ui/core";
-import animate from "@jam3/gsap-promise";
 
 function desc(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -19,14 +19,14 @@ function desc(a, b, orderBy) {
   return 0;
 }
 
-function stableSort(array, cmp) {
-  const stabilizedThis = array.map((el, index) => [el, index]);
-  stabilizedThis.sort((a, b) => {
-    const order = cmp(a[0], b[0]);
+function stableSort(array, comparator) {
+  const sortedArray = array.map((value, index) => [value, index]);
+  sortedArray.sort((a, b) => {
+    const order = comparator(a[0], b[0]);
     if (order !== 0) return order;
     return a[1] - b[1];
   });
-  return stabilizedThis.map(el => el[0]);
+  return sortedArray.map(el => el[0]);
 }
 
 function getSorting(order, orderBy) {
@@ -44,7 +44,6 @@ class RenderTierList extends React.Component {
   };
 
   handleRequestSort = (event, property) => {
-    console.log(property);
     const orderBy = property;
     let order = "desc";
 

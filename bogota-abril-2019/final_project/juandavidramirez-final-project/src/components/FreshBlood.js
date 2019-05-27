@@ -1,4 +1,5 @@
 import React from "react";
+
 import newPlayer from "../../public/images/new-player.svg";
 
 const FreshBlood = () => {

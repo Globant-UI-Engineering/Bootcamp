@@ -1,4 +1,5 @@
 import React from "react";
+
 import { getChampions } from "../utils/api.js";
 import Loading from "./Loading";
 import RenderChampionList from "./RenderChampionList";

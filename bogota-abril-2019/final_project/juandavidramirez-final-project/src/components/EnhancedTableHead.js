@@ -1,5 +1,4 @@
 import React from "react";
-
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
@@ -36,13 +35,12 @@ const rows = [
     id: "leaguePoints",
     numeric: true,
     disablePadding: false,
-    label: "League Points (lp)"
+    label: "League Points (LP)"
   }
 ];
 
 class EnhancedTableHead extends React.Component {
   createSortHandler = (property, event) => {
-    //event.preventDefault();
     this.props.onRequestSort(event, property);
   };
 

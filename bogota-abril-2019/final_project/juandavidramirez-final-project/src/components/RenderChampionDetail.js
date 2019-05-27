@@ -1,9 +1,9 @@
 import React from "react";
-import { Paper } from "@material-ui/core";
+import animate from "@jam3/gsap-promise";
+
 import { apiStaticUrl } from "../utils/Constants/urls";
 import HashTagList from "./HashTagList";
 import InfoCategory from "./InfoCategory";
-import animate from "@jam3/gsap-promise";
 
 class RenderChampionDetail extends React.Component {
   componentDidMount() {
@@ -14,19 +14,7 @@ class RenderChampionDetail extends React.Component {
     animate.from(this.blurb, 0.5, { x: -1180, delay: 0.3 });
   }
   render() {
-    const {
-      id,
-      numberKey,
-      name,
-      title,
-      blurb,
-      info,
-      image,
-      tags,
-      partype,
-      stats,
-      version
-    } = this.props;
+    const { id, name, title, blurb, info, tags, version } = this.props;
 
     const championImageUrl =
       apiStaticUrl.noVersionImg + "/champion/loading/" + id + "_0.jpg";

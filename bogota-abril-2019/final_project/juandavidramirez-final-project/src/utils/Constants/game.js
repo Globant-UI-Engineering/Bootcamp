@@ -24,7 +24,6 @@ export const queues = {
 };
 
 export const serviceProxies = {
-  BR1: { region: "BR", host: "br1.api.riotgames.com" },
   LA1: { region: "LAN", host: "la1.api.riotgames.com" }
 };
 

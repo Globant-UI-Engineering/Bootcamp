@@ -1,4 +1,5 @@
 import React from "react";
+
 import sadTeemo from "../../public/images/sadTeemo.gif";
 
 const ErrorPanel = ({ error }) => {

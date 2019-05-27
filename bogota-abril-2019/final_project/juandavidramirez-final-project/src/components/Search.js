@@ -1,22 +1,11 @@
+/* eslint-disable react/no-find-dom-node */
 import React from "react";
-import { getSummoner } from "../utils/api";
-import SummonerProfile from "./SummonerProfile";
-import search from "../../public/images/search.svg";
 import animate from "@jam3/gsap-promise";
-import {
-  FormControl,
-  InputLabel,
-  Input,
-  Button,
-  SearchIcon,
-  CssBaseline,
-  Paper,
-  InputBase,
-  IconButton
-} from "@material-ui/core";
-import { redirectTo, Router, Link } from "@reach/router";
-import { navigate } from "@reach/router/lib/history";
+import { Button, Paper, InputBase } from "@material-ui/core";
+import { Link } from "@reach/router";
 import { findDOMNode } from "react-dom";
+
+import search from "../../public/images/search.svg";
 
 class Search extends React.Component {
   state = {

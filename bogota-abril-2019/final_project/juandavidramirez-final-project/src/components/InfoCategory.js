@@ -1,7 +1,8 @@
 import React from "react";
-import ProgressBar from "./ProgressBar";
 import animate from "@jam3/gsap-promise";
 import { findDOMNode } from "react-dom";
+
+import ProgressBar from "./ProgressBar";
 
 class InfoCategory extends React.Component {
   componentDidMount() {

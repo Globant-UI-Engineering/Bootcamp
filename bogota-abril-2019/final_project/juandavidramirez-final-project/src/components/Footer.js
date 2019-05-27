@@ -1,11 +1,12 @@
 import React from "react";
 import { Icon } from "antd";
+import animate from "@jam3/gsap-promise";
+
 import {
   githubBranchRepository,
   riotGamesDevelopers
 } from "../utils/Constants/urls";
 import riotGames from "../../public/images/riotGames.png";
-import animate from "@jam3/gsap-promise";
 
 class Footer extends React.Component {
   componentDidMount() {

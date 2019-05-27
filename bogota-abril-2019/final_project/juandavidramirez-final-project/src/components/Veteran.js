@@ -1,4 +1,5 @@
 import React from "react";
+
 import veteran from "../../public/images/veteran.svg";
 
 const Veteran = () => {

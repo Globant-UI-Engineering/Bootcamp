@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "@reach/router";
-import { AppBar, Typography, Toolbar, CssBaseline } from "@material-ui/core";
 import animate from "@jam3/gsap-promise";
 
 class Header extends React.Component {
@@ -8,6 +7,7 @@ class Header extends React.Component {
     animate.from(this.h1, 0.8, { x: -200, delay: 0.2 });
     animate.from(this.links, 0.4, { x: 1000, delay: 0.2 });
   }
+
   render() {
     return (
       <nav className="navigation-header-bar">

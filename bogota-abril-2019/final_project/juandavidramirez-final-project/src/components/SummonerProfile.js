@@ -1,11 +1,11 @@
 import React from "react";
 import { Paper } from "@material-ui/core";
+
 import { apiStaticUrl } from "../utils/Constants/urls";
-import { getSummonerMatches, getSummonerById, getSummoner } from "../utils/api";
+import { getSummonerMatches, getSummoner } from "../utils/api";
 import Match from "./Match";
 import Loading from "./Loading";
 import ErrorPanel from "./ErrorPanel";
-import { findDOMNode } from "react-dom";
 
 class SummonerProfile extends React.Component {
   state = {

@@ -1,12 +1,12 @@
 import React from "react";
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
+import { navigate } from "@reach/router";
+
 import ProgressBar from "./ProgressBar";
 import Veteran from "./Veteran";
 import HotStreak from "./HotStreak";
 import FreshBlood from "./FreshBlood";
-
-import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
-import { navigate } from "@reach/router";
 
 class Summoner extends React.Component {
   handleClick = (event, name) => {
@@ -15,7 +15,6 @@ class Summoner extends React.Component {
 
   render() {
     const {
-      summonerId,
       rankNumber,
       name,
       wins,

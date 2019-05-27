@@ -1,9 +1,10 @@
 import React from "react";
+import animate from "@jam3/gsap-promise";
+import { Button } from "@material-ui/core";
+
 import { LeagueOfLegendsUrl } from "../utils/Constants/urls";
 import league from "../../public/images/league.png";
 import { description } from "../utils/Constants/game";
-import { Button } from "@material-ui/core";
-import animate from "@jam3/gsap-promise";
 
 class Home extends React.Component {
   componentDidMount() {

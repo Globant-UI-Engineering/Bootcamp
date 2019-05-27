@@ -1,10 +1,12 @@
 import React from "react";
-import { Card, Paper } from "@material-ui/core";
+import { Card } from "@material-ui/core";
+import { Link } from "@reach/router";
+
 import { apiStaticUrl } from "../utils/Constants/urls";
 import { getChampions } from "../utils/api";
-import { Link } from "@reach/router";
 import Loading from "./Loading";
 import { seasons, queues, serviceProxies } from "../utils/Constants/game";
+import ErrorPanel from "./ErrorPanel";
 
 class Match extends React.Component {
   state = { loading: true };
@@ -14,9 +16,7 @@ class Match extends React.Component {
     var champion = Object.keys(champions).find(champion => {
       return champions[champion].key == this.props.champion;
     });
-
     championInfo = champions[champion];
-    console.log(champion);
     return championInfo;
   }
 
@@ -40,7 +40,6 @@ class Match extends React.Component {
     const laneValue = lane === "NONE" ? null : lane;
     var callback = {
       onSuccess: response => {
-        //console.log(response.data.data);
         this.setState({
           championInfo: this.getChampionInfo(response.data.data),
           seasonValue,
@@ -53,7 +52,7 @@ class Match extends React.Component {
         });
       },
       onFailed: error => {
-        console.log(error);
+        this.setState({ error: error.response });
       }
     };
     getChampions(callback);
@@ -67,7 +66,8 @@ class Match extends React.Component {
       platformValue,
       realDate,
       roleValue,
-      laneValue
+      laneValue,
+      error
     } = this.state;
 
     const { champion } = this.props;
@@ -76,9 +76,11 @@ class Match extends React.Component {
       ? apiStaticUrl.img + "/champion/" + championInfo.image.full
       : "";
 
-    //const roleValue = ;
-
-    return !loading ? (
+    return loading ? (
+      <Loading name="loading champion" />
+    ) : error ? (
+      <ErrorPanel error={error} />
+    ) : (
       <Card className="flex-row-match-card">
         <Link to={`/champion/${championInfo.id}`}>
           <img src={championImgUrl} alt={`The champion used was ${champion}`} />
@@ -114,8 +116,6 @@ class Match extends React.Component {
           </dl>
         </article>
       </Card>
-    ) : (
-      <Loading name="loading champion" />
     );
   }
 }

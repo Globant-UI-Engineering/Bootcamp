@@ -1,7 +1,8 @@
 import React from "react";
+import animate from "@jam3/gsap-promise";
+
 import Champion from "./Champion";
 import { apiStaticUrl } from "../utils/Constants/urls";
-import animate from "@jam3/gsap-promise";
 
 class RenderChampionList extends React.Component {
   componentDidMount() {
