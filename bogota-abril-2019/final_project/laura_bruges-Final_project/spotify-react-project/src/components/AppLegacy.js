@@ -4,6 +4,8 @@ import queryString from 'query-string';
 import axios from 'axios';
 import { USER_INFO_URL,
   PLAY_TRACK_URL } from '../utils/EndpointSettings';
+import { Navbar, Nav, Button, Container } from 'react-bootstrap';
+
 //https://levelup.gitconnected.com/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6
 class App extends React.Component {
   constructor(props) {
@@ -92,6 +94,17 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Navbar variant='dark' bg='dark'>
+          <img src='/play-button.png' width='30' height='30' />
+          <Navbar.Brand href="/">Playify</Navbar.Brand>
+          <Navbar.Toggle />
+          <Navbar.Collapse>
+              <Nav className="justify-content-end" style={{ width: "100%" }}>
+                  <Button>Log in</Button>
+              </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+
         {this.state.user ? 
         <div>
           <a href={this.state.user.external_urls.spotify}>{this.state.user.display_name}</a>

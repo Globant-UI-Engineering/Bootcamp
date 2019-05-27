@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App';
+import Login from './components/Login';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
 ReactDOM.render(
     <BrowserRouter basename='/'>
         <Switch>
-            <Route to='/' exact component={App}/>
+            <Route to='/login/' exact component={Login}/>
         </Switch>
     </BrowserRouter>, document.getElementById('root'));
 
