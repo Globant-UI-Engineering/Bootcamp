@@ -17,6 +17,12 @@ const zoom = 16;
 
 export class MapContainer extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.markerShowCurrentLocation = this.markerShowCurrentLocation.bind(this);
+        this.markerOnPlaceLoaded = this.markerOnPlaceLoaded.bind(this);
+    }
+
     state = {
         showingInfoWindow: false,
         activeMarker: {},
@@ -26,10 +32,15 @@ export class MapContainer extends React.Component {
             lng: 0
         },
         actualPosition: {
-            lat: 0,
-            lng: 0
+            lat: '',
+            lng: ''
         }, 
-        markersList: []
+        markersList: [],
+        searchLocation: {
+            lat: '',
+            lng: '',
+            name: ''
+        }
     };
 
     showCurrentLocation = () => {
@@ -48,6 +59,16 @@ export class MapContainer extends React.Component {
               }))
             }
           )
+        }
+    }
+
+    markerShowCurrentLocation(){
+        if(this.state.actualPosition.lat !== ''){
+            return (
+                <Marker
+                    title={'Tu posición actual'}
+                    position={ this.state.actualPosition }/>
+            )
         }
     }
 
@@ -95,6 +116,11 @@ export class MapContainer extends React.Component {
                 center: {
                     lat: lat,
                     lng: lng
+                },
+                searchLocation: {
+                    lat: lat,
+                    lng: lng,
+                    name: place.name
                 }
             })
         } else if(place.name === "") {
@@ -103,7 +129,17 @@ export class MapContainer extends React.Component {
             alert("Por favor ingrese una dirección válida");
         }
     }
-    
+
+    markerOnPlaceLoaded(){
+        if(this.state.searchLocation.lat !== ''){
+            return (
+                <Marker
+                    title={ this.state.searchLocation.name }
+                    position={ this.state.searchLocation }/>
+            )
+        }
+    }
+
     render() {
         return (
         <div className="App-map-searchbar-container">
@@ -114,10 +150,14 @@ export class MapContainer extends React.Component {
             <div className="App-map-container">
                 <Map className="App-map" google={this.props.google} onDragstart={this.onMapDragged} onReady={this.onMapReady} zoom={zoom} initialCenter={center} center={this.state.center}>
 
-                    <Marker
-                        title={'Tu posición actual'}
-                        position={ this.state.actualPosition }/>
+                    {
+                        this.markerShowCurrentLocation()
+                    }
 
+                    {
+                        this.markerOnPlaceLoaded()
+                    }
+                    
                     {   
                         this.state.markersList.map(marker => (
                             <Marker key= {marker.id}
@@ -135,7 +175,7 @@ export class MapContainer extends React.Component {
                         visible={this.state.showingInfoWindow}>
                             <div>
                                 <BrowserRouter>
-                                    <Link to= {`/viewEvent/${this.state.selectedId}`}>{this.state.selectedPlace.name}</Link>
+                                    <Link to= {`/viewEvent/${this.state.activeMarker.id}`}>{this.state.activeMarker.name}</Link>
                                 </BrowserRouter>
                             </div>
                     </InfoWindow>

@@ -66,6 +66,11 @@
     display: block;
     margin: 0.4em auto;
   }
+  &:disabled{
+    background-color: #a9aaac;
+    border: 0.1em solid #282c34;
+    color: #282c34;
+  }
 }
 
 .App-button-create{
@@ -606,4 +611,26 @@
     text-align: initial;
     min-height: 72px;
   }
+}
+
+.App-loader-container{
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  border-radius: 25px;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+
+  .App-loader{
+    position: relative;
+    left: 10px;
+    top: 10px;
+  }
+}
+
+.App-rowButtons-viewEvent{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
