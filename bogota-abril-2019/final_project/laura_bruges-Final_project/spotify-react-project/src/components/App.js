@@ -4,8 +4,6 @@ import queryString from 'query-string';
 import axios from 'axios';
 import { USER_INFO_URL,
   PLAY_TRACK_URL } from '../utils/EndpointSettings';
-
-import {VideoSeekSlider} from 'react-video-seek-slider';
 //https://levelup.gitconnected.com/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6
 class App extends React.Component {
   constructor(props) {
@@ -102,19 +100,10 @@ class App extends React.Component {
         <button onClick={this.handleLoginClick}>Log in with Spotify</button>
         }
         {this.state.playing  && this.state.playing.item &&
-        <VideoSeekSlider
-        max={this.state.playing.item.duration_ms/1000}
-        progress={this.state.playing.progressMs/1000}
-        currentTime={this.state.playing.progressMs/1000}
-        onChange={(time)=>{
-          this.handleChange(time);
-        }}
-        offset={0}
-        secondsPrefix="00:00:"
-        minutesPrefix="00:" />
-        /*
+        
+       
         <input type="range" min="0" max={this.state.playing.item.duration_ms} value={this.state.playing.progressMs}  step="1000" onMouseUp={(event)=>this.handleChange(event)} />
-        */
+        
         }
         {/*this.state.playing ? <div>{this.state.playing.name}</div> : <div>No track playing</div>*/}
 

@@ -1,7 +1,6 @@
 let express = require('express')
 let request = require('request')
 let querystring = require('querystring')
-const sqlite3 = require('sqlite3');
 let moment = require('moment');
 
 let app = express()
@@ -40,19 +39,6 @@ app.get('/callback', function(req, res) {
   }
   //(error, response, body)
   request.post(authOptions, function(_, _, body) {
-    let db = new sqlite3.Database('./db/main.db');
-    let sql = 'INSERT OR REPLACE INTO security VALUES(?, ?, ?)';
-
-    db.run(sql, [body.access_token, body.refresh_token, moment().format('YYYY-MM-DD hh:mm:ss')], (err) => {
-      if(err) {
-        return console.log(err);
-      }
-
-      console.log("Security info updated");
-    });
-
-    db.close();
-
     var access_token = body.access_token
     let uri = process.env.FRONTEND_URI || 'http://localhost:3000'
     res.redirect(uri + '?access_token=' + access_token + '?refresh_token=' + body.refresh_token )
