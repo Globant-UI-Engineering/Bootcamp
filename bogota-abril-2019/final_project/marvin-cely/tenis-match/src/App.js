@@ -9,10 +9,6 @@ import thesaurus from './utils/thesaurus';
 import menuList from './components/menuList';
 import routesPages from './components/router';
 
-import serviceAddData from './services/serviceAddData'; // TODO: Utilizar importación Luego
-import serviceUpdateData from './services/serviceUpdateData'; // TODO: Utilizar importación Luego
-import serviceDeleteData from './services/serviceDeleteData'; // TODO: Utilizar importación Luego
-
 const App = observer(
 class App extends React.Component {
   constructor(props) {

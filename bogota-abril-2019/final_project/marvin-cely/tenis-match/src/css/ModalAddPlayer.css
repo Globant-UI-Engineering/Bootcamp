@@ -1,0 +1,12 @@
+footer.modal-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer.modal-footer i {
+    font-size: var(--font-size-small);
+}
+
+footer.modal-footer > section button:last-of-type{ 
+    margin-left: 1vw;
+}

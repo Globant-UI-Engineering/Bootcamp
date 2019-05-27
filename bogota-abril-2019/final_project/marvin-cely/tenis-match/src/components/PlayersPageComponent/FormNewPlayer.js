@@ -2,6 +2,7 @@ import React from 'react';
 import '../../css/FormNewPlayer.css';
 import { observer } from 'mobx-react';
 import {CountryOptionComponent} from '../SmallPieceComponent';
+import utils from '../../utils/utils';
 
 const FormNewPlayer = observer(
   class FormNewPlayer extends React.Component {
@@ -13,9 +14,10 @@ const FormNewPlayer = observer(
         instructionFullNameForm: 'Procure utilizar un nombre y un apellido.',
         birthDateForm: 'Fecha de nacimiento',
         nationalityForm: 'Nacionalidad',
-        selectMessageForm: '--eliga el país--',
-        defaultSelected: '',
+        maxDate: utils.toStringDate(new Date()),
+        minDate: '1900-01-01',
       }
+
       this.optionRef = null;
       this.handleInput = this.handleInput.bind(this);
     }
@@ -32,12 +34,13 @@ const FormNewPlayer = observer(
                   placeholder="Nombre completo" 
                   aria-describedby="instructionName" 
                   aria-required="true"
+                  value={this.props.playerForm.name}
                   onChange={ this.handleInput }
                   required/>
                 <small id="instructionName" className="form-text text-muted">
                   {this.state.instructionFullNameForm}
                 </small>
-              </article>
+              </article>              
               <article className="form-group col-md-5">
                 <label htmlFor="birthDate">{this.state.birthDateForm}</label>
                 <input type="date" 
@@ -45,16 +48,19 @@ const FormNewPlayer = observer(
                   name="birthDate"
                   id="birthDate" 
                   aria-required="true" 
+                  max={this.state.maxDate}
+                  min={this.state.minDate}
+                  value={this.props.playerForm.birthDate}
                   onChange={ this.handleInput }
                   required/>
               </article>
             </section>
             <article className="form-group">
               <label htmlFor="countrytySelector">{this.state.nationalityForm}</label>
-              <select className="form-control" name="idCountry" id="countrytySelector" defaultValue={'optionDefault'} onChange={ this.handleInput } required>
+              <select className="form-control" name="idCountry" id="countrytySelector" value={this.props.playerForm.idCountry} onChange={ this.handleInput } required>
                 <CountryOptionComponent countries={this.props.store.countries}/>
               </select>              
-            </article>
+            </article>            
         </React.Fragment>
       );
     }

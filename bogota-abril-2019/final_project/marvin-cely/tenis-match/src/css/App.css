@@ -3,14 +3,14 @@
   min-height: 100vh;
 }
 nav + section {
-  padding-bottom: 60vh;
+  padding-bottom: 80vh;
 }
 
 section + footer.container-fluid {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60vh;
+  height: 80vh;
 }
 
 nav.navbar {

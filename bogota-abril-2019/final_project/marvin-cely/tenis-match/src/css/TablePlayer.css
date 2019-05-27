@@ -1,5 +1,9 @@
-section > p[role="cell"] {
+section > article p[role="cell"], section.row[role="row"] {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+button > * {
+    pointer-events: none;
 }

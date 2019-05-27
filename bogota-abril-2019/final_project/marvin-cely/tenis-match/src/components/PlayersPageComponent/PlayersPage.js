@@ -29,6 +29,7 @@ const PlayersPage = observer(
             value: 'ranking',
             namebutton: 'Puntaje'
         }],
+        idPlayerSelected: 'newPlayer',
       }
       this.handleInput = this.handleInput.bind(this);
       this.orderTable = this.orderTable.bind(this);
@@ -36,22 +37,28 @@ const PlayersPage = observer(
 
     handleInput = (event) => {
       const { name, value } = event.target;
-      if (name === 'orderOption') {
-        this.orderTable(value);
-      }      
+      if (name === 'orderOption') this.orderTable(value);
+      else if (name === 'editPlayer' || name === 'addPlayer') {
+        this.setState({
+          idPlayerSelected: value,
+        });
+      }  
     }
-    
+
     orderTable = (value) => {
+      const elementsToSort = [ this.props.store.players, value]
       switch (value) {
         case 'name':
-          this.props.store.players = utils.sortByAlphaArrayList(this.props.store.players, value);
+          this.props.store.players = utils.sortByAlphaArrayList(...elementsToSort);
           break;
         case 'birthDate':
-          this.props.store.players = utils.sortByAgeArrayList(this.props.store.players, value, utils.getAge);
+          this.props.store.players = utils.sortByAgeArrayList(...elementsToSort, utils.getAge);
           break;
         case 'ranking':
-          this.props.store.players = utils.sortByNumberArrayList(this.props.store.players, value);
+          this.props.store.players = utils.sortByNumberArrayList(...elementsToSort);
           break;    
+        default:
+          break;
       }
     }
 
@@ -76,7 +83,11 @@ const PlayersPage = observer(
                   <button type="button"
                     className="btn btn-primary"
                     data-toggle="modal"
-                    data-target="#modalAddPlayer">
+                    data-target="#modalAddPlayer"
+                    name="addPlayer"
+                    value="newPlayer"
+                    onClick={this.handleInput}
+                    >
                       <i className={this.state.newPlayerButton.icon}></i>
                       &nbsp;{this.state.newPlayerButton.name}
                   </button>
@@ -89,8 +100,8 @@ const PlayersPage = observer(
                 </section>
               </header>
             </section>
-            <ModalAddPlayer store={this.props.store}/>      
-            <TablePlayer store={this.props.store}/>
+            <ModalAddPlayer store={this.props.store} idPlayerSelected={this.state.idPlayerSelected}/>      
+            <TablePlayer store={this.props.store} onClick={this.handleInput}/>
           </main>
         );
       };

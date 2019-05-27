@@ -34,29 +34,33 @@ const TablePlayer = observer(
       const playersList = this.props.store.players.map(({id, name, idCountry, birthDate, ranking}) => {
         return (
           <section className="row" key={id} role="row">
-            <p className="col-md-3" role="cell">
-              {name}
-            </p>
-            <p className="col-md-3" role="cell">
-                <ImageCountry
-                  abbreviation={countries.get(idCountry)[this.state.NATIONALITY_ABBREVIATION]}
-                  shinyTheme={true}
-                  flagSize={this.state.flagSize}
-                  countryName={countries.get(idCountry)[this.state.NATIONALITY]}
-                />
-            </p>
-            <p className="col-md-2" role="cell">
-              {utils.getAge(birthDate)}
-              &nbsp;<span className="d-inline d-md-none">años</span>
-            </p>
-            <p className="col-md-3" role="cell">
-              {ranking}&nbsp;<span className="d-inline d-md-none">puntos</span>
-            </p>
-            <div className="col-md-1" role="cell">
-              <button type="button" class="btn btn-light">
-                <i class="fas fa-ellipsis-v"></i>
+            <article className="col-10">
+              <div className="row">
+                <p className="col-md-3" role="cell">
+                  {name}
+                </p>
+                <p className="col-md-3" role="cell">
+                    <ImageCountry
+                      abbreviation={countries.get(idCountry)[this.state.NATIONALITY_ABBREVIATION]}
+                      shinyTheme={true}
+                      flagSize={this.state.flagSize}
+                      countryName={countries.get(idCountry)[this.state.NATIONALITY]}
+                    />
+                </p>
+                <p className="col-md-3" role="cell">
+                  {utils.getAge(birthDate)}
+                  &nbsp;<span className="d-inline d-md-none">años</span>
+                </p>
+                <p className="col-md-3" role="cell">
+                  {ranking}&nbsp;<span className="d-inline d-md-none">puntos</span>
+                </p>
+              </div>
+            </article>
+            <section className="col-2">
+              <button type="button" className="btn btn-light" role="cell" aria-label="opciones" title="Opciones" data-toggle="modal" data-target="#modalAddPlayer" name="editPlayer" value={id} onClick={this.props.onClick}>
+                <i className="fas fa-ellipsis-v"></i>
               </button>
-            </div>
+            </section>   
           </section>
         );
       });

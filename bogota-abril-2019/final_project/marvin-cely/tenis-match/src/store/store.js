@@ -1,4 +1,4 @@
-import { observable, computed, decorate, toJS } from "mobx";
+import { observable, action, decorate } from "mobx";
 import firebaseConfig from '../services/config/firebaseConfig';
 
 const stateService = {
@@ -20,7 +20,12 @@ class Store {
   matches = [];
   points = [];
   countries = new Map();
-  playerHandle = null;
+  playerHandle = {
+    name: '',
+    idCountry: '',
+    birthDate: '',
+    ranking: 0,
+  };
   matchHandle = null;
   pointHandle = null;
   currentPointsHistory = [];
@@ -28,22 +33,8 @@ class Store {
   isLoading = Object.assign({}, stateService);
   hasErrorService = Object.assign({}, stateService);
 
-  get obtainCountry() {
-    return toJS(this.countries);
-  }
-
-  // TODO: Revisar en el momento del partido en juego
-  addHistoryPoint(point) {
-    this.pointsHistory.unshift(point);
-  }
-
-  removeHistoryPoint() {
-    if(this.pointsHistory.length>0)
-      this.pointsHistory.shift();
-  }
-
-  get allPointsHistory() {
-    return this.pointsHistory;
+  obtainPlayer(idPlayer) {
+    return this.players.find(({id}) => id === idPlayer);
   }
 }
 
@@ -59,8 +50,7 @@ decorate(Store,{
   matchHandle: observable,
   pointHandle: observable,
   currentPointsHistory: observable,
-  allPointsHistory: computed,
-  obtainCountry: computed,
+  obtainPlayer: action,
 });
 
 const store = new Store();

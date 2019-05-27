@@ -1,23 +1,24 @@
 import React from 'react';
+import '../css/SmallPieceComponent.css';
 import { observer } from 'mobx-react';
 import utils from '../utils/utils';
 import thesaurus from '../utils/thesaurus';
 
 function LoadingComponent() {
   return (
-  <div className="d-flex justify-content-center">
-    <div className="spinner-grow text-info" role="status">
+  <section className="d-flex justify-content-center loading">
+    <article className="spinner-grow text-info" role="status">
       <span className="sr-only">Loading...</span>
-    </div>
-  </div>
+    </article>
+  </section>
   );
 }
 
 function ErrorServiceComponent() {
   return (
-  <div className="d-flex justify-content-center">
+  <article className="d-flex justify-content-center error-service">
     <p><i className="far fa-frown-open"></i>&nbsp;Algo salió mal, intente más tarde</p>
-  </div>
+  </article>
   );
 }
 
@@ -42,7 +43,7 @@ const CountryOptionComponent = observer(
       }; 
       return (
         <React.Fragment>
-          <option value='optionDefault' disabled>
+          <option value="" disabled>
               selecionar país
           </option>
           {countriesOptions()}

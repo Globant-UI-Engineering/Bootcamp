@@ -10,6 +10,13 @@ const utils = {
 		const ageDate = new Date(differentDate); 
 		return Math.abs(ageDate.getUTCFullYear() - 1970);
 	},
+	toStringDate: (date) => {
+		let month = date.getMonth();
+		let day = date.getDate();
+		if(month < 10) month = `0${month}`;
+		if(day < 10) day = `0${day}`;			 
+		return `${date.getFullYear()}-${month}-${day}`;
+	},
 	validationService: (store, collectionsName, [successComponent, loadingComponent, errorComponent]) => {
 		let totalLoadingState = false;
 		let totalErrorServiceState = false;

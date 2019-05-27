@@ -1,8 +1,7 @@
 const serviceUpdateData = {
-  setData: (fireStore, collectionType, data) => {
-    console.log(data.id);
+  updateData: (fireStore, collectionType, data) => {
     fireStore.collection(collectionType).doc(data.id)
-      .set(data)
+      .update(data)
       .then(response => response)
       .catch(error => {
         throw new Error(error)
