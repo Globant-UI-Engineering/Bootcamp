@@ -1,0 +1,22 @@
+//Movies
+export const SET_NOW_IN_THEATERS = "SET_NOW_IN_THEATERS";
+export const GET_NOW_IN_THEATERS = "GET_NOW_IN_THEATERS";
+export const SET_GENRES = "SET_GENRES";
+export const GET_GENRES = "GET_GENRES";
+export const SET_FILTERED_MOVIES = "SET_FILTERED_MOVIES";
+export const GET_FILTERED_MOVIES = "GET_FILTERED_MOVIES";
+export const GET_SINGLE_MOVIE = "GET_SINGLE_MOVIE"
+export const GET_POPULAR_MOVIES ="GET_POPULAR_MOVIES"
+export const SET_POPULAR_MOVIES = "SET_POPULAR_MOVIES"
+
+
+//Form
+export const VALIDATE_FORM = "VALIDATE_FORM";
+export const NO_RESULTS ="NO_RESULTS";
+export const ERROR_MESSAGE ="ERROR_MESSAGE";
+
+//MovieDetails
+export const IS_LOADING ="IS_LOADING"
+
+//Favorites
+export const IS_IN_FAVORITES ="IS_IN_FAVORITES";
