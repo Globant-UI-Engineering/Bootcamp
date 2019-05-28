@@ -1,6 +1,6 @@
-import React from 'react';
+import React from '../../../node_modules/react';
 import '../../css/TablePlayer.css';
-import { observer } from 'mobx-react';
+import { observer } from '../../../node_modules/mobx-react';
 import playerListHeader from './playersTableHead';
 import { ImageCountry } from '../SmallPieceComponent';
 import utils from '../../utils/utils';
@@ -57,7 +57,7 @@ const TablePlayer = observer(
               </div>
             </article>
             <section className="col-2">
-              <button type="button" className="btn btn-light" role="cell" aria-label="opciones" title="Opciones" data-toggle="modal" data-target="#modalAddPlayer" name="editPlayer" value={id} onClick={this.props.onClick}>
+              <button type="button" className="btn btn-light" role="cell" aria-label="opciones" title="Opciones" data-toggle="modal" data-target="#ModalCRUDPlayer" name="editPlayer" value={id} onClick={this.props.onClick}>
                 <i className="fas fa-ellipsis-v"></i>
               </button>
             </section>   

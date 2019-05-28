@@ -1,8 +1,8 @@
-import React from 'react';
+import React from '../../../node_modules/react';
 import '../../css/PlayersPage.css';
-import { observer } from 'mobx-react';
+import { observer } from '../../../node_modules/mobx-react';
 import TablePlayer from './TablePlayer';
-import ModalAddPlayer from './ModalAddPlayer';
+import ModalCRUDPlayer from './ModalCRUDPlayer';
 import utils from '../../utils/utils';
 import { LoadingComponent, ErrorServiceComponent } from '../SmallPieceComponent';
 import thesaurus from '../../utils/thesaurus';
@@ -83,7 +83,7 @@ const PlayersPage = observer(
                   <button type="button"
                     className="btn btn-primary"
                     data-toggle="modal"
-                    data-target="#modalAddPlayer"
+                    data-target="#ModalCRUDPlayer"
                     name="addPlayer"
                     value="newPlayer"
                     onClick={this.handleInput}
@@ -100,7 +100,7 @@ const PlayersPage = observer(
                 </section>
               </header>
             </section>
-            <ModalAddPlayer store={this.props.store} idPlayerSelected={this.state.idPlayerSelected}/>      
+            <ModalCRUDPlayer store={this.props.store} idPlayerSelected={this.state.idPlayerSelected}/>      
             <TablePlayer store={this.props.store} onClick={this.handleInput}/>
           </main>
         );

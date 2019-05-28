@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../../node_modules/react';
 import '../../css/HomePage.css';
 import tennisRacket from '../../images/tennisRacket.png';
 import rising from '../../images/rising.png';

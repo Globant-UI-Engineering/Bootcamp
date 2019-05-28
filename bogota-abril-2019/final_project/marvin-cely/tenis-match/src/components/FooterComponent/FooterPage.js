@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../../node_modules/react';
 import '../../css/FooterPage.css';
 import globantLogo from '../../images/globantLogo.png';
 

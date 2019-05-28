@@ -1,6 +1,6 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { observer } from 'mobx-react';
+import React from '../node_modules/react';
+import { BrowserRouter as Router, Route, Link } from "../node_modules/react-router-dom";
+import { observer } from '../node_modules/mobx-react';
 import './css/App.css';
 import tennisLogo from './images/tennisLogo.png';
 import FooterPage from './components/FooterComponent/FooterPage';

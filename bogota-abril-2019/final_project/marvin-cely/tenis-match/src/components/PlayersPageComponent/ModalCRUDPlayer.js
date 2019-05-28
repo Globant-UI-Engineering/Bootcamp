@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/ModalAddPlayer.css';
+import '../../css/ModalCRUDPlayer.css';
 import FormNewPlayer from './FormNewPlayer';
 import { observer } from 'mobx-react';
 import firebase from 'firebase';
@@ -8,9 +8,11 @@ import serviceUpdateData from '../../services/serviceUpdateData';
 import serviceDeleteData from '../../services/serviceDeleteData';
 import thesaurus from '../../utils/thesaurus';
 import utils from '../../utils/utils';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
-const ModalAddPlayer = observer(
-  class ModalAddPlayer extends React.Component {
+const ModalCRUDPlayer = observer(
+  class ModalCRUDPlayer extends React.Component {
     constructor(props){
       super(props);
       this.state = {  
@@ -18,6 +20,8 @@ const ModalAddPlayer = observer(
         successButton: 'Inscribir',
         cancelButton: 'Cancelar',
         deleteButton: 'Eliminar jugador',
+        deleteConfirmTitle: 'Mensaje de confirmación',
+        deleteConfirmMessage: '¿Esta seguro de eliminar este jugador?',
         submitStyle: 'btn btn-info',
         playerForm: {
           name: '',
@@ -45,6 +49,10 @@ const ModalAddPlayer = observer(
       this.addPlayer = this.addPlayer.bind(this);
       this.updatePlayer = this.updatePlayer.bind(this);
       this.deletePlayer = this.deletePlayer.bind(this);
+    }
+
+    componentWillUnmount() {
+      this.closeModal();
     }
 
     componentDidUpdate(prevProps) {      
@@ -115,9 +123,18 @@ const ModalAddPlayer = observer(
 
     deletePlayer() {
       const sendData = [this.props.store.fireStore, thesaurus.collectionsName.PLAYERS ,this.props.idPlayerSelected];
-      // TODO: Add confirm Dialog https://www.npmjs.com/package/react-confirm-alert
-      serviceDeleteData.removeData(...sendData);
-      this.closeModal();
+      confirmAlert({
+        message: this.state.deleteConfirmMessage,
+        buttons: [
+          {
+            label: 'Si',
+            onClick: () => {
+              serviceDeleteData.removeData(...sendData);
+              this.closeModal();
+            }
+          },{ label: 'No', }
+        ]
+      });
     }
 
     adjustNewPlayer() {
@@ -170,14 +187,14 @@ const ModalAddPlayer = observer(
 
     closeModal() {
       this.formRef.children[0].children[1].click(); // Close Modal
-      this.updateForm(this.props.idPlayerSelected); //TODO: Update player form then update
+      this.updateForm(this.props.idPlayerSelected); //FIXME: Update player form then update handle!!
       this.buttonSubmitRef.current.disabled = false;
     }
 
     render() {
       return(
       <React.Fragment>
-        <section className="modal fade" id="modalAddPlayer" tabIndex="-1" role="dialog" aria-labelledby="perfilJugador" aria-hidden="true" ref={this.setFormRef}>
+        <section className="modal fade" id="ModalCRUDPlayer" tabIndex="-1" role="dialog" aria-labelledby="perfilJugador" aria-hidden="true" ref={this.setFormRef}>
           <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
             <form className="modal-content" onSubmit={this.handleSubmit} ref={element => this.formRef = element}>
               <header className="modal-header">
@@ -188,7 +205,7 @@ const ModalAddPlayer = observer(
                   <span aria-hidden="true">&times;</span>
                 </button>
               </header>
-              <main className="modal-body Container pl-5 pr-5">
+              <main className="modal-body container pl-5 pr-5">
                 <FormNewPlayer
                   playerForm={this.state.playerForm}
                   receiveValue={this.handleForm} 
@@ -197,8 +214,9 @@ const ModalAddPlayer = observer(
               <footer className="modal-footer">
                 <section>
                   <button type="button" 
-                    className="btn btn-danger" onClick={this.deletePlayer} ref={this.buttonDeleteRef} hidden={true}>
+                    className="btn btn-danger" onClick={this.deletePlayer} ref={this.buttonDeleteRef} hidden={true} title={this.state.deleteButton}>
                       <i className="fas fa-user-times"></i>
+                      <span className='d-none d-sm-inline'>&nbsp;{this.state.deleteButton}</span>
                   </button>
                 </section>
                 <section>                
@@ -225,4 +243,4 @@ const ModalAddPlayer = observer(
   }
 );
 
-export default ModalAddPlayer;
+export default ModalCRUDPlayer;

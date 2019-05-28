@@ -1,4 +1,4 @@
-import React from 'react';
+import React from '../../../node_modules/react';
 import '../../css/MatchesPage.css';
 
 class MatchesPage extends React.Component {

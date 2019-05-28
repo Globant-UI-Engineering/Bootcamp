@@ -1,6 +1,6 @@
-import React from 'react';
+import React from '../../../node_modules/react';
 import '../../css/FormNewPlayer.css';
-import { observer } from 'mobx-react';
+import { observer } from '../../../node_modules/mobx-react';
 import {CountryOptionComponent} from '../SmallPieceComponent';
 import utils from '../../utils/utils';
 

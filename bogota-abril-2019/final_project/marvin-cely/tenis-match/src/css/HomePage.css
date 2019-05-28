@@ -24,7 +24,7 @@ main > figure:first-of-type > p {
     font-family: var(--font-group-3);
     color: var(--font-color-white);
     background: var(--font-color-mate);
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
 main > figure:first-of-type + section {

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from '../../node_modules/react';
 import '../css/SmallPieceComponent.css';
-import { observer } from 'mobx-react';
+import { observer } from '../../node_modules/mobx-react';
 import utils from '../utils/utils';
 import thesaurus from '../utils/thesaurus';
 
