@@ -30,14 +30,17 @@ const PlayersPage = observer(
             namebutton: 'Puntaje'
         }],
         idPlayerSelected: 'newPlayer',
-      }
+      }      
+
       this.handleInput = this.handleInput.bind(this);
       this.orderTable = this.orderTable.bind(this);
+      this.filterTable = this.filterTable.bind(this);
     }
 
     handleInput = (event) => {
       const { name, value } = event.target;
       if (name === 'orderOption') this.orderTable(value);
+      else if(name === 'search') this.filterTable(value);
       else if (name === 'editPlayer' || name === 'addPlayer') {
         this.setState({
           idPlayerSelected: value,
@@ -45,8 +48,13 @@ const PlayersPage = observer(
       }  
     }
 
+    filterTable = (value) => {// TODO: considerar si no poner el buscar...Resolver actualización de estados de players y playerTable
+      const elementsToFilter = [ this.props.store.players, value];// TODO: Revisar comportamiento del this.playersTable en el store
+      this.props.store.players = utils.filterAllByArrayList(...elementsToFilter);
+    }
+
     orderTable = (value) => {
-      const elementsToSort = [ this.props.store.players, value]
+      const elementsToSort = [ this.props.store.players, value];
       switch (value) {
         case 'name':
           this.props.store.players = utils.sortByAlphaArrayList(...elementsToSort);
@@ -56,7 +64,7 @@ const PlayersPage = observer(
           break;
         case 'ranking':
           this.props.store.players = utils.sortByNumberArrayList(...elementsToSort);
-          break;    
+          break;   
         default:
           break;
       }
@@ -98,6 +106,11 @@ const PlayersPage = observer(
                     {orderOption()}
                   </div>
                 </section>
+                <form>
+                  <fieldset>
+                    <input type="text" className="form-control form-control-md" placeholder="Buscar" name='search' onChange={this.handleInput}/>
+                  </fieldset>
+                </form>
               </header>
             </section>
             <ModalCRUDPlayer store={this.props.store} idPlayerSelected={this.state.idPlayerSelected}/>      
@@ -109,7 +122,7 @@ const PlayersPage = observer(
       const store = this.props.store;
       const collectionsName = [ thesaurus.collectionsName.PLAYERS, thesaurus.collectionsName.COUNTRIES];
       const statusComponent = [tableContent(), <LoadingComponent/>, <ErrorServiceComponent/>];
-      const validationComponent = () => utils.validationService( store, collectionsName, statusComponent);
+      const validationComponent = () => utils.validationService( store, collectionsName, statusComponent);//TODO: Poner la copia de playerTable y verificar comportamiento en CRUD
 
       return (
         <React.Fragment>

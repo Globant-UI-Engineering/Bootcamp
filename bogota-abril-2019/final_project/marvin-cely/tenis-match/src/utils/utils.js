@@ -43,5 +43,10 @@ const utils = {
 	sortByAgeArrayList: (array, element, getAge) => {		
 		return array.slice().sort((object1, object2) => getAge(object2[element]) - getAge(object1[element]));
 	},
+	filterAllByArrayList: (array, value) => {
+		return array.slice().filter((player) =>
+			player.name.toLowerCase().indexOf(value.toLowerCase()) > -1
+	  );
+	},
 }
 export default utils;

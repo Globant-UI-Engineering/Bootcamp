@@ -19,7 +19,7 @@ const TablePlayer = observer(
     }
 
     render() { 
-      const tableHeader = (headerList) => {
+      const tableHeader = (headerList) => { //TODO: Encajar Título con la tabla
         return(
           <section className="row" role="row">
             <h4 className="col-md-3" role="columnheader">{headerList.name}</h4>

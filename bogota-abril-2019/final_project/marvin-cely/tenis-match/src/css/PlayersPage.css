@@ -30,6 +30,10 @@ main.container > section:first-of-type {
     z-index: 1;
 }
 
+form > fieldset {
+    margin-bottom: 0;
+}
+
 section > header {
     background: white;
     padding: 1rem;

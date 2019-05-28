@@ -25,7 +25,8 @@ class Store {
     idCountry: '',
     birthDate: '',
     ranking: 0,
-  };
+  };// TODO: Revisar si se está usando
+  playersTable = [];// TODO: Considerar en poner toggle de estado de los sort Table player
   matchHandle = null;
   pointHandle = null;
   currentPointsHistory = [];
@@ -36,6 +37,12 @@ class Store {
   obtainPlayer(idPlayer) {
     return this.players.find(({id}) => id === idPlayer);
   }
+
+  putPlayersToTable() {
+    this.playersTable = this.players.slice();
+  }
+
+
 }
 
 decorate(Store,{
@@ -46,11 +53,13 @@ decorate(Store,{
   countries: observable.shallow,
   isLoading: observable,
   isErrorService: observable,
+  playersTable: observable.shallow,
   playerHandle: observable,
   matchHandle: observable,
   pointHandle: observable,
   currentPointsHistory: observable,
   obtainPlayer: action,
+  putPlayersToTable: action,
 });
 
 const store = new Store();
