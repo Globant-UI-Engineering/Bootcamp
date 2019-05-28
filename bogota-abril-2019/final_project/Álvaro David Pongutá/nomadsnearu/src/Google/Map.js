@@ -175,7 +175,7 @@ export class MapContainer extends React.Component {
                         visible={this.state.showingInfoWindow}>
                             <div>
                                 <BrowserRouter>
-                                    <Link to= {`/viewEvent/${this.state.activeMarker.id}`}>{this.state.activeMarker.name}</Link>
+                                    <Link to= {`/viewEvent/${this.state.selectedId}`}>{this.state.selectedPlace.name}</Link>
                                 </BrowserRouter>
                             </div>
                     </InfoWindow>

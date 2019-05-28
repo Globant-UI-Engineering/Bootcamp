@@ -15,11 +15,13 @@
     "react-dropdown": "^1.6.4",
     "react-dropdown-select": "^3.0.0",
     "react-loader-spinner": "^2.3.0",
+    "react-redux": "^7.0.3",
     "react-responsive-carousel": "^3.1.49",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "react-select": "^2.4.3",
-    "react-simple-dropdown": "^3.2.3"
+    "react-simple-dropdown": "^3.2.3",
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

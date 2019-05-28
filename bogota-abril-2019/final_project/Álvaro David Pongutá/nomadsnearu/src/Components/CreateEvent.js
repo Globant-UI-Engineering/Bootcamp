@@ -4,6 +4,7 @@ import firebase from '../Firebase';
 import SearchBar from '../Google/SearchBar';
 import Select from 'react-select';
 import Button from '../Atoms/Button';
+import Loader from 'react-loader-spinner';
 
 const eventTypes = [
     { value: 'Turístico', label: 'Turístico' },
@@ -24,6 +25,7 @@ class CreateEvent extends React.Component {
         this.changeCheckBox = this.changeCheckBox.bind(this);
         this.changeEventType = this.changeEventType.bind(this);
         this.handleInputsChange = this.handleInputsChange.bind(this);
+        this.showIfNotCorrectDateInput = this.showIfNotCorrectDateInput.bind(this);
     }
 
     state = {
@@ -39,7 +41,9 @@ class CreateEvent extends React.Component {
         eventDescription: '',
         eventAssistants: '',
         eventImage: '',
-        eventAddress: ''
+        eventAddress: '',
+        showLoader: false,
+        correctDateInput: true
     }
 
     changeCheckBox(){
@@ -55,19 +59,44 @@ class CreateEvent extends React.Component {
     }
 
     handleInputsChange(event){
-        if([event.target.name] != 'eventImage'){
-            this.setState({
-                [event.target.name]: event.target.value
-            })
-        } else {
+        if([event.target.name] == 'eventImage'){
             this.setState({
                 [event.target.name]: event.target.files[0]
+            })
+        } else if([event.target.name] == 'eventDate'){
+            let inputDate = new Date(event.target.value);
+            let nowDate = new Date(Date.now());
+            if(inputDate.getTime() > nowDate.getTime()){
+                this.setState({
+                    [event.target.name]: event.target.value,
+                    correctDateInput: true
+                })
+            } else {
+                this.setState({
+                    correctDateInput: false
+                })
+            }
+        } else {
+            this.setState({
+                [event.target.name]: event.target.value
             })
         }
         
     }
 
+    showIfNotCorrectDateInput(){
+        if(!this.state.correctDateInput){
+            return(
+                <label>Por favor, seleccione una fecha mayor al día de hoy, con al menos dos días de diferencia</label>
+            )
+        }
+    }
+
     writeEventInDatabase(e){
+
+        this.setState({
+            showLoader: true
+        });
 
         e.preventDefault();
 
@@ -128,9 +157,14 @@ class CreateEvent extends React.Component {
                     [userUID]: [eventKey]
                 });
 
-                alert('El evento se creó satisfactoriamente.')
-
             });
+
+            alert('El evento se creó satisfactoriamente.')
+
+            this.setState({
+                showLoader: false
+            });
+    
         })
     }
 
@@ -150,9 +184,29 @@ class CreateEvent extends React.Component {
         }
     }
 
+    showLoader(){
+        if(this.state.showLoader){
+            return (
+                <div role="presentation" className= "App-loader-container">
+                    <div className= "App-loader">
+                        <Loader 
+                            type="Oval"
+                            color="#282c34"
+                            height="75"	
+                            width="75"
+                        />  
+                    </div>
+                </div>
+            )
+        }
+    }
+
     render () {
         return (
             <section>
+                {
+                    this.showLoader()
+                }
                 <article className="App-row-elements">
                     <h2>Crear Evento:</h2>
                 </article>
@@ -196,7 +250,12 @@ class CreateEvent extends React.Component {
                             <label id="eventImageLabel">Seleccione una imagen: </label>
                             <input aria-labelledby="eventImageLabel" role="button" type="file" name="eventImage" className={"App-create-searchbar App-upload-image"} aria-required="true" onChange={this.handleInputsChange} required/>
                         </div>
-                        <Button type="submit" className={"App-button App-button-create"} buttonInfo="Agregar Evento"></Button>
+                        <div className="App-element">
+                            {
+                                this.showIfNotCorrectDateInput()
+                            }
+                        </div>
+                        <Button disabled={!this.state.correctDateInput} type="submit" className={"App-button App-button-create"} buttonInfo="Agregar Evento"></Button>
                     </form>
                 </article>
             </section>

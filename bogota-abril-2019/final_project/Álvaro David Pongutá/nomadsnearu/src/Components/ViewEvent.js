@@ -58,55 +58,68 @@ class ViewEvent extends React.Component {
 
         if(firebase.auth().currentUser != null){
             let currentUID = firebase.auth().currentUser.uid;
-
             let actualEventId = this.props.match.params.eventId;
+            let eventExist = false;
 
-            //Mirar si en el evento hay cupos
-            firebase.database().ref('/events/' + actualEventId).once('value').then(event => {
-                if (event.val().numberOfRemainingAsisstants > 0){
-                    //Revisar que la persona no esté asistiendo al evento
-                    let assistingToEvent = false;
-                    firebase.database().ref('/eventsXusers').once('value', (eventXuserNode) => {
-                        eventXuserNode.forEach(node => {
-                            if(node.child(currentUID).key === currentUID){
-                                if(node.child(currentUID).child(0).val() == actualEventId){
-                                    assistingToEvent = true;
+            //Mirar si el evento existe
+            firebase.database().ref('/events').once('value').then(eventNodes => {
+                eventNodes.forEach(event => {
+                    if (event.key == actualEventId){
+                        eventExist = true;
+                    }
+                })
+                if(eventExist){
+                    //Mirar si en el evento hay cupos
+                    firebase.database().ref('/events/' + actualEventId).once('value').then(event => {
+                        if (event.val().numberOfRemainingAsisstants > 0){
+                            //Revisar que la persona no esté asistiendo al evento
+                            let assistingToEvent = false;
+                            firebase.database().ref('/eventsXusers').once('value', (eventXuserNode) => {
+                                eventXuserNode.forEach(node => {
+                                    if(node.child(currentUID).key === currentUID){
+                                        if(node.child(currentUID).child(0).val() == actualEventId){
+                                            assistingToEvent = true;
+                                        }
+                                    }
+                                });
+                                //Inscripción al evento del usuario
+                                if(!assistingToEvent){
+                                    var eventXusersKey = firebase.database().ref("eventsXusers/").push().key;
+                                    var refEventsXusers = firebase.database().ref("eventsXusers/"+eventXusersKey);
+                                    refEventsXusers.set({
+                                        [currentUID]: [actualEventId]
+                                    });
+    
+                                    //Se reducen los cupos disponibles del evento
+                                    firebase.database().ref("/events").child(actualEventId).child("numberOfRemainingAsisstants").set(event.val().numberOfRemainingAsisstants - 1);
+    
+                                    this.setState({
+                                        actualEvent: {
+                                            numberOfRemainingAsisstants: this.state.actualEvent.numberOfRemainingAsisstants - 1,
+                                            name: this.state.actualEvent.name,
+                                            description: this.state.actualEvent.description,
+                                            type: this.state.actualEvent.type,
+                                            numberOfTotalAssistants: this.state.actualEvent.numberOfTotalAssistants,
+                                            date: this.state.actualEvent.date,
+                                            address: this.state.actualEvent.address,
+                                            urlImage: this.state.actualEvent.urlImage
+                                        },
+                                    });
+    
+                                    alert("Se ha inscrito en el evento correctamente");
+                                } else {
+                                    alert("Ya se encuentra inscrito para este evento");
                                 }
-                            }
-                        });
-                        //Inscripción al evento del usuario
-                        if(!assistingToEvent){
-                            var eventXusersKey = firebase.database().ref("eventsXusers/").push().key;
-                            var refEventsXusers = firebase.database().ref("eventsXusers/"+eventXusersKey);
-                            refEventsXusers.set({
-                                [currentUID]: [actualEventId]
                             });
-
-                            //Se reducen los cupos disponibles del evento
-                            firebase.database().ref("/events").child(actualEventId).child("numberOfRemainingAsisstants").set(event.val().numberOfRemainingAsisstants - 1);
-
-                            this.setState({
-                                actualEvent: {
-                                    numberOfRemainingAsisstants: this.state.actualEvent.numberOfRemainingAsisstants - 1,
-                                    name: this.state.actualEvent.name,
-                                    description: this.state.actualEvent.description,
-                                    type: this.state.actualEvent.type,
-                                    numberOfTotalAssistants: this.state.actualEvent.numberOfTotalAssistants,
-                                    date: this.state.actualEvent.date,
-                                    address: this.state.actualEvent.address,
-                                    urlImage: this.state.actualEvent.urlImage
-                                },
-                            });
-
-                            alert("Se ha inscrito en el evento correctamente");
                         } else {
-                            alert("Ya se encuentra inscrito para este evento");
+                            alert("En este momento no hay cupos disponibles para este evento");
                         }
-                    });
+                    })
                 } else {
-                    alert("En este momento no hay cupos disponibles para este evento");
+                    alert("El evento ya no existe");
                 }
             })
+
         } else {
             alert("En este momento no te encuentras autenticado en el sistema, por favor realiza la autenticación");
         }
