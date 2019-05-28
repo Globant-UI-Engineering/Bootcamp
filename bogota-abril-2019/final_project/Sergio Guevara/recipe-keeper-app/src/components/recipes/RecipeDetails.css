@@ -1,0 +1,24 @@
+.recipe_section{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.recipe_section h1{
+    font-size: 30px;
+    font-family: 'Pacifico', cursive;
+    color: #ec407a ;
+}
+h3{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(81, 13, 177);
+}
+p, time{
+    text-align: justify;
+    font-size: 16px;
+}
+ul{
+    font-size: 16px;
+}
+.save{
+    margin-right: 10px;
+}
