@@ -1,30 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Footer from '../Generic/Footer';
+import Footer from '../../Generic/Footer';
 import IndexTeaser from './IndexTeaser';
-import NewsPreviewSkeleton from '../Generic/NewsPreviewSkeleton';
-import NewsPreview from '../Generic/NewsPreview';
-import NotLoggedRedirectorContainer from '../../containers/NotLoggedRedirectorContainer';
-import { tryGetLastNews } from '../../controllers/BobbaProxy';
-import { addNewsList } from '../../actions';
-import HeaderContainer from '../../containers/HeaderContainer';
+import ArticlePreviewSkeleton from '../../Generic/Articles/ArticlePreviewSkeleton';
+import ArticlePreview from '../../Generic/Articles/ArticlePreview';
+import NotLoggedRedirectorContainer from '../../../containers/NotLoggedRedirectorContainer';
+import { tryGetLastArticles } from '../../../controllers/BobbaProxy';
+import { addNewsList, beginFetchNews } from '../../../actions';
+import HeaderContainer from '../../../containers/HeaderContainer';
 
 class IndexPage extends React.Component {
     componentDidMount() {
         const { newsFetched, newsFetching } = this.props.newsContext;
         const { dispatch } = this.props;
         if (!newsFetched && !newsFetching) {
-            tryGetLastNews().then(list => {
+            dispatch(beginFetchNews());
+            tryGetLastArticles().then(list => {
                 dispatch(addNewsList(list));
             });
         }
     }
     render() {
         const { news } = this.props.newsContext;
-        let articlePreview = <NewsPreviewSkeleton />;
+        let articlePreview = <ArticlePreviewSkeleton />;
         if (news.length > 0) {
             const currentArticle = news[news.length - 1];
-            articlePreview = <NewsPreview key={currentArticle.id} article={currentArticle} />
+            articlePreview = <ArticlePreview key={currentArticle.id} article={currentArticle} />
         }
 
         return (

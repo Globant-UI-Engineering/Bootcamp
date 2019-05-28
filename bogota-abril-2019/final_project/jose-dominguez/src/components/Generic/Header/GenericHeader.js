@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { tryGetOnlineCount } from '../../controllers/BobbaProxy';
-import { setOnlineCount } from '../../actions';
+import { tryGetOnlineCount } from '../../../controllers/BobbaProxy';
+import { setOnlineCount } from '../../../actions';
 
 import Logo from './Logo';
 

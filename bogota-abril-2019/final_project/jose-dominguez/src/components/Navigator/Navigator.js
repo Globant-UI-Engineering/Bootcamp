@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { logOut } from '../../actions';
 
@@ -15,7 +16,7 @@ class Navigator extends React.Component {
         let navOptions = (
             <>
                 <li className="rightside logout"><Link to="/" onClick={this.onLogOut}>Salir</Link></li>
-                <li className="rightside"><Link to="/manage">Opciones</Link></li>
+                <li className="rightside"><NavLink activeClassName="selected" to="/settings">Opciones</NavLink></li>
             </>
         );
 
@@ -40,4 +41,8 @@ class Navigator extends React.Component {
     }
 }
 
-export default Navigator;
+const mapStateToProps = state => ({
+    loginContext: state.login,
+});
+
+export default connect(mapStateToProps)(Navigator);

@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Footer from '../Generic/Footer';
-import NewsPreviewSkeleton from '../Generic/NewsPreviewSkeleton';
-import NewsPreview from '../Generic/NewsPreview';
-import NavigatorContainer from '../../containers/NavigatorContainer';
-import MeContainer from '../../containers/MeContainer';
+import Footer from '../../Generic/Footer';
+import ArticlePreviewSkeleton from '../../Generic/Articles/ArticlePreviewSkeleton';
+import ArticlePreview from '../../Generic/Articles/ArticlePreview';
+import Navigator from '../../Navigator/Navigator';
 import Radio from './Radio';
-import LoggedRedirectorContainer from '../../containers/LoggedRedirectorContainer';
-import { tryGetLastNews } from '../../controllers/BobbaProxy';
-import { addNewsList } from '../../actions';
-import HeaderContainer from '../../containers/HeaderContainer';
+import LoggedRedirectorContainer from '../../../containers/LoggedRedirectorContainer';
+import { tryGetLastArticles } from '../../../controllers/BobbaProxy';
+import { addNewsList, beginFetchNews } from '../../../actions';
+import HeaderContainer from '../../../containers/HeaderContainer';
+import Me from './Me';
 
 class MePage extends React.Component {
 
@@ -17,7 +17,8 @@ class MePage extends React.Component {
         const { newsFetched, newsFetching } = this.props.newsContext;
         const { dispatch } = this.props;
         if (!newsFetched && !newsFetching) {
-            tryGetLastNews().then(list => {
+            dispatch(beginFetchNews());
+            tryGetLastArticles().then(list => {
                 dispatch(addNewsList(list));
             });
         }
@@ -25,13 +26,13 @@ class MePage extends React.Component {
 
     render() {
         const { news } = this.props.newsContext;
-        let articlePreview = <><NewsPreviewSkeleton /><NewsPreviewSkeleton /></>;
+        let articlePreview = <><ArticlePreviewSkeleton /><ArticlePreviewSkeleton /></>;
 
         if (news.length > 0) {
             articlePreview = [];
             for (let i = 0; i < news.length; i++) {
                 const currentArticle = news[i];
-                articlePreview.push(<NewsPreview key={currentArticle.id} article={currentArticle} />);
+                articlePreview.push(<ArticlePreview key={currentArticle.id} article={currentArticle} />);
             }
         }
 
@@ -39,10 +40,10 @@ class MePage extends React.Component {
             <div className="generic">
                 <LoggedRedirectorContainer />
                 <HeaderContainer/>
-                <NavigatorContainer />
+                <Navigator />
                 <div className="column_container">
                     <article className="left_column user">
-                        <MeContainer />
+                        <Me/>
                     </article>
                     <article className="right_column">
                         <Radio />

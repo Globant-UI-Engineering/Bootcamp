@@ -6,17 +6,15 @@ const defaultState = {
 
 const news = (state = defaultState, action) => {
     switch (action.type) {
-        case 'ADD_NEWS':
-            return {
-                newsFetched: true,
-                newsFetching: false,
-                news: state.news.concat(action.news),
-            };
+        case 'BEGIN_FETCH_NEWS':
+            return Object.assign({
+                newsFetching: true,
+            }, defaultState);
         case 'ADD_NEWS_LIST':
             return {
                 newsFetched: true,
                 newsFetching: false,
-                news: state.news.concat(action.list),
+                news: action.list,
             };
         default:
             return state;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NewsPreviewSkeleton extends React.Component {
+class ArticlePreviewSkeleton extends React.Component {
     render() {
         return (
             <section className="news_preview skeleton">
@@ -19,4 +19,4 @@ class NewsPreviewSkeleton extends React.Component {
     }
 }
 
-export default NewsPreviewSkeleton;
+export default ArticlePreviewSkeleton;

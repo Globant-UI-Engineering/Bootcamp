@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Footer from '../Generic/Footer';
-import HeaderContainer from '../../containers/HeaderContainer';
-import NewsPreviewSkeleton from '../Generic/NewsPreviewSkeleton';
-import NavigatorContainer from '../../containers/NavigatorContainer';
-import { tryGetLastNews, tryGetNews } from '../../controllers/BobbaProxy';
-import { addNewsList } from '../../actions';
+import Footer from '../../Generic/Footer';
+import HeaderContainer from '../../../containers/HeaderContainer';
+import ArticlePreviewSkeleton from '../../Generic/Articles/ArticlePreviewSkeleton';
+import Navigator from '../../Navigator/Navigator';
+import { tryGetLastArticles, tryGetArticle } from '../../../controllers/BobbaProxy';
+import { addNewsList, beginFetchNews } from '../../../actions';
 import Article from './Article';
 import ArticleList from './ArticleList';
 import ArticleListSkeleton from './ArticleListSkeleton';
@@ -15,7 +15,7 @@ class ArticlePage extends React.Component {
     constructor(props) {
         super(props);
 
-        this.unlistener = () => {};
+        this.unlistener = () => { };
 
         this.state = {
             currentArticle: null,
@@ -34,11 +34,11 @@ class ArticlePage extends React.Component {
     updateCurrentArticle(pathname) {
         const id = this.getIdFromUrl(pathname);
         if (id != null) {
-            tryGetNews(id).then(article => {
+            tryGetArticle(id).then(article => {
                 this.setState({ currentArticle: article });
             });
         } else {
-            tryGetNews(0).then(article => {
+            tryGetArticle(0).then(article => {
                 this.setState({ currentArticle: article });
             });
         }
@@ -57,7 +57,8 @@ class ArticlePage extends React.Component {
         const { newsFetched, newsFetching } = this.props.newsContext;
         const { dispatch } = this.props;
         if (!newsFetched && !newsFetching) {
-            tryGetLastNews().then(list => {
+            dispatch(beginFetchNews());
+            tryGetLastArticles().then(list => {
                 dispatch(addNewsList(list));
             });
         }
@@ -73,7 +74,7 @@ class ArticlePage extends React.Component {
         }
 
         let { currentArticle } = this.state;
-        let article = <NewsPreviewSkeleton />;
+        let article = <ArticlePreviewSkeleton />;
 
         if (currentArticle != null) {
             article = <Article article={currentArticle} />
@@ -82,7 +83,7 @@ class ArticlePage extends React.Component {
         return (
             <div className="generic">
                 <HeaderContainer />
-                <NavigatorContainer />
+                <Navigator />
                 <article>
                     <h1 className="blue">Noticias</h1>
                     <br />

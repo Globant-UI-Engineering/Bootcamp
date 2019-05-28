@@ -10,21 +10,13 @@ export const logOut = () => ({
     type: 'LOG_OUT',
 });
 
-export const addNews = (id, title, description, image, link, content) => ({
-    type: 'ADD_NEWS',
-    news: {
-        id,
-        title,
-        description,
-        image,
-        link,
-        content
-    },
-});
-
 export const addNewsList = (list) => ({
     type: 'ADD_NEWS_LIST',
     list,
+});
+
+export const beginFetchNews = () => ({
+    type: 'BEGIN_FETCH_NEWS',
 });
 
 export const setOnlineCount = (count) => ({

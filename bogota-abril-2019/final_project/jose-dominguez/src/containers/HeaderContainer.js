@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import LoginHeader from '../components/Generic/LoginHeader';
-import GenericHeader from '../components/Generic/GenericHeader';
+import LoginHeader from '../components/Generic/Header/LoginHeader';
+import GenericHeader from '../components/Generic/Header/GenericHeader';
 
 class HeaderContainer extends React.Component {
     render() {

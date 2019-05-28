@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../Generic/Logo';
-import { logIn } from '../../actions';
-import { tryLogin } from '../../controllers/BobbaProxy';
+import Logo from './Logo';
+import { logIn } from '../../../actions';
+import { tryLogin } from '../../../controllers/BobbaProxy';
 
 const initialState = {
     username: '',

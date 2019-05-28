@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-class NewsPreview extends React.Component {
+class ArticlePreview extends React.Component {
     render() {
         const { title, description, image, link } = this.props.article;
         return (
@@ -22,8 +22,8 @@ class NewsPreview extends React.Component {
     }
 }
 
-NewsPreview.propTypes = {
+ArticlePreview.propTypes = {
     article: PropTypes.object
 };
 
-export default NewsPreview;
+export default ArticlePreview;

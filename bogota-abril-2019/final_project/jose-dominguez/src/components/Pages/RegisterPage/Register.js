@@ -1,6 +1,7 @@
 import React from 'react';
-import { logIn } from '../../actions';
-import { tryRegister } from '../../controllers/BobbaProxy';
+import { connect } from 'react-redux';
+import { logIn } from '../../../actions';
+import { tryRegister } from '../../../controllers/BobbaProxy';
 
 const initialState = {
     username: '',
@@ -160,4 +161,4 @@ class Register extends React.Component {
     }
 }
 
-export default Register;
+export default connect()(Register);

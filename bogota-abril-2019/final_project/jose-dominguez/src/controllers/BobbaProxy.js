@@ -1,8 +1,8 @@
-﻿import NProgress from 'nprogress';
+import NProgress from 'nprogress';
 
-const API_URL = 'http://localhost:1232/';
+const API_URL = 'http://api.bobba.io:1232/';
 const FAKE_DELAY = 2000;
-const DELAY = 1000;
+const DELAY = 0;
 
 export const tryLoginFake = (username, password) => {
     return new Promise((resolve, reject) => {
@@ -86,7 +86,7 @@ export const tryGetLastNewsFake2 = () => {
     });
 };
 
-export const tryGetLastNews = () => {
+export const tryGetLastArticles = () => {
     NProgress.start();
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -113,7 +113,7 @@ export const tryGetLastNews = () => {
     });
 };
 
-export const tryGetNews = (id) => {
+export const tryGetArticle = (id) => {
     NProgress.start();
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -232,4 +232,8 @@ export const tryRegister = (username, email, password) => {
                 });
         }, DELAY);
     });
+};
+
+export const getClientUrl = (username, look) => {
+    return 'https://bobba.io/?username=' + username + '&look=' + look;
 };
