@@ -11,7 +11,8 @@
             "program": "${workspaceFolder}\\server.js",
             "env": {
                 "SPOTIFY_CLIENT_ID": "33ea0e7a56d34d4bbb0b57ef3e426209",
-                "SPOTIFY_CLIENT_SECRET": "1f879a5a488440038e3703b8efa8407b"
+                "SPOTIFY_CLIENT_SECRET": "1f879a5a488440038e3703b8efa8407b",
+                "FRONTEND_URI": "http://localhost:3000/login/"
             }
         }
     ]

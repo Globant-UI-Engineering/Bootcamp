@@ -13,10 +13,7 @@ input[type='range'] {
 
 .content {
   text-align: center;
-	padding-top: 15%;
-	/*text-shadow: 0px 4px 3px red,
-	             0px 8px 13px orange,
-	             0px 18px 23px yellow;*/
+	padding-top: 25vh;
 	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 	             0px 8px 13px rgba(0,0,0,0.1),
 	             0px 18px 23px rgba(0,0,0,0.1);
