@@ -1,7 +1,52 @@
 footer {
     width: 100%;
     text-align: center;
-    padding: 0.5em;
+    padding: 1em;
     background-color: black;
     color: white;
+}
+
+.player-control {
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+}
+
+.play-btn:hover{    
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255, 1); 
+}
+
+.play-btn {
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255, 0.8);
+}
+
+.change-track-btn, .change-track-btn:hover, .change-track-btn:active:focus {
+    background-color: transparent;
+    border: none;
+}
+
+.change-track-btn {
+    opacity: 0.8;
+    outline: none;
+}
+
+.change-track-btn:hover {
+    opacity: 1;
+}
+
+.centered {
+    margin: 0 auto;
+}
+
+p {
+    line-height: 0.2em;
+}
+
+.song-info {
+    margin-top: 2%;
+}
+
+.song-title {
+    font-weight: 700;
 }
