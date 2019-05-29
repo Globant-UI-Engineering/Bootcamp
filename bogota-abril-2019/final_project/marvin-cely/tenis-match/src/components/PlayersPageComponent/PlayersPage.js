@@ -30,6 +30,7 @@ const PlayersPage = observer(
             namebutton: 'Puntaje'
         }],
         idPlayerSelected: 'newPlayer',
+        counterAction: 0,
       }      
 
       this.handleInput = this.handleInput.bind(this);
@@ -44,6 +45,7 @@ const PlayersPage = observer(
       else if (name === 'editPlayer' || name === 'addPlayer') {
         this.setState({
           idPlayerSelected: value,
+          counterAction: this.state.counterAction + 1,
         });
       }  
     }
@@ -113,7 +115,7 @@ const PlayersPage = observer(
                 </form>
               </header>
             </section>
-            <ModalCRUDPlayer store={this.props.store} idPlayerSelected={this.state.idPlayerSelected}/>      
+            <ModalCRUDPlayer counterAction={this.state.counterAction} store={this.props.store} idPlayerSelected={this.state.idPlayerSelected}/>      
             <TablePlayer store={this.props.store} onClick={this.handleInput}/>
           </main>
         );

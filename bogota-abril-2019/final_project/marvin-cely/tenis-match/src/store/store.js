@@ -20,12 +20,6 @@ class Store {
   matches = [];
   points = [];
   countries = new Map();
-  playerHandle = {
-    name: '',
-    idCountry: '',
-    birthDate: '',
-    ranking: 0,
-  };// TODO: Revisar si se está usando
   playersTable = [];// TODO: Considerar en poner toggle de estado de los sort Table player
   matchHandle = null;
   pointHandle = null;

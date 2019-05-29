@@ -2,7 +2,6 @@ import React from 'react';
 import '../../css/ModalCRUDPlayer.css';
 import FormNewPlayer from './FormNewPlayer';
 import { observer } from 'mobx-react';
-import firebase from 'firebase';
 import serviceAddData from '../../services/serviceAddData';
 import serviceUpdateData from '../../services/serviceUpdateData';
 import serviceDeleteData from '../../services/serviceDeleteData';
@@ -28,6 +27,11 @@ const ModalCRUDPlayer = observer(
           idCountry: '',
           birthDate: '',
         },
+        prevPlayerForm: {
+          name: '',
+          idCountry: '',
+          birthDate: '',
+        },
         scoreDefault: 0,
         isUpdate: false,
         oneTimeDisabled: true,
@@ -38,7 +42,6 @@ const ModalCRUDPlayer = observer(
       this.buttonDeleteRef = React.createRef();
       this.handleForm = this.handleForm.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
-      this.restartForm = this.restartForm.bind(this);
       this.closeModal = this.closeModal.bind(this);
       this.setFormRef = this.setFormRef.bind(this);
       this.getPlayerToUpdate = this.getPlayerToUpdate.bind(this);
@@ -55,11 +58,12 @@ const ModalCRUDPlayer = observer(
       this.closeModal();
     }
 
-    componentDidUpdate(prevProps) {      
-      if (this.props.idPlayerSelected !== prevProps.idPlayerSelected) {
-        this.updateForm(this.props.idPlayerSelected);                
-      }
-      this.hideblockSubmitBotton();      
+    componentDidUpdate(prevProps, prevState) {      
+      if (this.props.counterAction !== prevProps.counterAction)
+        this.updateForm(this.props.idPlayerSelected);  
+                      
+      if (this.state.playerForm !== prevState.playerForm)
+        this.hideblockSubmitBotton();      
     }
 
     getPlayerToUpdate() {
@@ -80,12 +84,12 @@ const ModalCRUDPlayer = observer(
           submitStyle: 'btn btn-success',
           isUpdate: true,
           playerForm: this.getPlayerToUpdate(),
+          prevPlayerForm: this.getPlayerToUpdate(),
         }); 
-
         this.buttonDeleteRef.current.hidden = false;        
       } else {
         this.setState({
-          successButton: 'Inscribir',
+          successButton:  'Inscribir',
           submitStyle: 'btn btn-info',
           isUpdate: false,
           playerForm: {
@@ -100,15 +104,19 @@ const ModalCRUDPlayer = observer(
       } 
     }
 
-    hideblockSubmitBotton() {
+    hideblockSubmitBotton() { 
       if(this.props.idPlayerSelected !== 'newPlayer') {
-        const areSame = JSON.stringify(this.state.playerForm) === JSON.stringify(this.getPlayerToUpdate());
+        const areSame = JSON.stringify(this.state.playerForm) === JSON.stringify(this.state.prevPlayerForm);
         if ( this.state.oneTimeDisabled && !areSame) {
           this.buttonSubmitRef.current.disabled = false;
-          this.state.oneTimeDisabled = false;
+          this.setState({
+            oneTimeDisabled: false,
+          })
         } else if (areSame) {
           this.buttonSubmitRef.current.disabled = true;
-          this.state.oneTimeDisabled = true;
+          this.setState({
+            oneTimeDisabled: true,
+          })
         }
       }
     }
@@ -140,7 +148,7 @@ const ModalCRUDPlayer = observer(
     adjustNewPlayer() {
       const {birthDate} = this.state.playerForm;
       const adjustData = {
-        birthDate: firebase.firestore.Timestamp.fromDate(new Date(birthDate)),
+        birthDate: utils.stringDateToTimestamp(birthDate),
         ranking: this.state.scoreDefault,
       }
       return Object.assign({}, this.state.playerForm, adjustData);
@@ -149,7 +157,7 @@ const ModalCRUDPlayer = observer(
     adjustUpdatePlayer() {
       const {birthDate} = this.state.playerForm;
       const adjustData = {
-        birthDate: firebase.firestore.Timestamp.fromDate(new Date(birthDate)),
+        birthDate: utils.stringDateToTimestamp(birthDate),
       }
       return Object.assign({}, this.state.playerForm, adjustData);
     }
@@ -162,7 +170,7 @@ const ModalCRUDPlayer = observer(
     updatePlayer(playerToSend) {
       const playerToupdate = Object.assign({}, playerToSend, {id: this.props.idPlayerSelected});
       const sendData = [this.props.store.fireStore, thesaurus.collectionsName.PLAYERS, playerToupdate];
-      serviceUpdateData.updateData(...sendData);//Id Requerido
+      serviceUpdateData.updateData(...sendData);
     }
 
     handleSubmit(event) {
@@ -178,17 +186,11 @@ const ModalCRUDPlayer = observer(
       this.closeModal();  
     }
 
-    restartForm() {
-      this.setState({
-        playerForm: Object.assign({}, {name: '', idCountry: '', birthDate: ''}),
-      });      
-      this.formRef.children[1].children[1].children[1].selectedIndex = 0; // Put first select option
-    }
-
     closeModal() {
       this.formRef.children[0].children[1].click(); // Close Modal
-      this.updateForm(this.props.idPlayerSelected); //FIXME: Update player form then update handle!!
+      this.updateForm(this.props.idPlayerSelected);
       this.buttonSubmitRef.current.disabled = false;
+      this.formRef.reset();
     }
 
     render() {

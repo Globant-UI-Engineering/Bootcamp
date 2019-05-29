@@ -1,3 +1,5 @@
+import firebase from 'firebase';
+
 const utils = {
 	capitalizeString: () => {
 		String.prototype.capitalize = function() {
@@ -10,9 +12,14 @@ const utils = {
 		const ageDate = new Date(differentDate); 
 		return Math.abs(ageDate.getUTCFullYear() - 1970);
 	},
+	stringDateToTimestamp: (date) => {
+		const datePieces = date.split('-')
+		  						.map((datePiece,index) => (index === 1) ? Number(datePiece) - 1 : Number(datePiece) + 0 );
+		  return firebase.firestore.Timestamp.fromDate(new Date(...datePieces));
+	},
 	toStringDate: (date) => {
 		let month = date.getMonth() + 1;
-		let day = date.getDate() + 1;
+		let day = date.getDate() + 0;
 		if(month < 10) month = `0${month}`;
 		if(day < 10) day = `0${day}`;			 
 		return `${date.getFullYear()}-${month}-${day}`;

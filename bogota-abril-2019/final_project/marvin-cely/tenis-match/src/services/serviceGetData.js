@@ -17,7 +17,7 @@ const serviceGetData = {
         }, (error) => {
           store.isLoading['from' + collectionType.capitalize()] = false;
           store.hasErrorService['from' + collectionType.capitalize()] = true;
-          console.log('listenAllElements Error: ' + error); //TODO: Revisar que hacer con el manejo de este error
+          console.log('listenAllElements Error: ' + error);
         });
         return unsubcribe;
       },
@@ -36,7 +36,7 @@ const serviceGetData = {
         }, (error) => {
           store.isLoading['from' + collectionType.capitalize()] = false;
           store.hasErrorService['from' + collectionType.capitalize()] = true;
-          console.log('listenAllElements Error: ' + error); //TODO: Revisar que hacer con el manejo de este error
+          console.log('listenAllElements Error: ' + error);
         });
         return unsubcribe;
       },

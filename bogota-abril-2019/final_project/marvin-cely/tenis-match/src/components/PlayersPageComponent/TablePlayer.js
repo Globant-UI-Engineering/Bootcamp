@@ -19,13 +19,18 @@ const TablePlayer = observer(
     }
 
     render() { 
-      const tableHeader = (headerList) => { //TODO: Encajar Título con la tabla
+      const tableHeader = (headerList) => {
         return(
           <section className="row" role="row">
-            <h4 className="col-md-3" role="columnheader">{headerList.name}</h4>
-            <h4 className="col-md-3" role="columnheader">{headerList.nationality}</h4>
-            <h4 className="col-md-3" role="columnheader">{headerList.age}</h4>
-            <h4 className="col-md-3" role="columnheader">{headerList.ranking}</h4>
+            <article className="col-10">
+              <div className="row">
+                <h4 className="col-md-3" role="columnheader">{headerList.name}</h4>
+                <h4 className="col-md-3" role="columnheader">{headerList.nationality}</h4>
+                <h4 className="col-md-3" role="columnheader">{headerList.age}</h4>
+                <h4 className="col-md-3" role="columnheader">{headerList.ranking}</h4>
+              </div>
+            </article>
+            <span className="col-md-2"></span>
           </section>
         );
       }
