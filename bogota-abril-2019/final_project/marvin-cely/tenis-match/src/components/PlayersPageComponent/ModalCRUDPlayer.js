@@ -22,16 +22,8 @@ const ModalCRUDPlayer = observer(
         deleteConfirmTitle: 'Mensaje de confirmación',
         deleteConfirmMessage: '¿Esta seguro de eliminar este jugador?',
         submitStyle: 'btn btn-info',
-        playerForm: {
-          name: '',
-          idCountry: '',
-          birthDate: '',
-        },
-        prevPlayerForm: {
-          name: '',
-          idCountry: '',
-          birthDate: '',
-        },
+        playerForm: Object.assign({}, thesaurus.initialValueForm),
+        prevPlayerForm: Object.assign({}, thesaurus.initialValueForm),
         scoreDefault: 0,
         isUpdate: false,
         oneTimeDisabled: true,
@@ -92,11 +84,7 @@ const ModalCRUDPlayer = observer(
           successButton:  'Inscribir',
           submitStyle: 'btn btn-info',
           isUpdate: false,
-          playerForm: {
-            name: '',
-            idCountry: '',
-            birthDate: '',
-          },
+          playerForm: Object.assign({}, thesaurus.initialValueForm),
         });
 
         this.buttonSubmitRef.current.disabled = false;

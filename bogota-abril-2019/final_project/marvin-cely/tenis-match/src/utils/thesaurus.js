@@ -29,5 +29,10 @@ const thesaurus = {
         BACKHANDVOLLEY: 'doublefault',
         BACKHAND: 'doublefault',
     },
+    initialValueForm: {
+        name: '',
+        idCountry: '',
+        birthDate: '',
+    },
 }
 export default thesaurus;

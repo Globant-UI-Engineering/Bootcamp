@@ -52,7 +52,7 @@ const PlayersPage = observer(
 
     filterTable = (value) => {// TODO: considerar si no poner el buscar...Resolver actualización de estados de players y playerTable
       const elementsToFilter = [ this.props.store.players, value];// TODO: Revisar comportamiento del this.playersTable en el store
-      this.props.store.players = utils.filterAllByArrayList(...elementsToFilter);
+      // this.props.store.players = utils.filterAllByArrayList(...elementsToFilter);
     }
 
     orderTable = (value) => {
