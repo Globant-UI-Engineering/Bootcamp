@@ -5,6 +5,8 @@ import SearchBar from '../Google/SearchBar';
 import Select from 'react-select';
 import Button from '../Atoms/Button';
 import Loader from 'react-loader-spinner';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-css-effects/genie.css';
 
 const eventTypes = [
     { value: 'Turístico', label: 'Turístico' },
@@ -159,8 +161,13 @@ class CreateEvent extends React.Component {
 
             });
 
-            alert('El evento se creó satisfactoriamente.')
-
+            Alert.success('El evento se creó satisfactoriamente.', {
+                position: 'top-left',
+                effect: 'genie',
+                timeout: 3000,
+                offset: 5
+            });
+            
             this.setState({
                 showLoader: false
             });
@@ -178,9 +185,19 @@ class CreateEvent extends React.Component {
                 eventAddress: place.formatted_address
             })
         } else if(place.name === "") {
-            alert("Por favor ingrese una dirección");
+            Alert.warning('Por favor ingrese una dirección.', {
+                position: 'top-left',
+                effect: 'genie',
+                timeout: 3000,
+                offset: 5
+            });
         } else {
-            alert("Por favor ingrese una dirección válida");
+            Alert.warning('Por favor ingrese una dirección válida.', {
+                position: 'top-left',
+                effect: 'genie',
+                timeout: 3000,
+                offset: 5
+            });
         }
     }
 

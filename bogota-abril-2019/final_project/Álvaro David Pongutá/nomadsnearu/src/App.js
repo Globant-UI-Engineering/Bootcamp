@@ -12,6 +12,10 @@ import EventsMap from './Components/EventsMap';
 import YourEvents from './Components/YourEvents';
 import { Provider, connect } from 'react-redux';
 import { createStore, combineReducers, bindActionCreators } from 'redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-s-alert/dist/s-alert-default.css';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-css-effects/stackslide.css';
 
 //Redux
 const CHANGE_TAB = 'change_tab';
@@ -56,40 +60,67 @@ let tabReducer = function(state={}, action) {
     }
 }
 
-//This is the final reducer that gets attached to our store.
 const rootReducer = combineReducers ({
     booleanTabs: tabReducer
 });
   
-//create the store
 let store = createStore(rootReducer);
 
-//map our the state's tab to this property on the components
 let mapStateToProps = function(state) {
     return { booleanTabs: state.booleanTabs };
 }
 
-//give these components access to the change tab creator
 let mapDispatchToProps = function(dispatch) {
   return bindActionCreators({changeTab}, dispatch)
 }
 
 class ReduxNavigation extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.checkPathName = this.checkPathName.bind(this);
+    }
+
+    checkPathName(pathname, booleanTabs){
+        switch (pathname) {
+            case '/':
+                booleanTabs.home = true;
+              break;
+            case '/eventsMap':
+                booleanTabs.eventsMap = true;
+              break;
+            case '/yourEvents':
+                booleanTabs.yourEvents = true;
+              break;
+            case '/createEvent':
+                booleanTabs.createEvent = true;
+              break;
+        }
+
+        return booleanTabs;
+    }
+
     render() {
 
         let booleanTabs = {
-            home: true,
+            home: false,
             eventsMap: false,
             yourEvents: false,
             createEvent: false
         }
 
-        if(Object.keys(this.props.booleanTabs).length === 0 && this.props.booleanTabs.constructor === Object){
-            booleanTabs.home = true;
+         if(Object.keys(this.props.booleanTabs).length === 0 && this.props.booleanTabs.constructor === Object){
+            booleanTabs = this.checkPathName(window.location.pathname, booleanTabs);
+        } else if (window.location.pathname.indexOf('/viewEvent') == 0){
+            booleanTabs = {
+                home: false,
+                eventsMap: false,
+                yourEvents: false,
+                createEvent: false
+            }
         } else {
             booleanTabs = this.props.booleanTabs;
-        }
+        } 
 
         return(
                 <BrowserRouter>
@@ -121,7 +152,6 @@ class ReduxNavigation extends React.Component {
     }
 }
 
-//Make the two components Redux Containers
 const ReduxNavigationContainer = connect(mapStateToProps, mapDispatchToProps)(ReduxNavigation);
 
 //Components
@@ -212,6 +242,7 @@ class NomadsNearU extends React.Component {
                 <Header/>
                 <ReduxNavigationContainer/>
                 <Footer/>
+                <Alert stack={{limit: 3}}/>
             </Provider>
         );
     }

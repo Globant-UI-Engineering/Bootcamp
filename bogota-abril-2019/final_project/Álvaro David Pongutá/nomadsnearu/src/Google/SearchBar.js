@@ -33,5 +33,5 @@ class SearchBar extends React.Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: ("google_key")
+    apiKey: ("AIzaSyBdw9I1llo_EUaw_8Wdmsbo_8NvJ2ch98k")
 })(SearchBar)

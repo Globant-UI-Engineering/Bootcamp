@@ -5,6 +5,8 @@ import { GoogleApiWrapper, Map, Marker, InfoWindow } from 'google-maps-react';
 import Button from '../Atoms/Button';
 import SearchBar from './SearchBar';
 import firebase from '../Firebase';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-css-effects/genie.css';
 
 /* global google */
 
@@ -124,9 +126,19 @@ export class MapContainer extends React.Component {
                 }
             })
         } else if(place.name === "") {
-            alert("Por favor ingrese una dirección");
+            Alert.warning('Por favor ingrese una dirección', {
+                position: 'top-left',
+                effect: 'genie',
+                timeout: 3000,
+                offset: 5
+            });
         } else {
-            alert("Por favor ingrese una dirección válida");
+            Alert.warning('Por favor ingrese una válida', {
+                position: 'top-left',
+                effect: 'genie',
+                timeout: 3000,
+                offset: 5
+            });
         }
     }
 
@@ -187,5 +199,5 @@ export class MapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: ("google_key")
+    apiKey: ("AIzaSyBdw9I1llo_EUaw_8Wdmsbo_8NvJ2ch98k")
 })(MapContainer)

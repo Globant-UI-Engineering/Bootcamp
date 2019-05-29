@@ -5,15 +5,13 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 6vmin;
+  height: 50px;
   pointer-events: none;
   align-self: center;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 6vh;
-  max-height: 7vh;
   font-size: calc(10px + 2vmin);
   color: #FD8006;
   display: flex;
@@ -22,7 +20,7 @@
 
   h1{
     margin: 0; 
-    font-size: calc(17px + 2vmin);
+    font-size: 42px;
   }
 
 }
@@ -97,7 +95,7 @@
 
 .App-footer {
   margin-top: 12px;
-  font-size: calc(9px + 1vmin);
+  font-size: 18px;
   color: #282c34;
   text-decoration: underline;
   position: relative;
@@ -153,9 +151,8 @@
       }
     }
 
-    h2{
-      max-width: 97%;
-      border-bottom: 0.1em solid black;
+    h2 {
+      font-size: 28px;
     }
 
     h2.signin{
@@ -167,6 +164,7 @@
       color: #FD8006;
       text-align: center;
       margin-top: 10px;
+      font-size: 24px;
     }
 
     .images-services{
@@ -268,7 +266,7 @@
 .App-container-checkbox {
   display: block;
   position: relative;
-  padding-left: 35px;
+  padding-left: 25px;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
@@ -299,10 +297,10 @@
   }
 
   .App-checkmark:after{
-    left: 6px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
+    left: 7px;
+    top: 1px;
+    width: 7px;
+    height: 15px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
@@ -319,7 +317,7 @@
   height: 20px;
   width: 20px;
   background-color: #eee;
-  margin-top: 6px;
+  margin-top: 3px;
 
   &:after{
     content: "";
@@ -430,71 +428,6 @@
   }
 }
 
-.App-container-checkbox {
-  display: inline-block;
-  position: relative;
-  padding-top: 4px;
-  padding-left: 35px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  margin-left: 12px;
-  max-width: 65vw;
-
-  input{
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-
-  &:hover input ~ .App-checkmark{
-    background-color: #ccc;
-  }
-
-  input:checked ~ .App-checkmark {
-    background-color: #282c34;
-  }
-
-  input:checked ~ .App-checkmark:after{
-    display: block;
-  }
-
-  .App-checkmark:after{
-    left: 6px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-
-}
-
-.App-checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #eee;
-  margin-top: 6px;
-
-  &:after{
-    content: "";
-    position: absolute;
-    display: none;
-  }
-
-}
-
 .App-select{
   margin-top: 12px;
   width: 20.9%;
@@ -547,6 +480,7 @@
     }
     p{
       font-size: 16px;
+      max-width: 70px;
     }
   }
 }
@@ -571,6 +505,9 @@
   }
   .yourEvents-right{
     margin-left: 8px;
+    @media (max-width: 1400px) {
+      margin-left: -18px;
+    }
   }
 }
 
@@ -611,6 +548,12 @@
     position: relative;
     left: 10px;
     top: 10px;
+  }
+
+  .App-loader-yourEvents{
+    position: relative;
+    right: 15px;
+    bottom: 220px;
   }
 }
 

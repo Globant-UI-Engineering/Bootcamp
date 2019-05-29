@@ -3,6 +3,8 @@ import '../App.scss';
 import firebase from '../Firebase';
 import Button from '../Atoms/Button';
 import Loader from 'react-loader-spinner';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-css-effects/genie.css';
 
 class ViewEvent extends React.Component {
 
@@ -106,22 +108,47 @@ class ViewEvent extends React.Component {
                                         },
                                     });
     
-                                    alert("Se ha inscrito en el evento correctamente");
+                                    Alert.success('Se ha inscrito en el evento correctamente', {
+                                        position: 'top-left',
+                                        effect: 'genie',
+                                        timeout: 3000,
+                                        offset: 5
+                                    });
                                 } else {
-                                    alert("Ya se encuentra inscrito para este evento");
+                                    Alert.info('Ya se encuentra inscrito para este evento', {
+                                        position: 'top-left',
+                                        effect: 'genie',
+                                        timeout: 3000,
+                                        offset: 5
+                                    });
                                 }
                             });
                         } else {
-                            alert("En este momento no hay cupos disponibles para este evento");
+                            Alert.info('En este momento no hay cupos disponibles para este evento', {
+                                position: 'top-left',
+                                effect: 'genie',
+                                timeout: 3000,
+                                offset: 5
+                            });
                         }
                     })
                 } else {
-                    alert("El evento ya no existe");
+                    Alert.info('El evento ya no existe', {
+                        position: 'top-left',
+                        effect: 'genie',
+                        timeout: 3000,
+                        offset: 5
+                    });
                 }
             })
 
         } else {
-            alert("En este momento no te encuentras autenticado en el sistema, por favor realiza la autenticación");
+            Alert.warning('En este momento no te encuentras autenticado en el sistema, por favor realiza la autenticación', {
+                position: 'top-left',
+                effect: 'genie',
+                timeout: 3000,
+                offset: 5
+            });
         }
     }
 
@@ -219,9 +246,20 @@ class ViewEvent extends React.Component {
                             urlImage: this.state.actualEvent.urlImage
                         },
                     });
-                    alert("Has sido eliminado del evento correctamente");
+                    
+                    Alert.success('Has sido eliminado del evento correctamente', {
+                        position: 'top-left',
+                        effect: 'genie',
+                        timeout: 3000,
+                        offset: 5
+                    });
                 } else {
-                    alert("Ya no te encuentras inscrito en el evento");
+                    Alert.info('Ya no te encuentras inscrito en el evento', {
+                        position: 'top-left',
+                        effect: 'genie',
+                        timeout: 3000,
+                        offset: 5
+                    });
                 }
 
             });
@@ -264,9 +302,19 @@ class ViewEvent extends React.Component {
                             });
                         }
                     });
-                    alert("El evento se ha eliminado correctamente");
+                    Alert.success('El evento ha sido eliminado correctamente', {
+                        position: 'top-left',
+                        effect: 'genie',
+                        timeout: 3000,
+                        offset: 5
+                    });
                 } else {
-                    alert("El evento ya fue eliminado");
+                    Alert.info('El evento ya fue eliminado', {
+                        position: 'top-left',
+                        effect: 'genie',
+                        timeout: 3000,
+                        offset: 5
+                    });
                 }
             });
         }   
@@ -284,7 +332,7 @@ class ViewEvent extends React.Component {
                 </article>
                 <article className="App-row-elements">
                     <img role="img" className="image-left image-event" src={this.state.actualEvent.urlImage} alt="Event Image"/>
-                    <article aria="list" className="App-column-elements App-center-elements App-font-event">
+                    <article role="list" className="App-column-elements App-center-elements App-font-event">
                         <div className="center-text">
                             <h3>Fecha</h3>{this.state.actualEvent.date}
                         </div>

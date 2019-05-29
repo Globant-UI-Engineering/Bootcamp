@@ -5,6 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Image from 'react-image-resizer';
 import firebase from '../Firebase';
 import { Link } from "react-router-dom";
+import Loader from 'react-loader-spinner';
 
 class YourEvents extends React.Component {
 
@@ -18,7 +19,9 @@ class YourEvents extends React.Component {
 
     state = {
         createdEvents: [],
-        goingToAssistEvents: []
+        goingToAssistEvents: [],
+        showLoaderCreated: false,
+        showLoaderAssist: false
     }
 
     componentDidMount() {
@@ -27,6 +30,10 @@ class YourEvents extends React.Component {
     }
 
     fillListCreatedEvents(){
+
+        this.setState({
+            showLoaderCreated: true
+        });
 
         let currentUID = firebase.auth().currentUser.uid;
         let auxiliarEvent = {
@@ -49,13 +56,18 @@ class YourEvents extends React.Component {
                 }
             });
             this.setState({
-                createdEvents: auxiliarCreatedEvents
+                createdEvents: auxiliarCreatedEvents,
+                showLoaderCreated: false
             });
         });
         
     }
 
     fillListGoingToAssistEvents(){
+
+        this.setState({
+            showLoaderAssist: true
+        });
 
         let currentUID = firebase.auth().currentUser.uid;
         let auxiliarEvent = {
@@ -81,7 +93,8 @@ class YourEvents extends React.Component {
                             }
                         });
                         this.setState({
-                            goingToAssistEvents: auxiliarGoingToAssistEvents
+                            goingToAssistEvents: auxiliarGoingToAssistEvents,
+                            showLoaderAssist: false
                         });
                     });
                 }
@@ -132,9 +145,29 @@ class YourEvents extends React.Component {
         }
     }
 
+    showLoader(){
+        if(this.state.showLoaderCreated || this.state.showLoaderAssist ){
+            return (
+                <div role="presentation" className= "App-loader-container">
+                    <div className= "App-loader-yourEvents">
+                        <Loader 
+                            type="Oval"
+                            color="#282c34"
+                            height="75"	
+                            width="75"
+                        />  
+                    </div>
+                </div>
+            )
+        }
+    }
+
     render () {
         return (
             <section>
+                {
+                    this.showLoader()
+                }
                 <article className="App-row-elements">
                     <h2>Tus Eventos:</h2>
                 </article>
