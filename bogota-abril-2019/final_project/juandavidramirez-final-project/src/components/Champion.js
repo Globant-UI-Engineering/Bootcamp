@@ -8,7 +8,7 @@ const Champion = ({ name, image, nameKey }) => {
         <img
           alt={name}
           src={image}
-          aria-labelledBy={`champion-name-${nameKey}`}
+          aria-labelledby={`champion-name-${nameKey}`}
         />
       </Link>
 

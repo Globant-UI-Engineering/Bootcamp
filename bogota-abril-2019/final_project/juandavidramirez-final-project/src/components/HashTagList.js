@@ -8,7 +8,7 @@ class HashTagList extends React.Component {
         {values.map(value => (
           <li key={value}>
             <p id={`hashtag-${value}`} aria-label={`Hashtag ${value}`}>
-              #<span aria-labelledBy={`hashtag-${value}`}>{value}</span>
+              #<span aria-labelledby={`hashtag-${value}`}>{value}</span>
             </p>
           </li>
         ))}

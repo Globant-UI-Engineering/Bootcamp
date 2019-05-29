@@ -40,10 +40,11 @@ class TopTierList extends React.Component {
 
   render() {
     const { summoners, loading, error } = this.state;
-    return loading ? (
-      <Loading name="top tier summoners" />
-    ) : error ? (
+
+    return error ? (
       <ErrorPanel error={error} />
+    ) : loading ? (
+      <Loading name="top tier summoners" />
     ) : (
       <RenderTierList summoners={summoners} />
     );

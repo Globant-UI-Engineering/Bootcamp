@@ -16,8 +16,8 @@ class InfoCategory extends React.Component {
         id={`category-description-${label}`}
         aria-label={`${label}, ${value}`}
       >
-        <p aria-labelledBy={`category-description-${label}`}>{label}</p>
-        <div aria-labelledBy={`category-description-${label}`}>
+        <p aria-labelledby={`category-description-${label}`}>{label}</p>
+        <div aria-labelledby={`category-description-${label}`}>
           <ProgressBar
             value={value}
             total={10}

@@ -2,7 +2,7 @@
 import React from "react";
 import animate from "@jam3/gsap-promise";
 import { Button, Paper, InputBase } from "@material-ui/core";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import { findDOMNode } from "react-dom";
 
 import search from "../../public/images/search.svg";
@@ -18,6 +18,12 @@ class Search extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+  };
+
+  handleEnterKey = event => {
+    if (event.key === "Enter") {
+      navigate("/search/summoners/" + this.state.summonerName);
+    }
   };
 
   componentDidMount() {
@@ -40,6 +46,7 @@ class Search extends React.Component {
             onChange={this.handleChange}
             placeholder="Summoner name..."
             aria-describedby="Search a summoner name"
+            onKeyDown={this.handleEnterKey}
           />
           <Button onClick={this.handleSubmit}>
             <Link to={`summoners/${summonerName}`}>
