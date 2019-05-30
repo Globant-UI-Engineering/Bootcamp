@@ -50,3 +50,8 @@ p {
 .song-title {
     font-weight: 700;
 }
+
+.song-info {
+    padding-top: 25%;
+    padding-bottom: 25%;
+}

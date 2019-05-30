@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@trendmicro/react-sidenav": "^0.4.5",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "prop-types": "^15.7.2",
@@ -15,6 +16,7 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
+    "react-simple-sidenav": "^1.0.1",
     "react-video-seek-slider": "^2.1.2",
     "redux": "^4.0.1"
   },
