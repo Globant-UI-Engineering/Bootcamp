@@ -8,9 +8,9 @@ import {PollyService} from "../service/polly-service";
 
 export class ScreenComponent extends Component {
   
-  welcomeSentece = '¡Bienvenido a la Pokedex!';
-  letsBeginSentence = 'Comencemos';
-  enterPokemonNameSentence = 'Ingresa el nombre de tu pokemon';
+  welcomeSentece = 'Welcome to the Pokedex!';
+  letsBeginSentence = 'Let\'s begin';
+  enterPokemonNameSentence = 'Enter your pokemon\'s name';
   
   // eslint-disable-next-line
   constructor(props) {
@@ -47,9 +47,9 @@ export class ScreenComponent extends Component {
       return (
         <Typist>
           {this.welcomeSentece}
-          <Typist.Backspace count={this.welcomeSentece.length} delay={150} />
+          <Typist.Backspace count={this.welcomeSentece.length} delay={170} />
           {this.letsBeginSentence}
-          <Typist.Backspace count={this.letsBeginSentence.length} delay={150} />
+          <Typist.Backspace count={this.letsBeginSentence.length} delay={170} />
           {this.enterPokemonNameSentence}
         </Typist>
       )
