@@ -9,21 +9,22 @@ import thesaurus from '../../utils/thesaurus';
 import utils from '../../utils/utils';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import { dataPlayersPage } from '../../data-component/data-players-page';
 
 const ModalCRUDPlayer = observer(
   class ModalCRUDPlayer extends React.Component {
     constructor(props){
       super(props);
       this.state = {  
-        titleForm: 'Perfil del Jugador',
-        successButton: 'Inscribir',
-        cancelButton: 'Cancelar',
-        deleteButton: 'Eliminar jugador',
-        deleteConfirmTitle: 'Mensaje de confirmación',
-        deleteConfirmMessage: '¿Esta seguro de eliminar este jugador?',
-        submitStyle: 'btn btn-info',
-        playerForm: Object.assign({}, thesaurus.initialValueForm),
-        prevPlayerForm: Object.assign({}, thesaurus.initialValueForm),
+        titleForm: dataPlayersPage.ModalForm.titleForm,
+        successButton: dataPlayersPage.ModalForm.successButton,
+        cancelButton: dataPlayersPage.ModalForm.cancelButton,
+        deleteButton: dataPlayersPage.ModalForm.deleteButton,
+        deleteConfirmTitle: dataPlayersPage.ModalForm.deleteConfirmTitle,
+        deleteConfirmMessage: dataPlayersPage.ModalForm.deleteConfirmMessage,
+        submitStyle: dataPlayersPage.ModalForm.submitStyle,
+        playerForm: Object.assign({}, dataPlayersPage.ModalForm.initialValueForm),
+        prevPlayerForm: Object.assign({}, dataPlayersPage.ModalForm.initialValueForm),
         scoreDefault: 0,
         isUpdate: false,
         oneTimeDisabled: true,

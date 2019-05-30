@@ -6,29 +6,15 @@ import ModalCRUDPlayer from './ModalCRUDPlayer';
 import utils from '../../utils/utils';
 import { LoadingComponent, ErrorServiceComponent } from '../SmallPieceComponent';
 import thesaurus from '../../utils/thesaurus';
+import { dataPlayersPage } from '../../data-component/data-players-page';
 
 const PlayersPage = observer(
   class PlayersPage extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        nameComponent: 'Jugadores',
-        newPlayerButton: {
-          name: 'Inscribir jugador',
-          icon: 'fas fa-user-plus',
-        },
-        orderButton: [{
-            value: 'name',
-            namebutton: 'Nombre'
-          },
-          { 
-            value: 'birthDate',
-            namebutton: 'Edad'
-          }, 
-          {
-            value: 'ranking',
-            namebutton: 'Puntaje'
-        }],
+        newPlayerButton: dataPlayersPage.newPlayerButton,
+        orderButton: dataPlayersPage.orderButton,
         idPlayerSelected: 'newPlayer',
         counterAction: 0,
       }      
@@ -78,6 +64,7 @@ const PlayersPage = observer(
             return(
               <label className="btn btn-info" key={index}>
                 <input type="radio" name="orderOption" value={value} onFocus ={this.handleInput} autoComplete="off"/> 
+                <i className="fas fa-sort-amount-up"></i>&nbsp;
                 {namebutton}
               </label>
             );
@@ -88,8 +75,22 @@ const PlayersPage = observer(
         return(
           <main className="container">    
             <section className="sticky-top">
-              <header>                
-                <section>
+              <header className="row">                   
+                <section className="col-md-8">
+                  <div className="row">
+                    <form className="col-lg-4">
+                      <fieldset>
+                        <input type="text" className="form-control form-control-md" placeholder="Buscar" name='search' onChange={this.handleInput}/>
+                      </fieldset>
+                    </form>  
+                    <section className="col-lg-8">
+                      <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                        {orderOption()}
+                      </div>
+                    </section>                               
+                  </div>
+                </section>
+                <section className="col-md-4">
                   <button type="button"
                     className="btn btn-primary"
                     data-toggle="modal"
@@ -101,18 +102,7 @@ const PlayersPage = observer(
                       <i className={this.state.newPlayerButton.icon}></i>
                       &nbsp;{this.state.newPlayerButton.name}
                   </button>
-                </section>
-                <section>
-                  <h5 className="text-muted">Ordenar Lista:</h5>
-                  <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                    {orderOption()}
-                  </div>
-                </section>
-                <form>
-                  <fieldset>
-                    <input type="text" className="form-control form-control-md" placeholder="Buscar" name='search' onChange={this.handleInput}/>
-                  </fieldset>
-                </form>
+                </section> 
               </header>
             </section>
             <ModalCRUDPlayer counterAction={this.state.counterAction} store={this.props.store} idPlayerSelected={this.state.idPlayerSelected}/>      
@@ -130,7 +120,7 @@ const PlayersPage = observer(
         <React.Fragment>
           <aside>
             <figure aira-lable="Foto de la pagina jugadores">
-              <figcaption>{this.state.nameComponent}</figcaption>
+              <figcaption>{this.props.titlePage}</figcaption>
             </figure>
           </aside>        
           {validationComponent()}

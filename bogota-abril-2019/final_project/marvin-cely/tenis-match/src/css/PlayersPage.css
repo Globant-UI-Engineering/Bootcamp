@@ -34,21 +34,36 @@ form > fieldset {
     margin-bottom: 0;
 }
 
-section > header {
+section > header.row {
     background: white;
     padding: 1rem;
     border-bottom: 1px solid var(--font-color-gray);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     flex-flow: row wrap;
 }
 
-header > section:last-of-type {
+section > header.row > section:first-of-type > div {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     flex-flow: row wrap;
+}
+
+section > header.row section {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*TODO: REVISAR: Es posible no necesitarlo**/
+/* header > section:last-of-type {
+    margin: 1vh;
+} */
+
+header > section:last-of-type + form {
+    margin: 1vh;
 }
 
 header > section:last-of-type h5 {

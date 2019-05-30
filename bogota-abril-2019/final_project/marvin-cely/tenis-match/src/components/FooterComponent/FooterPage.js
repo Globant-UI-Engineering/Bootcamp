@@ -1,13 +1,17 @@
 import React from '../../../node_modules/react';
 import '../../css/FooterPage.css';
 import globantLogo from '../../images/globantLogo.png';
+import { dataFooterPage } from'../../data-component/data-footer-page';
 
 class FooterPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      authorMessage: 'Creado por:',
-      author: 'Marvin Daniel Cely Báez',
+      authorMessage: dataFooterPage.authorMessage,
+      author: dataFooterPage.author,
+      gitHubURL:  dataFooterPage.gitHubURL,
+      flaticonURL: dataFooterPage.flaticonURL,
+      licenseIconURL: dataFooterPage.licenseIconURL,
     }
   }
   render() {
@@ -16,7 +20,7 @@ class FooterPage extends React.Component {
         <React.Fragment>
           Iconos tomado por:
             <a 
-              href="https://www.flaticon.com/authors/dinosoftlabs" 
+              href={this.state.flaticonURL}  
               title="DinosoftLabs"
               target="_blank"
               rel="noopener"
@@ -33,7 +37,7 @@ class FooterPage extends React.Component {
               &nbsp;www.flaticon.com
             </a> 
             &nbsp;licencia por: 
-            <a href="http://creativecommons.org/licenses/by/3.0/" 			    
+            <a href={this.state.licenseIconURL} 			    
               title="Creative Commons BY 3.0" 
               target="_blank"
               rel="noopener">
@@ -55,7 +59,7 @@ class FooterPage extends React.Component {
             <strong>{this.state.authorMessage}&nbsp;</strong>
             {this.state.author}&nbsp;
             <a
-              href="https://github.com/Globant-UI-Engineering/Bootcamp/tree/marvin-cely-final-project/bogota-abril-2019/final_project/marvin-cely/tenis-match"
+              href={this.state.gitHubURL}
               target="_blank" rel="noopener">
                 <i className="fab fa-github ml-1"></i>
             </a>

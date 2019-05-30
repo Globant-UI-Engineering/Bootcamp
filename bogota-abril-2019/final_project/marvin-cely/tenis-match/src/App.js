@@ -6,15 +6,15 @@ import tennisLogo from './images/tennisLogo.png';
 import FooterPage from './components/FooterComponent/FooterPage';
 import serviceGetData from './services/serviceGetData';
 import thesaurus from './utils/thesaurus';
-import menuList from './components/menuList';
 import routesPages from './components/router';
+import { dataApp } from './data-component/data-app'
 
 const App = observer(
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      nameApp: 'Tennis Match',
+      nameApp: dataApp.nameApp,
     }
 
     // Here is the firestore's onSnapshot when gets the "()" Unlink a listening agent. See componentWillMount.
@@ -33,12 +33,13 @@ class App extends React.Component {
   }
   
   render() {
-    const linkList = menuList.map(({to, icon, title}, key) => {
+    const linkList = routesPages.filter((_route, index) => index > 0 )
+                                .map(({path, icon, title}, index) => {
       return (
         <Link
-          key={key}
+          key={index}
           className="nav-link"
-          to={to}
+          to={path}
         >
           <i className={icon}></i>
           &nbsp;{title}
@@ -50,7 +51,7 @@ class App extends React.Component {
       return(
         <nav className="navbar sticky-top navbar-expand-lg navbar-dark justify-content-between">
               <Link
-                to="/"
+                to={routesPages[0].path}
                 id="navegacion-inicio-tab" 
                 role="tab" 
                 aria-controls="navegacion-inicio" 
@@ -72,13 +73,13 @@ class App extends React.Component {
       );
     };
 
-    const routesList = routesPages.map(({path, exact, component: ComponentPage}, key) => {
+    const routesList = routesPages.map(({title, path, exact, component: ComponentPage}, key) => {
       return (
         <Route
           key={key}
           exact={exact}
           path={path}
-          render={(props) => <ComponentPage {...props} store={this.props.store}/>}
+          render={(props) => <ComponentPage {...props} titlePage={title} store={this.props.store}/>}
         />
       );
     });

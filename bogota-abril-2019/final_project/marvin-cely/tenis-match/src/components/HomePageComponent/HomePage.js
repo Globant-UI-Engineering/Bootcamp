@@ -2,29 +2,42 @@ import React from '../../../node_modules/react';
 import '../../css/HomePage.css';
 import tennisRacket from '../../images/tennisRacket.png';
 import rising from '../../images/rising.png';
+import { dataHomePage } from '../../data-component/data-home-page';
+import { dataApp } from '../../data-component/data-app';
 
 class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      titleApp: dataApp.nameApp,
+      firstBanner: dataHomePage.firstBanner,
+      firstParagraph: dataHomePage.firstParagraph,
+      secondBanner: dataHomePage.secondBanner,
+      secondParagraph: dataHomePage.secondParagraph,
+      thirdParagraph: dataHomePage.thirdParagraph,
+    }
+  }
   render() { 
     return(
       <React.Fragment>    
         <main>
           <figure aira-lable="Foto de una pelota de tennis" role="banner">
-            <p>Anota tus puntos en vivo</p>
+            <p>{this.state.firstBanner}</p>
           </figure>
           <section>
-            <h1>Tennis Match</h1>
-            <p>Perfecto para los amantes del tenis, tú y tu amigos podrán ver estadísticas de partido, historial de partidos y puntaje de sus competidores. Con Tennis Match estarás preparado para tu próximo juego y así disfrutar lo mejor del deporte blanco.</p>
+            <h1>{this.state.titleApp}</h1>
+            <p>{this.state.firstParagraph}</p>
           </section>
           <figure role="banner">
-            <p>Compite contra tus amigos por el mejor ranking.</p>
+            <p>{this.state.secondBanner}</p>
           </figure>
           <section>
             <img className="img-fluid d-none d-md-block" src={rising} alt="Barra de estadistica"/>
             <img className="img-fluid" src={tennisRacket} alt="Raqueta y pelota de tenis"/>
-            <p>Mejora tus estadisticas, revisa en el historial. Observa tus fortalezas y habilidades por mejorar; y encuentra la mejor estrategia al instante.</p>
+            <p>{this.state.secondParagraph}</p>
           </section>
           <figure role="banner">
-            <p>¡Todo en tiempo real!</p>
+            <p>{this.state.thirdParagraph}</p>
           </figure>
         </main>
       </React.Fragment>

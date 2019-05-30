@@ -1,0 +1,34 @@
+{
+    "dataPlayersPage": {
+      "newPlayerButton": {
+          "name": "Inscribir jugador",
+          "icon": "fas fa-user-plus"
+      },
+      "orderButton": [{
+          "value": "name",
+          "namebutton": "Nombre"
+        },
+        { 
+          "value": "birthDate",
+          "namebutton": "Edad"
+        }, 
+        {
+          "value": "ranking",
+          "namebutton": "Ranking"
+      }],
+      "ModalForm": {
+        "titleForm": "Perfil del Jugador",
+        "successButton": "Inscribir",
+        "cancelButton": "Cancelar",
+        "deleteButton": "Eliminar jugador",
+        "deleteConfirmTitle": "Mensaje de confirmación",
+        "deleteConfirmMessage": "¿Esta seguro de eliminar este jugador?",
+        "submitStyle": "btn btn-info",
+        "initialValueForm": {
+          "name": "",
+          "idCountry": "",
+          "birthDate": ""
+        }
+      }
+    }
+}
