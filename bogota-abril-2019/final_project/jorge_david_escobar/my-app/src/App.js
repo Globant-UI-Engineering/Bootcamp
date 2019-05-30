@@ -3,26 +3,62 @@ import './App.css';
 import NavBar from './components/navBar';
 import WeatherCard from './components/WeatherCard';
 import NewsCard from './components/NewsCard';
-import { Route, BrowserRouter as Router, Switch as Sw, Link } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch as Sw, Link, Redirect } from 'react-router-dom';
 import NewsPage from './components/NewsPage';
-import WeatherDetails from './components/WeatherPage';
+import WeatherPage from './components/WeatherPage';
+import firebase from 'firebase';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
 
 const weather_api_key = "36e2fa16b70a4422ed609a5ad91f71f5";
 const news_api = "baf89e91a399451dbf982a015897aea1";
 
+
+firebase.initializeApp({
+  apiKey: "AIzaSyB_BJ35TyfDJSbCulXcWIJNImdNvy-fBSI",
+  authDomain: "weather-and-news-app.firebaseapp.com"
+})
+
 class App extends React.Component {
+
+
   state = {
-    city: "city",
+    isSignedIn: false,
     temperature: undefined,
+    presure: undefined,
+    min_temp: undefined,
+    max_temp: undefined,
+    visibility: undefined,
+    long: undefined,
+    lat: undefined,
+    city: "city",
     description: "Description",
     humidity: undefined,
-    time: undefined,
+    wind_speed: undefined,
     country: undefined,
     news: [1],
     newsImage: ["https://www.allenreproduction.com/wp-content/uploads/2016/08/latest_news_header_03.jpg"],
     newsTitle: ["pick a city to get the latest news"],
     newsContent: [],
     newsLink: [],
+  }
+
+  uiConfig = {
+    signInFlow: "popup",
+    signInOptions: [
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+      signInSuccess: () => false
+    }
+  }
+
+  componentDidMount = () => {
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ isSignedIn: !!user })
+      console.log("user", user)
+    })
   }
 
   getWeather = (e) => {
@@ -32,8 +68,14 @@ class App extends React.Component {
       .then(response => response.json())
       .then(data => {
         if (city) {
-          console.log(data.weather[0].main)
           this.setState({
+            presure: data.main.pressure,
+            min_temp: data.main.temp_min + "°C",
+            max_temp: data.main.temp_max + "°C",
+            visibility: (data.visibility / 1000) + " Km",
+            long: data.coord.lon,
+            lat: data.coord.lat,
+            wind_speed: data.wind.speed + " Km/H",
             city: data.name,
             description: data.weather[0].main,
             temperature: data.main.temp + "°C",
@@ -41,13 +83,6 @@ class App extends React.Component {
             country: data.sys.country
           });
         } else {
-          this.setState({
-            city: "city",
-            temperature: undefined,
-            description: undefined,
-            humidity: undefined,
-            time: undefined,
-          });
           alert("Please enter a city name to get the weather and latest news");
         }
         this.getNews();
@@ -109,40 +144,77 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <NavBar getWeather={this.getWeather}></NavBar>
-          <Sw>
-            <Route path="/home" render={
-              props =>
-                <div className="container-fluid">
-                  <div className="row">
-                    <WeatherCard
-                      city={this.state.city}
-                      country={this.state.country}
-                      description={this.state.description}
-                      temperature={this.state.temperature}
-                      humidity={this.state.humidity}
-                    ></WeatherCard>
-                    <div className="col-sm-12 col-lg-6 nonSpace">
-                      <div className="container newsCard">
+          {this.state.isSignedIn ?
+            <div>
+              <header>
+                <NavBar
+                  getWeather={this.getWeather}
+                  signOut={() => firebase.auth().signOut()}></NavBar>
+              </header>
+              <main>
+                <Sw>
+                  
+                  <Route path="/home" render={
+                    props =>
+                      <div className="container-fluid">
                         <div className="row">
-                          {news}
+                          <WeatherCard
+                            city={this.state.city}
+                            country={this.state.country}
+                            description={this.state.description}
+                            temperature={this.state.temperature}
+                            humidity={this.state.humidity}
+                          ></WeatherCard>
+                          <div className="col-sm-12 col-lg-6 nonSpace">
+                            <section>
+                              <div className="container newsCard">
+                                <div className="row">
+                                  {news}
+                                </div>
+                                <Link to="/news" className="btn btn-warning">More news about {this.state.country}</Link>
+                              </div>
+                            </section>
+                          </div>
                         </div>
-                        <Link to="/news" className="btn btn-warning">More news about {this.state.country}</Link>
-
                       </div>
-                    </div>
-                  </div>
-                </div>
-            } />
-            <Route path="/news" render={
-              props =>
-                <div className="container-fluid newsPage pt-4">
-                  <div className="row ">
-                    {newsPage}
-                  </div>
-                </div>
-            } />
-          </Sw>
+                  } />
+                  <Route path="/news" render={
+                    props =>
+                      <div className="container-fluid newsPage pt-4">
+                        <div className="row ">
+                          {newsPage}
+                          <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
+                        </div>
+                      </div>
+                  } />
+                  <Route path="/weather_deatils" render={
+                    props =>
+                      <div className="container-fluid weatherCard pt-4">
+                        <div className="row p-5 ">
+                          <WeatherPage
+                            city={this.state.city}
+                            description={this.state.description}
+                            temperature={this.state.temperature}
+                            min_temp={this.state.min_temp}
+                            max_temp={this.state.max_temp}
+                            humidity={this.state.humidity}
+                            pressure={this.state.presure}
+                            visibility={this.state.visibility}
+                            wind_speed={this.state.wind_speed}
+                          />
+                        </div>
+                      </div>
+                  } />
+                  <Redirect from="/" to="/home" />
+                </Sw>
+              </main>
+            </div>
+            :
+            <StyledFirebaseAuth
+              uiConfig={this.uiConfig}
+              firebaseAuth={firebase.auth()}
+            />
+          }
         </div>
       </Router >
     );
