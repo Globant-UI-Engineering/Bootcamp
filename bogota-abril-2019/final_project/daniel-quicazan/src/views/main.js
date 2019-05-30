@@ -6,19 +6,19 @@ import {ControllerPadComponent} from "../component/controller-pad-component";
 import {SecondaryScreenComponent} from "../component/secondary-screen-component";
 
 export class MainComponent extends Component {
-
+  
   mainButton = undefined;
-
+  
   cameraSize = '80px';
-
+  
   // eslint-disable-next-line
   constructor(props) {
     super(props)
   }
-
+  
   componentWillMount() {
   }
-
+  
   componentDidMount() {
     this.mainButton = document.getElementById('main-button');
     let mainButtonWidth = getComputedStyle(this.mainButton).width;
@@ -26,7 +26,7 @@ export class MainComponent extends Component {
     let musicElement = document.getElementById('music-element');
     musicElement.volume = 0.1;
   }
-
+  
   render() {
     return(
       <div className={'main-container col align-self-center'}>
@@ -53,20 +53,14 @@ export class MainComponent extends Component {
         </header>
         <div style={{marginTop: '5%', marginBottom: '5%'}} className={'content-container'}>
           <ScreenComponent/>
-          <div className={'container-fluid p-0'}>
-            <div className={'row controller-row'}>
-              <div className={'col-2 p-0'}>
-                <button className={'main-button'} id={'main-button'}/>
-              </div>
-              <div className={'col-6 p-0'}>
-                <button style={{backgroundColor: 'red'}} className={'wide-button'}/>
-                <button style={{backgroundColor: 'blue'}} className={'wide-button'}/>
-                <SecondaryScreenComponent/>
-              </div>
-              <div className={'col-4 p-0'}>
-                <ControllerPadComponent/>
-              </div>
+          <div className={'controller-row'}>
+            <button className={'main-button'} id={'main-button'}/>
+            <div className={'controller-center-container p-0'}>
+              <button style={{backgroundColor: 'red'}} className={'wide-button'}/>
+              <button style={{backgroundColor: 'blue'}} className={'wide-button'}/>
+              <SecondaryScreenComponent/>
             </div>
+            <ControllerPadComponent/>
           </div>
         </div>
       </div>

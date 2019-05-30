@@ -18,7 +18,8 @@ export class ScreenComponent extends Component {
       showIntro: true,
       searchText: '',
       currentPokemon: undefined,
-      playDescription: false
+      playDescription: false,
+      allPokemonNames: []
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -29,6 +30,13 @@ export class ScreenComponent extends Component {
   }
   
   componentDidMount() {
+    PokeapiService.getAllNames()
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          allPokemonNames: response.data.results.map((x) => x.name)
+        });
+      })
   }
   
   intro() {
@@ -152,11 +160,20 @@ export class ScreenComponent extends Component {
           }
           <div className={'search-container'}>
             <input className={'search-bar'}
+                   list={'pokemons'}
+                   name={'search-bar'}
                    type={'text'}
                    value={this.state.searchText}
                    onChange={this.handleSearchChange}
                    onKeyPress={this.handleKeyPress}
             />
+            <datalist id={'pokemons'}>
+              {
+                this.state.allPokemonNames.map(
+                  (name) => <option value={name}/>
+                )
+              }
+            </datalist>
             <button className={'search-button'} onClick={this.handleSearchClick}>
               &#x1F50D;
             </button>

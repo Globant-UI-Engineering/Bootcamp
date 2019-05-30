@@ -30,7 +30,7 @@ export class ControllerPadComponent extends Component {
 
   render() {
     return(
-      <div className={'container-fluid'}>
+      <div className={'container-fluid controller-pad-container'}>
         <div className={'row'}>
           <div className={'col-4'}/>
           <button className={'col-4 controller-pad-up controller-pad-button'} id={'controller-up-button'}/>

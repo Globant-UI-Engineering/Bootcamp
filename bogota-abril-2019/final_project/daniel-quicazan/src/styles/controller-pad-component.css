@@ -1,3 +1,8 @@
+.controller-pad-container {
+    width: 20%;
+    min-width: 100px;
+}
+
 .controller-pad-up {
     border: 2px solid black;
     border-bottom-width: 0;
