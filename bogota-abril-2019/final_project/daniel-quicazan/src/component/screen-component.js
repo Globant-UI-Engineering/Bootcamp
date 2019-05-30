@@ -34,7 +34,7 @@ export class ScreenComponent extends Component {
       .then((response) => {
         console.log(response);
         this.setState({
-          allPokemonNames: response.data.results.map((x) => x.name)
+          allPokemonNames: response.data.results.map((x) => x.name).sort()
         });
       })
   }
@@ -80,6 +80,7 @@ export class ScreenComponent extends Component {
           pokemonDescription: this.buildDescription(response.data),
           showIntro: false
         });
+        this.props.gotPokemonData(response.data);
       }).catch(error => {
       console.log(error)
     })

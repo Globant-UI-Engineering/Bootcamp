@@ -13,7 +13,10 @@ export class MainComponent extends Component {
   
   // eslint-disable-next-line
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {
+      pokemonData: undefined
+    }
   }
   
   componentWillMount() {
@@ -26,6 +29,12 @@ export class MainComponent extends Component {
     let musicElement = document.getElementById('music-element');
     musicElement.volume = 0.1;
   }
+  
+  gotPokemonDataCallback = (pokemonData) => {
+    this.setState({
+      pokemonData: pokemonData
+    })
+  };
   
   render() {
     return(
@@ -52,13 +61,13 @@ export class MainComponent extends Component {
           </div>
         </header>
         <div style={{marginTop: '5%', marginBottom: '5%'}} className={'content-container'}>
-          <ScreenComponent/>
+          <ScreenComponent gotPokemonData={this.gotPokemonDataCallback}/>
           <div className={'controller-row'}>
             <button className={'main-button'} id={'main-button'}/>
             <div className={'controller-center-container p-0'}>
               <button style={{backgroundColor: 'red'}} className={'wide-button'}/>
               <button style={{backgroundColor: 'blue'}} className={'wide-button'}/>
-              <SecondaryScreenComponent/>
+              <SecondaryScreenComponent pokemonData={this.state.pokemonData}/>
             </div>
             <ControllerPadComponent/>
           </div>

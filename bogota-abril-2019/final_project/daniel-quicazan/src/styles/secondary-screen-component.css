@@ -6,3 +6,15 @@
     border-radius: 5px;
     background-color: #32cb65;
 }
+
+.pokemon-number {
+    font-family: "Pokemon GB", sans-serif;
+    font-size: large;
+    margin: 0;
+}
+
+.pokemon-stats {
+    font-family: "Pokemon GB", sans-serif;
+    font-size: 1.2vh;
+    margin: 0;
+}
