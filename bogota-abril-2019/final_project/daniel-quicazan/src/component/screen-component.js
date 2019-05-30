@@ -92,13 +92,22 @@ export class ScreenComponent extends Component {
   }
   
   showSprite() {
-    if (this.state.currentPokemon !== undefined) {
-      return (
-        <div>
-          <img src={this.state.currentPokemon.sprites.front_default} alt={'pokemon-front'}/>
-          <img src={this.state.currentPokemon.sprites.back_default} alt={'pokemon-back'}/>
-        </div>
-      )
+    if (this.state.currentPokemon) {
+      if (this.state.currentPokemon.sprites.back_default) {
+        return (
+          <div>
+            <img src={this.state.currentPokemon.sprites.front_default} alt={'pokemon-front'}/>
+            <img src={this.state.currentPokemon.sprites.back_default} alt={'pokemon-back'}/>
+          </div>
+        )
+      }
+      else {
+        return (
+          <div>
+            <img src={this.state.currentPokemon.sprites.front_default} alt={'pokemon-front'}/>
+          </div>
+        )
+      }
     }
   }
   
