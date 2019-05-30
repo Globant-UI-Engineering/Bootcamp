@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import '../styles/Player.css';
 import { play } from 'react-icons-kit/fa/play';
 import { backward } from 'react-icons-kit/fa/backward';
@@ -29,11 +29,10 @@ class Player extends React.Component {
                 <div>
                     <Row>
                         <Col md={3}>
-                            <Row style={{'height': '100%'}}>
-                                
+                            <Row>                                
                                 <Col md={12}>
-                                    <div style={{marginTop:'5%', marginBottom:'5%'}}>
-                                        <p className='song-title'>Title</p>
+                                    <div className='song-info'>
+                                        <p className='song-title'>A veeeeeeeeeeeeeery long title</p>
                                         <p>Artist</p>    
                                     </div>                                    
                                 </Col>
@@ -63,7 +62,13 @@ class Player extends React.Component {
                         </Col>
                         
                         <Col md={3}>
-
+                            <div className='device-container'>
+                                <select className='custom-select' defaultValue=''>
+                                    <option value='' disabled hidden>Select your device</option>
+                                    <option>Device 1</option>
+                                </select>
+                            </div>
+                            
                         </Col>
                     </Row>
                 </div>

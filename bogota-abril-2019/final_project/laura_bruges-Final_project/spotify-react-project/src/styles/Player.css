@@ -51,7 +51,34 @@ p {
     font-weight: 700;
 }
 
-.song-info {
-    padding-top: 25%;
-    padding-bottom: 25%;
+.song-info, .device-container {
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
+
+.custom-select {
+    background-color: black;
+    color: white;
+    border: none;
+    width: 80%;
+}
+/* https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb:hover {
+    height: 15px;
+    width: 8px;
+    border-radius: 0;
+    background: #7ba6ed;
+    border: none;
+    margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  }
+  
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb:hover {
+    height: 15px;
+    width: 8px;
+    background: #7ba6ed;
+    border-radius: 0;
+    border: none;
+  }

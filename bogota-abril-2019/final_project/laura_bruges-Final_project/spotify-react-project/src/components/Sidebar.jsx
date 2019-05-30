@@ -6,15 +6,19 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
-        <Col md={2} className='d-none d-md-block bg-dark sidebar'>
-            <div className='sidebar-sticky'>
+        <div className='sidebar-sticky'>
                 <Nav className='flex-column'>
-                    <NavItem>
+                    <NavItem className='nav-item'>
                         <Link to='/user/'>User</Link>
+                    </NavItem>
+                    <NavItem>
+                        <Link to='/playlist/'>Playlists</Link>
+                    </NavItem>
+                    <NavItem>
+                        <Link to='/user/'>Lyrics</Link>
                     </NavItem>
                 </Nav>
             </div>
-        </Col>
     );
 }
 

@@ -2,10 +2,10 @@ import React from 'react';
 import TopNavbar from './TopNavbar';
 import Player from './Player';
 import Sidebar from './Sidebar';
-import { Button, Container, Row } from 'react-bootstrap';
+import { Button, Container, Row, Col } from 'react-bootstrap';
 import '../styles/Container.css';
 
-const MainContainer = () => {
+const MainContainer = ({children}) => {
     return (
         <article>
             <header>
@@ -15,7 +15,14 @@ const MainContainer = () => {
             </header>
             <Container fluid>
                 <Row>
-                    <Sidebar />
+                    <Col md={2} className='d-none d-md-block bg-dark sidebar'>
+                        <Sidebar />
+                    </Col>
+                    <Col md={10}>
+                        <Container>
+                            {children}
+                        </Container>                    
+                    </Col>
                 </Row>
             </Container>
             <Player />
