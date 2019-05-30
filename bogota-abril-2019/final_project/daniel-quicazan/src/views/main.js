@@ -4,6 +4,7 @@ import {GlowingCircleComponent} from "../component/glowing-circle-component";
 import {ScreenComponent} from "../component/screen-component";
 import {ControllerPadComponent} from "../component/controller-pad-component";
 import {SecondaryScreenComponent} from "../component/secondary-screen-component";
+import {PollyService} from "../service/polly-service";
 
 export class MainComponent extends Component {
   
@@ -16,7 +17,8 @@ export class MainComponent extends Component {
     super(props);
     this.state = {
       pokemonData: undefined
-    }
+    };
+    PollyService.initPolly();
   }
   
   componentWillMount() {
@@ -27,7 +29,7 @@ export class MainComponent extends Component {
     let mainButtonWidth = getComputedStyle(this.mainButton).width;
     this.mainButton.style.height = mainButtonWidth;
     let musicElement = document.getElementById('music-element');
-    musicElement.volume = 0.1;
+    musicElement.volume = 0.05;
   }
   
   gotPokemonDataCallback = (pokemonData) => {

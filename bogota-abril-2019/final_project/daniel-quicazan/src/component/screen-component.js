@@ -4,6 +4,7 @@ import {GlowingCircleComponent} from "./glowing-circle-component";
 import {MenuIconComponent} from "./menu-icon-component";
 import Typist from "react-typist";
 import {PokeapiService} from "../service/pokeapi-service";
+import {PollyService} from "../service/polly-service";
 
 export class ScreenComponent extends Component {
   
@@ -19,11 +20,13 @@ export class ScreenComponent extends Component {
       searchText: '',
       currentPokemon: undefined,
       playDescription: false,
-      allPokemonNames: []
+      allPokemonNames: [],
+      audioUri: undefined
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSearchClick = this.handleSearchClick.bind(this);
+    this.setAudioUri = this.setAudioUri.bind(this);
   }
   
   componentWillMount() {
@@ -32,7 +35,7 @@ export class ScreenComponent extends Component {
   componentDidMount() {
     PokeapiService.getAllNames()
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         this.setState({
           allPokemonNames: response.data.results.map((x) => x.name).sort()
         });
@@ -70,16 +73,18 @@ export class ScreenComponent extends Component {
   search($event) {
     this.setState({
       pokemonDescription: undefined,
+      audioUri: undefined
     });
     PokeapiService.search(this.state.searchText.trim())
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           currentPokemon: response.data,
           playDescription: true,
           pokemonDescription: this.buildDescription(response.data),
           showIntro: false
         });
+        PollyService.getTextUrl(this.state.pokemonDescription, this.setAudioUri);
         this.props.gotPokemonData(response.data);
       }).catch(error => {
       console.log(error)
@@ -90,8 +95,8 @@ export class ScreenComponent extends Component {
     if (this.state.currentPokemon !== undefined) {
       return (
         <div>
-          <img src={this.state.currentPokemon.sprites.front_default}/>
-          <img src={this.state.currentPokemon.sprites.back_default}/>
+          <img src={this.state.currentPokemon.sprites.front_default} alt={'pokemon-front'}/>
+          <img src={this.state.currentPokemon.sprites.back_default} alt={'pokemon-back'}/>
         </div>
       )
     }
@@ -129,20 +134,20 @@ export class ScreenComponent extends Component {
   }
   
   playSpeech() {
-    if (this.state.playDescription) {
-      console.log(this.buildTextToSpeechUrl());
+    if (this.state.audioUri) {
       // return (
       //   <div></div>
       // );
       return (
-        <audio autoPlay={true} src={this.buildTextToSpeechUrl()}/>
+        <audio autoPlay={true} src={this.state.audioUri}/>
       )
     }
   }
   
-  buildTextToSpeechUrl() {
-    return 'http://api.voicerss.org/?key=ce496e662cbf48faa48dedcac67baba4&hl=en-us&c=mp3&src='
-      + this.state.pokemonDescription;
+  setAudioUri(audioUri) {
+    this.setState({
+      audioUri: audioUri
+    })
   }
   
   render() {
@@ -171,12 +176,12 @@ export class ScreenComponent extends Component {
             <datalist id={'pokemons'}>
               {
                 this.state.allPokemonNames.map(
-                  (name) => <option value={name}/>
+                  (name) => <option value={name} key={name}/>
                 )
               }
             </datalist>
             <button className={'search-button'} onClick={this.handleSearchClick}>
-              &#x1F50D;
+              <span role={'img'} aria-label={'search-button'}>&#x1F50D;</span>
             </button>
           </div>
           {
