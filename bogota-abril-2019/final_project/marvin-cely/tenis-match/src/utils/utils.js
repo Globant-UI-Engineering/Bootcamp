@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import { observer } from "mobx-react";
 
 const utils = {
 	capitalizeString: () => {
@@ -49,6 +50,10 @@ const utils = {
 	},
 	sortByAgeArrayList: (array, element, getAge) => {		
 		return array.slice().sort((object1, object2) => getAge(object2[element]) - getAge(object1[element]));
+	},
+	// TODO: Revisar posible quitar
+	sortByCountryList: (array, element, getCountry, countryElement) => {		
+		return array.slice().sort((object1, object2) => (getCountry(object1[element])[countryElement] > getCountry(object2[element])[countryElement]) ? 1 : -1);
 	},
 	filterAllByArrayList: (array, value) => {
 		return array.slice().filter((player) =>

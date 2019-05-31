@@ -8,7 +8,11 @@
           "value": "name",
           "namebutton": "Nombre"
         },
-        { 
+        {
+          "value": "idCountry",
+          "namebutton": "País"
+        },
+        {           
           "value": "birthDate",
           "namebutton": "Edad"
         }, 
@@ -29,6 +33,12 @@
           "idCountry": "",
           "birthDate": ""
         }
+      },
+      "playerListHeader": {
+        "name": "Nombre",
+        "nationality": "País",
+        "age": "Edad",
+        "ranking": "Ranking"
       }
     }
 }

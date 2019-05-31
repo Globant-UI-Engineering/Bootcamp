@@ -51,16 +51,17 @@ section > header.row > section:first-of-type > div {
     flex-flow: row wrap;
 }
 
+section > header.row > section:first-of-type > div span {
+    border-radius: .25rem 0 0 .25rem;
+    display: flex;
+    align-items: center;
+    font-size: var(--size-small);
+}
+
 section > header.row section {
     display: flex;
     justify-content: center;
 }
-
-
-/*TODO: REVISAR: Es posible no necesitarlo**/
-/* header > section:last-of-type {
-    margin: 1vh;
-} */
 
 header > section:last-of-type + form {
     margin: 1vh;

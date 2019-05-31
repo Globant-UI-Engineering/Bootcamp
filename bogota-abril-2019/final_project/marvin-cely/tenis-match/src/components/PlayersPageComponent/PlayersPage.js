@@ -22,6 +22,7 @@ const PlayersPage = observer(
       this.handleInput = this.handleInput.bind(this);
       this.orderTable = this.orderTable.bind(this);
       this.filterTable = this.filterTable.bind(this);
+      this.sortCountryList = this.sortCountryList.bind(this);
     }
 
     handleInput = (event) => {
@@ -35,6 +36,15 @@ const PlayersPage = observer(
         });
       }  
     }
+    
+    sortCountryList = (array, element) => {
+      const countries = this.props.store.countries; 
+      const countryElement = thesaurus.elementKey.NATIONALITY;
+      return array.slice().sort((object1, object2) => (
+                                  countries.get(object1[element])[countryElement] > 
+                                  countries.get(object2[element])[countryElement]) ? 
+                                  1 : -1);
+    }
 
     filterTable = (value) => {// TODO: considerar si no poner el buscar...Resolver actualización de estados de players y playerTable
       const elementsToFilter = [ this.props.store.players, value];// TODO: Revisar comportamiento del this.playersTable en el store
@@ -47,6 +57,9 @@ const PlayersPage = observer(
         case 'name':
           this.props.store.players = utils.sortByAlphaArrayList(...elementsToSort);
           break;
+        case 'idCountry':
+            this.props.store.players = this.sortCountryList(...elementsToSort);
+            break;
         case 'birthDate':
           this.props.store.players = utils.sortByAgeArrayList(...elementsToSort, utils.getAge);
           break;
@@ -63,8 +76,7 @@ const PlayersPage = observer(
         return this.state.orderButton.map(({value, namebutton}, index) => { 
             return(
               <label className="btn btn-info" key={index}>
-                <input type="radio" name="orderOption" value={value} onFocus ={this.handleInput} autoComplete="off"/> 
-                <i className="fas fa-sort-amount-up"></i>&nbsp;
+                <input type="radio" name="orderOption" value={value} onFocus ={this.handleInput} autoComplete="off"/>
                 {namebutton}
               </label>
             );
@@ -84,8 +96,11 @@ const PlayersPage = observer(
                       </fieldset>
                     </form>  
                     <section className="col-lg-8">
-                      <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                        {orderOption()}
+                      <div className="btn-group btn-group-toggle" data-toggle="buttons">        
+                        <span className="badge badge-info">
+                          <i className="fas fa-sort-amount-up"></i>
+                        </span>
+                        {orderOption()}                        
                       </div>
                     </section>                               
                   </div>

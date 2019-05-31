@@ -1,7 +1,7 @@
 import React from '../../../node_modules/react';
 import '../../css/TablePlayer.css';
 import { observer } from '../../../node_modules/mobx-react';
-import playerListHeader from './playersTableHead';
+import { dataPlayersPage } from '../../data-component/data-players-page';
 import { ImageCountry } from '../SmallPieceComponent';
 import utils from '../../utils/utils';
 import thesaurus from '../../utils/thesaurus';
@@ -76,7 +76,7 @@ const TablePlayer = observer(
             aria-label="Estadisticas de Jugadores" 
             summary="Tabla de los jugadores y sus esetadísticas">
               <section className="shadow-sm p-2 mb-1 bg-white rounded-pill d-none d-md-block">
-                {tableHeader(playerListHeader)}
+                {tableHeader(dataPlayersPage.playerListHeader)}
               </section>
               {playersList}
           </section>
