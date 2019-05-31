@@ -5,8 +5,8 @@ import SurferEdit from './surfers/SurferEdit';
 import SurferDelete from './surfers/SurferDelete';
 import SurferList from './surfers/SurferList';
 import SurferShow from './surfers/SurferShow';
-//import InspirationApp from '../../../../unsplash/client/src/components/App'
-import Header from './Header'
+import InspirationApp from './search/InspirationApp';
+import Header from './Header';
 
 
 const App = () => {
