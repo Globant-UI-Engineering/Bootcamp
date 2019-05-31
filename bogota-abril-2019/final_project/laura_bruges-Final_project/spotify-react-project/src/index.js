@@ -3,19 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import "bootstrap/dist/css/bootstrap.min.css";
-import reducers from './reducers';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './components/App';
 import LoginTransition from './components/LoginTransition';
 import User from './components/User';
-
-const store = createStore(
-    reducers,
-    window.devToolsExtension && window.devToolsExtension()
-)
-
+import store from './storeCreator';
 
 ReactDOM.render(
     <Provider store={store}>
