@@ -9,7 +9,7 @@ import Popup from '../popup/Popup'
 import Loading from '../loading/Loading'
 
 var beforeTitle,beforeContent = "";
-const TITLE = "title", CONTENT = "content";
+const [TITLE,CONTENT] = ["title","content"];
 const firebaseRef = fireBaseInit.database().ref()
 
 class Detail extends React.Component {
@@ -77,8 +77,7 @@ class Detail extends React.Component {
   }
 
   updateTechnology(text,attribute){
-    var props = this.props;
-    var context = this;
+    var [props,context]=[this.props,this]
     if(attribute === CONTENT && text !== beforeContent){
       this.setLoading(true);
       firebaseRef.child(this.state.id).update({content:text},function(error){

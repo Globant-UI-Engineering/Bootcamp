@@ -26,8 +26,7 @@ class SearchPanel extends React.Component {
   }
 
   render () {
-    const {technologys} = this.props;
-    const {inputValue} = this.props;
+    const {technologys ,inputValue} = this.props;
     return ( 
     <div className="SearchPanel">
       <header className="SearchPanel-header">
@@ -67,7 +66,8 @@ class SearchPanel extends React.Component {
   }
 
   findTechnologys(event){
-    this.props.findTechnologys({userInput:event.target.value.toLowerCase(), technologys:this.props.allTechnologys})
+    this.props.findTechnologys({userInput:event.target.value.toLowerCase(),
+       technologys:this.props.allTechnologys})
   }
 
   cardClickHandler(object){

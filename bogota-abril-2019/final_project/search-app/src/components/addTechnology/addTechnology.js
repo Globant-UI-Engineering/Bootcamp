@@ -76,16 +76,16 @@ class AddTechnology extends React.Component {
       },function(error){
         if(error){
           context.setLoading(false);
-          context.delayPopup({showPopup:true,messagePopup:"Unexpected error, try again"},true);
+          context.delayPopup({showPopup:true,messagePopup:"Unexpected error, try again"});
         }else{
           var id = newChild.key;
           firebaseRef.child(id).update({id:id},function(error){
             if(error){
               context.setLoading(false);
-              context.delayPopup({showPopup:true,messagePopup:"Unexpected Error"},true);
+              context.delayPopup({showPopup:true,messagePopup:"Unexpected Error"});
             }else{
               context.setLoading(false);
-              context.delayPopup({showPopup:true,messagePopup:"Created"},true);
+              context.delayPopup({showPopup:true,messagePopup:"Created"});
             }
           })
         }
@@ -99,7 +99,7 @@ class AddTechnology extends React.Component {
     return this.state.title!==""?true:false;
   }
 
-  delayPopup = function(states,back){
+  delayPopup = function(states,back=true){
     this.setState(states)
     setTimeout(()=>{
       this.setState({showPopup:false,backToSearch:back})
