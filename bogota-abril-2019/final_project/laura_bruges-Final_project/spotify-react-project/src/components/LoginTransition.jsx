@@ -3,7 +3,8 @@ import queryString from 'query-string';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setToken } from '../actions/tokenActions'
-import { getNowPlaying } from '../actions/playerActions';
+import { setNowPlaying } from '../actions/playerActions';
+import { setUserInfo } from '../actions/userActions';
 import PropTypes from 'prop-types';
 
 class LoginTransition extends React.Component {
@@ -15,12 +16,12 @@ class LoginTransition extends React.Component {
     }
     componentDidMount() {        
         let parsed = queryString.parse(window.location.search);
-        console.log(parsed);
         let accessToken = parsed.access_token;
         let refreshToken = parsed.refresh_token;
-        console.log(refreshToken);
+        
         if(accessToken) {
             this.props.setToken(accessToken, refreshToken);
+            this.props.setUserInfo(accessToken);
         } else {
             this.setState({
                 error: true
@@ -32,14 +33,14 @@ class LoginTransition extends React.Component {
 
     render() {
         return (
-            this.state.error ? <div>Error :(</div> : <div>OK</div>
+            this.state.error ? <div>Error with authorization</div> : <div>OK</div>
         );
     }
 }
 
 LoginTransition.propTypes = {
     authToken: PropTypes.string,
-    refreshToken: PropTypes.string
+    refreshToken: PropTypes.string,
 }
 
 const mapStateToProps = (state) => {
@@ -52,7 +53,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         setToken,
-        getNowPlaying
+        setNowPlaying,
+        setUserInfo
     }, dispatch)
 };
 

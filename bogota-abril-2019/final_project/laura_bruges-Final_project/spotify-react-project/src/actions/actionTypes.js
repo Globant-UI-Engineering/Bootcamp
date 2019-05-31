@@ -3,5 +3,9 @@ export const tokenActTypes = {
 };
 
 export const playerActionTypes = {
-    getNowPlaying: 'GET_NOW_PLAYING'
+    fetchNowPlaying: 'FETCH_NOW_PLAYING'
+}
+
+export const userActionTypes = {
+    fetchUserInfo: 'FETCH_USER_INFO'
 }

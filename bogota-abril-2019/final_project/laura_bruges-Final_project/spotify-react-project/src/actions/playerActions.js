@@ -2,14 +2,14 @@ import { playerActionTypes } from './actionTypes';
 import axios from 'axios';
 import { NOW_PLAYING_URL } from '../utils/EndpointSettings';
 
-export const getNowPlaying = (playing) => {
+export const fetchNowPlaying = (playing) => {
     return {
-        type: playerActionTypes.getNowPlaying,
+        type: playerActionTypes.fetchNowPlaying,
         playing
     }
 }
 
-export const fetchNowPlaying = (accessToken) => {
+export const setNowPlaying = (accessToken) => {
     return (dispatch) => {
         axios.get(NOW_PLAYING_URL, { headers: { Authorization: `Bearer ${accessToken}` } })
         .then((response) => {        
@@ -19,7 +19,7 @@ export const fetchNowPlaying = (accessToken) => {
                 isPlaying: data.is_playing,
                 progressMs: data.progress_ms
             }
-            dispatch(getNowPlaying(playing));
+            dispatch(fetchNowPlaying(playing));
         })
     }
 }
