@@ -18,9 +18,10 @@ class SearchBar extends React.Component {
         <div className="ui segment">
           <form onSubmit={this.onFormSubmit} className="ui form">
             <div className="field">
-              <label>Search for Surfers:</label>
+              <label>Inspire yourself with Surf:</label>
               <input
                 type="text"
+                placeholder="Type something... and press ENTER. All the search would be 'term + surf' 🏄"
                 value={this.state.term}
                 onChange={e => this.setState({ term: e.target.value })}
               />

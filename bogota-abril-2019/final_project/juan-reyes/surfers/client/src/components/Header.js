@@ -12,6 +12,9 @@ const Header = () => {
         <Link to="/" className="item">
           All Surfers
         </Link>
+        <Link to="/search" className="item">
+          Inspiration
+        </Link>
         <GoogleAuth />
       </div>
     </div>
