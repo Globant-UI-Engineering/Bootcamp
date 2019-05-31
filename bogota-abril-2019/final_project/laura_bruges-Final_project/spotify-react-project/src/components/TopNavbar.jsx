@@ -3,7 +3,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 
 const TopNavbar = ({ children }) => {
     return (
-        <Navbar variant='dark' bg='dark fixed-top'>
+        <Navbar variant='dark' bg='dark fixed-top shadow'>
             <img alt='playify-logo' src='/img/play-button.png' width='30' height='30' />
             <Navbar.Brand href="/">Playify</Navbar.Brand>
             <Navbar.Toggle />

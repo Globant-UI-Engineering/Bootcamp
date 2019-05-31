@@ -1,5 +1,6 @@
 import { tokenActTypes } from '../actions/actionTypes'
 export const tokenReducer = (state = {}, action) => {
+    console.log(action);
     switch(action.type) {
         case tokenActTypes.setToken:
             return {

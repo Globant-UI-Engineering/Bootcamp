@@ -25,7 +25,7 @@ class Player extends React.Component {
 
     render(){
         return (
-            <footer className='page-footer fixed-bottom'>
+            <footer className='page-footer fixed-bottom shadow'>
                 <div>
                     <Row>
                         <Col md={3}>
@@ -41,7 +41,7 @@ class Player extends React.Component {
                         <Col md={6}>
                             <Row>         
                                 <Col md={12} className='centered'>
-                                    <input style={{width: '100%'}} type='range'/>
+                                    <input className='border-0' style={{width: '100%'}} type='range'/>
                                 </Col>
                             </Row>
                             
@@ -54,9 +54,9 @@ class Player extends React.Component {
 
                             <Row>
                                 <Col md={12}>
-                                    <Button className='player-control change-track-btn'><Icon icon={backward}></Icon></Button>
-                                    <Button className='player-control play-btn' onClick={this.handlePlayClick}> {this.state.playing ? <Icon icon={pause}></Icon> : <Icon icon={play}></Icon>} </Button>
-                                    <Button className='player-control change-track-btn'><Icon icon={forward}></Icon></Button>
+                                    <Button className='player-control change-track-btn btn-sm'><Icon icon={backward}></Icon></Button>
+                                    <Button className='player-control play-btn btn-sm' onClick={this.handlePlayClick}> {this.state.playing ? <Icon icon={pause}></Icon> : <Icon icon={play}></Icon>} </Button>
+                                    <Button className='player-control change-track-btn btn-sm'><Icon icon={forward}></Icon></Button>
                                 </Col>
                             </Row>
                         </Col>

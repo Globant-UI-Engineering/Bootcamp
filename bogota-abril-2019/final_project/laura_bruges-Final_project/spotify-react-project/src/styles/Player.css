@@ -1,8 +1,8 @@
 footer {
     width: 100%;
     text-align: center;
-    padding: 1em;
-    background-color: black;
+    padding: 0.5em;
+    background-color: rgb(52, 58, 64);;
     color: white;
 }
 
@@ -51,34 +51,136 @@ p {
     font-weight: 700;
 }
 
+.song-title, .song-artist {
+    text-overflow: ellipsis;
+}
+
 .song-info, .device-container {
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 .custom-select {
-    background-color: black;
+    background-color: rgb(52, 58, 64);;
     color: white;
     border: none;
     width: 80%;
 }
-/* https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
-
-/* Special styling for WebKit/Blink */
-input[type=range]::-webkit-slider-thumb:hover {
-    height: 15px;
-    width: 8px;
-    border-radius: 0;
-    background: #7ba6ed;
-    border: none;
-    margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+input[type=range]{
+    -webkit-appearance: none;
+    background: transparent;
   }
   
-  /* All the same stuff for Firefox */
-  input[type=range]::-moz-range-thumb:hover {
-    height: 15px;
-    width: 8px;
-    background: #7ba6ed;
-    border-radius: 0;
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
     border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: rgb(30,215,96);
+    margin-top: -4px;
+  }
+  
+  input[type=range]:focus {
+    outline: none;
+  }
+  
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+  }
+  
+  input[type=range]{
+    /* fix for FF unable to apply focus style bug  */
+    border: 1px solid white; 
+  
+    /*required for proper track sizing in FF*/
+    width: 300px;
+  }
+  
+  input[type=range] {
+    height: 24px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 7px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #DDDDDD;
+    border-radius: 5px;
+    border: 0px solid #000000;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 18px;
+    width: 18px;
+    border-radius: 17px;
+    background: rgb(30,215,96);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5.5px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #DDDDDD;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 7px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #000000;
+    background: #DDDDDD;
+    border-radius: 5px;
+    border: 0px solid #000000;
+  }
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 18px;
+    width: 18px;
+    border-radius: 17px;
+    background: rgb(30,215,96);;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 7px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #DDDDDD;
+    border: 0px solid #000000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px #000000;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #DDDDDD;
+    border: 0px solid #000000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px #000000;
+  }
+  input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 18px;
+    width: 18px;
+    border-radius: 17px;
+    background: rgb(30,215,96);
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #DDDDDD;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #DDDDDD;
   }

@@ -22,9 +22,9 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter basename='/'>
             <Switch>
-                <Route path='/user/' exact component={App}/>
+                <Route path='/' exact component={App}/>
                 <Route path='/login/' exact component={LoginTransition} />
-                <Route path='/' exact component={User} />
+                <Route path='/user/' exact component={User} />
             </Switch>
         </BrowserRouter>
     </Provider> 

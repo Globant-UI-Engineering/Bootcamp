@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setToken } from '../actions/tokenActions'
+import { getNowPlaying } from '../actions/playerActions';
 import PropTypes from 'prop-types';
 
 class LoginTransition extends React.Component {
@@ -12,10 +13,12 @@ class LoginTransition extends React.Component {
             error: false
         };
     }
-    componentDidMount() {
+    componentDidMount() {        
         let parsed = queryString.parse(window.location.search);
+        console.log(parsed);
         let accessToken = parsed.access_token;
         let refreshToken = parsed.refresh_token;
+        console.log(refreshToken);
         if(accessToken) {
             this.props.setToken(accessToken, refreshToken);
         } else {
@@ -48,7 +51,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        setToken
+        setToken,
+        getNowPlaying
     }, dispatch)
 };
 

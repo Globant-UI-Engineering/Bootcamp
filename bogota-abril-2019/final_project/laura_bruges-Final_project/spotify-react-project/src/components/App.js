@@ -25,7 +25,7 @@ class App extends React.Component {
         </header>
         <section>
           <Container>
-            <Row col>
+            <Row>
               <Col lg={12} className='content'>
                 <h1 className='main-title'>Playify</h1>
                 <h3>Let's enjoy music together ♪♫♬</h3>
