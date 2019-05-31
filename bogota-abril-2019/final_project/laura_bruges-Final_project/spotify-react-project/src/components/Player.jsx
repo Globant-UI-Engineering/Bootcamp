@@ -1,11 +1,13 @@
 import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import '../styles/Player.css';
+import { connect} from 'react-redux'
 import { play } from 'react-icons-kit/fa/play';
 import { backward } from 'react-icons-kit/fa/backward';
 import { forward } from 'react-icons-kit/fa/forward';
 import { pause } from 'react-icons-kit/fa/pause';
 import Icon from 'react-icons-kit';
+import {setNowPlaying } from '../actions/playerActions'
 
 class Player extends React.Component {
     constructor(){
@@ -14,6 +16,11 @@ class Player extends React.Component {
             playing: false
         }
         this.handlePlayClick = this.handlePlayClick.bind(this);
+    }
+    componentDidMount(){
+        setInterval(()=>{
+            this.props.setNowPlaying(this.props.token)
+        }, 1000)
     }
 
     handlePlayClick(){
@@ -24,6 +31,7 @@ class Player extends React.Component {
     }
 
     render(){
+        
         return (
             <footer className='page-footer fixed-bottom shadow'>
                 <div>
@@ -32,7 +40,7 @@ class Player extends React.Component {
                             <Row>                                
                                 <Col md={12}>
                                     <div className='song-info'>
-                                        <p className='song-title'>A veeeeeeeeeeeeeery long title</p>
+                                        <p className='song-title'>{this.props.playing && this.props.playing.name}</p>
                                         <p>Artist</p>    
                                     </div>                                    
                                 </Col>
@@ -40,8 +48,9 @@ class Player extends React.Component {
                         </Col>
                         <Col md={6}>
                             <Row>         
+                            {/* <input type="range" min="0" max={this.state.playing.item.duration_ms} value={this.state.playing.progressMs}  step="1000" onMouseUp={(event)=>this.handleChange(event)} /> */}
                                 <Col md={12} className='centered'>
-                                    <input className='border-0' style={{width: '100%'}} type='range'/>
+                                    <input className='border-0' min="0" style={{width: '100%'}} type='range'/>
                                 </Col>
                             </Row>
                             
@@ -77,4 +86,17 @@ class Player extends React.Component {
     }
 }
 
-export default Player;
+const mapStatetoProps = state=>({
+    token: state.tokenReducer.authToken,
+    // durationMs: state.playerReducer.playing.item.duration_ms
+    playing: state.playerReducer.playing
+})
+const mapDispatchToProps = dispatch =>{
+    return{
+        setNowPlaying: token =>{
+            dispatch(setNowPlaying(token))
+        }
+    }
+}
+
+export default connect(mapStatetoProps, mapDispatchToProps)(Player);

@@ -2,9 +2,9 @@ import React from 'react';
 import queryString from 'query-string';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setToken } from '../actions/tokenActions'
-import { setNowPlaying } from '../actions/playerActions';
-import { setUserInfo } from '../actions/userActions';
+import { setToken } from '../../actions/tokenActions'
+import { setNowPlaying } from '../../actions/playerActions';
+import { setUserInfo } from '../../actions/userActions';
 import PropTypes from 'prop-types';
 
 class LoginTransition extends React.Component {
