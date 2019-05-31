@@ -1,7 +1,7 @@
 import API from './index'
 
 export async function fetchUser(accessToken){
-    const data = await API.get('/',{headers:{Authorization: `Bearer ${accessToken}` }}) 
+    const data = await API.get('',{headers:{Authorization: `Bearer ${accessToken}` }}) 
     return data 
 }
 
