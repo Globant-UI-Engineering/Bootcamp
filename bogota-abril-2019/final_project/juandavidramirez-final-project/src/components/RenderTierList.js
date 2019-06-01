@@ -105,26 +105,7 @@ class RenderTierList extends React.Component {
                 onRequestSort={this.handleRequestSort}
               />
 
-              <TableBody>
-                {stableSort(summoners, getSorting(order, orderBy))
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((value, index) => {
-                    return (
-                      <SummonerRow
-                        summonerId={value.summonerId}
-                        key={index}
-                        rankNumber={value.rankNumber}
-                        name={value.summonerName}
-                        leaguePoints={value.leaguePoints}
-                        wins={value.wins}
-                        losses={value.losses}
-                        hotStreak={value.hotStreak}
-                        veteran={value.veteran}
-                        freshBlood={value.freshBlood}
-                      />
-                    );
-                  })}
-              </TableBody>
+              <TableBody>{this.getSummonerRows()}</TableBody>
             </Table>
           </div>
 
@@ -147,6 +128,31 @@ class RenderTierList extends React.Component {
       </section>
     );
   }
+
+  getSummonerRows = () => {
+    const { summoners } = this.props;
+
+    const { order, orderBy, rowsPerPage, page } = this.state;
+
+    return stableSort(summoners, getSorting(order, orderBy))
+      .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+      .map((value, index) => {
+        return (
+          <SummonerRow
+            summonerId={value.summonerId}
+            key={index}
+            rankNumber={value.rankNumber}
+            name={value.summonerName}
+            leaguePoints={value.leaguePoints}
+            wins={value.wins}
+            losses={value.losses}
+            hotStreak={value.hotStreak}
+            veteran={value.veteran}
+            freshBlood={value.freshBlood}
+          />
+        );
+      });
+  };
 }
 
 export default RenderTierList;

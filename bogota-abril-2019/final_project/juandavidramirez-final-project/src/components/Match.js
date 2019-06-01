@@ -60,8 +60,6 @@ class Match extends React.Component {
       error
     } = this.state;
 
-    const { champion } = this.props;
-
     const championImgUrl = championInfo
       ? apiStaticUrl.img + "/champion/" + championInfo.image.full
       : "";

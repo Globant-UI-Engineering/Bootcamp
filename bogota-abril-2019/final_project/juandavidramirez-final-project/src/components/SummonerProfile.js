@@ -56,8 +56,29 @@ class SummonerProfile extends React.Component {
   componentDidMount() {
     this.handleProfileRequest();
   }
+
+  getMatches = () => {
+    const { matches } = this.state;
+    return matches.matches.map((value, index) => {
+      return (
+        <li key={index}>
+          <Match
+            platformId={value.platformId}
+            gameId={value.gameId}
+            champion={value.champion}
+            queue={value.queue}
+            season={value.season}
+            timestamp={value.timestamp}
+            role={value.role}
+            lane={value.lane}
+          />
+        </li>
+      );
+    });
+  };
+
   render() {
-    const { loading, matches, profileInfo, error } = this.state;
+    const { loading, profileInfo, error } = this.state;
 
     const profileIconUrl = profileInfo
       ? apiStaticUrl.img + "/profileicon/" + profileInfo.profileIconId + ".png"
@@ -75,24 +96,7 @@ class SummonerProfile extends React.Component {
         <section className="additional-info">
           <Paper>
             <h3>Recent Matches</h3>
-            <ul className="matches-list">
-              {matches.matches.map((value, index) => {
-                return (
-                  <li key={index}>
-                    <Match
-                      platformId={value.platformId}
-                      gameId={value.gameId}
-                      champion={value.champion}
-                      queue={value.queue}
-                      season={value.season}
-                      timestamp={value.timestamp}
-                      role={value.role}
-                      lane={value.lane}
-                    />
-                  </li>
-                );
-              })}
-            </ul>
+            <ul className="matches-list">{this.getMatches()}</ul>
           </Paper>
         </section>
       </Paper>
