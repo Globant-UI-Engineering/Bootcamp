@@ -19,8 +19,11 @@ class Store {
   players = [];
   matches = [];
   points = [];
-  countries = new Map();
-  playersTable = [];// TODO: Considerar en poner toggle de estado de los sort Table player
+  countries = new Map();  
+  playersTable = {
+    playersList: [],
+    orderType: 'ranking'
+  };
   matchHandle = null;
   pointHandle = null;
   currentPointsHistory = [];
@@ -31,12 +34,7 @@ class Store {
   obtainPlayer(idPlayer) {
     return this.players.find(({id}) => id === idPlayer);
   }
-
-  putPlayersToTable() {
-    this.playersTable = this.players.slice();
-  }
-
-
+  
 }
 
 decorate(Store,{
@@ -53,7 +51,6 @@ decorate(Store,{
   pointHandle: observable,
   currentPointsHistory: observable,
   obtainPlayer: action,
-  putPlayersToTable: action,
 });
 
 const store = new Store();

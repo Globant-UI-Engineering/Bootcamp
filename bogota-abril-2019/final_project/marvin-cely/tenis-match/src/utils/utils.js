@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import { observer } from "mobx-react";
+import thesaurus from './thesaurus';
 
 const utils = {
 	capitalizeString: () => {
@@ -48,12 +48,15 @@ const utils = {
 	sortByNumberArrayList: (array, element) => {		
 		return array.slice().sort((object1, object2) => object2[element] - object1[element]);
 	},
-	sortByAgeArrayList: (array, element, getAge) => {		
-		return array.slice().sort((object1, object2) => getAge(object2[element]) - getAge(object1[element]));
-	},
-	// TODO: Revisar posible quitar
-	sortByCountryList: (array, element, getCountry, countryElement) => {		
-		return array.slice().sort((object1, object2) => (getCountry(object1[element])[countryElement] > getCountry(object2[element])[countryElement]) ? 1 : -1);
+	sortByAgeArrayList: (array, element) => {		
+		return array.slice().sort((object1, object2) => utils.getAge(object2[element]) - utils.getAge(object1[element]));
+	},    
+	sortByCountryList: (array, element, countryList) => {		   
+		const countryElement = thesaurus.elementKey.NATIONALITY;
+		return array.slice().sort((object1, object2) => (
+		  countryList[object1[element]][countryElement] > 
+		  countryList[object2[element]][countryElement]) ? 
+		  1 : -1);                        
 	},
 	filterAllByArrayList: (array, value) => {
 		return array.slice().filter((player) =>

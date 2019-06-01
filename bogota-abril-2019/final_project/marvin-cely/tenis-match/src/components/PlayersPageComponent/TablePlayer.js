@@ -1,5 +1,6 @@
 import React from '../../../node_modules/react';
 import '../../css/TablePlayer.css';
+import { autorun, toJS } from "mobx";
 import { observer } from '../../../node_modules/mobx-react';
 import { dataPlayersPage } from '../../data-component/data-players-page';
 import { ImageCountry } from '../SmallPieceComponent';
@@ -15,6 +16,53 @@ const TablePlayer = observer(
         flagSize: 64,
         NATIONALITY: thesaurus.elementKey.NATIONALITY,
         NATIONALITY_ABBREVIATION: thesaurus.elementKey.NATIONALITY_ABBREVIATION,
+      }
+
+      this.isUpdatePlayers = false;
+      this.playersUpdateDisposer = null;
+      this.thereIsAction = this.thereIsAction.bind(this);
+      this.orderTable = this.orderTable.bind(this);
+    }
+
+    componentDidMount() { 
+      this.orderTable(this.props.store.playersTable.orderType);
+      this.playersUpdateDisposer = autorun(()=> {
+        const _players = this.props.store.players;
+        this.isUpdatePlayers = true;        
+      })
+    }
+
+    componentWillUnmount() {
+      this.playersUpdateDisposer();
+    }
+
+    componentDidUpdate(prevProps) {      
+      if(this.thereIsAction(prevProps) || this.isUpdatePlayers) {  
+        this.orderTable(this.props.store.playersTable.orderType);
+        this.isUpdatePlayers = false;
+      }
+    }
+
+    thereIsAction = (prevProps) => this.props.counterAction !== prevProps.counterAction;
+
+    orderTable = (orderType) => {
+      const elementsToSort = [ this.props.store.players, orderType];
+      switch (orderType) {
+        case 'name':
+          this.props.store.playersTable.playersList = utils.sortByAlphaArrayList(...elementsToSort);
+          break;
+        case 'idCountry':
+            const countriesList = toJS(this.props.store.countries);   
+            this.props.store.playersTable.playersList = utils.sortByCountryList(...elementsToSort, countriesList);
+            break;
+        case 'birthDate':
+          this.props.store.playersTable.playersList = utils.sortByAgeArrayList(...elementsToSort);
+          break;
+        case 'ranking':
+          this.props.store.playersTable.playersList = utils.sortByNumberArrayList(...elementsToSort);
+          break;   
+        default:
+          break;
       }
     }
 
@@ -35,10 +83,11 @@ const TablePlayer = observer(
         );
       }
 
-      const countries = this.props.store.countries; 
-      const playersList = this.props.store.players.map(({id, name, idCountry, birthDate, ranking}) => {
+      const countries = this.props.store.countries;    
+      const _playersList = toJS(this.props.store.players);
+      const playersList = this.props.store.playersTable.playersList.map(({id, name, idCountry, birthDate, ranking}) => {
         return (
-          <section className="row" key={id} role="row">
+          <section className="row" key={id} role="row">            
             <article className="col-10">
               <div className="row">
                 <p className="col-md-3" role="cell">

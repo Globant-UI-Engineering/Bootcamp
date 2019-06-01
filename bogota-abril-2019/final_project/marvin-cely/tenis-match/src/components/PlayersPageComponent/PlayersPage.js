@@ -1,6 +1,7 @@
 import React from '../../../node_modules/react';
 import '../../css/PlayersPage.css';
 import { observer } from '../../../node_modules/mobx-react';
+import { toJS } from "mobx";
 import TablePlayer from './TablePlayer';
 import ModalCRUDPlayer from './ModalCRUDPlayer';
 import utils from '../../utils/utils';
@@ -16,34 +17,33 @@ const PlayersPage = observer(
         newPlayerButton: dataPlayersPage.newPlayerButton,
         orderButton: dataPlayersPage.orderButton,
         idPlayerSelected: 'newPlayer',
-        counterAction: 0,
+        counterCRUDAction: 0,
+        counterTableAction: 0,
+        playersList: null,
       }      
 
+      this.ToggleButtonRef = React.createRef();
+      this.toggleOneTime = true;
+      this.activeToggleButton = this.activeToggleButton.bind(this);
       this.handleInput = this.handleInput.bind(this);
-      this.orderTable = this.orderTable.bind(this);
-      this.filterTable = this.filterTable.bind(this);
-      this.sortCountryList = this.sortCountryList.bind(this);
+      this.filterTable = this.filterTable.bind(this);// TODO: probable pasarlo a PlayerTable
     }
 
     handleInput = (event) => {
       const { name, value } = event.target;
-      if (name === 'orderOption') this.orderTable(value);
-      else if(name === 'search') this.filterTable(value);
+      if (name === 'orderOption') {
+        this.setState({ counterTableAction: this.state.counterTableAction + 1 });
+        this.props.store.playersTable.orderType = value;
+      }
+      else if (name === 'search') {
+        //TODO:...
+      }
       else if (name === 'editPlayer' || name === 'addPlayer') {
         this.setState({
           idPlayerSelected: value,
-          counterAction: this.state.counterAction + 1,
+          counterCRUDAction: this.state.counterCRUDAction + 1,
         });
       }  
-    }
-    
-    sortCountryList = (array, element) => {
-      const countries = this.props.store.countries; 
-      const countryElement = thesaurus.elementKey.NATIONALITY;
-      return array.slice().sort((object1, object2) => (
-                                  countries.get(object1[element])[countryElement] > 
-                                  countries.get(object2[element])[countryElement]) ? 
-                                  1 : -1);
     }
 
     filterTable = (value) => {// TODO: considerar si no poner el buscar...Resolver actualización de estados de players y playerTable
@@ -51,23 +51,25 @@ const PlayersPage = observer(
       // this.props.store.players = utils.filterAllByArrayList(...elementsToFilter);
     }
 
-    orderTable = (value) => {
-      const elementsToSort = [ this.props.store.players, value];
-      switch (value) {
-        case 'name':
-          this.props.store.players = utils.sortByAlphaArrayList(...elementsToSort);
-          break;
-        case 'idCountry':
-            this.props.store.players = this.sortCountryList(...elementsToSort);
-            break;
-        case 'birthDate':
-          this.props.store.players = utils.sortByAgeArrayList(...elementsToSort, utils.getAge);
-          break;
-        case 'ranking':
-          this.props.store.players = utils.sortByNumberArrayList(...elementsToSort);
-          break;   
-        default:
-          break;
+    activeToggleButton = () => {
+      for (const iterator of this.ToggleButtonRef.current.children) {
+        if (iterator.firstChild.hasAttribute("value") && iterator.firstChild.value === this.props.store.playersTable.orderType) {
+          iterator.classList.add('active');
+        }
+      }
+    }
+
+    componentDidMount() {
+      if (this.ToggleButtonRef.current !== null) {
+        this.activeToggleButton();
+        this.toggleOneTime = false;
+      }      
+    }
+
+    componentDidUpdate(_prevProps) {
+      if (this.toggleOneTime && this.ToggleButtonRef.current !== null) {
+        this.activeToggleButton();
+        this.toggleOneTime = false;
       }
     }
 
@@ -96,7 +98,7 @@ const PlayersPage = observer(
                       </fieldset>
                     </form>  
                     <section className="col-lg-8">
-                      <div className="btn-group btn-group-toggle" data-toggle="buttons">        
+                      <div className="btn-group btn-group-toggle" data-toggle="buttons" ref={this.ToggleButtonRef}>        
                         <span className="badge badge-info">
                           <i className="fas fa-sort-amount-up"></i>
                         </span>
@@ -117,11 +119,12 @@ const PlayersPage = observer(
                       <i className={this.state.newPlayerButton.icon}></i>
                       &nbsp;{this.state.newPlayerButton.name}
                   </button>
+                  {/* <p className="text-muted">Total inscritos 17</p> TODO: Poner total inscritos*/}
                 </section> 
               </header>
             </section>
-            <ModalCRUDPlayer counterAction={this.state.counterAction} store={this.props.store} idPlayerSelected={this.state.idPlayerSelected}/>      
-            <TablePlayer store={this.props.store} onClick={this.handleInput}/>
+            <ModalCRUDPlayer counterAction={this.state.counterCRUDAction} store={this.props.store} idPlayerSelected={this.state.idPlayerSelected}/>      
+            <TablePlayer counterAction={this.state.counterTableAction} store={this.props.store} onClick={this.handleInput}/>
           </main>
         );
       };
@@ -129,7 +132,7 @@ const PlayersPage = observer(
       const store = this.props.store;
       const collectionsName = [ thesaurus.collectionsName.PLAYERS, thesaurus.collectionsName.COUNTRIES];
       const statusComponent = [tableContent(), <LoadingComponent/>, <ErrorServiceComponent/>];
-      const validationComponent = () => utils.validationService( store, collectionsName, statusComponent);//TODO: Poner la copia de playerTable y verificar comportamiento en CRUD
+      const validationComponent = () => utils.validationService( store, collectionsName, statusComponent);
 
       return (
         <React.Fragment>
