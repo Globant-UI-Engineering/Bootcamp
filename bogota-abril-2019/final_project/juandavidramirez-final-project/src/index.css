@@ -4,66 +4,6 @@ body {
   background-color: white;
 }
 
-/*Header*/
-nav.navigation-header-bar {
-  background: black;
-  border-bottom: 2px solid darkgrey;
-  padding: 20px 15px;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  justify-content: space-between;
-}
-
-nav.navigation-header-bar :first-child {
-  align-items: center;
-}
-
-nav.navigation-header-bar div a {
-  padding-right: 15px;
-}
-
-nav.navigation-header-bar a {
-  text-decoration: none;
-  color: white;
-  outline: none;
-}
-
-nav.navigation-header-bar a:hover {
-  color: #e91e63;
-}
-
-nav.navigation-header-bar > div {
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-/*Footer*/
-footer.footer-container {
-  background: black;
-  border-top: 3px solid #e91e63;
-  padding: 1% 15%;
-}
-
-footer.footer-container > nav h3:first-of-type {
-  color: white;
-}
-
-footer.footer-container > nav,
-footer.footer-container > nav ul {
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-footer.footer-container > nav ul li > a {
-  padding: 6px;
-}
-
-footer.footer-container > nav ul > :first-child {
-  font-size: 50px;
-}
-
 /*Home*/
 article.home-container img {
   margin-top: 1%;
@@ -99,7 +39,6 @@ ul.champions-container li img:first-child {
 
 ul.champions-container li img:first-child:hover,
 .flex-row-match-card > a img:hover,
-nav.navigation-header-bar a:active,
 li svg:hover,
 li img:hover {
   opacity: 0.5;
@@ -284,8 +223,6 @@ article.details-panel {
 
 body,
 p#not-rendered-msg,
-footer.footer-container > nav ul,
-nav.navigation-header-bar a > h1,
 article.details-panel > h5,
 article.details-panel dt,
 ul.champions-container,
@@ -408,7 +345,6 @@ div.loading-container p:last-child {
   font-family: "Mandali", sans-serif;
 }
 
-footer.footer-container,
 article.home-container,
 .page-wrapper,
 ul.champions-container li :last-child,
@@ -419,11 +355,6 @@ div.loading-container {
   text-align: center;
 }
 
-nav.navigation-header-bar,
-nav.navigation-header-bar :first-child,
-nav.navigation-header-bar > div,
-footer.footer-container > nav,
-footer.footer-container > nav ul,
 ul.champions-container,
 .champion-detail > div,
 .flex-row-match-card,
@@ -441,8 +372,6 @@ div.site {
   flex-direction: column;
 }
 
-nav.navigation-header-bar a,
-footer.footer-container > nav h3:first-of-type,
 .page-wrapper > h2,
 .summoner-info-container > h2,
 .champion-detail > p span,
