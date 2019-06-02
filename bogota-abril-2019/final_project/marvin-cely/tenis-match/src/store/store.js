@@ -22,7 +22,8 @@ class Store {
   countries = new Map();  
   playersTable = {
     playersList: [],
-    orderType: 'ranking'
+    orderType: 'ranking',
+    searchValue: '',
   };
   matchHandle = null;
   pointHandle = null;

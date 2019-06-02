@@ -19,14 +19,12 @@ const PlayersPage = observer(
         idPlayerSelected: 'newPlayer',
         counterCRUDAction: 0,
         counterTableAction: 0,
-        playersList: null,
       }      
 
       this.ToggleButtonRef = React.createRef();
       this.toggleOneTime = true;
       this.activeToggleButton = this.activeToggleButton.bind(this);
-      this.handleInput = this.handleInput.bind(this);
-      this.filterTable = this.filterTable.bind(this);// TODO: probable pasarlo a PlayerTable
+      this.handleInput = this.handleInput.bind(this);      
     }
 
     handleInput = (event) => {
@@ -36,7 +34,8 @@ const PlayersPage = observer(
         this.props.store.playersTable.orderType = value;
       }
       else if (name === 'search') {
-        //TODO:...
+        this.setState({ counterTableAction: this.state.counterTableAction + 1 });
+        this.props.store.playersTable.searchValue = value;
       }
       else if (name === 'editPlayer' || name === 'addPlayer') {
         this.setState({
@@ -44,11 +43,6 @@ const PlayersPage = observer(
           counterCRUDAction: this.state.counterCRUDAction + 1,
         });
       }  
-    }
-
-    filterTable = (value) => {// TODO: considerar si no poner el buscar...Resolver actualización de estados de players y playerTable
-      const elementsToFilter = [ this.props.store.players, value];// TODO: Revisar comportamiento del this.playersTable en el store
-      // this.props.store.players = utils.filterAllByArrayList(...elementsToFilter);
     }
 
     activeToggleButton = () => {
@@ -94,7 +88,7 @@ const PlayersPage = observer(
                   <div className="row">
                     <form className="col-lg-4">
                       <fieldset>
-                        <input type="text" className="form-control form-control-md" placeholder="Buscar" name='search' onChange={this.handleInput}/>
+                        <input type="text" className="form-control form-control-md" placeholder="Buscar jugador" name='search' onChange={this.handleInput}/>
                       </fieldset>
                     </form>  
                     <section className="col-lg-8">

@@ -22,6 +22,7 @@ const TablePlayer = observer(
       this.playersUpdateDisposer = null;
       this.thereIsAction = this.thereIsAction.bind(this);
       this.orderTable = this.orderTable.bind(this);
+      this.filterTable = this.filterTable.bind(this);
     }
 
     componentDidMount() { 
@@ -38,15 +39,24 @@ const TablePlayer = observer(
 
     componentDidUpdate(prevProps) {      
       if(this.thereIsAction(prevProps) || this.isUpdatePlayers) {  
+        this.filterTable(this.props.store.playersTable.searchValue);
         this.orderTable(this.props.store.playersTable.orderType);
         this.isUpdatePlayers = false;
+        console.log('table update');
       }
     }
 
     thereIsAction = (prevProps) => this.props.counterAction !== prevProps.counterAction;
 
+    //TODO: Usar REGEX para filtrar nombres con espacios en vez de usar trim
+    //TODO: Poner letrero de no encontrado
+    filterTable = (value) => { 
+      const elementsToFilter = [ this.props.store.players, value];
+      this.props.store.playersTable.playersList = utils.filterAllByArrayList(...elementsToFilter);
+    }
+
     orderTable = (orderType) => {
-      const elementsToSort = [ this.props.store.players, orderType];
+      const elementsToSort = [ this.props.store.playersTable.playersList, orderType];
       switch (orderType) {
         case 'name':
           this.props.store.playersTable.playersList = utils.sortByAlphaArrayList(...elementsToSort);
