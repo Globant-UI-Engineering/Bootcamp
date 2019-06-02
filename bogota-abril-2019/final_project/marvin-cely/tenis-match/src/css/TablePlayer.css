@@ -7,3 +7,34 @@ section > article p[role="cell"], section.row[role="row"] {
 button > * {
     pointer-events: none;
 }
+
+section[role="table"] > section:first-of-type {
+    color: var(--font-color-gray-deep);
+}
+
+section[role="table"] > section:first-of-type > section {
+    background: white;
+    box-shadow: 0 1.5rem 1rem -1rem rgba(0, 0, 0, .1);  
+}
+
+@media only screen and (min-width: 992px) {
+    section[role="table"] > section:first-of-type {
+        padding-top: 8.6rem;
+        margin-top: -8.6rem;
+        z-index: 2;  
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    section[role="table"] > section:first-of-type {
+        padding-top: 11rem;
+        margin-top: -11rem;
+        z-index: 2;  
+    }
+}
+
+
+section[role="table"] > section:first-of-type h4 {
+    font-size: var(--size-small);
+    margin: 0;
+}

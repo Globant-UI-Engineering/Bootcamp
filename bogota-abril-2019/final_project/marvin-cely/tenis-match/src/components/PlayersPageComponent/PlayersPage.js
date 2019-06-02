@@ -84,14 +84,15 @@ const PlayersPage = observer(
           <main className="container">    
             <section className="sticky-top">
               <header className="row">                   
-                <section className="col-md-8">
+                <section className="col-md-8 col-lg-9">
                   <div className="row">
-                    <form className="col-lg-4">
+                    <section className="col-lg-6">      
                       <fieldset>
-                        <input type="text" className="form-control form-control-md" placeholder="Buscar jugador" name='search' onChange={this.handleInput}/>
-                      </fieldset>
-                    </form>  
-                    <section className="col-lg-8">
+                        <span className="fa fa-search form-control-feedback"></span>
+                        <input type="text" className="form-control" placeholder="Buscar jugador" name='search' value={this.props.store.playersTable.searchValue} onChange={this.handleInput}/>
+                      </fieldset>  
+                    </section>
+                    <section className="col-lg-6">
                       <div className="btn-group btn-group-toggle" data-toggle="buttons" ref={this.ToggleButtonRef}>        
                         <span className="badge badge-info">
                           <i className="fas fa-sort-amount-up"></i>
@@ -101,7 +102,7 @@ const PlayersPage = observer(
                     </section>                               
                   </div>
                 </section>
-                <section className="col-md-4">
+                <section className="col-md-4 col-lg-3">
                   <button type="button"
                     className="btn btn-primary"
                     data-toggle="modal"

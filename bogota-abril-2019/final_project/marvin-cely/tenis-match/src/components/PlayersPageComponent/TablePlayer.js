@@ -42,7 +42,6 @@ const TablePlayer = observer(
         this.filterTable(this.props.store.playersTable.searchValue);
         this.orderTable(this.props.store.playersTable.orderType);
         this.isUpdatePlayers = false;
-        console.log('table update');
       }
     }
 
@@ -134,7 +133,7 @@ const TablePlayer = observer(
           <section role="table" 
             aria-label="Estadisticas de Jugadores" 
             summary="Tabla de los jugadores y sus esetadísticas">
-              <section className="shadow-sm p-2 mb-1 bg-white rounded-pill d-none d-md-block">
+              <section className="sticky-top d-none d-md-block">
                 {tableHeader(dataPlayersPage.playerListHeader)}
               </section>
               {playersList}

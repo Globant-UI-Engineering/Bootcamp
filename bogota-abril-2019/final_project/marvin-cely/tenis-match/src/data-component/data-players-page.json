@@ -35,10 +35,10 @@
         }
       },
       "playerListHeader": {
-        "name": "Nombre",
-        "nationality": "País",
+        "name": "Jugador",
+        "nationality": "Nacionalidad",
         "age": "Edad",
-        "ranking": "Ranking"
+        "ranking": "Puntos"
       }
     }
 }

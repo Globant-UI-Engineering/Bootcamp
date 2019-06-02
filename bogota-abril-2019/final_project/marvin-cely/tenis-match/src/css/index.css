@@ -1,7 +1,8 @@
 :root {
   /**Color Palette*/
   --font-color-white: #F2F3F4;
-  --font-color-gray: #D6DBDF;
+  --font-color-gray-light: #D6DBDF;
+  --font-color-gray: #909497;
   --font-color-gray-deep:#7B7D7D;
   --font-color-black: #1e1e1e;
   --font-color-mate: #212F3D;
@@ -16,14 +17,6 @@
 
   --secundary-color: #c0392b;
   --secundary-color-deep: #902b20;
-
-  /**Font size*/
-  /* --size-small: 16px;
-  --size-medium: 18px;
-  --size-normal: 24px;
-  --size-large: 36px;
-  --size-extra-large: 48px;
-  --size-ultra-large: 64px; */
 
   --size-small: 1rem;
   --size-medium: 1.2rem;

@@ -25,9 +25,9 @@ figure[aira-lable$="jugadores"] > figcaption {
 }
 
 main.container > section:first-of-type {
-    padding-top: 3.8rem;
-    margin-top: -3.8rem;
-    z-index: 1;
+    padding-top: 3.6rem;
+    margin-top: -3.6rem;
+    z-index: 3;
 }
 
 form > fieldset {
@@ -37,31 +37,31 @@ form > fieldset {
 section > header.row {
     background: white;
     padding: 1rem;
-    border-bottom: 1px solid var(--font-color-gray);
+    border-bottom: 1px solid var(--font-color-gray-light);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-flow: row wrap;
 }
 
-section > header.row > section:first-of-type > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-flow: row wrap;
+@media only screen and (max-width: 768px) {
+    section > header.row {
+        box-shadow: 0 1.5rem 1rem -1rem rgba(0, 0, 0, .09); 
+    }
 }
 
-section > header.row > section:first-of-type > div span {
+section > header.row > section:last-of-type, section > header.row > section:first-of-type > div section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section > header.row > section:first-of-type > div > section:last-of-type span {
     border-radius: .25rem 0 0 .25rem;
     display: flex;
     align-items: center;
     font-size: var(--size-small);
     padding-left: 12px;
-}
-
-section > header.row section {
-    display: flex;
-    justify-content: center;
 }
 
 header > section:last-of-type + form {
@@ -77,5 +77,22 @@ section.row {
     margin: auto;
     text-align: center;
     padding: 1rem;;
+}
+
+section > header.row > section:first-of-type > div > section:first-of-type [name='search'] {
+    width: 19.5rem;
+    padding-left: 2.375rem;
+}
+
+section > header.row > section:first-of-type > div > section:first-of-type span {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: var(--font-color-gray);
 }
 
