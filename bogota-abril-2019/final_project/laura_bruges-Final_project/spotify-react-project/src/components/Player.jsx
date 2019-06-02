@@ -20,7 +20,7 @@ class Player extends React.Component {
     componentDidMount(){
         setInterval(()=>{
             this.props.setNowPlaying(this.props.token)
-        }, 1000)
+        }, 500)
     }
 
     handlePlayClick(){

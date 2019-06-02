@@ -20,6 +20,7 @@ class LoginTransition extends React.Component {
         let refreshToken = parsed.refresh_token;
         
         if(accessToken) {
+            console.log(refreshToken);
             this.props.setToken(accessToken, refreshToken);
             this.props.setUserInfo(accessToken);
         } else {

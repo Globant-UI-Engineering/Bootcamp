@@ -1,13 +1,4 @@
 import { playerActionTypes } from './actionTypes';
-import axios from 'axios';
-import { NOW_PLAYING_URL } from '../utils/EndpointSettings';
-
-export const fetchNowPlaying = (playing) => {
-    return {
-        type: playerActionTypes.fetchNowPlaying,
-        playing
-    }
-}
 
 export const setNowPlaying = (accessToken) => {
     return {

@@ -2,6 +2,7 @@ import { tokenActTypes } from '../actions/actionTypes'
 export const tokenReducer = (state = {}, action) => {
     switch(action.type) {
         case tokenActTypes.setToken:
+            console.log('*************** ACTION', action)
             return {
                 ...state,
                 authToken: action.authToken,

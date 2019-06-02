@@ -8,9 +8,11 @@ const initialState = {
 const playerReducer = (state = initialState, action) => {
     switch (action.type) {
         case playerActionTypes.fetchNowPlaying:
+            console.log("***************** STATE", state)
+            console.log("***************** ACTION", action)
             return {
                 ...state,
-                playing: action.playing
+                payload: action.playing
             }
         case playerActionTypes.fetchNowPlayingSuccess:
                 return {
