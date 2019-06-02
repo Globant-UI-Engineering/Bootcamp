@@ -1,0 +1,57 @@
+.flex-row-match-card > a img:hover {
+  opacity: 0.5;
+}
+
+.flex-row-match-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 4px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-row-match-card > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex-row-match-card > h4 {
+  text-transform: uppercase;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 18px;
+}
+
+article.details-panel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2%;
+}
+
+article.details-panel > h5,
+article.details-panel dt,
+article.details-panel dd {
+  margin: 0;
+}
+
+article.details-panel > h5 {
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+
+article.details-panel dt {
+  font-weight: 600;
+  display: inline;
+  margin-right: 10px;
+}
+
+article.details-panel dd {
+  display: inline;
+}
+
+article.details-panel > h5,
+article.details-panel dt {
+  text-transform: uppercase;
+}

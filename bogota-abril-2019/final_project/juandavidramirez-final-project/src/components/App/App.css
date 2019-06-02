@@ -1,0 +1,6 @@
+div.site {
+  min-height: 100vh;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}

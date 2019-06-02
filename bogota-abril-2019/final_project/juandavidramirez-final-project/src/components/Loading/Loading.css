@@ -1,0 +1,10 @@
+div.loading-container {
+  text-align: center;
+  margin: 10%;
+}
+
+div.loading-container p:last-child {
+  font-family: "Mandali", sans-serif;
+  text-transform: capitalize;
+  font-weight: 600;
+}

@@ -1,0 +1,15 @@
+div.linear-progress-bar {
+  background-color: rgb(201, 206, 234);
+  height: 10px;
+  position: relative;
+}
+
+div.linear-progress-bar div {
+  background-color: #3f51b5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  transform-origin: left;
+}
