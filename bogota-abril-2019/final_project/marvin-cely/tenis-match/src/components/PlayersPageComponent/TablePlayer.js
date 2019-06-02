@@ -47,7 +47,6 @@ const TablePlayer = observer(
 
     thereIsAction = (prevProps) => this.props.counterAction !== prevProps.counterAction;
 
-    //TODO: Usar REGEX para filtrar nombres con espacios en vez de usar trim
     //TODO: Poner letrero de no encontrado
     filterTable = (value) => { 
       const elementsToFilter = [ this.props.store.players, value];

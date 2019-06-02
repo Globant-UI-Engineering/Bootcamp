@@ -1,7 +1,6 @@
 import React from '../../../node_modules/react';
 import '../../css/PlayersPage.css';
 import { observer } from '../../../node_modules/mobx-react';
-import { toJS } from "mobx";
 import TablePlayer from './TablePlayer';
 import ModalCRUDPlayer from './ModalCRUDPlayer';
 import utils from '../../utils/utils';
@@ -16,6 +15,7 @@ const PlayersPage = observer(
       this.state = {
         newPlayerButton: dataPlayersPage.newPlayerButton,
         orderButton: dataPlayersPage.orderButton,
+        inscribedMessage: 'Total inscritos ',
         idPlayerSelected: 'newPlayer',
         counterCRUDAction: 0,
         counterTableAction: 0,
@@ -114,7 +114,10 @@ const PlayersPage = observer(
                       <i className={this.state.newPlayerButton.icon}></i>
                       &nbsp;{this.state.newPlayerButton.name}
                   </button>
-                  {/* <p className="text-muted">Total inscritos 17</p> TODO: Poner total inscritos*/}
+                  <small className="text-muted">
+                    {this.state.inscribedMessage}
+                    <span>{this.props.store.players.length}</span>
+                  </small>
                 </section> 
               </header>
             </section>

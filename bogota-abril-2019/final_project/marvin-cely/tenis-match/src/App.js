@@ -17,6 +17,8 @@ class App extends React.Component {
       nameApp: dataApp.nameApp,
     }
 
+    this.collapseButtonRef = React.createRef();
+    this.collapseButton = this.collapseButton.bind(this);
     // Here is the firestore's onSnapshot when gets the "()" Unlink a listening agent. See componentWillMount.
     const {PLAYERS, MATCHES, POINTS, COUNTRIES} = thesaurus.collectionsName;
     this.unSubcribePlayers = serviceGetData.listenAllElementsList(this.props.store, PLAYERS);// TODO: Revisar con que tipo de dato conviene list o map
@@ -31,6 +33,11 @@ class App extends React.Component {
     this.unSubcribePoints();
     this.unSubcribeCountires();
   }
+
+  collapseButton() {
+    if(this.collapseButtonRef.current.classList.length === 1)
+      this.collapseButtonRef.current.click();
+  }
   
   render() {
     const linkList = routesPages.filter((_route, index) => index > 0 )
@@ -40,6 +47,7 @@ class App extends React.Component {
           key={index}
           className="nav-link"
           to={path}
+          onClick={this.collapseButton}
         >
           <i className={icon}></i>
           &nbsp;{title}
@@ -61,7 +69,7 @@ class App extends React.Component {
                     <h1>{this.state.nameApp}</h1>
                   </header>
               </Link>
-              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-controls="barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
+              <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-controls="barraNavegacion" aria-expanded="false" aria-label="Toggle navigation" ref={this.collapseButtonRef}>
                 <span className="navbar-toggler-icon"></span>
               </button>
               <section className="collapse navbar-collapse" id="barraNavegacion">

@@ -24,10 +24,32 @@ figure[aira-lable$="jugadores"] > figcaption {
     margin: 0.8vh;
 }
 
+aside + main.container {
+    margin-bottom: var(--size-large);
+}
+
 main.container > section:first-of-type {
-    padding-top: 3.6rem;
-    margin-top: -3.6rem;
     z-index: 3;
+}
+
+@media only screen and (min-width: 992px) {
+    section > header.row > section:first-of-type section  {
+        margin-bottom: 1.2rem;
+    }
+    main.container > section:first-of-type {
+        padding-top: 4rem;
+        margin-top: -4rem;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    section > header.row > section:first-of-type section:first-of-type  {
+        margin-bottom: 0.3rem;
+    }
+    main.container > section:first-of-type {
+        padding-top: 3.6rem;
+        margin-top: -3.6rem;
+    }
 }
 
 form > fieldset {
@@ -37,6 +59,7 @@ form > fieldset {
 section > header.row {
     background: white;
     padding: 1rem;
+    padding-bottom: 0.8rem;
     border-bottom: 1px solid var(--font-color-gray-light);
     display: flex;
     justify-content: space-between;
@@ -54,6 +77,7 @@ section > header.row > section:last-of-type, section > header.row > section:firs
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 section > header.row > section:first-of-type > div > section:last-of-type span {

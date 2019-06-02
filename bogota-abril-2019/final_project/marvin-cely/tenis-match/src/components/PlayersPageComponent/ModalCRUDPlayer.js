@@ -85,7 +85,7 @@ const ModalCRUDPlayer = observer(
           successButton:  'Inscribir',
           submitStyle: 'btn btn-info',
           isUpdate: false,
-          playerForm: Object.assign({}, thesaurus.initialValueForm),
+          playerForm: Object.assign({}, dataPlayersPage.ModalForm.initialValueForm),
         });
 
         this.buttonSubmitRef.current.disabled = false;
