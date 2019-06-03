@@ -5,8 +5,13 @@ import { connect } from 'react-redux';
 import {setFilteredMovies} from '../../actions/moviesActions';
 import { firebaseConnect } from 'react-redux-firebase';
 import PropTypes from 'prop-types';
+import {getUserName} from '../../actions/moviesActions';
 
 class Navbar extends Component {
+
+    componentDidMount(){
+        this.props.getUserName();
+    }
     
     state={
         userLoggedIn:false,
@@ -16,7 +21,7 @@ class Navbar extends Component {
    static getDerivedStateFromProps(props) {
     const { auth } = props;
         if(auth.uid){
-           let displayName = auth.displayName?auth.displayName:'User';
+           let displayName = auth.displayName?auth.displayName:null;
             return {
                 userLoggedIn:true,
                 displayName
@@ -37,6 +42,7 @@ class Navbar extends Component {
 
     render(){
         const { userLoggedIn, displayName } = this.state;
+        const username = displayName? displayName : this.props.username;
         return (
                 <nav className="uk-navbar-container uk-navbar-transparent" uk-navbar="true">
                     {userLoggedIn   ?
@@ -55,7 +61,7 @@ class Navbar extends Component {
                         <ul className="uk-navbar-nav uk-light">
                             <li>
                                 <i className="fas fa-user"></i>{' '}
-                                {displayName}
+                                {username}
                                 <div className="uk-navbar-subtitle">
                                    <small>
                                        <NavLink className="uk-button uk-button-link uk-text-capítalize" activeClassName="uk-active" to ="/favorites" >Favorites</NavLink> 
@@ -78,8 +84,10 @@ Navbar.propTypes={
 }
 
 const mapStateToProps = state => ({
+    username: state.movies.username,
     auth: state.firebase.auth,
 })
 
-export default compose( firebaseConnect(),
-    connect(mapStateToProps,{setFilteredMovies}))(Navbar);
+export default compose( 
+    connect(mapStateToProps,{setFilteredMovies, getUserName}),
+    firebaseConnect())(Navbar);

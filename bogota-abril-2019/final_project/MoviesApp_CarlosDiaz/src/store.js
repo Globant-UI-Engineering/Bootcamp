@@ -28,14 +28,11 @@ const rrfConfig = {
     useFirestoreForProfile:true
 }
 
-//crear el enhancer con compose de redux y firestore
-const createStoreWithFirebase = compose(
+const store = createStore(rootReducer, initialState, compose(
     reactReduxFirebase(firebase,rrfConfig),
-    reduxFirestore(firebase)
-)(createStore);
-
-const store = createStoreWithFirebase(rootReducer, initialState, compose(applyMiddleware(...middleware),
-reactReduxFirebase(firebase)
+    reduxFirestore(firebase),
+    reactReduxFirebase(firebase),
+    applyMiddleware(...middleware),
 /* Need React Dev Tools Extension
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()*/
 ));

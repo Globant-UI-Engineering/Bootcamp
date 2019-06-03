@@ -1,5 +1,6 @@
 import { SET_NOW_IN_THEATERS, GET_NOW_IN_THEATERS, SET_GENRES, GET_GENRES, SET_FILTERED_MOVIES, 
-    GET_FILTERED_MOVIES, GET_SINGLE_MOVIE, GET_POPULAR_MOVIES, SET_POPULAR_MOVIES} from './type';
+    GET_FILTERED_MOVIES, GET_SINGLE_MOVIE, GET_POPULAR_MOVIES, SET_POPULAR_MOVIES,
+SET_USERNAME,GET_USERNAME} from './type';
 
 export const setNowInTheaters = (movies) => {
     return{
@@ -60,3 +61,15 @@ export const getSingleMovie = (movie) =>{
     }
 }
 
+export const setUserName = (username) =>{
+    return{
+        type:SET_USERNAME,
+        payload:username
+    }
+}
+
+export const getUserName = () =>{
+    return{
+        type:GET_USERNAME
+    }
+}

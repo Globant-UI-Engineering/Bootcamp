@@ -42,17 +42,17 @@ class Login extends Component {
                         </div>
                     </div>
                     <form onSubmit={this.logIn}>
-                        <div class="uk-card-body">
-                            <div class="uk-margin">
+                        <div className="uk-card-body">
+                            <div className="uk-margin">
                                 <label id="email_label">Email:</label>
                                 <input type="email" placeholder="Your email address" aria-labelledby="email_label" className="uk-input" name="email"  ref={this.emailInput} required/>
                             </div>
-                            <div class="uk-margin">
+                            <div className="uk-margin">
                                 <label id="password_label">Password:</label>
                                 <input type="password" placeholder="Your password" className="uk-input"  aria-labelledby="password_label" name="password" ref={this.pwdInput} required/>
                             </div>
                         </div>
-                        <div class="uk-card-footer">
+                        <div className="uk-card-footer uk-child-width-1-1@s uk-child-width-2-1@m" uk-margin="true">
                             <input 
                                 type="submit"
                                 className="uk-button uk-button-secondary"

@@ -9,6 +9,9 @@ export const GET_SINGLE_MOVIE = "GET_SINGLE_MOVIE"
 export const GET_POPULAR_MOVIES ="GET_POPULAR_MOVIES"
 export const SET_POPULAR_MOVIES = "SET_POPULAR_MOVIES"
 
+//Auth
+export const SET_USERNAME = "SET_USERNAME" 
+export const GET_USERNAME = "GET_USERNAME" 
 
 //Form
 export const VALIDATE_FORM = "VALIDATE_FORM";
