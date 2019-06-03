@@ -1,10 +1,6 @@
-/*Root of the project: Components not rendered*/
-
 body {
   background-color: white;
 }
-
-/*Champions*/
 
 article {
   margin: 5%;
@@ -18,10 +14,6 @@ li img:hover {
 .page-wrapper > h2 {
   font-size: 40px;
 }
-
-/*Champion detail*/
-
-/*Summoner detail*/
 
 body,
 p#not-rendered-msg {
@@ -42,9 +34,6 @@ p#not-rendered-msg {
 
 .page-wrapper > h2 {
   text-transform: uppercase;
-}
-
-.page-wrapper > h2 {
   font-family: "Noto Sans", sans-serif;
 }
 
@@ -62,7 +51,8 @@ nav.navigation-header-bar {
   justify-content: space-between;
 }
 
-nav.navigation-header-bar :first-child {
+nav.navigation-header-bar :first-child,
+nav.navigation-header-bar > div {
   align-items: center;
 }
 
@@ -83,7 +73,6 @@ nav.navigation-header-bar a:hover {
 nav.navigation-header-bar > div {
   justify-content: center;
   flex-wrap: wrap;
-  align-items: center;
 }
 
 nav.navigation-header-bar a:active {
@@ -110,6 +99,7 @@ article.home-container img {
   width: 500px;
   height: auto;
 }
+
 article.home-container p {
   text-align: justify;
   margin: 3% 20%;
@@ -176,9 +166,9 @@ div.error-panel-container {
 
 div.error-panel-container > div {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
 }
 
@@ -277,29 +267,30 @@ thead tr.MuiTableRow-root-30 th {
 
 .flex-row-match-card {
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 4px;
-  justify-content: space-between;
   align-items: center;
 }
 
-.flex-row-match-card > a {
+.flex-row-match-card > a,
+article.details-panel {
   display: flex;
   flex-direction: column;
+}
+
+.flex-row-match-card > a,
+article.details-panel {
   justify-content: center;
 }
 
 .flex-row-match-card > h4 {
-  text-transform: uppercase;
   font-family: "Noto Sans", sans-serif;
   font-size: 18px;
 }
 
 article.details-panel {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   padding: 2%;
 }
 
@@ -316,16 +307,17 @@ article.details-panel > h5 {
 
 article.details-panel dt {
   font-weight: 600;
-  display: inline;
   margin-right: 10px;
 }
 
-article.details-panel dd {
+article.details-panel dd,
+article.details-panel dt {
   display: inline;
 }
 
 article.details-panel > h5,
-article.details-panel dt {
+article.details-panel dt,
+.flex-row-match-card > h4 {
   text-transform: uppercase;
 }
 
@@ -339,8 +331,12 @@ article.details-panel dt {
   text-align: center;
 }
 
-.summoner-info-container > h2 {
+.summoner-info-container > h2,
+section.additional-info h3 {
   font-family: "Noto Sans", sans-serif;
+}
+
+.summoner-info-container > h2 {
   margin-bottom: 0;
 }
 
@@ -362,7 +358,6 @@ section.additional-info {
 }
 
 section.additional-info h3 {
-  font-family: "Noto Sans", sans-serif;
   font-size: 20px;
 }
 
@@ -501,7 +496,9 @@ footer.footer-container > nav h3:first-of-type {
 
 footer.footer-container > nav,
 footer.footer-container > nav ul {
+  display: flex;
   justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
@@ -521,21 +518,15 @@ footer.footer-container {
   text-align: center;
 }
 
-footer.footer-container > nav,
-footer.footer-container > nav ul {
-  display: flex;
-  flex-direction: row;
-}
-
 footer.footer-container > nav h3:first-of-type {
   text-transform: uppercase;
 }
 
 div.site {
-  min-height: 100vh;
-  justify-content: space-between;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 

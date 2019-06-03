@@ -4,29 +4,30 @@
 
 .flex-row-match-card {
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 4px;
-  justify-content: space-between;
   align-items: center;
 }
 
-.flex-row-match-card > a {
+.flex-row-match-card > a,
+article.details-panel {
   display: flex;
   flex-direction: column;
+}
+
+.flex-row-match-card > a,
+article.details-panel {
   justify-content: center;
 }
 
 .flex-row-match-card > h4 {
-  text-transform: uppercase;
   font-family: "Noto Sans", sans-serif;
   font-size: 18px;
 }
 
 article.details-panel {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   padding: 2%;
 }
 
@@ -43,15 +44,16 @@ article.details-panel > h5 {
 
 article.details-panel dt {
   font-weight: 600;
-  display: inline;
   margin-right: 10px;
 }
 
-article.details-panel dd {
+article.details-panel dd,
+article.details-panel dt {
   display: inline;
 }
 
 article.details-panel > h5,
-article.details-panel dt {
+article.details-panel dt,
+.flex-row-match-card > h4 {
   text-transform: uppercase;
 }

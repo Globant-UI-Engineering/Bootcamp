@@ -10,7 +10,9 @@ footer.footer-container > nav h3:first-of-type {
 
 footer.footer-container > nav,
 footer.footer-container > nav ul {
+  display: flex;
   justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
@@ -28,12 +30,6 @@ footer.footer-container > nav ul {
 
 footer.footer-container {
   text-align: center;
-}
-
-footer.footer-container > nav,
-footer.footer-container > nav ul {
-  display: flex;
-  flex-direction: row;
 }
 
 footer.footer-container > nav h3:first-of-type {

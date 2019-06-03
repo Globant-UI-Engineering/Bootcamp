@@ -8,8 +8,12 @@
   text-align: center;
 }
 
-.summoner-info-container > h2 {
+.summoner-info-container > h2,
+section.additional-info h3 {
   font-family: "Noto Sans", sans-serif;
+}
+
+.summoner-info-container > h2 {
   margin-bottom: 0;
 }
 
@@ -31,7 +35,6 @@ section.additional-info {
 }
 
 section.additional-info h3 {
-  font-family: "Noto Sans", sans-serif;
   font-size: 20px;
 }
 

@@ -8,7 +8,8 @@ nav.navigation-header-bar {
   justify-content: space-between;
 }
 
-nav.navigation-header-bar :first-child {
+nav.navigation-header-bar :first-child,
+nav.navigation-header-bar > div {
   align-items: center;
 }
 
@@ -29,7 +30,6 @@ nav.navigation-header-bar a:hover {
 nav.navigation-header-bar > div {
   justify-content: center;
   flex-wrap: wrap;
-  align-items: center;
 }
 
 nav.navigation-header-bar a:active {

@@ -5,9 +5,9 @@ div.error-panel-container {
 
 div.error-panel-container > div {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
 }
 

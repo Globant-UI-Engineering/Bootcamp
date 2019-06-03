@@ -1,10 +1,6 @@
-/*Root of the project: Components not rendered*/
-
 body {
   background-color: white;
 }
-
-/*Champions*/
 
 article {
   margin: 5%;
@@ -18,10 +14,6 @@ li img:hover {
 .page-wrapper > h2 {
   font-size: 40px;
 }
-
-/*Champion detail*/
-
-/*Summoner detail*/
 
 body,
 p#not-rendered-msg {
@@ -42,9 +34,6 @@ p#not-rendered-msg {
 
 .page-wrapper > h2 {
   text-transform: uppercase;
-}
-
-.page-wrapper > h2 {
   font-family: "Noto Sans", sans-serif;
 }
 
