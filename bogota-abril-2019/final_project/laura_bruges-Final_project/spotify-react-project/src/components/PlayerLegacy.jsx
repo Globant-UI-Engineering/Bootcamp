@@ -7,7 +7,7 @@ import { backward } from 'react-icons-kit/fa/backward';
 import { forward } from 'react-icons-kit/fa/forward';
 import { pause } from 'react-icons-kit/fa/pause';
 import Icon from 'react-icons-kit';
-import {setNowPlaying } from '../actions/playerActions'
+import { setNowPlaying } from '../actions/playerActions'
 
 class Player extends React.Component {
     constructor(){
@@ -16,9 +16,23 @@ class Player extends React.Component {
             playing: false
         }
         this.handlePlayClick = this.handlePlayClick.bind(this);
+        this.getPlayerInfo = this.getPlayerInfo.bind(this);
     }
+
     componentDidMount(){
-        setInterval(()=>{
+        this.setState({
+            intervalId: this.getPlayerInfo()
+        })        
+    }
+
+    componentWillUnmount() {
+        if(this.state.intervalId) {
+            clearInterval(this.state.intervalId);
+        }
+    }
+
+    getPlayerInfo() {
+        return setInterval(() =>{
             this.props.setNowPlaying(this.props.token)
         }, 500)
     }

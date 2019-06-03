@@ -1,10 +1,5 @@
 import React from 'react';
 import queryString from 'query-string';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { setToken } from '../../actions/tokenActions'
-import { setNowPlaying } from '../../actions/playerActions';
-import { setUserInfo } from '../../actions/userActions';
 import PropTypes from 'prop-types';
 
 class LoginTransition extends React.Component {
@@ -20,7 +15,6 @@ class LoginTransition extends React.Component {
         let refreshToken = parsed.refresh_token;
         
         if(accessToken) {
-            console.log(refreshToken);
             this.props.setToken(accessToken, refreshToken);
             this.props.setUserInfo(accessToken);
         } else {
@@ -44,19 +38,4 @@ LoginTransition.propTypes = {
     refreshToken: PropTypes.string,
 }
 
-const mapStateToProps = (state) => {
-    return {
-        authToken: state.tokenReducer.authToken,
-        refreshToken: state.tokenReducer.refreshToken
-    };
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        setToken,
-        setNowPlaying,
-        setUserInfo
-    }, dispatch)
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginTransition);
+export default LoginTransition;

@@ -1,0 +1,11 @@
+.custom-select {
+    background-color: rgb(52, 58, 64);;
+    color: white;
+    border: none;
+    width: 80%;
+}
+
+.device-container {
+    padding-top: 10%;
+    padding-bottom: 10%;
+}

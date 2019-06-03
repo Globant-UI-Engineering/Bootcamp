@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './components/App';
-import LoginTransition from './components/LoginTransition/index';
+import LoginTransition from './components/LoginTransition';
 import User from './components/User';
 import store from './storeCreator';
 
