@@ -73,8 +73,8 @@ class MoviesForm extends Component{
 };
 
 MoviesForm.propTypes = {
-    genres: PropTypes.array.isRequired,
-    error: PropTypes.bool.isRequired,
+    getGenres: PropTypes.func.isRequired,
+    validateForm:PropTypes.func.isRequired,
     noresults:PropTypes.bool,
     setFilteredMovies: PropTypes.func.isRequired,
 }

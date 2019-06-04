@@ -13,7 +13,7 @@ class Favorites extends Component {
         return (
         <div className="uk-container uk-container-small uk-margin uk-padding uk-background-default">
             <h3 className="uk-card-title uk-margin-remove-bottom uk-text-center uk-text-uppercase">Favorites</h3>
-            <table class="uk-table uk-table-striped uk-padding">
+            <table className="uk-table uk-table-striped uk-padding">
                 <thead>
                     <tr>
                         <th>Title</th>
@@ -25,7 +25,7 @@ class Favorites extends Component {
                      {
                         favorites?
                         favorites.map(favorite=>(
-                        <tr>
+                        <tr key ={favorite.movieId}>
                             <td><Link role="link" to={`/movies/${favorite.movieId}`}>{favorite.movieTitle}</Link></td>
                             <td>{favorite.releaseDate}</td>
                             <td>{favorite.budget}</td>
@@ -46,7 +46,7 @@ class Favorites extends Component {
 
 Favorites.propTypes = {
     auth: PropTypes.object.isRequired,
-    users: PropTypes.array.isRequired,
+    users: PropTypes.object,
 }
 
 export default compose(

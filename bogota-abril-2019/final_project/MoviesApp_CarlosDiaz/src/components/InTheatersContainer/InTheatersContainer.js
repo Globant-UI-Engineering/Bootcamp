@@ -11,7 +11,7 @@ class InTheatersContainer extends Component {
 
     render() {
         return (
-            <div className="uk-container uk-container-small uk-margin">
+            <div className="uk-container uk-container-small">
                 <div className="uk-padding uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid="true">
                     {Object.keys(this.props.movies).map( movieKey =>(
                         <InTheatersCard key={movieKey}  movie={this.props.movies[movieKey]} />
