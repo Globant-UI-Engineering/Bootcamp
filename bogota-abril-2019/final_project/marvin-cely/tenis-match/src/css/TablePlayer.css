@@ -25,10 +25,10 @@ section[role="table"] > section:first-of-type > section {
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 767px) and (max-width: 991px) {
     section[role="table"] > section:first-of-type {
-        padding-top: 11rem;
-        margin-top: -11rem;
+        padding-top: 11.1rem;
+        margin-top: -11.1rem;
     }
 }
 

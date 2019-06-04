@@ -67,7 +67,7 @@ section > header.row {
     flex-flow: row wrap;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
     section > header.row {
         box-shadow: 0 1.5rem 1rem -1rem rgba(0, 0, 0, .09); 
     }
