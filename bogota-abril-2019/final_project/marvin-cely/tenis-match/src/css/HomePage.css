@@ -57,7 +57,7 @@ main > figure:not(:first-of-type) > p {
 
 main > figure:nth-of-type(2) + section {
     padding: 10vh;
-    background: var(--primary-color-deep);
+    background: var(--secundary-color-deep);
     color: var(--font-color-white);
     font-size: var(--size-normal);
     font-family: var(--font-group-3);
@@ -66,6 +66,9 @@ main > figure:nth-of-type(2) + section {
     justify-content: space-evenly;
     align-items: center;
     flex-flow: row wrap;
+}
+main > figure:nth-of-type(2) + section img {
+    filter: drop-shadow(.5rem .5rem .5rem  var(--font-color-black)); 
 }
 
 main > figure:nth-of-type(2) + section > img {

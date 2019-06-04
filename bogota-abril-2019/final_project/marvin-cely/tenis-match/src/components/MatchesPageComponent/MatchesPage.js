@@ -1,11 +1,16 @@
 import React from '../../../node_modules/react';
 import '../../css/MatchesPage.css';
+import { InConstructionComponent } from '../SmallPieceComponent'
 
 class MatchesPage extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() { 
     return(
       <React.Fragment>
-        <div>MATCHES PAGE</div>
+        <InConstructionComponent thing={this.props.titlePage}/>
       </React.Fragment>
     );
   }

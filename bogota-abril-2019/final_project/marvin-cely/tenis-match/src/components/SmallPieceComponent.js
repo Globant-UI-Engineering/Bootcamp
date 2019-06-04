@@ -8,10 +8,12 @@ import typeCode from '../images/typeCode.png';
 function InConstructionComponent(props) {
   return (
   <article className="in-construction">
-    <img src={typeCode} alt="Escribiendo código imagen" className="img-fluid"/>
-    <p>
-    Historia de usuario
-    &nbsp;{props.thing}
+    <picture>
+      <img src={typeCode} alt="Escribiendo código imagen" className="img-fluid"/>
+    </picture>
+    <p className="p-3">
+    Historia de usuario&nbsp;
+    <strong>{props.thing}</strong>
     &nbsp;en construction.</p>
   </article>
   );

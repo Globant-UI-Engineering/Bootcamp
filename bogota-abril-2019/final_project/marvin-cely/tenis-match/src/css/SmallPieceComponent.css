@@ -1,8 +1,11 @@
 section.loading , article.error-service, article.not-found, article.in-construction {
-    height: 50vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    align-content: center;
+    flex-flow: row wrap;
+    text-align: center;
     font-family: var(--font-group-3);
     font-size: var(--size-medium);
 }
@@ -15,7 +18,12 @@ article.error-service, article.not-found {
     color: var(--font-color-gray-deep);
 }
 
-/**TODO: Poner Tamaño de la imagen*/
-article.not-found > img {
-    height: 12rem;
+article.in-construction > picture {
+    max-width: 10rem;
+    height: auto;
+    padding: 1rem;
+}
+
+article.in-construction > picture img {
+    filter: drop-shadow(0 .5rem .5rem  rgba(0, 0, 0, .09)); 
 }
