@@ -21,9 +21,9 @@ class App extends React.Component {
     this.collapseButton = this.collapseButton.bind(this);
     // Here is the firestore's onSnapshot when gets the "()" Unlink a listening agent. See componentWillMount.
     const {PLAYERS, MATCHES, POINTS, COUNTRIES} = thesaurus.collectionsName;
-    this.unSubcribePlayers = serviceGetData.listenAllElementsList(this.props.store, PLAYERS);// TODO: Revisar con que tipo de dato conviene list o map
-    this.unSubcribeMatches = serviceGetData.listenAllElementsList(this.props.store, MATCHES); // TODO: Revisar con que tipo de dato conviene list o map
-    this.unSubcribePoints = serviceGetData.listenAllElementsList(this.props.store, POINTS); // TODO: Revisar con que tipo de dato conviene list o map
+    this.unSubcribePlayers = serviceGetData.listenAllElementsList(this.props.store, PLAYERS)
+    this.unSubcribeMatches = serviceGetData.listenAllElementsList(this.props.store, MATCHES);
+    this.unSubcribePoints = serviceGetData.listenAllElementsList(this.props.store, POINTS);
     this.unSubcribeCountires = serviceGetData.listenAllElementsMap(this.props.store, COUNTRIES);
   }
 

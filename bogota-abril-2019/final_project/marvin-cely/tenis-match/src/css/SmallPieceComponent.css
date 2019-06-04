@@ -1,6 +1,21 @@
-section.loading , article.error-service {
+section.loading , article.error-service, article.not-found, article.in-construction {
     height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: var(--font-group-3);
+    font-size: var(--size-medium);
+}
+
+section.loading p {
+    color: var(--neutro-color-striking);
+}
+
+article.error-service, article.not-found {
+    color: var(--font-color-gray-deep);
+}
+
+/**TODO: Poner Tamaño de la imagen*/
+article.not-found > img {
+    height: 12rem;
 }

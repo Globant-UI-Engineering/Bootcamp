@@ -3,10 +3,34 @@ import '../css/SmallPieceComponent.css';
 import { observer } from '../../node_modules/mobx-react';
 import utils from '../utils/utils';
 import thesaurus from '../utils/thesaurus';
+import typeCode from '../images/typeCode.png';
+
+function InConstructionComponent(props) {
+  return (
+  <article className="in-construction">
+    <img src={typeCode} alt="Escribiendo código imagen" className="img-fluid"/>
+    <p>
+    Historia de usuario
+    &nbsp;{props.thing}
+    &nbsp;en construction.</p>
+  </article>
+  );
+}
+
+function NotFoundComponent(props) {
+  return (
+  <article className="not-found">
+    <p><i class="far fa-meh-rolling-eyes"></i>
+    &nbsp;{props.thing}
+    &nbsp;no encontrado.</p>
+  </article>
+  );
+}
 
 function LoadingComponent() {
   return (
-  <section className="d-flex justify-content-center loading">
+  <section className="loading">
+    <p>Cargando</p>&nbsp;
     <article className="spinner-grow text-info" role="status">
       <span className="sr-only">Loading...</span>
     </article>
@@ -16,8 +40,8 @@ function LoadingComponent() {
 
 function ErrorServiceComponent() {
   return (
-  <article className="d-flex justify-content-center error-service">
-    <p><i className="far fa-frown-open"></i>&nbsp;Algo salió mal, intente más tarde</p>
+  <article className="error-service">
+    <p><i className="far fa-frown-open"></i>&nbsp;Algo salió mal, intente más tarde.</p>
   </article>
   );
 }
@@ -80,4 +104,11 @@ class ImageCountry extends React.Component {
 
 
 
-export {LoadingComponent, CountryOptionComponent, ErrorServiceComponent, ImageCountry};
+export {
+  LoadingComponent, 
+  CountryOptionComponent, 
+  ErrorServiceComponent, 
+  ImageCountry, 
+  NotFoundComponent,
+  InConstructionComponent,
+};

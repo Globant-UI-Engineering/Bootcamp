@@ -15,7 +15,7 @@ const PlayersPage = observer(
       this.state = {
         newPlayerButton: dataPlayersPage.newPlayerButton,
         orderButton: dataPlayersPage.orderButton,
-        inscribedMessage: 'Total inscritos ',
+        inscribedMessage: 'Total inscritos',
         idPlayerSelected: 'newPlayer',
         counterCRUDAction: 0,
         counterTableAction: 0,
@@ -115,7 +115,7 @@ const PlayersPage = observer(
                       &nbsp;{this.state.newPlayerButton.name}
                   </button>
                   <small className="text-muted">
-                    {this.state.inscribedMessage}
+                    {this.state.inscribedMessage}&nbsp;
                     <span>{this.props.store.players.length}</span>
                   </small>
                 </section> 

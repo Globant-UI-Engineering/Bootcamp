@@ -3,7 +3,7 @@ import '../../css/TablePlayer.css';
 import { autorun, toJS } from "mobx";
 import { observer } from '../../../node_modules/mobx-react';
 import { dataPlayersPage } from '../../data-component/data-players-page';
-import { ImageCountry } from '../SmallPieceComponent';
+import { ImageCountry, NotFoundComponent } from '../SmallPieceComponent';
 import utils from '../../utils/utils';
 import thesaurus from '../../utils/thesaurus';
 
@@ -47,7 +47,6 @@ const TablePlayer = observer(
 
     thereIsAction = (prevProps) => this.props.counterAction !== prevProps.counterAction;
 
-    //TODO: Poner letrero de no encontrado
     filterTable = (value) => { 
       const elementsToFilter = [ this.props.store.players, value];
       this.props.store.playersTable.playersList = utils.filterAllByArrayList(...elementsToFilter);
@@ -127,6 +126,12 @@ const TablePlayer = observer(
         );
       });
 
+      const resultSearchComponent = () => {
+        return (playersList.length === 0 && this.props.store.playersTable.searchValue !== '') ?
+          <NotFoundComponent thing={dataPlayersPage.playerListHeader.name}/> :          
+          playersList;
+      }
+
       return(
         <React.Fragment>        
           <section role="table" 
@@ -135,7 +140,7 @@ const TablePlayer = observer(
               <section className="sticky-top d-none d-md-block">
                 {tableHeader(dataPlayersPage.playerListHeader)}
               </section>
-              {playersList}
+              {resultSearchComponent()}
           </section>
         </React.Fragment>
       );
