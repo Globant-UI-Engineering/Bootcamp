@@ -22,6 +22,7 @@ class Store {
   countries = new Map();  
   playersTable = {
     playersList: [],
+    isAscending: true,
     orderType: 'ranking',
     searchValue: '',
   };

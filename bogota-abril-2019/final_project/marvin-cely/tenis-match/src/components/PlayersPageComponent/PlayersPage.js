@@ -22,35 +22,51 @@ const PlayersPage = observer(
       }      
 
       this.ToggleButtonRef = React.createRef();
+      this.OrderAscendingButtonRef = React.createRef();
       this.toggleOneTime = true;
+      this.iconAscendingToggle = this.iconAscendingToggle.bind(this);
       this.activeToggleButton = this.activeToggleButton.bind(this);
       this.handleInput = this.handleInput.bind(this);      
     }
 
+    iconAscendingToggle = () => {
+      if(this.props.store.playersTable.isAscending) {
+        this.OrderAscendingButtonRef.current.firstChild.className = 'fas fa-sort-amount-down';
+      } else {
+        this.OrderAscendingButtonRef.current.firstChild.className = 'fas fa-sort-amount-up';
+      }
+    }
+
     handleInput = (event) => {
       const { name, value } = event.target;
-      if (name === 'orderOption') {
-        this.setState({ counterTableAction: this.state.counterTableAction + 1 });
-        this.props.store.playersTable.orderType = value;
-      }
-      else if (name === 'search') {
-        this.setState({ counterTableAction: this.state.counterTableAction + 1 });
-        this.props.store.playersTable.searchValue = value;
-      }
-      else if (name === 'editPlayer' || name === 'addPlayer') {
+      if (name === 'editPlayer' || name === 'addPlayer') {
         this.setState({
           idPlayerSelected: value,
           counterCRUDAction: this.state.counterCRUDAction + 1,
         });
-      }  
+      } else {
+        if(name === 'toggleOrder') {
+          this.OrderAscendingButtonRef.current.blur();        
+          this.props.store.playersTable.isAscending = !this.props.store.playersTable.isAscending;
+          this.iconAscendingToggle();
+        }
+        else if (name === 'orderOption') {
+          this.props.store.playersTable.orderType = value;
+        }
+        else if (name === 'search') {
+          this.props.store.playersTable.searchValue = value;
+        }
+        this.setState({ counterTableAction: this.state.counterTableAction + 1 });
+      }
     }
 
     activeToggleButton = () => {
       for (const iterator of this.ToggleButtonRef.current.children) {
-        if (iterator.firstChild.hasAttribute("value") && iterator.firstChild.value === this.props.store.playersTable.orderType) {
-          iterator.classList.add('active');
+        if (iterator.firstChild.value === this.props.store.playersTable.orderType) {
+          iterator.classList.add('active');          
         }
       }
+      this.iconAscendingToggle();
     }
 
     componentDidMount() {
@@ -72,7 +88,7 @@ const PlayersPage = observer(
         return this.state.orderButton.map(({value, namebutton}, index) => { 
             return(
               <label className="btn btn-info" key={index}>
-                <input type="radio" name="orderOption" value={value} onFocus ={this.handleInput} autoComplete="off"/>
+                <input type="radio" name="orderOption" value={value} onFocus={this.handleInput} autoComplete="off"/>
                 {namebutton}
               </label>
             );
@@ -93,11 +109,13 @@ const PlayersPage = observer(
                       </fieldset>  
                     </section>
                     <section className="col-lg-6">
-                      <div className="btn-group btn-group-toggle" data-toggle="buttons" ref={this.ToggleButtonRef}>        
-                        <span className="badge badge-info">
-                          <i className="fas fa-sort-amount-up"></i>
-                        </span>
-                        {orderOption()}                        
+                      <div className="btn-group">
+                        <button type="button" className="btn btn-info" name="toggleOrder" onClick={this.handleInput} ref={this.OrderAscendingButtonRef}>
+                            <i className="fas fa-sort-amount-down"></i>
+                        </button>
+                        <div className="btn-group btn-group-toggle" data-toggle="buttons" ref={this.ToggleButtonRef}>        
+                          {orderOption()}                        
+                        </div>
                       </div>
                     </section>                               
                   </div>

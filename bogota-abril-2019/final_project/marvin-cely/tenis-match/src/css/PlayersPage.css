@@ -33,7 +33,7 @@ main.container > section:first-of-type {
 }
 
 @media only screen and (min-width: 992px) {
-    section > header.row > section:first-of-type section  {
+    section > header.row > section:first-of-type  {
         margin-bottom: 1.2rem;
     }
     main.container > section:first-of-type {
@@ -80,12 +80,8 @@ section > header.row > section:last-of-type, section > header.row > section:firs
     flex-direction: column;
 }
 
-section > header.row > section:first-of-type > div > section:last-of-type span {
-    border-radius: .25rem 0 0 .25rem;
-    display: flex;
-    align-items: center;
-    font-size: var(--size-small);
-    padding-left: 12px;
+section > header.row > section:first-of-type > div > section:last-of-type div[data-toggle="buttons"]{
+    margin: 0;
 }
 
 header > section:last-of-type + form {

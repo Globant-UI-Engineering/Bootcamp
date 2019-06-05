@@ -53,7 +53,7 @@ const TablePlayer = observer(
     }
 
     orderTable = (orderType) => {
-      const elementsToSort = [ this.props.store.playersTable.playersList, orderType];
+      const elementsToSort = [ this.props.store.playersTable.playersList, orderType, this.props.store.playersTable.isAscending];
       switch (orderType) {
         case 'name':
           this.props.store.playersTable.playersList = utils.sortByAlphaArrayList(...elementsToSort);

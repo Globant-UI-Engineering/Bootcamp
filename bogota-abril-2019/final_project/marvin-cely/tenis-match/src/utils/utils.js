@@ -42,21 +42,25 @@ const utils = {
 	sortByAlphaArrayMap: (array, element) => {		
 		return array.slice().sort((object1, object2) => (object1[1][element] > object2[1][element]) ? 1 : -1);
 	},	
-	sortByAlphaArrayList: (array, element) => {		
-		return array.slice().sort((object1, object2) => (object1[element] > object2[element]) ? 1 : -1);
+	sortByAlphaArrayList: (array, element, isAscending) => {
+		const arraySorted = array.slice().sort((object1, object2) => (object1[element] > object2[element]) ? 1 : -1);
+		return (isAscending) ? arraySorted : arraySorted.slice().reverse();
 	},
-	sortByNumberArrayList: (array, element) => {		
-		return array.slice().sort((object1, object2) => object2[element] - object1[element]);
+	sortByNumberArrayList: (array, element, isAscending) => {		
+		const arraySorted = array.slice().sort((object1, object2) => object2[element] - object1[element]);
+		return (isAscending) ? arraySorted : arraySorted.slice().reverse();
 	},
-	sortByAgeArrayList: (array, element) => {		
-		return array.slice().sort((object1, object2) => utils.getAge(object2[element]) - utils.getAge(object1[element]));
+	sortByAgeArrayList: (array, element, isAscending) => {	
+		const arraySorted = array.slice().sort((object1, object2) => utils.getAge(object2[element]) - utils.getAge(object1[element]));
+		return (isAscending) ? arraySorted : arraySorted.slice().reverse();
 	},    
-	sortByCountryList: (array, element, countryList) => {		   
+	sortByCountryList: (array, element, isAscending, countryList) => {		   
 		const countryElement = thesaurus.elementKey.NATIONALITY;
-		return array.slice().sort((object1, object2) => (
-		  countryList[object1[element]][countryElement] > 
-		  countryList[object2[element]][countryElement]) ? 
-		  1 : -1);                        
+		const arraySorted = array.slice().sort((object1, object2) => (
+			countryList[object1[element]][countryElement] > 
+			countryList[object2[element]][countryElement]) ? 
+			1 : -1);
+		return (isAscending) ? arraySorted : arraySorted.slice().reverse();                     
 	},
 	filterAllByArrayList: (array, value) => {
 		return array.slice().filter((player) =>
