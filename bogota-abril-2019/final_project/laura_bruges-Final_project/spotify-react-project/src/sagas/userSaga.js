@@ -5,7 +5,6 @@ import {fetchUser} from '../api/userApi'
 function* setUser(action){
     try{
         const response  = yield call(fetchUser, action.payload)
-        console.log('RESPONSE', response)
         yield put({
             type:userActionTypes.fetchUserInfoSuccess,
             payload: response.data

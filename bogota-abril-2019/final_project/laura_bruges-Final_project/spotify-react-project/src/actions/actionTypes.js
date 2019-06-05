@@ -14,6 +14,12 @@ export const playerActionTypes = {
     pauseTrackError: 'PAUSE_TRACK_ERROR',
 }
 
+export const deviceActionTypes = {
+    fetchDeviceList: 'FETCH_DEVICE_LIST',
+    fetchDeviceListSuccess: 'FETCH_DEVICE_LIST_SUCCEESS',
+    fetchDeviceListError: 'FETCH_DEVICE_LIST_ERROR',
+}
+
 export const userActionTypes = {
     fetchUserInfo: 'FETCH_USER_INFO',
     fetchUserInfoSuccess:'FETCH_USER_INFO_SUCCES',

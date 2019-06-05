@@ -7,10 +7,11 @@ export const setNowPlaying = (accessToken) => {
     }
 }
 
-export const resumeTrack = (accessToken) => {
+export const resumeTrack = (accessToken, deviceId) => {
     return {
         type: playerActionTypes.resumeTrack,
-        payload: accessToken
+        payload: accessToken,
+        deviceId: deviceId
     }
 }
 

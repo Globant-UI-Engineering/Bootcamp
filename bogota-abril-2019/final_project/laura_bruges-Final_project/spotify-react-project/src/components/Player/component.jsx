@@ -12,12 +12,15 @@ class Player extends React.Component {
     constructor(){
         super();
         this.getPlayerInfo = this.getPlayerInfo.bind(this);
+        this.setPlayerDevice = this.setPlayerDevice.bind(this);
     }
 
     componentDidMount(){
         this.setState({
             intervalId: this.getPlayerInfo()
-        })        
+        });
+
+        this.props.getDevices(this.props.token);        
     }
 
     componentWillUnmount() {
@@ -30,6 +33,12 @@ class Player extends React.Component {
         return setInterval(() =>{
             this.props.setNowPlaying(this.props.token)
         }, 500)
+    }
+
+    setPlayerDevice(dev) {
+        this.props.pauseTrack(this.props.token);
+        setTimeout(1000);
+        this.props.resumeTrack(this.props.token, dev);
     }
 
     render() {        
@@ -62,7 +71,7 @@ class Player extends React.Component {
                         </Col>
                         
                         <Col md={3}>
-                            <DeviceControl options={ [ { id: 'dev1', name: 'DEVICE 1'}] } onSelectDevice={(dev) => alert(`Hello ${dev}!`)} />                            
+                            { this.props.playing.deviceId && <DeviceControl options={ this.props.devices } currentDevice={ this.props.playing.deviceId } onSelectDevice={(dev) => this.setPlayerDevice(dev)} />}                             
                         </Col>
                     </Row>
                 </div>

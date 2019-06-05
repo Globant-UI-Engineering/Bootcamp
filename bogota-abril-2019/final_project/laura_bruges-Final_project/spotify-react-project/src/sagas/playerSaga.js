@@ -9,7 +9,8 @@ function* fetchNowPlayingSaga(action) {
         durationMs: data.data.item ? data.data.item.duration_ms : 0,
         name: data.data.item ? data.data.item.name : 'No track playing',
         artist: data.data.item ? data.data.item.artists[0].name : 'N/A',
-        isPlaying: data.data.is_playing
+        isPlaying: data.data.is_playing,
+        deviceId: data.data.device ? data.data.device.id : '' 
     }
     
     yield put({
@@ -21,7 +22,7 @@ function* fetchNowPlayingSaga(action) {
 
 function* resumeTrackSaga(action) {
     console.log(action);
-    const data = yield call(resumeTrack, action.payload);
+    const data = yield call(resumeTrack, action.payload, action.deviceId);
 
     yield put({
         type: playerActionTypes.resumeTrackSuccess,

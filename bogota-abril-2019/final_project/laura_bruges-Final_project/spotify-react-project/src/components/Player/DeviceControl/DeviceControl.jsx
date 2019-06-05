@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-const DeviceControl = ({ options, onSelectDevice }) => {
+const DeviceControl = ({ options, currentDevice, onSelectDevice }) => {
     return (
         <div className='device-container'>
             <select className='custom-select' onChange = {(event) =>  onChangeDevice(event, onSelectDevice) }>
-                <option value='' disabled hidden>Select your device</option>
                 {options.map((device) => {
-                    return <option value={device.id}>{device.name}</option>
+                    return <option defaultValue={ currentDevice } value={ device.id }>{ device.name }</option>
                 })}                
             </select>
             
