@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-//import { createSurfer } '../../actions';
+import { createSurfer } from '../../actions';
 
 class SurferCreate extends React.Component {
   // Improving accessibility using ARIA standard.
@@ -25,8 +25,8 @@ class SurferCreate extends React.Component {
     )
   }
 
-  onSubmit(formValues) {
-    console.log(formValues);
+  onSubmit = formValues => {
+    this.props.createSurfer(formValues);
   }
 
   render() {
@@ -54,7 +54,9 @@ const validate = (formValues) => {
   return errors;
 };
 
-export default reduxForm({
+const formWrapped = reduxForm({
   form: 'surferCreate',
   validate
 })(SurferCreate);
+
+export default connect(null, { createSurfer })(formWrapped);

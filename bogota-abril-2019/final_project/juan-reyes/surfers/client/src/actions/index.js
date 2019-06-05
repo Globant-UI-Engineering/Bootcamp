@@ -16,5 +16,5 @@ export const signOut = () => {
 
 // I am using an async action creator thanks to Redux Thunk
 export const createSurfer = formValues => async dispatch => {
-  surfers.post('/streams', formValues);
+  surfers.post('/surfers', formValues);
 };
