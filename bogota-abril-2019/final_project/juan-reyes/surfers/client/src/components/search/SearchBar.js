@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
               <label>Inspire yourself with Surf:</label>
               <input
                 type="text"
-                placeholder="Type something... and press ENTER. All the search would be 'term + surf' 🏄"
+                placeholder="Type something and press ENTER. All the search would be 'term + surf' 🏄"
                 value={this.state.term}
                 onChange={e => this.setState({ term: e.target.value })}
               />

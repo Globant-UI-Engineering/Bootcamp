@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-// Still developing it
+// Renaming it as formReducer, to avoid confussion
 import { reducer as formReducer } from 'redux-form';
 import authReducer from './authReducer';
 
