@@ -1,17 +1,25 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import { playerActionTypes } from '../actions/actionTypes'
-import { fetchNowPlaying, resumeTrack, pauseTrack } from '../api/playerApi'
+import { fetchNowPlaying, resumeTrack, pauseTrack, nextTrack, previousTrack } from '../api/playerApi'
 
 function* fetchNowPlayingSaga(action) {
     const data = yield call(fetchNowPlaying, action.payload);
+    const playerData = data.data;
+
     const playerPayload = {
-        progressMs: data.data.progress_ms,
-        durationMs: data.data.item ? data.data.item.duration_ms : 0,
-        name: data.data.item ? data.data.item.name : 'No track playing',
-        artist: data.data.item ? data.data.item.artists[0].name : 'N/A',
-        isPlaying: data.data.is_playing,
-        deviceId: data.data.device ? data.data.device.id : '' 
+        trackId: playerData.item && playerData.item.id,
+        progressMs: playerData.progress_ms,
+        durationMs: playerData.item ? playerData.item.duration_ms : 0,
+        name: playerData.item ? playerData.item.name : 'No track playing',
+        artist: playerData.item ? playerData.item.artists[0].name : 'N/A',
+        isPlaying: playerData.is_playing,
+        deviceId: playerData.device ? playerData.device.id : '',
+        currPlaylistUri: playerData.context && playerData.context.type === 'playlist' ? playerData.context.uri : null 
     }
+
+    playerPayload.currPlaylistId = playerPayload.currPlaylistUri ? 
+        playerPayload.currPlaylistUri.substring(playerPayload.currPlaylistUri.lastIndexOf(':') + 1) : 
+        null;
     
     yield put({
         type: playerActionTypes.fetchNowPlayingSuccess,
@@ -21,7 +29,6 @@ function* fetchNowPlayingSaga(action) {
 }
 
 function* resumeTrackSaga(action) {
-    console.log(action);
     const data = yield call(resumeTrack, action.payload, action.deviceId);
 
     yield put({
@@ -31,7 +38,6 @@ function* resumeTrackSaga(action) {
 }
 
 function* pauseTrackSaga(action) {
-    console.log(action);
     const data = yield call(pauseTrack, action.payload);
 
     yield put({
@@ -40,8 +46,28 @@ function* pauseTrackSaga(action) {
     })
 }
 
+function* nextTrackSaga(action) {
+    const data = yield call(nextTrack, action.payload);
+
+    yield put({
+        type: playerActionTypes.nextTrackSuccess,
+        payload: data
+    })
+}
+
+function* previousTrackSaga(action) {
+    const data = yield call(previousTrack, action.payload);
+
+    yield put({
+        type: playerActionTypes.previousTrackSuccess,
+        payload: data
+    })
+}
+
 export default function* playerSaga() {
     yield takeEvery(playerActionTypes.fetchNowPlaying, fetchNowPlayingSaga);
     yield takeEvery(playerActionTypes.resumeTrack, resumeTrackSaga);
-    yield takeEvery(playerActionTypes.pauseTrack , pauseTrackSaga);
+    yield takeEvery(playerActionTypes.pauseTrack, pauseTrackSaga);
+    yield takeEvery(playerActionTypes.nextTrack, nextTrackSaga);
+    yield takeEvery(playerActionTypes.previousTrack, previousTrackSaga);
 };

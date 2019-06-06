@@ -63,10 +63,10 @@ class Player extends React.Component {
                             />
                             <ReproductionControls 
                                 isPlaying={ this.props.playing.isPlaying }
-                                onBackwardClick={() => alert("Click on back!")}
+                                onBackwardClick={() => this.props.previousTrack(this.props.token)}
                                 onPlayClick={() => this.props.resumeTrack(this.props.token)}
                                 onPauseClick={() => this.props.pauseTrack(this.props.token)}                                
-                                onForwardClick={() => alert("Click on forward!")}
+                                onForwardClick={() => this.props.nextTrack(this.props.token)}
                             />
                         </Col>
                         

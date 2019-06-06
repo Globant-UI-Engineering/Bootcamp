@@ -21,3 +21,17 @@ export const pauseTrack = (accessToken) => {
         payload: accessToken
     }
 }
+
+export const nextTrack = (accessToken) => {
+    return {
+        type: playerActionTypes.nextTrack,
+        payload: accessToken
+    }
+}
+
+export const previousTrack = (accessToken) => {
+    return {
+        type: playerActionTypes.previousTrack,
+        payload: accessToken
+    }
+}

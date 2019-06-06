@@ -4,9 +4,18 @@ import {
 
 const initialState = {
     playing: {
-        item: {}
+        trackId: null,
+        progressMs: 0,
+        durationMs: 0,
+        name: 'No track playing',
+        artist: 'N/A',
+        isPlaying: false,
+        deviceId: null,
+        currPlaylistUri: null,
+        currPlaylistId: null
     }
 }
+
 const playerReducer = (state = initialState, action) => {
     switch (action.type) {
         case playerActionTypes.fetchNowPlaying:

@@ -12,6 +12,12 @@ export const playerActionTypes = {
     pauseTrack: 'PAUSE_TRACK',
     pauseTrackSuccess: 'PAUSE_TRACK_SUCCESS',
     pauseTrackError: 'PAUSE_TRACK_ERROR',
+    nextTrack: 'NEXT_TRACK',
+    nextTrackSuccess: 'NEXT_TRACK_SUCCESS',
+    nextTrackError: 'NEXT_TRACK_ERROR',
+    previousTrack: 'PREVIOUS_TRACK',
+    previousTrackSuccess: 'PREVIOUS_TRACK_SUCCESS',
+    previousTrackError: 'PREVIOUS_TRACK_ERROR'
 }
 
 export const deviceActionTypes = {
@@ -24,4 +30,10 @@ export const userActionTypes = {
     fetchUserInfo: 'FETCH_USER_INFO',
     fetchUserInfoSuccess:'FETCH_USER_INFO_SUCCES',
     fetchUserInfoError:"FETCH_USER_INFO_ERROR"
+}
+
+export const playlistActionTypes = {
+    fetchPlaylist: 'FETCH_PLAYLIST',
+    fetchPlaylistSuccess: 'FETCH_PLAYLIST_SUCCESS',
+    fetchPlaylistError: 'FETCH_PLAYLIST_ERROR'
 }

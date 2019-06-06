@@ -1,5 +1,5 @@
 import Player from './component';
-import { setNowPlaying, resumeTrack, pauseTrack } from '../../actions/playerActions';
+import { setNowPlaying, resumeTrack, pauseTrack, nextTrack, previousTrack } from '../../actions/playerActions';
 import { fetchDeviceList } from '../../actions/deviceActions';
 import { connect } from 'react-redux'
 
@@ -21,6 +21,12 @@ const mapDispatchToProps = dispatch =>{
         },
         pauseTrack: token =>{
             dispatch(pauseTrack(token))
+        },
+        nextTrack: token =>{
+            dispatch(nextTrack(token))
+        },
+        previousTrack: token =>{
+            dispatch(previousTrack(token))
         },
         getDevices: token => {
             dispatch(fetchDeviceList(token));

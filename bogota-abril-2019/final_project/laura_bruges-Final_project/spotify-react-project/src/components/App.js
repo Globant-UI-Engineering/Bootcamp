@@ -4,7 +4,6 @@ import { AUTH_URL } from '../utils/EndpointSettings';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import TopNavbar from './TopNavbar';
 
-//https://levelup.gitconnected.com/how-to-build-a-spotify-player-with-react-in-15-minutes-7e01991bc4b6
 class App extends React.Component {
   constructor() {
     super();
