@@ -1,10 +1,10 @@
 import React from 'react';
-import '../App.scss';
+import './Map.scss';
 import { BrowserRouter, Link } from "react-router-dom";
 import { GoogleApiWrapper, Map, Marker, InfoWindow } from 'google-maps-react';
-import Button from '../Atoms/Button';
-import SearchBar from './SearchBar';
-import firebase from '../Firebase';
+import Button from '../../Atoms/Button';
+import SearchBar from '../SearchBar';
+import firebase from '../../Firebase/Firebase';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-css-effects/genie.css';
 
@@ -199,5 +199,5 @@ export class MapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: ("AIzaSyBdw9I1llo_EUaw_8Wdmsbo_8NvJ2ch98k")
+    apiKey: ("google_key")
 })(MapContainer)

@@ -1,11 +1,12 @@
 import React from 'react';
-import '../App.scss';
+import '../../App.scss';
+import './YourEvents.scss';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Image from 'react-image-resizer';
-import firebase from '../Firebase';
+import firebase from '../../Firebase/Firebase';
 import { Link } from "react-router-dom";
-import Loader from 'react-loader-spinner';
+import LoaderReact from '../../Loader/Loader';
 
 class YourEvents extends React.Component {
 
@@ -148,16 +149,7 @@ class YourEvents extends React.Component {
     showLoader(){
         if(this.state.showLoaderCreated || this.state.showLoaderAssist ){
             return (
-                <div role="presentation" className= "App-loader-container">
-                    <div className= "App-loader-yourEvents">
-                        <Loader 
-                            type="Oval"
-                            color="#282c34"
-                            height="75"	
-                            width="75"
-                        />  
-                    </div>
-                </div>
+                <LoaderReact className="App-loader-yourEvents"></LoaderReact>
             )
         }
     }

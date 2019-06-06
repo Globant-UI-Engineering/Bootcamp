@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.scss';
+import './Atoms.scss';
 
 class Button extends React.Component {
     render () {

@@ -1,14 +1,15 @@
 import React from 'react';
-import '../App.scss';
-import firebase from '../Firebase';
-import SearchBar from '../Google/SearchBar';
+import '../../App.scss';
+import './CreateEvent.scss';
+import firebase from '../../Firebase/Firebase';
+import SearchBar from '../../Google/SearchBar';
 import Select from 'react-select';
-import Button from '../Atoms/Button';
-import Loader from 'react-loader-spinner';
+import Button from '../../Atoms/Button';
 import Alert from 'react-s-alert';
+import LoaderReact from '../../Loader/Loader';
 import 'react-s-alert/dist/s-alert-css-effects/genie.css';
 
-const eventTypes = [
+let eventTypes = [
     { value: 'Turístico', label: 'Turístico' },
     { value: 'Gastronomía', label: 'Gastronomía' },
     { value: 'Aprendizaje', label: 'Aprendizaje' },
@@ -45,7 +46,8 @@ class CreateEvent extends React.Component {
         eventImage: '',
         eventAddress: '',
         showLoader: false,
-        correctDateInput: true
+        correctDateInput: true, 
+        eventCreated: false
     }
 
     changeCheckBox(){
@@ -53,6 +55,7 @@ class CreateEvent extends React.Component {
             checkBox: !this.state.checkBox
         })
     }
+
 
     changeEventType(type){
         this.setState({
@@ -105,6 +108,8 @@ class CreateEvent extends React.Component {
         let numberOfRemainingAsisstants = (this.state.checkBox) ? this.state.eventAssistants - 1 : this.state.eventAssistants;
         let userUID = firebase.auth().currentUser.uid;
 
+        let checkedCheckBox = (this.state.checkBox) ? true : false;
+
         let event = {
             name: this.state.eventName,
             location: {
@@ -152,12 +157,14 @@ class CreateEvent extends React.Component {
                     urlImage: url
                 });
 
-                var eventXusersKey = firebase.database().ref("eventsXusers/").push().key;
-                var refEventsXusers = firebase.database().ref("eventsXusers/"+eventXusersKey);
+                if(checkedCheckBox){
+                    var eventXusersKey = firebase.database().ref("eventsXusers/").push().key;
+                    var refEventsXusers = firebase.database().ref("eventsXusers/"+eventXusersKey);
 
-                refEventsXusers.set({
-                    [userUID]: [eventKey]
-                });
+                    refEventsXusers.set({
+                        [userUID]: [eventKey]
+                    });
+                }
 
             });
 
@@ -169,7 +176,8 @@ class CreateEvent extends React.Component {
             });
             
             this.setState({
-                showLoader: false
+                showLoader: false,
+                eventCreated: true
             });
     
         })
@@ -204,16 +212,7 @@ class CreateEvent extends React.Component {
     showLoader(){
         if(this.state.showLoader){
             return (
-                <div role="presentation" className= "App-loader-container">
-                    <div className= "App-loader">
-                        <Loader 
-                            type="Oval"
-                            color="#282c34"
-                            height="75"	
-                            width="75"
-                        />  
-                    </div>
-                </div>
+               <LoaderReact></LoaderReact>
             )
         }
     }
@@ -244,7 +243,7 @@ class CreateEvent extends React.Component {
                             <input aria-labelledby="eventDateLabel" role="textbox" type="date" name="eventDate" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange} required/>
                         </div>
                         <div>
-                            <label id="eventHourLabel">Seleccione una hora: </label>
+                            <label id="eventHourLabel">Seleccione una hora: (Ej. 16:00)</label>
                             <input aria-labelledby="eventHourLabel" role="textbox" type="time" name="eventHour" className={"App-create-searchbar"} aria-required="true" onChange={this.handleInputsChange} required/>
                         </div>
                         <div className="App-create-searchbar-textarea">
@@ -272,7 +271,7 @@ class CreateEvent extends React.Component {
                                 this.showIfNotCorrectDateInput()
                             }
                         </div>
-                        <Button disabled={!this.state.correctDateInput} type="submit" className={"App-button App-button-create"} buttonInfo="Agregar Evento"></Button>
+                        <Button disabled={(!this.state.correctDateInput || this.state.eventCreated)} type="submit" className={"App-button App-button-create"} buttonInfo="Agregar Evento"></Button>
                     </form>
                 </article>
             </section>

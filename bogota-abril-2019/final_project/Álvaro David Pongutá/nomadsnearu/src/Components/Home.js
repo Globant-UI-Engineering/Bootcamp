@@ -12,7 +12,7 @@ class Home extends React.Component {
                   </div>
                   <div className="App-row-elements center">
                       <img role="img" className="image-left" src="https://image.freepik.com/vector-gratis/personajes-personas-su-ilustracion-redes-sociales_53876-58967.jpg" alt="Grupo de personas"/>
-                      <p>Somos una empresa dedicada a ofrecer un servicio de ayuda para la participación a eventos grupales de todo tipo como ocio, académicos, informativos, 
+                      <p>Somos una empresa dedicada a ofrecer un servicio de ayuda para la participación a eventos grupales de todo tipo como informales, aprendizaje, deportivos, 
                         turísticos, etc. Unimos redes de personas a través de intereses en común, enfrentamos
                         cualquier barrera y le permitimos a las personas vivir las experiencias que desean.
                       </p>

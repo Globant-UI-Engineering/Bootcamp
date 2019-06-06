@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.scss';
-import MapContainer from '../Google/Map';
+import MapContainer from '../Google/Map/Map';
 
 class EventsMap extends React.Component {
 

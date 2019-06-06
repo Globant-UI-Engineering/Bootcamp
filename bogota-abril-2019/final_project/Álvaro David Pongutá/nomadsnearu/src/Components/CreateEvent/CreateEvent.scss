@@ -1,0 +1,145 @@
+.App-button-create{
+    background-color: white;
+    width: 15%;
+    margin-left: 128px;
+}
+
+.App-map-searchbar-create{
+    width: 15%;
+}
+
+
+.App-create-searchbar{
+    width: 20%;
+    padding: 0.35em;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    font-size: 14px;
+    margin-top: 16px;
+    text-align: center;
+
+    &:active, &:focus{
+        outline-color: #282c34;
+    }
+}
+
+.App-create-searchbar-fix{
+    display: inline-block;
+    div{
+      width: 15.8vw;
+      .App-create-searchbar{
+        width: 100%;
+      }
+    }
+}
+
+.App-create-searchbar-textarea{
+    label{
+      position: relative;
+      bottom: 36px;
+    }
+    textarea{
+      margin-bottom: 0;
+      height: 72px;
+      max-width: 430px;
+      text-align: initial;
+      min-height: 72px;
+    }
+  }
+
+  .App-container-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left: 12px;
+    max-width: 65vw;
+  
+    input{
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+  
+    &:hover input ~ .App-checkmark{
+      background-color: #ccc;
+    }
+  
+    input:checked ~ .App-checkmark {
+      background-color: #282c34;
+    }
+  
+    input:checked ~ .App-checkmark:after{
+      display: block;
+    }
+  
+    .App-checkmark:after{
+      left: 7px;
+      top: 1px;
+      width: 7px;
+      height: 15px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  
+  }
+  
+  .App-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    margin-top: 3px;
+  
+    &:after{
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  
+  }
+
+  .App-upload-image{
+    width: 30%;
+  }
+
+  .App-select{
+    margin-top: 12px;
+    width: 20%;
+    color: #282c34;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 16px;
+  
+    div.css-1szy77t-control{
+      box-shadow: 0 0 0 1px #282c34;
+      border-color: #282c34;
+    }
+
+    div.css-kj6f9i-menu{
+      div.css-1hq81ej{
+        div {
+          &:hover{
+            background-color: #282c34;
+            color: white;
+          }
+        }
+        div.css-dpec0i-option{
+            background-color: #282c34;
+            color: white;
+        }
+      }
+    }
+  }

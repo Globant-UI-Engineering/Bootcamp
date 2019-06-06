@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.scss';
-import firebase from '../Firebase';
+import firebase from '../Firebase/Firebase';
 import Button from '../Atoms/Button';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-css-effects/genie.css';

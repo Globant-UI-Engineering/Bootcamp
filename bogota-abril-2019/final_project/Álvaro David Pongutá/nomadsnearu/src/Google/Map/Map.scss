@@ -1,0 +1,40 @@
+.App-button-map{
+    margin-left: 16px;
+    width: 195px;
+}
+
+.App-map-container{
+    width: 100%;
+    height: 75vh;
+}
+
+.App-map{
+    position: relative !important;
+    max-width: 96.5%;
+    max-height: 75vh;
+}
+  
+.App-map-searchbar{
+    min-width: 89%;
+    padding: 0.35em;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    font-size: 14px;
+    margin-top: 16px;
+
+    &:active, &:focus{
+        outline-color: #282c34;
+    }
+}
+
+.App-map-searchbar-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: -18px;
+}
+
+.App-searchbar-container{
+    background-color: #282c34;
+    max-width: 100%;
+    height: 75vh;
+}

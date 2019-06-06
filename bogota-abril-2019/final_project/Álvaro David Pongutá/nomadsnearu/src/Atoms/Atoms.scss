@@ -1,0 +1,37 @@
+.App-button {
+    display: inline-block;
+    border: 0.1em solid #FD8006;
+    border-radius: 0.12em;
+    padding: 0.35em 1.2em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 300;
+    color: #FD8006;
+    text-align: center;
+    transition: all 0.2s;
+    background-color: #282c34;
+    margin-right: 8px;
+  
+    &:hover{
+      color: white;
+      background-color: #FD8006;
+    }
+    &:focus{
+      outline: none;
+    }
+    @media all and (max-width: 30em){
+      display: block;
+      margin: 0.4em auto;
+    }
+    &:disabled{
+      background-color: #a9aaac;
+      border: 0.1em solid #282c34;
+      color: #282c34;
+    }
+}
+
+.App-button-icon{
+  padding: 0.2em 0.4em;
+  margin-right: 1.5%;
+}

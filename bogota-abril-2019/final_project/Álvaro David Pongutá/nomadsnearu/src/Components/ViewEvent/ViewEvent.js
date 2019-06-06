@@ -1,10 +1,10 @@
 import React from 'react';
-import '../App.scss';
-import firebase from '../Firebase';
-import Button from '../Atoms/Button';
-import Loader from 'react-loader-spinner';
+import './ViewEvent.scss';
+import firebase from '../../Firebase/Firebase';
+import Button from '../../Atoms/Button';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-css-effects/genie.css';
+import LoaderReact from '../../Loader/Loader';
 
 class ViewEvent extends React.Component {
 
@@ -42,16 +42,7 @@ class ViewEvent extends React.Component {
     showLoader(){
         if(this.state.showLoader){
             return (
-                <div role="presentation" className= "App-loader-container">
-                    <div className= "App-loader">
-                        <Loader 
-                            type="Oval"
-                            color="#282c34"
-                            height="75"	
-                            width="75"
-                        />  
-                    </div>
-                </div>
+                <LoaderReact></LoaderReact>
             )
         }
     }
@@ -114,6 +105,9 @@ class ViewEvent extends React.Component {
                                         timeout: 3000,
                                         offset: 5
                                     });
+
+                                    this.forceUpdate();
+
                                 } else {
                                     Alert.info('Ya se encuentra inscrito para este evento', {
                                         position: 'top-left',
@@ -321,6 +315,19 @@ class ViewEvent extends React.Component {
 
     }
 
+    changeDateFormat(eventDate){
+        if(eventDate !== undefined){
+            let monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                                 "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+            let stringEventDate = eventDate.toString().split(" ");
+            let yyyy_mm_dd = stringEventDate[0].split("-");
+            
+            let auxiliarDate = new Date(yyyy_mm_dd[0], yyyy_mm_dd[1], yyyy_mm_dd[2]);
+            return `${monthNames[auxiliarDate.getMonth()-1]} ${yyyy_mm_dd[2]} del ${yyyy_mm_dd[0]} a las ${stringEventDate[1]}`;
+        }
+    }
+
     render () {  
         return (
             <section>
@@ -334,7 +341,7 @@ class ViewEvent extends React.Component {
                     <img role="img" className="image-left image-event" src={this.state.actualEvent.urlImage} alt="Event Image"/>
                     <article role="list" className="App-column-elements App-center-elements App-font-event">
                         <div className="center-text">
-                            <h3>Fecha</h3>{this.state.actualEvent.date}
+                            <h3>Fecha</h3>{this.changeDateFormat(this.state.actualEvent.date)}
                         </div>
                         <div className="center-text">
                             <h3>Dirección</h3>{this.state.actualEvent.address}
