@@ -15,6 +15,7 @@ const App = () => {
       <BrowserRouter>
         <div className="ui container">
           <Header />
+          <Route path="/" exact component={SurferList}></Route>
           <Route path="/search" exact component={InspirationApp}></Route>
           <Route path="/surfers/new" exact component={SurferCreate}></Route>
           <Route path="/surfers/edit" exact component={SurferEdit}></Route>
