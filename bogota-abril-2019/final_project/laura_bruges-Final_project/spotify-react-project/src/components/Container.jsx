@@ -18,10 +18,12 @@ const MainContainer = ({children}) => {
                     <Col md={2} className='d-none d-md-block bg-dark sidebar'>
                         <Sidebar />
                     </Col>
-                    <Col md={10}>
-                        <Container>
-                            {children}
-                        </Container>                    
+                    <Col md={10} className='ml-auto my-auto'>
+                        <Row className='mx-auto'>
+                            <Col md={12}>                        
+                                { children }
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </Container>

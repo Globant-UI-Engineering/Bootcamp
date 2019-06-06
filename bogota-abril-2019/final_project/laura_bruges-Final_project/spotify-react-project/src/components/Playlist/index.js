@@ -1,5 +1,5 @@
 import Playlist from './component';
-import { fetchPlaylist } from '../../actions/playlistActions';
+import { fetchPlaylist, fetchUserPlaylists } from '../../actions/playlistActions';
 import { connect } from 'react-redux';
 
 
@@ -14,7 +14,10 @@ const mapDispatchToProps = dispatch =>{
     return{
         fetchPlaylist: (token, playlistId) =>{
             dispatch(fetchPlaylist(token, playlistId))
-        }
+        },
+        fetchUserPlaylists: (token)  => {
+            dispatch(fetchUserPlaylists(token));
+        }        
     }
 }
 

@@ -7,3 +7,11 @@ export const fetchPlaylist = (accessToken, playlistId) => {
         playlistId: playlistId
     }
 }
+
+export const fetchUserPlaylists = (accessToken) => {
+    console.log("TOKEEEEN", accessToken);
+    return {
+        type: playlistActionTypes.fetchUserPlaylists,
+        payload: accessToken
+    }
+}

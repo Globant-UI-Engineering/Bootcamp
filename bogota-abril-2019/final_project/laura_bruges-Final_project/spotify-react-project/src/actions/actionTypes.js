@@ -35,5 +35,8 @@ export const userActionTypes = {
 export const playlistActionTypes = {
     fetchPlaylist: 'FETCH_PLAYLIST',
     fetchPlaylistSuccess: 'FETCH_PLAYLIST_SUCCESS',
-    fetchPlaylistError: 'FETCH_PLAYLIST_ERROR'
+    fetchPlaylistError: 'FETCH_PLAYLIST_ERROR',
+    fetchUserPlaylists: 'FETCH_USER_PLAYLISTS',
+    fetchUserPlaylistsSuccess: 'FETCH_USER_PLAYLISTS_SUCCESS',
+    fetchUserPlaylistsError: 'FETCH_USER_ERROR'
 }

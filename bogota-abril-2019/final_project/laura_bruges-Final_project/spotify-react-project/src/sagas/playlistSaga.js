@@ -1,6 +1,6 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import { playlistActionTypes } from '../actions/actionTypes'
-import { fetchPlaylist } from '../api/playlistApi'
+import { fetchPlaylist, fetchUserPlaylists } from '../api/playlistApi'
 
 function* fetchPlaylistSaga(action) {
     const data = yield call(fetchPlaylist, action.payload, action.playlistId);
@@ -13,11 +13,30 @@ function* fetchPlaylistSaga(action) {
     yield put({
         type: playlistActionTypes.fetchPlaylistSuccess,
         payload: playlistPayload
-    })
+    });
+
     return data;
 }
 
+function* fetchUserPlaylistsSaga(action) {    
+    const data = yield call(fetchUserPlaylists, action.payload);
+    const playlistData = data.data;
+
+    console.log("USER PLAYLISTS*********", playlistData);
+
+    const playlistPayload = {
+        items: playlistData.items
+    }
+
+    yield put({
+        type: playlistActionTypes.fetchPlaylistSuccess,
+        payload: playlistPayload
+    })
+
+    return data;
+}
 
 export default function* playerSaga() {
     yield takeEvery(playlistActionTypes.fetchPlaylist, fetchPlaylistSaga);
+    yield takeEvery(playlistActionTypes.fetchUserPlaylists, fetchUserPlaylistsSaga);
 };

@@ -12,6 +12,11 @@ const playlistReducer = (state = initialState, action) => {
             return {
                 ...state,
                 currPlaylist: action.payload
+            };
+        case playlistActionTypes.fetchUserPlaylistsSuccess:
+            return {
+                ...state,
+                userPlaylists: action.payload
             }
         default:
             return state;
