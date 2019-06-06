@@ -48,7 +48,7 @@ nav > section {
   font-size: var(--size-normal);
 }
 
-img + h1 {
+header img + h1 {
   display: inline;
   margin: 0;
   margin-left: 10px;

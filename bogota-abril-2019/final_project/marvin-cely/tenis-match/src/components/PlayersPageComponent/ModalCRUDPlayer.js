@@ -71,9 +71,9 @@ const ModalCRUDPlayer = observer(
     }
 
     updateForm(idPlayerSelected) {
-      if(idPlayerSelected !== 'newPlayer') {                 
+      if(idPlayerSelected !== dataPlayersPage.idPlayerSelectedDefault) {                 
         this.setState({
-          successButton: 'Actualizar',
+          successButton: dataPlayersPage.ModalForm.updateButton,
           submitStyle: 'btn btn-success',
           isUpdate: true,
           playerForm: this.getPlayerToUpdate(),
@@ -82,7 +82,7 @@ const ModalCRUDPlayer = observer(
         this.buttonDeleteRef.current.hidden = false;        
       } else {
         this.setState({
-          successButton:  'Inscribir',
+          successButton: dataPlayersPage.ModalForm.inscribeButton,
           submitStyle: 'btn btn-info',
           isUpdate: false,
           playerForm: Object.assign({}, dataPlayersPage.ModalForm.initialValueForm),

@@ -3,6 +3,7 @@ import firebaseConfig from '../services/config/firebaseConfig';
 
 const stateService = {
   fromPlayers: false,
+  fromTournaments: false,
   fromMatches: false,
   fromPoints: false,
   fromCountries: false,
@@ -12,11 +13,11 @@ const stateService = {
 }
 
 class Store {
-  constructor() {
-    // Get the fireStore instance
-    this.fireStore = firebaseConfig.initializeFireBase();
+  constructor() {    
+    this.fireStore = firebaseConfig.initializeFireBase(); // Get the fireStore instance
   }
   players = [];
+  tournaments = [];
   matches = [];
   points = [];
   countries = new Map();  
@@ -42,6 +43,7 @@ class Store {
 decorate(Store,{
   fireStore: observable,
   players: observable.shallow,
+  tournaments: observable.shallow,
   matches: observable.shallow,
   points: observable.shallow,
   countries: observable.shallow,

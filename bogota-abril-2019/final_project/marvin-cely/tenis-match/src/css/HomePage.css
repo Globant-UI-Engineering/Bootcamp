@@ -1,8 +1,8 @@
-main p, main figure{
+main p, main figure {
     margin: 0;
 }
 
-main > figure {
+main > aside figure {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,13 +12,13 @@ main > figure {
     text-align: center;
 }
 
-main > figure:first-of-type {
+main > aside:first-of-type figure {
     background-image: url("../images/racket&ball.jpg");
     height: 50vh; 
     background-position: center 80%;
 }
 
-main > figure:first-of-type > p {
+main > aside:first-of-type figure > figcaption {
     padding: 2vh;
     font-size: var(--size-large);
     font-family: var(--font-group-3);
@@ -27,7 +27,7 @@ main > figure:first-of-type > p {
     opacity: 0.85;
 }
 
-main > figure:first-of-type + section {
+main > aside:first-of-type + section {
     padding: 10vh;
     background: var(--font-color-mate);
     color: var(--font-color-white);
@@ -36,18 +36,18 @@ main > figure:first-of-type + section {
     box-shadow: 0 4px 10px 0 var(--font-color-black), 0 6px 20px 0 var(--font-color-black);
 }
 
-main > figure:first-of-type + section > h1 {
+main > aside:first-of-type + section > h1 {
     text-align: center;
     font-size: var(--size-extra-large);
     font-family: var(--font-group-3);    
 }
 
-main > figure:nth-of-type(2) {
+main > aside:nth-of-type(2) figure {
     background-image: url("../images/tennisNet.jpg");
     height: 60vh; 
 }
 
-main > figure:not(:first-of-type) > p {
+main > aside:not(:first-of-type) figure > figcaption {
     padding: 2vh;
     font-size: var(--size-large);
     font-family: var(--font-group-3);
@@ -55,7 +55,7 @@ main > figure:not(:first-of-type) > p {
     text-shadow: 1px 1px 10px var(--font-color-black);
 }
 
-main > figure:nth-of-type(2) + section {
+main > aside:nth-of-type(2) + section {
     padding: 10vh;
     background: var(--secundary-color-deep);
     color: var(--font-color-white);
@@ -67,17 +67,18 @@ main > figure:nth-of-type(2) + section {
     align-items: center;
     flex-flow: row wrap;
 }
-main > figure:nth-of-type(2) + section img {
+
+main > aside:nth-of-type(2) + section img {
     filter: drop-shadow(.5rem .5rem .5rem  var(--font-color-black)); 
 }
 
-main > figure:nth-of-type(2) + section > img {
+main > aside:nth-of-type(2) + section > img {
     width: 100px;
     height: auto;
     margin: 3vh;
 }
 
-main > figure:last-of-type {
+main > aside:last-of-type figure {
     background-image: url("../images/playTennis.jpg");
     height: 60vh; 
     background-position: top;

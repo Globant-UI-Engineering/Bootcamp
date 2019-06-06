@@ -7,7 +7,6 @@ import { ImageCountry, NotFoundComponent } from '../SmallPieceComponent';
 import utils from '../../utils/utils';
 import thesaurus from '../../utils/thesaurus';
 
-
 const TablePlayer = observer(
   class TablePlayer extends React.Component {
     constructor(props) {

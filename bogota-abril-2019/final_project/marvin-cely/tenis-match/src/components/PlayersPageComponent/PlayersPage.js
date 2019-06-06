@@ -1,10 +1,10 @@
-import React from '../../../node_modules/react';
+import React from 'react';
 import '../../css/PlayersPage.css';
-import { observer } from '../../../node_modules/mobx-react';
+import { observer } from 'mobx-react';
 import TablePlayer from './TablePlayer';
 import ModalCRUDPlayer from './ModalCRUDPlayer';
 import utils from '../../utils/utils';
-import { LoadingComponent, ErrorServiceComponent } from '../SmallPieceComponent';
+import { LoadingComponent, ErrorServiceComponent, BackgroundImage } from '../SmallPieceComponent';
 import thesaurus from '../../utils/thesaurus';
 import { dataPlayersPage } from '../../data-component/data-players-page';
 
@@ -13,10 +13,11 @@ const PlayersPage = observer(
     constructor(props) {
       super(props);
       this.state = {
+        bannerBackgroundDescription: dataPlayersPage.bannerBackgroundDescription,
         newPlayerButton: dataPlayersPage.newPlayerButton,
         orderButton: dataPlayersPage.orderButton,
-        inscribedMessage: 'Total inscritos',
-        idPlayerSelected: 'newPlayer',
+        inscribedMessage: dataPlayersPage.inscribedMessage,
+        idPlayerSelected: dataPlayersPage.idPlayerSelectedDefault,
         counterCRUDAction: 0,
         counterTableAction: 0,
       }      
@@ -168,11 +169,9 @@ const PlayersPage = observer(
 
       return (
         <React.Fragment>
-          <aside>
-            <figure aira-lable="Foto de la pagina jugadores">
-              <figcaption>{this.props.titlePage}</figcaption>
-            </figure>
-          </aside>        
+          <BackgroundImage 
+            titleBanner={this.props.titlePage} 
+            a11yDescription={this.state.bannerBackgroundDescription}/>   
           {validationComponent()}
         </React.Fragment>
       );

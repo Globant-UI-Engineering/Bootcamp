@@ -1,4 +1,4 @@
-figure[aira-lable$="jugadores"] {
+figure[data-background-name="Jugadores"] {
     background-image: url("../images/jugadoresImagen.jpg");
     min-height: 40vh; 
     background-attachment: fixed;
@@ -11,7 +11,7 @@ figure[aira-lable$="jugadores"] {
     margin: 0;
 }
 
-figure[aira-lable$="jugadores"] > figcaption {
+figure[data-background-name="Jugadores"] > figcaption {
     padding: 2vh;
     font-size: var(--size-large);
     font-family: var(--font-group-3);

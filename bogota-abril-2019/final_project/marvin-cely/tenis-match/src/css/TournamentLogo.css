@@ -1,0 +1,58 @@
+figure[aria-label*='torneo'] {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    position: relative;
+    max-width: 9rem;
+    height: auto;
+    padding-top: 1.5rem;
+    background-color: #f8ca49;
+    border: solid .2rem var(--font-color-black);
+    border-radius: .5rem;
+    
+}
+
+.gradeOne {
+    background-color: #b77a13;
+    background-image: linear-gradient(to bottom right, #b77a13, #f8ca49, #b77a13);
+}
+
+.gradeTwo {
+    background-color: #e2e3e5;
+    background-image: linear-gradient(to bottom right, #8b9298, #e2e3e5, #8b9298);
+}
+
+.gradeThree {
+    background-color: #0bafe6;
+    background-image: linear-gradient(to bottom right, #007bc8, #0bafe6, #007bc8);
+}
+
+figure[aria-label*='torneo'] img {
+    filter:grayscale(100%) drop-shadow(.2rem .2rem .5rem  var(--font-color-black));
+}
+
+figure[aria-label*='torneo'] h1, figure[aria-label*='torneo'] h2 {
+    margin: 0;
+    font-style: oblique;
+    font-weight: bold;
+    word-break: break-word;
+}
+
+figure[aria-label*='torneo'] h1 {
+    font-size: var(--size-moderate);
+    font-family: var(--font-group-1);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 90%;
+    padding-bottom: 0.2rem;
+}
+
+figure[aria-label*='torneo'] h2 {
+    position: absolute;
+    right: 0;
+    top: -0.2rem;
+    font-size: var(--size-large);
+    font-family: var(--font-group-3);
+    padding-right: 0.4rem;
+}
+

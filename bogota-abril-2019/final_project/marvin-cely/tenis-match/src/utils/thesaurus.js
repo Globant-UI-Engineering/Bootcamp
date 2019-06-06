@@ -1,6 +1,7 @@
 const thesaurus = {
     collectionsName: {
         PLAYERS: 'players',
+        TOURNAMENTS: 'tournaments',
         MATCHES: 'matches',
         POINTS: 'points',
         COUNTRIES: 'countries',

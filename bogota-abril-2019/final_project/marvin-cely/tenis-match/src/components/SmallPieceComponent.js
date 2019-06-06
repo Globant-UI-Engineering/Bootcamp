@@ -104,6 +104,21 @@ class ImageCountry extends React.Component {
   }
 }
 
+function BackgroundImage(props) {
+    return(
+      <React.Fragment>
+        <aside>
+          <figure 
+            aria-label={props.a11yDescription} 
+            data-background-name={props.titleBanner} 
+            role="banner">
+              <figcaption>{props.titleBanner}</figcaption>
+          </figure>
+        </aside> 
+      </React.Fragment>
+    );
+}
+
 
 
 export {
@@ -113,4 +128,5 @@ export {
   ImageCountry, 
   NotFoundComponent,
   InConstructionComponent,
+  BackgroundImage,
 };

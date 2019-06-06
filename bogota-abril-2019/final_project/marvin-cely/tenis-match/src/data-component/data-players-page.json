@@ -1,5 +1,8 @@
 {
     "dataPlayersPage": {
+      "bannerBackgroundDescription":"Jugador de tenis",
+      "inscribedMessage":"Total inscritos",
+      "idPlayerSelectedDefault": "newPlayer",
       "newPlayerButton": {
           "name": "Inscribir jugador",
           "icon": "fas fa-user-plus"
@@ -32,7 +35,9 @@
           "name": "",
           "idCountry": "",
           "birthDate": ""
-        }
+        },
+        "inscribeButton": "Inscribir",
+        "updateButton": "Actualizar"
       },
       "playerListHeader": {
         "name": "Jugador",
