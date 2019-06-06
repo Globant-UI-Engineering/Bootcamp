@@ -40,8 +40,7 @@ class App extends React.Component {
   }
   
   render() {
-    const linkList = routesPages.filter((_route, index) => index > 0 )
-                                .map(({path, icon, title}, index) => {
+    const linkList = routesPages.map(({path, icon, title}, index) => {
       return (
         <Link
           key={index}
@@ -57,27 +56,29 @@ class App extends React.Component {
 
     const navBar = () => {
       return(
-        <nav className="navbar sticky-top navbar-expand-lg navbar-dark justify-content-between">
-              <Link
-                to={routesPages[0].path}
-                id="navegacion-inicio-tab" 
-                role="tab" 
-                aria-controls="navegacion-inicio" 
-                aria-selected="true">
-                  <header className="d-flex align-items-center">
-                    <img className="img-fluid" src={tennisLogo} alt="Logo Pelota de tenis" />
-                    <h1>{this.state.nameApp}</h1>
-                  </header>
-              </Link>
-              <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-controls="barraNavegacion" aria-expanded="false" aria-label="Toggle navigation" ref={this.collapseButtonRef}>
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <section className="collapse navbar-collapse" id="barraNavegacion">
-                <article className="navbar-nav ml-3 mt-2 mt-lg-0 ml-md-auto">
-                  {linkList}
-                </article>
-              </section>
-            </nav>
+        <nav 
+          className="navbar sticky-top navbar-expand-lg navbar-dark justify-content-between" 
+          aria-label="Menú principal">
+            <Link
+              to={routesPages[0].path}
+              id="navegacion-inicio-tab" 
+              role="tab" 
+              aria-controls="navegacion-inicio" 
+              aria-selected="true">
+                <header className="d-flex align-items-center">
+                  <img className="img-fluid" src={tennisLogo} alt="Logo Pelota de tenis" />
+                  <h1>{this.state.nameApp}</h1>
+                </header>
+            </Link>
+            <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-controls="barraNavegacion" aria-expanded="false" aria-label="Toggle navigation" ref={this.collapseButtonRef}>
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <section className="collapse navbar-collapse" id="barraNavegacion">
+              <article className="navbar-nav ml-3 mt-2 mt-lg-0 ml-md-auto">
+                {linkList}
+              </article>
+            </section>
+        </nav>
       );
     };
 

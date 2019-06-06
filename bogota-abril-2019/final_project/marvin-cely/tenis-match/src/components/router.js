@@ -4,6 +4,8 @@ import MatchesPage from './MatchesPageComponent/MatchesPage';
 import PlayersPage from './PlayersPageComponent/PlayersPage';
 
 const routesPages = [{    
+    icon: 'fas fa-home',
+    title: 'Inicio',
     exact: true, 
     path: '/',
     component: HomePage,

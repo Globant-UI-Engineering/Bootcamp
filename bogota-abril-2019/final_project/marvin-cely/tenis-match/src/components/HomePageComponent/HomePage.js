@@ -21,14 +21,14 @@ class HomePage extends React.Component {
     return(
       <React.Fragment>    
         <main>
-          <figure aira-lable="Foto de una pelota de tennis" role="banner">
+          <figure aira-lable="Pelota de tenis verde, al lado de una linea en una cancha azul" role="banner">
             <p>{this.state.firstBanner}</p>
           </figure>
           <section>
             <h1>{this.state.titleApp}</h1>
             <p>{this.state.firstParagraph}</p>
           </section>
-          <figure role="banner">
+          <figure aira-lable="Cancha de tenis en piso de ladrillo" role="banner">
             <p>{this.state.secondBanner}</p>
           </figure>
           <section>
@@ -36,7 +36,7 @@ class HomePage extends React.Component {
             <img className="img-fluid" src={tennisRacket} alt="Raqueta y pelota de tenis"/>
             <p>{this.state.secondParagraph}</p>
           </section>
-          <figure role="banner">
+          <figure aira-lable="Mujer haciendo gesto en saque de servicio de tenis" role="banner">
             <p>{this.state.thirdParagraph}</p>
           </figure>
         </main>

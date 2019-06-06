@@ -104,17 +104,32 @@ const PlayersPage = observer(
                   <div className="row">
                     <section className="col-lg-6">      
                       <fieldset>
-                        <span className="fa fa-search form-control-feedback"></span>
-                        <input type="text" className="form-control" placeholder="Buscar jugador" name='search' value={this.props.store.playersTable.searchValue} onChange={this.handleInput}/>
+                        <span className="fa fa-search form-control-feedback" aria-label="Icono de buscar"></span>
+                        <input type="text" 
+                          className="form-control" 
+                          placeholder="Buscar jugador" 
+                          name='search' 
+                          aria-label="Buscar jugador"
+                          value={this.props.store.playersTable.searchValue} 
+                          onChange={this.handleInput}/>
                       </fieldset>  
                     </section>
                     <section className="col-lg-6">
                       <div className="btn-group">
-                        <button type="button" className="btn btn-info" name="toggleOrder" onClick={this.handleInput} ref={this.OrderAscendingButtonRef}>
+                        <button 
+                          type="button" 
+                          className="btn btn-info" 
+                          name="toggleOrder" 
+                          aria-label="Cambiar orden ascendente"
+                          onClick={this.handleInput} 
+                          ref={this.OrderAscendingButtonRef}>
                             <i className="fas fa-sort-amount-down"></i>
                         </button>
-                        <div className="btn-group btn-group-toggle" data-toggle="buttons" ref={this.ToggleButtonRef}>        
-                          {orderOption()}                        
+                        <div 
+                          className="btn-group btn-group-toggle" 
+                          data-toggle="buttons" 
+                          ref={this.ToggleButtonRef}>        
+                            {orderOption()}                        
                         </div>
                       </div>
                     </section>                               
@@ -125,6 +140,7 @@ const PlayersPage = observer(
                     className="btn btn-primary"
                     data-toggle="modal"
                     data-target="#ModalCRUDPlayer"
+                    aria-label="Inscribir nuevo jugador"
                     name="addPlayer"
                     value="newPlayer"
                     onClick={this.handleInput}

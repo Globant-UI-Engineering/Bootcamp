@@ -22,7 +22,7 @@ function InConstructionComponent(props) {
 function NotFoundComponent(props) {
   return (
   <article className="not-found">
-    <p><i class="far fa-meh-rolling-eyes"></i>
+    <p><i className="far fa-meh-rolling-eyes"></i>
     &nbsp;{props.thing}
     &nbsp;no encontrado.</p>
   </article>
