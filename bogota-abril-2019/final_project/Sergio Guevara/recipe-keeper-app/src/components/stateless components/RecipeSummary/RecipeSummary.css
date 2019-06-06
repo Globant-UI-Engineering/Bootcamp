@@ -29,11 +29,11 @@
     white-space: nowrap;
     overflow: hidden;
 }
-ul{
+.recipe_summary ul{
     box-sizing: content-box;
     margin-top: 0%;
 }
-li{
+.recipe_summary li{
     font-family: 'Arimo', sans-serif;
     color: black;
     text-decoration: none;

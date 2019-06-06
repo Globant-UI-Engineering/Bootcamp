@@ -3,7 +3,7 @@ import {connect} from "react-redux"
 import {firestoreConnect} from "react-redux-firebase"
 import {compose} from "redux"
 import AddIngredient from "./AddIngredient"
-import {updateRecipe} from "../../store/actions/recipeAction"
+import {updateRecipe} from "../store/actions/recipeAction"
 
 class UpdateRecipe extends Component {
     constructor(props){
@@ -62,23 +62,23 @@ class UpdateRecipe extends Component {
                 <br/>
                 <div className="input-field">
                     <label htmlFor="title" className="active">Recipe Title</label>
-                    <input className="validate" type="text" id="title" onChange={this.handleChange} value={this.state.title} required/>
+                    <input className="validate" type="text" id="title" onChange={this.handleChange} value={this.state.title} aria-describedby="required-field" required/>
                 </div>
                 <div className="input-field">
                     <label htmlFor="preparation" className="active">Preparation</label>
-                    <textarea className="materialize-textarea validate" id="preparation" onChange={this.handleChange} value={this.state.preparation} required/>
+                    <textarea className="materialize-textarea validate" id="preparation" onChange={this.handleChange} value={this.state.preparation} aria-describedby="required-field" required/>
                 </div>
                 <div className="input-field">
-                    <label htmlFor="preptime" className="active">Preparation Time (Hours-Minutes)</label>
-                    <input  type="time" className="validate" id="preptime" onChange={this.handleChange} value={this.state.preptime} required/>
+                    <label htmlFor="preptime" className="active">Preparation Time (Hours:Minutes)</label>
+                    <input  type="time" className="validate" id="preptime" onChange={this.handleChange} value={this.state.preptime} aria-describedby="required-field" required/>
                 </div>
                 <div className="input-field">
-                    <label htmlFor="cooktime" className="active">Cook Time</label>
-                    <input type="time" className="validate" id="cooktime" onChange={this.handleChange} value={this.state.cooktime} required/>
+                    <label htmlFor="cooktime" className="active">Cook Time (Hours:Minutes)</label>
+                    <input type="time" className="validate" id="cooktime" onChange={this.handleChange} value={this.state.cooktime} aria-describedby="required-field" required/>
                 </div>
                 <div className="input-field">
                     <label htmlFor="servings" className="active">Servings</label>
-                    <input className="validate" type="text" id="servings" onChange={this.handleChange} value={this.state.servings} required/>
+                    <input className="validate" type="number" min="1" id="servings" onChange={this.handleChange} value={this.state.servings} aria-describedby="value must be greater than or equal to 1" required/>
                 </div>
             </form>
             <AddIngredient addIngredientToList={this.addIngredientToList.bind(this)}/>

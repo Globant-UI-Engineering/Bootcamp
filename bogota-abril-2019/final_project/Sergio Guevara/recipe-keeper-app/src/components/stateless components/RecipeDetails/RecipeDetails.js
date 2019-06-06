@@ -3,7 +3,8 @@ import {connect} from "react-redux"
 import {firestoreConnect} from "react-redux-firebase"
 import {compose} from "redux"
 import "./RecipeDetails.css"
-import DeleteRecipe from "./DeleteRecipe"
+import DeleteRecipe from "../DeleteRecipe"
+import NoPageMatch from '../404error/404error'
 
 import {NavLink} from "react-router-dom"
 
@@ -39,11 +40,9 @@ function RecipeDetails(props) {
         )
     } else{
         return(
-            <div className="container center">
-                <p>Loading recipe...</p>
-            </div>
+            <NoPageMatch/>
         )
-    }
+    } 
 }
 
 const mapStateToProps = (state, ownProps) => {

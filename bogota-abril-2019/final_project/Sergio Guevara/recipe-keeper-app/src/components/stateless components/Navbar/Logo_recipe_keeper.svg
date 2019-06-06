@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="100px" height="79px" viewBox="0 0 100 79" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="334px" height="79px" viewBox="0 0 334 79" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
     <title>Logo</title>
     <desc>Created with Sketch.</desc>
@@ -14,7 +14,7 @@
         </linearGradient>
     </defs>
     <g id="Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g transform="translate(2.000000, 2.000000)">
+        <g transform="translate(0.000000, 2.000000)">
             <g id="sartén">
                 <ellipse id="Oval" stroke="#808080" stroke-width="2" fill="url(#linearGradient-1)" cx="59.7609453" cy="35.9375" rx="35.096" ry="34.9375"></ellipse>
                 <ellipse id="Oval" stroke="#808080" stroke-width="2" fill="url(#linearGradient-2)" cx="59.3769453" cy="35.9375" rx="25.496" ry="24"></ellipse>
@@ -31,5 +31,8 @@
                 <path d="M9.11111111,37.4096054 C11.6515645,38.7124443 13.5621753,38.966584 14.8429435,38.1720245 C16.7640958,36.9801852 19.5831899,36.929163 20.4385252,38.0273075 C21.2938605,39.125452 22.7440322,40.1621496 26.741694,37.4096054 C29.4068018,35.574576 31.1225335,35.574576 31.8888889,37.4096054" id="Path-5" stroke="#5A5A5A"></path>
             </g>
         </g>
+        <text id="Recipe-Keeper" fill="#07D0FB" font-family="Pacifico-Regular, Pacifico" font-size="35" font-weight="normal">
+            <tspan x="109" y="54">Recipe Keeper </tspan>
+        </text>
     </g>
 </svg>

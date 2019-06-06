@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import RecipeList from "../recipes/RecipeList"
+import RecipeList from "../RecipeList"
 import {connect} from "react-redux"
 import {firestoreConnect} from "react-redux-firebase"
 import {compose} from "redux"
