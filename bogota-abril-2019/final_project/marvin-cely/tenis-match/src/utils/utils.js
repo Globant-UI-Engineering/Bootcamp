@@ -32,8 +32,6 @@ const utils = {
 			totalLoadingState |= store.isLoading['from'+collection.capitalize()];
 			totalErrorServiceState |= store.isLoading['from'+collection.capitalize()];
 		});
-		console.log('totalLoadingState',totalLoadingState);
-		console.log('totalErrorServiceState',totalErrorServiceState);
 		if (totalLoadingState) 
 			return loadingComponent;
 		else if (totalErrorServiceState)

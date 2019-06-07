@@ -27,6 +27,18 @@ class Store {
     orderType: 'ranking',
     searchValue: '',
   };
+  scoresTable = {
+    playersList: [],
+    isAscending: true,
+    orderType: 'ranking',
+    searchValue: '',
+  };
+  tournamentsTable = {
+    playersList: [],
+    isAscending: true,
+    orderType: 'winner',
+    searchValue: '',
+  };
   matchHandle = null;
   pointHandle = null;
   currentPointsHistory = [];
@@ -50,6 +62,8 @@ decorate(Store,{
   isLoading: observable,
   isErrorService: observable,
   playersTable: observable.shallow,
+  scoresTable: observable.shallow,
+  tournamentsTable: observable.shallow,
   playerHandle: observable,
   matchHandle: observable,
   pointHandle: observable,

@@ -1,5 +1,29 @@
 {
     "dataTournamentPage": {
-        "bannerBackgroundDescription":"Estadio de tenis"
+        "bannerBackgroundDescription":"Estadio de tenis",
+        "inscribedMessage":"Total inscritos",
+        "idPlayerSelectedDefault": "newPlayer",
+        "newPlayerButton": {
+            "name": "Crear torneo",
+            "icon": "fas fa-user-plus"
+        },
+        "orderButton": [{
+            "value": "tournament",
+            "namebutton": "Torneo"
+          },
+          {
+            "value": "score",
+            "namebutton": "Puntos"
+        }],
+        "tournamentListHeader": {
+          "winner": "G",
+          "winnerDescription": "Ganador",
+          "finalist": "F",
+          "finalistDescription": "Finalista",
+          "semifinalist": "SF",
+          "semifinalistDescription": "Semifinalista",
+          "quarterfinal": "CF",
+          "quarterfinalDescription": "Cuartos de final"
+        }
     }
 }

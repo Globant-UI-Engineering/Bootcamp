@@ -99,7 +99,6 @@ class App extends React.Component {
           <Router>
             {navBar()}
             <section>
-            {this.props.store.tournaments.length}
               {routesList}
             </section>
           </Router>

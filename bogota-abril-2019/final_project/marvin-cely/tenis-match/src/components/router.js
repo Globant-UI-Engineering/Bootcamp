@@ -1,8 +1,7 @@
 import HomePage from './HomePageComponent/HomePage';
-import NewMatchPage from './NewMatchPageComponent/NewMatchPage';
 import PlayersPage from './PlayersPageComponent/PlayersPage';
+import MatchesPage from './MatchesPageComponent/MatchesPage';
 import TournamentsPage from './TournamentPageComponent/TournamentsPage';
-import ScoresPage from './ScoresPageComponent/ScoresPage';
 
 const routesPages = [{    
     icon: 'fas fa-home',
@@ -11,13 +10,6 @@ const routesPages = [{
     path: '/',
     component: HomePage,
   },
-  // {
-  //   icon: 'fas fa-plus',
-  //   title: 'Nuevo Partido',
-  //   exact: false, 
-  //   path: '/new-match',
-  //   component: NewMatchPage,
-  // },
   {
     icon: 'fas fa-users',
     title: 'Jugadores',
@@ -26,11 +18,11 @@ const routesPages = [{
     component: PlayersPage,
   },
   {
-    icon: 'fas fa-bullhorn',
-    title: 'Puntuación',
+    icon: 'fas fa-flag',
+    title: 'Partidos',
     exact: false, 
-    path: '/scores',
-    component: ScoresPage,
+    path: '/matches',
+    component: MatchesPage,
   },
   {
     icon: 'fas fa-trophy',
