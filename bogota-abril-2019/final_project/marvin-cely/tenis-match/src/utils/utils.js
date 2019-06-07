@@ -62,9 +62,9 @@ const utils = {
 			1 : -1);
 		return (isAscending) ? arraySorted : arraySorted.slice().reverse();                     
 	},
-	filterAllByArrayList: (array, value) => {
-		return array.slice().filter((player) =>
-			player.name.toLowerCase().indexOf(value.toLowerCase()) > -1
+	filterAllByArrayList: (array, value, element) => {
+		return array.slice().filter((object) =>
+			object[element].toLowerCase().indexOf(value.toLowerCase()) > -1
 	  );
 	},
 }

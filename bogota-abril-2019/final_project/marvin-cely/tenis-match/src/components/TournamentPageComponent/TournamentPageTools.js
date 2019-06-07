@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/PlayerPageTools.css';//TODO: referenciar al mismo css Player Page Tools
+import '../../css/TournamentPageTools.css';//TODO: referenciar al mismo css Tournament Page Tools
 import { observer } from 'mobx-react';
 import { dataTournamentPage } from '../../data-component/data-tournament-page';
 
@@ -10,6 +10,7 @@ const TournamentPageTools = observer(
       super(props);
 
       this.state = {
+        searchTournamentLabel: dataTournamentPage.searchTournamentLabel,
         orderButton: dataTournamentPage.orderButton,
         newTournamentButton: dataTournamentPage.newTournamentButton,
         inscribedMessage: dataTournamentPage.inscribedMessage,
@@ -24,7 +25,7 @@ const TournamentPageTools = observer(
     }
 
     iconAscendingToggle = () => {
-      if(this.props.store.playersTable.isAscending) {
+      if(this.props.store.tournamentsTable.isAscending) {
         this.OrderAscendingButtonRef.current.firstChild.className = 'fas fa-sort-amount-down';
       } else {
         this.OrderAscendingButtonRef.current.firstChild.className = 'fas fa-sort-amount-up';
@@ -33,7 +34,7 @@ const TournamentPageTools = observer(
 
     activeToggleButton = () => {
       for (const iterator of this.ToggleButtonRef.current.children) {
-        if (iterator.firstChild.value === this.props.store.playersTable.orderType) {
+        if (iterator.firstChild.value === this.props.store.tournamentsTable.orderType) {
           iterator.classList.add('active');          
         }
       }
@@ -44,10 +45,10 @@ const TournamentPageTools = observer(
       const { name, value } = event.target;
       if( name === 'toggleOrder' ) {
         this.OrderAscendingButtonRef.current.blur();   
-        this.props.store.playersTable.isAscending = !this.props.store.playersTable.isAscending;     
+        this.props.store.tournamentsTable.isAscending = !this.props.store.tournamentsTable.isAscending;     
         this.iconAscendingToggle();
       }else if (name === 'orderOption') {
-        this.props.store.playersTable.orderType = value;
+        this.props.store.tournamentsTable.orderType = value;
       }
       this.props.handleInput(event);
     };
@@ -82,10 +83,10 @@ const TournamentPageTools = observer(
                         <span className="fa fa-search form-control-feedback" aria-label="Icono de buscar"></span>
                         <input type="text" 
                           className="form-control" 
-                          placeholder="Buscar torneo" 
+                          placeholder={this.state.searchTournamentLabel} 
                           name='search' 
-                          aria-label="Buscar torneo"
-                          value={this.props.store.playersTable.searchValue} 
+                          aria-label={this.state.searchTournamentLabel}
+                          value={this.props.store.tournamentsTable.searchValue} 
                           onChange={this.handleInput}/>
                       </fieldset>  
                     </section>
@@ -110,15 +111,15 @@ const TournamentPageTools = observer(
                     </section>                               
                   </div>
                 </section>
-                 {/**Cambiar modal */}
+                 {/**TODO:Cambiar modal */}
                 <section className="col-md-4 col-lg-3">
                   <button type="button"
                     className="btn btn-success"
                     data-toggle="modal"
-                    data-target="#ModalCRUDPlayer"                   
+                    data-target="#ModalCRUDTournament"                   
                     aria-label="Crear nuevo torneo"
-                    name="addPlayer"
-                    value="newPlayer"
+                    name="addTournament"
+                    value={dataTournamentPage.idTournamentSelectedDefault}
                     onClick={this.handleInput}
                     >
                       <i className={this.state.newTournamentButton.icon}></i>

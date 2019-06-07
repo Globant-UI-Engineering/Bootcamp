@@ -2,6 +2,7 @@ import React from 'react';
 import '../../css/TournamentsPage.css';
 import { observer } from 'mobx-react';
 import TournamentPageTools from './TournamentPageTools';
+import TableTournament from './TableTournament';
 import TournamentCard from './TournamentCard';
 import { LoadingComponent, ErrorServiceComponent, BackgroundImage } from '../SmallPieceComponent';
 import { dataTournamentPage } from '../../data-component/data-tournament-page';
@@ -16,6 +17,9 @@ const TournamentsPage = observer(
       
       this.state = {
         bannerBackgroundDescription: dataTournamentPage.bannerBackgroundDescription,
+        idTournamentSelected: dataTournamentPage.idTournamentSelectedDefault,
+        counterCRUDAction: 0,
+        counterTableAction: 0,
       }
 
       this.handleInput = this.handleInput.bind(this);
@@ -23,24 +27,18 @@ const TournamentsPage = observer(
 
     handleInput = (event) => {
       const { name, value } = event.target;
-      // if (name === 'editPlayer' || name === 'addPlayer') {
-      //   this.setState({
-      //     idPlayerSelected: value,
-      //     counterCRUDAction: this.state.counterCRUDAction + 1,
-      //   });
-      // } 
-      // else {
-      //   if(name === 'toggleOrder') {     
-      //     this.props.store.playersTable.isAscending = !this.props.store.playersTable.isAscending;
-      //   }
-      //   else if (name === 'orderOption') {
-      //     this.props.store.playersTable.orderType = value;
-      //   }
-      //   else if (name === 'search') {
-      //     this.props.store.playersTable.searchValue = value;
-      //   }
-      //   this.setState({ counterTableAction: this.state.counterTableAction + 1 });
-      // }
+      if (name === 'editTournament' || name === 'addTournament') {
+        this.setState({
+          idTournamentSelected: value,
+          // counterCRUDAction: this.state.counterCRUDAction + 1,
+        });
+      } 
+      else {
+        if (name === 'search') {
+          this.props.store.tournamentsTable.searchValue = value;
+        }
+        this.setState({ counterTableAction: this.state.counterTableAction + 1 });
+      }
     }
 
     render() { 
@@ -48,7 +46,7 @@ const TournamentsPage = observer(
         return(
           <main className="container"> 
             <TournamentPageTools handleInput={this.handleInput} store={this.props.store}/>
-            <TournamentCard scores={{winner: 1000, finalist: 1200}} tournamentName={'atp Bogotá'}/>
+            <TableTournament counterAction={this.state.counterTableAction} store={this.props.store} onClick={this.handleInput}/>
           </main>        
         );
       }

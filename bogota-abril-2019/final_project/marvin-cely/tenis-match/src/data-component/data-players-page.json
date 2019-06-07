@@ -39,6 +39,7 @@
         "inscribeButton": "Inscribir",
         "updateButton": "Actualizar"
       },
+      "searchPlayerLabel": "Buscar jugador",
       "playerListHeader": {
         "name": "Jugador",
         "nationality": "Nacionalidad",

@@ -25,6 +25,7 @@ const TablePlayer = observer(
     }
 
     componentDidMount() { 
+      this.filterTable(this.props.store.playersTable.searchValue);
       this.orderTable(this.props.store.playersTable.orderType);
       this.playersUpdateDisposer = autorun(()=> {
         const _players = this.props.store.players;
@@ -47,24 +48,24 @@ const TablePlayer = observer(
     thereIsAction = (prevProps) => this.props.counterAction !== prevProps.counterAction;
 
     filterTable = (value) => { 
-      const elementsToFilter = [ this.props.store.players, value];
+      const elementsToFilter = [ this.props.store.players, value, dataPlayersPage.orderButton[0].value];
       this.props.store.playersTable.playersList = utils.filterAllByArrayList(...elementsToFilter);
     }
 
     orderTable = (orderType) => {
       const elementsToSort = [ this.props.store.playersTable.playersList, orderType, this.props.store.playersTable.isAscending];
       switch (orderType) {
-        case 'name':
+        case dataPlayersPage.orderButton[0].value:
           this.props.store.playersTable.playersList = utils.sortByAlphaArrayList(...elementsToSort);
           break;
-        case 'idCountry':
+        case dataPlayersPage.orderButton[1].value:
             const countriesList = toJS(this.props.store.countries);   
             this.props.store.playersTable.playersList = utils.sortByCountryList(...elementsToSort, countriesList);
             break;
-        case 'birthDate':
+        case dataPlayersPage.orderButton[2].value:
           this.props.store.playersTable.playersList = utils.sortByAgeArrayList(...elementsToSort);
           break;
-        case 'ranking':
+        case dataPlayersPage.orderButton[3].value:
           this.props.store.playersTable.playersList = utils.sortByNumberArrayList(...elementsToSort);
           break;   
         default:
@@ -75,7 +76,7 @@ const TablePlayer = observer(
     render() { 
       const tableHeader = (headerList) => {
         return(
-          <section className="row" role="row">
+          <section className="row">
             <article className="col-10">
               <div className="row">
                 <h4 className="col-md-3" role="columnheader">{headerList.name}</h4>
@@ -136,7 +137,7 @@ const TablePlayer = observer(
           <section role="table" 
             aria-label="Estadisticas de Jugadores" 
             summary="Tabla de los jugadores y sus esetadísticas">
-              <section className="sticky-top d-none d-md-block">
+              <section className="sticky-top d-none d-md-block" role="heading">
                 {tableHeader(dataPlayersPage.playerListHeader)}
               </section>
               {resultSearchComponent()}

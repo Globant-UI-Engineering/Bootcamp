@@ -54,8 +54,7 @@ const PlayerPageTools = observer(
 
     componentDidMount() {
       if (this.ToggleButtonRef.current !== null) {
-        this.activeToggleButton();
-        this.toggleOneTime = false;        
+        this.activeToggleButton(); 
       }      
     }
 
@@ -117,7 +116,7 @@ const PlayerPageTools = observer(
                     data-target="#ModalCRUDPlayer"
                     aria-label="Inscribir nuevo jugador"
                     name="addPlayer"
-                    value="newPlayer"
+                    value={dataPlayersPage.idPlayerSelectedDefault}
                     onClick={this.handleInput}
                     >
                       <i className={this.state.newPlayerButton.icon}></i>

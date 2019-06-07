@@ -8,13 +8,14 @@
             "icon": "fas fa-plus"
         },
         "orderButton": [{
-            "value": "tournament",
+            "value": "tournamentName",
             "namebutton": "Torneo"
           },
           {
-            "value": "score",
+            "value": "winner",
             "namebutton": "Puntos"
         }],
+        "searchTournamentLabel": "Buscar torneo",
         "tournamentListHeader": {
           "winner": "G",
           "winnerDescription": "Ganador",
