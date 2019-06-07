@@ -32,6 +32,14 @@ export const shuffleContext = (accessToken, isShuffled) => {
     }
 }
 
+export const setRepeatStateContext = (accessToken, currRepeatState) => {
+    return {
+        type: playerActionTypes.setRepeatStateContext,
+        payload: accessToken,
+        currRepeatState: currRepeatState
+    }
+} 
+
 export const nextTrack = (accessToken) => {
     return {
         type: playerActionTypes.nextTrack,

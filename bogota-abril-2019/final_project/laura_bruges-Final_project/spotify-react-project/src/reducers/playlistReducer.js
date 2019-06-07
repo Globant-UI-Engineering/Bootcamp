@@ -2,8 +2,25 @@ import { playlistActionTypes } from '../actions/actionTypes';
 
 const initialState = {
     currPlaylist: {
-        items: []
-    }
+        name: 'No playlist playing',
+        desciption: 'Please select a playlist',
+        items: [
+            {
+                track: {
+                    name: '',
+                    artists: [
+                        {
+                            name: ''
+                        }
+                    ],
+                    album: {
+                        name: ''
+                    }
+                }
+            }
+        ]
+    },
+    userPlaylists: []
 }
 
 const playlistReducer = (state = initialState, action) => {

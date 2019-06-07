@@ -20,7 +20,10 @@ export const playerActionTypes = {
     previousTrackError: 'PREVIOUS_TRACK_ERROR',
     shuffleContext: 'SHUFFLE_CURR_CONTEXT',
     shuffleContextSuccess: 'SHUFFLE_CURR_CONTEXT_SUCCESS',
-    shuffleContextError: 'SHUFFLE_CURR_CONTEXT_ERROR'
+    shuffleContextError: 'SHUFFLE_CURR_CONTEXT_ERROR',
+    setRepeatStateContext: 'SET_REPEAT_STATE_CONTEXT',
+    setRepeatStateContextSuccess: 'SET_REPEAT_STATE_CONTEXT_SUCCESS',
+    setRepeatStateContextError: 'SET_REPEAT_STATE_CONTEXT_ERROR'
 }
 
 export const deviceActionTypes = {

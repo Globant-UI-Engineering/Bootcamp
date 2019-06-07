@@ -1,6 +1,6 @@
 import Playlist from './component';
 import { fetchPlaylist, fetchUserPlaylists } from '../../actions/playlistActions';
-import { resumeTrack, pauseTrack, shuffleContext } from '../../actions/playerActions';
+import { resumeTrack, pauseTrack, shuffleContext, setRepeatStateContext } from '../../actions/playerActions';
 import { connect } from 'react-redux';
 
 
@@ -27,6 +27,9 @@ const mapDispatchToProps = dispatch =>{
         },
         shuffleContext: (token, isShuffled) => {
             dispatch(shuffleContext(token, isShuffled))
+        },
+        setRepeatStateContext: (token, repeatState) => {
+            dispatch(setRepeatStateContext(token, repeatState))
         }        
     }
 }

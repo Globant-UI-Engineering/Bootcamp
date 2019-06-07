@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { AUTH_URL } from '../../utils/EndpointSettings';
 import { Button, Container, Row, Col } from 'react-bootstrap';
-import TopNavbar from '../TopNavbar';
+import TopNavbar from '../PageStructure/TopNavbar';
 
 class App extends React.Component {
   constructor() {

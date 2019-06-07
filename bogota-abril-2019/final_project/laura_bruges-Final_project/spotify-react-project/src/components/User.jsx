@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from './Container';
+import Container from './PageStructure/Container';
 
 class User extends React.Component {
     render() {

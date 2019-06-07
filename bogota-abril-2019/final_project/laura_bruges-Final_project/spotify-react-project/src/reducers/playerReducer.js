@@ -13,7 +13,8 @@ const initialState = {
         deviceId: null,
         currPlaylistUri: null,
         currPlaylistId: null,
-        isShuffled: false
+        isShuffled: false,
+        repeatState: 'off'
     }
 }
 

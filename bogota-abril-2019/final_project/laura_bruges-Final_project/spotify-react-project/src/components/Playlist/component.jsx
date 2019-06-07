@@ -1,6 +1,5 @@
 import React from 'react';
-import Container from '../Container';
-import { Row } from 'react-bootstrap';
+import Container from '../PageStructure/Container';
 import PlaylistHeader from './PlaylistHeader/PlaylistHeader';
 import CurrentPlaylist from './CurrentPlaylist/CurrentPlaylist';
 
@@ -13,6 +12,7 @@ class Playlist extends React.Component {
             intervalId: ''
         }
         this.getCurrentPlaylistInfo = this.getCurrentPlaylistInfo.bind(this);
+        this.playTrackFromPlaylist = this.playTrackFromPlaylist.bind(this);
     }
 
     componentWillMount() {
@@ -23,8 +23,8 @@ class Playlist extends React.Component {
     getCurrentPlaylistInfo() {
         const intervalId = setInterval(
             () => {
-                if(this.props.playing && this.props.playing.playlistId) {
-                    this.props.fetchPlaylist(this.props.token, this.props.playlistId)
+                if(this.props.playing && this.props.playing.currPlaylistId) {
+                    this.props.fetchPlaylist(this.props.token, this.props.playing.currPlaylistId);
                 }                
             }, 
             1000
@@ -38,52 +38,30 @@ class Playlist extends React.Component {
     componentWillUnmount() {
         clearInterval(this.state.intervalId);
     }
+
+    playTrackFromPlaylist(trackId) {
+        if(trackId === this.props.playing.trackId) {
+            this.props.resumeTrack(this.props.token);    
+        } else {
+            this.props.resumeTrack(this.props.token, this.props.playing.currPlaylistId, trackId);
+        }
+        
+    }
     
     render() {
         return (
             <Container>
-                <PlaylistHeader playlistName={'Hola'} playlistDescription={'This is a description'} />
-                <CurrentPlaylist tracks={
-                    [
-                        {
-                            'id': '001',
-                            'name': 'track01',
-                            'album': {
-                                'name': 'alb001'
-                            },
-                            'artists': [
-                                {
-                                    'name': 'art001'
-                                }
-                            ]
-                        },
-                        {
-                            'id': '002',
-                            'name': 'track02',
-                            'album': {
-                                'name': 'alb002'
-                            },
-                            'artists': [
-                                {
-                                    'name': 'art002'
-                                }
-                            ]
-                        },
-                        {
-                            'id': '003',
-                            'name': 'track03',
-                            'album': {
-                                'name': 'alb003'
-                            },
-                            'artists': [
-                                {
-                                    'name': 'art003'
-                                }
-                            ]
-                        }
-                    ]
-                } currTrack='001' />
-                <Row className='playlist-content'>Hola</Row>
+                <PlaylistHeader playlistName={ this.props.currPlaylist.name } playlistDescription={ this.props.currPlaylist.description } />
+                <CurrentPlaylist tracks={ this.props.currPlaylist.items } 
+                    isShuffled={this.props.playing.isShuffled} 
+                    isRepeatActive={ this.props.playing.repeatState === 'context' }
+                    currTrack={this.props.playing.trackId} 
+                    currTrackPlaying={ this.props.playing.isPlaying } 
+                    onResume={ (trackId) => this.playTrackFromPlaylist(trackId) } 
+                    onPause={() => this.props.pauseTrack(this.props.token) }
+                    onRepeat={() => this.props.setRepeatStateContext(this.props.token, this.props.playing.repeatState) }
+                    onShuffle={() => this.props.shuffleContext(this.props.token, this.props.playing.isShuffled) }  />
+                
             </Container>
         );
     }

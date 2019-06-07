@@ -1,6 +1,6 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import { playerActionTypes } from '../actions/actionTypes'
-import { fetchNowPlaying, resumeTrack, pauseTrack, nextTrack, previousTrack, shuffleContext } from '../api/playerApi'
+import { fetchNowPlaying, resumeTrack, pauseTrack, nextTrack, previousTrack, shuffleContext, setRepeatStateContext } from '../api/playerApi'
 
 function* fetchNowPlayingSaga(action) {
     const data = yield call(fetchNowPlaying, action.payload);
@@ -15,7 +15,8 @@ function* fetchNowPlayingSaga(action) {
         isPlaying: playerData.is_playing,
         deviceId: playerData.device ? playerData.device.id : '',
         currPlaylistUri: playerData.context && playerData.context.type === 'playlist' ? playerData.context.uri : null,
-        isShuffled: playerData.shuffle_state
+        isShuffled: playerData.shuffle_state,
+        repeatState: playerData.repeat_state
     }
 
     playerPayload.currPlaylistId = playerPayload.currPlaylistUri ? 
@@ -75,6 +76,15 @@ function* shuffleContextSaga(action) {
     });
 }
 
+function* setRepeatStateContextSaga(action) {
+    const data = yield call(setRepeatStateContext, action.payload, action.currRepeatState);
+
+    yield put({
+        type: playerActionTypes.setRepeatStateContextSuccess,
+        payload: data
+    });
+}
+
 export default function* playerSaga() {
     yield takeEvery(playerActionTypes.fetchNowPlaying, fetchNowPlayingSaga);
     yield takeEvery(playerActionTypes.resumeTrack, resumeTrackSaga);
@@ -82,5 +92,5 @@ export default function* playerSaga() {
     yield takeEvery(playerActionTypes.nextTrack, nextTrackSaga);
     yield takeEvery(playerActionTypes.previousTrack, previousTrackSaga);
     yield takeEvery(playerActionTypes.shuffleContext, shuffleContextSaga);
-
+    yield takeEvery(playerActionTypes.setRepeatStateContext, setRepeatStateContextSaga);
 };

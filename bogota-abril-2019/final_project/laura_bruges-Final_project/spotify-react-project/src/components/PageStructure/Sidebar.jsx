@@ -1,6 +1,6 @@
 import React from 'react';
 import { Nav, NavItem } from 'react-bootstrap';
-import '../styles/Sidebar.css';
+import './Sidebar.css';
 import { Link } from 'react-router-dom';
 
 

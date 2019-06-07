@@ -13,7 +13,7 @@ const PlaylistText = ({ type, cssClasses, text }) => {
             textElement = <h2>{text}</h2>;
             break;
         case textType.playlistDescription:
-            textElement = <p>{text}</p>;
+            textElement = <p className='description-p'>{text}</p>;
             break;
         default:
             break;
