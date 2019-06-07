@@ -1,12 +1,11 @@
 import React from 'react';
-import '../../css/ModalCRUDTournament.css';
+import '../../css/ModalCRUD.css';
 import FormCRUDTournament from './FormCRUDTournament';
 import { observer } from 'mobx-react';
 import serviceAddData from '../../services/serviceAddData';
 import serviceUpdateData from '../../services/serviceUpdateData';
 import serviceDeleteData from '../../services/serviceDeleteData';
 import thesaurus from '../../utils/thesaurus';
-import utils from '../../utils/utils';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { dataTournamentsPage } from '../../data-component/data-tournaments-page';
@@ -39,8 +38,6 @@ const ModalCRUDTournament = observer(
       this.getTournamentToUpdate = this.getTournamentToUpdate.bind(this);
       this.updateForm = this.updateForm.bind(this);
       this.hideblockSubmitBotton = this.hideblockSubmitBotton.bind(this);
-      // this.adjustNewTournament = this.adjustNewTournament.bind(this);
-      // this.adjustUpdateTournament = this.adjustUpdateTournament.bind(this);
       this.addTournament = this.addTournament.bind(this);
       this.updateTournament = this.updateTournament.bind(this);
       this.deleteTournament = this.deleteTournament.bind(this);
@@ -109,7 +106,7 @@ const ModalCRUDTournament = observer(
 
     handleForm(valuesForm) {
       this.setState({
-        tournamentForm: Object.assign({}, this.state.tournamentForm, valuesForm), //TODO: TO CHECK!
+        tournamentForm: Object.assign({}, this.state.tournamentForm, valuesForm),
       });
     }
 
@@ -128,23 +125,6 @@ const ModalCRUDTournament = observer(
         ]
       });
     }
-
-    // adjustNewTournament() {
-    //   const {birthDate} = this.state.tournamentForm;
-    //   const adjustData = {
-    //     birthDate: utils.stringDateToTimestamp(birthDate),
-    //     ranking: this.state.scoreDefault,
-    //   }
-    //   return Object.assign({}, this.state.tournamentForm, adjustData);
-    // }
-
-    // adjustUpdateTournament() {
-    //   const {birthDate} = this.state.tournamentForm;
-    //   const adjustData = {
-    //     birthDate: utils.stringDateToTimestamp(birthDate),
-    //   }
-    //   return Object.assign({}, this.state.tournamentForm, adjustData);
-    // }
 
     addTournament(tournamentToSend) {
       const sendData = [this.props.store.fireStore, thesaurus.collectionsName.TOURNAMENTS, tournamentToSend];

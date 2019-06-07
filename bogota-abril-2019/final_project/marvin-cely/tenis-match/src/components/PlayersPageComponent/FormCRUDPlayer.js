@@ -2,6 +2,7 @@ import React from 'react';
 import '../../css/FormCRUDPlayer.css';
 import { observer } from 'mobx-react';
 import {CountryOptionComponent} from '../SmallPieceComponent';
+import { dataPlayersPage } from '../../data-component/data-players-page';
 import utils from '../../utils/utils';
 
 const FormCRUDPlayer = observer(
@@ -9,14 +10,8 @@ const FormCRUDPlayer = observer(
     constructor(props) {
       super(props);
 
-      this.state = {// TODO: pasarlo a data-
-        fullNameForm: 'Nombre completo',
-        fullNameFormExample: 'Nombre Apellido',
-        instructionFullNameForm: 'Procure utilizar un nombre y un apellido.',
-        birthDateForm: 'Fecha de nacimiento',
-        nationalityForm: 'Nacionalidad',
+      this.state = {
         maxDate: utils.toStringDate(new Date()),
-        minDate: '1900-01-01',
       }
 
       this.optionRef = null;
@@ -27,37 +22,37 @@ const FormCRUDPlayer = observer(
         <React.Fragment>
             <section className="form-row">
               <article className="form-group col-md-7">
-                <label htmlFor="fullName">{this.state.fullNameForm}</label>
+                <label htmlFor="fullName">{dataPlayersPage.FormCRUD.fullNameForm}</label>
                 <input type="text" 
                   className="form-control" 
                   name="name"
                   id="fullName" 
-                  placeholder={this.state.fullNameFormExample} 
+                  placeholder={dataPlayersPage.FormCRUD.fullNameFormExample} 
                   aria-describedby="instructionName" 
                   aria-required="true"
                   value={this.props.playerForm.name}
                   onChange={ this.handleInput }
                   required/>
                 <small id="instructionName" className="form-text text-muted">
-                  {this.state.instructionFullNameForm}
+                  {dataPlayersPage.FormCRUD.instructionFullNameForm}
                 </small>
               </article>              
               <article className="form-group col-md-5">
-                <label htmlFor="birthDate">{this.state.birthDateForm}</label>
+                <label htmlFor="birthDate">{dataPlayersPage.FormCRUD.birthDateForm}</label>
                 <input type="date" 
                   className="form-control" 
                   name="birthDate"
                   id="birthDate" 
                   aria-required="true" 
                   max={this.state.maxDate}
-                  min={this.state.minDate}
+                  min={dataPlayersPage.FormCRUD.minDate}
                   value={this.props.playerForm.birthDate}
                   onChange={ this.handleInput }
                   required/>
               </article>
             </section>
             <article className="form-group">
-              <label htmlFor="countrytySelector">{this.state.nationalityForm}</label>
+              <label htmlFor="countrytySelector">{dataPlayersPage.FormCRUD.nationalityForm}</label>
               <select className="form-control" name="idCountry" id="countrytySelector" value={this.props.playerForm.idCountry} onChange={ this.handleInput } required>
                 <CountryOptionComponent countries={this.props.store.countries}/>
               </select>              

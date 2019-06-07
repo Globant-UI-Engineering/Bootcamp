@@ -45,6 +45,14 @@
         "nationality": "Nacionalidad",
         "age": "Edad",
         "ranking": "Puntos"
+      },
+      "FormCRUD": {
+        "fullNameForm": "Nombre completo",
+        "fullNameFormExample": "Nombre Apellido",
+        "instructionFullNameForm": "Procure utilizar un nombre y un apellido.",
+        "birthDateForm": "Fecha de nacimiento",
+        "nationalityForm": "Nacionalidad",
+        "minDate": "1900-01-01"
       }
     }
 }

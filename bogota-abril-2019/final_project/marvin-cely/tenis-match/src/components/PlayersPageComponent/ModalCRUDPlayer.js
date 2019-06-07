@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/ModalCRUDPlayer.css';
+import '../../css/ModalCRUD.css';
 import FormCRUDPlayer from './FormCRUDPlayer';
 import { observer } from 'mobx-react';
 import serviceAddData from '../../services/serviceAddData';

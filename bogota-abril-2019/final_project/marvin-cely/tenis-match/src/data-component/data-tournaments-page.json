@@ -43,6 +43,25 @@
           },
           "inscribeButton": "Inscribir",
           "updateButton": "Actualizar"
+        },
+        "FormCRUD": {
+          "tournamentNameForm": "Titulo de torneo",
+          "tournamentNameFormExample": "Grand Slam",
+          "instructionFullNameForm": "Utilice titulos simples sin número de puntos de torneo.",
+          "tournamentPointsTitle": "Distribución de puntos",
+          "winnerTournamentForm": "Ganador",
+          "finalistTournamentForm": "Finalista",
+          "semifinalistTournamentForm": "Semifinalista",
+          "quarterfinalTournamentForm": "Cuartos de final",
+          "winnerTournamentFormExample": "2000",
+          "finalistTournamentFormExample": "1200",
+          "semifinalistTournamentFormExample": "720",
+          "quarterfinalTournamentFormExample": "360",
+          "maxWinner": 2000,
+          "minWinner": 50,
+          "minFinalist": 25,
+          "minSemifinalist": 10,
+          "minQuarterfinal": 5
         }
     }
 }

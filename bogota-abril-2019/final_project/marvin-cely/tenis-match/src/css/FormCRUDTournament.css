@@ -1,0 +1,4 @@
+section + fieldset > legend {
+    font-family: var(--font-group-1);
+    font-size: var(--size-medium);
+}
