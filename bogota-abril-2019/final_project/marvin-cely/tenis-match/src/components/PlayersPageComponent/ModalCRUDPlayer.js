@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../css/ModalCRUDPlayer.css';
-import FormNewPlayer from './FormNewPlayer';
+import FormCRUDPlayer from './FormCRUDPlayer';
 import { observer } from 'mobx-react';
 import serviceAddData from '../../services/serviceAddData';
 import serviceUpdateData from '../../services/serviceUpdateData';
@@ -60,14 +60,18 @@ const ModalCRUDPlayer = observer(
     }
 
     getPlayerToUpdate() {
-      const playerToUpdate = this.props.store.obtainPlayer(this.props.idPlayerSelected);
-      const birthDate = playerToUpdate.birthDate.toDate();
-      const player = {
-        name: playerToUpdate.name,
-        idCountry: playerToUpdate.idCountry,
-        birthDate: utils.toStringDate(birthDate),
+      if (this.props.store.obtainPlayer(this.props.idPlayerSelected) !== undefined) {
+        const playerToUpdate = this.props.store.obtainPlayer(this.props.idPlayerSelected);
+        const birthDate = playerToUpdate.birthDate.toDate();
+        const player = {
+          name: playerToUpdate.name,
+          idCountry: playerToUpdate.idCountry,
+          birthDate: utils.toStringDate(birthDate),
+        }
+        return Object.assign({}, player);
+      } else {
+        return Object.assign({}, dataPlayersPage.ModalForm.initialValueForm);
       }
-      return Object.assign({}, player);
     }
 
     updateForm(idPlayerSelected) {
@@ -197,7 +201,7 @@ const ModalCRUDPlayer = observer(
                 </button>
               </header>
               <main className="modal-body container pl-5 pr-5">
-                <FormNewPlayer
+                <FormCRUDPlayer
                   playerForm={this.state.playerForm}
                   receiveValue={this.handleForm} 
                   store={this.props.store}/>

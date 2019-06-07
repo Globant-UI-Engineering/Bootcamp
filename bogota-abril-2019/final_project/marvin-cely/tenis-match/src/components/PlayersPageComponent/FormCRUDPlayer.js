@@ -1,11 +1,11 @@
-import React from '../../../node_modules/react';
-import '../../css/FormNewPlayer.css';
-import { observer } from '../../../node_modules/mobx-react';
+import React from 'react';
+import '../../css/FormCRUDPlayer.css';
+import { observer } from 'mobx-react';
 import {CountryOptionComponent} from '../SmallPieceComponent';
 import utils from '../../utils/utils';
 
-const FormNewPlayer = observer(
-  class FormNewPlayer extends React.Component {
+const FormCRUDPlayer = observer(
+  class FormCRUDPlayer extends React.Component {
     constructor(props) {
       super(props);
 
@@ -72,4 +72,4 @@ const FormNewPlayer = observer(
   }
 );
 
-export default FormNewPlayer;
+export default FormCRUDPlayer;
