@@ -1,0 +1,40 @@
+/* footer.modal-footer {//TODO: Pasar estilos torneo
+    display: flex;
+    justify-content: space-between;
+}
+
+footer.modal-footer i {
+    font-size: var(--font-size-small);
+}
+
+footer.modal-footer > section button:last-of-type{ 
+    margin-left: 1vw;
+}
+
+div > .react-confirm-alert-overlay {
+    z-index: 1051;
+}
+
+.react-confirm-alert > .react-confirm-alert-body {
+    color: var(--font-color-black);
+}
+
+@media only screen and (max-width: 540px) {
+    .react-confirm-alert > .react-confirm-alert-body {
+        width: 80vw;
+    }
+}
+
+.react-confirm-alert-body > div {
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: row wrap;
+}
+
+.react-confirm-alert-body > div button:first-of-type {
+    background: var(--secundary-color);
+}
+
+.react-confirm-alert-body > div button:last-of-type {
+    background: var(--font-color-gray-deep);
+} */

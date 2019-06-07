@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../css/TournamentPageTools.css';//TODO: referenciar al mismo css Tournament Page Tools
 import { observer } from 'mobx-react';
-import { dataTournamentPage } from '../../data-component/data-tournament-page';
+import { dataTournamentsPage } from '../../data-component/data-tournaments-page';
 
 
 const TournamentPageTools = observer(
@@ -10,10 +10,10 @@ const TournamentPageTools = observer(
       super(props);
 
       this.state = {
-        searchTournamentLabel: dataTournamentPage.searchTournamentLabel,
-        orderButton: dataTournamentPage.orderButton,
-        newTournamentButton: dataTournamentPage.newTournamentButton,
-        inscribedMessage: dataTournamentPage.inscribedMessage,
+        searchTournamentLabel: dataTournamentsPage.searchTournamentLabel,
+        orderButton: dataTournamentsPage.orderButton,
+        newTournamentButton: dataTournamentsPage.newTournamentButton,
+        inscribedMessage: dataTournamentsPage.inscribedMessage,
       }   
 
       this.ToggleButtonRef = React.createRef();
@@ -119,7 +119,7 @@ const TournamentPageTools = observer(
                     data-target="#ModalCRUDTournament"                   
                     aria-label="Crear nuevo torneo"
                     name="addTournament"
-                    value={dataTournamentPage.idTournamentSelectedDefault}
+                    value={dataTournamentsPage.idTournamentSelectedDefault}
                     onClick={this.handleInput}
                     >
                       <i className={this.state.newTournamentButton.icon}></i>

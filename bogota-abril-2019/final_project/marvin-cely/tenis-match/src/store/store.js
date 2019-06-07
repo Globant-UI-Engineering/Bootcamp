@@ -43,6 +43,10 @@ class Store {
   obtainPlayer(idPlayer) {
     return this.players.find(({id}) => id === idPlayer);
   }
+
+  obtainTournament(idTournament) {
+    return this.tournaments.find(({id}) => id === idTournament);
+  }
   
 }
 
@@ -62,6 +66,7 @@ decorate(Store,{
   pointHandle: observable,
   currentPointsHistory: observable,
   obtainPlayer: action,
+  obtainTournament: action,
 });
 
 const store = new Store();

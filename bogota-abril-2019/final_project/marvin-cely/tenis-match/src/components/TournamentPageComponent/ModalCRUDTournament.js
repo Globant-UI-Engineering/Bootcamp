@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../css/ModalCRUDPlayer.css';
-import FormCRUDPlayer from './FormCRUDPlayer';
+import '../../css/ModalCRUDTournament.css';
+import FormCRUDTournament from './FormCRUDTournament';
 import { observer } from 'mobx-react';
 import serviceAddData from '../../services/serviceAddData';
 import serviceUpdateData from '../../services/serviceUpdateData';
@@ -9,23 +9,22 @@ import thesaurus from '../../utils/thesaurus';
 import utils from '../../utils/utils';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import { dataPlayersPage } from '../../data-component/data-players-page';
+import { dataTournamentsPage } from '../../data-component/data-tournaments-page';
 
-const ModalCRUDPlayer = observer(
-  class ModalCRUDPlayer extends React.Component {
+const ModalCRUDTournament = observer(
+  class ModalCRUDTournament extends React.Component {
     constructor(props){
       super(props);
       this.state = {  
-        titleForm: dataPlayersPage.ModalForm.titleForm,
-        successButton: dataPlayersPage.ModalForm.successButton,
-        cancelButton: dataPlayersPage.ModalForm.cancelButton,
-        deleteButton: dataPlayersPage.ModalForm.deleteButton,
-        deleteConfirmTitle: dataPlayersPage.ModalForm.deleteConfirmTitle,
-        deleteConfirmMessage: dataPlayersPage.ModalForm.deleteConfirmMessage,
-        submitStyle: dataPlayersPage.ModalForm.submitStyle,
-        playerForm: Object.assign({}, dataPlayersPage.ModalForm.initialValueForm),
-        prevPlayerForm: Object.assign({}, dataPlayersPage.ModalForm.initialValueForm),
-        scoreDefault: 0,
+        titleForm: dataTournamentsPage.ModalForm.titleForm,
+        successButton: dataTournamentsPage.ModalForm.successButton,
+        cancelButton: dataTournamentsPage.ModalForm.cancelButton,
+        deleteButton: dataTournamentsPage.ModalForm.deleteButton,
+        deleteConfirmTitle: dataTournamentsPage.ModalForm.deleteConfirmTitle,
+        deleteConfirmMessage: dataTournamentsPage.ModalForm.deleteConfirmMessage,
+        submitStyle: dataTournamentsPage.ModalForm.submitStyle,
+        tournamentForm: Object.assign({}, dataTournamentsPage.ModalForm.initialValueForm),
+        prevTournamentForm: Object.assign({}, dataTournamentsPage.ModalForm.initialValueForm),
         isUpdate: false,
         oneTimeDisabled: true,
       }
@@ -37,14 +36,14 @@ const ModalCRUDPlayer = observer(
       this.handleSubmit = this.handleSubmit.bind(this);
       this.closeModal = this.closeModal.bind(this);
       this.setFormRef = this.setFormRef.bind(this);
-      this.getPlayerToUpdate = this.getPlayerToUpdate.bind(this);
+      this.getTournamentToUpdate = this.getTournamentToUpdate.bind(this);
       this.updateForm = this.updateForm.bind(this);
       this.hideblockSubmitBotton = this.hideblockSubmitBotton.bind(this);
-      this.adjustNewPlayer = this.adjustNewPlayer.bind(this);
-      this.adjustUpdatePlayer = this.adjustUpdatePlayer.bind(this);
-      this.addPlayer = this.addPlayer.bind(this);
-      this.updatePlayer = this.updatePlayer.bind(this);
-      this.deletePlayer = this.deletePlayer.bind(this);
+      // this.adjustNewTournament = this.adjustNewTournament.bind(this);
+      // this.adjustUpdateTournament = this.adjustUpdateTournament.bind(this);
+      this.addTournament = this.addTournament.bind(this);
+      this.updateTournament = this.updateTournament.bind(this);
+      this.deleteTournament = this.deleteTournament.bind(this);
     }
 
     componentWillUnmount() {
@@ -53,43 +52,35 @@ const ModalCRUDPlayer = observer(
 
     componentDidUpdate(prevProps, prevState) {      
       if (this.props.counterAction !== prevProps.counterAction)
-        this.updateForm(this.props.idPlayerSelected);  
+        this.updateForm(this.props.idTournamentSelected);  
                       
-      if (this.state.playerForm !== prevState.playerForm)
+      if (this.state.tournamentForm !== prevState.tournamentForm)
         this.hideblockSubmitBotton();      
     }
 
-    getPlayerToUpdate() {
-      const playerToUpdate = this.props.store.obtainPlayer(this.props.idPlayerSelected);
-      if (playerToUpdate !== undefined) {
-        const birthDate = playerToUpdate.birthDate.toDate();
-        const player = {
-          name: playerToUpdate.name,
-          idCountry: playerToUpdate.idCountry,
-          birthDate: utils.toStringDate(birthDate),
-        }
-        return Object.assign({}, player);
-      } else {
-        return Object.assign({}, dataPlayersPage.ModalForm.initialValueForm);
-      }
+    getTournamentToUpdate() {
+      const tournamentToUpdate = this.props.store.obtainTournament(this.props.idTournamentSelected);
+      return (this.props.store.obtainTournament(this.props.idTournamentSelected) !== undefined) ?
+              Object.assign({}, tournamentToUpdate) :
+              Object.assign({}, dataTournamentsPage.ModalForm.initialValueForm);
     }
 
-    updateForm(idPlayerSelected) {
-      if(idPlayerSelected !== dataPlayersPage.idPlayerSelectedDefault) {                 
+    updateForm(idTournamentSelected) {
+      if(idTournamentSelected !== dataTournamentsPage.idTournamentSelectedDefault) {                 
         this.setState({
-          successButton: dataPlayersPage.ModalForm.updateButton,
+          successButton: dataTournamentsPage.ModalForm.updateButton,
           submitStyle: 'btn btn-success',
           isUpdate: true,
-          playerForm: this.getPlayerToUpdate(),
-          prevPlayerForm: this.getPlayerToUpdate(),
+          tournamentForm: this.getTournamentToUpdate(),
+          prevTournamentForm: this.getTournamentToUpdate(),
         }); 
         this.buttonDeleteRef.current.hidden = false;        
       } else {
         this.setState({
-          successButton: dataPlayersPage.ModalForm.inscribeButton,
+          successButton: dataTournamentsPage.ModalForm.inscribeButton,
           submitStyle: 'btn btn-info',
           isUpdate: false,
-          playerForm: Object.assign({}, dataPlayersPage.ModalForm.initialValueForm),
+          tournamentForm: Object.assign({}, dataTournamentsPage.ModalForm.initialValueForm),
         });
 
         this.buttonSubmitRef.current.disabled = false;
@@ -98,8 +89,8 @@ const ModalCRUDPlayer = observer(
     }
 
     hideblockSubmitBotton() { 
-      if(this.props.idPlayerSelected !== 'newPlayer') {
-        const areSame = JSON.stringify(this.state.playerForm) === JSON.stringify(this.state.prevPlayerForm);
+      if(this.props.idTournamentSelected !== dataTournamentsPage.idTournamentSelectedDefault) {
+        const areSame = JSON.stringify(this.state.tournamentForm) === JSON.stringify(this.state.prevTournamentForm);
         if ( this.state.oneTimeDisabled && !areSame) {
           this.buttonSubmitRef.current.disabled = false;
           this.setState({
@@ -118,12 +109,12 @@ const ModalCRUDPlayer = observer(
 
     handleForm(valuesForm) {
       this.setState({
-        playerForm: Object.assign({}, this.state.playerForm, valuesForm), 
+        tournamentForm: Object.assign({}, this.state.tournamentForm, valuesForm), //TODO: TO CHECK!
       });
     }
 
-    deletePlayer() {
-      const sendData = [this.props.store.fireStore, thesaurus.collectionsName.PLAYERS ,this.props.idPlayerSelected];
+    deleteTournament() {
+      const sendData = [this.props.store.fireStore, thesaurus.collectionsName.TOURNAMENTS ,this.props.idTournamentSelected];
       confirmAlert({
         message: this.state.deleteConfirmMessage,
         buttons: [
@@ -138,50 +129,47 @@ const ModalCRUDPlayer = observer(
       });
     }
 
-    adjustNewPlayer() {
-      const {birthDate} = this.state.playerForm;
-      const adjustData = {
-        birthDate: utils.stringDateToTimestamp(birthDate),
-        ranking: this.state.scoreDefault,
-      }
-      return Object.assign({}, this.state.playerForm, adjustData);
-    }
+    // adjustNewTournament() {
+    //   const {birthDate} = this.state.tournamentForm;
+    //   const adjustData = {
+    //     birthDate: utils.stringDateToTimestamp(birthDate),
+    //     ranking: this.state.scoreDefault,
+    //   }
+    //   return Object.assign({}, this.state.tournamentForm, adjustData);
+    // }
 
-    adjustUpdatePlayer() {
-      const {birthDate} = this.state.playerForm;
-      const adjustData = {
-        birthDate: utils.stringDateToTimestamp(birthDate),
-      }
-      return Object.assign({}, this.state.playerForm, adjustData);
-    }
+    // adjustUpdateTournament() {
+    //   const {birthDate} = this.state.tournamentForm;
+    //   const adjustData = {
+    //     birthDate: utils.stringDateToTimestamp(birthDate),
+    //   }
+    //   return Object.assign({}, this.state.tournamentForm, adjustData);
+    // }
 
-    addPlayer(playerToSend) {
-      const sendData = [this.props.store.fireStore, thesaurus.collectionsName.PLAYERS, playerToSend];
+    addTournament(tournamentToSend) {
+      const sendData = [this.props.store.fireStore, thesaurus.collectionsName.TOURNAMENTS, tournamentToSend];
       serviceAddData.createData(...sendData);
     }
 
-    updatePlayer(playerToSend) {
-      const playerToupdate = Object.assign({}, playerToSend, {id: this.props.idPlayerSelected});
-      const sendData = [this.props.store.fireStore, thesaurus.collectionsName.PLAYERS, playerToupdate];
+    updateTournament(tournamentToSend) {
+      const tournamentToupdate = Object.assign({}, tournamentToSend, {id: this.props.idTournamentSelected});
+      const sendData = [this.props.store.fireStore, thesaurus.collectionsName.TOURNAMENTS, tournamentToupdate];
       serviceUpdateData.updateData(...sendData);
     }
 
     handleSubmit(event) {
       event.preventDefault();
-      if(this.state.isUpdate){
-        const playerToSend = this.adjustUpdatePlayer();      
-        this.updatePlayer(playerToSend);
-      }
-      else{
-        const playerToSend = this.adjustNewPlayer();
-        this.addPlayer(playerToSend);
-      }  
+      if(this.state.isUpdate) 
+        this.updateTournament(this.state.tournamentForm);
+      else
+        this.addTournament(this.state.tournamentForm);
+        
       this.closeModal();  
     }
 
     closeModal() {
       this.formRef.children[0].children[1].click(); // Close Modal
-      this.updateForm(this.props.idPlayerSelected);
+      this.updateForm(this.props.idTournamentSelected);
       this.buttonSubmitRef.current.disabled = false;
       this.formRef.reset();
     }
@@ -189,11 +177,11 @@ const ModalCRUDPlayer = observer(
     render() {
       return(
       <React.Fragment>
-        <section className="modal fade" id="ModalCRUDPlayer" tabIndex="-1" role="dialog" aria-labelledby="perfilJugador" aria-hidden="true" ref={this.setFormRef}>
+        <section className="modal fade" id="ModalCRUDTournament" tabIndex="-1" role="dialog" aria-labelledby="caracteristicasTorneo" aria-hidden="true" ref={this.setFormRef}>
           <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
             <form className="modal-content" onSubmit={this.handleSubmit} ref={element => this.formRef = element}>
               <header className="modal-header">
-                <h5 className="modal-title" id="perfilJugador">
+                <h5 className="modal-title" id="caracteristicasTorneo">
                   {this.state.titleForm}
                 </h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.closeModal}>
@@ -201,16 +189,16 @@ const ModalCRUDPlayer = observer(
                 </button>
               </header>
               <main className="modal-body container pl-5 pr-5">
-                <FormCRUDPlayer
-                  playerForm={this.state.playerForm}
+                <FormCRUDTournament
+                  tournamentForm={this.state.tournamentForm}
                   receiveValue={this.handleForm} 
                   store={this.props.store}/>
               </main>
               <footer className="modal-footer">
                 <section>
                   <button type="button" 
-                    className="btn btn-danger" onClick={this.deletePlayer} ref={this.buttonDeleteRef} hidden={true} title={this.state.deleteButton}>
-                      <i className="fas fa-user-times"></i>
+                    className="btn btn-danger" onClick={this.deleteTournament} ref={this.buttonDeleteRef} hidden={true} title={this.state.deleteButton}>
+                      <i className="fas fa-minus-square"></i>
                       <span className='d-none d-sm-inline'>&nbsp;{this.state.deleteButton}</span>
                   </button>
                 </section>
@@ -238,4 +226,4 @@ const ModalCRUDPlayer = observer(
   }
 );
 
-export default ModalCRUDPlayer;
+export default ModalCRUDTournament;

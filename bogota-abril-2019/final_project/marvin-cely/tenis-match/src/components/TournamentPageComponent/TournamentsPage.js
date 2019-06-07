@@ -2,10 +2,11 @@ import React from 'react';
 import '../../css/TournamentsPage.css';
 import { observer } from 'mobx-react';
 import TournamentPageTools from './TournamentPageTools';
+import ModalCRUDTournament from './ModalCRUDTournament';
 import TableTournament from './TableTournament';
 import TournamentCard from './TournamentCard';
 import { LoadingComponent, ErrorServiceComponent, BackgroundImage } from '../SmallPieceComponent';
-import { dataTournamentPage } from '../../data-component/data-tournament-page';
+import { dataTournamentsPage } from '../../data-component/data-tournaments-page';
 import thesaurus from '../../utils/thesaurus';
 import utils from '../../utils/utils';
 
@@ -16,8 +17,8 @@ const TournamentsPage = observer(
       super(props);
       
       this.state = {
-        bannerBackgroundDescription: dataTournamentPage.bannerBackgroundDescription,
-        idTournamentSelected: dataTournamentPage.idTournamentSelectedDefault,
+        bannerBackgroundDescription: dataTournamentsPage.bannerBackgroundDescription,
+        idTournamentSelected: dataTournamentsPage.idTournamentSelectedDefault,
         counterCRUDAction: 0,
         counterTableAction: 0,
       }
@@ -30,7 +31,7 @@ const TournamentsPage = observer(
       if (name === 'editTournament' || name === 'addTournament') {
         this.setState({
           idTournamentSelected: value,
-          // counterCRUDAction: this.state.counterCRUDAction + 1,
+          counterCRUDAction: this.state.counterCRUDAction + 1,
         });
       } 
       else {
@@ -46,6 +47,7 @@ const TournamentsPage = observer(
         return(
           <main className="container"> 
             <TournamentPageTools handleInput={this.handleInput} store={this.props.store}/>
+            <ModalCRUDTournament counterAction={this.state.counterCRUDAction} store={this.props.store} idTournamentSelected={this.state.idTournamentSelected}/>      
             <TableTournament counterAction={this.state.counterTableAction} store={this.props.store} onClick={this.handleInput}/>
           </main>        
         );

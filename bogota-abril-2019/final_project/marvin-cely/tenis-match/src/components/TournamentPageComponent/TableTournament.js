@@ -2,7 +2,7 @@ import React from 'react';
 import '../../css/TableTournament.css';
 import { autorun, toJS } from "mobx";
 import { observer } from 'mobx-react';
-import { dataTournamentPage } from '../../data-component/data-tournament-page';
+import { dataTournamentsPage } from '../../data-component/data-tournaments-page';
 import { ImageCountry, NotFoundComponent } from '../SmallPieceComponent';
 import utils from '../../utils/utils';
 
@@ -42,15 +42,15 @@ const TableTournament = observer(
     thereIsAction = (prevProps) => this.props.counterAction !== prevProps.counterAction;
 
     filterTable = (value) => { 
-      const elementsToFilter = [ this.props.store.tournaments, value, dataTournamentPage.orderButton[0].value];
+      const elementsToFilter = [ this.props.store.tournaments, value, dataTournamentsPage.orderButton[0].value];
       this.props.store.tournamentsTable.tournamentsList = utils.filterAllByArrayList(...elementsToFilter);
     }
 
     orderTable = (orderType) => {
       const elementsToSort = [ this.props.store.tournamentsTable.tournamentsList, orderType, this.props.store.tournamentsTable.isAscending];
-      if(orderType === dataTournamentPage.orderButton[0].value)
+      if(orderType === dataTournamentsPage.orderButton[0].value)
         this.props.store.tournamentsTable.tournamentsList = utils.sortByAlphaArrayList(...elementsToSort);
-      else if(orderType === dataTournamentPage.orderButton[1].value)
+      else if(orderType === dataTournamentsPage.orderButton[1].value)
         this.props.store.tournamentsTable.tournamentsList = utils.sortByNumberArrayList(...elementsToSort);
     }
 
@@ -80,7 +80,7 @@ const TableTournament = observer(
 
       const resultSearchComponent = () => {
         return (tournamentsList.length === 0 && this.props.store.tournamentsTable.searchValue !== '') ?
-          <NotFoundComponent thing={dataTournamentPage.orderButton[0].namebutton}/> :
+          <NotFoundComponent thing={dataTournamentsPage.orderButton[0].namebutton}/> :
           tournamentsList;
       }
 

@@ -9,8 +9,9 @@ const FormCRUDPlayer = observer(
     constructor(props) {
       super(props);
 
-      this.state = {
+      this.state = {// TODO: pasarlo a data-
         fullNameForm: 'Nombre completo',
+        fullNameFormExample: 'Nombre Apellido',
         instructionFullNameForm: 'Procure utilizar un nombre y un apellido.',
         birthDateForm: 'Fecha de nacimiento',
         nationalityForm: 'Nacionalidad',
@@ -31,7 +32,7 @@ const FormCRUDPlayer = observer(
                   className="form-control" 
                   name="name"
                   id="fullName" 
-                  placeholder="Nombre completo" 
+                  placeholder={this.state.fullNameFormExample} 
                   aria-describedby="instructionName" 
                   aria-required="true"
                   value={this.props.playerForm.name}

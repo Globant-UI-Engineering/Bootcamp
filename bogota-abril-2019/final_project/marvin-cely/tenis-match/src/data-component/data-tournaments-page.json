@@ -1,5 +1,5 @@
 {
-    "dataTournamentPage": {
+    "dataTournamentsPage": {
         "bannerBackgroundDescription":"Estadio de tenis",
         "inscribedMessage":"Total torneos",
         "idTournamentSelectedDefault": "newTournament",
@@ -25,6 +25,24 @@
           "semifinalistDescription": "Semifinalista",
           "quarterfinal": "CF",
           "quarterfinalDescription": "Cuartos de final"
+        },
+        "ModalForm": {
+          "titleForm": "Caracteristicas del torneo",
+          "successButton": "Nuevo torneo",
+          "cancelButton": "Cancelar",
+          "deleteButton": "Eliminar torneo",
+          "deleteConfirmTitle": "Mensaje de confirmación",
+          "deleteConfirmMessage": "¿Esta seguro de eliminar el torneo?",
+          "submitStyle": "btn btn-info",
+          "initialValueForm": {
+            "tournamentName": "",
+            "winner": "",
+            "finalist": "",
+            "semifinalist": "",
+            "quarterfinal": ""
+          },
+          "inscribeButton": "Inscribir",
+          "updateButton": "Actualizar"
         }
     }
 }
