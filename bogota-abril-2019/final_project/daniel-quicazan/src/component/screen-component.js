@@ -5,6 +5,7 @@ import {MenuIconComponent} from "./menu-icon-component";
 import Typist from "react-typist";
 import {PokeapiService} from "../service/pokeapi-service";
 import {PollyService} from "../service/polly-service";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export class ScreenComponent extends Component {
   
@@ -21,7 +22,10 @@ export class ScreenComponent extends Component {
       currentPokemon: undefined,
       playDescription: false,
       allPokemonNames: [],
-      audioUri: undefined
+      audioUri: undefined,
+      descriptionAudio: undefined,
+      pokemonFront: undefined,
+      pokemonBack: undefined
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -35,7 +39,7 @@ export class ScreenComponent extends Component {
   componentDidMount() {
     PokeapiService.getAllNames()
       .then((response) => {
-        // console.log(response);
+        // console.captureKeyPress(response);
         this.setState({
           allPokemonNames: response.data.results.map((x) => x.name).sort()
         });
@@ -77,12 +81,14 @@ export class ScreenComponent extends Component {
     });
     PokeapiService.search(this.state.searchText.trim())
       .then((response) => {
-        // console.log(response.data);
+        console.log(response.data);
         this.setState({
           currentPokemon: response.data,
           playDescription: true,
           pokemonDescription: this.buildDescription(response.data),
-          showIntro: false
+          showIntro: false,
+          pokemonFront: response.data.sprites.front_default,
+          pokemonBack: response.data.sprites.back_default
         });
         PollyService.getTextUrl(this.state.pokemonDescription, this.setAudioUri);
         this.props.gotPokemonData(response.data);
@@ -91,21 +97,49 @@ export class ScreenComponent extends Component {
     })
   }
   
+  toggleShinny = () => {
+    if (this.state.currentPokemon.sprites.front_default === this.state.pokemonFront && this.state.currentPokemon.sprites.front_shiny) {
+      this.setState({
+        pokemonFront: this.state.currentPokemon.sprites.front_shiny
+      })
+    }
+    if (this.state.currentPokemon.sprites.back_default === this.state.pokemonBack && this.state.currentPokemon.sprites.back_shiny) {
+      this.setState({
+        pokemonBack: this.state.currentPokemon.sprites.back_shiny
+      })
+    }
+    if (this.state.currentPokemon.sprites.front_shiny === this.state.pokemonFront && this.state.currentPokemon.sprites.front_default) {
+      this.setState({
+        pokemonFront: this.state.currentPokemon.sprites.front_default
+      })
+    }
+    if (this.state.currentPokemon.sprites.back_shiny === this.state.pokemonBack && this.state.currentPokemon.sprites.back_default) {
+      this.setState({
+        pokemonBack: this.state.currentPokemon.sprites.back_default
+      })
+    }
+  };
+  
   showSprite() {
     if (this.state.currentPokemon) {
-      if (this.state.currentPokemon.sprites.back_default) {
+      if (this.state.pokemonFront && this.state.pokemonBack) {
+        return (
+          <div onClick={this.toggleShinny}>
+            <img src={this.state.pokemonFront} alt={'pokemon-front'}/>
+            <img src={this.state.pokemonBack} alt={'pokemon-back'}/>
+          </div>
+        )
+      }
+      else if (this.state.pokemonFront) {
         return (
           <div>
-            <img src={this.state.currentPokemon.sprites.front_default} alt={'pokemon-front'}/>
-            <img src={this.state.currentPokemon.sprites.back_default} alt={'pokemon-back'}/>
+            <img src={this.state.pokemonFront} alt={'pokemon-front'}/>
           </div>
         )
       }
       else {
         return (
-          <div>
-            <img src={this.state.currentPokemon.sprites.front_default} alt={'pokemon-front'}/>
-          </div>
+          <div/>
         )
       }
     }
@@ -142,29 +176,24 @@ export class ScreenComponent extends Component {
     }
   }
   
-  playSpeech() {
+  playSpeech = () => {
     if (this.state.audioUri) {
-      // return (
-      //   <div></div>
-      // );
-      return (
-        <audio autoPlay={true} src={this.state.audioUri}/>
-      )
+      this.setState({
+        descriptionAudio: new Audio(this.state.audioUri)
+      }, () => this.state.descriptionAudio.play());
     }
-  }
+  };
   
   setAudioUri(audioUri) {
     this.setState({
       audioUri: audioUri
-    })
+    }, () => this.playSpeech());
+    this.props.gotAudio(this.playSpeech)
   }
   
   render() {
     return(
       <div className={'screen-container'}>
-        {
-          this.playSpeech()
-        }
         <div>
           <GlowingCircleComponent style={{margin: '2%'}} size='15px' darkColor={'#9e1c1b'} lightColor={'#e71f20'} shineColor={'#fbc9b7'}/>
           <GlowingCircleComponent style={{margin: '2%'}} size='15px' darkColor={'#9e1c1b'} lightColor={'#e71f20'} shineColor={'#fbc9b7'}/>
@@ -190,7 +219,7 @@ export class ScreenComponent extends Component {
               }
             </datalist>
             <button className={'search-button'} onClick={this.handleSearchClick}>
-              <span role={'img'} aria-label={'search-button'}>&#x1F50D;</span>
+              <FontAwesomeIcon icon={'search'}/>
             </button>
           </div>
           {

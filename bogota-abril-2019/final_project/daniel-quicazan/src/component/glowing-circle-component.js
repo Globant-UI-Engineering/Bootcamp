@@ -15,7 +15,7 @@ export class GlowingCircleComponent extends Component {
   }
 
   render() {
-    // console.log(this.props);
+    // console.captureKeyPress(this.props);
     let glowingCircleMainStyle = {
       backgroundColor: this.props.darkColor,
       width: this.props.size,

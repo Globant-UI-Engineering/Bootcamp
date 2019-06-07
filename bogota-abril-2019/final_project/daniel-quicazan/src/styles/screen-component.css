@@ -35,6 +35,10 @@
     border: none;
 }
 
+.search-button:focus {
+    outline: none;
+}
+
 .pokemon-description {
     padding: 0 5%;
     text-align: center;

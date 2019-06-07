@@ -10,7 +10,7 @@
     height: 40px;
 }
 
-.controller-pad-up:focus {
+.controller-pad-up:active {
     background: linear-gradient(#a8a8a8, #585858);
 }
 
@@ -22,7 +22,7 @@
 }
 
 
-.controller-pad-right:focus {
+.controller-pad-right:active {
     background: linear-gradient(to left, #a8a8a8, #585858);
 }
 
@@ -33,7 +33,7 @@
     height: 40px;
 }
 
-.controller-pad-down:focus {
+.controller-pad-down:active {
     background: linear-gradient(#585858, #a8a8a8);
 }
 
@@ -45,7 +45,7 @@
 }
 
 
-.controller-pad-left:focus {
+.controller-pad-left:active {
     background: linear-gradient(to left, #585858, #a8a8a8);
 }
 

@@ -5,24 +5,36 @@ import {ScreenComponent} from "../component/screen-component";
 import {ControllerPadComponent} from "../component/controller-pad-component";
 import {SecondaryScreenComponent} from "../component/secondary-screen-component";
 import {PollyService} from "../service/polly-service";
+import storage from '../storage/storage'
 
 export class MainComponent extends Component {
   
   mainButton = undefined;
   
   cameraSize = '80px';
+  match = '38-38-40-40-37-39-37-39-66-65';
+  
+  pikaSoundUri = 'https://www.soundboard.com/mediafiles/ot/OTIwODY0MDQzOTIwOTUy_JytSQ9L1Gk8.mp3';
   
   // eslint-disable-next-line
   constructor(props) {
     super(props);
     this.state = {
-      pokemonData: undefined
+      pokemonData: undefined,
+      keyArray: '',
+      match: false,
+      playDescriptionFunction: () => {}
     };
     PollyService.initPolly();
+    this.captureKeyPress = this.captureKeyPress.bind(this);
+    this.renderPikachu = this.renderPikachu.bind(this);
   }
   
-  componentWillMount() {
-  }
+  /*componentWillMount() {
+    this.setState({
+      data: storage.getState().pokemons
+    })
+  }*/
   
   componentDidMount() {
     this.mainButton = document.getElementById('main-button');
@@ -38,13 +50,64 @@ export class MainComponent extends Component {
     })
   };
   
+  gotAudioCallback = (playDescription) => {
+    this.setState( {
+      playDescriptionFunction: playDescription
+    })
+  };
+  
+  captureKeyPress(event) {
+    if (event.keyCode === 38 && this.state.keyArray !== '38'){
+      this.setState({
+        keyArray: '38',
+        match: false
+      });
+    } else {
+      this.setState({
+        keyArray: this.state.keyArray + '-' + event.keyCode
+      });
+    }
+    if (this.state.keyArray === this.match) {
+      this.setState({
+        match: true
+      })
+    }
+  }
+  
+  handleStore = () => {
+    storage.dispatch({
+      type: 'SAVE_POKEMON',
+      payload: this.state.pokemonData
+    })
+  };
+  
+  
+  renderPikachu() {
+    if (this.state.match) {
+      return( <div>
+        <audio
+          id={'music-element'}
+          controls={false}
+          autoPlay={true}
+          hidden={true}
+          loop={false}
+          src={this.pikaSoundUri}/>
+      </div>)
+    }
+  }
+  
+  
   render() {
+    document.body.addEventListener('keydown', this.captureKeyPress);
     return(
       <div className={'main-container col align-self-center'}>
+        {
+          this.renderPikachu()
+        }
         <audio
           id={'music-element'}
           controls={true}
-          autoPlay={true}
+          autoPlay={false}
           hidden={true}
           loop={true}
           src={require('../assets/music/pokemon-theme-song-8bit.mp3')}/>
@@ -63,12 +126,12 @@ export class MainComponent extends Component {
           </div>
         </header>
         <div style={{marginTop: '5%', marginBottom: '5%'}} className={'content-container'}>
-          <ScreenComponent gotPokemonData={this.gotPokemonDataCallback}/>
+          <ScreenComponent gotAudio={this.gotAudioCallback} gotPokemonData={this.gotPokemonDataCallback}/>
           <div className={'controller-row'}>
-            <button className={'main-button'} id={'main-button'}/>
+            <button onClick={this.state.playDescriptionFunction} className={'main-button'} id={'main-button'}/>
             <div className={'controller-center-container p-0'}>
-              <button style={{backgroundColor: 'red'}} className={'wide-button'}/>
-              <button style={{backgroundColor: 'blue'}} className={'wide-button'}/>
+              <button onClick={this.handleStore} className={'wide-button red-button'}/>
+              <button onClick={() => storage.dispatch({type: 'GET_STATE'})} className={'wide-button blue-button'}/>
               <SecondaryScreenComponent pokemonData={this.state.pokemonData}/>
             </div>
             <ControllerPadComponent/>

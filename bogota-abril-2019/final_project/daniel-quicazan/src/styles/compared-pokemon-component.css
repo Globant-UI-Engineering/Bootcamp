@@ -1,0 +1,16 @@
+.pokemon-div {
+    flex-grow: 1;
+}
+
+.comparative-pokemon-image {
+    display: block;
+}
+
+.comparative-stat-row {
+    display: block;
+}
+
+.comparative-pokemon-number {
+    font-size: large;
+    font-weight: bold;
+}

@@ -62,7 +62,7 @@ header {
     width: 20%;
 }
 
-.main-button:focus {
+.main-button:active {
     background: radial-gradient(#a8a8a8, #585858);
 }
 
@@ -76,6 +76,22 @@ header {
     border: 2px solid black;
     border-radius: 5px;
     height: 15%;
+}
+
+.red-button {
+    background-color: red;
+}
+
+.red-button:active {
+    background: linear-gradient(#e6add8, red, #e6add8);
+}
+
+.blue-button {
+    background-color: blue;
+}
+
+.blue-button:active {
+    background: linear-gradient(lightblue, blue, lightblue);
 }
 
 .wide-button:focus {
