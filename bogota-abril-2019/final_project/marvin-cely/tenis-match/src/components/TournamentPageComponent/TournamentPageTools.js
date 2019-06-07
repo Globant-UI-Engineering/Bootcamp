@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../css/PlayerPageTools.css';//TODO: referenciar al mismo css PLayer PAge Tools
+import '../../css/PlayerPageTools.css';//TODO: referenciar al mismo css Player Page Tools
 import { observer } from 'mobx-react';
-import { dataPlayersPage } from '../../data-component/data-players-page';
+import { dataTournamentPage } from '../../data-component/data-tournament-page';
 
 
 const TournamentPageTools = observer(
@@ -10,9 +10,9 @@ const TournamentPageTools = observer(
       super(props);
 
       this.state = {
-        orderButton: dataPlayersPage.orderButton,
-        newPlayerButton: dataPlayersPage.newPlayerButton,
-        inscribedMessage: dataPlayersPage.inscribedMessage,
+        orderButton: dataTournamentPage.orderButton,
+        newTournamentButton: dataTournamentPage.newTournamentButton,
+        inscribedMessage: dataTournamentPage.inscribedMessage,
       }   
 
       this.ToggleButtonRef = React.createRef();
@@ -63,7 +63,7 @@ const TournamentPageTools = observer(
       const orderOption = () => {
         return this.state.orderButton.map(({value, namebutton}, index) => { 
             return(
-              <label className="btn btn-info" key={index}>
+              <label className="btn btn-light" key={index}>
                 <input type="radio" name="orderOption" value={value} onFocus={this.handleInput} autoComplete="off"/>
                 {namebutton}
               </label>
@@ -82,9 +82,9 @@ const TournamentPageTools = observer(
                         <span className="fa fa-search form-control-feedback" aria-label="Icono de buscar"></span>
                         <input type="text" 
                           className="form-control" 
-                          placeholder="Buscar jugador" 
+                          placeholder="Buscar torneo" 
                           name='search' 
-                          aria-label="Buscar jugador"
+                          aria-label="Buscar torneo"
                           value={this.props.store.playersTable.searchValue} 
                           onChange={this.handleInput}/>
                       </fieldset>  
@@ -93,7 +93,7 @@ const TournamentPageTools = observer(
                       <div className="btn-group">
                         <button 
                           type="button" 
-                          className="btn btn-info" 
+                          className="btn btn-light" 
                           name="toggleOrder" 
                           aria-label="Cambiar orden ascendente"
                           onClick={this.handleInput} 
@@ -110,22 +110,23 @@ const TournamentPageTools = observer(
                     </section>                               
                   </div>
                 </section>
+                 {/**Cambiar modal */}
                 <section className="col-md-4 col-lg-3">
                   <button type="button"
-                    className="btn btn-primary"
+                    className="btn btn-success"
                     data-toggle="modal"
-                    data-target="#ModalCRUDPlayer"
-                    aria-label="Inscribir nuevo jugador"
+                    data-target="#ModalCRUDPlayer"                   
+                    aria-label="Crear nuevo torneo"
                     name="addPlayer"
                     value="newPlayer"
                     onClick={this.handleInput}
                     >
-                      <i className={this.state.newPlayerButton.icon}></i>
-                      &nbsp;{this.state.newPlayerButton.name}
+                      <i className={this.state.newTournamentButton.icon}></i>
+                      &nbsp;{this.state.newTournamentButton.name}
                   </button>
                   <small className="text-muted">
                     {this.state.inscribedMessage}&nbsp;
-                    <span>{this.props.store.players.length}</span>
+                    <span>{this.props.store.tournaments.length}</span>
                   </small>
                 </section> 
               </header>

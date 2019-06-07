@@ -48,6 +48,7 @@ const TournamentsPage = observer(
         return(
           <main className="container"> 
             <TournamentPageTools handleInput={this.handleInput} store={this.props.store}/>
+            <TournamentCard scores={{winner: 1000, finalist: 1200}} tournamentName={'atp Bogotá'}/>
           </main>        
         );
       }
@@ -62,9 +63,6 @@ const TournamentsPage = observer(
           <BackgroundImage 
             titleBanner={this.props.titlePage} 
             a11yDescription={this.state.bannerBackgroundDescription}/>  
-          {/* <main>
-            <TournamentCard scores={{winner: 2000, finalist: 1200}} tournamentName={'Grand Slam'}/>
-          </main> */}
           {validationComponent()}        
         </React.Fragment>
       );

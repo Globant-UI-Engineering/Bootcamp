@@ -13,7 +13,7 @@ const TournamentLogo = observer(
     render() { 
       return(
         <React.Fragment>
-          <figure aria-label='Logo del torneo'>
+          <figure aria-label='Logo del torneo' className="gradeOne">
             <h2>{this.props.maxScore}</h2>
             <img src={playingTennis} alt="Torneo Logo" className="img-fluid"></img>
             <h1>{this.props.tournamentName}</h1>

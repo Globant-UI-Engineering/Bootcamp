@@ -1,11 +1,11 @@
 {
     "dataTournamentPage": {
         "bannerBackgroundDescription":"Estadio de tenis",
-        "inscribedMessage":"Total inscritos",
-        "idPlayerSelectedDefault": "newPlayer",
-        "newPlayerButton": {
+        "inscribedMessage":"Total torneos",
+        "idTournamentSelectedDefault": "newTournament",
+        "newTournamentButton": {
             "name": "Crear torneo",
-            "icon": "fas fa-user-plus"
+            "icon": "fas fa-plus"
         },
         "orderButton": [{
             "value": "tournament",
