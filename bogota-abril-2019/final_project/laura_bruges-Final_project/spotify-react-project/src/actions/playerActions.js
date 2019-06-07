@@ -7,11 +7,13 @@ export const setNowPlaying = (accessToken) => {
     }
 }
 
-export const resumeTrack = (accessToken, deviceId) => {
+export const resumeTrack = (accessToken, deviceId, playlistId, offsetTrackId) => {
     return {
         type: playerActionTypes.resumeTrack,
         payload: accessToken,
-        deviceId: deviceId
+        deviceId: deviceId,
+        playlistId: playlistId,
+        offsetTrackId: offsetTrackId
     }
 }
 
@@ -19,6 +21,14 @@ export const pauseTrack = (accessToken) => {
     return {
         type: playerActionTypes.pauseTrack,
         payload: accessToken
+    }
+}
+
+export const shuffleContext = (accessToken, isShuffled) => {
+    return {
+        type: playerActionTypes.shuffleContext,
+        payload: accessToken,
+        isShuffled: isShuffled
     }
 }
 

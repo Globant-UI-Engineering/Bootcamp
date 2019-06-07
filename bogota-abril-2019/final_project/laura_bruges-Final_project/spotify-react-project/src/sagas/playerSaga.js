@@ -1,6 +1,6 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import { playerActionTypes } from '../actions/actionTypes'
-import { fetchNowPlaying, resumeTrack, pauseTrack, nextTrack, previousTrack } from '../api/playerApi'
+import { fetchNowPlaying, resumeTrack, pauseTrack, nextTrack, previousTrack, shuffleContext } from '../api/playerApi'
 
 function* fetchNowPlayingSaga(action) {
     const data = yield call(fetchNowPlaying, action.payload);
@@ -14,7 +14,8 @@ function* fetchNowPlayingSaga(action) {
         artist: playerData.item ? playerData.item.artists[0].name : 'N/A',
         isPlaying: playerData.is_playing,
         deviceId: playerData.device ? playerData.device.id : '',
-        currPlaylistUri: playerData.context && playerData.context.type === 'playlist' ? playerData.context.uri : null 
+        currPlaylistUri: playerData.context && playerData.context.type === 'playlist' ? playerData.context.uri : null,
+        isShuffled: playerData.shuffle_state
     }
 
     playerPayload.currPlaylistId = playerPayload.currPlaylistUri ? 
@@ -29,7 +30,8 @@ function* fetchNowPlayingSaga(action) {
 }
 
 function* resumeTrackSaga(action) {
-    const data = yield call(resumeTrack, action.payload, action.deviceId);
+    const data = yield call(resumeTrack, action.payload, action.deviceId, 
+        action.playlistId, action.offsetTrackId);
 
     yield put({
         type: playerActionTypes.resumeTrackSuccess,
@@ -64,10 +66,21 @@ function* previousTrackSaga(action) {
     })
 }
 
+function* shuffleContextSaga(action) {
+    const data = yield call(shuffleContext, action.payload, action.isShuffled);
+
+    yield put({
+        type: playerActionTypes.shuffleContextSuccess,
+        payload: data
+    });
+}
+
 export default function* playerSaga() {
     yield takeEvery(playerActionTypes.fetchNowPlaying, fetchNowPlayingSaga);
     yield takeEvery(playerActionTypes.resumeTrack, resumeTrackSaga);
     yield takeEvery(playerActionTypes.pauseTrack, pauseTrackSaga);
     yield takeEvery(playerActionTypes.nextTrack, nextTrackSaga);
     yield takeEvery(playerActionTypes.previousTrack, previousTrackSaga);
+    yield takeEvery(playerActionTypes.shuffleContext, shuffleContextSaga);
+
 };

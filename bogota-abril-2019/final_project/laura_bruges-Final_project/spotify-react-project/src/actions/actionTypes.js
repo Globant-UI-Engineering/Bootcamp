@@ -17,7 +17,10 @@ export const playerActionTypes = {
     nextTrackError: 'NEXT_TRACK_ERROR',
     previousTrack: 'PREVIOUS_TRACK',
     previousTrackSuccess: 'PREVIOUS_TRACK_SUCCESS',
-    previousTrackError: 'PREVIOUS_TRACK_ERROR'
+    previousTrackError: 'PREVIOUS_TRACK_ERROR',
+    shuffleContext: 'SHUFFLE_CURR_CONTEXT',
+    shuffleContextSuccess: 'SHUFFLE_CURR_CONTEXT_SUCCESS',
+    shuffleContextError: 'SHUFFLE_CURR_CONTEXT_ERROR'
 }
 
 export const deviceActionTypes = {

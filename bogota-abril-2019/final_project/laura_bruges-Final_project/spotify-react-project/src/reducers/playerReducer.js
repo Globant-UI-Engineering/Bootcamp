@@ -12,7 +12,8 @@ const initialState = {
         isPlaying: false,
         deviceId: null,
         currPlaylistUri: null,
-        currPlaylistId: null
+        currPlaylistId: null,
+        isShuffled: false
     }
 }
 

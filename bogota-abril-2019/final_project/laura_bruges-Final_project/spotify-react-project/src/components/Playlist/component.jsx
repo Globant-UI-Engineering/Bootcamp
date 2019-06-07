@@ -23,7 +23,7 @@ class Playlist extends React.Component {
     getCurrentPlaylistInfo() {
         const intervalId = setInterval(
             () => {
-                if(this.props.playlistId) {
+                if(this.props.playing && this.props.playing.playlistId) {
                     this.props.fetchPlaylist(this.props.token, this.props.playlistId)
                 }                
             }, 

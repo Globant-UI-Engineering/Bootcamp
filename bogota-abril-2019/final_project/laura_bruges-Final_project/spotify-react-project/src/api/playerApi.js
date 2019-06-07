@@ -5,8 +5,15 @@ export async function fetchNowPlaying(accessToken){
     return data; 
 }
 
-export async function resumeTrack(accessToken, deviceId, playerOptions = {}){
+export async function resumeTrack(accessToken, deviceId, playlistId, offsetTrackId){
+    let playerOptions = {};
     let data;
+
+    if(playlistId) {
+        playerOptions['context_uri'] = `spotify:playlist:${ playlistId }`;
+        playerOptions['offset'] = `spotify:track:${ offsetTrackId }`
+    }
+
     if(deviceId) {
         data = await API.put(`/me/player/play?device_id=${deviceId}`, playerOptions, { headers: { Authorization: `Bearer ${accessToken}` } }) 
     } else {
@@ -16,8 +23,8 @@ export async function resumeTrack(accessToken, deviceId, playerOptions = {}){
     return data; 
 }
 
-export async function pauseTrack(accessToken){
-    const data = await API.put('/me/player/pause', {}, { headers: { Authorization: `Bearer ${accessToken}` } }) 
+export async function pauseTrack(accessToken, playerOptions = {}){
+    const data = await API.put('/me/player/pause', playerOptions, { headers: { Authorization: `Bearer ${accessToken}` } }) 
     return data; 
 }
 
@@ -28,5 +35,10 @@ export async function nextTrack(accessToken){
 
 export async function previousTrack(accessToken){
     const data = await API.post('/me/player/previous', {}, { headers: { Authorization: `Bearer ${accessToken}` } }) 
+    return data; 
+}
+
+export async function shuffleContext(accessToken, isShuffled){
+    const data = await API.post(`/me/player/shuffle?state=${ !isShuffled }`, {}, { headers: { Authorization: `Bearer ${accessToken}` } }) 
     return data; 
 }

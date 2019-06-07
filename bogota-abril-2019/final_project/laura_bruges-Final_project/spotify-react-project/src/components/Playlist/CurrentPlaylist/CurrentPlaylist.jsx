@@ -1,15 +1,19 @@
 import React from 'react';
 import { Table, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import PlaylistItem from './PlaylistItem';
+import PlaylistControlBar from './PlaylistControlBar';
+import './styles.css';
 
-const CurrentPlaylist = ({ tracks, currTrack }) => {
+const CurrentPlaylist = ({ tracks, currTrack, currTrackPlaying, onResume, onPause }) => {
     return (
         <section>
             <Row className='playlist-content'>
+                <PlaylistControlBar />
                 <Table striped bordered hover>
                     <thead>
                         <tr>
-                            <th></th>
+                            <th style={{width: '5%'}}></th>
                             <th>Name</th>
                             <th>Artist</th>
                             <th>Album</th>
@@ -17,13 +21,15 @@ const CurrentPlaylist = ({ tracks, currTrack }) => {
                     </thead>
                     <tbody>
                         { tracks.map((track) => {
-                            return (<tr>
-                                {/* tds shuld be PlaylistItem */ }
-                                <td>{ track.id === currTrack ? "NP" : "" }</td>
-                                <td>{ track.name }</td>
-                                <td>{ track.artists[0].name }</td>
-                                <td>{ track.album.name }</td>
-                            </tr>)
+                            return (<PlaylistItem 
+                                isPlayingTrack={ track.id === currTrack }
+                                isPlaying={ currTrackPlaying }
+                                name={ track.name }
+                                artist={ track.artists[0].name }
+                                album={ track.album.name }
+                                onResume={ onResume }
+                                onPause={ onPause }
+                            />);
                         }) }
                     </tbody>
                 </Table>
@@ -35,7 +41,10 @@ const CurrentPlaylist = ({ tracks, currTrack }) => {
 
 CurrentPlaylist.propTypes = {
     tracks: PropTypes.arrayOf(PropTypes.object),
-    currTrack: PropTypes.string
+    currTrack: PropTypes.string,
+    currTrackPlaying: PropTypes.bool,
+    onResume: PropTypes.func,
+    onPause: PropTypes.func
 }
 
 export default CurrentPlaylist;
