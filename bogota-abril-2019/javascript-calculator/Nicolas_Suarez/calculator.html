@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <article class="calculator">
+        <header>
+            <input type="text" id="result" disabled>
+        </header>
+        <article>
+            <div class="top">
+                <button onclick="operation('clear')">c</button>
+                <button>+/-</button>
+                <button>%</button>
+                <button class="orange" onclick="operation('/')">/</button>
+            </div>
+            <div class="numb">
+                <button onclick="operation('7')">7</button>
+                <button onclick="operation('8')">8</button>
+                <button onclick="operation('9')">9</button>
+                <button onclick="operation('x')" class="orange" >x</button>
+            </div>
+            <div class="numb">
+                <button onclick="operation('4')">4</button>
+                <button onclick="operation('5')">5</button>
+                <button onclick="operation('6')">6</button>
+                <button  onclick="operation('-')" class="orange" >-</button>
+            </div>
+            <div class="numb">
+                <button onclick="operation('1')">1</button>
+                <button onclick="operation('2')">2</button>
+                <button onclick="operation('3')">3</button>
+                <button onclick="operation('+')" class="orange" >+</button>
+            </div>
+            <div class="numb">
+                <button onclick="operation('0')" class="cero" >0</button>                
+                <button onclick="operation('.')">.</button>
+                <button onclick="operation('=')" class="orange">=</button>
+            </div>
+
+        </article>
+    </article>
+    
+    
+    <script src="calculator.js"></script>
+</body>
+</html>
