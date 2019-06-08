@@ -3,11 +3,11 @@ import weather from '../components/resources/weather.png';
 import { Link } from 'react-router-dom';
 
 
-
 export default class navBar extends Component {
 
     render() {
         return (
+
 
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -20,11 +20,14 @@ export default class navBar extends Component {
                             <li className="nav-item active">
                                 <Link to="/home" className="nav-link" aria-label="home">Home</Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item active">
                                 <Link to="/news" className="nav-link" aria-label="news">News</Link>
                             </li>
+                            <li className="nav-item active">
+                                <Link to="/profile" className="nav-link" aria-label="news">Profile</Link>
+                            </li>
                             <li className="nav-item">
-                            <button className="btn btn-warning" onClick={this.props.signOut}>Sign out!</button>
+                                <button className="btn btn-warning" onClick={this.props.signOut}>Sign out!</button>
                             </li>
                         </ul>
                         <form className="form-inline my-2 my-lg-0" onSubmit={this.props.getWeather}>

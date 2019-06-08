@@ -3,16 +3,15 @@ import './App.css';
 import NavBar from './components/navBar';
 import WeatherCard from './components/WeatherCard';
 import NewsCard from './components/NewsCard';
-import { Route, BrowserRouter as Router, Switch as Sw, Link, Redirect } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch, Link, Redirect } from 'react-router-dom';
 import NewsPage from './components/NewsPage';
 import WeatherPage from './components/WeatherPage';
+import Profile from './components/profile';
 import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
-
 const weather_api_key = "36e2fa16b70a4422ed609a5ad91f71f5";
-const news_api = "baf89e91a399451dbf982a015897aea1";
-
+const news_api_key = "baf89e91a399451dbf982a015897aea1";
 
 firebase.initializeApp({
   apiKey: "AIzaSyB_BJ35TyfDJSbCulXcWIJNImdNvy-fBSI",
@@ -20,7 +19,6 @@ firebase.initializeApp({
 })
 
 class App extends React.Component {
-
 
   state = {
     isSignedIn: false,
@@ -57,7 +55,6 @@ class App extends React.Component {
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({ isSignedIn: !!user })
-      console.log("user", user)
     })
   }
 
@@ -69,7 +66,7 @@ class App extends React.Component {
       .then(data => {
         if (city) {
           this.setState({
-            presure: data.main.pressure,
+            presure: data.main.pressure + " hpa",
             min_temp: data.main.temp_min + "°C",
             max_temp: data.main.temp_max + "°C",
             visibility: (data.visibility / 1000) + " Km",
@@ -84,30 +81,30 @@ class App extends React.Component {
           });
         } else {
           alert("Please enter a city name to get the weather and latest news");
-        }
-        this.getNews();
+        }        
+        this.getNews();        
       });
   }
 
   getNews = () => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=${this.state.country}&apiKey=${news_api}`)
+    fetch(`https://newsapi.org/v2/top-headlines?country=${this.state.country}&apiKey=${news_api_key}`)
       .then(response => response.json())
       .then(data => {
         var imageUrl = [];
         var title = [];
         var url = [];
         var content = [];
-        for (let i = 0; i < data.articles.length; i++) {
-          imageUrl.push(data.articles[i].urlToImage)
+        for (const i of data.articles) {
+          imageUrl.push(i.urlToImage)
         }
-        for (let i = 0; i < data.articles.length; i++) {
-          title.push(data.articles[i].title)
+        for (const i of data.articles) {
+          title.push(i.title)
         }
-        for (let i = 0; i < data.articles.length; i++) {
-          url.push(data.articles[i].url)
+        for (const i of data.articles) {
+          url.push(i.url)
         }
-        for (let i = 0; i < data.articles.length; i++) {
-          content.push(data.articles[i].content)
+        for (const i of data.articles) {
+          content.push(i.content)
         }
         this.setState({
           news: data.articles,
@@ -120,7 +117,7 @@ class App extends React.Component {
   }
 
   render() {
-    const news = this.state.news.slice(0, 2).map((index, i) => {
+    const news = this.state.news.slice(0, 2).map((index, i) => {      
       return (
         <NewsCard
           key={this.state.newsTitle[i]}
@@ -152,8 +149,7 @@ class App extends React.Component {
                   signOut={() => firebase.auth().signOut()}></NavBar>
               </header>
               <main>
-                <Sw>
-                  
+                <Switch>
                   <Route path="/home" render={
                     props =>
                       <div className="container-fluid">
@@ -183,7 +179,7 @@ class App extends React.Component {
                       <div className="container-fluid newsPage pt-4">
                         <div className="row ">
                           {newsPage}
-                          <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
+
                         </div>
                       </div>
                   } />
@@ -205,8 +201,16 @@ class App extends React.Component {
                         </div>
                       </div>
                   } />
+                  <Route path="/profile" render={
+                    props =>
+                      <Profile
+                        profileImg={firebase.auth().currentUser.photoURL}
+                        profileName={firebase.auth().currentUser.displayName}
+                        email={firebase.auth().currentUser.email}
+                      />
+                  } />
                   <Redirect from="/" to="/home" />
-                </Sw>
+                </Switch>
               </main>
             </div>
             :
