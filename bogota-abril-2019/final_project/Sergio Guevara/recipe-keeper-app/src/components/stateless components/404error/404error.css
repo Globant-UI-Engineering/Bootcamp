@@ -1,0 +1,19 @@
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.container h2, .container h3{
+    color: rgb(81, 13, 177);
+    text-transform: capitalize;
+    font-weight: 600;
+    text-align: center;
+}
+.container p{
+text-align: center;
+
+}
+.container #gif, .container button{
+    margin: 10px auto 10px;
+    display: block;
+}
