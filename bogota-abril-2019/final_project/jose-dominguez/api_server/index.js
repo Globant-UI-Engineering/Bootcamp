@@ -65,6 +65,45 @@ class DirtyDb {
         return newUser;
     }
 
+    retrieveUser(token) {
+        for (var user of this.users) {
+            if (user.token == token) {
+                return user;
+            }
+        }
+        return { error: 'token' };
+    }
+
+    patchUser(token, data) {
+        for (var user of this.users) {
+            if (user.token == token) {
+                for (var key in data) {
+                    if (data[key] != undefined && user[key] != undefined) {
+                        user[key] = data[key];
+                    }
+                }
+                this.saveToFile();
+                return user;
+            }
+        }
+        return { error: 'token' };
+    }
+
+    changePassword(token, currentPassword, newPassword) {
+        for (var user of this.users) {
+            if (user.token == token) {
+                if (user.password == currentPassword) {
+                    user.password = newPassword;
+                    this.saveToFile();
+                    return user;
+                } else {
+                    return { error: 'currentPassword' };
+                }
+            }
+        }
+        return { error: 'token' };
+    }
+
     randomItem(colors) {
         return colors[Math.floor(Math.random() * colors.length)];
     }
@@ -121,7 +160,8 @@ app.use(express.json());
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,PATCH,DELETE');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, token");
     next();
 });
 
@@ -141,12 +181,24 @@ app.get('/onlines', function (req, res) {
     res.json(Math.ceil(Math.random() * 5));
 });
 
+app.get('/user', function (req, res) {
+    res.json(db.retrieveUser(req.headers.token));
+});
+
+app.patch('/user', function (req, res) {
+    res.json(db.patchUser(req.headers.token, req.body));
+});
+
 app.post('/login', function (req, res) {
     if (req.body.username != null && req.body.password != null) {
         res.json(db.login(req.body.username, req.body.password));
     } else {
         res.status(500).send('Something broke!');
     }
+});
+
+app.post('/changePassword', function (req, res) {
+    res.json(db.changePassword(req.headers.token, req.body.currentPassword, req.body.newPassword));
 });
 
 app.post('/register', function (req, res) {

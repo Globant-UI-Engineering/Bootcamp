@@ -62,7 +62,7 @@ class Register extends React.Component {
             tryRegister(this.state.username, this.state.email, this.state.password)
                 .then(response => {
                     if (response.token != null) {
-                        dispatch(logIn(response.username, response.motto, response.look, response.token));
+                        dispatch(logIn(response.token));
                     } else {
                         if (response.error != null) {
                             if (response.error === 'username') {

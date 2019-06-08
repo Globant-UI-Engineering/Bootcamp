@@ -45,7 +45,7 @@ class LoginHeader extends React.Component {
             tryLogin(this.state.username, this.state.password)
                 .then(response => {
                     if (response.token != null) {
-                        dispatch(logIn(response.username, response.motto, response.look, response.token));
+                        dispatch(logIn(response.token));
                     } else {
                         this.setState({
                             wrongUsername: false,

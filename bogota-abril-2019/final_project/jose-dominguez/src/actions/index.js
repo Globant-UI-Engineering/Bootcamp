@@ -1,13 +1,22 @@
-export const logIn = (username, motto, look, token) => ({
+export const logIn = (token) => ({
     type: 'LOG_IN',
-    username,
-    motto,
-    look,
     token
 });
 
 export const logOut = () => ({
     type: 'LOG_OUT',
+});
+
+export const userSetData = (username, motto, look) => ({
+    type: 'USER_SET_DATA',
+    username,
+    motto,
+    look,
+});
+
+export const furnidataSet = furnidata => ({
+    type: 'FURNIDATA_SET',
+    furnidata
 });
 
 export const addNewsList = (list) => ({

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Article extends React.Component {
     render() {
-        const { title, description, content} = this.props.article;
+        const { title, description, content } = this.props.article;
         return (
             <section>
                 <div>
@@ -13,9 +13,7 @@ class Article extends React.Component {
                     <h4>
                         {description}
                     </h4>
-                    <p>
-                        {content}
-                    </p>
+                    <p dangerouslySetInnerHTML={{ __html: content }} />
                 </div>
             </section>
         );

@@ -8,7 +8,7 @@ import Register from './Register';
 class MePage extends React.Component {
     render() {
         return (
-            <div className="register">
+            <div className="register form">
                 <NotLoggedRedirectorContainer/>
                 <GenericHeader />
                 <div className="column_container">

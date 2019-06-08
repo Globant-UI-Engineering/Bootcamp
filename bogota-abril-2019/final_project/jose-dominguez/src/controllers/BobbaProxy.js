@@ -1,7 +1,7 @@
 import NProgress from 'nprogress';
 
 const API_URL = 'http://api.bobba.io:1232/';
-const FAKE_DELAY = 2000;
+const FAKE_DELAY = 250;
 const DELAY = 0;
 
 export const tryLoginFake = (username, password) => {
@@ -21,6 +21,23 @@ export const tryLoginFake = (username, password) => {
             if (username === 'fail') {
                 resolve(failedResponse);
             }
+            resolve(okResponse);
+        }, FAKE_DELAY);
+    });
+};
+
+export const patchUserFake = (token, data) => {
+    return new Promise((resolve, reject) => {
+        NProgress.start();
+        setTimeout(() => {
+            const okResponse = {
+                username: 'Jose',
+                motto: data.motto,
+                look: 'ca-1811-62.lg-3018-81.hr-836-45.ch-669-1193.hd-600-10',
+                token,
+            };
+
+            NProgress.done();
             resolve(okResponse);
         }, FAKE_DELAY);
     });
@@ -221,6 +238,101 @@ export const tryRegister = (username, email, password) => {
             };
 
             fetch(API_URL + 'register', options)
+                .then(response => response.json())
+                .then(data => {
+                    NProgress.done();
+                    resolve(data);
+                })
+                .catch(err => {
+                    NProgress.done();
+                    reject(err);
+                });
+        }, DELAY);
+    });
+};
+
+
+export const tryGetUserData = (token) => {
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            headers.append('token', token);
+
+            const options = {
+                method: 'GET',
+                mode: 'cors',
+                headers,
+            };
+
+            fetch(API_URL + 'user', options)
+                .then(response => response.json())
+                .then(data => {
+                    NProgress.done();
+                    resolve(data);
+                })
+                .catch(err => {
+                    NProgress.done();
+                    reject(err);
+                });
+        }, DELAY);
+    });
+};
+
+export const tryPatchUser = (token, data) => {
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const body = JSON.stringify(data);
+
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            headers.append('token', token);
+
+            const options = {
+                method: 'PATCH',
+                mode: 'cors',
+                headers,
+                body
+            };
+
+            fetch(API_URL + 'user', options)
+                .then(response => response.json())
+                .then(data => {
+                    NProgress.done();
+                    resolve(data);
+                })
+                .catch(err => {
+                    NProgress.done();
+                    reject(err);
+                });
+        }, DELAY);
+    });
+};
+
+export const tryChangePassword = (token, currentPassword, newPassword) => {
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const body = JSON.stringify({
+                currentPassword,
+                newPassword
+            });
+
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            headers.append('token', token);
+
+            const options = {
+                method: 'POST',
+                mode: 'cors',
+                headers,
+                body
+            };
+
+            fetch(API_URL + 'changePassword', options)
                 .then(response => response.json())
                 .then(data => {
                     NProgress.done();
