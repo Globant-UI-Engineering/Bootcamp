@@ -1,0 +1,19 @@
+article.home-container img {
+  margin-top: 1%;
+  width: 500px;
+  height: auto;
+}
+
+article.home-container p {
+  text-align: justify;
+  margin: 3% 20%;
+  font-size: 20px;
+}
+
+article.home-container p {
+  font-family: "Mandali", sans-serif;
+}
+
+article.home-container {
+  text-align: center;
+}

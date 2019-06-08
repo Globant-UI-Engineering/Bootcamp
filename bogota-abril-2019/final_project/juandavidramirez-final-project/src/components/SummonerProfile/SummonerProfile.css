@@ -1,0 +1,52 @@
+.summoner-info-container > h2 {
+  font-size: 40px;
+}
+
+.summoner-info-container {
+  margin: 3% 10%;
+  padding: 4%;
+  text-align: center;
+}
+
+.summoner-info-container > h2,
+section.additional-info h3 {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.summoner-info-container > h2 {
+  margin-bottom: 0;
+}
+
+.summoner-info-container > img {
+  width: 300px;
+  height: 300px;
+  border: 2px solid grey;
+  border-radius: 4px;
+}
+
+.summoner-info-container > p:nth-child(3),
+.summoner-info-container > h2,
+section.additional-info h3 {
+  text-transform: uppercase;
+}
+
+section.additional-info {
+  margin-top: 5%;
+}
+
+section.additional-info h3 {
+  font-size: 20px;
+}
+
+section.additional-info > div {
+  padding: 5px;
+}
+
+section.additional-info ul {
+  list-style-type: none;
+  padding: 2% 2% 0 2%;
+}
+
+section.additional-info ul li {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,37 @@
+footer.footer-container {
+  background: black;
+  border-top: 3px solid #e91e63;
+  padding: 1% 15%;
+}
+
+footer.footer-container > nav h3:first-of-type {
+  color: white;
+}
+
+footer.footer-container > nav,
+footer.footer-container > nav ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+footer.footer-container > nav ul li > a {
+  padding: 6px;
+}
+
+footer.footer-container > nav ul > :first-child {
+  font-size: 50px;
+}
+
+footer.footer-container > nav ul {
+  margin: 0;
+}
+
+footer.footer-container {
+  text-align: center;
+}
+
+footer.footer-container > nav h3:first-of-type {
+  text-transform: uppercase;
+}

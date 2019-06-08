@@ -1,0 +1,42 @@
+body {
+  background-color: white;
+}
+
+article {
+  margin: 5%;
+}
+
+li svg:hover,
+li img:hover {
+  opacity: 0.5;
+}
+
+.page-wrapper > h2 {
+  font-size: 40px;
+}
+
+body,
+p#not-rendered-msg {
+  margin: 0;
+}
+
+li img:active {
+  opacity: 1;
+}
+
+p#not-rendered-msg {
+  text-transform: capitalize;
+}
+
+.page-wrapper {
+  text-align: center;
+}
+
+.page-wrapper > h2 {
+  text-transform: uppercase;
+  font-family: "Noto Sans", sans-serif;
+}
+
+/**:focus {
+  outline: solid 3px red !important ;
+}*/
