@@ -19,3 +19,13 @@
     height: 100%;
     width: 100%;
 }
+
+.back-button {
+    background: none;
+    border: none;
+}
+
+.back-button:focus {
+    outline: none;
+}
+

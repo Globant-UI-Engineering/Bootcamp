@@ -47,7 +47,7 @@ export class ComparativeComponent extends Component {
                 )
               }
             </div>
-            <button onClick={this.goBack}>
+            <button onClick={this.goBack} className={'back-button'}>
               <FontAwesomeIcon icon={'arrow-circle-left'}/>
             </button>
           </div>

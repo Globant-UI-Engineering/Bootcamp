@@ -4,6 +4,8 @@
 
 .comparative-pokemon-image {
     display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .comparative-stat-row {

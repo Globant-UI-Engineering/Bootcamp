@@ -33,19 +33,19 @@ export class ControllerPadComponent extends Component {
       <div className={'container-fluid controller-pad-container'}>
         <div className={'row'}>
           <div className={'col-4'}/>
-          <button className={'col-4 controller-pad-up controller-pad-button'} id={'controller-up-button'}/>
+          <button onClick={this.props.setNextPokemon} className={'col-4 controller-pad-up controller-pad-button'} id={'controller-up-button'}/>
           <div className={'col-4'}/>
         </div>
         <div className={'row'}>
-          <button className={'col-4 controller-pad-left controller-pad-button'}  id={'controller-left-button'}/>
+          <button onClick={this.props.setPreviousPokemon} className={'col-4 controller-pad-left controller-pad-button'}  id={'controller-left-button'}/>
           <div className={'col-4 controller-pad-button'}>
             <div className={'controller-pad-circle'} />
           </div>
-          <button className={'col-4 controller-pad-right controller-pad-button'}  id={'controller-right-button'}/>
+          <button onClick={this.props.setNextPokemon} className={'col-4 controller-pad-right controller-pad-button'}  id={'controller-right-button'}/>
         </div>
         <div className={'row'}>
           <div className={'col-4'}/>
-          <button className={'col-4 controller-pad-down controller-pad-button'} id={'controller-down-button'}/>
+          <button onClick={this.props.setPreviousPokemon} className={'col-4 controller-pad-down controller-pad-button'} id={'controller-down-button'}/>
           <div className={'col-4'}/>
         </div>
       </div>

@@ -17,7 +17,6 @@ export class ComparedPokemonComponent extends Component {
   }
   
   statTypeImages = {
-    "base_exp": "certificate",
     "attack": "bolt",
     "defense": "shield-alt",
     "hp": "heart",
@@ -44,8 +43,6 @@ export class ComparedPokemonComponent extends Component {
         if(stat1.type < stat2.type) {return -1}
         return 0;
       });
-    
-    stats.unshift({type: 'base_exp', value: ComparedPokemonComponent.getPokemonBaseExp(pokemonData)})
     
     return stats
   }

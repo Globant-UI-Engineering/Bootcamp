@@ -21,9 +21,11 @@ export class MainComponent extends Component {
     super(props);
     this.state = {
       pokemonData: undefined,
+      pokemonId: undefined,
       keyArray: '',
       match: false,
-      playDescriptionFunction: () => {}
+      playDescriptionFunction: () => {},
+      setNewPokemonId: () => {}
     };
     PollyService.initPolly();
     this.captureKeyPress = this.captureKeyPress.bind(this);
@@ -46,7 +48,8 @@ export class MainComponent extends Component {
   
   gotPokemonDataCallback = (pokemonData) => {
     this.setState({
-      pokemonData: pokemonData
+      pokemonData: pokemonData,
+      pokemonId: undefined
     })
   };
   
@@ -73,6 +76,24 @@ export class MainComponent extends Component {
       })
     }
   }
+  
+  setNewIdFunction = (newIdFunction) => {
+    this.setState({
+      setNewPokemonId: newIdFunction
+    })
+  };
+  
+  setPreviousPokemonCallback = () => {
+    if (this.state.pokemonData && this.state.pokemonData.id > 1) {
+      this.state.setNewPokemonId(this.state.pokemonData.id - 1)
+    }
+  };
+  
+  setNextPokemonCallback = () => {
+    if (this.state.pokemonData) {
+      this.state.setNewPokemonId(this.state.pokemonData.id + 1)
+    }
+  };
   
   handleStore = () => {
     storage.dispatch({
@@ -126,7 +147,7 @@ export class MainComponent extends Component {
           </div>
         </header>
         <div style={{marginTop: '5%', marginBottom: '5%'}} className={'content-container'}>
-          <ScreenComponent gotAudio={this.gotAudioCallback} gotPokemonData={this.gotPokemonDataCallback}/>
+          <ScreenComponent pokemonId={this.state.pokemonId} newIdFunction={this.setNewIdFunction} gotAudio={this.gotAudioCallback} gotPokemonData={this.gotPokemonDataCallback}/>
           <div className={'controller-row'}>
             <button onClick={this.state.playDescriptionFunction} className={'main-button'} id={'main-button'}/>
             <div className={'controller-center-container p-0'}>
@@ -134,7 +155,7 @@ export class MainComponent extends Component {
               <button onClick={() => storage.dispatch({type: 'GET_STATE'})} className={'wide-button blue-button'}/>
               <SecondaryScreenComponent pokemonData={this.state.pokemonData}/>
             </div>
-            <ControllerPadComponent/>
+            <ControllerPadComponent setNextPokemon={this.setNextPokemonCallback} setPreviousPokemon={this.setPreviousPokemonCallback}/>
           </div>
         </div>
       </div>

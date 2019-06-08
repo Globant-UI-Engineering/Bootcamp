@@ -27,14 +27,39 @@ export class ScreenComponent extends Component {
       pokemonFront: undefined,
       pokemonBack: undefined
     };
-    this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleSearchClick = this.handleSearchClick.bind(this);
     this.setAudioUri = this.setAudioUri.bind(this);
   }
   
   componentWillMount() {
+    this.props.newIdFunction(this.setNewId);
   }
+  
+  setNewId = (pokemonId) => {
+    this.setState({
+      pokemonDescription: undefined,
+      audioUri: undefined
+    });
+    PokeapiService.search(pokemonId.toString())
+      .then((response) => {
+        // console.log(response.data);
+        this.setState({
+          searchText: response.data.name,
+          currentPokemon: response.data,
+          playDescription: true,
+          pokemonDescription: this.buildDescription(response.data),
+          showIntro: false,
+          pokemonFront: response.data.sprites.front_default,
+          pokemonBack: response.data.sprites.back_default
+        }, () => {
+          PollyService.getTextUrl(this.state.pokemonDescription, this.setAudioUri);
+          this.props.gotPokemonData(response.data);
+        });
+      }).catch(error => {
+      console.log(error)
+    })
+  };
   
   componentDidMount() {
     PokeapiService.getAllNames()
@@ -60,9 +85,9 @@ export class ScreenComponent extends Component {
     }
   }
   
-  handleSearchChange($event) {
+  handleSearchChange = ($event) => {
     this.setState({searchText: $event.target.value.toLowerCase()});
-  }
+  };
   
   handleKeyPress($event) {
     if ($event.key === 'Enter') {
@@ -81,7 +106,7 @@ export class ScreenComponent extends Component {
     });
     PokeapiService.search(this.state.searchText.trim())
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           currentPokemon: response.data,
           playDescription: true,
@@ -89,9 +114,11 @@ export class ScreenComponent extends Component {
           showIntro: false,
           pokemonFront: response.data.sprites.front_default,
           pokemonBack: response.data.sprites.back_default
+        }, () => {
+          PollyService.getTextUrl(this.state.pokemonDescription, this.setAudioUri);
+          this.props.gotPokemonData(response.data);
         });
-        PollyService.getTextUrl(this.state.pokemonDescription, this.setAudioUri);
-        this.props.gotPokemonData(response.data);
+        
       }).catch(error => {
       console.log(error)
     })
@@ -155,7 +182,7 @@ export class ScreenComponent extends Component {
     }
     let abilitiesArray = currentPokemon.abilities;
     let abilitiesText = abilitiesArray.map(x => x.ability.name).reduce((a, b) => a + ' and ' + b);
-    return this.state.searchText
+    return currentPokemon.name
       + ', '
       + typesText
       + ' type pokemon, his abilities are '
@@ -178,17 +205,23 @@ export class ScreenComponent extends Component {
   
   playSpeech = () => {
     if (this.state.audioUri) {
+      if (this.state.descriptionAudio) this.state.descriptionAudio.pause();
       this.setState({
         descriptionAudio: new Audio(this.state.audioUri)
-      }, () => this.state.descriptionAudio.play());
+      }, () => {
+        this.state.descriptionAudio.play();
+      });
     }
   };
   
   setAudioUri(audioUri) {
     this.setState({
       audioUri: audioUri
-    }, () => this.playSpeech());
-    this.props.gotAudio(this.playSpeech)
+    }, () => {
+      this.playSpeech();
+      this.props.gotAudio(this.playSpeech)
+    });
+    
   }
   
   render() {

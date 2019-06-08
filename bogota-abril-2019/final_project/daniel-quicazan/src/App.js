@@ -6,7 +6,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCertificate, faBolt, faShieldAlt, faHeart, faRunning, faSearch, faArrowCircleLeft} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faCertificate, faBolt, faShieldAlt, faHeart, faRunning, faSearch);
+library.add(faCertificate, faBolt, faShieldAlt, faHeart, faRunning, faSearch, faArrowCircleLeft);
 
 function App() {
 
