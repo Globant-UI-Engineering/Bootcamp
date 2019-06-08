@@ -1,0 +1,12 @@
+.main_container{
+  height: 100%;
+  width: 100%;
+}
+
+.logo{
+  height: 100px;
+  width: 100px;
+}
+.nav-bar{
+  height: 80px;
+}

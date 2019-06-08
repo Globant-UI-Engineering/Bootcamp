@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(253, 247, 166, 0.322);
+}
+
+.tittle{
+    font-family: 'Lobster', cursive;
+    letter-spacing: 1px;
+}
+
