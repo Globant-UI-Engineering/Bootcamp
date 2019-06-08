@@ -1,0 +1,68 @@
+h1 {
+    font-size: 2.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: 100;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.movable {
+    background-color: #f7a000;
+    width: 100%;
+    height: 100%;
+}
+
+.movable:hover {
+    cursor: pointer;
+}
+
+.board {
+    display: grid;
+    height: 70vh;
+    width: 45vw;
+    grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.piece {
+    height: 100%;
+    width: 100%;
+    border: 3px #888800 solid;
+    background-color: #fff0d0;
+    position: relative;
+}
+
+.hovered {
+    background-color: #f4f4f4;
+    border-style: dashed;
+}
+
+.pieceNum {
+    position: absolute;
+    font-size: 2.5em;
+    top: 40%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+}
+
+.pieceNum:hover {
+    cursor: default;
+}
+
+/*For Safari compatibility*/
+[draggable=true] {
+    -khtml-user-drag: element;
+}

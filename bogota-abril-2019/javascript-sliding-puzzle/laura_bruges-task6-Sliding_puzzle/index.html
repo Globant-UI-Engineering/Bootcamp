@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sliding Puzzle</title>
+    <link rel="stylesheet" type="text/css" href="styles/sliding.css">
+    <h1>Sliding Puzzle</h1>
+</head>
+<body>
+    <article>
+        <header>
+            <label for="boardSize">Board size: </label>
+            <select id="boardSize">
+                <option value="2">2x2</option>
+                <option value="3">3x3</option>
+                <option value="4">4x4</option>
+                <option value="5">5x5</option>
+            </select>
+        </header>
+        <section>
+            <div class="board">
+            </div>
+        </section>
+        <footer>
+            <h3>Moves: <span id="moveCount">0</span></h3>
+        </footer>
+    </article>
+</body>
+<script type="text/javascript" src="scripts/sliding.js"></script>
+</html>
