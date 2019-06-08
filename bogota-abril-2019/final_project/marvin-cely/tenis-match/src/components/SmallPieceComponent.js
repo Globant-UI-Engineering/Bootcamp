@@ -50,9 +50,6 @@ function ErrorServiceComponent() {
 
 const CountryOptionComponent = observer(
   class CountryOptionComponent extends React.Component {
-    constructor(props) {
-      super(props);
-    }
     render() {
       const NATIONALITY = thesaurus.elementKey.NATIONALITY;
       const countriesList = utils.sortByAlphaArrayMap(Array.from(this.props.countries), NATIONALITY);

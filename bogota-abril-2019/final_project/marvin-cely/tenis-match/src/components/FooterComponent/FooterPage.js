@@ -23,24 +23,24 @@ class FooterPage extends React.Component {
               href={this.state.flaticonURL}  
               title="DinosoftLabs"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
                 &nbsp;DinosoftLabs
             </a>             
             &nbsp;y
-            <a href="https://www.freepik.com/" title="Freepik" target="_blank" rel="noopener">
+            <a href="https://www.freepik.com/" title="Freepik" target="_blank" rel="noopener noreferrer">
               &nbsp;Freepik
             </a>
             <br/>
             desde 
-            <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener">
+            <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener noreferrer">
               &nbsp;www.flaticon.com
             </a> 
             &nbsp;licencia por: 
             <a href={this.state.licenseIconURL} 			    
               title="Creative Commons BY 3.0" 
               target="_blank"
-              rel="noopener">
+              rel="noopener noreferrer">
                 &nbsp;CC 3.0 BY
             </a>
         </React.Fragment>
@@ -60,7 +60,7 @@ class FooterPage extends React.Component {
             {this.state.author}&nbsp;
             <a
               href={this.state.gitHubURL}
-              target="_blank" rel="noopener">
+              target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-github ml-1"></i>
             </a>
           </p>           

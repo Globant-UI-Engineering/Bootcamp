@@ -2,7 +2,7 @@ figure[aria-label*='torneo'] {
     display: flex;
     flex-direction: column;
     position: relative;
-    max-width: 9rem;
+    max-width: 10rem;
     height: auto;
     padding-top: 1.5rem;
     background-color: #f8ca49;

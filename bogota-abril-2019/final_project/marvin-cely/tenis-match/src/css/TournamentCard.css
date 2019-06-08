@@ -33,10 +33,6 @@ section.row article[role='contentinfo'] > table caption {
     padding-bottom: 0;
 }
 
-section.row article[role='contentinfo'] > table td {
-    
-}
-
 section.row article[role='contentinfo'] > table th {
     font-family: var(--font-group-3);
     font-size: var(--size-small);

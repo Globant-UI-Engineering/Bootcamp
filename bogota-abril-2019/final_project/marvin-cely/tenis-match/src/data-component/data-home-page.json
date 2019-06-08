@@ -2,10 +2,10 @@
     "dataHomePage": {
         "firstBanner": "Anota tus puntos en vivo",
         "firstBannerA11yDescription": "Pelota de tenis verde, al lado de una linea en una cancha azul",
-        "firstParagraph": "Perfecto para los amantes del tenis, tú y tu amigos podrán ver estadísticas de partido, historial de partidos y puntaje de sus competidores. Con Tennis Match estarás preparado para tu próximo juego y así disfrutar lo mejor del deporte blanco.",
+        "firstParagraph": "Perfecto para los amantes del tenis, tú y tus amigos podrán inscribir y editar jugadores de tenis para ver su ranking global, además podrás crear nuevos torneos para registrar los puntos de torneo. Con Tennis Match estarás preparado para tu próximo juego y así disfrutar lo mejor del deporte blanco.",
         "secondBanner": "Compite contra tus amigos por el mejor ranking.",
         "secondBannerA11yDescription": "Cancha de tenis en piso de ladrillo",
-        "secondParagraph": "Mejora tus estadisticas, revisa en el historial. Observa tus fortalezas y habilidades por mejorar; y encuentra la mejor estrategia al instante.",
+        "secondParagraph": "Mejora tus estadisticas y reporta resultados de torneo. Observa tus fortalezas y habilidades por mejorar; y encuentra la mejor estrategia al instante.",
         "thirdBanner": "¡Todo en tiempo real!",
         "thirdBannerA11yDescription": "Mujer haciendo gesto en saque de servicio de tenis"
     }
