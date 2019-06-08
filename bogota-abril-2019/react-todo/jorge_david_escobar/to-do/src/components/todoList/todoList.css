@@ -1,0 +1,16 @@
+.item_button{
+    background-color: green;
+    width: 15%;
+}
+.item_button:last-of-type{
+    background-color: red;
+}
+
+ul{
+    border: solid #001930;
+    list-style: none;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+}
