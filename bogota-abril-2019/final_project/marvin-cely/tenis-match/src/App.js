@@ -23,14 +23,12 @@ class App extends React.Component {
     const {PLAYERS, TOURNAMENTS, COUNTRIES} = thesaurus.collectionsName;
     this.unSubcribePlayers = serviceGetData.listenAllElementsList(this.props.store, PLAYERS)
     this.unSubcribeTournaments = serviceGetData.listenAllElementsList(this.props.store, TOURNAMENTS);
-    // this.unSubcribePoints = serviceGetData.listenAllElementsList(this.props.store, POINTS);
     this.unSubcribeCountires = serviceGetData.listenAllElementsMap(this.props.store, COUNTRIES);
   }
 
   componentWillUnmount() {
     this.unSubcribePlayers();
     this.unSubcribeTournaments();
-    // this.unSubcribePoints();
     this.unSubcribeCountires();
   }
 
