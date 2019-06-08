@@ -1,0 +1,37 @@
+.container{
+    background-color: rgb(105, 100, 100);
+    width: 270px;
+}
+.screen{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: rgb(255, 255, 255);
+    background-color: black;
+    height: 120px;
+    width: 100%;
+    font-size: 60px;
+
+}
+span{
+    margin-right: 10px;
+}
+button{
+    font-size: 25px;
+    height: 60px;
+    width: 60px;
+    color: rgb(128, 128, 128);
+}
+.innerContainer{
+    text-align: center;
+    width: 100%;
+}
+.wider{
+    width: 124px;
+}
+.orange{
+    border-style: 1px solid rgb(247, 145, 12);;
+    border-color: rgb(247, 145, 12);
+    background-color: rgb(247, 145, 12);
+    color: rgb(255, 255, 255);
+}
