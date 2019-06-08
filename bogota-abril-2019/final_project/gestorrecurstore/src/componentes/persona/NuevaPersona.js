@@ -88,7 +88,7 @@ class NuevaPersona extends Component {
                             </div>
                             <div>
                                 <label htmlFor="facultad">*Facultad:</label>
-                                <select id="facultad" name="facultad" onChange={this.changeData} value={this.state.tipo} required>
+                                <select id="facultad" name="facultad" onChange={this.changeData} value={this.state.facultad} required>
                                     <option value="Ingeniería">Ingeniería</option>
                                     <option value="Administración">Administración</option>
                                     <option value="Medicina">Medicina</option>

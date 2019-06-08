@@ -9,7 +9,6 @@ import './Login.css';
 
 const passIcon = <FontAwesomeIcon icon={faLock} size="2x" />;
 const mailIcon = <FontAwesomeIcon icon={faUserAlt} size="2x" />;
-const loading = false
 class Login extends Component {
     state = {
         email: '',
