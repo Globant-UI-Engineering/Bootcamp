@@ -46,3 +46,15 @@ export const playlistActionTypes = {
     fetchUserPlaylistsSuccess: 'FETCH_USER_PLAYLISTS_SUCCESS',
     fetchUserPlaylistsError: 'FETCH_USER_ERROR'
 }
+
+export const lyricsActionTypes = {
+    addLyrics: 'ADD_LYRICS',
+    addLyricsSuccess: 'ADD_LYRICS_SUCCESS',
+    addLyricsError: 'ADD_LYRICS_ERROR',
+    getTrackLyrics: 'GET_TRACK_LYRICS',
+    getTrackLyricsSuccess: 'GET_TRACK_LYRICS_SUCCESS',
+    getTrackLyricsError: 'GET_TRACK_LYRICS_ERROR',
+    getLatestLyrics: 'GET_LATEST_LYRICS',
+    getLatestLyricsSuccess: 'GET_LATEST_LYRICS_SUCCESS',
+    getLatestLyricsError: 'GET_LATEST_LYRICS_ERROR'
+}

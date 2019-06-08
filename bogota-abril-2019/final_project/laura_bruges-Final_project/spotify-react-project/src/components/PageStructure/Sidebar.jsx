@@ -15,7 +15,7 @@ const Sidebar = () => {
                         <Link to='/playlist/'>Playlists</Link>
                     </NavItem>
                     <NavItem>
-                        <Link to='/user/'>Lyrics</Link>
+                        <Link to='/lyrics/'>Lyrics</Link>
                     </NavItem>
                 </Nav>
             </div>

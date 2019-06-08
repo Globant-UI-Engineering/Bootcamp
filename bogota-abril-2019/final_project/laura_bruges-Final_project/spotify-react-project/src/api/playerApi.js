@@ -16,6 +16,10 @@ export async function resumeTrack(accessToken, deviceId, playlistId, offsetTrack
             playerOptions.offset = { 'uri': `spotify:track:${ offsetTrackId }`}
         }
         
+    } else {
+        if(offsetTrackId) {
+            playerOptions['uris'] = [`spotify:track:${ offsetTrackId }`]
+        }
     }
 
     if(deviceId) {

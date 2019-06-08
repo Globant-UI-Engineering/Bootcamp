@@ -9,6 +9,7 @@ import App from './components/LandingPage/App';
 import LoginTransition from './components/LoginTransition';
 import User from './components/User';
 import Playlist from './components/Playlist';
+import Lyrics from './components/Lyrics';
 
 import store from './storeCreator';
 
@@ -20,6 +21,7 @@ ReactDOM.render(
                 <Route path='/login/' exact component={ LoginTransition } />
                 <Route path='/user/' exact component={ User } />
                 <Route path='/playlist/' exact component={ Playlist } />
+                <Route path='/lyrics/' exact component={ Lyrics } />
             </Switch>
         </BrowserRouter>
     </Provider> 

@@ -1,20 +1,22 @@
 import { userActionTypes } from '../actions/actionTypes';
 
 const initialState = {
-    user:{}
+    user: {
+        country: '',
+        display_name: '',
+        external_urls: {
+            spotify: ''
+        },
+        product: ''
+    }
 }
 const userReducer = (state = initialState, action) => {
     switch(action.type) {
-        case userActionTypes.fetchUserInfo:
+        case userActionTypes.fetchUserInfoSuccess:
             return {
                 ...state,
-                user: action.user
-            };
-        case userActionTypes.fetchUserInfoSuccess:
-            return Object.assign({},state,{
-                ...state,
                 user: action.payload
-            })
+            };
         default:
             return state;
     }
