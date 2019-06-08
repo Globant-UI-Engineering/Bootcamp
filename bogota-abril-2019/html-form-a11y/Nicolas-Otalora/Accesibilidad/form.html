@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1 id="registro">Registrarse</h1>
+  <form aria-labelledby="registro">
+    <h3 id="nombre">Nombre</h3>
+    <input aria-labelledby="nombre"role="textbox" type="text" name="nombre">
+    <br><br>
+
+    <h3 id="apellido">Apellido</h3>
+    <input aria-labelledby="apellido"role="textbox" type="text" name="apellido">
+    <br><br>
+
+    <h3 id="fecha">Fecha de nacimiento</h3>
+    <input aria-labelledby="fecha"role="grid" type="date" name="fecha">
+    <br><br>
+
+    <h3 id="email">Email</h3>
+    <input aria-labelledby="email"role="textbox" type="email" name="email">
+    <br><br>
+
+    <div role="radiogroup" aria-labelledby="genero">
+      <h3 id="genero">Género</h3>
+      <input aria-label="Masculino" type="radio" name="genero" value="masc"> Masculino<br>
+      <input aria-label="Femenino"type="radio" name="genero" value="fem"> Femenino<br>
+    </div>
+    <br>
+
+    <h3 id="password">Contraseña</h3>
+    <input aria-labelledby="password"role="textbox" type="password" name="password">
+    <br><br>
+
+    <h3 id="passwordRep">Repetir Contraseña</h3>
+    <input aria-labelledby="passwordRep"role="textbox" type="password" name="password2">
+    <br><br>
+    <input role="button" type="submit" value="Registrarse">
+  </form>
+</body>
+</html>
