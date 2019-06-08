@@ -1,1 +1,0 @@
-Given 3 vars (2 numbers, 1 operator sign) make a script that executes the expected operation and prints the result. No HTML needed.
