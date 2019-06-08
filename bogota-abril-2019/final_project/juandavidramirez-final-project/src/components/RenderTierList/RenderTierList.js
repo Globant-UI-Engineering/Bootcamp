@@ -12,10 +12,19 @@ import EnhancedTableHead from "../Others/EnhancedTableHead";
 import "./RenderTierList.css";
 
 function desc(a, b, orderBy) {
-  if (b[orderBy] < a[orderBy]) {
+  var first;
+  var second;
+  if (orderBy === "winPercentage") {
+    first = a.wins / a.losses;
+    second = b.wins / b.losses;
+  } else {
+    first = a[orderBy];
+    second = b[orderBy];
+  }
+  if (second < first) {
     return -1;
   }
-  if (b[orderBy] > a[orderBy]) {
+  if (second > first) {
     return 1;
   }
   return 0;
