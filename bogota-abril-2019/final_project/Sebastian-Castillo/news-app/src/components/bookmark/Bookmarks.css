@@ -1,0 +1,14 @@
+.Bookmarks {
+  margin: 0 auto;
+  width: 70%;
+  overflow: scroll;
+  background: white;
+}
+
+.Bookmarks__title {
+  text-align: center;
+}
+
+.Bookmarks__empty {
+  text-align: center;
+}

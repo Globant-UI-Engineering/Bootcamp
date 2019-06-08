@@ -1,0 +1,9 @@
+.Headlines {
+  margin: 0 auto;
+  width: 35%;
+  max-height: fit-content;
+}
+
+.Headlines__title {
+  text-align: center;
+}
