@@ -3,18 +3,20 @@ import styles from "./Tracks.module.css";
 
 let currentAudio;
 
-function playAudio(url) {
+function toggleAudio(url) {
+  let prevUrl;
   if (currentAudio) {
-    currentAudio.pause();
-  }
-  currentAudio = new Audio(url);
-  currentAudio.play();
-}
-
-function stopAudio() {
-  if (currentAudio) {
+    prevUrl = currentAudio.src;
     currentAudio.pause();
     currentAudio = undefined;
+  }
+  if (prevUrl === url) {
+    return;
+  }
+
+  if (url) {
+    currentAudio = new Audio(url);
+    currentAudio.play();
   }
 }
 
@@ -22,14 +24,11 @@ function Track({ name, id, album, popularity, preview_url }) {
   return (
     <li
       key={id}
-      className={styles.track}
-      onMouseEnter={e => playAudio(preview_url)}
-      onMouseLeave={e => stopAudio()}
-      onTouchStart={e => playAudio(preview_url)}
-      onTouchEnd={e => stopAudio()}
+      className={`${styles.track} ${preview_url ? "" : styles.disabled}`}
+      onClick={e => toggleAudio(preview_url)}
     >
-      <h3 title={name}>{name}</h3>
-      <h4 title={album.name}>{album.name}</h4>
+      <h1 title={name}>{name}</h1>
+      <h2 title={album.name}>{album.name}</h2>
       {popularity ? <p>{popularity}</p> : null}
     </li>
   );

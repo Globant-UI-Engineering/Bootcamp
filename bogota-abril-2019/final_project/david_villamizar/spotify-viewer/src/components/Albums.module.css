@@ -48,8 +48,11 @@
 .album:hover > *:not(img) {
   visibility: visible;
 }
-.album h3,
-.album h4,
+.album h1 {
+  font-size: 18px;
+  overflow-wrap: break-word;
+}
+.album h1,
 .album p {
   margin: 0.5rem 0 0.5rem 0;
 }

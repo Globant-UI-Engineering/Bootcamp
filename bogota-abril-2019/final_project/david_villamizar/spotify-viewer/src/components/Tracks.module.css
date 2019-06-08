@@ -15,16 +15,21 @@
 .track {
   flex-direction: column;
   display: flex;
-  flex-wrap: nowrap;
   align-items: baseline;
   justify-content: flex-start;
   background: rgba(0, 0, 0, 0);
   transition: background-color 0.25s;
   padding: 1rem;
+  cursor: pointer;
 }
 
-.track:hover {
+.track:not(.disabled):hover {
   background: rgba(0, 0, 0, 0.75);
+}
+
+.track.disabled {
+  cursor: default;
+  color: #aaa;
 }
 
 .track > * {
@@ -32,20 +37,22 @@
   margin-bottom: 0;
 }
 
-.track > h3 {
+.track > h1 {
+  font-size: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  flex: 2 1 50%;
+  flex: 2 1 auto;
   max-width: 100%;
 }
-.track > h4 {
+.track > h2 {
+  font-size: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: normal;
   text-align: right;
-  flex: 1 2 30%;
+  flex: 1 2 auto;
   max-width: 100%;
 }
 .track > p {

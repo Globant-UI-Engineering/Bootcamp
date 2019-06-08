@@ -30,8 +30,8 @@ function ArtistListItem({ name, images, genres, id, match, location }) {
       </NavLink>
       <NavBar
         links={[
-          { name: "Albums", href: `${match.path}/${id}/albums` },
           { name: "Top Tracks", href: `${match.path}/${id}/top-tracks` },
+          { name: "Albums", href: `${match.path}/${id}/albums` },
         ]}
       />
       <Switch>
@@ -45,7 +45,7 @@ function ArtistListItem({ name, images, genres, id, match, location }) {
         />
         <Redirect
           from={`${match.path}/${id}`}
-          to={`${match.path}/${id}/albums`}
+          to={`${match.path}/${id}/top-tracks`}
         />
       </Switch>
     </li>

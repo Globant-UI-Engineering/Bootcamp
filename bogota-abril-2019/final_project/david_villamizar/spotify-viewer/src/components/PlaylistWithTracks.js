@@ -1,5 +1,5 @@
 import React from "react";
-import { MdGroup, MdLock, MdPublic } from "react-icons/md";
+import PlaylistBadges from "./PlaylistBadges";
 import styles from "./PlaylistWithTracks.module.css";
 import Tracks from "./Tracks";
 
@@ -20,22 +20,7 @@ export default function PlaylistWithTracks({
       <div className={styles.titleAndCover}>
         <h1>{name}</h1>
         <h2>By {owner.display_name}</h2>
-        <h3 className={styles.badges}>
-          {isPublic ? (
-            <span className={styles.badge}>
-              <MdPublic /> Public
-            </span>
-          ) : (
-            <span className={styles.badge}>
-              <MdLock /> Private
-            </span>
-          )}
-          {collaborative ? (
-            <span className={styles.badge}>
-              <MdGroup /> Collaborative
-            </span>
-          ) : null}
-        </h3>
+        <PlaylistBadges isPublic={isPublic} collaborative={collaborative} />
         <img src={images[0].url} alt={`${name}'s cover.`} />
       </div>
       <div className={styles.tracksContainer}>

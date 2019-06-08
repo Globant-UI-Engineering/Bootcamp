@@ -54,8 +54,11 @@
 .playlist:hover > *:not(img) {
   visibility: visible;
 }
-.playlist h3,
-.playlist h4,
+.playlist h1 {
+  font-size: 18px;
+  overflow-wrap: break-word;
+}
+.playlist h1,
 .playlist p {
   margin: 0.5rem 0 0.5rem 0;
 }
@@ -67,30 +70,4 @@
   height: 100%;
   width: 100%;
   z-index: 0;
-}
-
-.badges {
-  margin: 0.5rem 0 0.5rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  width: auto;
-}
-
-.badge {
-  list-style: none;
-  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-  margin: 0.125rem;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  align-items: center;
-  border: 2px solid white;
-  border-radius: 5px;
-  width: auto;
-  font-weight: bold;
-}
-
-.badge > svg {
-  margin-right: 0.25rem;
 }

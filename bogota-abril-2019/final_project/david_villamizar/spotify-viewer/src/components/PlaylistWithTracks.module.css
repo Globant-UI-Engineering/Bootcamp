@@ -60,32 +60,6 @@
   margin: 0.5rem 0 0.5rem 0;
 }
 
-.badges {
-  margin: 0.5rem 0 0.5rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  width: auto;
-}
-
-.badge {
-  list-style: none;
-  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-  margin: 0.125rem;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  align-items: center;
-  border: 2px solid white;
-  border-radius: 5px;
-  width: auto;
-  font-weight: bold;
-}
-
-.badge > svg {
-  margin-right: 0.25rem;
-}
-
 .loadMore {
   border: 0;
   width: 100%;
