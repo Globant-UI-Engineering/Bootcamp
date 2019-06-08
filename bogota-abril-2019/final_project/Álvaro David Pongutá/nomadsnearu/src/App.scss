@@ -1,0 +1,45 @@
+.App {
+  display: flex;
+  justify-content: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 50px;
+  pointer-events: none;
+  align-self: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  font-size: 28px;
+  color: #FD8006;
+  display: flex;
+  justify-content: center;
+  align-content: stretch;
+  min-height: 53px;
+
+  h1{
+    margin: 0; 
+    font-size: 42px;
+  }
+
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App-footer {
+  margin-top: 12px;
+  font-size: 18px;
+  color: #282c34;
+  text-decoration: underline;
+  vertical-align: middle;
+  position: relative;
+}

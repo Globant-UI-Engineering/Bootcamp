@@ -1,0 +1,60 @@
+.App-loader-container{
+    .App-loader-yourEvents{
+            position: relative;
+            right: 18px;
+            bottom: 220px;
+    }
+}
+
+.App-yourEvents{
+    max-width: 540px;
+    display: inline-block;
+  }
+  
+  .App-yourEvents-justify-center{
+    display: flex;
+    justify-content: center;
+    margin: 12px 0px 12px 0px;
+  
+    @media (max-width: 1400px) {
+      display: block;
+      text-align: center;
+    }
+  
+    .yourEvents-left{
+      margin-right: 18px;
+    }
+    .yourEvents-right{
+      margin-left: 8px;
+      @media (max-width: 1400px) {
+        margin-left: -18px;
+      }
+    }
+  }
+
+  .App-carousel{
+    width: 500px;
+    height: 500px;
+    display: inline-block;
+  
+    div.carousel.carousel-slider{
+      ul{
+        padding-left: 0;
+        li{
+          div{
+              a.legend{
+                font-size: 16px;
+                text-decoration: none;
+              }
+              label.legend{
+                font-size: 16px;
+              }
+          }
+        }
+      }
+      p{
+        font-size: 16px;
+        max-width: 70px;
+      }
+    }
+  }
