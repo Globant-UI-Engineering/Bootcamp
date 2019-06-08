@@ -1,0 +1,39 @@
+body {
+    font-family: 'Gugi', cursive;
+    text-align: center;
+    height: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+}
+
+#sliding-puzzle {
+    padding: 20px;
+    background-color: #012e3c;
+    border: outset;
+    border-radius: 10px;
+}
+
+#sliding-puzzle > .empty-tile {
+    background-color: inherit;
+    border: none;
+}
+
+.tile {
+    box-sizing: border-box;
+    border: ridge;
+    border-width: 5px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    list-style: none;
+    background-color: #36a074;
+    font-size: xx-large;
+    color: white;
+}
