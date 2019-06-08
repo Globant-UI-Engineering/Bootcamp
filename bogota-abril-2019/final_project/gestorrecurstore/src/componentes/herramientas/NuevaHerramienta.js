@@ -47,11 +47,11 @@ class NuevaHerramienta extends Component {
                         <fieldset>
                             <legend>{toolBoxIcon} Descripción </legend>
                             <div>
-                                <label htmlFor="serial">Serial:</label>
+                                <label htmlFor="serial">*Serial:</label>
                                 <input type="text" placeholder="Serial" name="serial" id="serial" onChange={this.changeData} value={this.state.serial} required />
                             </div>
                             <div>
-                                <label htmlFor="descripcion">Descripción:</label>
+                                <label htmlFor="descripcion">*Descripción:</label>
                                 <input type="text" placeholder="Descripción" name="descripcion" id="descripcion" onChange={this.changeData} value={this.state.descripcion} required />
                             </div>
                             <div>
@@ -59,11 +59,11 @@ class NuevaHerramienta extends Component {
                                 <input type="text" placeholder="Marca" name="marca" id="marca" onChange={this.changeData} value={this.state.marca} />
                             </div>
                             <div>
-                                <label htmlFor="modelo">Modelo:</label>
+                                <label htmlFor="modelo">*Modelo:</label>
                                 <input type="text" placeholder="Modelo" name="modelo" id="modelo" onChange={this.changeData} value={this.state.modelo} required />
                             </div>
                             <div>
-                                <label htmlFor="tipo">Tipo:</label>
+                                <label htmlFor="tipo">*Tipo:</label>
                                 <select id="tipo" name="tipo" onChange={this.changeData} value={this.state.tipo} required>
                                     <option value="Computador">Computador</option>
                                     <option value="Escaner">Escaner</option>

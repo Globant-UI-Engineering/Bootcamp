@@ -37,11 +37,11 @@ class EditarHerramienta extends Component {
                         <fieldset>
                             <legend>{informationIcon} Descripción </legend>
                             <div>
-                                <label htmlFor="serial">Serial:</label>
+                                <label htmlFor="serial">*Serial:</label>
                                 <input type="text" placeholder="Serial" name="serial" id="serial" ref={this.serialInput} defaultValue={herramienta.serial} required />
                             </div>
                             <div>
-                                <label htmlFor="descripcion">Descripción:</label>
+                                <label htmlFor="descripcion">*Descripción:</label>
                                 <input type="text" placeholder="Descripción" name="descripcion" id="descripcion" ref={this.descripcionInput} defaultValue={herramienta.descripcion} required />
                             </div>
                             <div>
@@ -49,11 +49,11 @@ class EditarHerramienta extends Component {
                                 <input type="text" placeholder="Marca" name="marca" id="marca" ref={this.marcaInput} defaultValue={herramienta.marca} />
                             </div>
                             <div>
-                                <label htmlFor="modelo">Modelo:</label>
+                                <label htmlFor="modelo">*Modelo:</label>
                                 <input type="text" placeholder="Modelo" name="modelo" id="modelo" ref={this.modeloInput} defaultValue={herramienta.modelo} required />
                             </div>
                             <div>
-                                <label htmlFor="tipo">Tipo:</label>
+                                <label htmlFor="tipo">*Tipo:</label>
                                 <select id="tipo" name="tipo" ref={this.tipoInput} defaultValue={herramienta.tipo} required>
                                     <option value="Computador">Computador</option>
                                     <option value="Escaner">Escaner</option>

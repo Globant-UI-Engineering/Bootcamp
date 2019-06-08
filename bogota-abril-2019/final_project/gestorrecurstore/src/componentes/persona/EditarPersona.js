@@ -40,13 +40,13 @@ class EditarPersona extends Component {
             correoElectronico: this.correoElectronicoInput.current.value,
             telefono: this.telefonoInput.current.value,
         }
-        
-        const {usuario,firestore,history}=this.props;
+
+        const { usuario, firestore, history } = this.props;
 
         firestore.update({
-            collection:'personas',
-            doc:usuario.id
-        },usuarioActualizado).then(history.push('/Usuarios'))
+            collection: 'personas',
+            doc: usuario.id
+        }, usuarioActualizado).then(history.push('/Usuarios'))
 
     }
 
@@ -68,7 +68,7 @@ class EditarPersona extends Component {
                         <fieldset>
                             <legend>{informationIcon} Datos Básicos</legend>
                             <div className="nombreStyle">
-                                <label htmlFor="primerNombre">Primer Nombre:</label>
+                                <label htmlFor="primerNombre">*Primer Nombre:</label>
                                 <input type="text" placeholder="Primer Nombre" name="primerNombre" id="primerNombre" ref={this.primerNombreInput} defaultValue={usuario.primerNombre} required />
                             </div>
                             <div className="nombreStyle">
@@ -76,7 +76,7 @@ class EditarPersona extends Component {
                                 <input type="text" placeholder="Segundo Nombre" name="segundoNombre" id="segundoNombre" ref={this.segundoNombreInput} defaultValue={usuario.segundoNombre} />
                             </div>
                             <div className="nombreStyle">
-                                <label htmlFor="primerApellido">Primer Apellido:</label>
+                                <label htmlFor="primerApellido">*Primer Apellido:</label>
                                 <input type="text" placeholder="Primer Apellido" name="primerApellido" id="primerApellido" ref={this.primerApellidoInput} defaultValue={usuario.primerApellido} required />
                             </div>
                             <div className="nombreStyle">
@@ -84,11 +84,11 @@ class EditarPersona extends Component {
                                 <input type="text" placeholder="Segundo Apellido" name="segundoApellido" id="segundoApellido" ref={this.segundoApellidoInput} defaultValue={usuario.segundoApellido} />
                             </div>
                             <div>
-                                <label htmlFor="email">Correo Electronico:</label>
+                                <label htmlFor="email">*Correo Electronico:</label>
                                 <input type="email" placeholder="Correo Electronico" name="correoElectronico" id="correoElectronico" ref={this.correoElectronicoInput} defaultValue={usuario.correoElectronico} required />
                             </div>
                             <div>
-                                <label htmlFor="telefono">Télefono:</label>
+                                <label htmlFor="telefono">*Télefono:</label>
                                 <input type="text" placeholder="Telefono" name="telefono" id="telefono" ref={this.telefonoInput} defaultValue={usuario.telefono} required />
                             </div>
 
@@ -97,15 +97,22 @@ class EditarPersona extends Component {
                         <fieldset>
                             <legend>{universityIcon} Datos de la Universidad</legend>
                             <div>
-                                <label htmlFor="codigo">Codigo:</label>
+                                <label htmlFor="codigo">*Codigo:</label>
                                 <input type="text" placeholder="Codigo" name="codigoUniversitario" id="codigoUniversitario" ref={this.codigoUniversitarioInput} defaultValue={usuario.codigoUniversitario} required />
                             </div>
                             <div>
-                                <label htmlFor="facultad">Facultad:</label>
-                                <input type="text" placeholder="Facultad" name="facultad" id="facultad" ref={this.facultadInput} defaultValue={usuario.facultad} required />
+                                <label htmlFor="facultad">Facultad*:</label>
+                                <select id="facultad" name="facultad" ref={this.facultadInput} defaultValue={usuario.facultad} required>
+                                    <option value="Ingeniería">Ingeniería</option>
+                                    <option value="Administración">Administración</option>
+                                    <option value="Medicina">Medicina</option>
+                                    <option value="Ciencias">Ciencias</option>
+                                    <option value="Artes">Artes</option>
+                                    <option value="Arquitectura">Arquitectura</option>
+                                </select>
                             </div>
                             <div>
-                                <label htmlFor="tipo">Tipo de Usuario:</label>
+                                <label htmlFor="tipo">*Tipo de Usuario:</label>
                                 <select id="tipo" name="tipo" ref={this.tipoInput} defaultValue={usuario.tipo} required>
                                     <option value="Estudiante de Pregrado">Estudiante de Pregrado</option>
                                     <option value="Estudiante de Posgrado">Estudiante de Posgrado</option>

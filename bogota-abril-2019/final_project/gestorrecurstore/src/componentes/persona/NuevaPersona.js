@@ -54,7 +54,7 @@ class NuevaPersona extends Component {
                         <fieldset>
                             <legend>{informationIcon} Datos Básicos</legend>
                             <div className="nombreStyle">
-                                <label htmlFor="primerNombre">Primer Nombre:</label>
+                                <label htmlFor="primerNombre">*Primer Nombre:</label>
                                 <input type="text" placeholder="Primer Nombre" name="primerNombre" id="primerNombre" onChange={this.changeData} value={this.state.primerNombre} required />
                             </div>
                             <div className="nombreStyle">
@@ -62,7 +62,7 @@ class NuevaPersona extends Component {
                                 <input type="text" placeholder="Segundo Nombre" name="segundoNombre" id="segundoNombre" onChange={this.changeData} value={this.state.segundoNombre} />
                             </div>
                             <div className="nombreStyle">
-                                <label htmlFor="primerApellido">Primer Apellido:</label>
+                                <label htmlFor="primerApellido">*Primer Apellido:</label>
                                 <input type="text" placeholder="Primer Apellido" name="primerApellido" id="primerApellido" onChange={this.changeData} value={this.state.primerApellido} required />
                             </div>
                             <div className="nombreStyle">
@@ -70,11 +70,11 @@ class NuevaPersona extends Component {
                                 <input type="text" placeholder="Segundo Apellido" name="segundoApellido" id="segundoApellido" onChange={this.changeData} value={this.state.segundoApellido} />
                             </div>
                             <div>
-                                <label htmlFor="email">Correo Electronico:</label>
+                                <label htmlFor="email">*Correo Electrónico:</label>
                                 <input type="email" placeholder="Correo Electronico" name="correoElectronico" id="correoElectronico" onChange={this.changeData} value={this.state.correoElectronico} required />
                             </div>
                             <div>
-                                <label htmlFor="telefono">Télefono:</label>
+                                <label htmlFor="telefono">*Télefono:</label>
                                 <input type="text" placeholder="Telefono" name="telefono" id="telefono" onChange={this.changeData} value={this.state.telefono} required />
                             </div>
 
@@ -83,15 +83,22 @@ class NuevaPersona extends Component {
                         <fieldset>
                             <legend>{universityIcon} Datos de la Universidad</legend>
                             <div>
-                                <label htmlFor="codigo">Codigo:</label>
+                                <label htmlFor="codigo">*Codigo:</label>
                                 <input type="text" placeholder="Codigo" name="codigoUniversitario" id="codigoUniversitario" onChange={this.changeData} value={this.state.codigoUniversitario} required />
                             </div>
                             <div>
-                                <label htmlFor="facultad">Facultad:</label>
-                                <input type="text" placeholder="Facultad" name="facultad" id="facultad" onChange={this.changeData} value={this.state.facultad} required />
+                                <label htmlFor="facultad">*Facultad:</label>
+                                <select id="facultad" name="facultad" onChange={this.changeData} value={this.state.tipo} required>
+                                    <option value="Ingeniería">Ingeniería</option>
+                                    <option value="Administración">Administración</option>
+                                    <option value="Medicina">Medicina</option>
+                                    <option value="Ciencias">Ciencias</option>
+                                    <option value="Artes">Artes</option>
+                                    <option value="Arquitectura">Arquitectura</option>
+                                </select>
                             </div>
                             <div>
-                                <label htmlFor="tipo">Tipo de Usuario:</label>
+                                <label htmlFor="tipo">*Tipo de Usuario:</label>
                                 <select id="tipo" name="tipo" onChange={this.changeData} value={this.state.tipo} required>
                                     <option value="Estudiante de Pregrado">Estudiante de Pregrado</option>
                                     <option value="Estudiante de Posgrado">Estudiante de Posgrado</option>
