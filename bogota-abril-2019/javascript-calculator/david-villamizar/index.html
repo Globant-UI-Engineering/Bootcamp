@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <meta name="theme-color" content="#fafafa" />
+  </head>
+
+  <body>
+    <!--[if IE]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div id="calculator">
+      <input
+        type="text"
+        name="number-input"
+        id="number-input"
+        value="0"
+        readonly
+      />
+      <div class="keyboard">
+        <div class="actions">
+          <button id="clear-button">C</button>
+          <button id="change-sign-button">+/-</button>
+          <button id="percentage-button">%</button>
+        </div>
+        <div class="numbers">
+          <button value="7">7</button>
+          <button value="8">8</button>
+          <button value="9">9</button>
+          <button value="4">4</button>
+          <button value="5">5</button>
+          <button value="6">6</button>
+          <button value="1">1</button>
+          <button value="2">2</button>
+          <button value="3">3</button>
+          <button value="0">0</button>
+          <button id="dot-button" value=".">.</button>
+        </div>
+        <div class="operators">
+          <button value="/">÷</button>
+          <button value="*">×</button>
+          <button value="-">-</button>
+          <button value="+">+</button>
+          <button id="equals-button" value="=">=</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
