@@ -42,7 +42,8 @@ class CataloguePage extends React.Component {
 
     render() {
         const { fetched, furnidata } = this.props.furniContext;
-        const { itemClassname, itemName, itemDescription } = this.state;
+        const { itemClassname, itemName } = this.state;
+        let { itemDescription } = this.state;
 
         let imageUrl = '/web-gallery/images/furni_placeholder.png';
 
@@ -58,6 +59,8 @@ class CataloguePage extends React.Component {
         console.log(itemClassname);
         if (itemClassname !== '') {
             imageUrl = getImageUrl(itemClassname);
+        } else {
+            itemDescription = 'Selecciona un elemento de la lista';
         }
 
         return (
