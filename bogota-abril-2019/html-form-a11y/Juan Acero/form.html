@@ -1,0 +1,49 @@
+<DOCTYPE! html>
+<html>
+<head>
+    <title>Personal Data Form</title>
+</head>
+<body>
+    <header>
+        <h1>A11y Form</h1>
+    </header>
+    <section>
+        <form>
+            <fieldset> 
+                <legend>Personal Data</legend>          
+                <label for="firstname">Firstname (required): </label>
+                <input type="text" name="firstname" id="firstname" required aria-required="true">
+                <br /><br />
+                <label for="lastname">Lastname (required): </label>
+                <input type="text" name="lastname" id="lastname" required aria-required="true">
+                <br /><br />
+                <label for="email">Email (required): </label>
+                <input type="text" name="email" id="email" required aria-required="true">
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend> choose your gender </legend>
+                <input type="radio" name="gender" id="male">
+                <label for="male">Male</label><br />
+                <input type="radio" name="gender" id="female">
+                <label for="female">Female</label><br />
+                <input type="radio" name="gender" id="other">
+                <label for="other">Other</label>
+            </fieldset>
+            <br />
+            </fieldset>
+            <fieldset>
+                <legend> have any vehicle? </legend>
+                    <label>
+                        <input type="checkbox" name="vehicle"> yes
+                    </label><br />
+                    <label>
+                        <input type="checkbox" name="vehicle"> no
+                    </label>
+            </fieldset>
+            <br/>
+            <button type="submit">submit</button>
+        </form>
+    </section>
+</body>
+</html>
