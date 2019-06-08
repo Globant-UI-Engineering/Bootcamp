@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather:100,300,400");
+body {
+  font-family: "Merriweather", serif;
+  letter-spacing: 0.03em;
+  line-height: 2em;
+  font-size: 1.6rem;
+  color: #221E1A; }
+
+.primary-heading {
+  text-align: center;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #D62503;
+  font-size: 1.6rem;
+  letter-spacing: 0.1em; }
+
+.secondary-heading {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  line-height: 1.5em; }
+
+.tertiary-heading {
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  color: #221E1A;
+  line-height: 1.5em; }
+
+.subtitle {
+  text-transform: capitalize; }
+
+.author-name {
+  color: #D62503;
+  font-weight: 100;
+  font-size: 1rem;
+  font-style: italic; }

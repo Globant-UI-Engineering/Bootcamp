@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather:100,300,400");
+@import url("https://fonts.googleapis.com/css?family=Tauri");
+body {
+  font-family: "Merriweather", serif;
+  letter-spacing: 0.03em;
+  line-height: 2em;
+  font-size: 1.6rem;
+  color: #221E1A; }
+
+.primary-heading {
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #D62503;
+  font-size: 10rem;
+  letter-spacing: 0.1em; }
+
+.secondary-heading {
+  font-family: "Tauri", sans-serif;
+  text-transform: capitalize;
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+  line-height: 1.5em; }
+
+.tertiary-heading {
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  color: #221E1A;
+  line-height: 1.5em; }
+
+.subtitle {
+  text-transform: capitalize; }
+
+.author-name {
+  color: #D62503;
+  font-weight: 100;
+  font-size: 1rem;
+  font-style: italic; }
+
+.cover {
+  width: 36%;
+  margin: 0 auto;
+  position: relative;
+  background-color: #D62503; }
+  .cover__image {
+    display: block;
+    width: 100%;
+    -webkit-filter: contrast(50%);
+            filter: contrast(50%); }
+  .cover__header {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 100%;
+    text-align: center; }
+  .cover__reports {
+    position: absolute;
+    width: 30rem;
+    left: 5%;
+    bottom: 0%; }
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLmNvbmNhdC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0ZBQWdGO0FBQ2hGLDZEQUE2RDtBQUM3RDtFQUNFLG1DQUFtQztFQUNuQyx1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixlQUFlLEVBQUU7O0FBRW5CO0VBQ0UsaUJBQWlCO0VBQ2pCLDBCQUEwQjtFQUMxQixlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLHNCQUFzQixFQUFFOztBQUUxQjtFQUNFLGlDQUFpQztFQUNqQywyQkFBMkI7RUFDM0Isa0JBQWtCO0VBQ2xCLHNCQUFzQjtFQUN0QixZQUFZO0VBQ1osbUJBQW1CLEVBQUU7O0FBRXZCO0VBQ0Usa0JBQWtCO0VBQ2xCLHNCQUFzQjtFQUN0QixlQUFlO0VBQ2YsbUJBQW1CLEVBQUU7O0FBRXZCO0VBQ0UsMkJBQTJCLEVBQUU7O0FBRS9CO0VBQ0UsZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixnQkFBZ0I7RUFDaEIsbUJBQW1CLEVBQUU7O0FBRXZCO0VBQ0UsV0FBVztFQUNYLGVBQWU7RUFDZixtQkFBbUI7RUFDbkIsMEJBQTBCLEVBQUU7RUFDNUI7SUFDRSxlQUFlO0lBQ2YsWUFBWTtJQUNaLDhCQUFzQjtZQUF0QixzQkFBc0IsRUFBRTtFQUMxQjtJQUNFLG1CQUFtQjtJQUNuQixVQUFVO0lBQ1YsUUFBUTtJQUNSLG9DQUE0QjtZQUE1Qiw0QkFBNEI7SUFDNUIsWUFBWTtJQUNaLG1CQUFtQixFQUFFO0VBQ3ZCO0lBQ0UsbUJBQW1CO0lBQ25CLGFBQWE7SUFDYixTQUFTO0lBQ1QsV0FBVyxFQUFFIiwiZmlsZSI6InN0eWxlLnByZWZpeC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IHVybChcImh0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzP2ZhbWlseT1NZXJyaXdlYXRoZXI6MTAwLDMwMCw0MDBcIik7XG5AaW1wb3J0IHVybChcImh0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzP2ZhbWlseT1UYXVyaVwiKTtcbmJvZHkge1xuICBmb250LWZhbWlseTogXCJNZXJyaXdlYXRoZXJcIiwgc2VyaWY7XG4gIGxldHRlci1zcGFjaW5nOiAwLjAzZW07XG4gIGxpbmUtaGVpZ2h0OiAyZW07XG4gIGZvbnQtc2l6ZTogMS42cmVtO1xuICBjb2xvcjogIzIyMUUxQTsgfVxuXG4ucHJpbWFyeS1oZWFkaW5nIHtcbiAgZm9udC13ZWlnaHQ6IDMwMDtcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgY29sb3I6ICNENjI1MDM7XG4gIGZvbnQtc2l6ZTogMTByZW07XG4gIGxldHRlci1zcGFjaW5nOiAwLjFlbTsgfVxuXG4uc2Vjb25kYXJ5LWhlYWRpbmcge1xuICBmb250LWZhbWlseTogXCJUYXVyaVwiLCBzYW5zLXNlcmlmO1xuICB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcbiAgZm9udC1zaXplOiAyLjVyZW07XG4gIGxldHRlci1zcGFjaW5nOiAwLjFlbTtcbiAgY29sb3I6ICNmZmY7XG4gIGxpbmUtaGVpZ2h0OiAxLjVlbTsgfVxuXG4udGVydGlhcnktaGVhZGluZyB7XG4gIGZvbnQtc2l6ZTogMS4zcmVtO1xuICBsZXR0ZXItc3BhY2luZzogMC4xZW07XG4gIGNvbG9yOiAjMjIxRTFBO1xuICBsaW5lLWhlaWdodDogMS41ZW07IH1cblxuLnN1YnRpdGxlIHtcbiAgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7IH1cblxuLmF1dGhvci1uYW1lIHtcbiAgY29sb3I6ICNENjI1MDM7XG4gIGZvbnQtd2VpZ2h0OiAxMDA7XG4gIGZvbnQtc2l6ZTogMXJlbTtcbiAgZm9udC1zdHlsZTogaXRhbGljOyB9XG5cbi5jb3ZlciB7XG4gIHdpZHRoOiAzNiU7XG4gIG1hcmdpbjogMCBhdXRvO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJhY2tncm91bmQtY29sb3I6ICNENjI1MDM7IH1cbiAgLmNvdmVyX19pbWFnZSB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgZmlsdGVyOiBjb250cmFzdCg1MCUpOyB9XG4gIC5jb3Zlcl9faGVhZGVyIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRvcDogMCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjsgfVxuICAuY292ZXJfX3JlcG9ydHMge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB3aWR0aDogMzByZW07XG4gICAgbGVmdDogNSU7XG4gICAgYm90dG9tOiAwJTsgfVxuIl19 */
