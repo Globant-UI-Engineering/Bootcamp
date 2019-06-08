@@ -1,0 +1,9 @@
+.News {
+  margin: 0 auto;
+  width: 65%;
+  overflow: scroll;
+}
+
+.News__title {
+  text-align: center;
+}

@@ -1,0 +1,42 @@
+.Login {
+  padding-top: 10%;
+  text-align: center;
+}
+
+.Login__title {
+  margin: 0;
+}
+
+.Login__box {
+  padding-top: 2em;
+  margin: auto;
+  height: 280px;
+  width: 500px;
+  text-align: center;
+  border-radius: 25px 25px;
+  background: white;
+}
+
+.Login__form{
+  margin: auto !important;
+  height: 90%;
+  width: 90%;
+}
+
+.Login__textinput {
+  width: 100%;
+}
+
+.Login__button {
+  margin-top: 2em !important;
+}
+
+.Login__anchor {
+  display: block;
+  margin-top: .5em;
+}
+
+.Login__anchor > a {
+  color: white;
+  text-decoration: none;
+}

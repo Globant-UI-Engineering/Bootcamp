@@ -1,0 +1,45 @@
+.Profile {
+  margin: auto;
+  width: 1000px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #E7E7E7;
+}
+
+.Profile__info {
+  margin: 0 auto 0 auto;
+  width: 70%;
+  margin-top: 15%;
+  background-color: white;
+  text-align: center;
+}
+
+.Profile__image {
+  margin: 0;
+  position: relative;
+  top: -4.4em;
+}
+
+.Profile__image img {
+  border-radius: 50% 50%;
+}
+
+.Profile__info_name {
+  position: relative;
+  text-transform: capitalize;
+  margin: 0 0 10px 0;
+  top: -1.5em;
+  font-size: 2em;
+}
+
+.Profile__info_detail {
+  margin: auto;
+  position: relative;
+  top: -1.8em;
+  font-size: 1.2em;
+}
+
+.Profile__info_detail label {
+  font-weight: bold;
+}

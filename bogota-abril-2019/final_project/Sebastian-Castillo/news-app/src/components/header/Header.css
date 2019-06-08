@@ -1,0 +1,40 @@
+.Header {
+  margin : auto;
+  height: 70px;
+  width: 1000px;
+  color: white;
+  background-color: #03A9F4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header__title > nav {
+  width: 25%;
+}
+
+.Header__title {
+  font-family: 'Courgette', system-ui;
+}
+
+.Header__links {
+  height: 100%;
+  padding-right: 50px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.Header__links li{
+  margin-right: 1em;
+}
+
+.Header__popover > span {
+  color: white;
+}
+
+.Header__anchor {
+  color: white;
+  text-decoration: none;
+}
