@@ -1,0 +1,132 @@
+body {
+    background-repeat: no-repeat;
+    background-size: 760px;
+    background-position: center 0%;
+    background-image: url("../img/fondo.jpg");
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+/*--------------------------------------*/
+/*--------------------------------------*/
+/*--------------------------------------*/
+/*--------------Containers--------------*/
+/*--------------------------------------*/
+/*--------------------------------------*/
+/*--------------------------------------*/
+.main-container {
+    width: 760px;
+    margin: auto;
+    white-space: nowrap;
+}
+
+.magazine-section {
+    margin: 20px;
+}
+
+.block-50 {
+    width: 50%;
+    display: inline-block;
+    white-space: normal;
+}
+
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*----------------Texts----------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+.title {
+    font-size: 200px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: -60px;
+    margin-bottom: -60px;
+}
+
+.text-xlarge {
+    font-size: 100px;
+    font-weight: 800;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.text-large {
+    font-size: 50px;
+    font-weight: 800;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.text-medium {
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: -5px;
+    margin-top: -5px;
+}
+
+.text-small {
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: -5px;
+    margin-top: -5px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.margin-paragraph-10 {
+    margin: 10px;
+}
+
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*-----------Texts formats-------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+.green {
+    color: #e0dd3b;
+}
+
+.serif {
+    font-family: 'Merriweather', serif;
+}
+
+.sans-serif {
+    font-family: 'Roboto', sans-serif;
+}
+
+.semi-bold {
+    font-weight: 600;
+}
+
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*--------------Alignments-------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+.align-right {
+    text-align: right;
+}
+
+.align-center {
+    text-align: center;
+}
+
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*----------------Images---------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+/*-------------------------------------*/
+.bar-code {
+    position: absolute;
+    margin-left: 0px;
+}
