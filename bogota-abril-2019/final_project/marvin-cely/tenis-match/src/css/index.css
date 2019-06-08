@@ -1,0 +1,50 @@
+:root {
+  /**Color Palette*/
+  --font-color-white: #F2F3F4;
+  --font-color-gray-light: #D6DBDF;
+  --font-color-gray: #909497;
+  --font-color-gray-deep:#7B7D7D;
+  --font-color-black: #1e1e1e;
+  --font-color-mate: #212F3D;
+
+  --primary-color: #206F19;
+  --primary-color-ligth: #85FF66;
+  --primary-color-deep: #0D371E;
+  
+  --neutro-color: #19606f ;
+  --neutro-color-striking:#17a2b8;
+  --neutro-color-ligth: #C6D7DB;
+  --neutro-color-deep: #194b6f;
+
+  --secundary-color: #c0392b;
+  --secundary-color-deep: #902b20;
+
+  --size-small: 1rem;
+  --size-medium: 1.2rem;
+  --size-normal: 1.4rem;
+  --size-moderate: 1.6rem;
+  --size-large: 2.2rem;
+  --size-extra-large: 2.8rem;
+  --size-ultra-large: 5.2rem;
+
+  /**Font styles*/
+  --font-group-1: Arial, Helvetica, sans-serif;
+  --font-group-2: Georgia, 'Times New Roman', Times, serif;
+  --font-group-3: Trebuchet MS, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+

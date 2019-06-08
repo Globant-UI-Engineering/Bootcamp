@@ -1,0 +1,78 @@
+{
+    "dataTournamentsPage": {
+        "bannerBackgroundDescription":"Estadio de tenis",
+        "inscribedMessage":"Total torneos",
+        "idTournamentSelectedDefault": "newTournament",
+        "editTournamentType": "editTournament",
+        "newTournamentButton": {
+            "name": "Crear torneo",
+            "icon": "fas fa-plus"
+        },
+        "orderButton": [{
+            "value": "tournamentName",
+            "namebutton": "Torneo"
+          },
+          {
+            "value": "winner",
+            "namebutton": "Puntos"
+        }],
+        "searchTournamentLabel": "Buscar torneo",
+        "tournamentListHeader": {
+          "winner": "G",
+          "winnerDescription": "Ganador",
+          "finalist": "F",
+          "finalistDescription": "Finalista",
+          "semifinalist": "SF",
+          "semifinalistDescription": "Semifinalista",
+          "quarterfinal": "CF",
+          "quarterfinalDescription": "Cuartos de final"
+        },
+        "ModalForm": {
+          "titleForm": "Caracteristicas del torneo",
+          "successButton": "Nuevo torneo",
+          "cancelButton": "Cancelar",
+          "deleteButton": "Eliminar torneo",
+          "deleteConfirmTitle": "Mensaje de confirmación",
+          "deleteConfirmMessage": "¿Esta seguro de eliminar el torneo?",
+          "submitStyle": "btn btn-info",
+          "initialValueForm": {
+            "tournamentName": "",
+            "winner": "",
+            "finalist": "",
+            "semifinalist": "",
+            "quarterfinal": ""
+          },
+          "inscribeButton": "Inscribir",
+          "updateButton": "Actualizar"
+        },
+        "FormCRUD": {
+          "tournamentNameForm": "Titulo de torneo",
+          "tournamentNameFormExample": "Grand Slam",
+          "instructionFullNameForm": "Utilice titulos simples sin número de puntos de torneo.",
+          "tournamentPointsTitle": "Distribución de puntos",
+          "winnerTournamentForm": "Ganador",
+          "finalistTournamentForm": "Finalista",
+          "semifinalistTournamentForm": "Semifinalista",
+          "quarterfinalTournamentForm": "Cuartos de final",
+          "winnerTournamentFormExample": "2000",
+          "finalistTournamentFormExample": "1200",
+          "semifinalistTournamentFormExample": "720",
+          "quarterfinalTournamentFormExample": "360",
+          "maxWinner": 2000,
+          "minWinner": 50,
+          "minFinalist": 25,
+          "minSemifinalist": 10,
+          "minQuarterfinal": 5
+        },
+        "TournamentCard": {
+          "rankingPointsTitle": "Puntos en ranking",
+          "winnerAbbreviation": "G",
+          "finalistAbbreviation": "F",
+          "semifinalistAbbreviation": "SF",
+          "quarterfinalAbbreviation": "CF",
+          "styleGradeOne":  "gradeOne",
+          "styleGradeTwo":  "gradeTwo",
+          "styleGradeThree":  "gradeThree"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+section.row section[role="gridcell"] {
+    padding: 0;
+}
+
+div.card > div.row {
+    margin: 0;
+}
+
+div.card > div.row section[role='figure'] {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.row article[role='contentinfo'] {
+    padding: 0;
+}
+
+section.row article[role='contentinfo'] > table {
+    text-align: center;
+    table-layout: auto;
+    width: 100%;
+}
+
+section.row article[role='contentinfo'] > table caption {
+    caption-side: top;
+    font-family: var(--font-group-3);
+    font-size: var(--size-small);
+    color: var(--font-color-black);
+    font-weight: bold;
+    padding-left: .5rem;
+    padding-bottom: 0;
+}
+
+section.row article[role='contentinfo'] > table th {
+    font-family: var(--font-group-3);
+    font-size: var(--size-small);
+}

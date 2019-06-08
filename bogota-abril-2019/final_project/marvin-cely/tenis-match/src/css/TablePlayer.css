@@ -1,0 +1,39 @@
+section > article p[role="cell"], section.row[role="row"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button > * {
+    pointer-events: none;
+}
+
+section[role="table"] > section[role="heading"] {
+    color: var(--font-color-gray-deep);
+    z-index: 2;  
+}
+
+section[role="table"] > section[role="heading"] > section {
+    background: white;
+    box-shadow: 0 1.5rem 1rem -1rem rgba(0, 0, 0, .1);  
+}
+
+@media only screen and (min-width: 992px) {
+    section[role="table"] > section[role="heading"] {
+        padding-top: 10rem;
+        margin-top: -10rem;
+    }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 991px) {
+    section[role="table"] > section[role="heading"] {
+        padding-top: 11.1rem;
+        margin-top: -11.1rem;
+    }
+}
+
+
+section[role="table"] > section[role="heading"] h4 {
+    font-size: var(--size-small);
+    margin: 0;
+}
