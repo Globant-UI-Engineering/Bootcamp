@@ -1,0 +1,20 @@
+.parallax-1{
+    background-image: url('/assets/img/background.jpeg');
+    background-size:cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.separator-1{
+    margin-top:1em;
+    padding:1em;
+    background-color:white;
+}
+
+h3{
+    margin:0;
+}
+
+.text-white{
+    color:black;
+}
