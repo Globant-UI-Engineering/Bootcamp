@@ -1,0 +1,7 @@
+.list-container {
+    text-align: left;
+    margin: auto;
+    border: 1px solid blue;
+    padding: 10px;
+    width: 300px;
+}
