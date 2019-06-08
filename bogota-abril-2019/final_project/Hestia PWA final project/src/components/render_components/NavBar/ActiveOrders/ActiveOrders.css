@@ -1,0 +1,8 @@
+.modal_tittle {
+    color: rgba(255, 0, 0, 0.521);
+}
+
+.modal_details span{
+    font-weight: bold;
+    display: inline;
+}
