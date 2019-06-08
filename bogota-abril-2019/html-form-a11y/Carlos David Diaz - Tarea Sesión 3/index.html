@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>HTML A11Y Form</title>
+</head>
+<body>
+     <div class="container pt-3">
+        <form>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" aria-describedby="nameHelp" aria-required="true" placeholder="Enter your full name" required>
+                <small id="nameHelp">First Name + Last Name</small>
+            </div>
+            <div class="form-group">
+                    <label for="id_num">Identification Number</label>
+                    <input type="number" class="form-control" id="id_num" aria-required="true" placeholder="Enter your Identification Number" required>
+                </div>
+            <div class="form-group">
+                <label for="email_address">Email address</label>
+                <input type="email" class="form-control" id="email_address" placeholder="Enter your email address">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password</label>
+                <input type="password" class="form-control" id="pwd" aria-required="true" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_pwd">Confirm Password</label>
+                <input type="password" class="form-control" id="confirm_pwd" aria-describedby="confirm_pwdHelp" aria-required="true" placeholder="Confirm Password" required>
+                <small id="confirm_pwdHelp">Must match the password</small>
+            </div>
+            <label for="sex">Sex</label>
+            <div class="form-group form-check">
+                <input class="form-check-input" type="radio" name="sex" id="sex1" value="Male">
+                <label class="form-check-label" for="sex1">Male</label>
+            </div>
+            <div class="form-group form-check">
+                    <input class="form-check-input" type="radio" name="sex" id="sex2" value="Female">
+                    <label class="form-check-label" for="sex2">Female</label>
+            </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" type="radio" name="sex" id="sex3" value="Non Binary">
+                <label class="form-check-label" for="sex3">Non Binary</label>
+            </div>
+            <div class="form-group">
+                <label for="observations">Observations</label>
+                <textarea class="form-control is-invalid" id="observations" aria-describedby="observationsHelp" placeholder="Required example textarea"></textarea>   
+                <small id="observationsHelp">Please submit any observations about the form (optional)</small>   
+            </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+     </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
