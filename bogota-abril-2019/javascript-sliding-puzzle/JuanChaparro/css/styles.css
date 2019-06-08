@@ -1,0 +1,40 @@
+h1 {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: #03628C;
+}
+
+div {
+    margin: auto;
+    width: 500px;
+    height: 500px;
+    border: 10px solid #04D9D9;
+}
+
+button:not(.sliding-button) {
+    margin: 20px auto;
+    display: flex;
+    font-size: 40px;
+    color: #F2EDD5;
+    background-color: #038C8C;
+    font-family: monospace;
+}
+
+.sliding-button {
+    font-size: 50px;
+    color: #F2EDD5;
+    background-color: #038C8C;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button:hover {
+    background-color: #03628C;
+}
+
+button:focus {
+    outline: none;
+}
+
+.blank {
+    visibility: hidden;
+}
