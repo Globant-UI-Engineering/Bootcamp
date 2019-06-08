@@ -1,0 +1,46 @@
+.flights-container {
+    margin: auto;
+    width: 60%;
+    background-color: black;
+    box-shadow: 10px 10px 20px 10px rgba(0,0,0,0.7);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.flights-container h2 {
+    text-transform: capitalize;
+    color: white;
+    font-size: 40px;
+}
+
+.flight-description {
+    margin: 20px auto;
+    border: 2px solid rgb(239, 228, 14);
+    color: rgb(239, 228, 14);
+    width: 90%;
+}
+
+.flight-description .info {
+    display: block;
+    text-align: left;
+    font-size: 100%;
+}
+
+.flight-description .key {
+    font-weight: bold;
+    color: yellow;
+    text-transform: capitalize;
+    margin-left: 10%;
+}
+
+.flight-description .value {
+    color: white;
+}
+
+.flight-description img {
+    margin-top: 5%;
+    width: 200px;
+    float: left;
+    margin-left: 5%;
+}
