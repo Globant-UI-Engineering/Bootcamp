@@ -32,6 +32,11 @@ export default StyleSheet.create({
     color: lightColor
   },
 
+  recognitionView: {
+    flex: 1,
+    justifyContent: "space-around"
+  },
+
   recognitionBtn: {
     height: 200,
     width: 200,
@@ -51,8 +56,8 @@ export default StyleSheet.create({
     width: (Dimensions.get('window').width - 40)
   },
 
-  listSeparatorHighlighted: {
-
+  statusText: {
+    alignSelf: 'center',
   },
 
   listBox: {

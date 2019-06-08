@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { View, Text, FlatList, TouchableOpacity, DeviceInfo } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 
 import Styles from "../Styles";
 
-export default class RecognizeView extends Component {
+import { removeSong } from "../redux/actions";
+
+class RecognizeView extends Component {
 
   constructor(props){
     super(props)
@@ -22,7 +25,7 @@ export default class RecognizeView extends Component {
       <View style={Styles.coverAlbumArea}>
       </View>
       <TouchableOpacity style={Styles.iconsArea} >
-        <Ionicons name="md-trash" size={32} color="#fe5f55" onPress={ _ => this.props.removeSong(item)}/>
+        <Ionicons name="md-trash" size={32} color="#fe5f55" onPress={ _ => this.props.removeSong(item.id)}/>
       </TouchableOpacity>
     </View>
   )
@@ -42,3 +45,16 @@ export default class RecognizeView extends Component {
     )
   }
 }
+
+const mapStateToProps = (state, ownProps) => ({...ownProps, songList: state.songs})
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  removeSong: (idSong) => {
+    dispatch(removeSong(idSong))
+    ownProps.removeSong(idSong)
+  }
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RecognizeView)
