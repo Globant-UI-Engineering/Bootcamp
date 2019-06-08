@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/PlayerPageTools.css';
+import '../../css/ToolsPage.css';
 import { observer } from 'mobx-react';
 import { dataPlayersPage } from '../../data-component/data-players-page';
 

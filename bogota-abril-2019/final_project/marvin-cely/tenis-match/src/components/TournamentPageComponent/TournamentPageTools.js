@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/TournamentPageTools.css';//TODO: referenciar al mismo css Tournament Page Tools
+import '../../css/ToolsPage.css';
 import { observer } from 'mobx-react';
 import { dataTournamentsPage } from '../../data-component/data-tournaments-page';
 

@@ -7,7 +7,7 @@ main.container > section:first-of-type {
 }
 
 @media only screen and (min-width: 992px) {
-    section > header.row > section:first-of-type  {
+    section.sticky-top > header.row > section:first-of-type  {
         margin-bottom: 1.2rem;
     }
     main.container > section:first-of-type {
@@ -17,7 +17,7 @@ main.container > section:first-of-type {
 }
 
 @media only screen and (max-width: 991px) {
-    section > header.row > section:first-of-type section:first-of-type  {
+    section.sticky-top > header.row > section:first-of-type section:first-of-type  {
         margin-bottom: 0.3rem;
     }
     main.container > section:first-of-type {
@@ -30,7 +30,7 @@ form > fieldset {
     margin-bottom: 0;
 }
 
-section > header.row {
+section.sticky-top > header.row {
     background: white;
     padding: 1rem;
     padding-bottom: 0.8rem;
@@ -42,19 +42,19 @@ section > header.row {
 }
 
 @media only screen and (max-width: 767px) {
-    section > header.row {
+    section.sticky-top > header.row {
         box-shadow: 0 1.5rem 1rem -1rem rgba(0, 0, 0, .09); 
     }
 }
 
-section > header.row > section:last-of-type, section > header.row > section:first-of-type > div section {
+section.sticky-top > header.row > section:last-of-type, section.sticky-top > header.row > section:first-of-type > div section {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-section > header.row > section:first-of-type > div > section:last-of-type div[data-toggle="buttons"]{
+section.sticky-top > header.row > section:first-of-type > div > section:last-of-type div[data-toggle="buttons"]{
     margin: 0;
 }
 
@@ -67,18 +67,18 @@ header > section:last-of-type h5 {
     margin-bottom: 0;
 }
 
-section.row {
+section.row[role='row'], section.sticky-top > section.row {
     margin: auto;
     text-align: center;
     padding: 1rem;;
 }
 
-section > header.row > section:first-of-type > div > section:first-of-type [name='search'] {
+section.sticky-top > header.row > section:first-of-type > div > section:first-of-type [name='search'] {
     width: 19.5rem;
     padding-left: 2.375rem;
 }
 
-section > header.row > section:first-of-type > div > section:first-of-type span {
+section.sticky-top > header.row > section:first-of-type > div > section:first-of-type span {
     position: absolute;
     z-index: 2;
     display: block;

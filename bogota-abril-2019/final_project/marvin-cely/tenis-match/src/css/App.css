@@ -12,7 +12,7 @@
   }
 }
 
-@media only screen and (min-width: 576px) and (max-width: 720px) {
+@media only screen and (min-width: 576px) and (max-width: 767px) {
   nav + section {
     padding-bottom: 19rem;
   }
@@ -21,7 +21,7 @@
   }
 }
 
-@media only screen and (min-width: 721px){
+@media only screen and (min-width: 768px){
   nav + section {
     padding-bottom: 11rem;
   }

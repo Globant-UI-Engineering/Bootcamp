@@ -3,6 +3,7 @@
         "bannerBackgroundDescription":"Estadio de tenis",
         "inscribedMessage":"Total torneos",
         "idTournamentSelectedDefault": "newTournament",
+        "editTournamentType": "editTournament",
         "newTournamentButton": {
             "name": "Crear torneo",
             "icon": "fas fa-plus"
@@ -62,6 +63,16 @@
           "minFinalist": 25,
           "minSemifinalist": 10,
           "minQuarterfinal": 5
+        },
+        "TournamentCard": {
+          "rankingPointsTitle": "Puntos en ranking",
+          "winnerAbbreviation": "G",
+          "finalistAbbreviation": "F",
+          "semifinalistAbbreviation": "SF",
+          "quarterfinalAbbreviation": "CF",
+          "styleGradeOne":  "gradeOne",
+          "styleGradeTwo":  "gradeTwo",
+          "styleGradeThree":  "gradeThree"
         }
     }
 }

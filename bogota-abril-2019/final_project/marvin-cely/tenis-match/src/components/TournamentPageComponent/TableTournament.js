@@ -1,9 +1,10 @@
 import React from 'react';
 import '../../css/TableTournament.css';
+import TournamentCard from './TournamentCard'
 import { autorun, toJS } from "mobx";
 import { observer } from 'mobx-react';
 import { dataTournamentsPage } from '../../data-component/data-tournaments-page';
-import { ImageCountry, NotFoundComponent } from '../SmallPieceComponent';
+import { NotFoundComponent } from '../SmallPieceComponent';
 import utils from '../../utils/utils';
 
 const TableTournament = observer(
@@ -54,34 +55,25 @@ const TableTournament = observer(
         this.props.store.tournamentsTable.tournamentsList = utils.sortByNumberArrayList(...elementsToSort);
     }
 
-    render() { 
+    render() {       
       const _tournamentsList = toJS(this.props.store.tournaments);
       const tournamentsList = this.props.store.tournamentsTable.tournamentsList.map(({id, tournamentName, winner, finalist, semifinalist, quarterfinal}) => {
-        return (
-          <section className="row" key={id} role="row">       
-            <article className="col-10">
-              <div className="row">
-                <p className="col-md-6" role="cell">
-                  {tournamentName}
-                </p>
-                <p className="col-md-6" role="cell">
-                  {winner}&nbsp;<span className="d-inline d-md-none">puntos</span>
-                </p>
-              </div>
-            </article>
-            <section className="col-2">
-              <button type="button" className="btn btn-light" role="cell" aria-label="opciones" title="Opciones" data-toggle="modal" data-target="#ModalCRUDTournament" name="editTournament" value={id} onClick={this.props.onClick}>
-                <i className="fas fa-ellipsis-h"></i>
-              </button>
-            </section>   
-          </section>
+        return (    
+            <TournamentCard  key={id} tournamentName={tournamentName} scores={{winner, finalist, semifinalist, quarterfinal}} idTournament={id} onClick={this.props.onClick}/>
         );
       });
+
+      const tournamentBoard = 
+            <React.Fragment>
+              <section className="row"> 
+                {tournamentsList}
+              </section> 
+            </React.Fragment>;
 
       const resultSearchComponent = () => {
         return (tournamentsList.length === 0 && this.props.store.tournamentsTable.searchValue !== '') ?
           <NotFoundComponent thing={dataTournamentsPage.orderButton[0].namebutton}/> :
-          tournamentsList;
+          tournamentBoard;
       }
 
       return(
@@ -91,6 +83,8 @@ const TableTournament = observer(
             summary="Tabla de los jugadores y sus esetadísticas">
               {resultSearchComponent()}
           </section>
+          
+            
         </React.Fragment>
       );
     }
