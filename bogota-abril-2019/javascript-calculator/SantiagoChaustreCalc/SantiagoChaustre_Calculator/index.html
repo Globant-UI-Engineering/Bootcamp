@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Calculator ! :3</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="calculator" class="calculator_body">
+        <input type="text" name="screen" id="input_screen" placeholder="I'm off..." disabled>
+        <br>
+        <table id="controls" class="main_controls">
+
+            <!--Zero Row-->
+            <tr>
+                <td colspan="2"><button type="button" class="button" value="AC" onclick="clear_screen()">AC</button></td>
+                <td><button type="button" class="button" value="C" onclick="delete_last_char()">C</button></td>
+                <td><button type="button" class="button" value="power" onclick="PowerCalc()">I/O</button></td>
+            </tr>
+            <!--First Row-->
+            <tr>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="7">7</button></td>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="8">8</button></td>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="9">9</button></td>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="/">/</button></td>
+            </tr>
+            <!--Second Row-->
+            <tr>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="4">4</button></td>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="5">5</button></td>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="6">6</button></td>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="*">*</button></td>
+            </tr>
+            <!--Third Row-->
+            <tr>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="1">1</button></td>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="2">2</button></td>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="3">3</button></td>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="-">-</button></td>
+            </tr>
+            <!--Fifth Row-->
+            <tr>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="0">0</button></td>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value=".">.</button></td>
+                <td><button type="button" class="button" onclick="equals_key()" value="=">=</button></td>
+                <td><button type="button" class="button" onclick="AddSymbol(this.value)" value="+">+</button></td>
+            </tr>
+        </table>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
