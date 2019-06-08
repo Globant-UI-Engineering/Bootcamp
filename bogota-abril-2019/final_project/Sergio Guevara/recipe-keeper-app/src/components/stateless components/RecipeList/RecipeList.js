@@ -1,7 +1,7 @@
 import React from 'react'
-import RecipeSummary from "./RecipeSummary/RecipeSummary"
+import RecipeSummary from "../RecipeSummary/RecipeSummary"
 import {NavLink}from "react-router-dom"
-import "./RecipeSummary/RecipeSummary"
+import "./RecipeList.css"
 
 
 const RecipeList = ({recipes}) => {

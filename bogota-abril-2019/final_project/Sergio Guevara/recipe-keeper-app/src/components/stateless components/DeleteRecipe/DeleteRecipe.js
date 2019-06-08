@@ -1,5 +1,5 @@
 import React from 'react'
-import {deleteRecipe} from "../../store/actions/recipeAction"
+import {deleteRecipe} from "../../../store/actions/recipeAction"
 import {connect} from "react-redux"
 
 function DeleteRecipe (props){

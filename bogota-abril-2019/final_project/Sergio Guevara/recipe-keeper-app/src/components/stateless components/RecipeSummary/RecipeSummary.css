@@ -39,15 +39,4 @@
     text-decoration: none;
     margin: 4px 5px 4px 15px;
 }
-.recipeSummary{
-    text-decoration: none;
-}
-.recipes{
-    margin-top: 3%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    margin-left: 10px;
-    margin-right: 10px;
-}
+
