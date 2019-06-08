@@ -1,0 +1,75 @@
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.modalBackdrop {
+  animation: fadeIn 0.5s ease-in-out 0s 1;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 10000;
+}
+
+.loginWarning {
+  animation: slideInFromTop 0.25s ease-in-out 0s 1;
+
+  border: 1px solid black;
+  padding: 1rem;
+  margin: auto;
+  background: white;
+  max-width: 320px;
+  z-index: 10001;
+}
+
+.loginWarning button {
+  border: 0;
+  width: 100%;
+  appearance: none;
+  text-align: center;
+  font-size: 22px;
+  background: #aaa;
+  transition: 0.25s background-color, 0.5s color;
+  cursor: pointer;
+  margin: 0.5rem 0 0.5rem 0;
+  padding: 0.5rem;
+}
+
+.loginWarning button:disabled {
+  cursor: default;
+}
+
+.loginWarning button:hover:not(:disabled) {
+  background: #555;
+}
+
+.loginWarning button:active {
+  background: #333;
+  color: white;
+}
