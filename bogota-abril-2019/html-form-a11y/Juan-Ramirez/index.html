@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A11Y Form Homework</title>
+</head>
+<body>
+    <form aria-label="Add new user">
+        <label for="name">Name</label>
+        <input id="name" aria-label="name" type="text" title="Enter your name" required>
+
+
+        <label for="city">City</label>
+        <input id="city" type="text" title="Enter your city of origin">
+
+
+        <label for="age">Age</label>
+        <input id="age" type="number" title="Enter your age">
+
+
+        <label for="id">Id</label>
+        <input id="id" type="number" required title="Enter your Id number">
+
+
+        <label for="email">Email</label>
+        <input id="email" type="email" required title="Enter your email">
+
+        <label for="address">Address</label>
+        <input id="address" type="text" title="Enter your city address">
+
+
+        <input id="submit-button" title="Click this button after you've filled out the form elements" type="submit" value="Submit">
+    </form>
+</body>
+</html>
