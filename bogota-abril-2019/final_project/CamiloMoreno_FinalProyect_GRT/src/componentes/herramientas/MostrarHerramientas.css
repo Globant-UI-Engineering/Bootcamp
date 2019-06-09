@@ -1,0 +1,49 @@
+img {
+    width: 202px;
+    float: left;
+    margin-right: 20px;
+}
+
+section.mostrarHerramientaContainer{
+    border: solid;
+    width: 511px;
+    height: 233px;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #a5cede94;
+    border: 0.5px solid black;
+}
+
+section.mostrarHerramientaContainer h1{
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 18px 0px;
+}
+
+section.mostrarHerramientaContainer p{
+    text-align: left;
+    font-size: 16px;
+    margin: 0px 0px;
+}
+
+.prestamoButton, .solicitudPrestamoButton{
+    border: 1px solid black;
+    width: 180px;
+    height: 30px;
+    color: white;
+    margin: 30px 70px;
+    background: orangered;
+    text-align: center;
+    display: block;
+}
+
+.solicitudPrestamoButton{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mostrarPrestamoContainer{
+    margin-top: 0px;
+}
