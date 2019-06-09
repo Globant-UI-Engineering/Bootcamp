@@ -1,0 +1,28 @@
+.formContainer {
+    width: 50%;
+    margin: 0 36%;
+    height: 28px;
+}
+
+input[type="text"] {
+    height: 25px;
+    width: inherit;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+button{
+    margin: 0 8px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: rgb(23, 179, 252);
+    font-size: 15px;
+    border: solid 0.5px;
+    font-size: 27px;
+    color: white;
+}
+button:hover{
+    color: rgb(0, 140, 255);
+}

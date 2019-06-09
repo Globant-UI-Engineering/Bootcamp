@@ -1,0 +1,44 @@
+article h1{
+    text-align: center;
+}
+
+div .container{
+    background: #d3d0d0;
+    border: solid 0.5px;
+    width: 45%;
+    height: 30px;
+    margin-left: 27%;
+}
+
+p {
+    margin: 0;
+    font-size: 20px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.checkedStyle{
+    text-decoration:line-through
+}
+
+input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+    margin-top: 7px;
+    vertical-align: middle;
+}
+
+.container button{
+    background: red;
+    width: 20px;
+    height: 20px;
+    float: right;
+    border-radius: 20%;
+    font-size: 11px;
+    margin: 5px 5px;
+}
+
+.container button:hover{
+    background: rgb(185, 2, 2);
+    color: rgb(250, 106, 106);
+}
