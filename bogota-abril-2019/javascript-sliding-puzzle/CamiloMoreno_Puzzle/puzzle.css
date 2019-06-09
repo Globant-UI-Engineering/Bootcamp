@@ -1,0 +1,91 @@
+table{
+    width: 800px;
+    height: 800px;
+    padding: 50px 50px;
+    border: solid;
+    margin: 0 400px;
+}
+
+td input{
+    width: 200px;
+    height: 200px;
+    font-size: 50px;
+    background: url(background.jpg);
+    border:solid;
+}
+
+.emptyElement{
+    display: none;
+}
+
+
+.cell1{
+    background-position-x: 0px;
+}
+
+.cell2{
+    background-position-x: -206.5px;
+}
+
+.cell3{
+    background-position-x: -413px;
+}
+
+.cell4{
+    background-position-x: -619.5px;
+}
+
+.cell5{
+    background-position-x: 0px;
+    background-position-y: 600px;
+}
+
+.cell6{
+    background-position-x: -206.5px;
+    background-position-y: 600px;
+}
+
+.cell7{
+    background-position-x: -413px;
+    background-position-y: 600px;
+}
+
+.cell8{
+    background-position-x: -619.5px;
+    background-position-y: 600px;
+}
+
+.cell9{
+    background-position-x: 0px;
+    background-position-y: 400PX;
+}
+
+.cell10{
+    background-position-x: -206.5px;
+    background-position-y: 400PX;
+}
+
+.cell11{
+    background-position-x: -413px;
+    background-position-y: 400PX;
+}
+
+.cell12{
+    background-position-x: -619.5px;
+    background-position-y: 400PX;
+}
+
+.cell13{
+    background-position-x: 0px;
+    background-position-y: 200px;
+}
+
+.cell14{
+    background-position-x: -206.5px;
+    background-position-y: 200px;
+}
+
+.cell15{
+    background-position-x: -413px;
+    background-position-y: 200px;
+}
