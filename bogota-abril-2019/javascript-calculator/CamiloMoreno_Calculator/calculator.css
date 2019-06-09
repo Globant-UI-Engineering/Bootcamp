@@ -1,0 +1,49 @@
+form {
+    width: 50%;
+    max-width: 400px;
+    text-align: center;
+    border: solid 1px #000000;
+    padding-bottom: 10px;
+    margin: auto;
+    background: #2b2b2b;
+}
+
+header h1{
+    color:white;
+}
+
+.answer input {
+    width: 75%;
+    padding: 15px 32px;
+    font-size: 16px;
+    margin: 8px 0;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 1px;
+    text-align: left;
+    color: #333;
+    background: rgb(255, 253, 253);
+    text-align: right;
+}
+
+table{
+    padding: 0 56px;
+    width: 50%;
+    margin: 10 0 10 0;
+}
+
+table td{
+    padding: 0;
+    min-width: 70px;
+    min-height: 70px;
+}
+
+table td input{
+    min-width: 70px;
+    min-height: 70px;
+    background:#dddddd;
+    font-size: 25px;
+}
+
+.colorOperator{
+    background: orange;
+}
