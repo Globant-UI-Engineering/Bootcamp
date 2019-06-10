@@ -3,7 +3,8 @@ import { lyricsActionTypes } from '../actions/actionTypes'
 import { addLyrics, getLatestLyrics, getTrackLyrics } from '../api/lyricsApi'
 
 function* addLyricsSaga(action) {
-    const data = yield call(addLyrics, action.payload);
+    console.log("IN ADD LYRICS ", action.payload);
+    const data = yield call(addLyrics, action.payload);    
 
     yield put({
         type: lyricsActionTypes.addLyricsSuccess
@@ -25,7 +26,6 @@ function* getTrackLyricsSaga(action) {
 
 function* getLatestLyricsSaga() {
     const data = yield call(getLatestLyrics);
-
     yield put({
         type: lyricsActionTypes.getLatestLyricsSuccess,
         payload: data.data

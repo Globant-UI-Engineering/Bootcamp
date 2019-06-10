@@ -10,10 +10,29 @@ import { Row, Col } from 'react-bootstrap';
 class Lyrics extends React.Component {
     constructor() {
         super();
+        this.state = {
+            intervalId: ''
+        }
+        this.checkCurrentTrackLyrics = this.checkCurrentTrackLyrics.bind(this);
     }
 
     componentWillMount() {
-        
+        this.checkCurrentTrackLyrics();
+        this.props.getLatestLyrics();
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.state.intervalId);
+    }
+
+    checkCurrentTrackLyrics() {
+        let intervalId = setInterval(() => {
+            this.props.getTrackLyrics(this.props.playing.trackId);
+        }, 5000);
+
+        this.setState({
+            intervalId: intervalId
+        })
     }
     
     render() {
@@ -22,35 +41,19 @@ class Lyrics extends React.Component {
                 <Row>
                     <Col md={9}>
                         <LyricsActionContainer
-                            trackName='track01'
-                            details='Lyrics available'
+                            trackName={this.props.playing.name}
+                            details={this.props.currTrackLyrics ? 'Lyrics available': 'Add lyrics'}
                             >
-                                { true ? 
+                                { (this.props.currTrackLyrics) ? 
                                     <LyricsViewer
-                                    lyricsContent='djksjdkdjdkjdskjdjkjdsjkds
-                                    Weee
-                                    skslkklsaskkskskskskskskkskskskskskskskskskskksksksks
-                                    aaaa' />
-                                    : <AddLyrics />}
+                                    lyricsContent = {this.props.currTrackLyrics.lyrics } />
+                                    : <AddLyrics playing={ this.props.playing } addLyrics={ this.props.addLyrics } userName={ this.props.userName } />}
                             
                         </LyricsActionContainer>
                         
                     </Col>
                     <Col md={3}>
-                        <LatestAddedLyrics latestLyrics={
-                            [
-                                {
-                                    track_id: '0001',
-                                    name: 'Helena Beat',
-                                    artist: 'Foster the people'
-                                },
-                                {
-                                    track_id: '0002',
-                                    name: 'Houdini',
-                                    artist: 'Foster the people'
-                                }
-                            ]
-                        } />
+                        <LatestAddedLyrics latestLyrics={ this.props.latestLyrics } onItemClick={ this.props.resumeTrack } />
                     </Col>
                 </Row>
             </Container>

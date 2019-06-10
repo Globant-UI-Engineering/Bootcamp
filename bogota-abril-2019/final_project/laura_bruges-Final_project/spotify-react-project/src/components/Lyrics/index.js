@@ -7,7 +7,9 @@ import { connect } from 'react-redux';
 const mapStatetoProps = state=>({
     token: state.tokenReducer.authToken,
     playing: state.playerReducer.playing,
-    userName: state.userReducer.user.display_name 
+    userName: state.userReducer.user.display_name,
+    currTrackLyrics: state.lyricsReducer.currTrackLyrics,
+    latestLyrics: state.lyricsReducer.latestLyrics 
 })
 
 
