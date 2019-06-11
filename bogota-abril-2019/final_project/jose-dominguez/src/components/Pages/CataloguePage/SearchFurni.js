@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { searchOnFurnidata } from '../../../controllers/FurnitureProxy';
+
+const ROWS_PER_PAGE = 10;
+
 const initialState = {
     search: '',
     suggestions: [],
+    page: 0,
 };
 
 class SearchFurni extends React.Component {
@@ -54,10 +58,49 @@ class SearchFurni extends React.Component {
         );
     }
 
-    render() {
-        const { search, suggestions } = this.state;
+    goToFirstPage = event => {
+        event.preventDefault();
+        this.setState({
+            page: 0,
+        });
+    }
 
-        const items = suggestions.map((part, index) => {
+    goToLastPage = event => {
+        event.preventDefault();
+        const { suggestions } = this.state;
+        const lastPage = Math.ceil(suggestions.length / ROWS_PER_PAGE) - 1;
+
+        this.setState({
+            page: lastPage,
+        });
+    }
+
+    goToNextPage = event => {
+        event.preventDefault();
+        const { suggestions, page } = this.state;
+        const lastPage = Math.ceil(suggestions.length / ROWS_PER_PAGE) - 1;
+
+        this.setState({
+            page: Math.min(lastPage, page + 1),
+        });
+    }
+
+    goToPreviousPage = event => {
+        event.preventDefault();
+        const { page } = this.state;
+
+        this.setState({
+            page: Math.max(0, page - 1),
+        });
+    }
+
+    render() {
+        const { search, suggestions, page } = this.state;
+
+        const first = page * ROWS_PER_PAGE;
+        const total = suggestions.length;
+        const last = Math.min(page * ROWS_PER_PAGE + ROWS_PER_PAGE, total);
+        const items = suggestions.slice(first, last).map((part, index) => {
             return this.renderRow(part, index, search);
         });
 
@@ -87,6 +130,14 @@ class SearchFurni extends React.Component {
                         {items}
                     </tbody>
                 </table>
+                <p className='pages'>{first + 1} - {last + 1} de {total}</p>
+                <ul>
+                    <li onClick={this.goToFirstPage}>&lt;&lt;</li>
+                    <li onClick={this.goToPreviousPage}>&lt;</li>
+
+                    <li onClick={this.goToNextPage}>&gt;</li>
+                    <li onClick={this.goToLastPage}>&gt;&gt;</li>
+                </ul>
             </>
         );
     }

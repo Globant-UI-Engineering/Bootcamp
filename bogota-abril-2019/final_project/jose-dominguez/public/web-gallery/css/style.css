@@ -190,23 +190,23 @@ input[type="text"].wrong, input[type="password"].wrong, input[type="email"].wron
     color: #aaaaaa;
 }
 
-/* form page */
+/* form article */
 
-.form .input_group {
+.form article .input_group {
     margin: 10px 0;
     font-size: 0.9em;
 }
 
-.form .input_group label {
+.form article .input_group label {
     font-size: 1.4em;
 }
 
-.form .input_group p {
+.form article .input_group p {
     font-size: 0.8em;
     margin-top: 0.2em;
 }
 
-.form input[type="submit"] {
+.form article input[type="submit"] {
     float: right;
 }
 
