@@ -1,0 +1,17 @@
+.alertContainer{
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0.5px solid;
+}
+
+.alertContainer h1{
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+.alertContainer p{
+    margin: 0;
+    text-align: center;
+}

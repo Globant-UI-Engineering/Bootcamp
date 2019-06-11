@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="calculator.css">
+</head>
+
+<body>
+    <form>
+        <header>
+            <h1>Calculadora</h1>
+        </header>
+
+        <article>
+
+            <section class="answer">
+                <input type="number" id="answer" value="">
+            </section>
+
+            <section>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="button" value="1" onClick="saveNumber(1)">
+                            </td>
+                            <td>
+                                <input type="button" value="2" onClick="saveNumber(2)">
+                            </td>
+                            <td>
+                                <input type="button" value="3" onClick="saveNumber(3)">
+                            </td>
+                            <td>
+                                <input id="plus" type="button" value="+" onClick="saveOperator('plus')">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="4" onClick="saveNumber(4)">
+                            </td>
+                            <td>
+                                <input type="button" value="5" onClick="saveNumber(5)">
+                            </td>
+                            <td>
+                                <input type="button" value="6" onClick="saveNumber(6)">
+                            </td>
+                            <td>
+                                <input id="minus" type="button" value="-" onClick="saveOperator('minus')">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="7" onClick="saveNumber(7)">
+                            </td>
+                            <td>
+                                <input type="button" value="8" onClick="saveNumber(8)">
+
+                            </td>
+                            <td>
+                                <input type="button" value="9" onClick="saveNumber(9)">
+                            </td>
+                            <td>
+                                <input id="times" type="button" value="*" onClick="saveOperator('times')">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="4" onClick="saveNumber(4)">
+                            </td>
+                            <td>
+                                <input type="button" value="5" onClick="saveNumber(5)">
+                            </td>
+                            <td>
+                                <input type="button" value="6" onClick="saveNumber(6)">
+                            </td>
+                            <td>
+                                <input id="obelus" type="button" value="/" onClick="saveOperator('obelus')">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" value="0" onClick="saveNumber(0)">
+                            </td>
+                            <td>
+                                <input type="button" value="c" onclick="restart(true)">
+                            </td>
+                            <td>
+                                <input type="button" value="." onClick="saveSeparator('.')">
+                            </td>
+                            <td>
+                                <input type="button" value="=" onClick="calculateAnswer()">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </article>
+    </form>
+</body>
+<script type="text/javascript" src="calculator.js"></script>
+
+</html>

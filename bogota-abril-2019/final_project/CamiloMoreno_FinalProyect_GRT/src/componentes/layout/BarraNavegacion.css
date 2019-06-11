@@ -1,0 +1,39 @@
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #05678e;
+}
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+li a:hover {   
+    background-color: #034661;
+}
+
+nav ul p{
+    color: white;
+    display: block;
+    float: right;
+}
+
+button.cerrarSesion{
+    float: right;
+    margin: 5px 20px;
+    background-color: #ff0700;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+}

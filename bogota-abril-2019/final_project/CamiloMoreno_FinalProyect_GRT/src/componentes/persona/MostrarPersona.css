@@ -1,0 +1,38 @@
+button.editarButtonStyle{
+    background: red!important;
+    float: right;
+    margin-right: 35%;
+}
+section.mostrarPersonaContainer{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    border: solid;
+    background: #a5cede94;
+    border: 0.5px solid black;
+}
+
+section.mostrarPersonaContainer h1{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+section.mostrarPersonaContainer h2{
+    text-align: center;
+    font-size: 16px;
+    margin:0;
+    text-decoration: underline;
+}
+
+section.mostrarPersonaContainer p{
+    text-align: left;
+    font-size: 14px;
+    margin: 10px 15px;
+    font-weight: bold;
+}
+
+section.mostrarPersonaContainer p span{
+    font-weight: normal;
+}

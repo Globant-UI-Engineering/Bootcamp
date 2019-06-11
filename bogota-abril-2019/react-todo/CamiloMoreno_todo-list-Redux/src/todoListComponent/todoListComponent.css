@@ -1,0 +1,7 @@
+.listado ul {
+    list-style-type: none;
+}
+
+.listado li{
+    height: 30px;
+}
