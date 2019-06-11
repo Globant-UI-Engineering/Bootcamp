@@ -1,0 +1,25 @@
+.task_list{
+    margin: 10px 0;
+    padding: 0;
+}
+
+.pending_task, .done_task {
+    list-style: none;
+    background-color: rgb(175, 225, 253);
+    margin: 10px 0;
+    border: solid black;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 10px;
+    transition: box-shadow .3s;
+}
+
+.done_task{
+    text-decoration:line-through;
+    opacity: 0.3;
+}
+
+.pending_task:hover{
+    box-shadow: 0 0 5px 5px rgb(199, 205, 223);
+}
+

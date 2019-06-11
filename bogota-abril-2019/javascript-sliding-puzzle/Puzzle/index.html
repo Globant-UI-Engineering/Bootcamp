@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Sliding Puzzle </title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <div class="container">
+    <header><h1>Sliding Puzzle</h1></header>
+    <section class="puzzle_box">
+        <ul class="puzzle_list">
+            <li class="cell" id="cell1" onclick="cellClicked('cell1')" value="1"></li>
+            <li class="cell" id="cell2" onclick="cellClicked('cell2')" value="2"></li>
+            <li class="cell" id="cell3" onclick="cellClicked('cell3')" value="3"></li>
+            <li class="cell" id="cell4" onclick="cellClicked('cell4')" value="4"></li>
+            <li class="cell" id="cell5" onclick="cellClicked('cell5')" value="5"></li>
+            <li class="cell" id="cell6" onclick="cellClicked('cell6')" value="6"></li>
+            <li class="cell" id="cell7" onclick="cellClicked('cell7')" value="7"></li>
+            <li class="cell" id="cell8" onclick="cellClicked('cell8')" value="8"></li>
+            <li class="cell" id="empty" value="empty"></li>
+          </ul>
+    </section>
+    <section class="game_data">
+      <span>
+        <h2 class="title_steps" >Steps: </h2> <h2 id="steps" ></h2>
+      </span>
+      <h3 id="win_result"></h3>
+      <button title="Shuffle the puzzle" class="btn" onclick="shuffle()" >Shuffle</button>
+    </section>
+  </div>
+
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

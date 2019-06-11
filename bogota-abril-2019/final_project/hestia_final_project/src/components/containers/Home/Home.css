@@ -1,0 +1,32 @@
+.icon{
+    height: 30px;
+    width: 30px;    
+}
+
+.icon[alt="Log out"]{
+    margin-left: 10px;
+}
+
+.badge_number{
+    align-content: center;
+    height: 20px;
+    position: relative;
+    top: 5px;
+}
+
+.active_orders_count{
+    background-color: rgba(245, 193, 186, 0.678);
+    border-radius: 10px;
+    padding: 6px;
+    font-weight: bold;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink{
+    0% { opacity: 1.0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}

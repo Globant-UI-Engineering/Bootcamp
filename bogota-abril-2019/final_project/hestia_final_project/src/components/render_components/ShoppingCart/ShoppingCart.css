@@ -1,0 +1,25 @@
+.shoppinCartContainer{
+    padding: 10px;
+}
+
+span{
+    display: block;
+}
+
+.buttonContainer{
+    position: relative;
+    bottom: 0;
+}
+
+.buttonSend{
+    position: absolute; 
+    width: 100%;
+}
+
+.buttonSend[able="disable"]{
+    display: none;
+}
+
+.modal{
+    border-radius: 10px;
+}
