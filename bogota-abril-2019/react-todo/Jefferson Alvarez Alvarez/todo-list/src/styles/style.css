@@ -1,0 +1,80 @@
+* {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+body {
+    margin: 0px;
+}
+
+.title {
+    color: white;
+    text-align: center;
+    background-color:  #504c4c;
+}
+
+.title h1 {
+    margin: 0px;
+}
+
+.todos-box {
+    background-color: #206384;
+    padding: 5%;
+}
+
+.input-todo {
+    width: 50%;
+    height: 40px;
+    font-size: medium;
+    box-sizing: border-box;
+}
+
+.input-date-todo {
+    width: 10%;
+    height: 40px;
+    font-size: medium;
+    box-sizing: border-box;
+}
+
+.button-todo {
+    width: 30%;
+    height: 40px;
+    color: white;
+    font-size: medium;
+    background-color: #3daf57;
+    border: inherit;
+}
+
+.through {
+    text-decoration: line-through;
+}
+
+.text-todo {
+    display: inline-block;
+    width: 90%;
+}
+
+.remove-todo {
+    height: 40px;
+    font-size: medium;
+    background-color: #b9362d;
+    border: inherit;
+    display: inline-block;
+    color: white;
+    width: 10%;
+}
+
+ol {
+    margin: 0px;
+    padding: 0px;
+}
+
+ol li:nth-child(odd) {
+    background: #dce3ff;
+}
+
+ol li {
+    cursor: pointer;
+    padding: 12px;
+    list-style-type: none;
+    background: #abbff1;
+}

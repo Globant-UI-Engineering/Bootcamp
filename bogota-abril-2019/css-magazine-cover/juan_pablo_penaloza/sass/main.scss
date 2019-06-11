@@ -1,0 +1,30 @@
+@import "variables";
+@import "typography";
+@import "mixins";
+
+.cover {
+  width: 36%;
+  margin: 0 auto;
+  position: relative;
+  background-color: $color-primary;
+
+  &__image {
+    display: block;
+    width: 100%;
+    filter: contrast(50%);
+  }
+
+  &__header {
+    @include horizontalCenter;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__reports {
+    position: absolute;
+    width: 30rem;
+    left: 5%;
+    bottom: 0%;
+  }
+
+}

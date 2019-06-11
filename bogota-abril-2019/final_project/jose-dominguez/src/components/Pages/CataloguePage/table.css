@@ -1,0 +1,55 @@
+table {
+    width: 100%;
+    word-break: break-word;
+}
+
+table, thead, tbody, tr, td, th {
+    font-family: 'Pt Mono', monospace;
+    font-size: 13px;
+    border: 1px solid #9d9e9e;
+    box-sizing: content-box;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 0.2em 0.5em;
+}
+
+thead {
+    background: #f0f0f0;
+}
+
+tbody tr:nth-child(even) {
+    background: #f0f0f0;
+}
+
+tbody tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+tbody tr:hover {
+    background: #eeffee;
+    cursor: pointer;
+}
+
+.furnifinder article ul {
+    font-weight: bold;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: .5em 1em;
+}
+.furnifinder article .pages {
+    text-align: center;
+    margin: 0.2em 0 0 0;
+}
+
+.furnifinder article li {
+    margin: auto;
+    cursor: pointer;
+}
+
+.furnifinder article li:hover {
+    color: #888888;
+}

@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.weatherCard{  
+  padding: 20px;
+  background-color:#fff600;
+  height: 550px;
+}
+.card{
+  max-width: 18rem;  
+}
+.newsCard{
+  padding: 20px;
+  background-color: #007BFF;
+  height: 550px;
+  overflow-y:scroll;
+}
+.newsPage{
+  background-color: #e8ecef;
+}
+.nonSpace{
+  position:relative;
+  width:100%;
+  padding-right:0;
+  padding-left:0;
+}

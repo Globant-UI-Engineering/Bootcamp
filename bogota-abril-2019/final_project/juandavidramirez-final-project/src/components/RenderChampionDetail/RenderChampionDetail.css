@@ -1,0 +1,109 @@
+.champion-detail {
+  text-align: center;
+  padding: 1% 5%;
+}
+
+.champion-detail > div,
+.champion-detail > div > :last-child > div > div {
+  display: flex;
+  flex-direction: row;
+}
+
+.champion-detail > div > :last-child > div > div > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.champion-detail > h2 {
+  margin-bottom: 0;
+  font-size: 40px;
+}
+
+.champion-detail > h3,
+.champion-detail > div > :last-child > div > div > p {
+  text-transform: capitalize;
+}
+
+.champion-detail > div > :last-child > p {
+  font-family: "Mandali", sans-serif;
+}
+
+.champion-detail > h3 {
+  font-size: 18px;
+}
+
+.champion-detail > p {
+  font-style: italic;
+}
+
+.champion-detail > p span {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.champion-detail > h2,
+.champion-detail > h3,
+.champion-detail > p span,
+.champion-detail > div > :first-child p,
+.champion-detail > div > :last-child > div > div > p {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.champion-detail > div > :first-child ul {
+  list-style-type: none;
+}
+
+.champion-detail > div {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1%;
+}
+
+.champion-detail > div > :first-child {
+  text-align: start;
+}
+
+.champion-detail > div > :first-child p {
+  padding-left: 3%;
+  font-weight: 800;
+}
+
+.champion-detail > div > :first-child p span {
+  padding-left: 1%;
+}
+
+.champion-detail > div > :first-child ul {
+  padding: 0;
+}
+
+.champion-detail img {
+  border: 2px solid black;
+}
+
+.champion-detail > div > :last-child {
+  text-align: justify;
+  width: 60%;
+}
+
+.champion-detail > div > :last-child > div {
+  margin-top: 18%;
+}
+
+.champion-detail > div > :last-child > div > div {
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.champion-detail > div > :last-child > div > div > p {
+  font-weight: 800;
+}
+
+.champion-detail > div > :last-child > div > div > div {
+  width: 80%;
+  justify-content: center;
+}
+
+.champion-detail > div > :last-child > div > div > div div.linear-progress-bar {
+  height: 16px;
+}

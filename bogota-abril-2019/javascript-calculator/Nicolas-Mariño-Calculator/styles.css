@@ -1,0 +1,56 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+}
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to left, #22c03c, #34289c);
+}
+.calculator {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5,100px);
+}
+
+.calculator > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.315);
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.363);
+}
+.calculator > button:hover {
+    background-color: rgba(245, 245, 220, 0.664);
+}
+.double-space {
+    grid-column: span 2;
+}
+#four-space {
+    grid-column: span 4;
+    grid-row: span 2;
+}
+.result {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, 0.705);
+    display: flex;
+    /*we use flex end because we one the result numbers in the left part of the calculator*/
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.result .first-result {
+    color: rgba(255, 255, 255, 0.623);
+    font-size: 1.5rem;
+}
+.result .last-result {
+    color: rgba(255, 255, 255);
+    font-size: 2.5rem;
+}

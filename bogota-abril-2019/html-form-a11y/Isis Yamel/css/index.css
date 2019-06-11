@@ -1,0 +1,104 @@
+/* --- general styles --- */
+
+body {
+    box-sizing: border-box;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.center__element {
+    text-align: center;
+}
+
+/* --- header section --- */
+
+.header__section--style {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 20px;
+    height: 140px;
+    margin: 20px;
+    width: 50%;
+}
+
+/* --- info section --- */
+
+.main__section__form--align {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+}
+
+.main__section--info {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 20px;
+    margin: 20px;
+    width: 50%;
+}
+
+/* --- user data --- */
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 10px;
+}
+
+label {
+    margin-right: 20px;
+}
+
+.main__section--data {
+    border-radius: 5px;
+    border: none;
+    height: 24px;
+    width: 300px;
+}
+
+/* --- feed back request --- */
+
+.main__section__feedback--align {
+    display: flex;
+    flex-flow: column;
+    margin: 30px;
+}
+
+.main__section__feedback--box {
+    border-radius: 4px;
+    font-style: italic;
+    padding: 10px;
+}
+
+.main__section__feedback--margin {
+    margin: 10px 0;
+}
+
+/* --- Check-box --- */
+
+.main__section__check--style {
+    margin: 20px;
+}
+
+/* --- button --- */
+
+.main__section__button--style {
+    background-color: black;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    height: 30px;
+    margin-bottom: 20px;
+    width: 100px;
+}
+
+/* --- footer --- */
+
+.footer--style {
+    font-size: 14px;
+    font-style: italic;
+}

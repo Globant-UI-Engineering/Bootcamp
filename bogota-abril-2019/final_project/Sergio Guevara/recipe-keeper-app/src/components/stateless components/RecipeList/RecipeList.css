@@ -1,0 +1,12 @@
+.recipes{
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.recipeSummary{
+    text-decoration: none;
+}

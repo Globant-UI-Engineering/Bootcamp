@@ -1,0 +1,55 @@
+<html>
+
+<body>
+    <header>
+        <h1>Formulario de Registro</h1>
+    </header>
+
+    <form>
+        <fieldset>
+            <legend>Datos Básicos</legend>
+            <div>
+                <label for="text">Primer Nombre: </label>
+                <input type="text" name="pNombre" id="pNombre" required>
+            </div>
+            <div>
+                <label for="text">Segundo Nombre: </label>
+                <input type="text" name="sNombre" id="sNombre">
+            </div>
+            <div>
+                <label for="text">Primer Apellido: </label>
+                <input type="text" name="pApellido" id="pApellido" required>
+            </div>
+            <div>
+                <label for="text">Segundo Apellido: </label>
+                <input type="text" name="sApellido" id="sApellido">
+            </div>
+            <fieldset>
+                <legend>Genero</legend>
+                <div>
+                    <input type="radio" name="format" id="txt" value="txt" checked>
+                    <label for="txt">Masculino</label>
+                </div>
+                <div>
+                    <input type="radio" name="format" id="csv" value="csv">
+                    <label for="csv">Femenino</label>
+                </div>
+            </fieldset>
+            <div>
+                <label for="date">Fecha de nacimiento: </label>
+                <input type="date" name="date" id="date" required>
+            </div>
+            <div>
+                <label for="email">Correo eléctronico: </label>
+                <input type="email" name="email" id="email" placeholder="joe@example.com" required>
+            </div>
+            <div>
+                <label for="phone">Celular: </label>
+                <input type="phone" name="phone" id="phone" required>
+            </div>
+        </fieldset>
+        <input type="submit">
+    </form>
+</body>
+
+</html>

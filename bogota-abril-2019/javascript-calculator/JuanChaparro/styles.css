@@ -1,0 +1,37 @@
+div:first-child {
+    background-color: beige; 
+    height: 400px;
+    width: 500px;
+    border: 3px solid black;
+}
+
+input {
+    margin-left: 30px;
+    margin-top: 30px;
+    height: 30px;
+    font-size: 20px;
+    border: 1px solid black;  
+    padding-left: 10px;  
+}
+
+button {
+    background-color: orange;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    margin: 5px;
+    border: 1px solid black;  
+}
+
+div div {
+    margin-top: 50px;
+    margin-left: 115px;
+}
+
+h2 {
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    font-size: 50px;
+    border: 2px solid black;
+}

@@ -1,0 +1,34 @@
+.challenger-section-title {
+  margin-top: 0;
+}
+
+.table-container {
+  margin: 2% 3%;
+}
+
+.table-container p,
+.table-container span,
+.table-container td {
+  font-weight: 600;
+}
+
+.table-container thead tr th {
+  font-size: 16px;
+}
+
+.table-wrapper {
+  overflow: auto;
+}
+
+tbody tr:hover {
+  cursor: pointer;
+}
+
+tbody tr.MuiTableRow-root-30 th {
+  font-family: "Francois One", sans-serif;
+  font-size: 16pt;
+}
+
+thead tr.MuiTableRow-root-30 th {
+  font-family: "Noto Sans", sans-serif;
+}

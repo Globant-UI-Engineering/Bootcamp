@@ -1,0 +1,140 @@
+.imagen{
+	width:1000px;
+	height:750px;
+	background-image: url("fondo.JPG");
+	margin-left: 250px;
+	margin-right: 500px;
+	margin-top: 30px;
+}
+
+header p{
+  width: 300px;
+  height: 30px;
+  float: left;
+  background: #00adff82;
+  font-family: 'Ramaraja', serif;
+}
+
+header p:first-child{
+  margin: 30 170 0 0;
+  padding: 0 30 0 0;
+  text-align: right;
+  color: white;
+  font-size: 20px;
+}
+
+header p:nth-child(2){
+  margin: 30 0 0 170;
+  padding: 0 0 0 30; 
+  font-size: 20px;
+}
+
+header h1{
+  font-size: 180px;
+  margin: 0;
+  text-align: center;
+  display: inline-block;
+  padding-left: 20%;
+  height: 23%;
+ 
+}
+
+header h1 span{
+  color: white;
+}
+
+header h2 {
+  color: white;
+  text-align:center;
+  font-size:25px; 
+  margin: 0;
+  height: 0px;
+  font-family: 'Duru Sans', sans-serif;
+  text-transform: uppercase;
+  display: inline-block;
+  padding-left: 35%;
+}
+
+header h2 span {
+  display: block;
+  color: #ffce00;
+  text-align:center;
+  font-size:124px; 
+  margin: 0;
+  height: 0px;
+  font-weight:bold;
+}
+
+article{
+  display: inline-block;
+  width: 1000px;
+  height: 337px;
+  margin-top: 120px;
+}
+
+article section:last-child{
+  display: inline;
+}
+article h2:last-child{
+  padding-left: 30px;
+  text-align: left;
+  font-size: 16px;
+  width: 325px;
+  margin: 0;
+  font-family: 'Vast Shadow', cursive;
+  text-transform: uppercase;
+  color:white;
+ }
+ 
+ article span{
+  font-size: 29px;
+ }
+
+section{
+  width: 330px;
+  margin-top: 5px;
+  margin-left: 620px;
+  font-size: 20px;
+  text-align: right;
+  text-transform: uppercase;
+ }
+
+section h1{
+  margin: 5px 0 5px 0;
+  color:white;
+  font-weight:bold;
+  font-size:50px;
+  
+}
+
+section h2{
+  margin: 5px 0 5px 0;
+  font-size:21px;
+  font-family: 'Vast Shadow', cursive;
+}
+
+section h3{
+  margin: 0;
+  font-size:16px;
+  color:white;
+  font-family: 'Candal', sans-serif;
+}
+
+footer{
+	color:white;
+	background:black;
+	text-align:center;
+	font-weight:bold;
+	margin: 30px 100px 0 100px;
+	height: 25px;
+  text-transform: uppercase;
+}
+
+footer p{
+	height: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+

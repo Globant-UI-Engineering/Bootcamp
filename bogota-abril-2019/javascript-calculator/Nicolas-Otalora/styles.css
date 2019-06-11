@@ -1,0 +1,48 @@
+body {
+ background-image: url("background.jpg");
+}
+button{
+  border-radius: none;
+  width: 50px;
+  height: 50px;
+  margin-right:-3px;
+  margin-left: -3px;
+  margin-top:-1px;
+  flex-grow: 1;
+  border-color: gray;
+  background-color: #ededed;
+  font-size: 18px;
+  font-weight: 200;
+}
+button:focus,input:focus {
+  outline:0;
+}
+
+div{
+  flex-wrap: wrap;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+button.grow{
+  width:98px;
+}
+input{
+  width: 190px;
+  padding: 0;
+  margin-left: -3px;
+  height: 80px;
+  background-color: black;
+  border-color: black;
+  color: white;
+  font-size: 50px;
+  text-align: right;
+  font-weight:200;
+}
+button:nth-of-type(4n), button:last-child{
+  background-color: #FFA500;
+  color:white;
+}
+button:nth-child(2),:nth-child(3),:nth-child(4){
+  background-color: lightgray;
+}

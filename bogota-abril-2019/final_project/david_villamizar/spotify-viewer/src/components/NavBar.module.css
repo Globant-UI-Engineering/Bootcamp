@@ -1,0 +1,37 @@
+.navBar {
+  transition: 1s background-color;
+}
+.navBar ul {
+  margin: 0;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.navBar ul li {
+  transition: 0.25s background-color, 0.5s color;
+
+  flex: 1 1;
+  text-align: center;
+  max-width: 200px;
+  background: #aaa;
+}
+
+.navBar ul li:hover {
+  background: #555;
+}
+
+.navBar ul li a {
+  display: block;
+  color: #000;
+  padding: 0.5em;
+  text-decoration: none;
+  /* width: 100%; */
+}
+
+.navBar ul li a.active {
+  background: #333;
+  color: white;
+}

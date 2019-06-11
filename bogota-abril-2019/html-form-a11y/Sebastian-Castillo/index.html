@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML A11Y Form</title>
+  </head>
+  <body>
+    <header>
+      <h1>Suscription!</h1>
+    </header>
+    <form role="form">
+      <fieldset role="contact-information" >
+        <legend>Contact information</legend>
+        <label for="fullname">Full name:</label>
+        <input type="text" name="fullname" id="fullname" aria-describedby="required-full-name"  aria-required="true" required /><br />
+        <label for="direction">Direction: </label>
+        <input type="text" name="direction" id="direction" /><br />
+        <label for="number">Phone number: </label>
+        <input type="text" name="number" id="number" /><br />
+        <label id="datebirthday" for="date">Birthday date:</label>
+        <span>
+          <span id="dateformat" tabindex="-1">(DD/MM/YYYY)</span>
+          <input type="date" name="date" id="date" aria-labelledby="datebirthday" aria-describedby="dateformat">
+        </span>
+      </fieldset>
+      <fieldset role="subscription-information" >
+        <legend>Subscription information</legend>
+        <label for="email">E-mail address: </label>
+        <input type="text" name="email" id="email" aria-describedby="required-email"  aria-required="true" required /><br />
+        <label for="concurrency">Conurrency of newsletters: </label>
+        <select name="concurrency" id="concurrency">
+          <optgroup label="Concurrency">
+            <option>Dayly</option>
+            <option>Weekly</option>
+            <option>Monthly</option>
+          </optgroup> 
+        </select><br />
+        <label for="aboutyou">Tell us your interests</label><br />
+        <textarea
+          name="aboutyou"
+          id="aboutyou"
+          placeholder="Share your interests with us!"
+          aria-describedby="required-tell-your-interests" 
+          aria-required="true"
+          required>
+        </textarea><br />
+        <input type="checkbox" name="subscribe" id="subscribe" />
+        <label for="subscribe">
+          Receive e-mails with promotions and oppportunities
+        </label>
+      </fieldset>
+      <button type="submit" value="Send information" role="button">Send Suscription</button>
+    </form>
+  </body>
+</html>

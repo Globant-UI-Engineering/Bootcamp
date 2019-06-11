@@ -1,0 +1,27 @@
+.active-icon {
+    color: rgb(30,215,96);
+}
+
+.rep-icon {
+    cursor: pointer;
+}
+
+.rep-icon:hover {
+    color: rgba(30, 215, 96);
+}
+
+.icon-container {    
+    text-align: center;
+}
+
+.playlist-menu-bar {
+    width: 100%;
+    color: white;
+    padding: 0.5%;
+    background-color: rgb(65, 66, 68);
+}
+
+.playlist-menu-bar > span {
+    margin-right: 1%;
+    margin-left: 0.5%;
+}

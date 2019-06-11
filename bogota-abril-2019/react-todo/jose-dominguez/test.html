@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>xd</title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet'>
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5em;
+            color: #000000;
+        }
+
+        .todoapp {
+            margin: 0 auto;
+            width: 480px;
+
+            position: relative;
+            background: #fefefe;
+            border: 3px solid #efefef;
+            border-radius: 5px;
+            padding: 1em;
+        }
+
+        .todoapp header {
+            text-align: center;
+            color: #aa0000;
+        }
+
+        .todoapp article {
+            padding-bottom: 2em;
+        }
+
+        .todoapp article input {
+            height: 3em;
+            padding: 0.8em;
+            width: 100%;
+            font: inherit;
+            border: 3px solid #efefef;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .todoapp article li a {
+            opacity: 0;
+            color: #aa0000;
+        }
+        .todoapp article li:hover a {
+            opacity: 1;
+        }
+
+        .todoapp footer {
+            padding: 1em;
+            position: absolute;
+            display: block;
+            bottom: -1px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .todoapp footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            padding: .5em 1em;
+        }
+
+        .todoapp footer li {
+            margin: auto;
+        }
+
+        li:hover {
+            color: #888888;
+        }
+
+        .active {
+            font-weight: bold;
+        }
+
+        .completed {
+            text-decoration: line-through #666666;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="todoapp">
+        <header>
+            <h1>
+                todos
+            </h1>
+        </header>
+        <article>
+            <input type="text" placeholder="What needs to be done?">
+            <ul>
+                <li>Do my homework <a>&times;</a></li>
+                <li class="completed">Stop playin' Overwatch <a>&times;</a></li>
+                <li class="completed">Be happy<a> &times;</a></li>
+            </ul>
+        </article>
+        <footer>
+            <ul>
+                <li>All</li>
+                <li class="active">Active</li>
+                <li>Completed</li>
+            </ul>
+        </footer>
+    </section>
+</body>
+
+</html>

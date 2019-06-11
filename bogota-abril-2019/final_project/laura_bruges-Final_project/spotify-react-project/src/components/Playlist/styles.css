@@ -1,0 +1,20 @@
+.playlist-content {
+    /* PENDING: Overflow */
+    margin-top: 2vh;
+    
+    margin-left: 0.1%;
+    margin-right: 2.5%;
+    
+    width: 100%;
+}
+
+.table-container {
+    height: 35vh;
+    overflow-y: auto;
+}
+
+table thead tr {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}

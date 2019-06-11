@@ -1,0 +1,128 @@
+body { 
+  background: linear-gradient(to right, #FAFFD1, #A1FFCE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+h1 {
+  background-color: #2980B9;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+h1 > span {
+  float: right;
+  cursor: pointer;
+}
+
+.option {
+  width: 0;
+  display: inline-block;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0;
+}
+
+.delete {
+  background-color: red;
+}
+
+.status {
+  background-color: rgb(91, 168, 219);
+}
+
+.taskTitle {
+  margin-left: 20px;
+}
+
+.editable {
+  background-color: blanchedalmond;
+}
+
+li > input {
+  border: none;
+  font-size: 1em;
+  color: #666;
+  background-color: inherit;
+  width: 70%;
+  height: 90%;
+}
+
+li:hover > .option {
+	width: 10%;
+	transition: 0.2s linear;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.container {
+  width: 35%;
+	margin: 100px auto;
+	background-color: #F7F7F7;
+	box-shadow: 0 0 3px rgba(0,0,0, 0.1);
+}
+
+.addTodo {
+  background-color: #F7F7F7;
+  width: 100%;
+  padding: 13px 13px 13px 20px;
+  color: #2980B9;
+  border: 3px solid rgba(0,0,0,0);
+  font-size: 1.1em;
+  box-sizing: border-box;
+}
+
+.addTodo:focus {
+  background-color: white;
+	border: 2px solid #2980B9;
+	outline: none;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+span {
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+li {
+	background-color: white;
+	height: 40px;
+	line-height: 40px;
+	color: #666;
+}
+
+li:nth-child(2n) {
+	background-color: #F7F7F7;
+}
+
+li.editable:nth-child(2n) {
+	background-color: blanchedalmond;
+}
+
+.hidden {
+  display: none;
+}
+
+.completed {
+	color: gray;
+	text-decoration: line-through;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.footerLink {
+  margin: 0 5%;
+}

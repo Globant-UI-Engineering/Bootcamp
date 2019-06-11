@@ -1,0 +1,58 @@
+{
+    "dataPlayersPage": {
+      "bannerBackgroundDescription":"Jugador de tenis",
+      "inscribedMessage":"Total inscritos",
+      "idPlayerSelectedDefault": "newPlayer",
+      "newPlayerButton": {
+          "name": "Inscribir jugador",
+          "icon": "fas fa-user-plus"
+      },
+      "orderButton": [{
+          "value": "name",
+          "namebutton": "Nombre"
+        },
+        {
+          "value": "idCountry",
+          "namebutton": "País"
+        },
+        {           
+          "value": "birthDate",
+          "namebutton": "Edad"
+        }, 
+        {
+          "value": "ranking",
+          "namebutton": "Ranking"
+      }],
+      "ModalForm": {
+        "titleForm": "Perfil del Jugador",
+        "successButton": "Inscribir",
+        "cancelButton": "Cancelar",
+        "deleteButton": "Eliminar jugador",
+        "deleteConfirmTitle": "Mensaje de confirmación",
+        "deleteConfirmMessage": "¿Esta seguro de eliminar este jugador?",
+        "submitStyle": "btn btn-info",
+        "initialValueForm": {
+          "name": "",
+          "idCountry": "",
+          "birthDate": ""
+        },
+        "inscribeButton": "Inscribir",
+        "updateButton": "Actualizar"
+      },
+      "searchPlayerLabel": "Buscar jugador",
+      "playerListHeader": {
+        "name": "Jugador",
+        "nationality": "Nacionalidad",
+        "age": "Edad",
+        "ranking": "Puntos"
+      },
+      "FormCRUD": {
+        "fullNameForm": "Nombre completo",
+        "fullNameFormExample": "Nombre Apellido",
+        "instructionFullNameForm": "Procure utilizar un nombre y un apellido.",
+        "birthDateForm": "Fecha de nacimiento",
+        "nationalityForm": "Nacionalidad",
+        "minDate": "1900-01-01"
+      }
+    }
+}

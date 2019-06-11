@@ -1,0 +1,52 @@
+nav.navigation-header-bar {
+  background: black;
+  border-bottom: 2px solid darkgrey;
+  padding: 20px 15px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  justify-content: space-between;
+}
+
+nav.navigation-header-bar :first-child,
+nav.navigation-header-bar > div {
+  align-items: center;
+}
+
+nav.navigation-header-bar div a {
+  padding-right: 15px;
+}
+
+nav.navigation-header-bar a {
+  text-decoration: none;
+  color: white;
+  outline: none;
+}
+
+nav.navigation-header-bar a:hover {
+  color: #e91e63;
+}
+
+nav.navigation-header-bar > div {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav.navigation-header-bar a:active {
+  opacity: 0.5;
+}
+
+nav.navigation-header-bar a > h1 {
+  margin: 0;
+}
+
+nav.navigation-header-bar,
+nav.navigation-header-bar :first-child,
+nav.navigation-header-bar > div {
+  display: flex;
+  flex-direction: row;
+}
+
+nav.navigation-header-bar a {
+  text-transform: uppercase;
+}

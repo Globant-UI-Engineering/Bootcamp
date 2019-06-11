@@ -1,0 +1,136 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(22, 22, 22);    
+    display:flex;
+    justify-content: center;
+    
+}
+
+.container{
+    display: flex;
+    height: 650px;
+    width: 460px;
+    margin: 0 50px 0px 50px;
+    background-color: rgb(231, 193, 0);
+    
+}
+
+.photo{    
+    color:white;
+    height: 590px;
+    width: 410px;
+    background-image: url("img/39BC41F700000578-3873962-image-a-81_1477489331549.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    border-style: solid;
+    border-width: 4px;
+    border-color: white;
+    margin: 30px auto;
+    
+}
+
+.subtitle{
+    height: 40px;
+    display:flex;
+    flex-flow: row;
+    justify-content: space-evenly;    
+    align-items: flex-end;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+
+.title{    
+    margin: 10px;    
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+
+}
+
+.aside{    
+    height: 320px;    
+    width: 400px;    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 11px;
+    
+    display: flex;
+    flex-direction:column;         
+    justify-content: flex-end;
+    
+}
+
+.aside div{    
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    border-bottom-width: 1px;
+    width: 130px;
+    margin-left: 30px;
+    margin-bottom: 10px;     
+    
+}
+
+.row{    
+    height: 50px;
+    display: flex;   
+    flex-direction: row; 
+    align-items: center;
+}
+
+.row h1{
+    font-size: 13px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-left: 30px; 
+    margin-right: 5px;   
+    width: 160px;
+    text-transform: uppercase;
+
+}
+
+.row div div{
+    border-top-style: solid;
+    border-top-color: white;
+    border-top-width: 1px;
+    margin-left: 30px;    
+    width: 130px;
+}
+
+.litle{
+    width: 90px;
+    font-size: 9px;
+    margin-left: 60px;
+    font-family: 'Gill Sans';
+    font-style: italic;
+}
+
+.end{
+    display: flex;
+    align-items: center;    
+    font-size: 10px;
+    margin-left: 30px;
+}
+
+.end h3{
+    margin-right: 7px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer{
+    color: rgb(199, 12, 12);
+    width: 400px;
+    margin-left: 20px;
+    margin-top: 35px;
+    font-size: 8px;
+    font-weight: bold;
+}

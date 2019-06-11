@@ -1,0 +1,52 @@
+{
+  "name": "juandavidramirez-final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clear-build-cache": "rm -rf .cache/ dist/",
+    "format": "prettier --write \"**/*.{js, jsx, css, json} \" ",
+    "format:check": "prettier --list-different \"src/**/*.{js, jsx, css, json} \" ",
+    "lint": "eslint \"**/*.{js,jsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel public/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Globant-UI-Engineering/Bootcamp.git"
+  },
+  "keywords": [],
+  "author": "Juan David Ramirez Mendoza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Globant-UI-Engineering/Bootcamp/issues"
+  },
+  "homepage": "https://github.com/Globant-UI-Engineering/Bootcamp/tree/JuanDavidRamirezFinalProject/bogota-abril-2019/final_project/juandavidramirez-final-project#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^5.14.1",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "parcel-bundler": "^1.11.0",
+    "prettier": "^1.16.4"
+  },
+  "dependencies": {
+    "@jam3/gsap-promise": "^4.0.1",
+    "@material-ui/core": "^3.9.3",
+    "@reach/router": "^1.2.1",
+    "antd": "^3.18.2",
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.0",
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.8",
+    "react-dom": "^16.8.6"
+  }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sliding puzzle</title>
+        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Gugi">
+    </head>
+    <body>
+        <h1>Sliding puzzle</h1>
+        <section>
+            <label for="dimensionSelect">Select a dimension for the puzzle:</label>
+            <select id="dimensionSelect" name="dimensions" onchange="createPuzzle()">
+                <option label="3x3" value="3" selected>3x3</option>
+                <option label="4x4" value="4">4x4</option>
+                <option label="6x6" value="6">6x6</option>
+                <option label="8x8" value="8">8x8</option>
+            </select>
+        </section>
+        <br/>
+        <section>
+            <ul id="sliding-puzzle">
+            </ul>
+        </section>
+        <p id="result"></p>
+    </body>
+    <script type="text/javascript" src="./assets/js/sliding-puzzle.js"></script>
+</html>

@@ -1,0 +1,181 @@
+/* --- color pantone ---
+
+    - orange: #d24a30
+    - blue:   #c3dff5
+    - black:  #070707
+    - white:  #ffffff
+
+        --- ---- ---  */
+
+/* --- magazine cover general --- */
+
+body {
+    box-sizing: border-box;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+.text__uppercase {
+    text-transform: uppercase;
+}
+
+.color__orange {
+    color: #d24a30;
+}
+
+/* --- magazine background --- */
+
+.background {
+    background-image: url(https://hips.hearstapps.com/esq.h-cdn.co/assets/16/01/1452206724-trump-cold-open.jpg);
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1200px;
+    margin: 0 auto;
+    width: 60%;
+}
+
+/* --- magazine header --- */
+
+.section__header--align {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    height: 660px;
+}
+
+.section__header--style {
+    font-family: 'Pacifico', cursive;
+    font-size: 124px;
+    position: absolute;
+    z-index: 2;
+}
+
+.section__header--position {
+    margin: 50px;
+}
+
+/* --- magazine top header --- */
+
+.section__topheader--style {
+    border: solid 6px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 20px;
+    width: 90%;
+}
+
+.section__topheader--tittle {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+}
+
+.section__topheader--info {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration-line: underline;
+    width: 38%;
+}
+
+/* --- magazine sub header --- */
+
+.section__subheader--info {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.section__subheader--position {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    position: relative;
+    top: 200px;
+    width: 98%;
+}
+
+.section__subheader--tittle {
+    font-size:136px;
+    font-weight: bold;
+    margin: 100px 0;
+    position: relative;
+    text-transform: uppercase;
+    top: 80px;
+    z-index: 3;
+}
+
+.section__subheader--append {
+    font-size: 10px;
+    margin-left: 10px;
+    position: relative;
+    text-transform: capitalize;
+    top: -26px;
+    width: 13%;
+}
+
+/* --- magazine content --- */
+
+.section__content--layout {
+    display: flex;
+    flex-flow: column wrap;
+    height: 550px;
+}
+
+.section__content--tittle {
+    font-family: 'Anton', sans-serif;
+    font-size: 50px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.section__content--subtittle {
+    margin: 0;
+    font-family: 'Oranienbaum', serif;
+    text-transform: uppercase;
+    width: 10%;
+}
+
+.section__content--page {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.section__content--capital {
+    text-transform: capitalize;
+}
+
+.section__content--plus {
+    font-size: 20px;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.section__content--opttittle {
+    color: #c3dff5;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* content position */
+
+.section__content__first-colum {
+    margin: 20px;
+    width: 80%;
+}
+
+/* codebar */
+
+.section__content--barcode {
+    width: 100%;
+}
+
+.section__content__barcode--img {
+    width: 16%;
+}

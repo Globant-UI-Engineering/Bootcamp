@@ -1,0 +1,201 @@
+/* General styles:
+ Blue background;
+ Backgroung image and settings */
+body {
+  background-image: url('../images/Backgroung-Jim-Parsons-sin-fondo.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+  background-color: #238ED1;
+  padding: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'open sans',arial, sans-serif;
+  color: black;
+}
+
+h5{
+  font-weight: normal;
+}
+
+/* Header Styles */
+  /* Header text properties */
+header {
+  border-top: 1vh double black;
+  border-bottom: 0.3vh dashed black;
+  margin-bottom: 5vh;
+}
+
+header h3 *{
+  font-family: serif;
+  font-size: 5vh;
+  color: white;
+  letter-spacing: 0.1vh;
+  margin: 0;
+  padding : 0.5vh;
+  font-weight: lighter;
+}
+
+header h3 strong {
+  color: black;
+  font-size:  5vh;
+  margin-left: 1em;
+}
+
+header p{
+  font-size: 2.4vh;
+  color: white;
+  border-top: 0.3vh dashed black;
+  padding: 1vh;
+  margin: 0;
+}
+
+  /* Header Text Transformations */
+header h3 span,
+header p:first-of-type span:first-of-type,
+header p:first-of-type span:last-of-type{
+  text-transform:capitalize;
+}
+header p:first-of-type span:nth-of-type(2),
+header p:last-of-type span:first-of-type,
+header p:last-of-type small span{
+  text-transform:uppercase;
+}
+
+
+/* Logo Styles  */
+
+.logo {
+  height: 20vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center
+
+}
+.logo-svg {
+  height: inherit;
+  flex-shrink: 0;
+}
+
+
+/* hero Styles  */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-20vh);
+}
+
+.hero h1 {
+  font-family: 'Didact Gothic', sans-serif;
+  margin: 0;
+  color: #0f0f0f;
+  font-size: 26vh;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.7vh;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 4vh;
+}
+.hero h2  :first-child{
+  text-transform: uppercase;
+}
+
+.hero h3:first-of-type {
+  border-top: 0.5vh solid #0f0f0f;
+  border-bottom: 0.5vh solid #0f0f0f;
+  padding: 1vh;
+  margin: 0;
+  font-size: 2.8vh;
+  text-transform: uppercase;
+}
+.hero h3:last-of-type{
+  text-transform:capitalize;
+  font-size: 3vh;
+  margin: 0;
+}
+
+/* General headlines Styles */
+
+.headlines {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+}
+
+.headlines article {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.headlines article h4,
+.headlines article h5,
+.headlines article p {
+  margin-top:1vh;
+  margin-bottom:1vh;
+}
+
+.headlines article h4 {
+  line-height:1.2em;
+  font-size: 3.6vh;
+}
+.headlines article h5 {
+  font-size: 2vh;
+}
+.headlines article p {
+  font-size: 2.3vh;
+}
+
+  /* Text Transformations */
+.headlines article p span,
+.headlines article h4 span:first-of-type,
+.headlines article h4 span:nth-of-type(3){
+  text-transform: uppercase;
+}
+.headlines article h4 span:nth-of-type(2){
+  text-transform: capitalize;
+  /* border: 2px solid white; */
+}
+
+/* Text align */
+[class*="-Right"] *{
+  text-align: right;
+      color: white;
+}
+[class*="-Left"]{
+  text-align: left;
+}
+
+
+
+/* topHeadlines Styles  */
+
+.topHeadlines-Right article{
+  border-right: 0.5vh solid black;
+}
+
+.topHeadlines-Left article:first-of-type{
+  border-bottom: 0.5vh solid white;
+}
+
+.topHeadlines-Left article h5{
+  color: white;
+}
+
+/* bottomHeadlines Styles  */
+
+.bottomHeadlines-Left article:first-of-type,
+.bottomHeadlines-Right article:first-of-type{
+  border-bottom: 0.5vh solid black;
+}
+.bottomHeadlines-Right article h5{
+  color: black;
+}

@@ -1,0 +1,40 @@
+
+.routing-content{
+  text-align: left;
+}
+ img{
+  width: 200px;
+  height: 200px;
+ }
+
+ .blue{
+  background-color: #4ab8ca;
+ }
+
+ .red{
+  background-color: #d8408d;
+ }
+
+ .yellow{
+  background-color: #aba23a;
+ }
+
+ a {
+  text-decoration: none;
+  color: white;
+ }
+
+
+ .content article{
+  text-align: left;
+  width: 450px;
+}
+
+li:hover{
+  background-color: #89c9f2;
+  color: #d8408d;
+}
+
+.checked{
+  text-decoration: line-through;
+}

@@ -1,0 +1,23 @@
+.search-section-container {
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.search-section-container div:first-child {
+  margin-left: 15px;
+}
+
+.search-section-container img {
+  width: 36px;
+}
+
+.search-section-container a {
+  width: 100%;
+}
+
+.search-section-container button {
+  padding: 0;
+}

@@ -1,0 +1,55 @@
+section + footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--font-color-white);
+    background: var(--neutro-color-deep);
+    font-family: var(--font-group-1);
+    font-size: var(--size-small);
+    height: 150px;
+}
+
+footer i {
+    color: var(--font-color-white);
+    font-size: var(--size-large);
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+}
+
+footer p:last-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+footer > section a {
+    margin: 10px;
+    font-family: var(--font-group-1);
+    font-size: var(--size-medium);
+}
+
+footer > section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a {
+    color: var(--primary-color-ligth);
+}
+
+section > p + picture {
+    max-width: 500px;
+}
+
+section > p + picture img {
+    filter: drop-shadow(.5rem .5rem .5rem  var(--font-color-black)); 
+}

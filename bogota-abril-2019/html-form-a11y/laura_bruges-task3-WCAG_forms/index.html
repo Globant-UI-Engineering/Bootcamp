@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WCAG form example</title>
+    <h1>WCAG form example</h1>
+</head>
+<body>
+
+    <form>
+        <fieldset>
+            <legend>User information</legend>
+            <label for="fullname">Full name:</label>
+            <input type="text" name="fullname" id="fullname" required><br>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="joe@doe.com" required><br>
+            <label for="date">Birthdate: </label>
+	        <input type="date" name="birthdate" id="birthdate"><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Access information</legend>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required><br>
+        </fieldset>
+
+        <fieldset>            
+            <legend>Interests</legend>
+            <div>
+                <input type="checkbox" name="tech" id="tech">
+                <label for="tech">Technology</label>
+            </div>
+            <div>
+                <input type="checkbox" name="media" id="media">
+                <label for="media">Media</label>
+            </div>
+        </fieldset>
+        <input type="submit" name="signup" id="signup" value="Sign up" />
+    </form>
+</body>
+</html>

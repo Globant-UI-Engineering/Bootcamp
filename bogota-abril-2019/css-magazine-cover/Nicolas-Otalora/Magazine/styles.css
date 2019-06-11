@@ -1,0 +1,184 @@
+@font-face {
+  font-family: 'Rubik';
+  src: URL('fonts/rubik/Rubik-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'RubikMed';
+  src: URL('fonts/rubik/Rubik-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Royalacid';
+  src: URL('fonts/Royalacid.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Daytonia';
+  src: URL('fonts/daytonia/Daytonia Free.otf') format('opentype');
+}
+body{
+  background-color: #2f4f4f;
+}
+
+header h1{
+  font-family: Royalacid;
+  text-align: center;
+  color: #D80507;
+  font-size:130px;
+  display: inline;
+  text-shadow: 7px 7px black;
+}
+body div:first-child{
+  /* background-color: #fdfaf0; */
+  background-color: #ededed;
+  width: 710px;
+  height: 1000px;
+  position: absolute;
+
+}
+
+.metalFoto{
+  position: relative;
+  top:-190px;
+  width: 750px;
+  height:1050px;
+  right: 20px;
+}
+.MedFont{
+  font-family: RubikMed;
+}
+article{
+  position: relative;
+  color:white;
+  text-shadow: 1px 1px black;
+  left: 30px;
+}
+article h1,h4{
+  font-family: Rubik;
+}
+article{
+  top:-800px;
+}
+
+article.first h1{
+  width: 10px;
+  word-break: keep-all;
+  margin: 0;
+}
+article.first p{
+  width: 150px;
+  word-break: keep-all;
+  margin: 0;
+}
+
+article.second h4{
+  background-color: red;
+  width: 140px;
+  margin:0;
+  margin-top: 15px;
+  font-size: 25px;
+}
+article.second h1{
+  margin:0;
+  font-size:80px;
+  text-shadow: 2px 2px black;
+}
+article.second p{
+  word-break: keep-all;
+  font-size: 25px;
+  width: 300px;
+  margin: 0;
+}
+article.second hr{
+  width: 80px;
+  margin-left :0;
+  height:15px;
+  background-color: white;
+  border-style: none;
+
+}
+article.third h1{
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+article.third p{
+  width: 160px;
+  word-break: keep-all;
+  margin: 0;
+}
+article.third hr{
+  width: 70px;
+  margin-left: 0;
+  background-color: white;
+  border-style: none;
+  height: 3px;
+}
+article.fourth h1{
+  margin:0;
+  width: 180px;
+  word-break: keep-all;
+}
+article.right{
+  float:right;
+  top:-1320px;
+  left:-12px;
+  text-align: right;
+}
+article.fifth h1{
+  width: 100px;
+  word-break: keep-all;
+  margin: 0;
+}
+article.fifth p{
+  width: 100px;
+  word-break: keep-all;
+  margin:0;
+}
+article.fifth hr{
+  width: 70px;
+  margin-right: 0;
+  background-color: white;
+  border-style: none;
+  height: 3px;
+}
+article.sixth{
+  top:-1200px;
+  left: 100px;
+  background-color: red;
+}
+article.sixth h4{
+  color:black;
+  word-break: keep-all;
+  margin: 0;
+  text-align: center;
+  font-size: 13px;
+  text-shadow: none;
+  padding-right: 35px;
+
+}
+article.sixth h1{
+  width: 140px;
+  word-break: keep-all;
+  margin: 0;
+  text-align: center;
+  padding-right: 35px;
+}
+article.seventh {
+  top:-1080px;
+  left:260px;
+
+}
+article.seventh h1{
+  font-family: Daytonia;
+  margin-bottom: 0;
+}
+article.seventh h4{
+  margin:0;
+  width:130px;
+  word-break: keep-all;
+}
+img.barras{
+  position: relative;
+  float: right;
+  top: -825px;
+  width:150px;
+  right: -390px;
+}

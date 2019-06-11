@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>SLIDE PUZZLE</h1>
+    <button onclick="randomize()" class="rand">Random</button>
+    <article class="slidePuzzle">
+        <div class="buttons">
+            <button id="button1" onclick="move(0)"></button>
+            <button id="button2" onclick="move(1)"></button>
+            <button id="button3" onclick="move(2)"></button>
+            <button id="button4" onclick="move(3)"></button>
+        </div>
+        <div class="buttons">
+            <button id="button5" onclick="move(4)"></button>
+            <button id="button6" onclick="move(5)"></button>
+            <button id="button7" onclick="move(6)"></button>
+            <button id="button8" onclick="move(7)"></button>
+        </div>
+        <div class="buttons">
+            <button id="button9" onclick="move(8)"></button>
+            <button id="button10" onclick="move(9)"></button>
+            <button id="button11" onclick="move(10)"></button>
+            <button id="button12" onclick="move(11)"></button>
+        </div>
+        <div class="buttons">
+            <button id="button13" onclick="move(12)"></button>
+            <button id="button14" onclick="move(13)"></button>
+            <button id="button15" onclick="move(14)"></button>
+            <button id="button16" onclick="move(15)"></button>
+        </div>
+    </article>
+    <div class="winner" id="win">
+        <h1>You Win</h1>
+    </div>
+    <script src="slide.js"></script>
+</body>
+</html>

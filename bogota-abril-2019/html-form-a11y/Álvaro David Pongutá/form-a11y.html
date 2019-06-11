@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Form-A11Y</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <header role="presentation">
+        <h1>Form A11Y</h1>
+    </header>
+
+    <section role="section">
+        <article role="article">
+            <form role="form">
+                <div>
+                    <label id="firstNamesLabel" for="firstNames">First Names (required): </label>
+                    <input role="textbox" type="text" name="firstNames" id="firstNames" required aria-required="true" aria-labelledby="firstNamesLabel">
+                </div>
+                <div>
+                    <label id="lastNamesLabel" for="lastNames">Last Names (required): </label>
+                    <input role="textbox" type="text" name="lastNames" id="lastNames" required aria-required="true" aria-labelledby="lastNamesLabel">
+                </div>
+                <div>
+                    <label id="idNumberLabel" for="idNumber">Identification Number (required): </label>
+                    <input role="textbox" type="number" name="idNumber" id="idNumber" required aria-required="true" aria-labelledby="idNumberLabel">
+                </div>
+                <div>
+                    <label id="genderLabel" for="gender">Gender: </label>
+                    <input role="textbox" type="text" name="gender" id="gender" aria-labelledby="genderLabel">
+                </div>
+                <div>
+                    <label id="birthDateLabel" for="birthDate">Birth Date: </label>
+                    <input type="date" name="birthDate" id="birthDate" aria-labelledby="birthDateLabel">
+                </div>
+                <div>
+                    <label id="emailLabel" for="email">Email: </label>
+                    <input role="textbox" type="email" name="email" id="email" aria-labelledby="emailLabel">
+                </div>
+                <div>
+                    <label id="telephoneNumberLabel" for="telephoneNumber">Telephone Number: </label>
+                    <input type="number" name="telephoneNumber" id="telephoneNumber" aria-labelledby="telephoneNumberLabel">
+                </div>
+                <input role="button" type="submit" value="Submit">
+            </form>
+        </article>
+    </section>
+
+    <footer role="presentation">
+        <p>Hecho por: Álvaro David Pongutá Moreno. Globant - Bootcamp</p>
+    </footer>
+
+</body>
+
+</html>

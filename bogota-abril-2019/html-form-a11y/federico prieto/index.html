@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>A11Y FORM</title>
+</head>
+
+<body>
+    <form>
+
+        <fieldset>
+            <legend>Personal Details</legend>
+            <label for="first-name">First name: </label>
+            <input id="first-name" type="text" name="textfield" required aria-required="true">
+            <br>
+            <label for="last-name">Last name: </label>
+            <input id="last-name" type="text" name="textfield" required aria-required="true">
+            <br>
+            <label for="date">Birth date </label>
+            <input type="date" name="date" id="date">
+            <br>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" required aria-required="true">
+            <br>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>How did you hear about us?</legend>
+            <label for="aboutUs">I found you through </label>
+            <select id="aboutUs" name="aboutUs">
+                <option value="SocialMedia">Social media</option>
+                <option value="AfriendOfMine">A friend of mine</option>
+                <option value="Google">Google</option>
+                <option value="OurWebsite">Our website</option>
+                <option value="E-mail">E-mail</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Interests</legend>
+            <div>
+                <input type="checkbox" name="ComputerScience" id="ComputerScience">
+                <label for="ComputerScience">Computer Science</label><br>
+                <input type="checkbox" name="machineLearning" id="machineLearning">
+                <label for="machineLearning">Machine Learning</label><br>
+                <input type="checkbox" name="webDevelopment" id="webDevelopment">
+                <label for="webDevelopment">Web development</label><br>
+                <input type="checkbox" name="blockChain" id="blockChain">
+                <label for="blockChain">Block chain</label>
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Preffered contact time</legend>
+            <div>
+                <input type="radio" name="contactTime" id="contactTime" required aria-required="true">
+                <label for="contactTime">Moorning</label>
+            </div>
+            <div>
+                <input type="radio" name="contactTime" id="contactTime">
+                <label for="contactTime">Afternoon</label>
+            </div>
+        </fieldset>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

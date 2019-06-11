@@ -1,0 +1,60 @@
+#root > main {
+  position: relative;
+  min-height: 100vh;
+}
+
+@media only screen and (max-width: 575px) {
+  nav + section {
+    padding-bottom: 22rem;
+  }
+  section + footer.container-fluid {
+    height: 22rem;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  nav + section {
+    padding-bottom: 19rem;
+  }
+  section + footer.container-fluid {
+    height: 19rem;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  nav + section {
+    padding-bottom: 11rem;
+  }
+  section + footer.container-fluid {
+    height: 11rem;
+  }
+}
+
+section + footer.container-fluid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+nav.navbar {
+  background: var(--primary-color);
+}
+
+header > img {
+  width: 42px;
+}
+
+nav > section {
+  font-size: var(--size-normal);
+}
+
+header img + h1 {
+  display: inline;
+  margin: 0;
+  margin-left: 10px;
+  color: var(--font-color-white);
+  font-size: var(--size-large);
+}
+
+
+

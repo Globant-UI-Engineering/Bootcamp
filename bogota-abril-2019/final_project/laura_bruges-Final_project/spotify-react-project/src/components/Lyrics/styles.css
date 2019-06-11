@@ -1,0 +1,41 @@
+.lyrics-container {
+    margin-top: 5%;
+}
+
+.lyrics-btn-container {
+    margin-top: 3%;
+}
+
+.lyrics-content {
+    margin-top: 2%;
+    margin-left: 1.5%;
+}
+
+.lyrics-area.form-control {
+    height: 30vh;
+}
+
+.lyrics-viewer {
+    height: 35vh;
+    overflow-y: auto;
+    padding: 2%;
+    border: 1px solid lightslategray;
+    border-radius: 10px;
+    font-size: 1.2em;
+    white-space: pre-line;
+}
+
+.lyrics-item {
+    list-style-type: none;  
+    height: 3.5vh; 
+}
+
+.lyrics-item:hover {
+    cursor: pointer;
+    color: rgba(30, 215, 96);   
+}
+
+
+.lyrics-list-container {
+    margin-top: 10vh;
+}

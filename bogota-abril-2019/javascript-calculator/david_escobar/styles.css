@@ -1,0 +1,13 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+button{
+    font-size: 20px;
+    font-family: roboto;
+}
+
+#result{
+    height: 35px;    
+    background-color: grey;
+    padding: 5px;
+}

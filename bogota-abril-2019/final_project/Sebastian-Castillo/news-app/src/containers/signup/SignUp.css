@@ -1,0 +1,42 @@
+.SignUp {
+  padding-top: 10%;
+  text-align: center;
+}
+
+.SignUp__title {
+  margin: 0;
+}
+
+.SignUp__box {
+  padding-top: 2em;
+  margin: auto;
+  height: 350px;
+  width: 500px;
+  text-align: center;
+  border-radius: 25px 25px;
+  background: white;
+}
+
+.SignUp__form{
+  margin: auto !important;
+  height: 90%;
+  width: 90%;
+}
+
+.SignUp__textinput {
+  width: 100%;
+}
+
+.SignUp__button {
+  margin-top: 2em !important;
+}
+
+.SignUp__anchor {
+  display: block;
+  margin-top: .5em;
+}
+
+.SignUp__anchor > a {
+  color: white;
+  text-decoration: none;
+}

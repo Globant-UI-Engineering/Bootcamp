@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light");
+
+body {
+  font-family: Shadows Into Light;
+  padding: 0.5em;
+}
+
+h1 {
+  text-align: center;
+}

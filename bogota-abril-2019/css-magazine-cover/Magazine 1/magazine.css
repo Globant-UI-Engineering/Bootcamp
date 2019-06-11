@@ -1,0 +1,157 @@
+.imagenFondo {
+	background-image:url(imagen.jpg);
+	width:750px;
+	height:500px;
+	margin-left: 300px;
+	margin-right: 300px;
+	margin-top: 30px;
+}
+
+.bandera {
+	display: inline-block;
+	width: 750px;
+   	height: 0px;
+}
+
+.bandera p {
+  	float: left;
+  	width: 100px;
+	height: 20px;
+}
+
+.bandera p:nth-child(1){
+	color: white;
+	font-size: 15px;
+	text-align: right;
+    background: #17aff7;
+	padding-left: 100px;	
+	padding-right: 10px;	
+	padding-bottom: 2px;
+	font-family: 'Oswald', sans-serif;
+}
+
+.bandera p:nth-child(2){
+	font-size: 15px;
+    background: #17aff7;
+    margin-left: 330px;
+	padding-right: 100px;	
+	padding-left: 10px;	
+	padding-bottom: 2px;
+	font-family: 'Oswald', sans-serif;
+}
+
+.titulo h1 {
+	font-family: 'Paytone One', sans-serif;
+	font-size: 120px;
+    margin-top: 0px;
+    margin-left: 140px;
+	margin-bottom: 0px;	
+    height: 130px;
+}
+
+.titulo h1 span {
+	color: white;
+}
+
+.titulo h2 {
+	font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+	margin-top: 5px;
+	text-transform: uppercase;	
+    margin-bottom: 0px;
+	
+}
+
+.titulo h2 span {
+	display: block;
+    font-size: 80px;
+	height: 50px;
+    color: yellow;
+	text-shadow: -2px -2px black;
+}
+
+.contenido {
+	display: inline-block;
+	font-family: 'Oswald', sans-serif;
+}
+.contenido .derecha {	
+	text-transform: uppercase;
+    width: 120px;
+    margin-left: 580px;
+    height: 120px;
+    text-align: right;
+	
+}
+
+.contenido .derecha h3	{
+    font-size: 40px;
+	color: white;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    height: 55px;
+	
+}
+
+.contenido .derecha > h4{	
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.contenido .derecha h5{
+    font-size: 10px;	
+    color: white;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+/* .contenido .derecha h5:last-child{
+	margin-bottom: 0px;
+} */
+
+.contenido .derecha h5:nth-child(7){
+	margin-bottom: 0px;
+}
+
+.contenido .derecha hr{
+	height: 2px;
+	background-color: black;
+    width: 75px;
+    margin-right: 0px;
+    margin-top: 0px;
+	border-color: black;
+}
+
+.contenido .izquierda p::first-letter{
+	font-size: 25pt;
+}
+
+.contenido .izquierda p{
+	padding-left: 30px;
+	text-align: left;
+	font-size: 18px;
+	margin: 0;
+    font-weight: bold;
+	text-transform: uppercase;
+	width: 210px;
+    height: 100px;
+}
+
+.final{
+	color:white;
+	background:black;
+	text-align:center;
+	text-transform: uppercase;
+	font-weight:bold;
+    width: 700px;
+    margin-left: 25px;
+
+}
+
+.final p{
+	font-family: 'Anton', sans-serif;
+	height: 15px;
+	font-size: 10px;
+	padding-top: 2px;
+}

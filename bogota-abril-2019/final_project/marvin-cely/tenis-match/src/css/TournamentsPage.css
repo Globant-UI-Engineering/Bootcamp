@@ -1,0 +1,21 @@
+figure[data-background-name="Torneos"] {
+    background-image: url("../images/torneosImagen.jpg");
+    min-height: 40vh; 
+    background-attachment: fixed;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+figure[data-background-name="Torneos"] > figcaption {
+    padding: 2vh;
+    font-size: var(--size-large);
+    font-family: var(--font-group-3);
+    color: var(--font-color-white);
+    background: var(--font-color-mate);
+    opacity: 0.9;
+}

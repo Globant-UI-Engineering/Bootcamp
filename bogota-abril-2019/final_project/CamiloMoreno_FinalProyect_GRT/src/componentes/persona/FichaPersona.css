@@ -1,0 +1,32 @@
+section.fichaPersonaContainer{
+    width: 42%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:25px;
+}
+
+section.fichaPersonaContainer h1{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+section.fichaPersonaContainer p{
+    font-size: 15px;
+    margin: 10px 15px;
+    font-weight: bold;
+}
+
+section.fichaPersonaContainer p span{
+    font-size: 15px;
+    margin: 10px 15px;
+    font-weight: normal;
+}
+
+section.fichaPersonaContainer p:last-child{
+    font-size: 15px;
+    margin: 10px 15px;
+    font-weight: normal;
+    text-align: center;
+}

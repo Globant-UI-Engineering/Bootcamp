@@ -1,0 +1,26 @@
+div.error-panel-container {
+  text-align: center;
+  margin: 9%;
+}
+
+div.error-panel-container > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+div.error-panel-container > div p {
+  margin-left: 15px;
+  font-size: 25px;
+}
+
+div.error-panel-container * {
+  font-family: "Mandali", sans-serif;
+}
+
+div.error-panel-container > div * {
+  text-transform: uppercase;
+  margin: 0;
+}

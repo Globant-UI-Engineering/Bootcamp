@@ -1,0 +1,83 @@
+.SearchPanel{
+    border: solid;
+    border-color: blueviolet;
+    position: relative;
+    height: 80px;
+    background-color: blueviolet;
+    display: inline-block;
+    width:  96.6%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.search-input {
+    width: 550px;
+    height: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 30px;
+    margin-top: 10px;
+    border: double;
+    border-color: cornflowerblue;
+}
+
+img {
+    width: 100px;
+    height: 50px;
+    margin-top: 10px;
+    float: left;
+    animation: Logo-spin infinite 10s linear;
+}
+
+img:nth-child(3)  {
+    float: right;
+}
+
+@keyframes Logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+.results-content{
+  margin-top: 30px;
+  display: inline-block;
+}
+
+.card {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: solid;
+  width: 300px;
+  height: 250px;
+}
+
+.result-image{
+  animation:  none;
+  width: 250px;
+  height: 100px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.SearchPanel-header{
+  margin-bottom: 50px;
+}
+
+.add-result button{
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  background-color: cornsilk;
+  color: brown;
+  width: 166px;
+  height: 30px;
+}
+
