@@ -1,0 +1,22 @@
+.playlist-text-container {
+    margin-right: 2.5%;
+    padding-left: 0.5%;
+    color: rgb(65, 66, 68);
+}
+
+.playlist-title {
+    text-transform: uppercase;
+}
+
+
+h3 {
+    font-size: 1.2em;
+}
+
+.description-p {
+    font-size: 0.8em;
+}
+
+h2 {
+    font-size: 2.1em;
+}

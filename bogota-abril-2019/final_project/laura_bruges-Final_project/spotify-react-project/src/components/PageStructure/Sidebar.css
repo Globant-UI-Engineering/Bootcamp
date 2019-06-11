@@ -1,0 +1,55 @@
+
+
+  /*
+   * Sidebar
+   */
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 48px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  }
+  
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  }
+  
+  @supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+      position: -webkit-sticky;
+      position: sticky;
+    }
+  }   
+  
+ a {
+    color: white;
+    margin-left: 1em; 
+    font-size: 1.5em;
+}
+
+a:hover {
+  color: rgb(30,215,96);
+  text-decoration: none;
+}
+
+.nav-item {
+  height: 3em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item:hover {
+  background-color: rgba(65, 66, 68, 0.8);
+}
+
+  
