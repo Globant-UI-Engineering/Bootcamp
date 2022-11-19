@@ -13,7 +13,7 @@
     "react-redux": "^7.0.3",
     "react-responsive-modal": "^4.0.1",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-toasts": "^3.0.3",
     "react-transition-group": "^4.0.1",
     "redux": "^4.0.1"
